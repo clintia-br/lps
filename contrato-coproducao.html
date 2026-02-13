@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrato de Parceria Comercial</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a2e;
+  --paper: #faf9f6;
+  --accent: #2c5f7c;
+  --accent-light: #e8f0f5;
+  --accent-dark: #1e4358;
+  --border: #d4cfc6;
+  --summary-bg: #f0f7fb;
+  --summary-border: #a8cfe0;
+  --text-secondary: #4a4a5a;
+  --shadow: rgba(26, 26, 46, 0.08);
+  --gold: #b08d4c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+  background: #edeae4;
+  color: var(--ink);
+  line-height: 1.75;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contract-document {
+  background: var(--paper);
+  border-radius: 4px;
+  box-shadow: 0 2px 20px var(--shadow), 0 0 0 1px rgba(0,0,0,0.03);
+  padding: 60px 70px;
+  margin: 20px 0 40px;
+  position: relative;
+}
+
+.contract-document::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent), var(--gold));
+  border-radius: 4px 4px 0 0;
+}
+
+@media (max-width: 768px) {
+  .contract-document { padding: 30px 24px; }
+  .page-wrapper { padding: 10px; }
+}
+
+/* Header */
+.contract-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 35px;
+  border-bottom: 2px solid var(--border);
+}
+
+.contract-header .doc-label {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.contract-header h1 {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 1px;
+}
+
+/* Parties */
+.parties-block {
+  margin-bottom: 35px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.parties-block p {
+  margin-bottom: 14px;
+}
+
+.placeholder {
+  background: var(--accent-light);
+  color: var(--accent-dark);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Considerandos */
+.considerandos {
+  margin-bottom: 35px;
+  font-size: 15px;
+}
+
+.considerandos .title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.considerandos ol {
+  padding-left: 28px;
+  margin-bottom: 16px;
+}
+
+.considerandos ol li {
+  margin-bottom: 8px;
+}
+
+.resolvem {
+  margin-bottom: 40px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Clausula */
+.clausula {
+  margin-bottom: 38px;
+  position: relative;
+}
+
+.clausula-header {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  letter-spacing: 0.3px;
+}
+
+.clausula-body {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.clausula-body p {
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.clausula-body .sub {
+  margin-left: 24px;
+  margin-bottom: 10px;
+}
+
+.clausula-body .sub-item {
+  margin-left: 24px;
+  margin-bottom: 8px;
+}
+
+.clausula-body .sub-sub {
+  margin-left: 48px;
+  margin-bottom: 8px;
+}
+
+.clausula-body .letter-item {
+  margin-left: 32px;
+  margin-bottom: 8px;
+}
+
+.item-label {
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+
+.periodo-label {
+  font-weight: 600;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 4px;
+  margin-top: 14px;
+}
+
+/* Summary button */
+.summary-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+}
+
+.summary-toggle:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(44, 95, 124, 0.25);
+}
+
+.summary-toggle:active {
+  transform: translateY(0);
+}
+
+.summary-toggle .icon {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.summary-toggle.active {
+  background: var(--accent-dark);
+}
+
+.summary-toggle.active .icon {
+  transform: rotate(180deg);
+}
+
+/* Summary box */
+.summary-box {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.summary-box.open {
+  max-height: 2000px;
+  opacity: 1;
+  margin-bottom: 20px;
+}
+
+.summary-content {
+  background: var(--summary-bg);
+  border: 1px solid var(--summary-border);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 22px 26px;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.summary-content .summary-title {
+  font-weight: 600;
+  color: var(--accent-dark);
+  margin-bottom: 10px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.summary-content .summary-title::before {
+  content: '💡';
+  font-size: 16px;
+}
+
+.summary-content ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.summary-content ul li {
+  margin-bottom: 6px;
+}
+
+.summary-content strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.summary-content .highlight {
+  background: #fff3cd;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* Signatures */
+.signatures {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 2px solid var(--border);
+}
+
+.signatures .local-data {
+  text-align: right;
+  margin-bottom: 50px;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.sig-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 600px) {
+  .sig-grid { grid-template-columns: 1fr; }
+}
+
+.sig-block {
+  text-align: center;
+}
+
+.sig-line {
+  border-top: 1px solid var(--ink);
+  padding-top: 10px;
+  margin-top: 50px;
+  font-size: 14px;
+}
+
+.sig-line .sig-name {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.sig-line .sig-role {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sig-line .sig-cpf {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.witnesses-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Definitions */
+.definitions {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 2px solid var(--border);
+}
+
+.definitions h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+  color: var(--ink);
+}
+
+.def-item {
+  margin-bottom: 16px;
+  font-size: 14.5px;
+  line-height: 1.75;
+  padding-left: 16px;
+  border-left: 2px solid var(--border);
+}
+
+.def-item .def-term {
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.def-item .def-desc {
+  color: var(--text-secondary);
+}
+
+.comments-note {
+  margin-top: 30px;
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: 6px;
+  padding: 16px 20px;
+  font-size: 13.5px;
+  color: #6d5600;
+}
+
+.comments-note strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Print */
+@media print {
+  body { background: #fff; }
+  .contract-document { box-shadow: none; padding: 20px; }
+  .summary-toggle { display: none; }
+  .summary-box { display: none; }
+  .page-wrapper { padding: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrapper">
+<div class="contract-document">
+
+<!-- LOGO -->
+<div style="text-align: center; margin-bottom: 30px;">
+  <img src="data:image/png;base64,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" alt="Clintia" style="max-width: 130px; height: auto;">
+</div>
+
+<!-- HEADER -->
+<div class="contract-header" style="margin-bottom: 60px;">
+  <div class="doc-label">Instrumento Particular</div>
+  <h1>CONTRATO DE PARCERIA COMERCIAL</h1>
+</div>
+
+<!-- PARTES -->
+<div class="parties-block">
+  <p>
+    <strong>CLINTIA SOLUCOES TECNOLOGICAS PARA CLINICAS LTDA</strong>, sociedade empresária limitada, inscrita no CNPJ/MF sob o nº 58.111.036/0001-22, com sede na Rua da Matriz, 00023, APT 203, Botafogo, Rio de Janeiro, RJ, CEP 22.260-100, ("<strong>PRODUTOR</strong>" e, em conjunto com os Parceiros(as), as "Partes");
+  </p>
+  <p>
+    <span class="placeholder">[NOME]</span>, <span class="placeholder">[Tipo Societário]</span>, inscrita no CNPJ/MF sob o nº <span class="placeholder">[Numeração]</span>, com sede na <span class="placeholder">[Endereço completo]</span>, CEP <span class="placeholder">[Numeração]</span>, ("<strong>ESTRATEGISTA</strong>" e, em conjunto com o Outorgante, as "Partes"); e
+  </p>
+</div>
+
+<!-- CONSIDERANDOS -->
+<div class="considerandos">
+  <div class="title">CONSIDERANDO QUE:</div>
+  <ol>
+    <li>O ESTRATEGISTA possui expertise e conhecimentos específicos no segmento de marketing digital e lançamento de produtos online;</li>
+    <li>O PRODUTOR é titular de um produto online com potencial de gerar resultados significativos no mercado com a sua comercialização;</li>
+    <li>As Partes possuem interesse em utilizar suas habilidades e recursos para contribuir mutuamente e alcançar resultados satisfatórios e lucrativos com o lançamento do produto online;</li>
+  </ol>
+</div>
+
+<div class="resolvem">
+  <p>RESOLVEM as Partes celebrar o presente Contrato de Parceria Comercial ("Contrato"), regido pela liberdade contratual das partes (art. 421 e 425 do Código Civil), que se regerá pelos termos e condições a seguir estabelecidos:</p>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA PRIMEIRA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA PRIMEIRA – DO OBJETO</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — Do que se trata este contrato</div>
+      <p>As duas partes (PRODUTOR e ESTRATEGISTA) estão se unindo para <strong>lançar e vender um produto digital (infoproduto)</strong> na internet. O nome do produto será definido durante o projeto.</p>
+      <ul>
+        <li>O <strong>PRODUTOR</strong> é dono do produto e do conteúdo.</li>
+        <li>O <strong>ESTRATEGISTA</strong> cuida do marketing, divulgação e vendas online.</li>
+        <li>As duas partes devem trabalhar juntas, de boa-fé, de forma ativa e colaborativa.</li>
+      </ul>
+      <p style="margin-top:10px;">O projeto tem <strong>3 etapas</strong>:</p>
+      <ul>
+        <li><strong>Etapa 1 — Preparação (Meses 1 e 2):</strong> Planejamento, criação de páginas, definição de público, configuração de ferramentas e metas.</li>
+        <li><strong>Etapa 2 — Acompanhamento e Otimização (Meses 3 a 6):</strong> Execução das campanhas de anúncios, monitoramento diário, testes, ajustes para melhorar resultados, reduzir custos e aumentar vendas.</li>
+        <li><strong>Etapa 3 — Encerramento:</strong> Finalização das campanhas, relatório final com análise de performance, e entrega da lista de leads ao PRODUTOR (respeitando a LGPD).</li>
+      </ul>
+      <p style="margin-top:10px;"><strong>Cronograma preferencial:</strong> Meses 1 e 2 = Implementação; Meses 3 a 6 = Acompanhamento e Otimização.</p>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p>1.1. O objeto deste Contrato é a conjugação de esforços entre as Partes para o lançamento, marketing, divulgação e venda do infoproduto com nomenclatura a definir no curso do presente projeto, de propriedade do PRODUTOR, que consiste em Projeto de criação, estruturação e comercialização de um infoproduto digital, incluindo o desenvolvimento e a implementação dos ativos de venda e a execução de campanhas contínuas de tráfego direto para captação de leads e/ou vendas, com monitoramento, testes e otimizações periódicas durante a vigência contratual.</p>
+
+    <p>1.2. Considerando o grau de complexidade, as partes atuarão em cooperação, pautas na boa-fé e de forma ativa e colaborativa para cumprimento das metas e prazos previamente estabelecidos neste Contrato e em seus documentos complementares.</p>
+
+    <p>1.3. A execução do presente Contrato atenderá a três etapas principais, conforme discriminadas abaixo:</p>
+
+    <div class="sub">
+      <p>(i) <strong>Etapa de Preparação Estratégica:</strong> Período preliminar em que as Partes realizarão o planejamento, estruturação e preparação de todos os elementos necessários para o início efetivo da Campanha de Tráfego, incluindo revisão do Infoproduto, construção de autoridade do PRODUTOR, criação de Páginas de Captura e Vendas otimizadas, definição de Público-Alvo, estruturação da estratégia de Campanha de Tráfego, configuração de ferramentas de rastreamento e estabelecimento de metas e KPIs;</p>
+    </div>
+
+    <div class="sub">
+      <p>(ii) <strong>Fase de Acompanhamento e Otimização:</strong> Período contínuo em que o ESTRATEGISTA executará as Campanhas de Tráfego com monitoramento constante das Métricas de Tráfego, realizando testes, otimizações progressivas, ajustes de estratégia e fornecimento de suporte técnico e estratégico ao PRODUTOR, com o objetivo de garantir a qualidade do tráfego, aumentar a Taxa de Conversão, reduzir o Custo de Aquisição do Cliente (CAC) e maximizar o ROI;</p>
+    </div>
+
+    <div class="sub">
+      <p>(iii) <strong>Fase de Encerramento:</strong> Período final em que o ESTRATEGISTA realizará a finalização ordenada da Campanha de Tráfego, consolidação de resultados, entrega de relatório final abrangente com análise completa de performance, insights, aprendizados e recomendações para futuras campanhas, bem como a transferência de dados e propriedade da Lista de Leads conforme regulamentação da Lei Geral de Proteção de Dados.</p>
+    </div>
+
+    <p>1.4. Considerando o prazo de vigência do Contrato, indicada em cláusula própria, acordam as partes que a execução dos serviços se dará, preferencialmente, conforme o seguinte cronograma: (i) Meses 1 e 2 (Implementação); e (ii) Meses 3 a 6 (Acompanhamento e Otimização).</p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA SEGUNDA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA SEGUNDA – DAS OBRIGAÇÕES DAS PARTES</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — Quem faz o quê</div>
+
+      <p><strong>O que o PRODUTOR deve fazer:</strong></p>
+      <ul>
+        <li><strong>Mês 1:</strong> Participar das reuniões estratégicas, aprovar a identidade visual e fornecer informações pessoais/profissionais para construir a marca.</li>
+        <li><strong>Mês 2:</strong> Gravar o conteúdo do curso/produto conforme o modelo definido; enviar vídeos brutos para anúncios e VSL; autorizar uso de imagem e voz nas campanhas; pagar todos os custos de produção (estúdio, equipamentos, fotógrafo, etc.).</li>
+        <li><strong>Meses 3 a 6:</strong> Dar suporte de conteúdo aos alunos/clientes (dúvidas técnicas e pedagógicas); gravar conteúdo extra se o Estrategista pedir.</li>
+        <li><strong>O tempo todo:</strong> Garantir que o conteúdo é original, não viola direitos de terceiros e tem qualidade profissional. Se houver problemas legais com o material, o Produtor é o responsável.</li>
+      </ul>
+
+      <p style="margin-top:12px;"><strong>O que o ESTRATEGISTA deve fazer:</strong></p>
+      <ul>
+        <li><strong>Mês 1:</strong> Conduzir 2 reuniões estratégicas (definir oferta, preço, bônus, nome do produto, estrutura, estratégia de venda, público-alvo); criar toda a identidade visual e submeter à aprovação.</li>
+        <li><strong>Mês 2:</strong> Criar anúncios profissionais; desenvolver a Landing Page com design, copy e pagamento integrado; elaborar e editar o roteiro da VSL; configurar tracking/pixels; montar toda a infraestrutura técnica (hospedagem, pagamento, CRM, e-mail, formulários, dashboards).</li>
+        <li><strong>Meses 3 a 6:</strong> Rodar campanhas de tráfego pago; monitorar métricas diariamente; fazer testes A/B e otimizações contínuas; ajustar anúncios/VSL/página conforme dados; dar suporte técnico ao cliente final (acesso, navegação, pagamento); entregar relatórios mensais completos.</li>
+        <li><strong>Ao final:</strong> Transferir a lista de leads completa ao Produtor; documentar e compartilhar todos os aprendizados e estratégias.</li>
+      </ul>
+
+      <p style="margin-top:12px;"><strong>Obrigações de ambas as partes:</strong></p>
+      <ul>
+        <li>Agir com ética e zelar pela imagem da outra parte.</li>
+        <li>Responder dúvidas e solicitações em até <strong>24 horas úteis</strong>.</li>
+        <li>Cumprir prazos e pagamentos rigorosamente.</li>
+        <li>Manter sigilo sobre todas as informações do projeto.</li>
+        <li>Cada um é responsável por suas próprias obrigações trabalhistas, fiscais, etc.</li>
+      </ul>
+
+      <p style="margin-top:10px;">⚠️ Se alguém descumprir obrigações sem justificativa, o contrato pode ser rescindido imediatamente. Eventos de força maior (imprevistos fora do controle) são exceção.</p>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p><strong>2.1. Compete ao PRODUTOR:</strong></p>
+
+    <p class="periodo-label">(i) Durante o mês 1 - Empacotamento do Produto:</p>
+    <div class="sub-item">(a) Participar ativamente das reuniões estratégicas conduzidas pelo ESTRATEGISTA, fornecendo informações, feedback e aprovações necessárias;</div>
+    <div class="sub-item">(b) Aprovar a identidade visual criada pelo ESTRATEGISTA dentro do prazo solicitado;</div>
+    <div class="sub-item">(c) Fornecer informações pessoais, profissionais e biográficas (histórico, credenciais, certificações, casos de sucesso) necessárias para estruturação da marca e posicionamento.</div>
+
+    <p class="periodo-label">(ii) Durante o mês 2 - Estrutura e Infraestrutura:</p>
+    <div class="sub-item">(a) Gravar o conteúdo completo do Infoproduto de acordo com a estrutura e modelo definidos nas reuniões, em qualidade profissional adequada;</div>
+    <div class="sub-item">(b) Enviar vídeos brutos solicitados pelo ESTRATEGISTA para criação de anúncios e VSL, respeitando prazos alinhados e formatos solicitados;</div>
+    <div class="sub-item">(c) Autorizar expressamente o uso de sua imagem, voz e conteúdo em campanhas de tráfego pago, anúncios, VSL, Landing Page e materiais de divulgação, sem restrições durante a vigência do Contrato;</div>
+    <div class="sub-item">(d) Arcar com todos os custos de produção e gravação: aluguel de estúdio, equipamentos, contratação de terceiros (fotógrafo, técnico de áudio, PRODUTOR) e demais despesas relacionadas.</div>
+
+    <p class="periodo-label">(iii) Durante os meses 3 ao 6 - Acompanhamento e Otimização:</p>
+    <div class="sub-item">(a) Fornecer suporte de conteúdo ao Cliente Final, respondendo exclusivamente a dúvidas técnicas, pedagógicas e estratégicas relacionadas ao Infoproduto;</div>
+    <div class="sub-item">(b) Disponibilizar-se para gravação de conteúdo adicional caso solicitado pelo ESTRATEGISTA, baseado em dados de performance ou feedback de mercado.</div>
+
+    <p class="periodo-label">(iv) No curso do Contrato:</p>
+    <div class="sub-item">(a) Garantir que todo conteúdo fornecido: É de sua autoria original ou devidamente licenciado; Não viola direitos de terceiros (direitos autorais, marcas, segredos comerciais, direitos de imagem); É de qualidade profissional, bem estruturado, didático e alinhado com as promessas de valor da oferta.</div>
+    <div class="sub-item">(b) Responder perante terceiros por eventual violação de direitos (direitos autorais, marcas, segredos comerciais, direitos de imagem), em função do material fornecido ao ESTRATEGISTA, ainda que após o fim da vigência do Contrato.</div>
+
+    <p style="margin-top: 20px;"><strong>2.2. Compete ao ESTRATEGISTA:</strong></p>
+
+    <p class="periodo-label">(i) Durante o mês 1 - Empacotamento do Produto:</p>
+    <div class="sub-item">(a) Conduzir duas reuniões estratégicas com o PRODUTOR com foco em: Definição da oferta (preço, pacotes, bônus); Definição de nome e posicionamento do produto; Estruturação do modelo do Infoproduto (formato, duração, módulos); Estratégia de venda e abordagem comercial; Alinhamento de promessa de valor e Público-Alvo.</div>
+    <div class="sub-item">(b) Criar a identidade visual completa do produto (conceitos visuais, paleta de cores, tipografia, aplicações iniciais) e submeter à aprovação conjunta do PRODUTOR antes de prosseguir.</div>
+
+    <p class="periodo-label">(ii) Durante o mês 2 - Estrutura e Infraestrutura:</p>
+    <div class="sub-item">(a) Elaborar anúncios publicitários profissionais em múltiplos formatos para plataformas de tráfego pago, baseados na identidade visual aprovada;</div>
+    <div class="sub-item">(b) Desenvolver a Landing Page com design profissional, copy persuasivo, integração de pagamento, otimizações técnicas e CTAs efetivos;</div>
+    <div class="sub-item">(c) Elaborar o roteiro completo da VSL com estrutura narrativa persuasiva, benefícios, gatilhos emocionais e call-to-action clara;</div>
+    <div class="sub-item">(d) Realizar a edição profissional da VSL, transformando o vídeo bruto do PRODUTOR em produto final polido com efeitos visuais, sincronização de áudio e elementos gráficos que se fizerem necessários;</div>
+    <div class="sub-item">(e) Configurar o sistema de tracking e coleta de dados: pixels de conversão, códigos de rastreamento, integração com analytics e eventos de conversão;</div>
+    <div class="sub-item">(f) Implementar toda a infraestrutura técnica: seleção e configuração da Plataforma de hospedagem, integração de pagamentos, CRM, automação de e-mail, formulários de captura, dashboards de monitoramento e integrações necessárias;</div>
+    <div class="sub-item">(g) Garantir que a Plataforma permaneça operacional, segura e com backup de dados adequado durante toda a vigência do Contrato.</div>
+
+    <p class="periodo-label">(iii) Durante os meses 3 ao 6 - Acompanhamento e Otimização:</p>
+    <div class="sub-item">(a) Executar Campanhas de Tráfego Direto em múltiplos canais, garantindo: Lançamento adequado das campanhas; Monitoramento diário de Métricas de Tráfego; Análise contínua de performance e conversão; Identificação de gargalos e oportunidades;</div>
+    <div class="sub-item">(b) Realizar otimizações contínuas de públicos-alvo, bid strategies, anúncios, com testes A/B, pausas de baixa performance e escalabilidade de campanhas bem-sucedidas;</div>
+    <div class="sub-item">(c) Fazer ajustes estratégicos em anúncios, VSL e Landing Page conforme performance de dados, testando diferentes mensagens e abordagens;</div>
+    <div class="sub-item">(d) Fornecer suporte técnico ao Cliente Final exclusivamente relacionado a: acesso à Plataforma, navegação, localização de conteúdos e questões de pagamento;</div>
+    <div class="sub-item">(e) Apresentar relatórios mensais detalhados contendo: Métricas de Tráfego (visitantes, CPC, CTR, CPL, Taxa de Conversão), Leads capturados, vendas realizadas, faturamento bruto/líquido, investimento realizado, ROI e insights estratégicos.</div>
+
+    <p class="periodo-label">(iv) No curso do Contrato:</p>
+    <div class="sub-item">(a) Transferir ao PRODUTOR a propriedade completa da Lista de Leads ao término do Contrato em formato estruturado e importável;</div>
+    <div class="sub-item">(b) Documentar e compartilhar com o PRODUTOR todos os aprendizados, estratégias aplicadas, dados de público-alvo efetivos e recomendações para futuras campanhas.</div>
+
+    <p style="margin-top: 20px;"><strong>2.3.</strong> As Partes se obrigam, sem prejuízo as demais obrigações previstas neste Contrato, a:</p>
+    <div class="sub-item">(i) Atender a contraparte com diligência, de maneira ética, zelando pela imagem e reputação das Partes;</div>
+    <div class="sub-item">(ii) Responder prontamente, em até 24 horas úteis, a dúvidas e solicitações da contraparte;</div>
+    <div class="sub-item">(ii) Cumprir o cronograma e os prazos estabelecido em conjunto, cumprindo rigorosamente as obrigações de pagamento, informando tempestivamente eventuais atrasos e inadimplementos;</div>
+    <div class="sub-item">(iii) Manter sigilo e confidencialidade sobre toda e qualquer informação a que tiver acesso em razão da execução deste Contrato;</div>
+    <div class="sub-item">(iv) Responder por toda e qualquer obrigação trabalhista, previdenciária, fiscal ou de qualquer natureza decorrente de sua atuação ou de seus prepostos.</div>
+
+    <p style="margin-top: 14px;">2.4. O descumprimento injustificado das obrigações acima por qualquer das Partes poderá ensejar a rescisão imediata deste Contrato, nos termos da Cláusula de Rescisão.</p>
+
+    <p>2.5. Nenhuma das Partes responderá por inadimplemento contratual quando este decorrer de caso fortuito ou força maior, quando devidamente comprovados, nos termos da Cláusula Responsabilidades.</p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA TERCEIRA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA TERCEIRA – DA VIGÊNCIA DO PRAZO E FORMA DE EXECUÇÃO</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — Quanto tempo dura o contrato</div>
+      <ul>
+        <li>O contrato <strong>vale por 6 meses</strong>, começando na data da assinatura.</li>
+        <li>Pode ser <strong>prorrogado</strong> se ambas as partes concordarem e assinarem um aditivo.</li>
+        <li>A execução segue as 3 etapas já mencionadas: Preparação → Acompanhamento/Otimização → Encerramento.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p>3.1. Este Contrato entra em vigor na data de sua assinatura e será válido por 6 meses, podendo ser prorrogado mediante aditivo contratual assinado pelas Partes.</p>
+    <p>3.3. A execução do presente Contrato observará as três etapas discriminadas no 1.3, quais sejam: (i) Etapa de Preparação Estratégica; (ii) Fase de Acompanhamento e Otimização: (iii) Fase de Encerramento.</p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA QUARTA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA QUARTA – DAS CONDIÇÕES DE PAGAMENTO E REMUNERAÇÃO</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — Quanto custa e como se paga</div>
+      <p><strong>Investimento inicial (Meses 1 e 2):</strong></p>
+      <ul>
+        <li>O PRODUTOR paga <strong>R$ 15.000,00</strong> para começar o projeto.</li>
+        <li>Pode parcelar em até <strong>12x no cartão</strong> — os juros do parcelamento ficam por conta do Produtor.</li>
+      </ul>
+
+      <p style="margin-top:10px;"><strong>Aportes mensais (Meses 3 a 6):</strong></p>
+      <ul>
+        <li>Cada parte coloca no mínimo <strong>R$ 1.000,00 por mês</strong> (até o 5º dia útil) para investir em tráfego pago.</li>
+        <li>Podem colocar mais se ambos concordarem.</li>
+      </ul>
+
+      <p style="margin-top:10px;"><strong>Outras responsabilidades de custo:</strong></p>
+      <ul>
+        <li><strong>PRODUTOR:</strong> taxas de hospedagem do produto e páginas na plataforma.</li>
+        <li><strong>ESTRATEGISTA:</strong> equipe dedicada + ferramentas/softwares de gestão de tráfego.</li>
+        <li>Despesas extras não previstas: <strong>50% para cada</strong>. Quem adiantar, recebe reembolso até o dia 15 do mês seguinte.</li>
+      </ul>
+
+      <p style="margin-top:10px;"><strong>Divisão dos resultados ao final dos 6 meses:</strong></p>
+      <ul>
+        <li>Pega-se o faturamento bruto e desconta-se todos os investimentos, despesas, taxas e impostos.</li>
+        <li>O <strong>lucro (ou prejuízo) líquido é dividido 50/50</strong> entre as partes.</li>
+        <li>Formalizado por relatório de performance e termo de acerto de contas assinado.</li>
+        <li>Pagamento do saldo em até <strong>15 dias via transferência ou link de pagamento</strong>.</li>
+        <li>Se houver divergência nos valores: contrata-se auditoria independente, custo dividido igualmente.</li>
+      </ul>
+
+      <p style="margin-top:10px;">⚠️ <strong>Atraso no pagamento:</strong> multa de 10% sobre o valor + juros de 1% ao mês + correção pelo IGP-M. A parte prejudicada pode cobrar judicialmente.</p>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p>4.1. Considerando o cronograma descrito na cláusula 1.4 e a natureza do contrato, o pagamento observará o seguinte formato:</p>
+
+    <p>4.1.1 Meses 1 e 2 (Implementação): Compete ao PRODUTOR o investimento inicial de R$ 15.000,00, com escopo de viabilizar o início do projeto, podendo o referido valor ser parcelado em até 12x no cartão de crédito, sendo certo que os respectivos juros advindos da opção de parcelamento ficarão sob encargo do PRODUTOR.</p>
+
+    <p>4.1.2. Meses 3 a 6 (Acompanhamento e Otimização): Fica acordado que as Partes farão, até o quinto dia útil de cada mês, aportes mínimos de R$ 1.000,00 (um mil reais) cada, podendo este valor ser superior a critério e consenso das Partes, com escopo de geração de volume suficiente de tráfego qualificado.</p>
+
+    <p>4.2. Além dos valores dispostos na cláusula anterior, serão consideradas sob responsabilidade:</p>
+    <div class="sub-item">(i) Do PRODUTOR: Taxas de hospedagem do Infoproduto e Páginas na Plataforma escolhida.</div>
+    <div class="sub-item">(ii) Do ESTRATEGISTA: (a) Recursos humanos e equipe dedicada à execução das Campanhas de Tráfego; (b) Ferramentas e softwares necessários para gestão, otimização e análise da Campanha de Tráfego.</div>
+
+    <p style="margin-top:14px;">4.3. Quaisquer outras despesas extraordinárias não previstas inicialmente e mutuamente acordadas, serão divididas no percentual de 50% (cinquenta porcento) para cada Parte, sendo preferencialmente divididas no momento do pagamento.</p>
+
+    <p>4.3.1. Na eventualidade de a divisão do valor não ocorrer de maneira simultânea ao pagamento, a Parte que antecipar o pagamento da despesa fará jus ao reembolso até o 15º (décimo quinto) dia do mês subsequente.</p>
+
+    <p>4.4. Após os 6 (seis) meses de Campanha, as Partes realizarão o acerto de contas deduzindo do faturamento bruto todos os investimentos (implementação e tráfego), despesas operacionais, taxas e impostos. O resultado líquido final, seja lucro ou prejuízo, será compartilhado à razão de 50% (cinquenta porcento) para cada Parte, cabendo o respectivo pagamento ou ressarcimento imediato após a apuração.</p>
+
+    <p>4.5. A divisão de resultados será formalizada via relatório de performance e termo de acerto de contas assinado, devendo o pagamento do saldo apurado ser realizado em até 15 (quinze) dias via transferência bancária ao ESTRATEGISTA ou link de pagamento por este fornecido. Sendo o caso de divergência nos valores, as Partes contratarão auditoria independente com custos rateados igualmente.</p>
+
+    <p>4.5.1. O inadimplemento de qualquer obrigação financeira sujeitará a Parte infratora à multa moratória de 10%, sobre o lucro ou prejuízo, juros de 1% ao mês e correção monetária pelo IGP-M, ficando a Parte lesada autorizada a proceder com a cobrança judicial, execução ou protesto dos valores devidos.</p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA QUINTA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA QUINTA – DA RESCISÃO</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — Como encerrar o contrato antes do prazo</div>
+      <p><strong>Rescisão sem motivo (qualquer parte pode sair):</strong></p>
+      <ul>
+        <li>Basta enviar aviso por escrito com <strong>30 dias de antecedência</strong>.</li>
+        <li>Se o <strong>PRODUTOR</strong> sair: paga proporcionalmente pelo que o Estrategista já fez e entregou.</li>
+        <li>Se o <strong>ESTRATEGISTA</strong> sair: deve terminar o que está em andamento e entregar os materiais já produzidos.</li>
+      </ul>
+
+      <p style="margin-top:10px;"><strong>Rescisão imediata (sem aviso prévio) — quando alguém comete falta grave:</strong></p>
+      <ul>
+        <li>Descumprir obrigações do contrato (após ser notificado e não corrigir).</li>
+        <li>Falência, recuperação judicial ou dissolução de qualquer parte.</li>
+        <li>Atos que prejudiquem a imagem ou reputação da outra parte.</li>
+        <li>Indícios de corrupção, fraude ou lavagem de dinheiro.</li>
+        <li>Inadimplência fiscal, trabalhista ou previdenciária relevante do Produtor.</li>
+      </ul>
+
+      <p style="margin-top:10px;"><strong>Em qualquer caso de rescisão:</strong></p>
+      <ul>
+        <li>As partes devem fazer a transição de materiais e documentos de forma organizada.</li>
+        <li>Cláusulas de confidencialidade, propriedade intelectual, responsabilidade e foro continuam valendo mesmo após o fim do contrato.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p>5.1. O presente Contrato poderá ser rescindido a qualquer tempo, mediante notificação escrita da Parte interessada com antecedência mínima de 30 (trinta) dias, sem necessidade de justificativa, configurando-se rescisão imotivada.</p>
+
+    <p>5.2. Em caso de rescisão imotivada por iniciativa do PRODUTOR, após o início da execução dos serviços, o ESTRATEGISTA fará jus ao pagamento proporcional pelos serviços efetivamente prestados e entregas aprovadas até a data da rescisão, excluindo-se valores referentes a etapas futuras ou não iniciadas.</p>
+
+    <p>5.3. Em caso de rescisão imotivada por iniciativa do ESTRATEGISTA, este deverá assegurar a conclusão das etapas em andamento e a entrega dos materiais até então produzidos, sob pena de retenção proporcional de valores eventualmente devidos.</p>
+
+    <p>5.4. Constituirão motivo para rescisão imediata, independentemente de aviso prévio, mediante notificação por escrito:</p>
+
+    <div class="letter-item">a) O descumprimento de quaisquer obrigações contratuais, após notificação formal e não regularização em prazo hábil para o fiel cumprimento do Contrato;</div>
+    <div class="letter-item">b) A decretação de falência, recuperação judicial ou extrajudicial, dissolução ou liquidação judicial de qualquer das Partes;</div>
+    <div class="letter-item">c) A prática, por qualquer Parte, de atos que atentem contra a imagem, os valores ou a reputação institucional da contraparte;</div>
+    <div class="letter-item">d) A existência de indícios de prática de ato de corrupção, fraude ou lavagem de dinheiro, apurados em processo administrativo ou judicial;</div>
+    <div class="letter-item">e) O inadimplemento de obrigações fiscais, trabalhistas ou previdenciárias relevantes pelo PRODUTOR.</div>
+
+    <p style="margin-top:14px;">5.5. Em qualquer hipótese de rescisão, as Partes envidarão os melhores esforços para formalizar a transição dos materiais, entregas e documentos, inclusive por meio da assinatura de termo de encerramento contratual, se solicitado.</p>
+
+    <p>5.6. A rescisão contratual não prejudicará os direitos adquiridos, obrigações vencidas ou efeitos de cláusulas que, por sua natureza, devam subsistir à extinção contratual, tais como confidencialidade, propriedade intelectual, responsabilidade civil e foro.</p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA SEXTA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA SEXTA – DA CONFIDENCIALIDADE E NÃO CONCORRÊNCIA</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — Sigilo e proibição de concorrência</div>
+      <p><strong>Sigilo total:</strong></p>
+      <ul>
+        <li>Tudo que uma parte souber da outra durante o contrato é <strong>confidencial</strong>: dados, estratégias, clientes, finanças, metodologias, conteúdos internos, etc.</li>
+        <li>Não pode copiar, reproduzir, divulgar ou usar sem autorização.</li>
+        <li>Funcionários e terceiros envolvidos também devem manter sigilo — a parte que os contratou é responsável por eles.</li>
+        <li>O sigilo dura <strong>5 anos após o fim do contrato</strong>.</li>
+      </ul>
+
+      <p style="margin-top:10px;"><strong>Exceções ao sigilo:</strong></p>
+      <ul>
+        <li>Informação que já era pública.</li>
+        <li>Ordem judicial ou de autoridade competente (com aviso prévio à outra parte).</li>
+        <li>Informação desenvolvida independentemente, sem relação com o contrato.</li>
+      </ul>
+
+      <p style="margin-top:10px;"><strong>Não-concorrência (IMPORTANTE para o PRODUTOR):</strong></p>
+      <ul>
+        <li>Por <strong>2 anos após o fim do contrato</strong>, o PRODUTOR não pode atuar em atividades similares ao que o Estrategista faz (tráfego, branding, estruturação de infoprodutos), nem usar o know-how do Estrategista para si ou terceiros — a menos que tenha autorização por escrito.</li>
+        <li>Nenhuma das partes pode tentar contratar funcionários, colaboradores ou fornecedores da outra por <strong>2 anos</strong> após o fim do contrato.</li>
+      </ul>
+
+      <p style="margin-top:10px;">⚠️ <strong>Multas:</strong></p>
+      <ul>
+        <li>Quebrar o sigilo: multa de <strong>R$ 15.000,00</strong> + indenização por perdas e danos + possível rescisão por justa causa.</li>
+        <li>Quebrar a não-concorrência ou aliciar pessoas: multa (valor a definir) corrigida pelo IGP-M + perdas e danos + rescisão imediata.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p>6.1. As Partes se comprometem a manter sob mais absoluto sigilo todas as informações, dados, materiais, documentos, especificações, relatórios, processos, metodologias, dados de clientes, conteúdos de comunicação interna e quaisquer outros elementos que venha a ter acesso em razão da execução do presente Contrato, independentemente do meio pelo qual tenham sido revelados, sejam eles escritos, orais, visuais, eletrônicos ou de qualquer outra natureza ("Informações Confidenciais").</p>
+
+    <p>6.2. A obrigação de confidencialidade abrangerá, ainda, toda e qualquer informação sobre a estrutura interna, estratégias de mercado, dados financeiros, base de clientes, know-how, identidade visual e demais aspectos do modelo de negócio, ainda que não expressamente rotulados como confidenciais.</p>
+
+    <p>6.3. As Informações Confidenciais não poderão ser copiadas, reproduzidas, divulgadas, licenciadas, utilizadas ou de qualquer modo apropriadas pelo ESTRATEGISTA, salvo se estritamente necessárias à execução dos serviços contratados e mediante autorização prévia do PRODUTOR.</p>
+
+    <p>6.4. As Partes se obrigam a impor o mesmo dever de sigilo à sua equipe interna, funcionários, prepostos, coligadas ou terceiros eventualmente envolvidos na execução do Contrato, respondendo integralmente por qualquer violação de seus colaboradores ou subcontratados.</p>
+
+    <p>6.5. As obrigações de sigilo previstas nesta Cláusula não serão aplicáveis quando:</p>
+    <div class="letter-item">a) A informação já era de conhecimento público antes de sua revelação;</div>
+    <div class="letter-item">b) A divulgação for exigida por determinação legal, judicial ou de autoridade competente, mediante prévia comunicação à contraparte;</div>
+    <div class="letter-item">c) A informação tenha sido desenvolvida independentemente pela Parte, sem relação com este Contrato.</div>
+
+    <p style="margin-top:14px;">6.6. O descumprimento desta Cláusula sujeitará a Parte infratora às sanções legais cabíveis, inclusive indenização por perdas e danos diretos e lucros cessantes, sem prejuízo da possibilidade de rescisão contratual por justa causa.</p>
+
+    <p>6.6.1. Pelo descumprimento, a Parte infratora será compelida ao pagamento de multa pecuniária equivalente ao valor de R$ 15.000,00 (quinze mil reais), sem prejuízo das demais sanções.</p>
+
+    <p>6.7. As obrigações de confidencialidade aqui previstas subsistirão pelo prazo de 5 (cinco) anos contados do término deste Contrato.</p>
+
+    <p>6.8. Durante a vigência e por 2 (dois) anos após o término deste Contrato, o PRODUTOR não poderá, sem autorização prévia por escrito do ESTRATEGISTA, atuar direta ou indiretamente em atividades similares ou complementares ao escopo de atuação do ESTRATEGISTA (especialmente tráfego, branding e estruturação de infoprodutos), nem utilizar o know-how ou estratégias desta para fins próprios ou de terceiros.</p>
+
+    <p>6.9. Durante a vigência e por 2 (dois) anos após o término deste Contrato, as Partes obrigam-se a não solicitar, contratar ou influenciar funcionários, colaboradores, fornecedores ou parceiros da outra Parte a encerrar ou alterar seus vínculos profissionais atuais.</p>
+
+    <p>6.10. O descumprimento de qualquer obrigação das cláusulas 6.8 e 6.9 sujeitará a Parte infratora ao pagamento de multa não compensatória de R$, corrigida pelo IGP-M, sem prejuízo da apuração de perdas e danos, lucros cessantes e rescisão imediata do Contrato.</p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA SÉTIMA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA SÉTIMA – DAS RESPONSABILIDADES</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — Quem é responsável pelo quê</div>
+      <ul>
+        <li>O <strong>PRODUTOR é responsável total</strong> por danos que causar ao Estrategista por negligência, imprudência ou ação intencional.</li>
+        <li>O PRODUTOR deve indenizar o Estrategista por problemas vindos de: violação de propriedade intelectual de terceiros, descumprimento de leis fiscais/trabalhistas, quebra de confidencialidade/LGPD, e atos dos seus funcionários.</li>
+        <li>O <strong>ESTRATEGISTA não responde</strong> por prejuízos indiretos, lucros que o Produtor deixou de ter, ou danos morais — a não ser que tenha agido de má-fé.</li>
+        <li>A responsabilidade máxima do Estrategista é limitada ao <strong>valor total do contrato</strong>, exceto em casos de ação intencional, violação de propriedade intelectual, quebra de sigilo/LGPD, ou atos ilegais que prejudiquem a imagem do Produtor.</li>
+      </ul>
+
+      <p style="margin-top:10px;"><strong>Força maior (imprevistos):</strong></p>
+      <ul>
+        <li>Ninguém é responsabilizado por problemas causados por eventos fora do controle (greves, incêndios, guerras, falta de energia, restrições governamentais, etc.).</li>
+        <li>Mas precisa comunicar a outra parte em até <strong>5 dias úteis</strong>, provar que não causou o problema, e fazer o máximo para resolver.</li>
+      </ul>
+
+      <p style="margin-top:10px;">Para cobrar qualquer responsabilidade: é necessário enviar <strong>notificação por escrito com provas</strong> e dar prazo razoável para a outra parte tentar resolver.</p>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p>7.1. O PRODUTOR responderá, de forma exclusiva e integral, por quaisquer danos diretos causados ao ESTRATEGISTA em decorrência de conduta dolosa ou culposa, inclusive negligência, imprudência ou imperícia, na execução dos serviços objeto deste Contrato.</p>
+
+    <p>7.2. O PRODUTOR compromete-se a indenizar e manter o ESTRATEGISTA isento de quaisquer prejuízos, perdas, despesas, custos, condenações judiciais ou extrajudiciais, incluindo honorários advocatícios, decorrentes de:</p>
+    <div class="letter-item">a) Violação de direitos de propriedade intelectual de terceiros pelos materiais entregues;</div>
+    <div class="letter-item">b) Descumprimento das obrigações legais, fiscais, trabalhistas ou previdenciárias de sua responsabilidade;</div>
+    <div class="letter-item">c) Inobservância das disposições contratuais, especialmente quanto à confidencialidade e proteção de dados;</div>
+    <div class="letter-item">d) Atos ou omissões de seus empregados, prepostos, subcontratados ou colaboradores.</div>
+
+    <p style="margin-top:14px;">7.3. O ESTRATEGISTA não responderá por prejuízos indiretos, lucros cessantes, perda de oportunidade ou danos morais eventualmente sofridos pelo PRODUTOR, exceto quando decorrentes de dolo ou manifesta má-fé.</p>
+
+    <p>7.4. A responsabilidade total do ESTRATEGISTA, em qualquer hipótese, será limitada ao valor global do Contrato, exceto em casos de:</p>
+    <div class="letter-item">a) Dano causado por ato doloso;</div>
+    <div class="letter-item">b) Violação da propriedade intelectual de terceiros;</div>
+    <div class="letter-item">c) Descumprimento das obrigações de confidencialidade e proteção de dados;</div>
+    <div class="letter-item">d) Atos que importem em infração legal ou que comprometam a imagem institucional do PRODUTOR.</div>
+
+    <p style="margin-top:14px;">7.5. Nenhuma das Partes será responsabilizada por inadimplemento contratual decorrente, exclusivamente, de caso fortuito ou força maior, nos termos do artigo 393 do Código Civil, desde que o evento seja devidamente comprovado e comunicado à outra Parte no prazo máximo de 5 (cinco) dias úteis. Consideram-se hipóteses exemplificativas de caso fortuito ou força maior: greves, incêndios, acidentes, guerras, embargos, perturbações civis, atrasos no fornecimento de materiais, falta de energia ou de outros meios naturais de abastecimento, bem como atos, proibições ou restrições de autoridades governamentais.</p>
+
+    <p>7.5.1 A Parte afetada deverá comprovar que não deu causa ao evento e envidar seus melhores esforços para eliminar, remediar ou superar seus efeitos, retomando o cumprimento de suas obrigações no menor prazo possível.</p>
+
+    <p>7.6. O reconhecimento de qualquer responsabilidade prevista nesta Cláusula dependerá de notificação escrita e fundamentada, acompanhada de elementos comprobatórios dos fatos alegados e da concessão de prazo razoável para tentativa de saneamento do ocorrido.</p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA OITAVA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA OITAVA – DA PROTEÇÃO DE DADOS PESSOAIS (LGPD)</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — Proteção de dados (LGPD)</div>
+      <ul>
+        <li>Ambas as partes devem cumprir a <strong>LGPD (Lei Geral de Proteção de Dados)</strong>.</li>
+        <li>O Estrategista <strong>não pode compartilhar dados pessoais</strong> com terceiros sem autorização escrita do Produtor.</li>
+        <li>Quando o contrato terminar, o Estrategista deve <strong>devolver ou apagar todos os dados pessoais</strong> — a não ser que alguma lei obrigue a guardar.</li>
+        <li>Se acontecer qualquer <strong>vazamento ou problema de segurança</strong> com dados pessoais, a parte responsável deve avisar a outra em até <strong>24 horas</strong>, documentar tudo (causa, impacto, medidas tomadas) e cooperar com investigações.</li>
+        <li>Quem causar o incidente arca com <strong>todos os custos e despesas</strong> decorrentes.</li>
+        <li>Descumprir esta cláusula gera <strong>penalidades legais e contratuais</strong>, além de obrigação de indenizar a outra parte.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p>8.1. As Partes se obrigam a cumprir integralmente a Lei Federal nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais - LGPD), bem como toda e qualquer legislação e regulamentação aplicável à privacidade e proteção de dados.</p>
+
+    <p>8.2. O ESTRATEGISTA não poderá transferir dados pessoais a terceiros ou subcontratar qualquer atividade de tratamento sem autorização prévia, expressa e por escrito do PRODUTOR.</p>
+
+    <p>8.3. Encerrado o Contrato, o ESTRATEGISTA deverá, a critério do PRODUTOR, excluir ou devolver todos os dados pessoais tratados no âmbito deste instrumento, salvo quando sua conservação for exigida por lei ou regulação aplicável.</p>
+
+    <p>8.4. Na ocorrência de qualquer evento que comprometa a segurança, confidencialidade ou integridade dos Dados Pessoais, a Parte responsável obriga-se a notificar imediatamente a outra Parte no prazo máximo de vinte e quatro horas, documentando detalhadamente o incidente, sua causa, escopo e medidas corretivas implementadas, bem como cooperar com investigações e comprovação de conformidade com a Lei Geral de Proteção de Dados.</p>
+
+    <p>8.4.1. A Parte responsável por qualquer Incidente de Segurança relativo aos Dados Pessoais será integralmente responsável por todos os custos e despesas, diretas e indiretas, decorrentes.</p>
+
+    <p>8.5. O descumprimento de qualquer disposição desta Cláusula sujeitará a Parte infratora às sanções legais cabíveis, bem como às penalidades contratuais eventualmente previstas e à obrigação de indenizar integralmente a contraparte pelos danos decorrentes.</p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA NONA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA NONA – DOS IMPEDIMENTOS</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — O que nenhuma parte pode fazer</div>
+      <p>Sem autorização prévia e formal da outra parte, <strong>nenhuma das partes pode</strong>:</p>
+      <ul>
+        <li>Envolver a outra parte em negócios ou acordos com terceiros.</li>
+        <li>Criar obrigações para a outra parte que não estejam neste contrato.</li>
+        <li>Assumir responsabilidades jurídicas ou financeiras em nome da outra.</li>
+        <li>Abrir mão de qualquer direito que pertença à outra parte.</li>
+      </ul>
+      <p style="margin-top:8px;">Em resumo: cada um age por si e não pode representar ou comprometer o outro sem permissão.</p>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p>9.1 Sem prejuízo das demais disposições contratuais previstas no presente Contrato, bem como de quaisquer outras decorrentes de disposições normativas e/ou legais aplicáveis à espécie, é vedada às Partes, sem a prévia ou expressa autorização formal da outra Parte, a prática de quaisquer dos atos e/ou eventos a seguir descritos:</p>
+    <div class="sub-item">(i) Comprometer a outra Parte, sob qualquer forma, envolvendo-a em suas atividades ou acordos com terceiros;</div>
+    <div class="sub-item">(ii) Imputar à outra Parte qualquer obrigação de natureza distinta daquelas estabelecidas no presente Contrato;</div>
+    <div class="sub-item">(iii) Assumir qualquer responsabilidade jurídica e/ou econômica em nome ou por conta da outra Parte;</div>
+    <div class="sub-item">(iv) Renunciar a qualquer direito que caiba à outra Parte.</div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA DÉCIMA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA DÉCIMA – DA INEXISTÊNCIA DE VÍNCULO TRABALHISTA E DE EXCLUSIVIDADE</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — Não é emprego e não é exclusivo</div>
+      <ul>
+        <li>Este contrato <strong>não cria vínculo de emprego</strong> entre as partes. Não há relação de sócio, representação, mandato ou qualquer subordinação.</li>
+        <li>Cada parte é responsável por pagar seus próprios encargos trabalhistas, previdenciários, fiscais, etc.</li>
+        <li>O PRODUTOR declara que é um negócio autônomo e assume seus próprios riscos.</li>
+        <li>O contrato <strong>não é exclusivo</strong>: o ESTRATEGISTA pode atender outros clientes, desde que isso não atrapalhe o cumprimento das obrigações deste contrato.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p>10.1. O presente Contrato é firmado em caráter estritamente autônomo, não gerando entre as Partes qualquer vínculo empregatício, societário, associativo, de representação, mandato ou solidariedade, direta ou indireta.</p>
+
+    <p>10.2. Não haverá, entre os sócios, prepostos, empregados ou subcontratados das Partes, qualquer relação de subordinação, pessoalidade ou dependência econômica, sendo responsabilidade exclusiva do PRODUTOR o pagamento de encargos trabalhistas, previdenciários, fiscais e demais obrigações legais relativas à sua equipe.</p>
+
+    <p>10.3. O PRODUTOR declara expressamente que exerce atividade econômica regular e autônoma, assumindo os riscos da sua atividade, e se compromete a manter todas as obrigações legais e regulatórias em dia durante a vigência deste Contrato.</p>
+
+    <p>10.4. O presente Contrato não estabelece qualquer tipo de exclusividade entre as Partes, podendo o ESTRATEGISTA prestar serviços a terceiros, desde que tal atuação não comprometa o cumprimento das obrigações assumidas com o PRODUTOR.</p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA DÉCIMA PRIMEIRA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA DÉCIMA PRIMEIRA – DO COMBATE À CORRUPÇÃO E À LAVAGEM DE DINHEIRO</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — Anticorrupção e antifraude</div>
+      <ul>
+        <li>Ambas as partes declaram que <strong>cumprem todas as leis anticorrupção</strong> (Lei Anticorrupção 12.846/2013, Lei de Lavagem de Dinheiro 9.613/1998, Código Penal, etc.).</li>
+        <li>O PRODUTOR garante que: não tolera corrupção, propinas ou fraudes; não usa dinheiro de origem ilícita; nunca ofereceu vantagens indevidas a agentes públicos; e possui controles internos adequados.</li>
+        <li>Se surgir qualquer suspeita de corrupção, fraude ou lavagem de dinheiro, a parte envolvida deve <strong>comunicar imediatamente</strong> a outra.</li>
+        <li>Descumprir esta cláusula = <strong>falta grave = rescisão imediata</strong> do contrato, sem aviso prévio, além de responsabilização civil, criminal e administrativa.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p>11.1. As Partes declaram que cumprem e se comprometem a cumprir integralmente todas as normas anticorrupção, incluindo, mas não se limitando, à Lei Federal nº 12.846/2013 (Lei Anticorrupção), à Lei nº 9.613/1998 (Lei de Lavagem de Dinheiro), ao Código Penal Brasileiro, bem como às demais legislações, regulamentos e tratados internacionais aplicáveis.</p>
+
+    <p>11.2. O PRODUTOR declara e garante que:</p>
+    <div class="sub-item">(i) Não tolera, não participa, não promove, não aceita nem compactua com práticas de corrupção ativa ou passiva, fraudes, propinas, subornos, vantagens indevidas, lavagem de dinheiro, financiamento ao terrorismo ou condutas similares;</div>
+    <div class="sub-item">(ii) Não utiliza, e não utilizará, valores ou bens provenientes de atividades ilícitas para execução deste Contrato;</div>
+    <div class="sub-item">(iii) Não ofereceu, prometeu, pagou ou autorizou, direta ou indiretamente, qualquer vantagem indevida a agente público, empresa estatal, terceiro relacionado ou pessoa exposta politicamente (PEP) com o objetivo de obter ou manter vantagem indevida;</div>
+    <div class="sub-item">(iv) Possui controles internos e políticas de integridade minimamente adequadas à natureza e ao porte de suas operações.</div>
+
+    <p style="margin-top:14px;">11.3. As Partes comprometem-se a comunicar imediatamente à contraparte qualquer indício, suspeita ou investigação relacionada a condutas de corrupção, fraude, lavagem de dinheiro ou violações à legislação mencionada no âmbito de sua atuação neste Contrato.</p>
+
+    <p>11.4. O descumprimento das obrigações previstas nesta Cláusula configurará falta grave, autorizando a rescisão imediata do Contrato por justa causa, independentemente de notificação, sem prejuízo das sanções legais e da responsabilização civil, criminal e administrativa cabível.</p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA DÉCIMA SEGUNDA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA DÉCIMA SEGUNDA – DA PROPRIEDADE INTELECTUAL</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — De quem é o produto e a marca</div>
+      <ul>
+        <li>O <strong>infoproduto, a marca e todo o conteúdo pertencem exclusivamente ao PRODUTOR</strong>. Ponto final.</li>
+        <li>O Estrategista recebe uma <strong>licença temporária e limitada</strong> para usar a marca e trechos do conteúdo apenas para as ações de marketing e vendas deste contrato, durante a vigência.</li>
+        <li>O Estrategista <strong>não pode</strong> usar marcas, logotipos, patentes ou qualquer propriedade intelectual do Produtor fora do escopo deste contrato, nem após seu término, sem autorização por escrito.</li>
+        <li>Este contrato <strong>não transfere</strong> nenhum direito de propriedade intelectual de uma parte para a outra.</li>
+        <li>Cada parte declara que possui todos os direitos e licenças necessários para cumprir suas obrigações e que não infringe direitos de terceiros.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p>12.1. Fica expressamente estabelecido que a totalidade dos direitos autorais e de propriedade intelectual sobre o Infoproduto, incluindo sua marca, nome e conteúdo, pertence e pertencerá exclusivamente ao PRODUTOR.</p>
+
+    <p>12.2. O PRODUTOR concede ao ESTRATEGISTA, em caráter precário, intransferível e não exclusivo, uma licença de uso da marca e de trechos do conteúdo do Infoproduto, com a finalidade única e exclusiva de realizar as ações de marketing e vendas previstas neste Contrato, durante seu prazo de vigência.</p>
+
+    <p>12.3. O ESTRATEGISTA, direta ou indiretamente, não fará ou autorizará o uso de marcas, logotipos, slogans, patentes, modelos de utilidade, desenhos, segredos industriais ou outros bens de propriedade intelectual do PRODUTOR, suas afiliadas, subsidiárias, controladoras e demais empresas de seu grupo econômico (caso haja) ("Propriedade Intelectual"), salvo se necessário para a execução deste Contrato e exclusivamente durante sua vigência, desde que mediante prévia autorização por escrito do PRODUTOR e observando o objeto do presente Contrato.</p>
+
+    <p>12.4. Este Contrato não transfere ou implica quaisquer outras licenças relacionadas a quaisquer Direitos de Propriedade Intelectual de qualquer uma das partes em favor da outra parte, e quaisquer direitos não expressamente concedidos por uma parte à outra parte neste Contrato são reservados pela parte proprietária dos respectivos Direitos de Propriedade Intelectual.</p>
+
+    <p>12.5. Cada Parte declara e representa para a outra Parte o seguinte:</p>
+    <div class="sub-item">(i) Cada Parte e/ou suas Afiliadas - se houver - detêm seus respectivos Direitos de Propriedade Intelectual e possuem todas as licenças, permissões e acordos necessários ou apropriados para cumprir suas obrigações nos termos deste Contrato;</div>
+    <div class="sub-item">(ii) Cada Parte declara, garante e concorda com a outra Parte que os Direitos de Propriedade Intelectual de tal Parte não infringirão, se apropriarão indevidamente ou violarão os Direitos de Propriedade Intelectual e/ou poderão afetar o desempenho das obrigações de tal Parte nos termos deste Contrato.</div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA DÉCIMA TERCEIRA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA DÉCIMA TERCEIRA – DAS DISPOSIÇÕES GERAIS</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — Regras gerais do contrato</div>
+      <ul>
+        <li>Este contrato é o <strong>acordo final e completo</strong> entre as partes — substitui qualquer conversa ou combinação anterior.</li>
+        <li>Ninguém pode <strong>ceder ou transferir</strong> direitos/obrigações sem a autorização da outra parte (exceto o Produtor em caso de reestruturação societária, fusão ou cisão).</li>
+        <li>Se uma parte "deixar passar" um descumprimento da outra, isso <strong>não significa que abriu mão</strong> de cobrar no futuro.</li>
+        <li>Se alguma cláusula for considerada inválida, <strong>as demais continuam valendo</strong> normalmente.</li>
+        <li>O contrato é <strong>irrevogável e irretratável</strong> e obriga também os sucessores das partes.</li>
+        <li><strong>Comunicações</strong> podem ser feitas por e-mail e são válidas se enviadas para os endereços usados durante o contrato.</li>
+        <li>As estratégias são <strong>dinâmicas</strong>: podem ser ajustadas por consenso com base nos dados reais de performance.</li>
+        <li>Termos com iniciais maiúsculas têm significado definido no anexo de "Definições".</li>
+        <li>O contrato cobre <strong>um único produto</strong>. Para novos produtos ou campanhas simultâneas, é preciso fazer um novo contrato ou aditamento.</li>
+        <li>O PRODUTOR é <strong>inteiramente responsável</strong> pela veracidade e legalidade de todos os documentos e informações que fornece. Se houver problema legal com esse material, o Produtor indeniza o Estrategista (incluindo custos de advogado e condenações).</li>
+        <li>O Estrategista tem <strong>direito de regresso</strong>: pode cobrar de volta tudo que gastar se for processado por culpa do Produtor.</li>
+        <li>Perante consumidores pode haver solidariedade, mas a <strong>responsabilidade final por defeitos no produto é do PRODUTOR</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p>13.1. O presente Contrato constitui o entendimento integral entre as Partes com relação ao objeto aqui tratado, substituindo qualquer acordo, comunicação ou entendimento anterior, verbal ou escrito.</p>
+
+    <p>13.2. Nenhuma das Partes poderá ceder ou transferir, total ou parcialmente, os direitos e obrigações decorrentes deste Contrato sem prévia e expressa anuência da outra Parte, ressalvado o direito do PRODUTOR de ceder o Contrato no contexto de reestruturação societária ou operação de incorporação, fusão ou cisão.</p>
+
+    <p>13.3. A tolerância de qualquer das Partes quanto ao descumprimento de quaisquer das obrigações da outra não importará em novação ou renúncia de direito, permanecendo todas as disposições contratuais plenamente exigíveis.</p>
+
+    <p>13.4. A eventual invalidade ou inexequibilidade de qualquer cláusula ou disposição contratual não afetará as demais, que permanecerão válidas e em pleno vigor, devendo as Partes envidar os melhores esforços para substituir a disposição afetada por outra que preserve, tanto quanto possível, o objetivo e o equilíbrio contratual.</p>
+
+    <p>13.5. Este Contrato obriga as Partes e seus sucessores a qualquer título, sendo firmado em caráter irrevogável e irretratável, salvo disposição expressa em contrário.</p>
+
+    <p>13.6. As comunicações entre as Partes poderão ser realizadas por meio eletrônico, inclusive e-mail institucional, sendo consideradas válidas desde que encaminhadas aos endereços previamente cadastrados ou utilizados pelas Partes durante a execução contratual.</p>
+
+    <p>13.7. As Partes concordam que as estratégias dispostas no presente Contrato, para alcance do objeto, são dinâmicas e contínuas, podendo requerer ajustes e otimizações periódicas baseadas em análise de dados reais de performance. Portanto, as Partes poderão compor consensualmente a redefinição das estratégias, prazos e valores.</p>
+
+    <p>13.8. Para fins deste Contrato, as palavras e os termos com as iniciais em letras maiúsculas, no plural ou no singular, mesmo que usados em diferentes gêneros ou tempos verbais, terão os significados a eles atribuídos conforme anexo de "Definições".</p>
+
+    <p>13.9. O presente Contrato abrange exclusivamente um único, sendo que a expansão para novos produtos ou a execução de múltiplas campanhas simultâneas deverá ser objeto de novo Contrato ou aditamento, a ser celebrado separadamente entre as Partes.</p>
+
+    <p>13.10. O PRODUTOR declara e garante que todos os documentos, dados e informações fornecidos ao ESTRATEGISTA são de sua inteira responsabilidade, garantindo a sua veracidade, legalidade e a inexistência de ônus ou violação de direitos de terceiros, incluindo, mas não se limitando, a direitos de propriedade intelectual, segredos de negócio ou proteção de dados pessoais.</p>
+
+    <p>13.10.1. O PRODUTOR assume total e exclusiva responsabilidade perante terceiros por qualquer dano, questionamento judicial ou extrajudicial decorrente do conteúdo ou da utilização dos documentos fornecidos, mantendo o ESTRATEGISTA inteiramente indene de quaisquer pleitos, condenações, custos processuais ou honorários advocatícios.</p>
+
+    <p>13.10.2. Ao ESTRATEGISTA, fica-lhe assegurado o direito de regresso para reaver todos os valores despendidos com a defesa, indenizações, acordos e demais custos, sem prejuízo de eventuais perdas e danos.</p>
+
+    <p>13.11. Embora as Partes reconheçam eventual solidariedade perante consumidores, o PRODUTOR assume a responsabilidade exclusiva e final por eventuais danos ou vícios relativos ao infoproduto.</p>
+
+    <p>13.11.1. Caso o estrategista seja condenado a indenizar terceiros por ato ou omissão do PRODUTOR, este deverá ressarci-lo integralmente em direito de regresso, incluindo o valor da condenação, custas processuais e honorários advocatícios.</p>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- CLÁUSULA DÉCIMA QUARTA -->
+<!-- ============================================ -->
+<div class="clausula">
+  <div class="clausula-header">CLÁUSULA DÉCIMA QUARTA – DO FORO</div>
+
+  <button class="summary-toggle" onclick="toggleSummary(this)">
+    <span class="icon">▼</span> Resumo Prático
+  </button>
+  <div class="summary-box">
+    <div class="summary-content">
+      <div class="summary-title">Resumo — Onde resolver problemas judiciais</div>
+      <ul>
+        <li>Se houver qualquer disputa judicial, ela será resolvida na <strong>Comarca da Capital do Rio de Janeiro</strong>.</li>
+        <li>Esse foro é exclusivo — nenhum outro tribunal pode ser usado, mesmo que alguma parte tenha "privilégio" em outro lugar.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="clausula-body">
+    <p>14.1. Para dirimir quaisquer controvérsias decorrentes deste Contrato, as Partes elegem o Foro da Comarca da Capital do Estado do Rio de Janeiro, com exclusão de qualquer outro, por mais privilegiado que seja.</p>
+  </div>
+</div>
+
+<!-- ENCERRAMENTO -->
+<div class="clausula-body" style="margin-top: 30px;">
+  <p>E por estarem assim justas e contratadas, firmam as Partes o presente instrumento digitalmente, por meio de ferramenta eletrônica com comprovação de autoria e integridade, nos termos do art. 10, § 2º, da Medida Provisória nº 2.200-2/2001.</p>
+</div>
+
+<!-- ASSINATURAS -->
+<div class="signatures">
+  <div class="local-data">Rio de Janeiro, 13 de fevereiro de 2026.</div>
+
+  <div class="sig-grid">
+    <div class="sig-block">
+      <div class="sig-line">
+        <div class="sig-name"><span class="placeholder">[NOME]</span></div>
+        <div class="sig-role">PRODUTOR</div>
+      </div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-line">
+        <div class="sig-name"><span class="placeholder">[NOME]</span></div>
+        <div class="sig-role">ESTRATEGISTA</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="witnesses-title">Testemunhas</div>
+  <div class="sig-grid">
+    <div class="sig-block">
+      <div class="sig-line">
+        <div class="sig-name"><span class="placeholder">[TESTEMUNHA 1]</span></div>
+        <div class="sig-cpf">CPF/MF <span class="placeholder">[Numeração]</span></div>
+      </div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-line">
+        <div class="sig-name"><span class="placeholder">[TESTEMUNHA 2]</span></div>
+        <div class="sig-cpf">CPF/MF <span class="placeholder">[Numeração]</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DEFINIÇÕES -->
+<div class="definitions">
+  <h2>DEFINIÇÕES</h2>
+
+  <div class="def-item">
+    <span class="def-term">"Tráfego Direto":</span> <span class="def-desc">Significa uma estratégia de marketing digital contínua e permanente que consiste no direcionamento de pessoas qualificadas e potencialmente interessadas em adquirir um Info-Produto diretamente para uma Página de Captura ou página de vendas, por meio de Campanhas de Tráfego estruturadas e otimizadas, sem data pré-definida de abertura e fechamento de carrinho. Tráfego Direto, para fins deste Contrato, corresponderá ao período entre a data de assinatura do presente Contrato até a data de seu término, conforme estabelecido na cláusula específica de vigência.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Período de Campanha":</span> <span class="def-desc">Significa o intervalo de tempo em que a Parceira executará as estratégias de Tráfego Direto para o Info-Produto da Expert, enviando fluxo contínuo de visitantes qualificados para a Página de Captura e/ou página de vendas. Período de Campanha, para fins deste Contrato, poderá ter duração determinada ou indeterminada, conforme acordado entre as Partes, e será iniciado na data combinada entre as Partes, com possibilidade de pausas, otimizações ou ajustes de estratégia durante sua execução.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Infoproduto":</span> <span class="def-desc">Significa um produto digital como cursos, mentorias, treinamentos online, assinaturas, programas de acesso contínuo ou outros formatos de produtos digitais, resultantes da expertise, conhecimento e 'track record' da Expert no qual é confeccionado com uma abordagem estruturada, didática e de fácil compreensão, com o objetivo de transmitir conhecimento, técnicas ou valor ao comprador/aluno. Info-Produto, em Tráfego Direto, refere-se àquele disponibilizado de forma permanente ou contínua para venda durante todo o Período de Campanha.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Valor Líquido":</span> <span class="def-desc">Significa o montante final do Info-Produto, já deduzidos os descontos provenientes das taxas aplicadas pelas plataformas digitais. Valor Líquido, para fins deste Contrato, corresponde à diferença entre o preço do Info-Produto e as taxas referentes à sua hospedagem e venda na plataforma digital, bem como as taxas por cada venda do Info-Produto realizada dentro da plataforma. O Valor Líquido será utilizado como referência para o cálculo do comissionamento a ser repassado entre as Partes conforme métrica de remuneração acordada.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Leads":</span> <span class="def-desc">Significa potenciais clientes que tenham se cadastrado na base de contatos da Expert ou coletados durante o Período de Campanha de Tráfego Direto, fornecendo informações de contato como nome completo e endereço eletrônico, por interesse em adquirir o Info-Produto ou receber conteúdos relacionados de forma gratuita ou paga.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Lista de Leads":</span> <span class="def-desc">Significa toda a lista de contatos com nome completo, endereço eletrônico e outras informações relevantes de pessoas que foram capturadas através da Página de Captura durante o Período de Campanha ou coletados anteriormente em campanhas prévias. Lista de Leads será propriedade exclusiva da Expert, conforme regulamentado na Lei Geral de Proteção de Dados.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Campanha de Tráfego":</span> <span class="def-desc">Significa um conjunto de estratégias e táticas contínuas para atrair uma grande quantidade de pessoas potencialmente interessadas na compra do Info-Produto para visitar uma Página de Captura e/ou página de vendas, por meio de sites, redes sociais, plataformas publicitárias e afins, com o objetivo de aumentar a visibilidade do Info-Produto e gerar Leads qualificados e/ou vendas diretas durante o Período de Campanha. A Campanha de Tráfego, para fins deste Contrato, consiste no uso de anúncios pagos em plataformas como Google Ads, Facebook Ads, Instagram Ads, TikTok Ads, YouTube Ads, otimização de mecanismos de busca denominado de SEO, tráfego orgânico em redes sociais, email marketing, parcerias de afiliados e semelhantes, que serão segmentados e direcionados para um público específico, levando em consideração os critérios, personas e objetivos estabelecidos entre as Partes.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Página de Captura":</span> <span class="def-desc">Significa uma página na internet que contém um formulário para que os visitantes interessados no Info-Produto possam fornecer seus dados como nome completo, endereço eletrônico e outras informações relevantes para qualificação de Lead. Página de Captura, para fins deste Contrato, engloba 'landing pages', squeeze pages, páginas web confeccionadas por web designer, copywriter e outros profissionais, para fornecer informações detalhadas sobre o Info-Produto e incentivar a sua venda direta, captura de dados ou alguma outra interação dos Leads almejada pelas Partes.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Página de Vendas":</span> <span class="def-desc">Significa uma página na internet destinada exclusivamente à conclusão da transação de compra do Info-Produto, contendo informações descritivas do produto, preço, forma de pagamento, garantias e chamadas para ação (CTA) que incentivem o Cliente Final a completar sua compra de forma segura e eficiente.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Público-Alvo":</span> <span class="def-desc">Significa o conjunto de características demográficas, psicográficas, comportamentais e de interesses que definem o perfil ideal de pessoas que têm maior probabilidade de se interessar pela compra do Info-Produto. Público-Alvo, para fins deste Contrato, será estabelecido e acordado entre as Partes durante a fase de planejamento da Campanha de Tráfego e poderá ser ajustado ao longo do Período de Campanha baseado em análises de performance e métricas de resultados.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Métricas de Tráfego":</span> <span class="def-desc">Significa os indicadores quantitativos utilizados para medir o desempenho da Campanha de Tráfego, incluindo, mas não se limitando a: volume de visitantes, taxa de clique (CTR), custo por clique (CPC), custo por Lead (CPL), taxa de conversão, quantidade de Leads capturados, quantidade de vendas realizadas, valor total de vendas, custo de aquisição do cliente (CAC), retorno sobre investimento (ROI), taxa de bounce e demais KPIs acordados entre as Partes.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"CPC (Custo Por Clique)":</span> <span class="def-desc">Significa o valor financeiro que a Parceira ou a Expert pagará por cada clique em um anúncio durante a Campanha de Tráfego, sendo este valor determinado pelas plataformas publicitárias (Google Ads, Facebook Ads, etc.) ou conforme acordado entre as Partes.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"CPL (Custo Por Lead)":</span> <span class="def-desc">Significa o valor financeiro pago por cada Lead qualificado capturado através da Página de Captura durante a Campanha de Tráfego, sendo calculado pela divisão do investimento total em publicidade pelo número total de Leads gerados no Período de Campanha.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Taxa de Conversão":</span> <span class="def-desc">Significa o percentual de visitantes que completam a ação desejada, seja o preenchimento do formulário na Página de Captura (conversão em Lead) ou a realização da compra do Info-Produto (conversão em venda), calculado pela divisão do número de conversões pelo número total de visitantes, multiplicado por 100.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"CAC (Custo de Aquisição do Cliente)":</span> <span class="def-desc">Significa o valor total investido na Campanha de Tráfego dividido pelo número total de Clientes Finais que realizaram a compra do Info-Produto durante o Período de Campanha, representando o custo médio para adquirir cada cliente pagante.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"ROI (Retorno Sobre Investimento)":</span> <span class="def-desc">Significa o percentual de retorno financeiro obtido com a Campanha de Tráfego em relação ao investimento total realizado, calculado pela fórmula: [(Lucro Total – Investimento Total) / Investimento Total] x 100, indicando a eficiência e rentabilidade da campanha.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Teste e Otimização":</span> <span class="def-desc">Significa o processo contínuo de experimentação, análise e ajuste dos elementos da Campanha de Tráfego com o objetivo de melhorar o desempenho, aumentar a eficiência, reduzir custos e elevar as Métricas de Tráfego. Teste e Otimização, para fins deste Contrato, incluem testes A/B em anúncios, textos, imagens, públicos-alvo, Páginas de Captura, segmentações e outras variáveis que possam impactar nos resultados da campanha.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Relatório de Performance":</span> <span class="def-desc">Significa o documento ou dashboard que consolida e apresenta de forma periódica (semanal, quinzenal ou mensal, conforme acordado) o desempenho da Campanha de Tráfego através da análise das Métricas de Tráfego, indicadores de resultado, insights, recomendações de otimização e comparativos entre períodos. Relatório de Performance será fornecido pela Parceira à Expert com frequência pré-estabelecida neste Contrato.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Investimento em Publicidade":</span> <span class="def-desc">Significa o valor financeiro total despendido pela Parceira ou pela Expert em anúncios pagos em plataformas digitais (Google Ads, Facebook Ads, Instagram Ads, TikTok Ads, YouTube Ads, etc.) durante o Período de Campanha, para gerar tráfego qualificado para a Página de Captura e/ou página de vendas do Info-Produto.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Up-Sell e Cross-Sell":</span> <span class="def-desc">Significa estratégias de vendas que são utilizadas para aumentar o valor e a rentabilidade na venda do Info-Produto, oferecendo produtos complementares (Cross-Sell) ou versões premium/expandidas (Up-Sell) aos Clientes Finais, seja imediatamente após a compra ou durante o relacionamento contínuo com a Expert.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Webinar":</span> <span class="def-desc">Significa evento online que é transmitido ao vivo pela Internet e/ou plataformas que possibilitam a interação entre Expert e pessoas, por exemplo, lives na plataforma Instagram, sessões de apresentação do produto, aulas ao vivo ou eventos educacionais, com o objetivo de gerar Leads qualificados, aprofundar o relacionamento com potenciais clientes ou impulsionar vendas do Info-Produto.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Onboarding":</span> <span class="def-desc">Significa processo de integração e orientação oferecido pela Expert aos Clientes Finais que adquiriram o Info-Produto, realizado em plataforma virtual indicada pelas Partes, com o objetivo de familiarizar e instruir os alunos quanto ao uso e acesso do produto online, por meio de tutoriais, suporte, orientações, aulas de boas-vindas e outras ações que garantam uma experiência positiva e facilitada no uso do Info-Produto.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Etapa de Preparação Estratégica":</span> <span class="def-desc">Significa uma série de atividades preliminares de reestruturação, planejamento e preparação da Expert e da Campanha de Tráfego para o início do Período de Campanha. Etapa de Preparação Estratégica, denominado de 'preparação pré-campanha', para fins deste Contrato, corresponderá ao período entre a data de assinatura do presente Contrato até o início oficial do Período de Campanha e se referirá a um processo de estruturação elaborado pelas Partes que consiste em, mas não se limitando a: (i) revisão e aprimoramento do conteúdo do Info-Produto; (ii) construção de autoridade e credibilidade da Expert por meio de criação de conteúdo de valor; (iii) rebranding ou atualização de posicionamento da Expert, caso necessário; (iv) definição e criação da Página de Captura e Página de Vendas otimizadas para conversão; (v) estruturação da Campanha de Tráfego com definição de públicos, canais, orçamentos e objetivos; (vi) configuração de ferramentas de rastreamento, pixel de conversão e integração de sistemas; (vii) planejamento de estratégias de captura de Leads e segmentação; (viii) definição de cronograma, metas e indicadores de sucesso.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Fase de Acompanhamento e Otimização":</span> <span class="def-desc">Significa o período contínuo durante o Período de Campanha em que a Parceira fornecerá suporte, monitoramento constante e otimizações da Campanha de Tráfego com o objetivo de melhorar performance, reduzir custos e aumentar a rentabilidade. Fase de Acompanhamento e Otimização, para fins deste Contrato, inclui: (i) monitoramento diário/semanal das Métricas de Tráfego; (ii) testes contínuos de elementos da campanha; (iii) ajustes de públicos-alvo, orçamentos e estratégias; (iv) análise de dados e geração de insights; (v) suporte técnico em relação à Página de Captura e integração de sistemas; (vi) recomendações estratégicas baseadas em resultados; (vii) preparação periódica de Relatórios de Performance.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Fase de Encerramento":</span> <span class="def-desc">Significa o período final do Contrato em que a Parceira realizará atividades de finalização, consolidação de dados e entrega de relatórios finais. Fase de Encerramento, para fins deste Contrato, corresponderá ao período de até 15 (quinze) dias corridos contados da data de término do Período de Campanha ou rescisão do Contrato, incluindo: (i) interrupção progressiva da Campanha de Tráfego; (ii) consolidação e análise de resultados finais; (iii) preparação de relatório final abrangente; (iv) transferência de propriedade da Lista de Leads à Expert (conforme LGPD); (v) documentação de aprendizados e recomendações para futuras campanhas.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Plataforma":</span> <span class="def-desc">Significa um ambiente online que tem como objetivo a distribuição e comercialização de produtos digitais, isto é, Info-Produtos, juntamente com outras finalidades como hospedagem do material em vídeo, formas de pagamento, sistemas de email marketing e outros recursos necessários. Plataforma, para fins deste Contrato, será o ambiente virtual escolhido pelas Partes para servir como hospedagem ao Info-Produto, forma de pagamento e outras necessidades que apresentarem durante a execução do presente Contrato. As Plataformas que estão em processo de escolha entre as Partes são Hotmart, Eduzz, Memberkit, Brevo, ActiveCampaign, Systemeio e outras que atuam no mesmo setor.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Ferramenta de Rastreamento":</span> <span class="def-desc">Significa o código ou pixel digital que será implementado na Página de Captura, Página de Vendas e no ambiente de hospedagem do Info-Produto com o objetivo de rastrear, medir e registrar as ações dos visitantes e Clientes Finais, permitindo a análise de Métricas de Tráfego e o cálculo de performance da Campanha. Ferramenta de Rastreamento, para fins deste Contrato, pode incluir Google Analytics, Facebook Pixel, conversão de plataforma e outras ferramentas de mensuração acordadas entre as Partes.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Cliente Final":</span> <span class="def-desc">Significa o destinatário final que tenha realizado a compra e pagamento integral do Info-Produto através da Página de Vendas, por condução do processo comercial de Tráfego Direto executado pela Parceira.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"VSL (Video Sales Letter / Vídeo de Vendas)":</span> <span class="def-desc">Conteúdo audiovisual desenvolvido com finalidade comercial, estruturado para apresentar uma oferta (produto/serviço), comunicar benefícios, evidências e diferenciais, conduzir o público a uma decisão e incentivar uma ação específica (ex.: clicar, preencher formulário, agendar, comprar). A VSL pode ser veiculada em páginas, redes sociais, anúncios, e-mail marketing ou outras mídias digitais, podendo conter narração, apresentação em vídeo, imagens, textos na tela, depoimentos e chamadas para ação.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Landing Page (Página de Captura / Página de Conversão)":</span> <span class="def-desc">Página web dedicada, com objetivo principal de conversão, criada para direcionar o visitante a uma ação específica (ex.: preencher formulário, solicitar contato, agendar, comprar, entrar em lista de espera). A Landing Page costuma ter foco em uma única oferta/campanha, com elementos como título, proposta de valor, descrição, provas/credenciais, benefícios, FAQ, formulário e chamadas para ação, podendo incluir integrações com ferramentas de rastreamento, CRM e automação de marketing.</span>
+  </div>
+
+  <div class="def-item">
+    <span class="def-term">"Lei Geral de Proteção de Dados":</span> <span class="def-desc">Significa a Lei n. 13.709, de 14 de agosto de 2018, que dispõe sobre a proteção de dados pessoais e para criar a Autoridade Nacional de Proteção de Dados; e dá outras providências.</span>
+  </div>
+
+
+</div>
+
+</div><!-- /contract-document -->
+</div><!-- /page-wrapper -->
+
+<script>
+function toggleSummary(btn) {
+  const box = btn.nextElementSibling;
+  btn.classList.toggle('active');
+  box.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
