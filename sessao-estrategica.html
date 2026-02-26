@@ -288,28 +288,6 @@
 				grid-area: video; max-width: 360px; margin: 0 0 0 auto; order: unset; 
 			} 
 		}
-		#content #clintia-widget-locked .vsl-facade {
-			position: relative; padding-top: 177.77%; cursor: pointer; 
-			background: linear-gradient(135deg, var(--bg-slate) 0%, var(--primary-dark) 100%);
-			transition: all 0.3s ease;
-		}
-		#content #clintia-widget-locked .vsl-facade::after {
-			content: "Clique para assistir ao vídeo estratégico";
-			position: absolute; bottom: 20px; left: 0; width: 100%; text-align: center;
-			color: rgba(255,255,255,0.7); font-size: 0.8rem; font-weight: 500; font-family: 'Inter', sans-serif;
-			padding: 0 10px;
-		}
-		#content #clintia-widget-locked .vsl-facade .play-btn-circle {
-			position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-			width: 70px; height: 70px; background: var(--primary-blue); border-radius: 50%;
-			display: flex; align-items: center; justify-content: center;
-			box-shadow: 0 10px 30px rgba(5, 60, 115, 0.5); transition: all 0.3s ease; z-index: 2;
-		}
-		@media (min-width: 768px) { #content #clintia-widget-locked .vsl-facade .play-btn-circle { width: 85px; height: 85px; } }
-		#content #clintia-widget-locked .vsl-facade:hover .play-btn-circle {
-			transform: translate(-50%, -50%) scale(1.1); background: var(--highlight-color);
-		}
-		#content #clintia-widget-locked .vsl-facade i { color: #fff; font-size: 1.8rem; margin-left: 6px; }
 
 		/* GALLERY */
 		#content #clintia-widget-locked .photo-gallery-section { padding: 40px 0; background: #ffffff; width: 100%; position: relative; }                
@@ -734,11 +712,10 @@
 					</div>
 					
 					<div class="hero-image-placeholder-wrapper stagger-item delay-2" id="vsl-facade-container">                
-						<div class="vsl-facade" onclick="loadPandaVideo()">
-							<div class="play-btn-circle">
-								<i class="fa-solid fa-play"></i>
-							</div>
-						</div>            
+						<!-- Iframe nativo do Panda para garantir o funcionamento do Autoplay -->
+						<div style="position:relative;padding-top:177.77%;">
+							<iframe id="panda-fc0dad11-4596-4915-bc4e-d93e2cf85731" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=fc0dad11-4596-4915-bc4e-d93e2cf85731&autoplay=1" style="border:none;position:absolute;top:0;left:0;" allow="autoplay; fullscreen" allowfullscreen=true width="100%" height="100%"></iframe>
+						</div>
 					</div>        
 
 					<div class="hero-actions-wrapper stagger-item delay-4">                    
@@ -1320,12 +1297,6 @@
             <!-- JAVASCRIPT GERAL DO SITE E FORMULÁRIO      -->
             <!-- ========================================== -->
 			<script>
-				// Script para VSL Facade Pattern (Otimização LCP)
-				function loadPandaVideo() {
-					const container = document.getElementById('vsl-facade-container');
-					container.innerHTML = '<div style="position:relative;padding-top:177.77%;"><iframe id="panda-fc0dad11-4596-4915-bc4e-d93e2cf85731" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=fc0dad11-4596-4915-bc4e-d93e2cf85731&autoplay=1" style="border:none;position:absolute;top:0;left:0;" allow="autoplay; fullscreen" allowfullscreen=true width="100%" height="100%"></iframe></div>';
-				}
-
 				// Menu Mobile Toggle
 				function toggleMenu() {
 					const menu = document.getElementById('mobileMenu');
