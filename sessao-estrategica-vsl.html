@@ -5,21 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	
-	<!-- Otimização para mecanismos de pesquisa -->
 	<title>CLINTIA – Clínica Inteligente | Sessão Estratégica</title>
 	<link data-rocket-prefetch href="https://fonts.googleapis.com" rel="dns-prefetch">
 	<link data-rocket-prefetch href="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br" rel="dns-prefetch">
 	<link data-rocket-preload as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&#038;family=Space+Grotesk:wght@500;700&#038;display=swap" rel="preload">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&#038;family=Space+Grotesk:wght@500;700&#038;display=swap" rel="stylesheet">
 	
-	<!-- CORE CSS DO WIDGET CLINTIA -->
 	<link data-minify="1" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- ========================================== -->
-    <!-- TAGS DE RASTREAMENTO (META E GOOGLE ADS)   -->
-    <!-- ========================================== -->
-    
-    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -35,9 +28,6 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
-
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17614228842"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -46,7 +36,6 @@
       gtag('config', 'AW-17614228842');
     </script>
 
-    <!-- Tailwind Config for the Modal (Disabling Preflight to protect existing CSS) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -240,22 +229,19 @@
 			<section class="hero fade-in-section">        
 				<div class="hero-container">            
 					
-                    <!-- TEXTO (Ordem 1 no celular, Esquerda no desktop) -->
                     <div class="hero-text-block">                
 						<div class="tag stagger-item delay-1">Exclusivo para Gestores de Clínicas e Médicos com RQE</div>                                
 						<h1 class="stagger-item delay-2">Vamos analisar o momento da sua clínica ou consultório e estruturar as ações que <u style="text-decoration-color: var(--highlight-color); text-underline-offset: 4px;">aumentam o faturamento</u>, trazem <u style="text-decoration-color: var(--highlight-color); text-underline-offset: 4px;">previsibilidade</u> e aceleram seu crescimento nos próximos 6 meses.</h1>                                
 						<p class="stagger-item delay-3">Se você é médico, gestor ou dono de clínica e sente que os resultados ainda não refletem o potencial do seu negócio, <strong>essa sessão estratégica pode ser o passo que faltava para evoluir com mais clareza, controle e direção.</strong></p>                                
 					</div>
 					
-                    <!-- VÍDEO (Ordem 2 no celular, Direita no desktop) -->
-					<div class="hero-image-placeholder-wrapper stagger-item delay-2" id="vsl-facade-container">                
+                    <div class="hero-image-placeholder-wrapper stagger-item delay-2" id="vsl-facade-container">                
 						<div style="position:relative;padding-top:177.77%;">
 							<iframe id="panda-fc0dad11-4596-4915-bc4e-d93e2cf85731" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=fc0dad11-4596-4915-bc4e-d93e2cf85731&autoplay=1" style="border:none;position:absolute;top:0;left:0;" allow="autoplay; fullscreen" allowfullscreen=true width="100%" height="100%"></iframe>
 						</div>
 					</div>        
 
-                    <!-- FORMULÁRIO INLINE (Ordem 3 no celular, Esquerda Abaixo do Texto no Desktop) -->
-					<div class="hero-actions-wrapper stagger-item delay-4">                    
+                    <div class="hero-actions-wrapper stagger-item delay-4">                    
 						<div class="bg-white w-full rounded-2xl shadow-xl border border-gray-100 relative overflow-hidden flex flex-col">
                             
                             <div class="bg-gray-100 h-1.5 w-full">
@@ -269,7 +255,6 @@
                             <div class="p-6 sm:p-8">
                                 <form id="leadForm" onsubmit="event.preventDefault();">
                                     
-                                    <!-- PASSO 1 -->
                                     <div id="step1" class="step-content active">
                                         <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Qual o seu nome ?</h2>
                                         <div class="relative">
@@ -283,7 +268,6 @@
                                         </div>
                                     </div>
                 
-                                    <!-- PASSO 2 -->
                                     <div id="step2" class="step-content">
                                         <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Prazer, <span id="displayName"></span>!</h2>
                                         <p class="text-gray-500 mb-6 text-sm sm:text-base">Qual seu WhatsApp para enviarmos a confirmação?</p>
@@ -299,13 +283,11 @@
                                         </div>
                                     </div>
                 
-                                    <!-- PASSO 3 -->
                                     <div id="step3" class="step-content">
                                         <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Sobre você</h2>
                                         <p class="text-gray-500 mb-6 text-sm sm:text-base">Qual opção descreve melhor seu momento?</p>
                                         <div class="space-y-3">
                                             <input type="hidden" id="inputRole">
-                                            <!-- Opções HOT -->
                                             <div onclick="selectOption('inputRole', 'Gestor/Sócio', 3)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
                                                 <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
                                                 <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Gestor ou sócio de clínica</span>
@@ -314,7 +296,6 @@
                                                 <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
                                                 <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Médico com consultório particular</span>
                                             </div>
-                                            <!-- Opções COLD -->
                                             <div onclick="selectOption('inputRole', 'Futuro Consultório', 3)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
                                                 <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
                                                 <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Pretendo abrir consultório</span>
@@ -329,13 +310,11 @@
                                         </div>
                                     </div>
                 
-                                    <!-- PASSO 4 -->
                                     <div id="step4" class="step-content">
                                         <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Marketing</h2>
                                         <p class="text-gray-500 mb-6 text-sm sm:text-base">Como está sua relação com marketing hoje?</p>
                                         <div class="space-y-3">
                                             <input type="hidden" id="inputStatus">
-                                            <!-- Opções HOT -->
                                             <div onclick="selectOption('inputStatus', 'Fase de Lançamento', 4)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
                                                 <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
                                                 <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Estou em fase de lançamento</span>
@@ -344,7 +323,6 @@
                                                 <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
                                                 <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Invisto, mas sem clareza do retorno</span>
                                             </div>
-                                            <!-- Opções COLD/MORNAS -->
                                             <div onclick="selectOption('inputStatus', 'Opera sem MKT', 4)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
                                                 <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
                                                 <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Já opero, nunca investi estruturado</span>
@@ -359,7 +337,6 @@
                                         </div>
                                     </div>
                 
-                                    <!-- PASSO FINAL (SUCESSO) -->
                                     <div id="stepSuccess" class="step-content text-center py-4">
                                         <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-oxford" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
@@ -379,10 +356,7 @@
 				</div>
 			</section>
 
-            <!-- ========================================== -->
-            <!-- JAVASCRIPT GERAL DO SITE E FORMULÁRIO      -->
-            <!-- ========================================== -->
-			<script>
+            <script>
 				// Fade-In Observer
 				const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 				const observer = new IntersectionObserver((entries) => {
@@ -533,21 +507,41 @@
                     return value;
                 }
 
+                // ==========================================
+                // ENVIO PARA O GOOGLE SHEETS COM UTMs
+                // ==========================================
                 function submitForm() {
                     const scriptURL = 'https://script.google.com/macros/s/AKfycbwj-wY1xyowV9dqfeW1ArRvA7JpR9rWekhILN7c_qCSc4ZX-qJ_-LctsH23L_vSS9FD/exec';
                     const formData = new FormData();
+                    
+                    // 1. Captura as UTMs da URL do navegador
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const utmSource = urlParams.get('utm_source') || 'Organico/Direto';
+                    const utmMedium = urlParams.get('utm_medium') || 'N/A';
+                    const utmCampaign = urlParams.get('utm_campaign') || 'N/A';
+                    const utmContent = urlParams.get('utm_content') || 'N/A';
+                    const utmTerm = urlParams.get('utm_term') || 'N/A';
+
+                    // 2. Adiciona os dados normais do formulário
                     formData.append('id', sessionId);
                     formData.append('nome', document.getElementById('inputName').value);
                     formData.append('whatsapp', document.getElementById('inputPhone').value);
                     formData.append('perfil', document.getElementById('inputRole').value);
                     formData.append('momento', document.getElementById('inputStatus').value);
+                    
+                    // 3. Adiciona as UTMs capturadas ao envio
+                    formData.append('utm_source', utmSource);
+                    formData.append('utm_medium', utmMedium);
+                    formData.append('utm_campaign', utmCampaign);
+                    formData.append('utm_content', utmContent);
+                    formData.append('utm_term', utmTerm);
 
                     fetch(scriptURL, { 
                         method: 'POST', 
                         body: formData,
                         mode: 'no-cors' 
                     })
-                    .then(res => console.log(`Dados salvos no Sheets. ID: ${sessionId}`))
+                    .then(res => console.log(`Dados salvos no Sheets. Origem: ${utmSource}. ID: ${sessionId}`))
                     .catch(err => console.error(err));
                 }
 
