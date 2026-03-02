@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrossel de Resultados</title>
+    
+    <!-- Fontes e Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepBg: '#F5F7F6',
+                        corporate: '#0B2C4D',
+                        science: '#1F4E79',
+                        medGreen: '#3A6F6B',
+                        gold: '#C7A24B',
+                        textDark: '#1E1E1E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos Personalizados Essenciais -->
+    <style>
+        html, body { 
+            background-color: #F5F7F6; 
+            color: #1E1E1E; 
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        h1, h2, h3 { letter-spacing: -0.02em; color: #0B2C4D; }
+        
+        .story-section { 
+            width: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 6rem 1.5rem; 
+            box-sizing: border-box; 
+            background: #F5F7F6; 
+            position: relative; 
+        }
+        
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.6); 
+            backdrop-filter: blur(24px); 
+            -webkit-backdrop-filter: blur(24px); 
+            border: 1px solid rgba(11, 44, 77, 0.08); 
+            box-shadow: 0 4px 30px rgba(11, 44, 77, 0.06); 
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); 
+        }
+        
+        .content-wrapper { 
+            width: 100%; 
+            max-width: 100%; 
+            margin: 0 auto; 
+        }
+        
+        @media (min-width: 768px) { 
+            .content-wrapper { max-width: 960px; } 
+        }
+        
+        .bar-grow { 
+            width: 0%; 
+            transition: width 1.8s cubic-bezier(0.22, 1, 0.36, 1); 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Estrutura HTML do Carrossel -->
+    <section class="story-section" id="section-results">
+        <div class="content-wrapper z-10 w-full relative px-4 md:px-6">
+            <div class="text-center mb-12">
+                <p class="text-[10px] text-science font-bold tracking-[0.3em] uppercase mb-3">Resultados Consolidados</p>
+                <h2 class="text-3xl font-display font-light text-corporate">Médicos que transformaram sua realidade</h2>
+            </div>
+
+            <div class="relative w-full max-w-4xl mx-auto group">
+                <button id="casesPrevBtn" class="absolute -left-2 md:-left-16 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-400 hover:text-corporate border border-corporate/10 hover:border-corporate rounded-full transition-all z-20 bg-white shadow-md cursor-pointer" aria-label="Caso Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                <button id="casesNextBtn" class="absolute -right-2 md:-right-16 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-400 hover:text-corporate border border-corporate/10 hover:border-corporate rounded-full transition-all z-20 bg-white shadow-md cursor-pointer" aria-label="Próximo Caso"><i class="fa-solid fa-chevron-right"></i></button>
+
+                <div class="glass-card w-full rounded-2xl p-6 md:p-12 relative min-h-[450px] flex flex-col bg-white border border-corporate/5 shadow-xl mx-auto overflow-hidden">
+                    <div id="slideContent" class="flex-1 flex flex-col justify-center"></div>
+                    <div class="mt-8 flex justify-center gap-3" id="dotsContainer"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lógica JavaScript do Carrossel -->
+    <script>
+        const cases = [
+            { name: "Dr. Marcelo Saraiva", type: "Endocrinologia", highlightNum: "76", highlightText: "Consultas Part.", revenue: "32.500", investment: "4.200", roas: "7.7", description: "Implementação de protocolo para emagrecimento.", icon: "fa-solid fa-dna" },
+            { name: "Dra. Ana Beatriz", type: "Harmonização", highlightNum: "45", highlightText: "Avaliações Qualif.", revenue: "28.400", investment: "3.800", roas: "7.4", description: "Migração de orgânico para tráfego pago.", icon: "fa-solid fa-wand-magic-sparkles" },
+            { name: "Dra. Letícia Abreu", type: "Cirurgia Vascular", highlightNum: "12", highlightText: "Cirurgias (Varizes)", revenue: "61.200", investment: "4.900", roas: "12.4", description: "Foco exclusivo em procedimentos complexos.", icon: "fa-solid fa-heart-pulse" },
+            { name: "Dra. Juliana Molina", type: "Ginecologia", highlightNum: "35", highlightText: "Novas Pacientes", revenue: "24.500", investment: "3.500", roas: "7.0", description: "Estratégia de Search para DIU.", icon: "fa-solid fa-venus" },
+            { name: "Dr. Leandro França", type: "Psiquiatria", highlightNum: "28", highlightText: "Pacientes Recor.", revenue: "18.600", investment: "3.100", roas: "6.0", description: "Foco em LTV e recorrência.", icon: "fa-solid fa-brain" },
+            { name: "Dra. Camila Cavalli", type: "Pediatria", highlightNum: "50", highlightText: "Puericultura", revenue: "36.000", investment: "4.000", roas: "9.0", description: "Foco em pacotes de acompanhamento anual.", icon: "fa-solid fa-baby" }
+        ];
+
+        let currentCaseIndex = 0;
+        const slideContent = document.getElementById('slideContent');
+        const dotsContainer = document.getElementById('dotsContainer');
+
+        function animateValue(obj, start, end, duration, suffix = "") {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                let current = Math.floor(progress * (end - start) + start);
+                if (suffix === "x") obj.innerHTML = (progress * (end - start) + start).toFixed(1).replace('.', ',') + suffix;
+                else obj.innerHTML = current + suffix;
+                if (progress < 1) window.requestAnimationFrame(step);
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        function renderCaseSlide(index) {
+            const data = cases[index];
+            const investPct = 60; 
+            const revPct = 90;
+            slideContent.style.opacity = 0;
+            slideContent.style.transform = "translateY(10px)";
+            
+            setTimeout(() => {
+                slideContent.innerHTML = `
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 md:mb-10 border-b border-corporate/5 pb-4 md:pb-6">
+                        <div class="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3 mb-2 md:mb-0 w-full">
+                             <div class="flex items-center gap-3 w-full">
+                                 <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-deepBg border border-corporate/10 flex items-center justify-center text-corporate shrink-0"><i class="${data.icon} text-sm md:text-base"></i></div>
+                                 <h2 class="text-lg md:text-2xl text-corporate font-display font-light tracking-wide leading-tight truncate w-full">${data.name}</h2>
+                             </div>
+                             <span class="px-2 py-1 md:px-3 md:py-1 rounded-full bg-deepBg text-[9px] md:text-[10px] uppercase tracking-widest text-science font-medium border border-corporate/5 mt-2 md:mt-0 self-start md:self-auto">${data.type}</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 mb-4 md:mb-8">
+                        <div class="text-center md:text-left">
+                            <div class="text-5xl md:text-6xl font-display font-light text-corporate mb-2 leading-none count-up tracking-tighter" id="anim-highlight">0</div>
+                            <p class="text-science font-medium text-xs uppercase tracking-[0.2em]">${data.highlightText}</p>
+                            <p class="text-xs md:text-sm text-textDark mt-4 md:mt-6 font-light italic leading-relaxed">"${data.description}"</p>
+                        </div>
+                        <div class="flex flex-col gap-4 md:gap-6 justify-center">
+                            <div><div class="flex justify-between items-end mb-1"><span class="text-[9px] text-gray-500 font-bold uppercase">Investimento</span><span class="text-xs font-medium text-corporate">R$ ${data.investment}</span></div><div class="h-1 w-full bg-deepBg rounded-full overflow-hidden"><div style="width: ${investPct}%" class="h-full bg-science/50 relative bar-grow"></div></div></div>
+                            <div><div class="flex justify-between items-end mb-1"><span class="text-[9px] text-medGreen font-bold uppercase">Receita</span><span class="text-xs font-medium text-medGreen">R$ ${data.revenue}</span></div><div class="h-1 w-full bg-deepBg rounded-full overflow-hidden"><div style="width: ${revPct}%" class="h-full bg-medGreen relative bar-grow shadow-sm"></div></div></div>
+                            <div class="mt-2 inline-flex self-start md:self-end items-center gap-3 px-3 py-1.5 rounded border border-corporate/10 bg-deepBg"><span class="text-[9px] text-gray-500 uppercase">ROAS</span><span class="text-base font-display font-light text-corporate" id="anim-roas">0.0x</span></div>
+                        </div>
+                    </div>`;
+                slideContent.style.transition = "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
+                slideContent.style.opacity = 1;
+                slideContent.style.transform = "translateY(0)";
+                updateDots(index);
+                animateValue(document.getElementById('anim-highlight'), 0, parseInt(data.highlightNum), 1200);
+                animateValue(document.getElementById('anim-roas'), 0, parseFloat(data.roas), 1200, "x");
+            }, 300);
+        }
+
+        function createDots() {
+            dotsContainer.innerHTML = '';
+            cases.forEach((_, idx) => {
+                const dot = document.createElement('button'); 
+                dot.className = `w-1.5 h-1.5 rounded-full transition-all duration-500 ${idx === 0 ? 'bg-corporate scale-125' : 'bg-gray-300'}`;
+                dot.onclick = () => { currentCaseIndex = idx; renderCaseSlide(currentCaseIndex); }; 
+                dotsContainer.appendChild(dot);
+            });
+        }
+        
+        function updateDots(index) {
+            Array.from(dotsContainer.children).forEach((dot, idx) => {
+                dot.className = idx === index ? 'w-1.5 h-1.5 rounded-full bg-corporate scale-125 transition-all duration-500' : 'w-1.5 h-1.5 rounded-full bg-gray-300 transition-all duration-500';
+            });
+        }
+
+        document.getElementById('casesPrevBtn').onclick = () => { 
+            currentCaseIndex = (currentCaseIndex - 1 + cases.length) % cases.length; 
+            renderCaseSlide(currentCaseIndex); 
+        };
+        
+        document.getElementById('casesNextBtn').onclick = () => { 
+            currentCaseIndex = (currentCaseIndex + 1) % cases.length; 
+            renderCaseSlide(currentCaseIndex); 
+        };
+
+        // Inicialização
+        createDots();
+        renderCaseSlide(0);
+    </script>
+</body>
+</html>
