@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	
+	<!-- Otimização para mecanismos de pesquisa -->
 	<title>CLINTIA – Clínica Inteligente | Crescimento Sustentável para Saúde</title>
 	<link data-rocket-prefetch href="https://fonts.googleapis.com" rel="dns-prefetch">
 	<link data-rocket-prefetch href="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br" rel="dns-prefetch">
@@ -13,8 +14,14 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&#038;family=Space+Grotesk:wght@500;700&#038;display=swap" media="print" onload="this.media='all'" rel="stylesheet">
 	<noscript data-wpr-hosted-gf-parameters=""><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&#038;family=Space+Grotesk:wght@500;700&#038;display=swap"></noscript>
 	
+	<!-- CORE CSS DO WIDGET CLINTIA -->
 	<link data-minify="1" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- ========================================== -->
+    <!-- TAGS DE RASTREAMENTO (META E GOOGLE ADS)   -->
+    <!-- ========================================== -->
+    
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -30,6 +37,9 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17614228842"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -38,6 +48,7 @@
       gtag('config', 'AW-17614228842');
     </script>
 
+    <!-- Tailwind Config for the Modal (Disabling Preflight to protect existing CSS) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -701,6 +712,7 @@
 					</div>
 					
 					<div class="hero-image-placeholder-wrapper stagger-item delay-2" id="vsl-facade-container">                
+						<!-- Iframe nativo do Panda para garantir o funcionamento do Autoplay -->
 						<div style="position:relative;padding-top:177.77%;">
 							<iframe id="panda-fc0dad11-4596-4915-bc4e-d93e2cf85731" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=fc0dad11-4596-4915-bc4e-d93e2cf85731&autoplay=1" style="border:none;position:absolute;top:0;left:0;" allow="autoplay; fullscreen" allowfullscreen=true width="100%" height="100%"></iframe>
 						</div>
@@ -822,6 +834,7 @@
 						</div>
 					</div>
 
+                    <!-- CTA Adicionado Aqui -->
                     <div class="stagger-item delay-4" style="text-align: center; margin-top: 50px; width: 100%;">
                         <button class="btn-cta trigger-lead-modal-wa">
                             <span>Agendar Sessão Estratégica</span>
@@ -894,6 +907,7 @@
 					</div>        
 				</div>
 
+                <!-- CTA Adicionado Aqui -->
                 <div class="stagger-item delay-4" style="text-align: center; margin-top: 10px; width: 100%;">
                     <button class="btn-cta trigger-lead-modal-wa">
                         <span>Agendar Sessão Estratégica</span>
@@ -923,6 +937,7 @@
 						</div>
 					</div>
 
+                    <!-- CTA Adicionado Aqui -->
                     <div class="stagger-item delay-4" style="text-align: center; margin-top: 50px; width: 100%;">
                         <button class="btn-cta trigger-lead-modal-wa">
                             <span>Agendar Sessão Estratégica</span>
@@ -1149,6 +1164,9 @@
 				</div>    
 			</footer>
 
+            <!-- ========================================== -->
+            <!-- ESTRUTURA HTML DO FORMULÁRIO MODAL         -->
+            <!-- ========================================== -->
             <div id="modalOverlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 transition-opacity duration-400">
                 <div id="modalContainer" class="bg-white w-full sm:max-w-md md:max-w-lg sm:rounded-2xl rounded-t-3xl shadow-2xl relative overflow-hidden flex flex-col max-h-[90vh] sm:max-h-[85vh]">
                     
@@ -1167,10 +1185,11 @@
                     <div class="p-6 sm:p-8 overflow-y-auto">
                         <form id="leadForm" onsubmit="event.preventDefault();">
                             
+                            <!-- PASSO 1 -->
                             <div id="step1" class="step-content active">
                                 <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Qual o seu nome ?</h2>
                                 <div class="relative">
-                                    <input type="text" id="inputName" class="w-full border-0 border-b-2 border-gray-300 focus:border-oxford focus:ring-0 text-lg sm:text-xl py-3 px-1 transition-colors bg-transparent placeholder-gray-300" placeholder="Digite seu nome" autocomplete="name" required>
+                                    <input type="text" id="inputName" class="w-full border-0 border-b-2 border-gray-300 focus:border-oxford focus:ring-0 text-lg sm:text-xl py-3 px-1 transition-colors bg-transparent placeholder-gray-300" placeholder="Digite seu nome" autocomplete="name">
                                 </div>
                                 <p id="error1" class="text-red-500 text-xs mt-2 hidden">Por favor, preencha seu nome.</p>
                                 <div class="mt-8 flex justify-end">
@@ -1180,11 +1199,12 @@
                                 </div>
                             </div>
         
+                            <!-- PASSO 2 -->
                             <div id="step2" class="step-content">
                                 <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Prazer, <span id="displayName"></span>!</h2>
                                 <p class="text-gray-500 mb-6 text-sm sm:text-base">Qual seu WhatsApp para enviarmos a confirmação?</p>
                                 <div class="relative">
-                                    <input type="tel" id="inputPhone" maxlength="15" onkeyup="handlePhone(event)" class="w-full border-0 border-b-2 border-gray-300 focus:border-oxford focus:ring-0 text-lg sm:text-xl py-3 px-1 transition-colors bg-transparent placeholder-gray-300" placeholder="(DD) 99999-9999" autocomplete="tel" required>
+                                    <input type="tel" id="inputPhone" maxlength="15" onkeyup="handlePhone(event)" class="w-full border-0 border-b-2 border-gray-300 focus:border-oxford focus:ring-0 text-lg sm:text-xl py-3 px-1 transition-colors bg-transparent placeholder-gray-300" placeholder="(DD) 99999-9999" autocomplete="tel">
                                 </div>
                                 <p id="error2" class="text-red-500 text-xs mt-2 hidden">Número inválido.</p>
                                 <div class="mt-8 flex justify-between items-center gap-4">
@@ -1195,11 +1215,13 @@
                                 </div>
                             </div>
         
+                            <!-- PASSO 3 -->
                             <div id="step3" class="step-content">
                                 <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Sobre você</h2>
                                 <p class="text-gray-500 mb-6 text-sm sm:text-base">Qual opção descreve melhor seu momento?</p>
                                 <div class="space-y-3">
                                     <input type="hidden" id="inputRole">
+                                    <!-- Opções HOT -->
                                     <div onclick="selectOption('inputRole', 'Gestor/Sócio', 3)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
                                         <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
                                         <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Gestor ou sócio de clínica</span>
@@ -1208,6 +1230,7 @@
                                         <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
                                         <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Médico com consultório particular</span>
                                     </div>
+                                    <!-- Opções COLD -->
                                     <div onclick="selectOption('inputRole', 'Futuro Consultório', 3)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
                                         <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
                                         <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Pretendo abrir consultório</span>
@@ -1222,11 +1245,13 @@
                                 </div>
                             </div>
         
+                            <!-- PASSO 4 -->
                             <div id="step4" class="step-content">
                                 <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Marketing</h2>
                                 <p class="text-gray-500 mb-6 text-sm sm:text-base">Como está sua relação com marketing hoje?</p>
                                 <div class="space-y-3">
                                     <input type="hidden" id="inputStatus">
+                                    <!-- Opções HOT -->
                                     <div onclick="selectOption('inputStatus', 'Fase de Lançamento', 4)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
                                         <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
                                         <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Estou em fase de lançamento</span>
@@ -1235,6 +1260,7 @@
                                         <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
                                         <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Invisto, mas sem clareza do retorno</span>
                                     </div>
+                                    <!-- Opções COLD/MORNAS -->
                                     <div onclick="selectOption('inputStatus', 'Opera sem MKT', 4)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
                                         <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
                                         <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Já opero, nunca investi estruturado</span>
@@ -1249,6 +1275,7 @@
                                 </div>
                             </div>
         
+                            <!-- PASSO FINAL (SUCESSO) -->
                             <div id="stepSuccess" class="step-content text-center py-4">
                                 <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-oxford" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
@@ -1266,7 +1293,10 @@
                 </div>
             </div>			
 			
-            <script>
+            <!-- ========================================== -->
+            <!-- JAVASCRIPT GERAL DO SITE E FORMULÁRIO      -->
+            <!-- ========================================== -->
+			<script>
 				// Menu Mobile Toggle
 				function toggleMenu() {
 					const menu = document.getElementById('mobileMenu');
@@ -1470,36 +1500,20 @@
                     formData.append('perfil', document.getElementById('inputRole').value);
                     formData.append('momento', document.getElementById('inputStatus').value);
 
-                    // ==========================================
-                    // CAPTURA DE UTMS DA URL
-                    // ==========================================
-                    const urlParams = new URLSearchParams(window.location.search);
-                    formData.append('utm_source', urlParams.get('utm_source') || '');
-                    formData.append('utm_medium', urlParams.get('utm_medium') || '');
-                    formData.append('utm_campaign', urlParams.get('utm_campaign') || '');
-                    formData.append('utm_term', urlParams.get('utm_term') || '');
-                    formData.append('utm_content', urlParams.get('utm_content') || '');
-
                     fetch(scriptURL, { 
                         method: 'POST', 
                         body: formData,
                         mode: 'no-cors' 
                     })
-                    .then(res => console.log(`Dados (com UTMs) salvos no Sheets. ID: ${sessionId}`))
+                    .then(res => console.log(`Dados salvos no Sheets. ID: ${sessionId}`))
                     .catch(err => console.error(err));
                 }
 
                 document.addEventListener('keydown', function(event) {
                     if (event.key === "Escape") closeModal();
                     if (event.key === "Enter") {
-                        if (currentStep === 1) {
-                            event.preventDefault(); // Evita recarregar a página
-                            nextStep(1);
-                        }
-                        else if (currentStep === 2) {
-                            event.preventDefault(); // Evita recarregar a página
-                            nextStep(2);
-                        }
+                        if (currentStep === 1) nextStep(1);
+                        else if (currentStep === 2) nextStep(2);
                     }
                 });
 
