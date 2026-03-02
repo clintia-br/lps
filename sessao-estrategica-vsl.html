@@ -5,21 +5,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	
-	<!-- Otimização para mecanismos de pesquisa -->
-	<title>CLINTIA – Clínica Inteligente | Sessão Estratégica</title>
+	<title>CLINTIA – Clínica Inteligente | Crescimento Sustentável para Saúde</title>
 	<link data-rocket-prefetch href="https://fonts.googleapis.com" rel="dns-prefetch">
 	<link data-rocket-prefetch href="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br" rel="dns-prefetch">
 	<link data-rocket-preload as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&#038;family=Space+Grotesk:wght@500;700&#038;display=swap" rel="preload">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&#038;family=Space+Grotesk:wght@500;700&#038;display=swap" rel="stylesheet">
+	<link data-rocket-preload as="style" href="https://fonts.googleapis.com/css?family=Inter%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap" rel="preload">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&#038;family=Space+Grotesk:wght@500;700&#038;display=swap" media="print" onload="this.media='all'" rel="stylesheet">
+	<noscript data-wpr-hosted-gf-parameters=""><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&#038;family=Space+Grotesk:wght@500;700&#038;display=swap"></noscript>
 	
-	<!-- CORE CSS DO WIDGET CLINTIA -->
 	<link data-minify="1" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- ========================================== -->
-    <!-- TAGS DE RASTREAMENTO (META E GOOGLE ADS)   -->
-    <!-- ========================================== -->
-    
-    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -35,9 +30,6 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
-
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17614228842"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -46,7 +38,6 @@
       gtag('config', 'AW-17614228842');
     </script>
 
-    <!-- Tailwind Config for the Modal (Disabling Preflight to protect existing CSS) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -65,17 +56,32 @@
 			box-shadow: none;
 			background-color: transparent;
 		}
+		
+		#content #clintia-widget-locked a:not(.btn-cta):not(.btn-outline):not(.footer-socials a):hover {
+			color: #053C73;
+			text-decoration: none;
+		}
 
 		/* --- VARIÁVEIS DO DESIGN --- */
 		#content #clintia-widget-locked {
 			--primary-blue: #053C73; 
 			--primary-dark: #032a52; 
 			--highlight-color: #0ea5e9;
+			--accent-light: #eff6ff;
 			--bg-slate: #0f172a; 
+			--card-bg: #1e293b;
 			--text-main: #334155;
 			--text-muted: #64748b;
 			--white: #ffffff;
+			--radius-lg: 32px;
+			--radius-md: 20px;
+			--shadow-soft: 0 4px 20px -5px rgba(0,0,0,0.05);
+			--shadow-hover: 0 20px 40px -5px rgba(5, 60, 115, 0.2);
 			--transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+			--whatsapp-green: #25D366;
+			--sol-corporate: #0F172A;
+			--sol-science: #0284C7;
+			--sol-science-text: #b39a50;
 
 			font-family: 'Inter', sans-serif;
 			color: var(--text-main);
@@ -92,10 +98,17 @@
 		#content #clintia-widget-locked img { max-width: 100%; height: auto; display: block; }
 		#content #clintia-widget-locked strong { font-weight: 700; color: var(--primary-blue); }
 		
-		/* ANIMAÇÕES EM CASCATA */
-		#content #clintia-widget-locked .fade-in-section { opacity: 0; transform: translateY(15px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; will-change: opacity, transform; }
+		#content #clintia-widget-locked .dark-section strong, 
+		#content #clintia-widget-locked .quiz-section strong, 
+		#content #clintia-widget-locked .about-section strong, 
+		#content #clintia-widget-locked .quiz-card strong { color: #ffffff; }
+		
+		#content #clintia-widget-locked .font-display { font-family: 'Space Grotesk', sans-serif; }
+		
+		/* ANIMAÇÕES EM CASCATA (STAGGER) */
+		#content #clintia-widget-locked .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; will-change: opacity, transform; }
 		#content #clintia-widget-locked .fade-in-section.is-visible { opacity: 1; transform: none; }
-		#content #clintia-widget-locked .stagger-item { opacity: 0; transform: translateY(15px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+		#content #clintia-widget-locked .stagger-item { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
 		#content #clintia-widget-locked .is-visible .stagger-item { opacity: 1; transform: none; }
 		#content #clintia-widget-locked .delay-1 { transition-delay: 0.1s; }
 		#content #clintia-widget-locked .delay-2 { transition-delay: 0.2s; }
@@ -103,37 +116,114 @@
 		#content #clintia-widget-locked .delay-4 { transition-delay: 0.4s; }
 
 		/* TYPOGRAPHY OVERRIDES */
-		#content #clintia-widget-locked h1 { font-size: 1.25rem; line-height: 1.35; margin-bottom: 12px; color: var(--bg-slate); font-weight: 800; letter-spacing: -0.3px; width: 100%; }
-		@media (min-width: 768px) { #content #clintia-widget-locked h1 { font-size: 1.7rem; line-height: 1.3; margin-bottom: 16px; letter-spacing: -0.5px; } }
+		#content #clintia-widget-locked h1 { font-size: 1.25rem; line-height: 1.35; margin-bottom: 16px; color: var(--bg-slate); font-weight: 800; letter-spacing: -0.3px; width: 100%; }
+		@media (min-width: 768px) { #content #clintia-widget-locked h1 { font-size: 1.7rem; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; } }
+		
+		#content #clintia-widget-locked h2.section-title, 
+		#content #clintia-widget-locked .timeline-container > h2,
+		#content #clintia-widget-locked .suporte-extra-content h2 { 
+			font-size: 1.3rem; margin-bottom: 16px; font-weight: 700; color: var(--bg-slate); line-height: 1.25; letter-spacing: -0.5px; text-align: center;
+		}
+		
+		#content #clintia-widget-locked .dark-section h2, 
+		#content #clintia-widget-locked .about-header h2 { 
+			font-size: 1.3rem; margin-bottom: 16px; font-weight: 700; color: #ffffff; line-height: 1.25; letter-spacing: -0.5px; text-align: center;
+		}
+		#content #clintia-widget-locked .suporte-extra-content h2 { text-align: center; }
+		
+		@media (min-width: 768px) { 
+			#content #clintia-widget-locked h2.section-title, 
+			#content #clintia-widget-locked .timeline-container > h2,
+			#content #clintia-widget-locked .suporte-extra-content h2,
+			#content #clintia-widget-locked .dark-section h2, 
+			#content #clintia-widget-locked .about-header h2 { font-size: 1.8rem; margin-bottom: 24px; } 
+			#content #clintia-widget-locked .suporte-extra-content h2 { text-align: left; }
+		}
 
-		/* HEADER MINIMALISTA */
+		/* HEADER */
 		#content #clintia-widget-locked header {
-			display: flex; justify-content: center; align-items: center; padding: 16px 5%;
-			background: transparent; z-index: 1000; height: 60px;
+			display: flex; justify-content: space-between; align-items: center; padding: 12px 5%;
+			position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px);
+			z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.03); height: 70px;
 		}
 		#content #clintia-widget-locked .logo img { height: 28px; width: auto; } 
 		@media (min-width: 768px) { 
 			#content #clintia-widget-locked .logo img { height: 38px; } 
-			#content #clintia-widget-locked header { padding: 20px 5%; height: 80px; justify-content: flex-start; } 
+			#content #clintia-widget-locked header { padding: 16px 5%; height: 80px; } 
 		}                
+		#content #clintia-widget-locked .nav-menu { display: none; gap: 32px; align-items: center; }
+		@media (min-width: 900px) { #content #clintia-widget-locked .nav-menu { display: flex; } }                
+		#content #clintia-widget-locked .nav-menu a { font-size: 0.95rem; font-weight: 500; color: var(--text-main); }
+		#content #clintia-widget-locked .nav-menu a:hover { color: var(--primary-blue); }
+		#content #clintia-widget-locked .header-actions { display: flex; align-items: center; gap: 12px; }
+		#content #clintia-widget-locked .mobile-menu-btn { display: flex; align-items: center; justify-content: center; background: transparent; border: none; font-size: 1.5rem; color: var(--primary-blue); cursor: pointer; padding: 4px; }        
+		@media (min-width: 900px) { #content #clintia-widget-locked .mobile-menu-btn { display: none; } }
+		
+		#content #clintia-widget-locked .mobile-menu-overlay {
+			position: fixed; top: 70px; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px);
+			border-bottom: 1px solid rgba(0,0,0,0.05); padding: 20px; display: flex; flex-direction: column; gap: 20px;
+			transform: translateY(-150%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 990;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center;
+		}
+		#content #clintia-widget-locked .mobile-menu-overlay.active { transform: translateY(0); }
+		#content #clintia-widget-locked .mobile-menu-overlay a { font-size: 1.1rem; font-weight: 600; color: var(--bg-slate); padding: 10px; border-radius: 8px; }
+		#content #clintia-widget-locked .mobile-menu-overlay a:hover, 
+		#content #clintia-widget-locked .mobile-menu-overlay a:active { background-color: var(--accent-light); color: var(--primary-blue); }
+
+		/* BOTÕES */
+		#content #clintia-widget-locked .btn-cta {
+			background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark)); color: var(--white);
+			padding: 14px 28px; border-radius: 100px; font-weight: 600; text-transform: uppercase; font-size: 0.8rem;
+			letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+			box-shadow: 0 8px 20px rgba(5, 60, 115, 0.3); transition: var(--transition); position: relative;
+			overflow: hidden; z-index: 1; white-space: nowrap; border: none; cursor: pointer; width: auto; max-width: 90%;
+		}
+		@media (min-width: 768px) { #content #clintia-widget-locked .btn-cta { padding: 16px 36px; font-size: 0.95rem; } }
+		#content #clintia-widget-locked .btn-cta::before {
+			content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+			background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+			transform: skewX(-20deg); transition: none;
+		}
+		#content #clintia-widget-locked .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(5, 60, 115, 0.4); }
+		#content #clintia-widget-locked .btn-cta:hover::before { animation: shineBtn 1.5s infinite; }
+		@keyframes shineBtn { 0% { left: -100%; } 100% { left: 200%; } }
+		#content #clintia-widget-locked .btn-icon-svg { width: 18px; height: 18px; fill: currentColor; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .btn-icon-svg { width: 20px; height: 20px; } }
+		#content #clintia-widget-locked .btn-outline {
+			background: transparent; border: 1px solid #cbd5e1; padding: 8px 16px; border-radius: 100px;
+			font-size: 0.7rem; font-weight: 600; color: var(--text-main); white-space: nowrap; cursor: pointer;
+		}
+		@media (min-width: 768px) { #content #clintia-widget-locked .btn-outline { padding: 10px 24px; font-size: 0.85rem; } }
+		#content #clintia-widget-locked .btn-outline:hover {
+			border-color: var(--primary-blue); color: var(--primary-blue); background: rgba(5, 60, 115, 0.05);
+		}
+		#content #clintia-widget-locked .btn-outline:active, #content #clintia-widget-locked .btn-outline:focus {
+			color: var(--primary-blue); border-color: var(--primary-blue); background: rgba(5, 60, 115, 0.05);
+		}                
+
+		#content #clintia-widget-locked .section-link {
+			display: block; text-align: center; color: var(--text-muted); font-size: 0.9rem;
+			text-decoration: underline; text-underline-offset: 4px; margin-bottom: 20px; font-weight: 500;
+		}
+		#content #clintia-widget-locked .section-link:hover { color: var(--primary-blue); }
+		@media (min-width: 768px) { #content #clintia-widget-locked .section-link { font-size: 1rem; margin-bottom: 24px; } }
 
 		/* HERO */
 		#content #clintia-widget-locked .hero {
-			padding: 10px 16px 40px; width: 100%; margin: 0 auto;
-			background: transparent;
+			padding: 40px 16px; width: 100%; margin: 0 auto;
+			background: linear-gradient(180deg, #ffffff 0%, #F8FAFC 100%);
 			display: flex; flex-direction: column; align-items: center;
-            min-height: calc(100vh - 80px);
 		}
-		@media (min-width: 768px) { #content #clintia-widget-locked .hero { padding: 20px 20px 60px; } }
+		@media (min-width: 768px) { #content #clintia-widget-locked .hero { padding: 80px 20px; } }
 		
 		#content #clintia-widget-locked .hero-container {
-			width: 100%; max-width: 1100px; display: grid; grid-template-columns: 1fr; gap: 20px; justify-items: center;
+			width: 100%; max-width: 1200px; display: grid; grid-template-columns: 1fr; gap: 30px; justify-items: center;
 		}
 		@media (min-width: 900px) {
 			#content #clintia-widget-locked .hero-container { 
-				grid-template-columns: 1fr 0.8fr; 
+				grid-template-columns: 1.1fr 0.9fr; 
 				grid-template-areas: "text video" "cta video"; 
-				gap: 16px 40px; 
+				gap: 20px 60px; 
 				padding: 0 20px; 
 			}
 		}
@@ -150,10 +240,10 @@
 		#content #clintia-widget-locked .tag {
 			background: var(--white); color: var(--primary-blue); padding: 6px 14px; border-radius: 20px;
 			font-size: 0.7rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;
-			margin-bottom: 12px; border: 1px solid rgba(5, 60, 115, 0.15); animation: tagPulse 3s infinite;
+			margin-bottom: 24px; border: 1px solid rgba(5, 60, 115, 0.15); animation: tagPulse 3s infinite;
 			text-align: center; line-height: 1.3;
 		}
-		@media (min-width: 768px) { #content #clintia-widget-locked .tag { padding: 8px 18px; font-size: 0.8rem; margin-bottom: 16px; gap: 8px; } }
+		@media (min-width: 768px) { #content #clintia-widget-locked .tag { padding: 8px 18px; font-size: 0.85rem; margin-bottom: 30px; gap: 8px; } }
 		#content #clintia-widget-locked .tag::before { content: ''; width: 6px; height: 6px; background: var(--primary-blue); border-radius: 50%; flex-shrink: 0; }                
 		
 		#content #clintia-widget-locked .highlight-text {
@@ -162,30 +252,358 @@
 			position: relative; display: inline-block; filter: drop-shadow(0 2px 10px rgba(14, 165, 233, 0.2));
 		}                
 		#content #clintia-widget-locked .hero p {
-			color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; line-height: 1.5; font-weight: 400; width: 100%;
+			color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; line-height: 1.5; font-weight: 400; width: 100%;
 		}
-		@media (min-width: 768px) { #content #clintia-widget-locked .hero p { font-size: 1rem; margin-bottom: 20px; line-height: 1.6; } }
+		@media (min-width: 768px) { #content #clintia-widget-locked .hero p { font-size: 1rem; margin-bottom: 32px; line-height: 1.6; } }
 		
 		#content #clintia-widget-locked .hero-actions-wrapper {
-			display: flex; flex-direction: column; align-items: center; width: 100%; order: 3; margin-bottom: 20px;
+			display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; order: 3; margin-bottom: 20px;
 		}
 		@media (min-width: 900px) {
 			#content #clintia-widget-locked .hero-actions-wrapper { 
-				grid-area: cta; align-items: flex-start; text-align: left; align-self: start; order: unset; margin-bottom: 0px; 
+				grid-area: cta; align-items: flex-start; text-align: left; align-self: start; order: unset; margin-bottom: 40px; 
 			}
+			#content #clintia-widget-locked .hero-actions-wrapper .section-link { text-align: left; }
 		}
 
-		/* VSL FACADE PATTERN (VIDEO) */
+		/* VSL FACADE PATTERN */
 		#content #clintia-widget-locked .hero-image-placeholder-wrapper {
-			width: 100%; max-width: 320px; height: auto; border-radius: 20px;
-			overflow: hidden; box-shadow: 0 15px 35px -10px rgba(0,0,0,0.15); background: #fff; border: 6px solid #fff;
+			width: 100%; max-width: 340px; height: auto; border-radius: 24px;
+			overflow: hidden; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); background: #fff; border: 8px solid #fff;
 			margin: 0 auto; order: 2;
 		}
 		@media (min-width: 900px) { 
 			#content #clintia-widget-locked .hero-image-placeholder-wrapper { 
-				grid-area: video; max-width: 380px; margin: 0 0 0 auto; order: unset; 
+				grid-area: video; max-width: 360px; margin: 0 0 0 auto; order: unset; 
 			} 
 		}
+
+		/* GALLERY */
+		#content #clintia-widget-locked .photo-gallery-section { padding: 40px 0; background: #ffffff; width: 100%; position: relative; }                
+		#content #clintia-widget-locked .photo-gallery-track {
+			display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 20px;
+			-webkit-overflow-scrolling: touch; scrollbar-width: none;
+		}
+		#content #clintia-widget-locked .photo-gallery-track::-webkit-scrollbar { display: none; }
+		#content #clintia-widget-locked .photo-gallery-item {
+			flex: 0 0 85%; scroll-snap-align: center; border-radius: 20px; overflow: hidden;
+			position: relative; aspect-ratio: 16/9; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+		}
+		@media (min-width: 768px) {
+			#content #clintia-widget-locked .photo-gallery-item { flex: 0 0 30%; aspect-ratio: 3/2; }
+			#content #clintia-widget-locked .photo-gallery-track { padding: 0 5%; gap: 24px; }
+		}
+		#content #clintia-widget-locked .gallery-nav-btn {
+			position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px;
+			border-radius: 50%; background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(0,0,0,0.1);
+			color: var(--primary-blue); display: flex; align-items: center; justify-content: center;
+			cursor: pointer; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: all 0.3s ease; font-size: 1rem;
+		}
+		#content #clintia-widget-locked .gallery-nav-btn:hover { background: var(--primary-blue); color: #fff; transform: translateY(-50%) scale(1.1); }
+		#content #clintia-widget-locked .gallery-nav-btn.prev { left: 10px; }
+		#content #clintia-widget-locked .gallery-nav-btn.next { right: 10px; }
+		@media (min-width: 768px) {
+			#content #clintia-widget-locked .gallery-nav-btn { width: 50px; height: 50px; font-size: 1.2rem; }
+			#content #clintia-widget-locked .gallery-nav-btn.prev { left: 2%; }
+			#content #clintia-widget-locked .gallery-nav-btn.next { right: 2%; }
+		}
+		#content #clintia-widget-locked .scroll-indicator { margin-top: 50px; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.6; }
+		#content #clintia-widget-locked .mouse { width: 24px; height: 40px; border: 2px solid #cbd5e1; border-radius: 20px; position: relative; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .mouse { width: 28px; height: 44px; } }
+		#content #clintia-widget-locked .mouse::before {
+			content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+			width: 4px; height: 4px; background: #94a3b8; border-radius: 50%; animation: scrollMouse 2s infinite;
+		}
+		#content #clintia-widget-locked .arrow-down {
+			width: 10px; height: 10px; border-right: 2px solid #cbd5e1; border-bottom: 2px solid #cbd5e1;
+			transform: rotate(45deg); animation: fadeArrow 2s infinite;
+		}
+		@keyframes scrollMouse { 0% { transform: translate(-50%, 0); opacity: 1;} 100% { transform: translate(-50%, 14px); opacity: 0;} }
+		@keyframes fadeArrow { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
+		/* DARK SECTION / DOCTORS */
+		#content #clintia-widget-locked .curved-wrapper {
+			margin: 0; border-radius: 0; border-top-left-radius: 30px; border-top-right-radius: 30px;
+			overflow: hidden; box-shadow: 0 20px 50px -20px rgba(5, 60, 115, 0.4); position: relative; z-index: 2;
+		}
+		@media (min-width: 768px) { #content #clintia-widget-locked .curved-wrapper { margin: 0 20px; border-radius: var(--radius-lg); } }                
+		#content #clintia-widget-locked .dark-section {
+			background-color: var(--bg-slate);
+			background-image: radial-gradient(circle at 50% 0%, var(--primary-blue) 0%, var(--bg-slate) 80%);
+			color: white; padding: 60px 0;
+		}
+		@media (min-width: 768px) { #content #clintia-widget-locked .dark-section { padding: 100px 0; } }                
+		#content #clintia-widget-locked .dark-section > p { text-align: center; color: #94a3b8; max-width: 650px; margin: 0 auto 40px; padding: 0 20px; font-size: 0.95rem; font-weight: 300; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .dark-section > p { margin-bottom: 60px; font-size: 1.1rem; } }
+		#content #clintia-widget-locked .doctors-grid-wrapper { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .doctors-grid-wrapper { padding: 0 20px; } }
+		#content #clintia-widget-locked .doctors-grid { display: grid; grid-template-columns: 1fr; gap: 16px; width: 100%; }
+		@media (min-width: 900px) { #content #clintia-widget-locked .doctors-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } }                
+		#content #clintia-widget-locked .doctor-card {
+			background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px;
+			padding: 16px; display: flex; align-items: center; gap: 16px; width: 100%;
+			transition: transform 0.3s ease, background 0.3s ease;
+		}
+		#content #clintia-widget-locked .doctor-card:hover { background: rgba(255,255,255,0.06); transform: translateY(-3px); border-color: rgba(255,255,255,0.15); }
+		@media (min-width: 768px) { #content #clintia-widget-locked .doctor-card { border-radius: 18px; padding: 20px 24px; gap: 24px; } }
+		#content #clintia-widget-locked .doctor-avatar {
+			width: 110px; height: 75px; border-radius: 12px; background-color: #ffffff;
+			border: 2px solid rgba(255,255,255,0.1); overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+			padding: 2px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.15), 0 4px 6px rgba(0,0,0,0.1);
+			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		}                
+		#content #clintia-widget-locked .doctor-card:hover .doctor-avatar { transform: scale(1.15); box-shadow: 0 0 35px rgba(255, 255, 255, 0.6); border-color: #ffffff; z-index: 10; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .doctor-avatar { width: 150px; height: 100px; } }
+		#content #clintia-widget-locked .doctor-avatar img { width: 100%; height: 100%; object-fit: contain; }
+		#content #clintia-widget-locked .doctor-info { overflow: hidden; }
+		#content #clintia-widget-locked .doctor-info h4 { font-size: 0.85rem; color: #fff; margin-bottom: 4px; font-weight: 700; line-height: 1.3; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .doctor-info h4 { font-size: 1rem; } }
+		#content #clintia-widget-locked .doctor-info span { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 6px; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .doctor-info span { font-size: 0.75rem; } }
+		#content #clintia-widget-locked .location-tag {
+			display: inline-flex; align-items: center; gap: 4px; margin-top: 4px; font-size: 0.6rem;
+			color: var(--highlight-color); background: rgba(14, 165, 233, 0.1); padding: 2px 6px; border-radius: 4px; font-weight: 600;
+		}
+		@media (min-width: 768px) { #content #clintia-widget-locked .location-tag { font-size: 0.65rem; } }
+
+		#content #clintia-widget-locked .doctor-card.highlight-stat { 
+			background: rgba(14, 165, 233, 0.05); justify-content: center; flex-direction: column; 
+			text-align: center; border: 1px dashed rgba(14, 165, 233, 0.3); gap: 12px; box-shadow: none; cursor: default; padding: 30px;
+		}
+		@media (min-width: 900px) { #content #clintia-widget-locked .doctor-card.highlight-stat { grid-column: 1 / -1; padding: 40px; } }
+		#content #clintia-widget-locked .doctor-card.highlight-stat:hover { border-color: var(--highlight-color); background: rgba(14, 165, 233, 0.1); transform: translateY(-2px); }
+		#content #clintia-widget-locked .stat-number-big { font-size: 3rem; font-weight: 800; color: var(--highlight-color); line-height: 1; font-family: 'Space Grotesk', sans-serif; text-shadow: 0 0 20px rgba(14, 165, 233, 0.4); }
+		@media (min-width: 768px) { #content #clintia-widget-locked .stat-number-big { font-size: 4rem; } }
+		#content #clintia-widget-locked .stat-label-big { font-size: 0.9rem; color: #f8fafc; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .stat-label-big { font-size: 1.1rem; } }
+
+		/* COMPARISON SECTION */
+		#content #clintia-widget-locked .comparison-section { padding: 60px 20px 20px; background-color: #ffffff; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .comparison-section { padding: 100px 20px 40px; } }
+		#content #clintia-widget-locked .comparison-container { max-width: 1000px; margin: 0 auto; }
+		#content #clintia-widget-locked .comp-matrix { display: flex; flex-direction: column; gap: 24px; margin-top: 40px; }
+		#content #clintia-widget-locked .comp-row { display: flex; flex-direction: column; background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+		@media (min-width: 768px) { #content #clintia-widget-locked .comp-row { flex-direction: row; border-radius: 20px; } }
+		#content #clintia-widget-locked .bad-way { flex: 1; padding: 24px; background: #fdf2f2; border-bottom: 1px solid #fecaca; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .bad-way { border-bottom: none; border-right: 1px solid #fecaca; padding: 32px 40px; } }
+		#content #clintia-widget-locked .good-way { flex: 1.5; padding: 24px; background: #f0f9ff; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .good-way { padding: 32px 40px; } }
+		#content #clintia-widget-locked .comp-title-bad { color: #dc2626; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; display: flex; align-items: center; gap: 8px; margin-bottom: 12px;}
+		#content #clintia-widget-locked .comp-title-good { color: var(--primary-blue); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; display: flex; align-items: center; gap: 8px; margin-bottom: 12px;}
+		#content #clintia-widget-locked .comp-text { font-size: 0.95rem; color: var(--bg-slate); line-height: 1.5; font-weight: 500; margin: 0; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .comp-text { font-size: 1rem; } }
+		#content #clintia-widget-locked .bad-way .comp-text { color: #451a1a; opacity: 0.85; font-weight: 400; font-size: 0.9rem;}
+		@media (min-width: 768px) { #content #clintia-widget-locked .bad-way .comp-text { font-size: 0.95rem; } }
+
+		/* SERVICES SECTION */
+		#content #clintia-widget-locked .services-section { background: linear-gradient(to bottom, #f8fafc, #fff); padding: 80px 20px 40px; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .services-section { padding: 120px 20px 60px; } }
+		
+		/* METODOLOGIA - PACR FRAMEWORK */
+		#content #clintia-widget-locked .equation-box {
+			display: flex; justify-content: center; align-items: center; gap: 6px; margin: 0 auto 50px auto;
+			background: rgba(255,255,255,0.8); backdrop-filter: blur(8px); padding: 16px 20px;
+			border-radius: 20px; border: 1px solid rgba(5,60,115,0.1); width: 100%; max-width: 320px;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.05); font-family: 'Space Grotesk', sans-serif;
+			font-weight: 700; font-size: 1.1rem; color: var(--primary-blue); flex-wrap: wrap;
+		}
+		#content #clintia-widget-locked .equation-box span.var { background: var(--primary-blue); color: white; width: 30px; height: 30px; display: inline-flex; justify-content: center; align-items: center; border-radius: 8px; flex-shrink: 0;}
+		@media (min-width: 768px) { #content #clintia-widget-locked .equation-box { font-size: 1.3rem; padding: 20px 40px; border-radius: 100px; width: max-content; max-width: 100%; gap: 10px; } #content #clintia-widget-locked .equation-box span.var { width: 40px; height: 40px; border-radius: 10px; } }
+
+		#content #clintia-widget-locked .cards-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1100px; margin: 0 auto 50px; padding: 0 16px; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; margin-bottom: 60px; padding: 0 20px; } }                
+		#content #clintia-widget-locked .service-card {
+			background: white; padding: 24px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-soft);
+			border: 1px solid rgba(255,255,255,0.5); transition: var(--transition); display: flex; flex-direction: column; align-items: flex-start;
+			position: relative; overflow: hidden;
+		}
+		@media (min-width: 768px) { #content #clintia-widget-locked .service-card { padding: 40px 32px; } }
+		#content #clintia-widget-locked .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: rgba(5, 60, 115, 0.1); }                
+		#content #clintia-widget-locked .card-icon-wrapper {
+			width: 50px; height: 50px; border-radius: 12px; background: #f1f5f9;
+			display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+			color: var(--primary-blue); position: relative; overflow: hidden; flex-shrink: 0; z-index: 1;
+		}
+		@media (min-width: 768px) { #content #clintia-widget-locked .card-icon-wrapper { width: 60px; height: 60px; border-radius: 16px; margin-bottom: 24px; } }                
+		#content #clintia-widget-locked .card-icon-wrapper::after {
+			content: ''; position: absolute; top: 0; left: -150%; width: 100%; height: 100%;
+			background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
+			transform: skewX(-25deg); transition: none;
+		}
+		#content #clintia-widget-locked .service-card:hover .card-icon-wrapper { background: var(--primary-blue); color: white; }
+		#content #clintia-widget-locked .service-card:hover .card-icon-wrapper::after { animation: iconShine 0.6s ease-in-out; }
+		@keyframes iconShine { 0% { left: -150%; } 100% { left: 150%; } }                
+		#content #clintia-widget-locked .card-icon-wrapper i { font-size: 22px; display: flex; align-items: center; justify-content: center; position: relative; z-index: 2; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .card-icon-wrapper i { font-size: 26px; } }
+		
+		/* Animações Metodologia */
+		#content #clintia-widget-locked .scan-wrapper { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+		#content #clintia-widget-locked .scan-line {
+			position: absolute; width: 120%; height: 2px; background: rgba(5, 60, 115, 0.8);
+			box-shadow: 0 0 6px rgba(14, 165, 233, 0.8); top: 0; left: -10%; animation: scannerMove 2.5s ease-in-out infinite; z-index: 3; opacity: 0.8;
+		}
+		@keyframes scannerMove { 0% { top: 10%; opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { top: 90%; opacity: 0; } }
+		#content #clintia-widget-locked .ads-wrapper { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+		#content #clintia-widget-locked .cursor-pointer {
+			position: absolute; bottom: 5px; right: 5px; font-size: 14px; color: #334155;
+			text-shadow: 1px 1px 0px #fff; animation: clickMotion 2s infinite; z-index: 4;
+		}
+		@keyframes clickMotion {
+			0% { transform: translate(5px, 5px); } 40% { transform: translate(-2px, -2px); } 50% { transform: translate(-2px, -2px) scale(0.8); }
+			60% { transform: translate(-2px, -2px) scale(1); } 100% { transform: translate(5px, 5px); }
+		}
+		#content #clintia-widget-locked .chat-wrapper { position: relative; width: 100%; height: 100%; }
+		#content #clintia-widget-locked .chat-bubble-1 { position: absolute; top: 12px; left: 10px; font-size: 14px; color: var(--primary-blue); animation: chatPop 2s infinite; }
+		#content #clintia-widget-locked .chat-bubble-2 { position: absolute; bottom: 12px; right: 10px; font-size: 14px; color: var(--highlight-color); animation: chatPop 2s infinite 1s; transform: scale(0); }
+		@keyframes chatPop { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); } }
+		#content #clintia-widget-locked .heart-wrapper { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+		#content #clintia-widget-locked .pulsing-heart { color: var(--highlight-color); animation: heartBeat 1.5s ease-in-out infinite; }
+		@keyframes heartBeat { 0% { transform: scale(1); } 14% { transform: scale(1.3); } 28% { transform: scale(1); } 42% { transform: scale(1.3); } 70% { transform: scale(1); } }
+		#content #clintia-widget-locked .step-number {
+			position: absolute; top: 10px; right: 20px; font-size: 4rem; font-weight: 800; color: #f1f5f9;
+			font-family: 'Space Grotesk', sans-serif; line-height: 1; z-index: 0; transition: var(--transition);
+		}
+		#content #clintia-widget-locked .service-card:hover .step-number { color: rgba(5, 60, 115, 0.05); transform: scale(1.1); }                
+		#content #clintia-widget-locked .service-card h3 { font-size: 1.1rem; margin-bottom: 8px; font-weight: 700; color: var(--bg-slate); position: relative; z-index: 1;}
+		#content #clintia-widget-locked .service-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; position: relative; z-index: 1; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .service-card p { font-size: 1rem; line-height: 1.6; } }
+
+		/* TIMELINE */
+		#content #clintia-widget-locked .timeline-section { padding: 40px 20px; background-color: #f8fafc; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .timeline-section { padding: 80px 20px 40px; } }
+		#content #clintia-widget-locked .timeline-container { max-width: 900px; margin: 0 auto; text-align: center; }
+		#content #clintia-widget-locked .timeline-cards { display: flex; flex-direction: column; gap: 20px; text-align: left; margin-top: 40px; position: relative; }
+		#content #clintia-widget-locked .timeline-cards::before { content: ''; position: absolute; top: 40px; bottom: 40px; left: 44px; width: 2px; background: #cbd5e1; z-index: 0; }
+		@media (min-width: 768px) { 
+			#content #clintia-widget-locked .timeline-cards { flex-direction: row; gap: 30px; } 
+			#content #clintia-widget-locked .timeline-cards::before { top: 44px; left: 40px; right: 40px; bottom: auto; height: 2px; width: auto; }
+		}
+		#content #clintia-widget-locked .time-card { background: #fff; padding: 24px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; gap: 16px; flex: 1; border: 1px solid rgba(0,0,0,0.04); align-items: flex-start; transition: transform 0.3s; position: relative; z-index: 1;}
+		@media (min-width: 768px) { #content #clintia-widget-locked .time-card { padding: 30px 24px; gap: 20px; } }
+		#content #clintia-widget-locked .time-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); border-color: rgba(5,60,115,0.1); }
+		#content #clintia-widget-locked .time-icon { background: var(--primary-blue); font-size: 1.1rem; color: #fff; font-weight: 700; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Space Grotesk', sans-serif; box-shadow: 0 0 0 4px #f8fafc;}
+		@media (min-width: 768px) { #content #clintia-widget-locked .time-icon { font-size: 1.2rem; width: 40px; height: 40px; } }
+		
+		/* SUPORTE EXTRA */
+		#content #clintia-widget-locked .suporte-extra-section { padding: 40px 20px 80px; background-color: #f8fafc; }
+		#content #clintia-widget-locked .suporte-extra-container { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; align-items: center; }
+		#content #clintia-widget-locked .suporte-extra-image { width: 100%; aspect-ratio: 16/9; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-soft); border: 1px solid #e2e8f0; }
+		#content #clintia-widget-locked .suporte-extra-content { width: 100%; text-align: center; }
+		#content #clintia-widget-locked .suporte-extra-content p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+		@media (min-width: 768px) {
+			#content #clintia-widget-locked .suporte-extra-container { flex-direction: row; text-align: left; gap: 60px; }
+			#content #clintia-widget-locked .suporte-extra-image, #content #clintia-widget-locked .suporte-extra-content { width: 50%; }
+			#content #clintia-widget-locked .suporte-extra-content { text-align: left; }
+			#content #clintia-widget-locked .suporte-extra-content p { font-size: 1rem; }
+		}
+
+		/* SOLUTIONS */
+		#content #clintia-widget-locked .solutions-section { padding: 60px 16px 80px; background-color: #F8FAFC; display: flex; flex-direction: column; align-items: center; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .solutions-section { padding: 80px 20px 120px; } }
+		#content #clintia-widget-locked .solutions-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1100px; margin: 0 auto; width: 100%; }
+		@media (min-width: 900px) { #content #clintia-widget-locked .solutions-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; } }
+		#content #clintia-widget-locked .glass-card {
+			background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px);
+			border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
+			transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden;
+			border-radius: 24px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;
+			cursor: pointer; height: 100%;
+		}
+		@media (min-width: 768px) { #content #clintia-widget-locked .glass-card { padding: 32px; } }
+		#content #clintia-widget-locked .glass-card:hover { transform: translateY(-5px); box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15); background: rgba(255, 255, 255, 0.95); }
+
+		#content #clintia-widget-locked .card-shine-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+		#content #clintia-widget-locked .card-shine-bg::before, #content #clintia-widget-locked .card-shine-bg::after { content: ''; position: absolute; width: 70%; height: 70%; border-radius: 50%; filter: blur(45px); opacity: 0.3; }
+		#content #clintia-widget-locked .clinic-shine::before { background: radial-gradient(circle, rgba(179, 154, 80, 0.8) 0%, transparent 60%); top: -20%; right: -20%; }
+		#content #clintia-widget-locked .clinic-shine::after { background: radial-gradient(circle, rgba(15, 23, 42, 0.5) 0%, transparent 60%); bottom: -20%; left: -10%; }
+		#content #clintia-widget-locked .medicos-shine::before { background: radial-gradient(circle, rgba(2, 132, 199, 0.8) 0%, transparent 60%); top: -25%; left: -15%; }
+		#content #clintia-widget-locked .medicos-shine::after { background: radial-gradient(circle, rgba(5, 150, 105, 0.4) 0%, transparent 60%); bottom: -15%; right: -10%; }
+
+		#content #clintia-widget-locked .card-content-layer { position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+		#content #clintia-widget-locked .sol-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+		#content #clintia-widget-locked .sol-icon { width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; backdrop-filter: blur(4px); }
+		@media (min-width: 768px) { #content #clintia-widget-locked .sol-icon { width: 56px; height: 56px; font-size: 1.5rem; } }
+		#content #clintia-widget-locked .sol-icon.clinic { background-color: rgba(15, 23, 42, 0.1); color: var(--sol-corporate); }
+		#content #clintia-widget-locked .sol-icon.medicos { background-color: rgba(2, 132, 199, 0.1); color: var(--sol-science); }
+		#content #clintia-widget-locked .sol-badge { padding: 4px 10px; border-radius: 9999px; background-color: rgba(255,255,255,0.7); border: 1px solid #e2e8f0; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #64748b; backdrop-filter: blur(4px); }
+		#content #clintia-widget-locked .sol-logo-img { height: 60px; margin-bottom: 20px; opacity: 0.95; object-fit: contain; display: block; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .sol-logo-img { height: 75px; margin-bottom: 24px; } }
+		#content #clintia-widget-locked .sol-desc { font-size: 0.875rem; color: #475569; line-height: 1.6; margin-bottom: 24px; font-weight: 500; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .sol-desc { font-weight: 400; } }
+		#content #clintia-widget-locked .sol-list { list-style: none; padding: 0; margin-bottom: 32px; }
+		#content #clintia-widget-locked .sol-list li { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: #475569; font-weight: 500; margin-bottom: 8px; }
+		#content #clintia-widget-locked .sol-check { width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.5rem; }
+		#content #clintia-widget-locked .sol-list li .sol-check { background-color: rgba(179, 154, 80, 0.2); color: var(--sol-science-text); }
+		#content #clintia-widget-locked .sol-list.medicos li .sol-check { background-color: rgba(2, 132, 199, 0.2); color: var(--sol-science); }
+		#content #clintia-widget-locked .sol-btn { width: 100%; padding: 14px; border-radius: 12px; background-color: #f1f5f9; color: var(--sol-corporate); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s; border: none; cursor: pointer; }
+		#content #clintia-widget-locked .sol-btn:hover { background-color: var(--sol-corporate); color: white; }
+		#content #clintia-widget-locked .sol-btn.medicos:hover { background-color: var(--sol-science); color: white; }
+
+		/* ABOUT */
+		#content #clintia-widget-locked .about-section { background-color: var(--bg-slate); padding: 60px 0 80px 0; color: white; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .about-section { padding: 80px 0 100px 0; } }
+		#content #clintia-widget-locked .about-container { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 0 16px; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .about-container { padding: 0 20px; gap: 50px; } }
+		#content #clintia-widget-locked .about-header { text-align: center; width: 100%; }
+		#content #clintia-widget-locked .about-image { width: 100%; max-width: 750px; height: auto; border-radius: 32px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 25px 60px -12px rgba(0,0,0,0.6); position: relative; }
+		#content #clintia-widget-locked .about-image::after { content: ''; position: absolute; inset: 0; border-radius: 32px; border: 1px solid rgba(255,255,255,0.1); pointer-events: none; box-shadow: inset 0 0 30px rgba(0,0,0,0.3); }
+		#content #clintia-widget-locked .about-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+		#content #clintia-widget-locked .story-grid { display: grid; grid-template-columns: 1fr; gap: 20px; width: 100%; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .story-grid { grid-template-columns: 1fr 1fr; gap: 30px; } }
+		#content #clintia-widget-locked .story-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 24px; border-radius: 20px; display: flex; flex-direction: column; gap: 16px; transition: var(--transition); }
+		#content #clintia-widget-locked .story-item:hover { background: rgba(255,255,255,0.05); transform: translateY(-5px); }
+		#content #clintia-widget-locked .story-header { display: flex; align-items: center; gap: 12px; }
+		#content #clintia-widget-locked .story-icon { background: rgba(96, 165, 250, 0.1); width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #60a5fa; flex-shrink: 0; }
+		#content #clintia-widget-locked .story-item h3 { font-size: 1rem; color: #fff; margin: 0; font-weight: 700; }
+		#content #clintia-widget-locked .story-item p { font-size: 0.9rem; color: #94a3b8; line-height: 1.6; margin: 0; }
+		#content #clintia-widget-locked .about-btn-wrapper { margin-top: 20px; display: flex; justify-content: center; width: 100%; }
+
+		/* PRESENCE */
+		#content #clintia-widget-locked .presence-section { padding: 80px 20px; background: #fff; }
+		#content #clintia-widget-locked .presence-container { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .presence-container { flex-direction: row; align-items: center; gap: 60px; } }
+		#content #clintia-widget-locked .presence-image { width: 100%; aspect-ratio: 4/3; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; background-color: #f1f5f9; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .presence-image { width: 55%; } }
+		#content #clintia-widget-locked .presence-content { width: 100%; display: flex; flex-direction: column; gap: 20px; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .presence-content { width: 40%; } }
+		#content #clintia-widget-locked .stat-card { display: flex; align-items: center; gap: 20px; padding: 24px; background: #f8fafc; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease; cursor: default; }
+		#content #clintia-widget-locked .stat-card:hover { background: #fff; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.08); transform: translateX(5px); border-color: var(--primary-blue); }
+		#content #clintia-widget-locked .stat-icon-box { width: 50px; height: 50px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary-blue); font-size: 1.25rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); flex-shrink: 0; }
+		#content #clintia-widget-locked .stat-text { font-size: 0.9rem; font-weight: 700; color: var(--bg-slate); line-height: 1.3; }
+
+		/* FAQ */
+		#content #clintia-widget-locked .faq-section { padding: 60px 0 100px; background-color: #fff; }
+		#content #clintia-widget-locked .faq-container { width: 100%; max-width: 700px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; align-items: center; }
+		#content #clintia-widget-locked .faq-title { text-align: center; width: 100%; }
+		#content #clintia-widget-locked .faq-item { border-bottom: 1px solid #e2e8f0; margin-bottom: 10px; width: 100%; }
+		#content #clintia-widget-locked .faq-item:last-child { border-bottom: none; }
+		#content #clintia-widget-locked .faq-question { width: 100%; text-align: left; padding: 14px 0; background: none; border: none; font-size: 0.85rem; font-weight: 600; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: color 0.3s; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .faq-question { font-size: 1rem; padding: 20px 0; } }
+		#content #clintia-widget-locked .faq-question:hover { color: var(--primary-blue); }
+		#content #clintia-widget-locked .faq-question.active { color: var(--primary-blue); }
+		#content #clintia-widget-locked .faq-icon { font-size: 0.8rem; transition: transform 0.3s; color: var(--primary-blue); flex-shrink: 0; width: 24px; height: 24px; display: grid; place-items: center; background: rgba(5, 60, 115, 0.05); border-radius: 50%; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .faq-icon { font-size: 1rem; } }
+		#content #clintia-widget-locked .faq-question.active .faq-icon { transform: rotate(180deg); background: var(--primary-blue); color: #fff; }
+		#content #clintia-widget-locked .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding-right: 10px; }
+		#content #clintia-widget-locked .faq-answer p { padding-bottom: 20px; color: var(--text-muted); line-height: 1.5; font-size: 0.8rem; margin: 0; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .faq-answer p { padding-bottom: 24px; line-height: 1.6; font-size: 0.95rem; } }
+
+		/* FOOTER */
+		#content #clintia-widget-locked footer { background: linear-gradient(to top, #020617, #0f172a); color: #94a3b8; padding: 60px 20px 30px; border-top: 1px solid rgba(255,255,255,0.05); border-radius: 40px 40px 0 0; position: relative; z-index: 10; margin-top: -20px; }
+		#content #clintia-widget-locked .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 40px; text-align: center; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .footer-container { grid-template-columns: repeat(3, 1fr); text-align: left; gap: 20px; } }
+		#content #clintia-widget-locked .footer-logo-img { height: 32px; margin: 0 auto 15px auto; opacity: 0.95; filter: brightness(0) invert(1); display: block; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .footer-logo-img { height: 45px; margin: 0 0 20px 0; } }
+		#content #clintia-widget-locked .footer-col h4 { color: #fff; font-size: 1.1rem; margin-bottom: 20px; font-weight: 700; }
+		#content #clintia-widget-locked .footer-col ul { list-style: none; padding: 0; }
+		#content #clintia-widget-locked .footer-col ul li { margin-bottom: 12px; }                
+		#content #clintia-widget-locked .footer-col ul li a { color: #94a3b8; transition: color 0.3s; font-size: 0.9rem; }
+		#content #clintia-widget-locked .footer-col ul li a:hover { color: var(--highlight-color); }                
+		#content #clintia-widget-locked .footer-socials { display: flex; justify-content: center; gap: 16px; margin-top: 20px; }
+		@media (min-width: 768px) { #content #clintia-widget-locked .footer-socials { justify-content: flex-start; } }
+		#content #clintia-widget-locked .footer-socials a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #fff; transition: all 0.3s; }
+		#content #clintia-widget-locked .footer-socials a:hover { background: var(--primary-blue); transform: translateY(-3px); }
+		#content #clintia-widget-locked .footer-bottom { margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 0.8rem; color: #64748b; }
 
 		/* LGPD */
 		#content #clintia-widget-locked .lgpd-banner {
@@ -203,7 +621,7 @@
 		@keyframes slideUp { from { opacity: 0; transform: translate(-50%, 50px); } to { opacity: 1; transform: translate(-50%, 0); } }
 
         /* ========================================== */
-        /* CSS DO FORMULÁRIO (INLINE)                 */
+        /* CSS ADICIONAL DO FORMULÁRIO MODAL          */
         /* ========================================== */
         .bg-oxford { background-color: #051E32 !important; }
         .text-oxford { color: #051E32 !important; }
@@ -214,11 +632,29 @@
         .option-card { transition: all 0.2s; cursor: pointer; border: 1px solid #e5e7eb; }
         .option-card:hover { border-color: #051E32; background-color: #f0f4f8; }
         .option-card.selected { border-color: #051E32; background-color: #f0f4f8; box-shadow: 0 0 0 1px #051E32; }
+
+        /* Animação e Layout do Bottom Sheet (Mobile) */
+        #modalContainer {
+            transform: translateY(100%);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @media (min-width: 640px) {
+            #modalContainer { transform: scale(0.95) translateY(10px); opacity: 0; }
+        }
+        #modalOverlay.open #modalContainer { 
+            transform: translateY(0) scale(1); 
+            opacity: 1; 
+        }
 	</style>
 
 </head>
 <body class="home wp-singular page-template-default page page-id-326 wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-kit-7 elementor-page elementor-page-326">
 
+<header id="site-header" class="site-header dynamic-header ">	
+	<div class="header-inner">		
+		<div class="site-branding show-title"></div>
+	</div>
+</header>
 <main id="content" class="site-main post-326 page type-page status-publish hentry">
 	<div class="page-content">				
 		
@@ -235,154 +671,608 @@
 				<div class="logo">            
 					<img decoding="async" src="https://i.imgur.com/DOYHPYg.png" alt="Clintia Logo" style="filter: brightness(0);">        
 				</div>                
+				<nav class="nav-menu">            
+					<a href="#metodologia">Metodologia</a>            
+					<a href="#nossas-solucoes">Soluções</a>            
+					<a href="#depoimentos">Quem atendemos</a>            
+					<a href="#sobre">Sobre</a>        
+				</nav>
+				<div class="header-actions">            
+					<button class="btn-outline trigger-lead-modal-wa">Sessão Estratégica</button>            
+					<button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">                
+						<i class="fa-solid fa-bars"></i>            
+					</button>        
+				</div>    
 			</header>
+
+			<div class="mobile-menu-overlay" id="mobileMenu">        
+				<a href="#metodologia" onclick="toggleMenu()">Metodologia</a>        
+				<a href="#nossas-solucoes" onclick="toggleMenu()">Soluções</a>        
+				<a href="#depoimentos" onclick="toggleMenu()">Quem atendemos</a>        
+				<a href="#sobre" onclick="toggleMenu()">Sobre</a>    
+			</div>
 
 			<section class="hero fade-in-section">        
 				<div class="hero-container">            
-					
-                    <!-- TEXTO (Ordem 1 no celular, Esquerda no desktop) -->
-                    <div class="hero-text-block">                
+					<div class="hero-text-block">                
 						<div class="tag stagger-item delay-1">Exclusivo para Gestores de Clínicas e Médicos com RQE</div>                                
 						<h1 class="stagger-item delay-2">Vamos analisar o momento da sua clínica ou consultório e estruturar as ações que <u style="text-decoration-color: var(--highlight-color); text-underline-offset: 4px;">aumentam o faturamento</u>, trazem <u style="text-decoration-color: var(--highlight-color); text-underline-offset: 4px;">previsibilidade</u> e aceleram seu crescimento nos próximos 6 meses.</h1>                                
 						<p class="stagger-item delay-3">Se você é médico, gestor ou dono de clínica e sente que os resultados ainda não refletem o potencial do seu negócio, <strong>essa sessão estratégica pode ser o passo que faltava para evoluir com mais clareza, controle e direção.</strong></p>                                
 					</div>
 					
-                    <!-- VÍDEO (Ordem 2 no celular, Direita no desktop) -->
 					<div class="hero-image-placeholder-wrapper stagger-item delay-2" id="vsl-facade-container">                
 						<div style="position:relative;padding-top:177.77%;">
 							<iframe id="panda-fc0dad11-4596-4915-bc4e-d93e2cf85731" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=fc0dad11-4596-4915-bc4e-d93e2cf85731&autoplay=1" style="border:none;position:absolute;top:0;left:0;" allow="autoplay; fullscreen" allowfullscreen=true width="100%" height="100%"></iframe>
 						</div>
 					</div>        
 
-                    <!-- FORMULÁRIO INLINE (Ordem 3 no celular, Esquerda Abaixo do Texto no Desktop) -->
 					<div class="hero-actions-wrapper stagger-item delay-4">                    
-						<div class="bg-white w-full rounded-2xl shadow-xl border border-gray-100 relative overflow-hidden flex flex-col">
-                            
-                            <div class="bg-gray-100 h-1.5 w-full">
-                                <div id="progressBar" class="bg-oxford h-1.5 transition-all duration-500" style="width: 25%"></div>
-                            </div>
-                
-                            <div class="px-6 pt-6 pb-0 sm:px-8 sm:pt-8">
-                                <span id="stepIndicator" class="text-[10px] font-bold tracking-widest text-oxford uppercase bg-blue-50 px-2 py-1 rounded">Passo 1/4</span>
-                            </div>
-                
-                            <div class="p-6 sm:p-8">
-                                <form id="leadForm" onsubmit="event.preventDefault();">
-                                    
-                                    <!-- PASSO 1 -->
-                                    <div id="step1" class="step-content active">
-                                        <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Qual o seu nome ?</h2>
-                                        <div class="relative">
-                                            <input type="text" id="inputName" class="w-full border-0 border-b-2 border-gray-300 focus:border-oxford focus:ring-0 text-lg sm:text-xl py-3 px-1 transition-colors bg-transparent placeholder-gray-300" placeholder="Digite seu nome" autocomplete="name" required>
-                                        </div>
-                                        <p id="error1" class="text-red-500 text-xs mt-2 hidden">Por favor, preencha seu nome.</p>
-                                        <div class="mt-8 flex justify-end">
-                                            <button type="button" onclick="nextStep(1)" class="bg-oxford text-white px-6 py-3 rounded-lg hover-bg-oxford transition font-medium flex items-center gap-2 text-sm sm:text-base w-full sm:w-auto justify-center">
-                                                Continuar <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                
-                                    <!-- PASSO 2 -->
-                                    <div id="step2" class="step-content">
-                                        <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Prazer, <span id="displayName"></span>!</h2>
-                                        <p class="text-gray-500 mb-6 text-sm sm:text-base">Qual seu WhatsApp para enviarmos a confirmação?</p>
-                                        <div class="relative">
-                                            <input type="tel" id="inputPhone" maxlength="15" onkeyup="handlePhone(event)" class="w-full border-0 border-b-2 border-gray-300 focus:border-oxford focus:ring-0 text-lg sm:text-xl py-3 px-1 transition-colors bg-transparent placeholder-gray-300" placeholder="(DD) 99999-9999" autocomplete="tel" required>
-                                        </div>
-                                        <p id="error2" class="text-red-500 text-xs mt-2 hidden">Número inválido.</p>
-                                        <div class="mt-8 flex justify-between items-center gap-4">
-                                            <button type="button" onclick="prevStep(2)" class="text-gray-400 hover:text-gray-600 font-medium text-sm">Voltar</button>
-                                            <button type="button" onclick="nextStep(2)" class="bg-oxford text-white px-6 py-3 rounded-lg hover-bg-oxford transition font-medium flex items-center gap-2 text-sm sm:text-base flex-1 justify-center sm:flex-none">
-                                                Continuar <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                
-                                    <!-- PASSO 3 -->
-                                    <div id="step3" class="step-content">
-                                        <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Sobre você</h2>
-                                        <p class="text-gray-500 mb-6 text-sm sm:text-base">Qual opção descreve melhor seu momento?</p>
-                                        <div class="space-y-3">
-                                            <input type="hidden" id="inputRole">
-                                            <!-- Opções HOT -->
-                                            <div onclick="selectOption('inputRole', 'Gestor/Sócio', 3)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
-                                                <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
-                                                <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Gestor ou sócio de clínica</span>
-                                            </div>
-                                            <div onclick="selectOption('inputRole', 'Médico Particular', 3)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
-                                                <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
-                                                <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Médico com consultório particular</span>
-                                            </div>
-                                            <!-- Opções COLD -->
-                                            <div onclick="selectOption('inputRole', 'Futuro Consultório', 3)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
-                                                <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
-                                                <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Pretendo abrir consultório</span>
-                                            </div>
-                                            <div onclick="selectOption('inputRole', 'Outro', 3)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
-                                                <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
-                                                <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Outro</span>
-                                            </div>
-                                        </div>
-                                        <div class="mt-6 flex justify-start">
-                                            <button type="button" onclick="prevStep(3)" class="text-gray-400 hover:text-gray-600 font-medium text-sm">Voltar</button>
-                                        </div>
-                                    </div>
-                
-                                    <!-- PASSO 4 -->
-                                    <div id="step4" class="step-content">
-                                        <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Marketing</h2>
-                                        <p class="text-gray-500 mb-6 text-sm sm:text-base">Como está sua relação com marketing hoje?</p>
-                                        <div class="space-y-3">
-                                            <input type="hidden" id="inputStatus">
-                                            <!-- Opções HOT -->
-                                            <div onclick="selectOption('inputStatus', 'Fase de Lançamento', 4)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
-                                                <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
-                                                <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Estou em fase de lançamento</span>
-                                            </div>
-                                            <div onclick="selectOption('inputStatus', 'Investe sem Clareza', 4)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
-                                                <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
-                                                <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Invisto, mas sem clareza do retorno</span>
-                                            </div>
-                                            <!-- Opções COLD/MORNAS -->
-                                            <div onclick="selectOption('inputStatus', 'Opera sem MKT', 4)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
-                                                <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
-                                                <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Já opero, nunca investi estruturado</span>
-                                            </div>
-                                            <div onclick="selectOption('inputStatus', 'Experiência Ruim', 4)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
-                                                <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
-                                                <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Já tive experiência ruim com agência</span>
-                                            </div>
-                                        </div>
-                                        <div class="mt-6 flex justify-start">
-                                            <button type="button" onclick="prevStep(4)" class="text-gray-400 hover:text-gray-600 font-medium text-sm">Voltar</button>
-                                        </div>
-                                    </div>
-                
-                                    <!-- PASSO FINAL (SUCESSO) -->
-                                    <div id="stepSuccess" class="step-content text-center py-4">
-                                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-oxford" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                                        </div>
-                                        <h2 class="text-2xl font-bold text-gray-900 mb-2">Quase lá, <span id="finalName"></span>!</h2>
-                                        <p class="text-gray-600 mb-8 text-sm sm:text-base">Para finalizar, escolha o melhor horário para falarmos.</p>
-                                        <a href="https://calendar.app.google/Xgz9ETqKh4PXAR3u6" target="_blank" class="block w-full bg-oxford hover-bg-oxford text-white font-semibold py-4 rounded-lg shadow-md transition transform hover:scale-[1.02] flex items-center justify-center gap-2">
-                                            Ver dias e horários disponíveis <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                                        </a>
-                                        <p class="text-xs text-gray-400 mt-4">Você será redirecionado para nossa agenda.</p>
-                                    </div>
-                
-                                </form>
-                            </div>
-                        </div>                   
+						<button class="btn-cta trigger-lead-modal-wa">                        
+							<span>Agendar Sessão Estratégica</span>                        
+							<svg class="btn-icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>                    
+						</button>                
+					</div>        
+				</div>
+				<div class="scroll-indicator fade-in-section delay-4">            
+					<div class="mouse"></div>            
+					<div class="arrow-down"></div>        
+				</div>    
+			</section>
+
+			<div class="curved-wrapper" id="depoimentos">        
+				<section class="dark-section fade-in-section">            
+					<h2 class="stagger-item delay-1">Crescer sem método é sorte. E <strong>sorte não escala.</strong></h2>            
+					<p class="stagger-item delay-2">Mais de 250 negócios médicos saíram do 'achismo' para a gestão baseada em dados e posicionamento ético com a Clínica Inteligente.</p>
+					<div class="doctors-grid-wrapper stagger-item delay-3">                
+						<div class="doctors-grid">                    
+							<div class="doctor-card">                        
+								<div class="doctor-avatar"><img decoding="async" src="https://i.imgur.com/CV9f0ee.png" alt="Logo Clínica Eladium"></div>                         
+								<div class="doctor-info">                            
+									<h4>DR. EDUARDO DE LAMARE</h4>                            
+									<span>CLÍNICA ELADIUM (ENDOMETRIOSE)</span>                            
+									<div class="location-tag"><i class="fa-solid fa-location-dot"></i> Cuiabá-MT</div>                        
+								</div>                    
+							</div>                    
+							<div class="doctor-card">                        
+								<div class="doctor-avatar"><img decoding="async" src="https://i.imgur.com/Gx6Bpab.png" alt="Logo Clínica Cantároz"></div>                         
+								<div class="doctor-info">                            
+									<h4>DRA. CAROLINA DE LAMARE</h4>                            
+									<span>CLÍNICA CANTÁROZ (BIÓPSIAS)</span>                            
+									<div class="location-tag"><i class="fa-solid fa-location-dot"></i> Cuiabá-MT</div>                        
+								</div>                    
+							</div>                    
+							<div class="doctor-card">                        
+								<div class="doctor-avatar"><img decoding="async" src="https://i.imgur.com/CxbsztE.png" alt="Logo Clínica Orel"></div>                         
+								<div class="doctor-info">                            
+									<h4>DR. MAURÍCIO OREL</h4>                            
+									<span>CLÍNICA OREL (CIR. PLÁSTICA)</span>                            
+									<div class="location-tag"><i class="fa-solid fa-location-dot"></i> São Paulo-SP</div>                        
+								</div>                    
+							</div>                    
+							<div class="doctor-card">                        
+								<div class="doctor-avatar"><img decoding="async" src="https://i.imgur.com/cRZA7Ky.png" alt="Logo IKA Saúde"></div>                         
+								<div class="doctor-info">                            
+									<h4>DR. FELIPE KEZAM</h4>                            
+									<span>IKA SAÚDE (DERMATOLOGIA)</span>                            
+									<div class="location-tag"><i class="fa-solid fa-location-dot"></i> São Paulo-SP</div>                        
+								</div>                    
+							</div>                    
+							<div class="doctor-card">                        
+								<div class="doctor-avatar"><img decoding="async" src="https://i.imgur.com/N23Ric9.png" alt="Logo Observa"></div>                         
+								<div class="doctor-info">                            
+									<h4>DR. PAULO MENDES</h4>                            
+									<span>CLÍNICA DOS OLHOS OBSERVAR</span>                            
+									<div class="location-tag"><i class="fa-solid fa-location-dot"></i> Paraná-PR</div>                        
+								</div>                    
+							</div>                    
+							<div class="doctor-card">                        
+								<div class="doctor-avatar"><img decoding="async" src="https://i.imgur.com/C4215rx.png" alt="Logo Policlínica Alpha"></div>                         
+								<div class="doctor-info">                            
+									<h4>DR. AUGUSTO NETO</h4>                            
+									<span>POLICLÍNICA ALPHA (CLÍNICA POPULAR)</span>                            
+									<div class="location-tag"><i class="fa-solid fa-location-dot"></i> Paraíba-PB</div>                        
+								</div>                    
+							</div>
+							<div class="doctor-card highlight-stat">                        
+								<div class="stat-number-big">+250</div>                        
+								<div class="stat-label-big">Clínicas Atendidas</div>                    
+							</div>                
+						</div>            
+					</div>        
+				</section>    
+			</div>
+
+			<section class="comparison-section fade-in-section">
+				<div class="comparison-container">
+					<h2 class="section-title stagger-item delay-1" style="margin-bottom: 16px;">O Custo Silencioso do Marketing Genérico</h2>
+					<p class="stagger-item delay-2" style="text-align: center; color: var(--text-muted); font-size: 1rem; max-width: 800px; margin: 0 auto 40px auto; padding: 0 16px;">Entenda por que a jornada atual atrai curiosos em vez de pacientes — e como a metodologia Clintia inverte esse cenário da base ao fechamento.</p>
+					
+					<div class="comp-matrix">
+						<div class="comp-row stagger-item delay-2">
+							<div class="bad-way">
+								<div class="comp-title-bad"><i class="fa-solid fa-xmark"></i> O Mercado Comum</div>
+								<p class="comp-text">Instagram parecendo panfleto e conteúdos rasos focados apenas em "agendar consulta". O paciente não vê valor, só procura o menor preço.</p>
+							</div>
+							<div class="good-way">
+								<div class="comp-title-good"><i class="fa-solid fa-check-double"></i> Padrão Clintia</div>
+								<p class="comp-text"><strong>Dossiê DPV.</strong> Mapeamos dores, traumas e poder aquisitivo do seu paciente. Sua comunicação se torna tão evidente que sua autoridade chega antes do seu preço.</p>
+							</div>
+						</div>
+
+						<div class="comp-row stagger-item delay-3">
+							<div class="bad-way">
+								<div class="comp-title-bad"><i class="fa-solid fa-xmark"></i> O Mercado Comum</div>
+								<p class="comp-text">Anúncios jogando o usuário solto no WhatsApp com perguntas como: "Vocês aceitam plano?" ou exigindo desconto logo de cara.</p>
+							</div>
+							<div class="good-way">
+								<div class="comp-title-good"><i class="fa-solid fa-check-double"></i> Padrão Clintia</div>
+								<p class="comp-text"><strong>Triagem na Fonte.</strong> O paciente é educado sobre a sua metodologia antes do clique. Eliminamos leads ruins pela raiz; quem chega à equipe está qualificado.</p>
+							</div>
+						</div>
+
+						<div class="comp-row stagger-item delay-4">
+							<div class="bad-way">
+								<div class="comp-title-bad"><i class="fa-solid fa-xmark"></i> O Mercado Comum</div>
+								<p class="comp-text">A secretária apenas responde rápido, envia a tabela de preços e encerra com "qualquer dúvida estou à disposição". Dinheiro perdido.</p>
+							</div>
+							<div class="good-way">
+								<div class="comp-title-good"><i class="fa-solid fa-check-double"></i> Padrão Clintia</div>
+								<p class="comp-text"><strong>Scripts e Treinamento.</strong> Responder rápido é só a obrigação. Sua equipe aprende a diagnosticar o momento do paciente e conduzir o fechamento com elegância.</p>
+							</div>
+						</div>
+					</div>
+
+                    <div class="stagger-item delay-4" style="text-align: center; margin-top: 50px; width: 100%;">
+                        <button class="btn-cta trigger-lead-modal-wa">
+                            <span>Agendar Sessão Estratégica</span>
+                            <svg class="btn-icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </button>
+                    </div>
+				</div>
+			</section>
+
+			<section class="services-section fade-in-section" id="metodologia">        
+				<h2 class="section-title stagger-item delay-1" style="margin-bottom: 20px;">O Ecossistema PACR</h2>        
+				
+				<div class="equation-box stagger-item delay-2">
+					<span class="var" title="Posicionamento">P</span> 
+					<i class="fa-solid fa-arrow-right" style="color: #94a3b8; font-size: 1rem; margin: 0 4px;"></i>
+					<span class="var" title="Aquisição">A</span> 
+					<i class="fa-solid fa-arrow-right" style="color: #94a3b8; font-size: 1rem; margin: 0 4px;"></i>
+					<span class="var" title="Conversão">C</span> 
+					<i class="fa-solid fa-arrow-right" style="color: #94a3b8; font-size: 1rem; margin: 0 4px;"></i>
+					<span class="var" title="Retenção e Recomendação">R</span> 
+				</div>
+
+				<p class="stagger-item delay-3" style="text-align: center; margin-bottom: 60px; color: var(--text-muted); font-size: 1.05rem; max-width: 850px; margin-left: auto; margin-right: auto; padding: 0 16px; line-height: 1.6;">
+					Ações isoladas criam gargalos financeiros. Investir em <strong>Aquisição</strong> sem uma <strong>Conversão</strong> afiada é apenas financiar as plataformas de anúncio, não o seu negócio. A verdadeira eficiência ocorre quando estes quatro pilares formam um fluxo contínuo, onde até mesmo pacientes de intervenção única retroalimentam a clínica através de recomendações sistêmicas, diluindo radicalmente o seu Custo de Aquisição (CAC).
+				</p>
+				
+				<div class="cards-grid">            
+					<div class="service-card stagger-item delay-1">                
+						<span class="step-number">P</span>                
+						<div class="card-icon-wrapper">                    
+							<div class="scan-wrapper">                        
+								<div class="scan-line"></div>                        
+								<i class="fa-solid fa-fingerprint"></i>                    
+							</div>                
+						</div>                
+						<h3>Posicionamento (O Dossiê)</h3>                
+						<p>Definimos quem você é e com quem você fala. Mapeamos seu Diferencial Real e o tom de voz. <strong>Se você não sabe quem é seu paciente ideal, atrairá qualquer um.</strong></p>            
+					</div>
+					<div class="service-card stagger-item delay-2">                
+						<span class="step-number">A</span>                
+						<div class="card-icon-wrapper">                    
+							<div class="ads-wrapper">                        
+								<i class="fa-solid fa-bullhorn"></i>                        
+								<i class="fa-solid fa-arrow-pointer cursor-pointer"></i>                    
+							</div>                
+						</div>                
+						<h3>Aquisição Inteligente</h3>                
+						<p>Operamos tráfego pago, social media e busca orgânica baseados no seu Dossiê. <strong>Tráfego sem posicionamento é dinheiro jogado fora.</strong></p>            
+					</div>
+					<div class="service-card stagger-item delay-3">                
+						<span class="step-number">C</span>                
+						<div class="card-icon-wrapper">                    
+							<div class="chat-wrapper">                        
+								<i class="fa-solid fa-comment chat-bubble-1"></i>                        
+								<i class="fa-solid fa-comment-dots chat-bubble-2"></i>                    
+							</div>                
+						</div>                
+						<h3>Conversão e Comercial</h3>                
+						<p>O paciente chegou. Se a recepção não sabe o que fazer, o marketing morreu. Implementamos <strong>treinamento de equipe, scripts éticos e coleta de dados.</strong></p>            
+					</div>
+					<div class="service-card stagger-item delay-4">                
+						<span class="step-number">R</span>                
+						<div class="card-icon-wrapper">                    
+							<div class="heart-wrapper">                        
+								<i class="fa-solid fa-heart pulsing-heart"></i>                    
+							</div>                
+						</div>                
+						<h3>Retenção & Recomendação</h3>                
+						<p>O ciclo não termina na alta médica. Pacientes satisfeitos devem se tornar ativos de captação. Estruturamos processos sistêmicos para gerar retorno ou indicações, diluindo o seu custo de aquisição.</p>            
+					</div>        
+				</div>
+
+                <div class="stagger-item delay-4" style="text-align: center; margin-top: 10px; width: 100%;">
+                    <button class="btn-cta trigger-lead-modal-wa">
+                        <span>Agendar Sessão Estratégica</span>
+                        <svg class="btn-icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </button>
+                </div>
+			</section>
+
+			<section class="timeline-section fade-in-section">
+				<div class="timeline-container">
+					<h2 class="stagger-item delay-1">Da Estratégia à Operação em 30 Dias</h2>
+					<p class="stagger-item delay-2" style="font-size: 1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 10px; padding: 0 16px;">Não perdemos tempo com relatórios teóricos que não saem do papel. O plano é implementado e começa a rodar logo no primeiro mês.</p>
+					<div class="timeline-cards">
+						<div class="time-card stagger-item delay-3">
+							<div class="time-icon">1</div>
+							<div>
+								<h4 style="font-size: 1.1rem; color: var(--bg-slate); margin-bottom: 8px; font-weight: 700;">Os Primeiros 30 Dias (Implementação)</h4>
+								<p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; margin: 0;">Mergulhamos no negócio (Dossiê Clintia), definimos o posicionamento, construímos a infraestrutura digital, configuramos o CRM, treinamos sua equipe e ativamos a captação.</p>
+							</div>
+						</div>
+						<div class="time-card stagger-item delay-4">
+							<div class="time-icon" style="background: var(--highlight-color);">2</div>
+							<div>
+								<h4 style="font-size: 1.1rem; color: var(--bg-slate); margin-bottom: 8px; font-weight: 700;">Mês 2 em diante (Escala e Acompanhamento)</h4>
+								<p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; margin: 0;">A máquina entra em operação. Iniciamos o ciclo de otimização contínua, análise semanal de métricas de conversão pelo nosso time e a estruturação das campanhas de retenção.</p>
+							</div>
+						</div>
+					</div>
+
+                    <div class="stagger-item delay-4" style="text-align: center; margin-top: 50px; width: 100%;">
+                        <button class="btn-cta trigger-lead-modal-wa">
+                            <span>Agendar Sessão Estratégica</span>
+                            <svg class="btn-icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </button>
+                    </div>
+				</div>
+			</section>
+
+			<section class="suporte-extra-section fade-in-section">        
+				<div class="suporte-extra-container">            
+					<div class="suporte-extra-image stagger-item delay-1">                
+						<img decoding="async" src="https://i.imgur.com/YEVA1mt.jpeg" alt="Suporte Individualizado Clintia" style="width: 100%; height: 100%; object-fit: cover;">            
+					</div>            
+					<div class="suporte-extra-content stagger-item delay-2">                
+						<h2>A Clintia é Execução, não apenas Consultoria</h2>                
+						<p>Nós não te entregamos um plano de ação e pedimos para você se virar. Nossa equipe planeja, cria, executa, acompanha e reporta em dashboards precisos. <strong>Você acompanha e foca no que faz de melhor: a medicina.</strong></p>            
+					</div>        
+				</div>    
+			</section>
+
+			<section class="solutions-section fade-in-section" id="nossas-solucoes">        
+				<h2 class="section-title stagger-item delay-1" style="margin-bottom: 20px;">Nossas Soluções</h2>        
+				<p class="stagger-item delay-2" style="text-align: center; margin-bottom: 50px; color: var(--text-muted); font-size: 1rem; max-width: 600px; padding: 0 16px;">A Metodologia é a mesma. A aplicação muda conforme a realidade de quem está na frente.</p>                
+				<div class="solutions-grid">            
+					<div class="glass-card trigger-lead-modal-wa stagger-item delay-3" data-segment="gestor">                
+						<div class="card-shine-bg clinic-shine"></div>                
+						<div class="card-content-layer">                    
+							<div>                        
+								<div class="sol-header">                            
+									<div class="sol-icon clinic"><i class="fa-solid fa-hospital"></i></div>                            
+									<span class="sol-badge">Clínicas e Labs</span>                        
+								</div>                        
+								<img decoding="async" src="https://i.imgur.com/rtCd666.png" alt="Logo PRO Clinic" class="sol-logo-img">                                                
+								<p class="sol-desc">Para gestores que <strong>cansaram de investir no escuro</strong>. A Clintia entra como o seu setor de marketing: com equipe, método e operação completa. Integramos Posicionamento, Tráfego, Comercial e Retenção para entregar o que sempre faltou: <strong>confiança no investimento e controle sobre cada real gasto.</strong></p>                        
+								<ul class="sol-list">                            
+									<li><span class="sol-check"><i class="fa-solid fa-check"></i></span> Posicionamento de Marca</li>                            
+									<li><span class="sol-check"><i class="fa-solid fa-check"></i></span> Gestão de Conteúdo Orgânico</li>                            
+									<li><span class="sol-check"><i class="fa-solid fa-check"></i></span> Gestão de Tráfego Pago</li>                            
+									<li><span class="sol-check"><i class="fa-solid fa-check"></i></span> Treinamento Comercial da Equipe</li>                            
+									<li><span class="sol-check"><i class="fa-solid fa-check"></i></span> Automações de Relacionamento e CRM</li>                        
+								</ul>                    
+							</div>                    
+							<button class="sol-btn">Estruturar minha clínica <i class="fa-solid fa-arrow-right"></i></button>                
+						</div>            
+					</div>
+					<div class="glass-card trigger-lead-modal-wa stagger-item delay-4" data-segment="medico">                
+						<div class="card-shine-bg medicos-shine"></div>                
+						<div class="card-content-layer">                    
+							<div>                        
+								<div class="sol-header">                            
+									<div class="sol-icon medicos"><i class="fa-solid fa-user-doctor"></i></div>                            
+									<span class="sol-badge">Consultório</span>                        
+								</div>                        
+								<img decoding="async" src="https://i.imgur.com/E4PklGz.png" alt="Logo PRO Médicos" class="sol-logo-img">                                                
+								<p class="sol-desc">Para médicos que querem fortalecer o particular sem perder a seriedade. <strong>Seu nome vira marca. Seu consultório vira negócio.</strong> Construímos sua presença digital de forma ética para atrair o paciente certo, sem que você precise fazer dancinhas ou virar especialista em marketing.</p>                        
+								<ul class="sol-list medicos">                            
+									<li><span class="sol-check"><i class="fa-solid fa-check"></i></span> Dossiê de Posicionamento (Marca Pessoal)</li>                            
+									<li><span class="sol-check"><i class="fa-solid fa-check"></i></span> Gestão de Tráfego Direcionado</li>                            
+									<li><span class="sol-check"><i class="fa-solid fa-check"></i></span> Produção de Conteúdo Sério</li>                            
+									<li><span class="sol-check"><i class="fa-solid fa-check"></i></span> Processo Comercial Adaptado ao Consultório</li>                            
+									<li><span class="sol-check"><i class="fa-solid fa-check"></i></span> Estruturação de Indicações (Orgânico)</li>                        
+								</ul>                    
+							</div>                    
+							<button class="sol-btn medicos">Valorizar meu consultório <i class="fa-solid fa-arrow-right"></i></button>                
+						</div>            
 					</div>        
 				</div>
 			</section>
 
-            <!-- ========================================== -->
-            <!-- JAVASCRIPT GERAL DO SITE E FORMULÁRIO      -->
-            <!-- ========================================== -->
-			<script>
+			<section class="about-section fade-in-section" id="sobre">        
+				<div class="about-container">            
+					<div class="about-header stagger-item delay-1">                
+						<h2>Sobre a Clintia</h2>            
+					</div>
+					<div class="about-image stagger-item delay-2">                
+						<img decoding="async" src="https://i.imgur.com/JRWoDtK.png" alt="Equipe Clintia - Bernardo Carneiro">            
+					</div>                        
+					<div class="story-grid">                
+						<div class="story-item stagger-item delay-1">                    
+							<div class="story-header">                        
+								<div class="story-icon"><i class="fa-solid fa-seedling"></i></div>                        
+								<h3>Origem no Consultório</h3>                    
+							</div>                    
+							<p>A Clintia nasceu de convivência. Seu fundador, Bernardo Carneiro, cresceu no meio médico e entendeu cedo que clínicas trabalham muito e atendem bem, mas travam na hora de crescer por <strong>falta de um sistema de negócios.</strong></p>                
+						</div>
+						<div class="story-item stagger-item delay-2">                    
+							<div class="story-header">                        
+								<div class="story-icon"><i class="fa-solid fa-flag"></i></div>                        
+								<h3>+10 Anos de Mercado</h3>                    
+							</div>                    
+							<p>Com origem na primeira empresa de marketing médico do Brasil, operamos desde quando o mercado era embrionário. Aprendemos na prática que na saúde não existe "achismo", apenas responsabilidade, ética e dados reais.</p>                
+						</div>
+						<div class="story-item stagger-item delay-3">                    
+							<div class="story-header">                        
+								<div class="story-icon"><i class="fa-solid fa-list-check"></i></div>                        
+								<h3>Mais de 250 Clínicas</h3>                    
+							</div>                    
+							<p>Após centenas de negócios da saúde atendidos, percebemos que o problema não era falta de tráfego, era falta de integração. Assim, consolidamos o método que substitui ações isoladas por um sistema integrado de crescimento.</p>                
+						</div>
+						<div class="story-item stagger-item delay-4">                    
+							<div class="story-header">                        
+								<div class="story-icon"><i class="fa-solid fa-rocket"></i></div>                        
+								<h3>Operação Independente</h3>                    
+							</div>                    
+							<p>Fundada como operação independente em 2020, atuamos de forma nacional com um objetivo claro: transformar clínicas e consultórios em negócios inteligentes, escaláveis e referência em suas regiões.</p>                
+						</div>            
+					</div>
+					<div class="about-btn-wrapper stagger-item delay-4">                
+						<button class="btn-cta trigger-lead-modal-wa">                    
+							<span>Agendar Sessão Estratégica</span>                    
+							<svg class="btn-icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>                    
+						</button>                
+					</div>            
+				</div>    
+			</section>
+
+			<section class="presence-section fade-in-section">        
+				<h2 class="section-title stagger-item delay-1" style="margin-bottom: 40px;">Atuação em todo o território nacional</h2>
+				<div class="presence-container">            
+					<div class="presence-image stagger-item delay-2">                
+						<img decoding="async" src="https://i.imgur.com/cjZ30GE.png" alt="Presença Nacional" style="width: 100%; height: 100%; object-fit: contain;">            
+					</div>            
+					<div class="presence-content">                
+						<div class="stat-card stagger-item delay-2">                    
+							<div class="stat-icon-box"><i class="fa-solid fa-map-location-dot"></i></div>                    
+							<div class="stat-text">Operação em Nível Nacional</div>                
+						</div>                
+						<div class="stat-card stagger-item delay-3">                    
+							<div class="stat-icon-box"><i class="fa-solid fa-staff-snake"></i></div>                    
+							<div class="stat-text">100% Focado na Ética Médica</div>                
+						</div>                
+						<div class="stat-card stagger-item delay-4">                    
+							<div class="stat-icon-box"><i class="fa-solid fa-file-shield"></i></div>                    
+							<div class="stat-text">Metodologia PACR Validada</div>                
+						</div>            
+					</div>        
+				</div>    
+			</section>
+
+			<section class="faq-section fade-in-section">        
+				<div class="faq-container">            
+					<h2 class="faq-title stagger-item delay-1">Dúvidas Frequentes</h2>                        
+					<div class="faq-item stagger-item delay-2">                
+						<button class="faq-question" onclick="toggleFaq(this)">                    
+							A Clintia é uma agência de marketing comum?                    
+							<div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>                
+						</button>                
+						<div class="faq-answer">                    
+							<p>Não. Não entregamos ações soltas como apenas fazer posts ou rodar anúncios. Atuamos como um setor de crescimento estruturado que integra seu Posicionamento, Canais de Aquisição, Treinamento Comercial da sua equipe e estratégias de Retenção de pacientes.</p>                
+						</div>            
+					</div>
+					<div class="faq-item stagger-item delay-2">                
+						<button class="faq-question" onclick="toggleFaq(this)">                    
+							Qual é a diferença entre PRO Clinic® e PRO Médicos®?                    
+							<div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>                
+						</button>                
+						<div class="faq-answer">                    
+							<p>O <strong>PRO Clinic®</strong> é para clínicas e laboratórios com equipes onde o Gestor quer previsibilidade e prestação de contas dos investimentos.<br><br>O <strong>PRO Médicos®</strong> é voltado ao profissional em consultório particular que precisa transformar seu nome em marca, sem virar refém das redes sociais.</p>                
+						</div>            
+					</div>
+					<div class="faq-item stagger-item delay-3">                
+						<button class="faq-question" onclick="toggleFaq(this)">                    
+							Como funciona o início do projeto?                    
+							<div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>                
+						</button>                
+						<div class="faq-answer">                    
+							<p>Nos primeiros 15 dias realizamos o <strong>Dossiê Clintia</strong>, uma imersão profunda no seu negócio para definir DNA, diferenciais e público-alvo real. Tudo o que for produzido a partir de então — de uma simples mensagem a uma campanha de anúncios — nascerá dessa inteligência.</p>                
+						</div>            
+					</div>
+					<div class="faq-item stagger-item delay-3">                
+						<button class="faq-question" onclick="toggleFaq(this)">                    
+							Vocês prometem agenda lotada?                    
+							<div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>                
+						</button>                
+						<div class="faq-answer">                    
+							<p>Não. A medicina é séria e rejeitamos o charlatanismo. Não vendemos mágica, milagre ou "6 em 7". Nós implementamos um método documentado que gera controle, qualifica seus contatos e te ajuda a cobrar o valor adequado pela sua consulta ou procedimento.</p>                
+						</div>            
+					</div>
+					<div class="faq-item stagger-item delay-4">                
+						<button class="faq-question" onclick="toggleFaq(this)">                    
+							Vocês atendem em qual região?                    
+							<div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>                
+						</button>                
+						<div class="faq-answer">                    
+							<p>Atendemos médicos e gestores em todo o território nacional, com processos desenhados especificamente para operação e acompanhamento remoto com extrema proximidade.</p>                
+						</div>            
+					</div>        
+				</div>    
+			</section>
+
+			<footer>        
+				<div class="footer-container">            
+					<div class="footer-col">                
+						<img decoding="async" src="https://i.imgur.com/DOYHPYg.png" alt="Clintia Logo" class="footer-logo-img">                
+						<p style="margin-bottom: 20px;">Clínica Inteligente. Transformamos negócios da saúde com método, dados e absoluto respeito à ética médica.</p>                
+						<div class="footer-socials">                    
+							<a href="#"><i class="fa-brands fa-instagram"></i></a>                    
+							<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>                    
+							<a href="#"><i class="fa-brands fa-youtube"></i></a>                
+						</div>            
+					</div>
+					<div class="footer-col">                
+						<h4>Metodologia</h4>                
+						<ul>                    
+							<li><a href="#nossas-solucoes">ProClinic</a></li>                    
+							<li><a href="#nossas-solucoes">ProMédicos</a></li>                    
+							<li><a href="#metodologia">O Ecossistema PACR</a></li>                    
+							<li><a href="#depoimentos">Casos de Sucesso</a></li>                
+						</ul>            
+					</div>
+					<div class="footer-col">                
+						<h4>Contato</h4>                
+						<ul>                    
+							<li><a href="mailto:contato@clintia.com.br">contato@clintia.com.br</a></li>                    
+							<li><a href="#">(21) 99891-0942</a></li>                    
+							<li><a href="#">Unidade Rio de Janeiro - RJ</a></li>                    
+							<li><a href="#">Unidade São Paulo - SP</a></li>                
+						</ul>            
+					</div>        
+				</div>
+				<div class="footer-bottom">            
+					<p>2026© CLINTIA - Clínica Inteligente. Todos os direitos reservados.</p>            
+				</div>    
+			</footer>
+
+            <div id="modalOverlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 transition-opacity duration-400">
+                <div id="modalContainer" class="bg-white w-full sm:max-w-md md:max-w-lg sm:rounded-2xl rounded-t-3xl shadow-2xl relative overflow-hidden flex flex-col max-h-[90vh] sm:max-h-[85vh]">
+                    
+                    <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+        
+                    <div class="bg-gray-100 h-1.5 w-full">
+                        <div id="progressBar" class="bg-oxford h-1.5 transition-all duration-500" style="width: 25%"></div>
+                    </div>
+        
+                    <div class="px-6 pt-6 pb-0 sm:px-8 sm:pt-8">
+                        <span id="stepIndicator" class="text-[10px] font-bold tracking-widest text-oxford uppercase bg-blue-50 px-2 py-1 rounded">Passo 1/4</span>
+                    </div>
+        
+                    <div class="p-6 sm:p-8 overflow-y-auto">
+                        <form id="leadForm" onsubmit="event.preventDefault();">
+                            
+                            <div id="step1" class="step-content active">
+                                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Qual o seu nome ?</h2>
+                                <div class="relative">
+                                    <input type="text" id="inputName" class="w-full border-0 border-b-2 border-gray-300 focus:border-oxford focus:ring-0 text-lg sm:text-xl py-3 px-1 transition-colors bg-transparent placeholder-gray-300" placeholder="Digite seu nome" autocomplete="name" required>
+                                </div>
+                                <p id="error1" class="text-red-500 text-xs mt-2 hidden">Por favor, preencha seu nome.</p>
+                                <div class="mt-8 flex justify-end">
+                                    <button type="button" onclick="nextStep(1)" class="bg-oxford text-white px-6 py-3 rounded-lg hover-bg-oxford transition font-medium flex items-center gap-2 text-sm sm:text-base w-full sm:w-auto justify-center">
+                                        Continuar <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                                    </button>
+                                </div>
+                            </div>
+        
+                            <div id="step2" class="step-content">
+                                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Prazer, <span id="displayName"></span>!</h2>
+                                <p class="text-gray-500 mb-6 text-sm sm:text-base">Qual seu WhatsApp para enviarmos a confirmação?</p>
+                                <div class="relative">
+                                    <input type="tel" id="inputPhone" maxlength="15" onkeyup="handlePhone(event)" class="w-full border-0 border-b-2 border-gray-300 focus:border-oxford focus:ring-0 text-lg sm:text-xl py-3 px-1 transition-colors bg-transparent placeholder-gray-300" placeholder="(DD) 99999-9999" autocomplete="tel" required>
+                                </div>
+                                <p id="error2" class="text-red-500 text-xs mt-2 hidden">Número inválido.</p>
+                                <div class="mt-8 flex justify-between items-center gap-4">
+                                    <button type="button" onclick="prevStep(2)" class="text-gray-400 hover:text-gray-600 font-medium text-sm">Voltar</button>
+                                    <button type="button" onclick="nextStep(2)" class="bg-oxford text-white px-6 py-3 rounded-lg hover-bg-oxford transition font-medium flex items-center gap-2 text-sm sm:text-base flex-1 justify-center sm:flex-none">
+                                        Continuar <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                                    </button>
+                                </div>
+                            </div>
+        
+                            <div id="step3" class="step-content">
+                                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Sobre você</h2>
+                                <p class="text-gray-500 mb-6 text-sm sm:text-base">Qual opção descreve melhor seu momento?</p>
+                                <div class="space-y-3">
+                                    <input type="hidden" id="inputRole">
+                                    <div onclick="selectOption('inputRole', 'Gestor/Sócio', 3)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
+                                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
+                                        <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Gestor ou sócio de clínica</span>
+                                    </div>
+                                    <div onclick="selectOption('inputRole', 'Médico Particular', 3)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
+                                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
+                                        <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Médico com consultório particular</span>
+                                    </div>
+                                    <div onclick="selectOption('inputRole', 'Futuro Consultório', 3)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
+                                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
+                                        <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Pretendo abrir consultório</span>
+                                    </div>
+                                    <div onclick="selectOption('inputRole', 'Outro', 3)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
+                                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
+                                        <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Outro</span>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-start">
+                                    <button type="button" onclick="prevStep(3)" class="text-gray-400 hover:text-gray-600 font-medium text-sm">Voltar</button>
+                                </div>
+                            </div>
+        
+                            <div id="step4" class="step-content">
+                                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Marketing</h2>
+                                <p class="text-gray-500 mb-6 text-sm sm:text-base">Como está sua relação com marketing hoje?</p>
+                                <div class="space-y-3">
+                                    <input type="hidden" id="inputStatus">
+                                    <div onclick="selectOption('inputStatus', 'Fase de Lançamento', 4)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
+                                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
+                                        <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Estou em fase de lançamento</span>
+                                    </div>
+                                    <div onclick="selectOption('inputStatus', 'Investe sem Clareza', 4)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
+                                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
+                                        <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Invisto, mas sem clareza do retorno</span>
+                                    </div>
+                                    <div onclick="selectOption('inputStatus', 'Opera sem MKT', 4)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
+                                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
+                                        <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Já opero, nunca investi estruturado</span>
+                                    </div>
+                                    <div onclick="selectOption('inputStatus', 'Experiência Ruim', 4)" class="option-card rounded-lg p-4 flex items-center gap-3 group">
+                                        <div class="w-5 h-5 rounded-full border-2 border-gray-300 group-hover:border-oxford flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-oxford hidden check-circle"></div></div>
+                                        <span class="font-medium text-gray-700 group-hover:text-oxford text-sm sm:text-base">Já tive experiência ruim com agência</span>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-start">
+                                    <button type="button" onclick="prevStep(4)" class="text-gray-400 hover:text-gray-600 font-medium text-sm">Voltar</button>
+                                </div>
+                            </div>
+        
+                            <div id="stepSuccess" class="step-content text-center py-4">
+                                <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-oxford" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                                </div>
+                                <h2 class="text-2xl font-bold text-gray-900 mb-2">Quase lá, <span id="finalName"></span>!</h2>
+                                <p class="text-gray-600 mb-8 text-sm sm:text-base">Para finalizar, escolha o melhor horário para falarmos.</p>
+                                <a href="https://calendar.app.google/Xgz9ETqKh4PXAR3u6" target="_blank" class="block w-full bg-oxford hover-bg-oxford text-white font-semibold py-4 rounded-lg shadow-md transition transform hover:scale-[1.02] flex items-center justify-center gap-2">
+                                    Ver dias e horários disponíveis <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                </a>
+                                <p class="text-xs text-gray-400 mt-4">Você será redirecionado para nossa agenda.</p>
+                            </div>
+        
+                        </form>
+                    </div>
+                </div>
+            </div>			
+			
+            <script>
+				// Menu Mobile Toggle
+				function toggleMenu() {
+					const menu = document.getElementById('mobileMenu');
+					menu.classList.toggle('active');
+				}
+
 				// Fade-In Observer
 				const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 				const observer = new IntersectionObserver((entries) => {
@@ -395,6 +1285,22 @@
 				}, observerOptions);
 
 				document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+
+				// FAQ Toggle
+				function toggleFaq(btn) {
+					const answer = btn.nextElementSibling;
+					if (btn.classList.contains('active')) {
+						btn.classList.remove('active');
+						answer.style.maxHeight = null;
+					} else {
+						document.querySelectorAll('.faq-question').forEach(b => {
+							b.classList.remove('active');
+							b.nextElementSibling.style.maxHeight = null;
+						});
+						btn.classList.add('active');
+						answer.style.maxHeight = answer.scrollHeight + "px";
+					}
+				}
 
 				// LGPD Logic
 				function acceptLgpd() {
@@ -427,6 +1333,28 @@
                 let currentStep = 1;
                 const totalSteps = 4;
                 const sessionId = 'ID_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+
+                function openModal() {
+                    const modal = document.getElementById('modalOverlay');
+                    modal.classList.remove('hidden');
+                    
+                    // Delay sutil para garantir a animação do CSS (Bottom Sheet)
+                    setTimeout(() => { 
+                        modal.classList.remove('opacity-0');
+                        modal.classList.add('open'); // Ativa o slide-up via CSS
+                    }, 10);
+                    
+                    // Foco no input após o slide-up
+                    setTimeout(() => { document.getElementById('inputName').focus(); }, 400);
+                }
+
+                function closeModal() {
+                    const modal = document.getElementById('modalOverlay');
+                    modal.classList.remove('open'); // Desativa o slide-up via CSS
+                    modal.classList.add('opacity-0');
+                    
+                    setTimeout(() => { modal.classList.add('hidden'); }, 400);
+                }
 
                 function updateUI() {
                     document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
@@ -542,36 +1470,59 @@
                     formData.append('perfil', document.getElementById('inputRole').value);
                     formData.append('momento', document.getElementById('inputStatus').value);
 
+                    // ==========================================
+                    // CAPTURA DE UTMS DA URL
+                    // ==========================================
+                    const urlParams = new URLSearchParams(window.location.search);
+                    formData.append('utm_source', urlParams.get('utm_source') || '');
+                    formData.append('utm_medium', urlParams.get('utm_medium') || '');
+                    formData.append('utm_campaign', urlParams.get('utm_campaign') || '');
+                    formData.append('utm_term', urlParams.get('utm_term') || '');
+                    formData.append('utm_content', urlParams.get('utm_content') || '');
+
                     fetch(scriptURL, { 
                         method: 'POST', 
                         body: formData,
                         mode: 'no-cors' 
                     })
-                    .then(res => console.log(`Dados salvos no Sheets. ID: ${sessionId}`))
+                    .then(res => console.log(`Dados (com UTMs) salvos no Sheets. ID: ${sessionId}`))
                     .catch(err => console.error(err));
                 }
 
                 document.addEventListener('keydown', function(event) {
+                    if (event.key === "Escape") closeModal();
                     if (event.key === "Enter") {
                         if (currentStep === 1) {
                             event.preventDefault(); // Evita recarregar a página
                             nextStep(1);
                         }
                         else if (currentStep === 2) {
-                            event.preventDefault();
+                            event.preventDefault(); // Evita recarregar a página
                             nextStep(2);
                         }
                     }
                 });
 
+				// QUALIFICATION SCRIPT (MUDADO DE WHATSAPP PARA MODAL)
+				const triggerBtnsWa = document.querySelectorAll('.trigger-lead-modal-wa');
+				triggerBtnsWa.forEach(btn => {
+					btn.addEventListener('click', (e) => {
+						e.preventDefault();
+						openModal(); 
+					});
+				});
 			</script>
 
 		</div>				
 	</div>
 </main>
-
-<footer style="text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; font-family: 'Inter', sans-serif;">
-    <p>2026© CLINTIA - Clínica Inteligente. Todos os direitos reservados.</p>
+<footer id="site-footer" class="site-footer dynamic-footer footer-has-copyright">	
+	<div class="footer-inner">		
+		<div class="site-branding show-logo"></div>
+		<div class="copyright show">				
+			<p>Todos os direitos reservados</p>			
+		</div>			
+	</div>
 </footer>
 
 </body>
