@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playbook Dr. Weber — Atendimento WhatsApp</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #2F4F3F;
+    --green-med: #4A7C59;
+    --green-light: #6B9E7A;
+    --gold: #8B7D3C;
+    --gold-light: #B5A65E;
+    --cream: #F8F5EE;
+    --cream-dark: #EDE8DC;
+    --white: #FFFFFF;
+    --text: #2A2A2A;
+    --text-light: #5A5A5A;
+    --red-soft: #8B3A3A;
+    --red-bg: #FDF2F2;
+    --green-bg: #F0F7F0;
+    --gold-bg: #FFF9E8;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+    --radius: 10px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 15px;
+  }
+
+  /* NAV SIDEBAR */
+  .layout { display: flex; min-height: 100vh; }
+
+  .sidebar {
+    width: 280px;
+    background: var(--green-dark);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 100;
+    transition: transform 0.3s ease;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.2) transparent;
+  }
+
+  .sidebar-header {
+    padding: 28px 24px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .sidebar-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .sidebar-header p {
+    color: var(--gold-light);
+    font-size: 11px;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .nav-section {
+    padding: 16px 0;
+  }
+
+  .nav-section-title {
+    color: rgba(255,255,255,0.4);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0 24px;
+    margin-bottom: 8px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 9px 24px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13.5px;
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: var(--white);
+    background: rgba(255,255,255,0.05);
+    border-left-color: var(--gold-light);
+  }
+
+  .nav-link.sub { padding-left: 40px; font-size: 12.5px; color: rgba(255,255,255,0.5); }
+  .nav-link.sub:hover { color: rgba(255,255,255,0.8); }
+
+  /* MAIN */
+  .main {
+    margin-left: 280px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--green-dark) 0%, #3A6B52 50%, var(--green-dark) 100%);
+    padding: 80px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(139,125,60,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(139,125,60,0.25);
+    color: var(--gold-light);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(139,125,60,0.3);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .hero p {
+    color: rgba(255,255,255,0.7);
+    font-size: 17px;
+    max-width: 550px;
+    line-height: 1.6;
+  }
+
+  /* CONTENT */
+  .content { max-width: 860px; margin: 0 auto; padding: 50px 60px 80px; }
+
+  .section { margin-bottom: 56px; scroll-margin-top: 30px; }
+
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--green-dark);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-number {
+    background: var(--green-dark);
+    color: var(--white);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--green-med);
+    font-size: 20px;
+    margin: 32px 0 12px;
+  }
+
+  h4 {
+    color: var(--gold);
+    font-size: 15px;
+    font-weight: 700;
+    margin: 24px 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  p.body { margin-bottom: 14px; color: var(--text-light); }
+
+  .quote-box {
+    border-left: 4px solid var(--gold);
+    background: var(--gold-bg);
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--green-med);
+    font-size: 15.5px;
+    line-height: 1.6;
+  }
+
+  .alert-box {
+    background: var(--red-bg);
+    border-left: 4px solid var(--red-soft);
+    padding: 14px 18px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 16px 0;
+    font-size: 13.5px;
+    color: var(--red-soft);
+    font-weight: 600;
+  }
+
+  .tip-box {
+    background: var(--green-bg);
+    border-left: 4px solid var(--green-med);
+    padding: 14px 18px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 16px 0;
+    font-size: 13.5px;
+    color: var(--green-dark);
+    font-weight: 600;
+  }
+
+  /* COMPARISON TABLE */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .compare-card {
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .compare-card.bad { background: var(--red-bg); border: 1px solid #E8D0D0; }
+  .compare-card.good { background: var(--green-bg); border: 1px solid #C8E0C8; }
+
+  .compare-card h4 {
+    margin: 0 0 12px;
+    font-size: 14px;
+  }
+
+  .compare-card.bad h4 { color: var(--red-soft); }
+  .compare-card.good h4 { color: var(--green-dark); }
+
+  .compare-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .compare-card li {
+    padding: 5px 0;
+    font-size: 13.5px;
+    color: var(--text-light);
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .compare-card.bad li::before { content: '✕'; position: absolute; left: 0; color: var(--red-soft); font-weight: 700; font-size: 11px; }
+  .compare-card.good li::before { content: '✓'; position: absolute; left: 0; color: var(--green-med); font-weight: 700; }
+
+  /* LANGUAGE TABLE */
+  .lang-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .lang-table th {
+    padding: 12px 16px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .lang-table th.avoid { background: #E8D0D0; color: var(--red-soft); text-align: left; }
+  .lang-table th.use { background: #C8E0C8; color: var(--green-dark); text-align: left; }
+
+  .lang-table td {
+    padding: 10px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid #EDE8DC;
+    background: var(--white);
+  }
+
+  .lang-table td:first-child { color: var(--red-soft); text-decoration: line-through; opacity: 0.7; }
+  .lang-table td:last-child { color: var(--green-dark); font-weight: 600; }
+  .lang-table .arrow { text-align: center; width: 32px; color: var(--gold); font-size: 16px; text-decoration: none !important; opacity: 1 !important; }
+
+  /* DIALOG / CHAT */
+  .dialog-container {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin: 16px 0;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .dialog-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-light);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dialog-label::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green-med);
+  }
+
+  .msg {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+
+  .msg:last-child { margin-bottom: 0; }
+
+  .msg-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .msg.sec .msg-avatar { background: var(--green-dark); color: var(--white); }
+  .msg.pac .msg-avatar { background: var(--gold); color: var(--white); }
+
+  .msg-bubble {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.55;
+    position: relative;
+  }
+
+  .msg.sec .msg-bubble {
+    background: #EAF2EA;
+    color: var(--text);
+    border-bottom-left-radius: 4px;
+  }
+
+  .msg.pac .msg-bubble {
+    background: #FFF8E8;
+    color: var(--text-light);
+    font-style: italic;
+    border-bottom-left-radius: 4px;
+  }
+
+  /* COPY BUTTON */
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+    padding: 5px 12px;
+    background: var(--green-dark);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-size: 11.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.3px;
+  }
+
+  .copy-btn:hover { background: var(--green-med); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+  .copy-btn:active { transform: translateY(0); }
+
+  .copy-btn.copied {
+    background: var(--gold);
+    pointer-events: none;
+  }
+
+  .copy-btn svg { width: 13px; height: 13px; }
+
+  /* BULLETS & LISTS */
+  .info-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+
+  .info-list li {
+    padding: 8px 0 8px 24px;
+    position: relative;
+    font-size: 14px;
+    color: var(--text-light);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .info-list li:last-child { border-bottom: none; }
+  .info-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .info-list li strong { color: var(--green-dark); }
+
+  /* NUMBERED RULES */
+  .rule-card {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    align-items: flex-start;
+  }
+
+  .rule-card:last-child { border-bottom: none; }
+
+  .rule-num {
+    background: var(--green-dark);
+    color: var(--white);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .rule-text { font-size: 14px; color: var(--text-light); }
+  .rule-text strong { color: var(--green-dark); }
+
+  /* METRICS TABLE */
+  .metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .metrics-table th {
+    background: var(--green-dark);
+    color: var(--white);
+    padding: 12px 16px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+  }
+
+  .metrics-table td {
+    padding: 11px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid #EDE8DC;
+    background: var(--white);
+  }
+
+  .metrics-table td:first-child { font-weight: 600; color: var(--green-dark); }
+  .metrics-table td:nth-child(2) { color: var(--gold); font-weight: 700; }
+
+  /* CHECKLIST */
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--text-light);
+  }
+
+  .check-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--green-med);
+    border-radius: 4px;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .check-box.checked {
+    background: var(--green-med);
+    border-color: var(--green-med);
+  }
+
+  .check-box.checked::after {
+    content: '✓';
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .check-item.checked-item span { text-decoration: line-through; opacity: 0.5; }
+
+  /* PHASE TAG */
+  .phase-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--green-dark);
+    color: var(--white);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  /* MOBILE */
+  .menu-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 200;
+    background: var(--green-dark);
+    color: var(--white);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 99;
+  }
+
+  @media (max-width: 900px) {
+    .sidebar { transform: translateX(-100%); }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-overlay.show { display: block; }
+    .main { margin-left: 0; }
+    .menu-toggle { display: flex; }
+    .hero { padding: 60px 24px; }
+    .hero h1 { font-size: 30px; }
+    .content { padding: 30px 20px 60px; }
+    .compare-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--green-dark);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* Scroll progress */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 280px;
+    height: 3px;
+    background: var(--gold);
+    z-index: 50;
+    transition: width 0.1s linear;
+  }
+
+  @media (max-width: 900px) {
+    .scroll-progress { left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="toast" id="toast">✓ Mensagem copiada!</div>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Dr. Weber</h2>
+      <p>Playbook WhatsApp</p>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Fundamentos</div>
+      <a class="nav-link" href="#cultura">1. Mentalidade e Cultura</a>
+      <a class="nav-link sub" href="#diferenca">A Diferença Fundamental</a>
+      <a class="nav-link sub" href="#linguagem">Linguagem</a>
+      <a class="nav-link" href="#paciente">2. Nosso Paciente</a>
+      <a class="nav-link" href="#funil">3. Funil de Vendas</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Script de Atendimento</div>
+      <a class="nav-link" href="#fase1">Fase 1 — Acolhimento</a>
+      <a class="nav-link" href="#fase2">Fase 2 — Qualificação SPIN</a>
+      <a class="nav-link" href="#fase3">Fase 3 — Solução</a>
+      <a class="nav-link" href="#fase4">Fase 4 — Agendamento</a>
+      <a class="nav-link" href="#fase5">Fase 5 — Objeções</a>
+      <a class="nav-link" href="#fase6">Fase 6 — Follow-Up</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Operação</div>
+      <a class="nav-link" href="#regras">5. Regras de Ouro</a>
+      <a class="nav-link" href="#checklist">6. Checklist Diário</a>
+      <a class="nav-link" href="#metricas">7. Métricas</a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <header class="hero">
+      <div class="hero-badge">Confidencial — Uso Interno</div>
+      <h1>Playbook de Atendimento<br>e Vendas via WhatsApp</h1>
+      <p>Manual completo de cultura e operação comercial para a secretária do Protocolo Dr. Weber.</p>
+    </header>
+
+    <div class="content">
+
+      <!-- ========== SEÇÃO 1 ========== -->
+      <section class="section" id="cultura">
+        <h2 class="section-title"><span class="section-number">1</span> Mentalidade e Cultura</h2>
+        <p class="body">Antes de qualquer script, você precisa entender a essência do que vendemos. Não somos uma clínica que vende remédio. Somos uma equipe que guia pessoas a recuperar <strong>liberdade e vitalidade</strong> através de um processo médico seguro e monitorado.</p>
+        <div class="quote-box">Nossa promessa qualitativa é a distinção vital entre um corpo menor e um corpo saudável.</div>
+
+        <h3 id="diferenca">A Diferença Fundamental</h3>
+        <div class="compare-grid">
+          <div class="compare-card bad">
+            <h4>O Inimigo: Perder Peso</h4>
+            <ul>
+              <li>Eliminação genérica (gordura + músculos + água)</li>
+              <li>Flacidez, aspecto doentio, perda de força</li>
+              <li>É o que a concorrência faz</li>
+            </ul>
+          </div>
+          <div class="compare-card good">
+            <h4>Nosso Objetivo: Emagrecer</h4>
+            <ul>
+              <li>Eliminação exclusiva de gordura</li>
+              <li>Preservação de massa magra</li>
+              <li>Manutenção do viço da pele e vitalidade</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>O Vilão do Mercado</h3>
+        <p class="body">A concorrência funciona no modelo "receita de balcão": prescreve a medicação, manda o paciente embora e só retorna em 30 ou 60 dias. Resultado? Uso sem suporte, perda de massa magra e desistência.</p>
+        <div class="quote-box">O perigo não é a medicação; é a falta de guia.</div>
+        <p class="body">O Dr. Weber não vende a "caneta" (a prescrição). Ele vende a <strong>segurança do processo</strong> — o acompanhamento semanal que transforma produto em serviço.</p>
+
+        <h3 id="linguagem">Linguagem: O Que Nunca Dizer</h3>
+        <table class="lang-table">
+          <thead>
+            <tr><th class="avoid">Evitar</th><th class="arrow"></th><th class="use">Usar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Injetáveis / Mounjaro</td><td class="arrow">→</td><td>Nutrientes que seu corpo já produz</td></tr>
+            <tr><td>Protocolo</td><td class="arrow">→</td><td>Acompanhamento guiado</td></tr>
+            <tr><td>Perder peso</td><td class="arrow">→</td><td>Emagrecer com saúde</td></tr>
+            <tr><td>Remédio / Medicação</td><td class="arrow">→</td><td>Suporte nutricional / Reposição</td></tr>
+            <tr><td>Efeito colateral</td><td class="arrow">→</td><td>Adaptação natural do corpo</td></tr>
+          </tbody>
+        </table>
+        <div class="tip-box">Regra de Ouro: Evitar termos que gerem pânico. Focar sempre na segurança do acompanhamento e na previsibilidade do resultado.</div>
+      </section>
+
+      <!-- ========== SEÇÃO 2 ========== -->
+      <section class="section" id="paciente">
+        <h2 class="section-title"><span class="section-number">2</span> Nosso Paciente</h2>
+
+        <h3>Perfil Demográfico</h3>
+        <ul class="info-list">
+          <li><strong>Geografia:</strong> Uberaba (MG), Ituveraba (SP) e Miguelópolis (SP)</li>
+          <li><strong>Idade:</strong> Homens e mulheres, 30 a 50 anos</li>
+          <li><strong>Perfil:</strong> Empresários, produtores rurais e profissionais liberais que negligenciaram a saúde pela carreira</li>
+          <li><strong>Capacidade financeira:</strong> Renda compatível com ticket de R$ 13k (limite de cartão é a principal fricção)</li>
+        </ul>
+
+        <h3>As 3 Dores Reais</h3>
+        <h4>Dor Funcional — A Humilhação</h4>
+        <p class="body">Dificuldade para amarrar o sapato, realizar higiene pessoal, brincar com os filhos. Situações cotidianas que geram vergonha silenciosa.</p>
+        <h4>Dor Estética — O Medo</h4>
+        <p class="body">Receio do "Ozempic Face" (rosto de doente) e flacidez excessiva. O paciente quer o resultado, mas tem medo de parecer que tomou remédio.</p>
+        <h4>Dor de Saúde — O Risco</h4>
+        <p class="body">Medo de infarto, gordura no fígado (esteatose hepática), diabetes. Exames alterados que assustam.</p>
+        <div class="quote-box">"Não quero ficar com rosto de doente." — Essa frase resume o medo #1 do nosso paciente.</div>
+
+        <h3>O Desejo Central: Liberdade e Vitalidade</h3>
+        <ul class="info-list">
+          <li><strong>Liberdade de movimento:</strong> Recuperar a funcionalidade diária</li>
+          <li><strong>Liberdade de vestir:</strong> Entrar em roupas antigas sem sentir inadequação</li>
+          <li><strong>Viço e vitalidade:</strong> Emagrecer mantendo a aparência saudável</li>
+        </ul>
+      </section>
+
+      <!-- ========== SEÇÃO 3 ========== -->
+      <section class="section" id="funil">
+        <h2 class="section-title"><span class="section-number">3</span> Funil de Vendas</h2>
+
+        <h3>A Jornada do Paciente</h3>
+        <ul class="info-list">
+          <li><strong>1. Atração (Topo):</strong> Conteúdo focado em segurança e "emagrecer sem flacidez" via Meta Ads geolocalizado ou boca a boca.</li>
+          <li><strong>2. Filtro (Meio):</strong> Paciente entra em contato via WhatsApp. Aqui é o seu papel — qualificar e agendar a consulta inicial (R$ 700).</li>
+          <li><strong>3. Conversão (Fundo):</strong> Na consulta, o Dr. Weber faz o diagnóstico e apresenta o protocolo (~R$ 13.000 em 10x de R$ 1.290).</li>
+          <li><strong>4. Onboarding:</strong> Início imediato com ciclo semanal de monitoramento.</li>
+        </ul>
+        <div class="tip-box">Seu objetivo não é vender o protocolo de R$ 13k. Seu objetivo é agendar a consulta de R$ 700. O Dr. Weber cuida do restante.</div>
+
+        <h3>O Que Está Incluso</h3>
+        <ul class="info-list">
+          <li>Medicação de alta potência (Tirzepatida)</li>
+          <li>Suplementação injetável (Coenzima Q10, suporte mitocondrial)</li>
+          <li>Monitoramento semanal (bioimpedância, fotos, ajustes de dose)</li>
+          <li>Consulta semanal (Home Care ou presencial)</li>
+          <li>Ciclo completo de 3 meses</li>
+        </ul>
+
+        <h3>A Promessa</h3>
+        <ul class="info-list">
+          <li><strong>Quantitativo:</strong> Perda média de 13kg a 15kg em 3 meses</li>
+          <li><strong>Qualitativo:</strong> Normalização de exames, melhora na pele, preservação muscular</li>
+        </ul>
+      </section>
+
+      <!-- ========== SEÇÃO 4 - SCRIPTS ========== -->
+      <section class="section" id="fase1">
+        <h2 class="section-title"><span class="section-number">4</span> Script de Atendimento</h2>
+        <p class="body">Roteiro completo dividido em fases. Adapte ao tom natural da conversa, mas siga a estrutura. <strong>Clique em "Copiar" para copiar a mensagem pronta.</strong></p>
+
+        <div class="phase-tag">Fase 1 — Acolhimento</div>
+        <p class="body" style="color:var(--green-med);font-style:italic;">Objetivo: Criar conexão, demonstrar profissionalismo e entender de onde veio o contato.</p>
+
+        <h4>Cenário A — Paciente vem pelo anúncio</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Primeiro contato via Meta Ads</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Olá! Tudo bem? Seja muito bem-vinda ao consultório do Dr. Weber! 😊 Me chamo [seu nome], sou a assistente dele. Vi que você demonstrou interesse no nosso trabalho de emagrecimento com saúde. Posso te ajudar?
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+
+        <h4>Cenário B — Paciente vem por indicação</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Contato por indicação</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Olá! Que bom receber você! 😊 Me chamo [seu nome], sou a assistente do Dr. Weber. Posso perguntar quem te indicou? Adoro saber que nossos pacientes estão compartilhando a experiência!
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+
+        <h4>Cenário C — Mensagem genérica ("Quanto custa?")</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Contato direto</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Olá! Tudo bem? 😊 Fico feliz com o seu interesse! Antes de te passar as informações, posso te fazer algumas perguntas rápidas para entender melhor a sua situação? Assim consigo te orientar da melhor forma!
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+        <div class="alert-box">⚠ Nunca envie preço direto na primeira mensagem. Primeiro, entenda a dor do paciente.</div>
+      </section>
+
+      <!-- FASE 2 -->
+      <section class="section" id="fase2">
+        <div class="phase-tag">Fase 2 — Qualificação SPIN</div>
+        <p class="body" style="color:var(--green-med);font-style:italic;">Objetivo: Entender a dor real e construir urgência emocional. Perguntas abertas. Deixe o paciente falar.</p>
+
+        <h4>Perguntas de Situação</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Entendendo o contexto</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Me conta um pouquinho: você já tentou algum tratamento para emagrecer antes?
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+          <div class="msg pac"><div class="msg-avatar">P</div><div class="msg-bubble">[Resposta do paciente]</div></div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Entendi! E há quanto tempo você vem sentindo essa necessidade de mudar? O que te motivou a procurar ajuda agora?
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+
+        <h4>Perguntas de Problema</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Revelando a dor</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              E no dia a dia, o que mais te incomoda em relação ao seu corpo hoje? Pode ser algo físico, estético ou até de saúde mesmo...
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+          <div class="msg pac"><div class="msg-avatar">P</div><div class="msg-bubble">[Ex: "Medo de infarto", "Não consigo amarrar o sapato", "Exames péssimos"]</div></div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Imagino como isso deve pesar. Você sente que isso já afeta a sua rotina, o seu humor, a forma como você se vê?
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+
+        <h4>Perguntas de Implicação</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Aprofundando a urgência</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              E se nada mudar nos próximos meses, como você se imagina? O que te preocupa mais: a estética, a saúde ou o dia a dia?
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+          <div class="msg pac"><div class="msg-avatar">P</div><div class="msg-bubble">[Resposta revelando medo profundo]</div></div>
+        </div>
+
+        <h4>Pergunta de Necessidade-Resultado</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Plantando a solução</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              E se existisse um acompanhamento onde você não ficasse sozinha nesse processo — com um médico monitorando toda semana, ajustando tudo para o seu corpo — isso faria diferença para você?
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+          <div class="msg pac"><div class="msg-avatar">P</div><div class="msg-bubble">[Invariavelmente: "Sim, com certeza!"]</div></div>
+        </div>
+        <div class="tip-box">Momento de transição! O paciente acabou de dizer que quer exatamente o que oferecemos. Agora, apresente a solução.</div>
+      </section>
+
+      <!-- FASE 3 -->
+      <section class="section" id="fase3">
+        <div class="phase-tag">Fase 3 — Apresentação da Solução</div>
+        <p class="body" style="color:var(--green-med);font-style:italic;">Objetivo: Conectar a dor ao que o Dr. Weber oferece. Gerar desejo pela consulta.</p>
+
+        <div class="dialog-container">
+          <div class="dialog-label">Apresentando o diferencial</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              É exatamente isso que o Dr. Weber faz! O trabalho dele é diferente de tudo que você já viu. Ele não simplesmente prescreve algo e te manda embora.
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              O acompanhamento é semanal — ele literalmente pega na sua mão durante todo o processo. Bioimpedância constante, fotos de progresso, ajuste de dose em tempo real. Tudo para que você emagreça com saúde, mantendo a pele bonita e sem perder músculo.
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Os pacientes dele costumam eliminar entre 13kg e 15kg de gordura em 3 meses, mantendo a massa muscular e melhorando os exames. O resultado aparece no espelho E nos exames.
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+
+        <h4>Se perguntarem sobre a medicação</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Redirecionando com segurança</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              O Dr. Weber utiliza nutrientes que o seu corpo já produz naturalmente, mas que com o tempo deixou de produzir em quantidade suficiente. O trabalho dele é devolver o que falta. Além disso, inclui terapias de suporte para manter sua energia e proteger sua massa muscular.
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+        <div class="alert-box">⚠ Nunca entre em debate sobre medicação. Redirecione: "Essas dúvidas são super importantes e o Dr. Weber adora explicar tudo na consulta."</div>
+      </section>
+
+      <!-- FASE 4 -->
+      <section class="section" id="fase4">
+        <div class="phase-tag">Fase 4 — Agendamento</div>
+        <p class="body" style="color:var(--green-med);font-style:italic;">Objetivo: Converter interesse em consulta agendada. Seja direta e facilite ao máximo.</p>
+
+        <div class="dialog-container">
+          <div class="dialog-label">Conduzindo ao agendamento</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              O próximo passo é a consulta inicial com o Dr. Weber. Nela, ele avalia o seu caso, analisa seus exames e monta um plano personalizado.
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              O investimento da consulta é R$ 700 e dura em média 40 minutos. Pode ser presencial ou Home Care, como preferir.
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Tenho horários na [dia] e na [dia]. Qual funciona melhor para você?
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+        <div class="tip-box">Sempre ofereça duas opções de horário. "Terça ou quinta?" é melhor que "quando você pode?".</div>
+
+        <h4>Após confirmação</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Finalizando agendamento</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Perfeito! Vou reservar o horário. Para agilizar, vou pedir alguns dados e, se puder, já separe exames recentes (hemograma, glicemia, perfil lipídico). Se não tiver, sem problemas — o Dr. Weber orienta tudo.
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FASE 5 -->
+      <section class="section" id="fase5">
+        <div class="phase-tag">Fase 5 — Objeções</div>
+        <p class="body" style="color:var(--green-med);font-style:italic;">Objetivo: Antecipar resistências com empatia. Nunca confronte. Valide o sentimento e redirecione.</p>
+
+        <h4>"Quanto custa o tratamento?"</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Objeção de preço</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Entendo! O valor depende do plano personalizado que o Dr. Weber monta na consulta. Cada caso é diferente. A consulta inicial é R$ 700, e nela você sai com o diagnóstico e a proposta completa. Faz sentido?
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+
+        <h4>"Isso não é remédio? Tenho medo"</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Objeção naturalista</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Entendo totalmente! A maioria dos nossos pacientes chegou com essa mesma dúvida. O que o Dr. Weber utiliza são nutrientes que o seu corpo já produz, mas que deixou de produzir suficientemente. É reposição, não medicação externa. E tudo é monitorado semanalmente. Na consulta, ele explica cada detalhe.
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+
+        <h4>"Vou gastar e engordar de novo" (Efeito Rebote)</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Objeção de rebote</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Preocupação super válida! O diferencial é justamente o acompanhamento semanal que recalibra tudo. Após os 3 meses, existe plano de manutenção para resultado sustentável. Não é tratamento que termina e te abandona.
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+
+        <h4>"Não tenho limite no cartão"</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Fricção financeira</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Entendo! O primeiro passo é a consulta de R$ 700. O Dr. Weber tem parcelamento em até 10x. Mas o mais importante agora é fazer a consulta e entender se faz sentido para o seu momento. Que tal agendarmos?
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+
+        <h4>"Vi notícias negativas sobre o tratamento"</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Medo da mídia</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              É super natural se preocupar com tanta informação circulando. O Dr. Weber acompanha a literatura médica de perto e o monitoramento semanal garante segurança. O perigo nunca está no recurso — está em usar sem acompanhamento. Na consulta, ele esclarece tudo com base em evidência.
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+
+        <h4>"Vou pensar" / "Depois eu vejo"</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Objeção de adiamento</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Claro, sem pressão nenhuma! Mas posso te fazer uma pergunta? O que especificamente você gostaria de pensar? Às vezes consigo esclarecer agora.
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+          <div class="msg pac"><div class="msg-avatar">P</div><div class="msg-bubble">[Resposta sobre a dúvida específica]</div></div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Entendi. Sugiro agendar a consulta sem compromisso. É o melhor investimento que pode fazer agora, porque ali terá todas as informações para decidir com segurança. Faz sentido?
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FASE 6 -->
+      <section class="section" id="fase6">
+        <div class="phase-tag">Fase 6 — Follow-Up</div>
+        <p class="body" style="color:var(--green-med);font-style:italic;">Objetivo: Reduzir no-show e manter o paciente engajado.</p>
+
+        <h4>Confirmação imediata (após agendamento)</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Confirmação</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Pronto, [nome]! Consulta confirmada para [data] às [hora], [presencial/Home Care]. Se tiver exames recentes, pode me enviar que adianto para o Dr. Weber. Qualquer dúvida, estou aqui! 😊
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+
+        <h4>Lembrete 48h antes</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Lembrete</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Olá, [nome]! Confirmando sua consulta com o Dr. Weber na [data] às [hora]. Tudo certo? 😊
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+
+        <h4>Follow-up 48h (não agendou)</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Retomada</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Olá, [nome]! Passando para saber se pensou sobre o que conversamos. Abriram horários essa semana e lembrei de você. Qualquer dúvida, estou aqui! 😊
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+
+        <h4>Follow-up final (5–7 dias)</h4>
+        <div class="dialog-container">
+          <div class="dialog-label">Último contato</div>
+          <div class="msg sec">
+            <div class="msg-avatar">S</div>
+            <div class="msg-bubble">
+              Oi, [nome]! Não quero incomodar, mas quero deixar a porta aberta: quando for o momento, estou aqui. A agenda do Dr. Weber está concorrida, então é só me chamar. Tudo de bom! 💚
+              <br><button class="copy-btn" onclick="copyMsg(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+            </div>
+          </div>
+        </div>
+        <div class="tip-box">Após o follow-up final, respeite o silêncio. O paciente voltará quando estiver pronto.</div>
+      </section>
+
+      <!-- ========== SEÇÃO 5 - REGRAS ========== -->
+      <section class="section" id="regras">
+        <h2 class="section-title"><span class="section-number">5</span> As 10 Regras de Ouro</h2>
+        <div class="rule-card"><div class="rule-num">1</div><div class="rule-text"><strong>Nunca envie preço sem contexto.</strong> Primeiro a dor, depois a solução, por último o investimento.</div></div>
+        <div class="rule-card"><div class="rule-num">2</div><div class="rule-text"><strong>Nunca debata sobre medicação.</strong> Redirecione dúvidas técnicas para a consulta.</div></div>
+        <div class="rule-card"><div class="rule-num">3</div><div class="rule-text"><strong>Use a linguagem do paciente.</strong> Substitua termos técnicos por palavras acolhedoras.</div></div>
+        <div class="rule-card"><div class="rule-num">4</div><div class="rule-text"><strong>Fale de resultado, não de produto.</strong> O paciente quer saber o que vai conquistar.</div></div>
+        <div class="rule-card"><div class="rule-num">5</div><div class="rule-text"><strong>Ofereça duas opções de horário.</strong> "Terça ou quinta?" é melhor que "quando pode?".</div></div>
+        <div class="rule-card"><div class="rule-num">6</div><div class="rule-text"><strong>Responda rápido.</strong> Até 5 minutos em horário comercial.</div></div>
+        <div class="rule-card"><div class="rule-num">7</div><div class="rule-text"><strong>Valide antes de rebater.</strong> "Entendo perfeitamente" antes de qualquer contraponto.</div></div>
+        <div class="rule-card"><div class="rule-num">8</div><div class="rule-text"><strong>Não force.</strong> Se disse "não" duas vezes, respeite e deixe a porta aberta.</div></div>
+        <div class="rule-card"><div class="rule-num">9</div><div class="rule-text"><strong>Registre tudo.</strong> Nome, cidade, origem, dor principal, objeção. Isso alimenta a estratégia.</div></div>
+        <div class="rule-card"><div class="rule-num">10</div><div class="rule-text"><strong>Você é a primeira impressão.</strong> Antes do Dr. Weber, o paciente conhece você.</div></div>
+      </section>
+
+      <!-- ========== SEÇÃO 6 - CHECKLIST ========== -->
+      <section class="section" id="checklist">
+        <h2 class="section-title"><span class="section-number">6</span> Checklist Diário</h2>
+
+        <h3>Manhã</h3>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span>Responder mensagens recebidas fora do horário</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span>Confirmar consultas do dia</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span>Verificar exames pendentes de pacientes agendados</span></div>
+
+        <h3>Durante o Dia</h3>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span>Responder novos contatos em até 5 minutos</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span>Seguir script de qualificação (Fase 2) para cada lead</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span>Registrar dados de cada contato</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span>Agendar follow-ups para leads pendentes</span></div>
+
+        <h3>Fim do Dia</h3>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span>Follow-up para contatos de 48h sem resposta</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span>Atualizar planilha/CRM</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span>Relatar ao Dr. Weber: contatos, agendamentos e objeções do dia</span></div>
+      </section>
+
+      <!-- ========== SEÇÃO 7 - MÉTRICAS ========== -->
+      <section class="section" id="metricas">
+        <h2 class="section-title"><span class="section-number">7</span> Métricas de Sucesso</h2>
+        <p class="body">Acompanhe semanalmente:</p>
+        <table class="metrics-table">
+          <thead><tr><th>Métrica</th><th>Meta</th><th>Como medir</th></tr></thead>
+          <tbody>
+            <tr><td>Tempo de resposta</td><td>&lt; 5 min</td><td>Hora da msg vs resposta</td></tr>
+            <tr><td>Taxa de qualificação</td><td>&gt; 60%</td><td>Contatos que completam Fase 2</td></tr>
+            <tr><td>Taxa de agendamento</td><td>&gt; 40%</td><td>Agendamentos / qualificados</td></tr>
+            <tr><td>Comparecimento</td><td>&gt; 85%</td><td>Presentes / agendados</td></tr>
+            <tr><td>Follow-up</td><td>100% em 48h</td><td>Leads sem agenda com follow-up</td></tr>
+          </tbody>
+        </table>
+
+        <div class="quote-box" style="margin-top:40px;text-align:center;">
+          "O paciente quer o resultado do remédio, mas tem medo de parecer que tomou remédio."<br>
+          <strong style="font-style:normal;color:var(--green-dark);">Seu papel é ser a ponte entre o medo e a confiança.</strong>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+function copyMsg(btn) {
+  const bubble = btn.closest('.msg-bubble');
+  // Get text content excluding button text
+  const clone = bubble.cloneNode(true);
+  const buttons = clone.querySelectorAll('.copy-btn');
+  buttons.forEach(b => b.remove());
+  const text = clone.textContent.trim();
+
+  navigator.clipboard.writeText(text).then(() => {
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Copiado!';
+    btn.classList.add('copied');
+
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
+
+    setTimeout(() => {
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar';
+      btn.classList.remove('copied');
+    }, 2500);
+  });
+}
+
+function toggleCheck(item) {
+  const box = item.querySelector('.check-box');
+  box.classList.toggle('checked');
+  item.classList.toggle('checked-item');
+}
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.querySelector('.sidebar-overlay').classList.toggle('show');
+}
+
+// Close sidebar on link click (mobile)
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 900) {
+      document.getElementById('sidebar').classList.remove('open');
+      document.querySelector('.sidebar-overlay').classList.remove('show');
+    }
+  });
+});
+
+// Scroll progress
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('scrollProgress').style.width = progress + '%';
+});
+</script>
+
+</body>
+</html>
