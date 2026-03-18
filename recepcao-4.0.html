@@ -155,12 +155,12 @@
     .video-wrapper {
       position: relative;
       width: 100%;
-      max-width: 720px; /* Ajustado para melhor visualização do vídeo horizontal */
+      max-width: 720px; /* Ajustado de volta para formato horizontal */
       margin: 0 auto; /* Centraliza o vídeo */
-      aspect-ratio: 720 / 360; /* Proporção ajustada para o novo formato do vídeo */
-      border-radius: 12px;
+      aspect-ratio: 2 / 1; /* Proporção 2:1 exata para o vídeo 720x360 sem bordas pretas */
+      border-radius: 12px; 
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
       border: 1px solid var(--ink-08);
       background: var(--ink-90);
     }
@@ -724,6 +724,21 @@
       text-decoration: none; border-radius: 8px;
       border: none; cursor: pointer;
       transition: all 0.25s; letter-spacing: 0.01em;
+      text-align: center;
+    }
+    .cta-btn.inline {
+      display: inline-block;
+      width: auto;
+      padding: 12px 32px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 6px;
+    }
+    .cta-wrapper {
+      margin-top: 32px;
+    }
+    .cta-wrapper.center {
+      text-align: center;
     }
     .cta-btn:hover {
       background: var(--accent-light);
@@ -941,6 +956,7 @@
       .nav-link { padding: 8px 14px; font-size: 0.78rem; } /* Ajusta botão no mobile */
       .nav-inner { gap: 12px; }
       .hero { padding: 56px 0 40px; }
+      .cta-btn.inline { padding: 10px 24px; font-size: 0.82rem; } /* Botões menores e delicados no mobile */
       .thesis, .problem, .modules, .transform, .audience, .faq, .offer, .social-proof { padding: 60px 0; }
       .origin { padding: 60px 0; }
       .transform-split { grid-template-columns: 1fr; gap: 36px; }
@@ -1005,8 +1021,12 @@
       <!-- ESPAÇO PARA VÍDEO PANDA VIDEO -->
       <div class="hero-image reveal reveal-d4">
         <div class="video-wrapper">
-          <iframe id="panda-0e91ac33-f697-489d-9536-c9b92bfea572" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=0e91ac33-f697-489d-9536-c9b92bfea572" style="border:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen=true width="720" height="360" fetchpriority="high"></iframe>
+          <iframe id="panda-0e91ac33-f697-489d-9536-c9b92bfea572" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=0e91ac33-f697-489d-9536-c9b92bfea572" style="border:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen=true fetchpriority="high"></iframe>
         </div>
+      </div>
+      
+      <div class="cta-wrapper center reveal" style="margin-top: 40px;">
+        <a href="#oferta" class="cta-btn inline">Acessar</a>
       </div>
     </div>
   </section>
@@ -1024,6 +1044,10 @@
         <div class="reveal"><img class="proof-img" src="https://clintia.com.br/wp-content/uploads/2026/03/5.png" alt="Depoimento 5"></div>
         <div class="reveal"><img class="proof-img" src="https://clintia.com.br/wp-content/uploads/2026/03/6.png" alt="Depoimento 6"></div>
         <div class="reveal"><img class="proof-img" src="https://clintia.com.br/wp-content/uploads/2026/03/7.png" alt="Depoimento 7"></div>
+      </div>
+
+      <div class="cta-wrapper center reveal" style="margin-top: 48px;">
+        <a href="#oferta" class="cta-btn inline">Acessar</a>
       </div>
     </div>
   </section>
@@ -1062,6 +1086,10 @@
             <div class="anim-node-desc">Mais conversão e<br>paciente preparado</div>
           </div>
         </div>
+      </div>
+      
+      <div class="cta-wrapper center reveal">
+        <a href="#oferta" class="cta-btn inline">Acessar</a>
       </div>
     </div>
   </section>
@@ -1153,6 +1181,10 @@
       <div class="origin-image reveal">
         <img src="https://i.imgur.com/WLhDiAY.png" alt="Quem criou — Bernardo Carneiro" style="width:100%; border-radius:10px; display:block;">
       </div>
+
+      <div class="cta-wrapper center reveal" style="margin-top: 48px;">
+        <a href="#oferta" class="cta-btn inline">Acessar</a>
+      </div>
     </div>
   </section>
 
@@ -1221,6 +1253,10 @@
           </div>
         </div>
       </div>
+
+      <div class="cta-wrapper center reveal" style="margin-top: 56px;">
+        <a href="#oferta" class="cta-btn inline">Acessar</a>
+      </div>
     </div>
   </section>
 
@@ -1278,6 +1314,10 @@
             <div class="transform-point">Resultado percebido já na primeira semana de aplicação</div>
           </div>
         </div>
+      </div>
+
+      <div class="cta-wrapper center reveal" style="margin-top: 56px;">
+        <a href="#oferta" class="cta-btn inline">Acessar</a>
       </div>
     </div>
   </section>
