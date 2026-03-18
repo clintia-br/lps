@@ -155,9 +155,9 @@
     .video-wrapper {
       position: relative;
       width: 100%;
-      max-width: 420px; /* Limita a largura para que o formato vertical não fique gigante no computador */
+      max-width: 720px; /* Ajustado para melhor visualização do vídeo horizontal */
       margin: 0 auto; /* Centraliza o vídeo */
-      aspect-ratio: 1080 / 1440; /* Exatamente o formato do seu vídeo (3:4) */
+      aspect-ratio: 720 / 360; /* Proporção ajustada para o novo formato do vídeo */
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 20px 40px rgba(0,0,0,0.08);
@@ -1005,7 +1005,7 @@
       <!-- ESPAÇO PARA VÍDEO PANDA VIDEO -->
       <div class="hero-image reveal reveal-d4">
         <div class="video-wrapper">
-          <iframe id="panda-b801a1c9-19f7-414e-902f-da3b308b9dc6" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=b801a1c9-19f7-414e-902f-da3b308b9dc6&playsinline=true" style="border:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen=true fetchpriority="high" playsinline webkit-playsinline></iframe>
+          <iframe id="panda-0e91ac33-f697-489d-9536-c9b92bfea572" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=0e91ac33-f697-489d-9536-c9b92bfea572" style="border:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen=true width="720" height="360" fetchpriority="high"></iframe>
         </div>
       </div>
     </div>
@@ -1117,7 +1117,7 @@
     <div class="wrap">
       <div class="quote-inner reveal">
         <blockquote>
-          Se a recepção não estiver preparada, o melhor marketing do mundo não resolve. Mas se ela estiver, tudo melhora junto.
+          Marketing atrai. Comercial decide. Quem investe no primeiro e ignora o segundo está pagando para perder cliente.
         </blockquote>
         <cite class="quote-author">
           Bernardo Carneiro
@@ -1644,6 +1644,7 @@
           const scrollStep = card.offsetWidth + (parseInt(window.getComputedStyle(track).gap) || 16);
           track.scrollBy({ left: scrollStep, behavior: 'smooth' });
           
+          // Reinicia o timer para não conflitar com o clique manual
           stopAutoScroll();
           startAutoScroll();
         });
