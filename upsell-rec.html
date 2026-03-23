@@ -316,6 +316,9 @@
             .exclusive-block { padding: 40px 20px; margin: 40px 0;}
             .form-section { padding: 32px 20px; }
             .no-thanks { margin-top: 48px; }
+            
+            /* Ajuste de altura do Calendly para Mobile */
+            .calendly-inline-widget { height: 500px !important; }
         }
     </style>
 
@@ -805,15 +808,16 @@
                         </div>
                     </div>
 
-                    <!-- Final CTA -->
+                    <!-- Final CTA (Modificado com o código do Calendly) -->
                     <div class="quiz-step" id="q-final" style="text-align: center; padding: 20px 0;">
                         <i class="fa-solid fa-circle-check" style="color: var(--success); font-size: 40px; margin-bottom: 16px;"></i>
                         <h3 style="font-size: 26px; margin-bottom: 12px;">Perfil Qualificado. Tudo Certo!</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 32px; font-size: 15px;">A reunião estratégica para construção do seu Ativo Digital está liberada. Escolha um horário na agenda oficial abaixo.</p>
+                        <p style="color: var(--text-secondary); margin-bottom: 32px; font-size: 15px;">A reunião estratégica para construção do seu Ativo Digital está liberada. Escolha um horário na agenda abaixo.</p>
                         
-                        <a href="https://calendar.app.google/m3vLdexcszHeG8vX6" target="_blank" class="btn btn-gold">
-                            Acessar Agenda Oficial <i class="fa-solid fa-calendar-check" style="margin-left: 8px;"></i>
-                        </a>
+                        <!-- Widget em linha do Calendly - início -->
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/bernardo-clintia/sessao-estrategica-alem-da-agenda" style="min-width:320px;height:700px;"></div>
+                        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                        <!-- Widget em linha do Calendly - fim -->
                     </div>
 
                 </div>
@@ -979,13 +983,13 @@
                 }
             }
 
-            // Avança para o último passo (Calendly)
+            // Avança para o último passo (Onde o Calendly está visível)
             document.getElementById('q-7').classList.remove('active');
             document.getElementById('q-final').classList.add('active');
             updateProgress(7);
             
-            // Redireciona
-            setTimeout(() => { window.location.href = "https://calendar.app.google/m3vLdexcszHeG8vX6"; }, 2500);
+            // OBSERVAÇÃO: O Redirecionamento (setTimeout) que levava para a URL externa foi REMOVIDO!
+            // Agora o usuário permanecerá na página, vendo a tela final com o widget de agenda incorporado.
         }
 
         // WhatsApp Phone Mask
