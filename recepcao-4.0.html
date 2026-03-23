@@ -170,11 +170,11 @@
 
     /* VIDEO WRAPPER */
     .video-wrapper {
-      margin-top: 48px; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto;
-      aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08); border: 1px solid var(--ink-08); background: var(--ink-90);
+      margin-top: 48px; width: 100%; max-width: 460px; margin-left: auto; margin-right: auto;
+      aspect-ratio: 3 / 4; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 24px 48px rgba(20, 28, 36, 0.12); border: 1px solid var(--ink-08); background: var(--ink);
     }
-    .video-wrapper iframe { width: 100%; height: 100%; border: none; }
+    .video-wrapper iframe { width: 100%; height: 100%; border: none; display: block; }
 
     /* SPLIT PROBLEM CARDS */
     .split { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; margin-top: 48px; }
@@ -191,7 +191,14 @@
     .bonus-card {
       background: var(--parchment-deep); border: 1px solid var(--gold-border);
       border-radius: 16px; padding: 48px; box-shadow: var(--shadow-soft);
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;
     }
+    .bonus-video-wrapper {
+      width: 100%; aspect-ratio: 2 / 1; border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--gold-border); box-shadow: 0 12px 32px rgba(184, 148, 62, 0.12);
+      background: var(--ink);
+    }
+    .bonus-video-wrapper iframe { width: 100%; height: 100%; border: none; display: block; }
     .bonus-eyebrow {
       font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 16px;
@@ -328,7 +335,7 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-      .hero-layout, .split, .offer-grid, .creator { grid-template-columns: 1fr; }
+      .hero-layout, .split, .offer-grid, .creator, .bonus-card { grid-template-columns: 1fr; }
       .proof-grid, .journey-grid, .deliver-grid, .doctors-grid { grid-template-columns: repeat(2, 1fr); }
       .prints-grid { grid-template-columns: repeat(3, 1fr); } /* Mantém 3 colunas no tablet para não ampliar */
     }
@@ -432,7 +439,7 @@
 
     <div class="wrap">
       <div class="video-wrapper reveal delay-2">
-        <iframe id="panda-0e91ac33-f697-489d-9536-c9b92bfea572" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=0e91ac33-f697-489d-9536-c9b92bfea572&playsinline=true" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" fetchpriority="high"></iframe>
+        <iframe id="panda-04a589d9-efed-485f-8152-ac01382bbd80" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=04a589d9-efed-485f-8152-ac01382bbd80&playsinline=true" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" fetchpriority="high"></iframe>
       </div>
     </div>
   </section>
@@ -587,22 +594,27 @@
   <section class="section section-warm">
     <div class="wrap">
       <div class="bonus-card reveal">
-        <div class="bonus-eyebrow">Bônus Exclusivo de Lançamento</div>
-        <h3>Áuria — A sua secretária com um <em>cérebro de vendas</em> focado em saúde (IA)</h3>
-        <p class="bonus-desc">A Áuria é uma ferramenta de IA treinada com base em secretárias que performam muito bem na área da saúde. Ela não substitui a secretária — ela potencializa. O fim da desculpa "eu não sei o que responder para esse paciente".</p>
-        <div class="bonus-points">
-          <div class="bonus-point">
-            <div class="bonus-point-marker">✓</div>
-            <span>A secretária cola a mensagem do paciente e recebe uma sugestão de resposta alinhada ao método.</span>
+        <div class="bonus-content">
+          <div class="bonus-eyebrow">Bônus Exclusivo de Lançamento</div>
+          <h3>Áuria — A sua secretária com um <em>cérebro de vendas</em> focado em saúde (IA)</h3>
+          <p class="bonus-desc">A Áuria é uma ferramenta de IA treinada com base em secretárias que performam muito bem na área da saúde. Ela não substitui a secretária — ela potencializa. O fim da desculpa "eu não sei o que responder para esse paciente".</p>
+          <div class="bonus-points">
+            <div class="bonus-point">
+              <div class="bonus-point-marker">✓</div>
+              <span>A secretária cola a mensagem do paciente e recebe uma sugestão de resposta alinhada ao método.</span>
+            </div>
+            <div class="bonus-point">
+              <div class="bonus-point-marker">✓</div>
+              <span>Respeita a ética, o tom e a comunicação adequada da saúde (sem parecer um robô agressivo).</span>
+            </div>
+            <div class="bonus-point">
+              <div class="bonus-point-marker">✓</div>
+              <span>A secretária adapta, lapida e envia — ela continua no controle, com direcionamento.</span>
+            </div>
           </div>
-          <div class="bonus-point">
-            <div class="bonus-point-marker">✓</div>
-            <span>Respeita a ética, o tom e a comunicação adequada da saúde (sem parecer um robô agressivo).</span>
-          </div>
-          <div class="bonus-point">
-            <div class="bonus-point-marker">✓</div>
-            <span>A secretária adapta, lapida e envia — ela continua no controle, com direcionamento.</span>
-          </div>
+        </div>
+        <div class="bonus-video-wrapper">
+          <iframe id="panda-2c7bd4e0-b311-4442-a186-51607b6f95dc" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=2c7bd4e0-b311-4442-a186-51607b6f95dc&playsinline=true" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" fetchpriority="high"></iframe>
         </div>
       </div>
     </div>
