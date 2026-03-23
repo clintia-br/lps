@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passo 2: Produtifique o seu Conhecimento - Clintia</title>
+    
+    <!-- BLOQUEIO DE SEO (Essencial para Upsell) -->
+    <meta name="robots" content="noindex, nofollow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #FAFAF8;
+            --bg-alt: #F3F2EE;
+            --bg-card: #FFFFFF;
+            --dark: #1A1A1A;
+            --dark-soft: #2C2C2C;
+            --gold: #A08A4C;
+            --gold-light: #C4AD6C;
+            --gold-bg: rgba(160,138,76,0.07);
+            --gold-border: rgba(160,138,76,0.2);
+            --text: #3A3A3A;
+            --text-secondary: #6B6B6B;
+            --text-muted: #9A9A9A;
+            --border: #E5E3DE;
+            --border-light: #EDEBE6;
+            --serif: 'DM Serif Display', Georgia, serif;
+            --sans: 'DM Sans', -apple-system, sans-serif;
+            --max-w: 1080px;
+            --success: #2E7D32;
+            
+            /* Cores dos Produtos */
+            --color-pedia: #0EA5E9; /* Azul Claro */
+            --color-nutro: #10B981; /* Verde Esmeralda */
+            --color-psi: #8B5CF6;   /* Roxo Psiquiatria */
+            --color-endo: #E91E63;  /* Rosa Endometriose */
+            --color-derma: #F59E0B; /* Dourado/Laranja Dermato */
+            --color-gestao: #0F766E; /* Azul Petróleo Gestão */
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+        body {
+            font-family: var(--sans); background: var(--bg); color: var(--text);
+            line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; width: 100%;
+        }
+
+        /* Top Warning Bars - Forçado a 1 Linha */
+        .status-bar {
+            background: var(--success); color: white; text-align: center; padding: 8px 16px;
+            font-size: clamp(10px, 3vw, 13px); font-weight: 500; letter-spacing: 0.5px;
+            display: flex; justify-content: center; align-items: center; gap: 8px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .warning-bar {
+            background: var(--gold); color: #FFF; text-align: center; padding: 6px 16px;
+            font-size: clamp(9px, 2.5vw, 11px); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+
+        .container { max-width: var(--max-w); margin: 0 auto; padding: 64px 24px; }
+        .section { padding: 80px 0; border-bottom: 1px solid var(--border-light); }
+        .section-alt { background: var(--bg-alt); }
+        
+        /* Typography */
+        h1, h2, h3 { font-family: var(--serif); color: var(--dark); font-weight: 400; line-height: 1.15; }
+        
+        .hero { text-align: center; padding: 60px 24px 80px; }
+        .pre-title {
+            font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 24px; display: inline-block;
+            background: var(--gold-bg); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--gold-border);
+            white-space: nowrap;
+        }
+        .title { font-size: clamp(28px, 4.5vw, 48px); margin-bottom: 24px; letter-spacing: -0.5px; color: var(--dark);}
+        
+        .hero-desc {
+            font-size: 16px; color: var(--text-secondary); max-width: 800px; margin: 0 auto 40px auto; line-height: 1.7;
+        }
+        .hero-bullets {
+            display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 32px;
+        }
+        .hero-bullet {
+            font-size: 13px; font-weight: 600; color: var(--dark-soft); display: flex; align-items: center; gap: 8px;
+            background: var(--bg-card); padding: 8px 16px; border: 1px solid var(--border); border-radius: 4px;
+        }
+        .hero-bullet i { color: var(--gold); }
+
+        /* Block: Vantagens Diretas */
+        .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+        .benefit-card {
+            background: var(--bg-card); border: 1px solid var(--border); padding: 40px 32px;
+            text-align: left; transition: all 0.3s; border-radius: 4px;
+        }
+        .benefit-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.05);}
+        .benefit-icon {
+            width: 48px; height: 48px; background: var(--gold-bg); border: 1px solid var(--gold-border);
+            display: flex; align-items: center; justify-content: center; color: var(--gold);
+            font-size: 20px; margin-bottom: 24px; border-radius: 4px;
+        }
+        .benefit-card h3 { font-size: 22px; margin-bottom: 12px; }
+        .benefit-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 0;}
+
+        /* Block: Nós fazemos tudo (Steps) */
+        .we-do-it-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+        .we-do-card {
+            background: var(--bg-card); border: 1px solid var(--border-light); padding: 24px;
+            border-radius: 8px; text-align: left; position: relative; overflow: hidden;
+        }
+        .we-do-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--gold);
+        }
+        .we-do-card h4 { font-family: var(--sans); font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .we-do-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0;}
+        .we-do-icon { font-size: 20px; color: var(--gold); margin-bottom: 16px; }
+
+        /* Block: Section Titles */
+        .block-header { text-align: center; margin-bottom: 56px; }
+        .block-header h2 { font-size: 36px; margin-bottom: 16px; }
+        .block-header p { font-size: 16px; color: var(--text-secondary); max-width: 800px; margin: 0 auto;}
+
+        /* Explicação B2C vs B2B Simples */
+        .explainer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto 80px auto; text-align: left;}
+        .explainer-card { background: var(--bg-card); border: 1px solid var(--border); padding: 32px; border-radius: 8px; border-top: 3px solid var(--gold); box-shadow: 0 10px 20px rgba(0,0,0,0.02);}
+        .explainer-card h4 { font-family: var(--serif); font-size: 24px; margin-bottom: 12px; color: var(--dark); }
+        .explainer-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin: 0;}
+        .explainer-card strong { color: var(--dark); }
+
+        /* --- NOTIFICAÇÃO DE VENDAS ANIMADA (B2C) --- */
+        .sales-animation-container {
+            width: 100%; max-width: 400px; margin: 0 auto 60px auto;
+            background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px;
+            padding: 24px; position: relative; overflow: hidden; height: 240px;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+            display: flex; flex-direction: column; justify-content: flex-end;
+        }
+        .sales-animation-container::before {
+            content: 'Simulação: O poder da escala B2C'; position: absolute; top: 16px; left: 0; width: 100%;
+            text-align: center; font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;
+        }
+        .sale-toast {
+            background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px;
+            padding: 12px 16px; display: flex; align-items: center; gap: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-top: 12px;
+            animation: slideUpFade 4s ease-in-out infinite; opacity: 0;
+            border-left: 4px solid var(--success);
+        }
+        .sale-toast:nth-child(2) { animation-delay: 1.3s; }
+        .sale-toast:nth-child(3) { animation-delay: 2.6s; }
+        
+        .toast-icon { width: 32px; height: 32px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFF; font-size: 14px; flex-shrink: 0;}
+        .toast-text { display: flex; flex-direction: column; }
+        .toast-text strong { font-size: 13px; color: var(--dark); line-height: 1.2;}
+        .toast-text span { font-size: 11px; color: var(--text-muted); }
+
+        @keyframes slideUpFade {
+            0% { opacity: 0; transform: translateY(20px); }
+            10% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+
+        /* --- PRODUCT CAROUSEL SYSTEM --- */
+        .product-section { margin-bottom: 40px; }
+        .product-header {
+            display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 24px; padding-bottom: 16px;
+        }
+        .product-niche { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 8px; display: flex; gap: 8px; align-items: center;}
+        .product-naming { font-family: var(--serif); font-size: 32px; color: var(--dark); font-style: italic;}
+        .specialist-info { font-size: 12px; color: var(--text-secondary); font-weight: 600; letter-spacing: 0.5px; margin-top: 4px;}
+        .swipe-hint { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; margin-top: 16px; font-weight: 600; background: var(--border-light); padding: 4px 12px; border-radius: 12px;}
+
+        .carousel-container {
+            width: 100%; overflow: hidden; position: relative;
+        }
+        .carousel-track {
+            display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+            padding: 10px max(24px, calc(50vw - var(--max-w)/2 + 24px));
+            scrollbar-width: none; -webkit-overflow-scrolling: touch; cursor: grab;
+        }
+        .carousel-track::-webkit-scrollbar { display: none; }
+        .carousel-track:active { cursor: grabbing; }
+
+        .info-card {
+            flex: 0 0 320px; scroll-snap-align: center;
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 32px; display: flex; flex-direction: column;
+            border-top: 3px solid var(--dark); border-radius: 6px;
+        }
+        
+        .card-eyebrow { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px; display: block;}
+        .info-card h4 { font-size: 20px; margin-bottom: 12px; line-height: 1.3;}
+        .info-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; font-weight: 400;}
+        
+        /* Ajuste de espaçamento nos dados de receita */
+        .card-data { margin-top: auto; border-top: 1px solid var(--border-light); padding-top: 20px; display: flex; flex-direction: column; gap: 6px;}
+        .data-value { font-family: var(--serif); font-size: 26px; color: var(--dark); line-height: 1;}
+        .data-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); font-weight: 600; line-height: 1.3;}
+
+        /* Ícone Animado no Card 1 */
+        .card-icon-anim {
+            width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 18px; margin-bottom: 16px; animation: floatIcon 3s ease-in-out infinite; color: #FFF;
+        }
+        @keyframes floatIcon { 0% { transform: translateY(0); } 50% { transform: translateY(-5px); } 100% { transform: translateY(0); } }
+
+        /* Divisória Elegante entre os Cases */
+        .elegant-divider {
+            width: 100%; border-top: 1px dashed var(--border); margin: 60px 0; text-align: center; position: relative;
+        }
+        .elegant-divider span {
+            position: relative; top: -11px; padding: 0 16px; font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--text-muted); background: var(--bg);
+        }
+
+        /* Oportunidade Exclusiva */
+        .exclusive-block {
+            background: var(--dark); color: #FFF; padding: 56px 40px; border-radius: 8px;
+            text-align: center; margin: 60px auto; max-width: 800px;
+        }
+        .exclusive-block h2 { color: #FFF; font-size: 32px; margin-bottom: 20px; }
+        .exclusive-block p { font-size: 15px; color: #A3A3A3; margin-bottom: 20px; line-height: 1.7;}
+        .exclusive-block strong { color: #FFF; font-weight: 500; }
+        .alert-tag { display: inline-block; background: var(--gold); color: #000; font-size: 11px; font-weight: 700; padding: 4px 12px; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; margin-bottom: 16px;}
+        
+        /* MQL Form Area */
+        .form-section {
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 48px; text-align: center; max-width: 700px; margin: 0 auto; border-radius: 8px;
+        }
+        .form-section h2 { font-size: 28px; margin-bottom: 12px; }
+        .form-section p.form-desc { color: var(--text-secondary); font-size: 14px; margin-bottom: 32px; }
+
+        .quiz-container { text-align: left; position: relative; min-height: 200px; }
+        .quiz-step { display: none; animation: fadeIn 0.4s ease forwards; }
+        .quiz-step.active { display: block; }
+        
+        .quiz-question { font-family: var(--serif); font-size: 20px; margin-bottom: 6px; color: var(--dark); line-height: 1.3;}
+        .quiz-hint { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; display: block;}
+        
+        .quiz-input {
+            width: 100%; padding: 14px 16px; border: 1px solid var(--border); background: var(--bg);
+            color: var(--dark); font-family: var(--sans); font-size: 14px; margin-bottom: 20px;
+            outline: none; transition: all 0.3s; border-radius: 4px;
+        }
+        .quiz-input:focus { border-color: var(--gold); background: var(--bg-card); }
+        select.quiz-input { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A08A4C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1em; }
+        
+        /* Botões de Escolha Rápida (Step 1) */
+        .choice-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+        .choice-btn {
+            width: 100%; text-align: left; padding: 16px 20px; background: var(--bg); border: 1px solid var(--border);
+            border-radius: 6px; font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--dark);
+            cursor: pointer; transition: all 0.3s; display: flex; justify-content: space-between; align-items: center;
+        }
+        .choice-btn:hover { border-color: var(--gold); background: var(--bg-card); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .choice-btn i { color: var(--text-muted); transition: color 0.3s;}
+        .choice-btn:hover i { color: var(--gold); }
+
+        .quiz-btn-group { display: flex; gap: 12px; justify-content: flex-end; }
+        
+        .btn {
+            font-family: var(--sans); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+            padding: 12px 24px; border: none; cursor: pointer; transition: all 0.3s; text-decoration: none; border-radius: 4px;
+        }
+        .btn-primary { background: var(--dark); color: #FFF; }
+        .btn-primary:hover { background: var(--gold); color: #FFF; }
+        .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text-secondary); }
+        .btn-secondary:hover { color: var(--dark); border-color: var(--dark); }
+        
+        .btn-gold { background: var(--gold); color: #FFF; width: 100%; font-size: 14px; padding: 18px; text-align: center; display: block;}
+        .btn-gold:hover { background: var(--dark); }
+
+        .progress-bar-container { width: 100%; height: 4px; background: var(--border); margin-bottom: 24px; border-radius: 2px; overflow: hidden;}
+        .progress-bar { height: 100%; background: var(--gold); width: 16%; transition: width 0.3s ease; }
+
+        .no-thanks {
+            display: block; text-align: center; margin-top: 56px;
+            font-size: 13px; color: var(--text-muted); text-decoration: none;
+            border-bottom: 1px solid transparent; padding-bottom: 2px;
+            transition: all 0.3s; width: fit-content; margin-inline: auto;
+        }
+        .no-thanks:hover { color: var(--dark); border-color: var(--dark); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            .container { padding: 40px 20px; }
+            .status-bar, .warning-bar { font-size: 10px; padding: 6px 12px; }
+            .pre-title { font-size: 9px; padding: 4px 12px; }
+            .title { font-size: 24px; }
+            .hero-desc { font-size: 15px; }
+            .benefits-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 32px;}
+            .benefit-card { padding: 24px; }
+            .we-do-it-grid { grid-template-columns: 1fr; gap: 12px; }
+            
+            /* Refinamento de Tipografia para Mobile (Mais Elegante/Menor) */
+            .block-header h2 { font-size: 26px; margin-bottom: 12px; }
+            .explainer-card h4 { font-size: 20px; }
+            .product-naming { font-size: 24px; }
+            .info-card h4 { font-size: 18px; }
+            .data-value { font-size: 24px; }
+            .exclusive-block h2 { font-size: 24px; margin-bottom: 16px; }
+            .form-section h2 { font-size: 22px; margin-bottom: 12px; }
+            .quiz-question { font-size: 18px; }
+            
+            .explainer-grid { grid-template-columns: 1fr; gap: 16px;}
+            .explainer-card { padding: 24px; }
+            .info-card { flex: 0 0 280px; padding: 24px; }
+            .carousel-track { padding: 10px 20px; gap: 16px; }
+            .exclusive-block { padding: 40px 20px; margin: 40px 0;}
+            .form-section { padding: 32px 20px; }
+            .no-thanks { margin-top: 48px; }
+        }
+    </style>
+
+    <!-- Meta Pixel Base Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '805479242068446');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Google Tag (Google Ads) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17614228842"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17614228842');
+    </script>
+</head>
+<body>
+
+    <!-- Status Bars -->
+    <div class="status-bar"><i class="fa-solid fa-check"></i> Pagamento Aprovado. Acesso enviado ao e-mail.</div>
+    <div class="warning-bar">Atenção: Oferta restrita a quem finalizou a compra.</div>
+
+    <!-- HERO SECTION -->
+    <section class="hero container">
+        <span class="pre-title">Bem-vindo ao ecossistema Clintia Edutech®</span>
+        
+        <h1 class="title">
+            <strong style="color: var(--gold);">Transforme o seu conhecimento médico em renda passiva:</strong><br>
+            Como criar um Ativo Digital que fatura 24h por dia e atrai pacientes totalmente qualificados a um custo infinitamente menor (ou zerado).
+        </h1>
+        
+        <p class="hero-desc">
+            Estruture o seu Braço Educacional em 60 dias. Rentabilize o que você já sabe e crie uma nova fonte de receita sólida — sem precisar de estratégias mirabolantes ou perder horas a gravar conteúdos de entretenimento.
+        </p>
+
+        <div class="hero-bullets">
+            <div class="hero-bullet"><i class="fa-solid fa-bolt"></i> Método Validado</div>
+            <div class="hero-bullet"><i class="fa-solid fa-stopwatch"></i> Pronto em 60 dias</div>
+            <div class="hero-bullet"><i class="fa-solid fa-user-tie"></i> 100% Profissional</div>
+        </div>
+    </section>
+
+    <!-- BLOCO 1: AS VANTAGENS DIRETAS -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="block-header" style="margin-bottom: 40px;">
+                <h2>Por que criar um Ativo Digital?</h2>
+                <p>Nós construímos o seu ecossistema educacional. Você educa o mercado, rentabiliza a sua experiência e resolve o gargalo de captação da sua clínica numa tacada só.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+                    <h3>Fonte de Renda Extra 24/7</h3>
+                    <p>O seu produto digital (E-book ou Imersão) roda online. Ele vende e gera caixa para si enquanto você opera ou atende. A previsibilidade que a clínica física não oferece.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fa-solid fa-magnet"></i></div>
+                    <h3>Leads Muito Mais Baratos</h3>
+                    <p>Esqueça os leads frios. Quem compra o seu produto já pagou para conhecer o seu método. É um paciente consciente, que te valoriza e chega pronto para agendar a consulta.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fa-solid fa-crown"></i></div>
+                    <h3>Autoridade e Posicionamento</h3>
+                    <p>Ter um produto próprio — um Braço Educacional — eleva instantaneamente a percepção do seu nome. Você deixa de ser apenas "um prestador de serviço" para se tornar uma referência consolidada.</p>
+                </div>
+            </div>
+
+            <!-- BLOCO "WE DO IT" -->
+            <div style="margin-top: 80px; text-align: center; border-top: 1px dashed var(--border); padding-top: 60px;">
+                <h2 style="font-size: 28px; margin-bottom: 12px;">E se eu ainda não tiver uma ideia de produto digital?</h2>
+                <p style="color: var(--text-secondary);">Nós assumimos de ponta a ponta. Você entra com a medicina, nós com a engenharia.</p>
+                
+                <div class="we-do-it-grid">
+                    <div class="we-do-card">
+                        <div class="we-do-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                        <h4>1. Descoberta</h4>
+                        <p>Encontramos a demanda oculta e definimos o formato de produto ideal para a sua especialidade.</p>
+                    </div>
+                    <div class="we-do-card">
+                        <div class="we-do-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                        <h4>2. Branding</h4>
+                        <p>Criamos o nome (Naming) e toda a identidade visual de luxo para a sua nova marca educacional.</p>
+                    </div>
+                    <div class="we-do-card">
+                        <div class="we-do-icon"><i class="fa-solid fa-box-open"></i></div>
+                        <h4>3. Produção</h4>
+                        <p>Estruturamos o seu método passo a passo e o empacotamos (PDF, Módulos, Ementa).</p>
+                    </div>
+                    <div class="we-do-card">
+                        <div class="we-do-icon"><i class="fa-solid fa-rocket"></i></div>
+                        <h4>4. Vendas</h4>
+                        <p>Montamos o site, o funil e gerimos os anúncios para que venda todos os dias no automático.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 2: INTRODUÇÃO AOS MODELOS -->
+    <section class="section" style="padding-bottom: 40px; border-bottom: none;">
+        <div class="container">
+            <div class="block-header" style="margin-bottom: 40px;">
+                <h2 style="font-size: 32px; max-width: 800px; margin-inline: auto;">Como ter um Ativo além da clínica impulsiona novas consultas e escala a sua receita.</h2>
+                <p style="font-size: 16px; margin-top: 16px;">Existem dois caminhos estruturados para rentabilizar o seu conhecimento. Tudo depende de quem você deseja atingir:</p>
+            </div>
+
+            <div class="explainer-grid" style="margin-bottom: 0;">
+                <div class="explainer-card">
+                    <h4>Possibilidade 1: Vendendo direto para o paciente</h4>
+                    <p><strong>Estratégia de Escala.</strong> Você vende materiais acessíveis (e-books, cursos curtos) focados em dores reais. Ele compra, consome o seu conteúdo e passa a confiar cegamente em você. A sua recepção liga e converte a consulta. O produto digital paga os anúncios e gera lucro extra.</p>
+                </div>
+                <div class="explainer-card">
+                    <h4>Possibilidade 2: Vendendo de médico para médico</h4>
+                    <p><strong>Estratégia High-Ticket.</strong> Você ensina a sua técnica clínica ou cirúrgica avançada para outros profissionais. O formato é de imersões ou mentorias exclusivas (milhares de reais por vaga). Uma turma esgotada pode faturar múltiplos seis dígitos em um fim de semana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRUPO 1: PACIENTES (B2C) -->
+    <section class="section" style="background: var(--bg-card); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+        <div class="container" style="padding-top: 0; padding-bottom: 40px;">
+            <div class="block-header" style="margin-bottom: 60px; text-align: left; border-left: 4px solid var(--color-pedia); padding-left: 20px;">
+                <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--color-pedia); display: block; margin-bottom: 8px;">Estratégia de Escala (B2C)</span>
+                <h2 style="font-size: 36px; margin-bottom: 8px;">Possibilidade 1: Vendendo direto para o seu Paciente</h2>
+                <p style="margin: 0; max-width: 800px;">Veja como orientações de rotina se transformam em produtos que se vendem sozinhos e alimentam a clínica com pacientes conscientes.</p>
+            </div>
+
+            <!-- SIMULAÇÃO DE VENDAS -->
+            <div class="sales-animation-container">
+                <div class="sale-toast">
+                    <div class="toast-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="toast-text"><strong>Venda Realizada!</strong><span>E-book Sono do Bebê - R$ 67,00</span></div>
+                </div>
+                <div class="sale-toast">
+                    <div class="toast-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="toast-text"><strong>Venda Realizada!</strong><span>Guia de Rotina - R$ 97,00</span></div>
+                </div>
+                <div class="sale-toast">
+                    <div class="toast-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="toast-text"><strong>Venda Realizada!</strong><span>E-book Sono do Bebê - R$ 67,00</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produto 1: E-book Pediatria -->
+        <div class="product-section">
+            <div class="container" style="padding-top: 0; padding-bottom: 0;">
+                <div class="product-header">
+                    <span class="product-niche" style="color: var(--color-pedia);"><strong>CASE DE SUCESSO 01</strong> • Pediatria</span>
+                    <h3 class="product-naming">O Sono do Bebê Descomplicado®</h3>
+                    <div class="specialist-info">Dra. Marina Silva - Consultório Particular - Pediatria</div>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track drag-scroll">
+                    <div class="info-card" style="border-top-color: var(--color-pedia);">
+                        <div class="card-icon-anim" style="background: var(--color-pedia);"><i class="fa-solid fa-book"></i></div>
+                        <span class="card-eyebrow" style="color: var(--color-pedia);">O Produto</span>
+                        <h4>E-book & Guia Prático</h4>
+                        <p>Um material ensinando mães a regularem o sono de recém-nascidos. O que a médica repetia em cada consulta foi empacotado para venda perpétua.</p>
+                        <div class="card-data"><span class="data-value" style="color: var(--success);">R$ 9.600</span><span class="data-label">Receita Média / Mês</span></div>
+                    </div>
+                    <div class="info-card">
+                        <span class="card-eyebrow">A Receita</span>
+                        <h4>Vendas que se Pagam</h4>
+                        <p>Vendido a R$ 67, o e-book converte todos os dias. O lucro cobre integralmente o custo dos anúncios, criando um funil de marketing sem custo extra.</p>
+                        <div class="card-data"><span class="data-value">140+</span><span class="data-label">Vendas Mensais</span></div>
+                    </div>
+                    <div class="info-card">
+                        <span class="card-eyebrow">A Captação</span>
+                        <h4>A Lista de Ouro</h4>
+                        <p>Cada compradora recebe uma ligação da receção ofertando a puericultura na clínica. A conversão de quem já leu o livro é altíssima.</p>
+                        <div class="card-data"><span class="data-value" style="color: var(--color-pedia);">40+</span><span class="data-label">Pacientes Qualificados/mês</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elegant-divider"><span style="background: var(--bg-card);">Próximo Case</span></div>
+
+        <!-- Produto 2: App IA Nutrologia -->
+        <div class="product-section">
+            <div class="container" style="padding-top: 0; padding-bottom: 0;">
+                <div class="product-header">
+                    <span class="product-niche" style="color: var(--color-nutro);"><strong>CASE DE SUCESSO 02</strong> • Nutrologia</span>
+                    <h3 class="product-naming">Assistente Alimentar com IA®</h3>
+                    <div class="specialist-info">Dr. Rafael Costa - Consultório Particular - Nutrologia</div>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track drag-scroll">
+                    <div class="info-card" style="border-top-color: var(--color-nutro);">
+                        <div class="card-icon-anim" style="background: var(--color-nutro);"><i class="fa-solid fa-robot"></i></div>
+                        <span class="card-eyebrow" style="color: var(--color-nutro);">O Produto</span>
+                        <h4>Chatbot Treinado</h4>
+                        <p>Uma Inteligência Artificial alimentada com o método do nutrólogo para tirar dúvidas diárias do paciente sobre alimentação.</p>
+                        <div class="card-data"><span class="data-value" style="color: var(--success);">R$ 20.100</span><span class="data-label">Receita Recorrente / Mês</span></div>
+                    </div>
+                    <div class="info-card">
+                        <span class="card-eyebrow">A Receita</span>
+                        <h4>Assinatura em Volume</h4>
+                        <p>Vendido como assinatura de baixo ticket (R$ 67/mês), alcança pessoas que não teriam acesso imediato à consulta física VIP do doutor.</p>
+                        <div class="card-data"><span class="data-value">300+</span><span class="data-label">Novos Assinantes/Mês</span></div>
+                    </div>
+                    <div class="info-card">
+                        <span class="card-eyebrow">A Captação</span>
+                        <h4>Ponte para a Clínica</h4>
+                        <p>Sempre que o caso exige exames detalhados, o próprio Bot da IA orienta o paciente a agendar a consulta presencial na clínica física.</p>
+                        <div class="card-data"><span class="data-value" style="color: var(--color-nutro);">60+</span><span class="data-label">Agendamentos/mês</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elegant-divider"><span style="background: var(--bg-card);">Próximo Case</span></div>
+
+        <!-- Produto 3: Psiquiatria -->
+        <div class="product-section" style="margin-bottom: 0;">
+            <div class="container" style="padding-top: 0; padding-bottom: 0;">
+                <div class="product-header">
+                    <span class="product-niche" style="color: var(--color-psi);"><strong>CASE DE SUCESSO 03</strong> • Psiquiatria</span>
+                    <h3 class="product-naming">Mente Calma 360°®</h3>
+                    <div class="specialist-info">Dra. Helena Carvalho - Consultório Particular - Psiquiatria</div>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track drag-scroll">
+                    <div class="info-card" style="border-top-color: var(--color-psi);">
+                        <div class="card-icon-anim" style="background: var(--color-psi);"><i class="fa-solid fa-video"></i></div>
+                        <span class="card-eyebrow" style="color: var(--color-psi);">O Produto</span>
+                        <h4>Curso de Ação Rápida</h4>
+                        <p>Aulas focadas em exercícios práticos de respiração e ancoragem cognitiva para controle de crises ansiosas. Gravado uma única vez.</p>
+                        <div class="card-data"><span class="data-value" style="color: var(--success);">R$ 15.000</span><span class="data-label">Faturamento / Mês</span></div>
+                    </div>
+                    <div class="info-card">
+                        <span class="card-eyebrow">A Receita</span>
+                        <h4>Ticket e Alta Margem</h4>
+                        <p>Vendido a R$ 147. A margem de lucro na venda de um curso digital chega a 85%, transformando conhecimento num ativo extremamente rentável.</p>
+                        <div class="card-data"><span class="data-value">110+</span><span class="data-label">Novos Alunos/mês</span></div>
+                    </div>
+                    <div class="info-card">
+                        <span class="card-eyebrow">A Captação</span>
+                        <h4>Filtro Perfeito</h4>
+                        <p>Quem compra este curso possui uma dor latente. Eles chegam à clínica educados e prontos para iniciar terapia e acompanhamento clínico contínuo.</p>
+                        <div class="card-data"><span class="data-value" style="color: var(--color-psi);">35+</span><span class="data-label">Consultas Fechadas/mês</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRUPO 2: MÉDICOS (B2B) -->
+    <section class="section section-alt">
+        <div class="container" style="padding-top: 0; padding-bottom: 40px;">
+            <div class="block-header" style="margin-bottom: 60px; text-align: left; border-left: 4px solid var(--gold); padding-left: 20px;">
+                <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); display: block; margin-bottom: 8px;">Estratégia High-Ticket (B2B)</span>
+                <h2 style="font-size: 36px; margin-bottom: 8px;">Possibilidade 2: Vendendo de médico para médico</h2>
+                <p style="margin: 0; max-width: 800px;">Rentabilize a técnica cirúrgica ou de diagnóstico que você levou anos para aperfeiçoar, construindo um legado de alto valor e faturamento expressivo.</p>
+            </div>
+        </div>
+
+        <!-- Produto 4: Endometriose -->
+        <div class="product-section">
+            <div class="container" style="padding-top: 0; padding-bottom: 0;">
+                <div class="product-header">
+                    <span class="product-niche" style="color: var(--color-endo);"><strong>CASE DE SUCESSO 04</strong> • Ginecologia Avançada</span>
+                    <h3 class="product-naming">O Mapa da Endometriose®</h3>
+                    <div class="specialist-info">Dr. Eduardo de Lamare - Clínica Cantároz - Ginecologia</div>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track drag-scroll">
+                    <div class="info-card" style="border-top-color: var(--color-endo);">
+                        <div class="card-icon-anim" style="background: var(--color-endo);"><i class="fa-solid fa-users-viewfinder"></i></div>
+                        <span class="card-eyebrow" style="color: var(--color-endo);">O Produto</span>
+                        <h4>Imersão Presencial (Hands-on)</h4>
+                        <p>O médico transformou a sua expertise no diagnóstico da endometriose num evento denso de 2 dias. Uma imersão premium para outros cirurgiões do país.</p>
+                        <div class="card-data"><span class="data-value" style="color: var(--success);">R$ 180.000</span><span class="data-label">Faturamento por Turma</span></div>
+                    </div>
+                    <div class="info-card">
+                        <span class="card-eyebrow">A Receita</span>
+                        <h4>Poder do High-Ticket</h4>
+                        <p>O modelo B2B permite a cobrança justa. Com um ticket de R$ 12.000 por vaga, uma turma esgotada de fim de semana supera meses de faturamento da clínica.</p>
+                        <div class="card-data"><span class="data-value">15</span><span class="data-label">Vagas por Edição</span></div>
+                    </div>
+                    <div class="info-card">
+                        <span class="card-eyebrow">A Estratégia</span>
+                        <h4>Autoridade Institucional</h4>
+                        <p>Com um LinkedIn forte e um funil institucional, o Doutor deixa de ser apenas o cirurgião e torna-se a referência nacional no ensino da técnica.</p>
+                        <div class="card-data"><span class="data-value" style="color: var(--color-endo);">100%</span><span class="data-label">Sold Out na 1ª Edição</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elegant-divider"><span style="background: var(--bg-alt);">Próximo Case B2B</span></div>
+
+        <!-- Produto 5: Dermato Fios -->
+        <div class="product-section">
+            <div class="container" style="padding-top: 0; padding-bottom: 0;">
+                <div class="product-header">
+                    <span class="product-niche" style="color: var(--color-derma);"><strong>CASE DE SUCESSO 05</strong> • Dermatologia Estética</span>
+                    <h3 class="product-naming">Masterclass Fios de Sustentação®</h3>
+                    <div class="specialist-info">Dra. Camila Nogueira - Clínica DermaLuce - Dermatologia</div>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track drag-scroll">
+                    <div class="info-card" style="border-top-color: var(--color-derma);">
+                        <div class="card-icon-anim" style="background: var(--color-derma);"><i class="fa-solid fa-user-doctor"></i></div>
+                        <span class="card-eyebrow" style="color: var(--color-derma);">O Produto</span>
+                        <h4>Mentoria Híbrida VIP</h4>
+                        <p>A médica embalou os seus segredos de harmonização num produto dividido em aulas teóricas gravadas e um dia exclusivo em laboratório prático.</p>
+                        <div class="card-data"><span class="data-value" style="color: var(--success);">R$ 170.000</span><span class="data-label">Receita por Edição</span></div>
+                    </div>
+                    <div class="info-card">
+                        <span class="card-eyebrow">A Receita</span>
+                        <h4>Rentabilidade Dupla</h4>
+                        <p>A teoria gravada tem custo de entrega zero. A parte prática atrai o aluno premium que não questiona preço (R$ 8.500/vaga). Turmas fechadas 3x ao ano.</p>
+                        <div class="card-data"><span class="data-value">20</span><span class="data-label">Alunos por Turma</span></div>
+                    </div>
+                    <div class="info-card">
+                        <span class="card-eyebrow">A Estratégia</span>
+                        <h4>Venda por Aplicação</h4>
+                        <p>Montamos um funil onde o médico interessado precisa preencher um formulário. Apenas os aprovados recebem o link de compra, gerando exclusividade extrema.</p>
+                        <div class="card-data"><span class="data-value" style="color: var(--color-derma);">R$ 8.500</span><span class="data-label">Ticket por aluno</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elegant-divider"><span style="background: var(--bg-alt);">Próximo Case B2B</span></div>
+
+        <!-- Produto 6: Gestão -->
+        <div class="product-section" style="margin-bottom: 0;">
+            <div class="container" style="padding-top: 0; padding-bottom: 0;">
+                <div class="product-header">
+                    <span class="product-niche" style="color: var(--color-gestao);"><strong>CASE DE SUCESSO 06</strong> • Gestão Médica</span>
+                    <h3 class="product-naming">Consultório de Alto Valor®</h3>
+                    <div class="specialist-info">Dr. Fernando Ávila - Ávila Blanc Cirurgia Plástica - Gestão</div>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track drag-scroll">
+                    <div class="info-card" style="border-top-color: var(--color-gestao);">
+                        <div class="card-icon-anim" style="background: var(--color-gestao);"><i class="fa-solid fa-chalkboard-user"></i></div>
+                        <span class="card-eyebrow" style="color: var(--color-gestao);">O Produto</span>
+                        <h4>Consultoria de Negócios</h4>
+                        <p>O cirurgião que domina a própria clínica produtificou as suas planilhas e processos numa mentoria semestral para ajudar outros médicos a escalarem.</p>
+                        <div class="card-data"><span class="data-value" style="color: var(--success);">R$ 150.000</span><span class="data-label">Injeção por Ciclo</span></div>
+                    </div>
+                    <div class="info-card">
+                        <span class="card-eyebrow">A Receita</span>
+                        <h4>Ticket Máximo Recorrente</h4>
+                        <p>Com um valor de R$ 15.000, o foco não é volume, mas fechar 10 médicos premium a cada 6 meses. Uma entrada massiva de caixa com baixíssimo custo.</p>
+                        <div class="card-data"><span class="data-value">10</span><span class="data-label">Médicos Selecionados</span></div>
+                    </div>
+                    <div class="info-card">
+                        <span class="card-eyebrow">A Estratégia</span>
+                        <h4>Posicionamento de Mercado</h4>
+                        <p>Ao ensinar negócios, o médico eleva o seu status para "Empreendedor Visionário", atraindo novos negócios, palestras e até pacientes empresários.</p>
+                        <div class="card-data"><span class="data-value" style="color: var(--color-gestao);">R$ 15k</span><span class="data-label">Ticket da Mentoria</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 4: O CONVITE EXCLUSIVO -->
+    <section class="section">
+        <div class="container">
+            <div class="exclusive-block">
+                <span class="alert-tag">Oportunidade Restrita</span>
+                <h2>O Próximo Nível é Construído a Quatro Mãos</h2>
+                <p>Nós mapeamos o seu método e executamos 100% da tecnologia, copy, landing pages e tráfego pago. Você entra apenas com a sua ciência médica.</p>
+                <p>Normalmente, para aceder aos nossos serviços de produtificação, o médico passa por uma longa triagem comercial. Esta página não possui um link público. <strong>Como você acabou de garantir a sua vaga no Recepção 4.0 neste exato momento, a triagem comercial foi ignorada.</strong></p>
+                <p>Eu abri uma janela na nossa agenda. Se tem conhecimento sólido e quer criar o seu próprio Ativo Digital com o nosso método, vamos agendar uma consultoria de alinhamento com você.</p>
+            </div>
+
+            <!-- Formulário MQL -->
+            <div class="form-section" id="consultoria">
+                <h2>Liberação da Reunião</h2>
+                <p class="form-desc">Preencha as informações abaixo para validarmos a viabilidade do seu Ativo Digital antes do nosso encontro.</p>
+
+                <div class="quiz-container">
+                    <div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+
+                    <!-- Q1 - Botões de Escolha -->
+                    <div class="quiz-step active" id="q-1">
+                        <div class="quiz-question">1. Para quem você quer vender o seu conhecimento?</div>
+                        <span class="quiz-hint">Isso muda completamente a nossa rota de trabalho.</span>
+                        
+                        <div class="choice-grid">
+                            <button class="choice-btn" onclick="selectChoiceAndNext(1, 'Pacientes')">Para os meus pacientes (Escala/Volume) <i class="fa-solid fa-chevron-right"></i></button>
+                            <button class="choice-btn" onclick="selectChoiceAndNext(1, 'Medicos')">Para outros médicos (High-Ticket) <i class="fa-solid fa-chevron-right"></i></button>
+                            <button class="choice-btn" onclick="selectChoiceAndNext(1, 'Ambos')">As duas rotas fazem sentido para mim <i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                        <input type="hidden" id="input-1">
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="quiz-step" id="q-2">
+                        <div class="quiz-question">2. Qual é a sua especialidade médica de maior atuação?</div>
+                        <span class="quiz-hint">Queremos entender o valor do seu nicho no mercado.</span>
+                        <input type="text" class="quiz-input" id="input-2" placeholder="Ex: Psiquiatria, Plástica, Ginecologia...">
+                        <div class="quiz-btn-group">
+                            <button class="btn btn-secondary" onclick="prevStep(2)">Voltar</button>
+                            <button class="btn btn-primary" onclick="nextStep(2)">Avançar</button>
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="quiz-step" id="q-3">
+                        <div class="quiz-question">3. Você já possui algum produto digital (curso, e-book, mentoria) ou começaremos do zero?</div>
+                        <select class="quiz-input" id="input-3">
+                            <option value="" disabled selected>Selecione uma opção...</option>
+                            <option value="Já possuo um produto digital">Já possuo um produto digital ativo</option>
+                            <option value="Tenho uma ideia, mas nada pronto">Tenho uma ideia, mas nada pronto ainda</option>
+                            <option value="Começando totalmente do zero">Estou começando totalmente do zero</option>
+                        </select>
+                        <div class="quiz-btn-group">
+                            <button class="btn btn-secondary" onclick="prevStep(3)">Voltar</button>
+                            <button class="btn btn-primary" onclick="nextStep(3)">Avançar</button>
+                        </div>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="quiz-step" id="q-4">
+                        <div class="quiz-question">4. Nome Completo</div>
+                        <input type="text" class="quiz-input" id="input-4" placeholder="Insira o seu nome completo...">
+                        <div class="quiz-btn-group">
+                            <button class="btn btn-secondary" onclick="prevStep(4)">Voltar</button>
+                            <button class="btn btn-primary" onclick="nextStep(4)">Avançar</button>
+                        </div>
+                    </div>
+
+                    <!-- Q5 -->
+                    <div class="quiz-step" id="q-5">
+                        <div class="quiz-question">5. Qual é o seu WhatsApp com DDD?</div>
+                        <span class="quiz-hint" style="color: #D32F2F; font-weight: 600;">Importante: Confirme se o número está correto. O nosso contacto de agendamento será por lá.</span>
+                        <input type="tel" class="quiz-input" id="input-5" placeholder="(11) 99999-9999">
+                        <div class="quiz-btn-group">
+                            <button class="btn btn-secondary" onclick="prevStep(5)">Voltar</button>
+                            <button class="btn btn-primary" onclick="nextStep(5)">Avançar</button>
+                        </div>
+                    </div>
+
+                    <!-- Q6 -->
+                    <div class="quiz-step" id="q-6">
+                        <div class="quiz-question">6. Qual é o melhor horário para o nosso contacto via WhatsApp?</div>
+                        <select class="quiz-input" id="input-6">
+                            <option value="" disabled selected>Selecione um período...</option>
+                            <option value="Manha">Manhã (08h às 12h)</option>
+                            <option value="Tarde">Tarde (13h às 18h)</option>
+                            <option value="Noite">Noite (Após as 18h)</option>
+                        </select>
+                        <div class="quiz-btn-group">
+                            <button class="btn btn-secondary" onclick="prevStep(6)">Voltar</button>
+                            <button class="btn btn-primary" onclick="nextStep(6)">Avançar</button>
+                        </div>
+                    </div>
+
+                    <!-- Q7 -->
+                    <div class="quiz-step" id="q-7">
+                        <div class="quiz-question">7. Qual é o seu @ do Instagram (de preferência) ou link do site?</div>
+                        <span class="quiz-hint">Caso não tenha, pode deixar em branco, mas ajuda muito na nossa análise prévia.</span>
+                        <input type="text" class="quiz-input" id="input-7" placeholder="Ex: @dr.seunome ou www.suaclinica.com.br">
+                        <div class="quiz-btn-group">
+                            <button class="btn btn-secondary" onclick="prevStep(7)">Voltar</button>
+                            <button class="btn btn-primary" onclick="finishQuiz()">Finalizar e Liberar Agenda</button>
+                        </div>
+                    </div>
+
+                    <!-- Final CTA -->
+                    <div class="quiz-step" id="q-final" style="text-align: center; padding: 20px 0;">
+                        <i class="fa-solid fa-circle-check" style="color: var(--success); font-size: 40px; margin-bottom: 16px;"></i>
+                        <h3 style="font-size: 26px; margin-bottom: 12px;">Perfil Qualificado. Tudo Certo!</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 32px; font-size: 15px;">A reunião estratégica para construção do seu Ativo Digital está liberada. Escolha um horário na agenda oficial abaixo.</p>
+                        
+                        <a href="https://calendar.app.google/m3vLdexcszHeG8vX6" target="_blank" class="btn btn-gold">
+                            Acessar Agenda Oficial <i class="fa-solid fa-calendar-check" style="margin-left: 8px;"></i>
+                        </a>
+                    </div>
+
+                </div>
+                
+                <a href="URL_AREA_DE_MEMBROS_RECEPCAO_4_0" class="no-thanks">Não desejo rentabilizar o meu conhecimento digitalmente. Quero apenas aceder ao Recepção 4.0.</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animação de Destaque (Highlighter) nos títulos
+        const markers = document.querySelectorAll('.marker');
+        const observerOptions = { threshold: 0.5, rootMargin: "0px" };
+        
+        const markerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('drawn');
+                    markerObserver.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        markers.forEach(marker => markerObserver.observe(marker));
+
+        // Lógica de Draggable do Carrossel
+        const sliders = document.querySelectorAll('.drag-scroll');
+        
+        sliders.forEach(slider => {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.style.cursor = 'grabbing';
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.style.cursor = 'grab';
+            });
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.style.cursor = 'grab';
+            });
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 2;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        });
+
+        // Quiz Logic MQL
+        const totalSteps = 7;
+        const sessionId = Date.now().toString() + Math.floor(Math.random() * 1000).toString(); // Gera um ID único para o visitante
+
+        function updateProgress(step) {
+            const percentage = (step / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = percentage + '%';
+        }
+
+        // Função que envia os dados parciais a cada clique
+        function sendPartialData(isComplete = false) {
+            const answers = {
+                sessionId: sessionId,
+                timestamp: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }),
+                paraQuemVender: document.getElementById('input-1') ? document.getElementById('input-1').value : '',
+                especialidade: document.getElementById('input-2') ? document.getElementById('input-2').value : '',
+                maturidadeProduto: document.getElementById('input-3') ? document.getElementById('input-3').value : '',
+                nome: document.getElementById('input-4') ? document.getElementById('input-4').value : '',
+                whatsapp: document.getElementById('input-5') ? document.getElementById('input-5').value : '',
+                horario: document.getElementById('input-6') ? document.getElementById('input-6').value : '',
+                instagram: document.getElementById('input-7') ? document.getElementById('input-7').value : '',
+                status: isComplete ? "Finalizado" : "Incompleto"
+            };
+
+            answers.qualificacao = qualificarLead(answers.paraQuemVender, answers.maturidadeProduto, answers.instagram);
+
+            fetch('https://script.google.com/macros/s/AKfycbzEc48AfMgJDNtHr50tSMLgImoaFbVhk5YSGqrpAb2MBNTcM6NfaNaakwr5Cb6JfHc/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(answers)
+            }).catch(err => console.log("Erro no fetch: ", err));
+
+            return answers;
+        }
+
+        // Função especial para botões de escolha na Q1
+        function selectChoiceAndNext(step, value) {
+            document.getElementById('input-' + step).value = value;
+            nextStep(step);
+        }
+
+        function nextStep(current) {
+            const input = document.getElementById('input-' + current);
+            // O passo 7 é opcional
+            if(current !== 7 && input && input.value.trim() === '') {
+                alert('Por favor, preencha o campo para continuar.');
+                return;
+            }
+            
+            // SALVA NA PLANILHA IMEDIATAMENTE (Background)
+            sendPartialData(false);
+
+            document.getElementById('q-' + current).classList.remove('active');
+            const next = current + 1;
+            document.getElementById('q-' + next).classList.add('active');
+            updateProgress(current);
+        }
+
+        function prevStep(current) {
+            document.getElementById('q-' + current).classList.remove('active');
+            const prev = current - 1;
+            document.getElementById('q-' + prev).classList.add('active');
+            updateProgress(prev - 1);
+        }
+
+        // Função de Qualificação de Lead (ICP)
+        function qualificarLead(q1, q3, q7) {
+            let score = 0;
+            
+            if (q1.includes('Medicos') || q1.includes('Ambos')) score += 3;
+            if (q1.includes('Pacientes')) score += 1;
+            
+            if (q3.includes('Já possuo')) score += 3;
+            if (q3.includes('Tenho uma ideia')) score += 1;
+            
+            if (q7 && q7.trim() !== '') score += 1;
+
+            if (score >= 5) return 'Quente';
+            if (score >= 3) return 'Morno';
+            return 'Frio';
+        }
+
+        function finishQuiz() {
+            // Salva como "Finalizado"
+            const finalAnswers = sendPartialData(true);
+            
+            // ----------------------------------------------------
+            // DISPARO DE EVENTOS PARA META E GOOGLE (EVENTOS PADRÃO)
+            // ----------------------------------------------------
+            if (finalAnswers.qualificacao === 'Morno' || finalAnswers.qualificacao === 'Quente') {
+                // Meta Pixel (Evento Padrão 'Lead' treina a IA mais rápido)
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead', {
+                        content_category: finalAnswers.qualificacao,
+                        content_name: finalAnswers.especialidade
+                    });
+                }
+                // Google Analytics / Ads (Evento Padrão)
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'generate_lead', {
+                        'event_category': 'Upsell',
+                        'event_label': finalAnswers.qualificacao,
+                        'value': finalAnswers.qualificacao === 'Quente' ? 100 : 50,
+                        'currency': 'BRL'
+                    });
+                }
+            }
+
+            // Avança para o último passo (Calendly)
+            document.getElementById('q-7').classList.remove('active');
+            document.getElementById('q-final').classList.add('active');
+            updateProgress(7);
+            
+            // Redireciona
+            setTimeout(() => { window.location.href = "https://calendar.app.google/m3vLdexcszHeG8vX6"; }, 2500);
+        }
+
+        // WhatsApp Phone Mask
+        const phoneInput = document.getElementById('input-5');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function (e) {
+                var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+                e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+            });
+        }
+    </script>
+</body>
+</html>
