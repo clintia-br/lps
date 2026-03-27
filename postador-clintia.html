@@ -2,7 +2,7 @@
 <html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Clintia - Gestão de Conteúdo</title>
     <!-- Importação do Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,20 +45,29 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Previne o zoom indesejado no iOS ao focar em inputs */
+        input, textarea, select { font-size: 16px !important; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased flex h-screen overflow-hidden">
 
+    <!-- Fundo escuro do Menu Mobile -->
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-900/50 z-40 hidden transition-opacity opacity-0 md:hidden backdrop-blur-sm"></div>
+
     <!-- Sidebar (Menu Lateral) -->
-    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col hidden md:flex shrink-0">
-        <div class="h-16 flex items-center px-6 border-b border-slate-200">
-            <img src="https://i.imgur.com/DOYHPYg.png" alt="Clintia Logo" class="h-6 invert opacity-80">
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-slate-200 flex flex-col transform -translate-x-full transition-transform duration-300 md:relative md:translate-x-0 shrink-0 shadow-2xl md:shadow-none">
+        <div class="h-16 flex items-center justify-between px-6 border-b border-slate-200 shrink-0">
+            <img src="https://i.imgur.com/DOYHPYg.png" alt="Clintia Logo" class="h-5 md:h-6 invert opacity-80">
+            <button onclick="toggleSidebar()" class="md:hidden text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-times text-xl"></i>
+            </button>
         </div>
-        <nav class="flex-1 p-4 space-y-2">
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
             <a href="#" id="nav-clientes" onclick="switchView('clientes')" class="nav-item flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-primary/10 text-primary transition-all">
                 <i class="fa-solid fa-users w-6"></i>
                 Gestão de Clientes
@@ -72,13 +81,13 @@
                 Histórico
             </a>
         </nav>
-        <div class="p-4 border-t border-slate-200">
+        <div class="p-4 border-t border-slate-200 shrink-0">
             <div class="flex items-center">
-                <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">
+                <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm shrink-0">
                     B
                 </div>
-                <div class="ml-3">
-                    <p class="text-sm font-medium text-slate-900">Bernardo C.</p>
+                <div class="ml-3 overflow-hidden">
+                    <p class="text-sm font-medium text-slate-900 truncate">Bernardo C.</p>
                     <p class="text-xs text-slate-500">Plano Pro</p>
                 </div>
             </div>
@@ -86,156 +95,162 @@
     </aside>
 
     <!-- Área Principal -->
-    <main class="flex-1 flex flex-col h-screen overflow-hidden">
+    <main class="flex-1 flex flex-col h-screen overflow-hidden w-full relative">
         <!-- Cabeçalho (Header) -->
-        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 shrink-0">
-            <h1 id="pageTitle" class="text-xl font-semibold text-slate-800">Perfis e Integrações</h1>
-            <button id="btnAction" onclick="toggleModal('modalNovoCliente')" class="bg-primary hover:bg-primaryHover text-white px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-sm flex items-center">
-                <i class="fa-solid fa-plus mr-2"></i> Adicionar Cliente
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 md:px-8 shrink-0 relative z-10">
+            <div class="flex items-center">
+                <button onclick="toggleSidebar()" class="mr-4 text-slate-500 hover:text-primary md:hidden p-1">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+                <h1 id="pageTitle" class="text-base md:text-xl font-semibold text-slate-800 truncate max-w-[180px] md:max-w-none">Perfis e Integrações</h1>
+            </div>
+            
+            <button id="btnAction" onclick="toggleModal('modalNovoCliente')" class="bg-primary hover:bg-primaryHover text-white px-3 py-2 md:px-4 md:py-2 rounded-lg text-sm font-medium transition-all shadow-sm flex items-center shrink-0">
+                <i class="fa-solid fa-plus md:mr-2"></i> 
+                <span class="hidden md:inline">Adicionar Cliente</span>
             </button>
         </header>
 
         <!-- Container rolável para as Views -->
-        <div class="flex-1 overflow-y-auto">
+        <div class="flex-1 overflow-y-auto overflow-x-hidden">
             
             <!-- VIEW 1: GESTÃO DE CLIENTES -->
-            <div id="view-clientes" class="view-visible p-8">
-                <div class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6" id="clientGrid">
+            <div id="view-clientes" class="view-visible p-4 md:p-8">
+                <div class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-6" id="clientGrid">
                     <!-- Estado de Carregamento -->
-                    <div class="col-span-full flex flex-col items-center justify-center py-20 text-slate-400">
+                    <div class="col-span-full flex flex-col items-center justify-center py-20 text-slate-400 px-4 text-center">
                         <i class="fa-solid fa-circle-notch fa-spin text-3xl mb-3 text-primary"></i>
-                        <p class="font-medium text-slate-600">A conectar com a base de dados segura...</p>
+                        <p class="font-medium text-slate-600 text-sm md:text-base">A conectar com a base de dados segura...</p>
                     </div>
                 </div>
             </div>
 
             <!-- VIEW 2: NOVA POSTAGEM (IMEDIATA) -->
-            <div id="view-postagem" class="view-hidden p-8 max-w-6xl mx-auto">
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+            <div id="view-postagem" class="view-hidden p-4 md:p-8 max-w-6xl mx-auto">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 md:p-6">
                     
-                    <div class="mb-6 bg-amber-50 border border-amber-200 text-amber-800 text-sm p-4 rounded-lg flex items-start">
-                        <i class="fa-solid fa-triangle-exclamation mt-0.5 mr-3 text-amber-500 text-lg"></i>
+                    <div class="mb-6 bg-amber-50 border border-amber-200 text-amber-800 p-3 md:p-4 rounded-lg flex items-start">
+                        <i class="fa-solid fa-triangle-exclamation mt-0.5 mr-3 text-amber-500 text-base md:text-lg shrink-0"></i>
                         <div>
-                            <strong class="font-semibold">Atenção ao status das conexões!</strong>
-                            <p class="mt-1 text-amber-700 text-xs">A plataforma enviará o vídeo <span class="font-bold underline">apenas</span> para as redes que estiverem marcadas como <span class="font-bold text-green-600 bg-green-100 px-1 rounded">Conectado</span> na aba "Gestão de Clientes". Se uma rede estiver desconectada, ela será ignorada automaticamente.</p>
+                            <strong class="font-semibold text-sm">Atenção às conexões!</strong>
+                            <p class="mt-1 text-amber-700 text-xs leading-relaxed">O vídeo <span class="font-bold underline">apenas</span> será enviado para as redes marcadas como <span class="font-bold text-green-600 bg-green-100 px-1 rounded inline-block mt-1 sm:mt-0">Conectado</span>. Redes desconectadas serão ignoradas.</p>
                         </div>
                     </div>
 
-                    <div class="mb-8">
+                    <div class="mb-6 md:mb-8">
                         <label class="block text-sm font-medium text-slate-700 mb-2">Para qual cliente é esta postagem?</label>
-                        <select id="postClientSelect" class="w-full md:w-1/2 px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white">
+                        <select id="postClientSelect" class="w-full md:w-1/2 px-3 py-2.5 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white truncate">
                             <option value="">A carregar clientes...</option>
                         </select>
                     </div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
                         <div>
-                            <h3 class="text-base font-semibold text-slate-800 mb-4">1. Mídia (Vídeo Curto)</h3>
+                            <h3 class="text-sm md:text-base font-semibold text-slate-800 mb-3 md:mb-4">1. Mídia (Vídeo Curto)</h3>
                             <input type="file" id="videoUploadInput" class="hidden" accept="video/mp4" onchange="handleVideoUpload(event)">
-                            <div id="uploadDropZone" onclick="document.getElementById('videoUploadInput').click()" class="border-2 border-dashed border-slate-300 rounded-xl bg-slate-50 hover:bg-slate-100 transition-all p-6 flex flex-col items-center justify-center cursor-pointer aspect-[9/16] h-[380px] max-w-[220px] text-center group relative overflow-hidden">
+                            <div id="uploadDropZone" onclick="document.getElementById('videoUploadInput').click()" class="border-2 border-dashed border-slate-300 rounded-xl bg-slate-50 hover:bg-slate-100 transition-all p-4 md:p-6 flex flex-col items-center justify-center cursor-pointer aspect-[9/16] h-[280px] md:h-[380px] max-w-[200px] md:max-w-[220px] mx-auto lg:mx-0 text-center group relative overflow-hidden">
                                 <div id="uploadPrompt" class="flex flex-col items-center">
-                                    <i class="fa-solid fa-mobile-screen text-5xl text-primary mb-4 group-hover:scale-110 transition-transform"></i>
+                                    <i class="fa-solid fa-mobile-screen text-4xl md:text-5xl text-primary mb-3 md:mb-4 group-hover:scale-110 transition-transform"></i>
                                     <p class="text-sm font-semibold text-slate-800">Vídeo 9:16</p>
-                                    <p class="text-xs text-slate-600 mt-1">Clique para procurar</p>
+                                    <p class="text-xs text-slate-600 mt-1">Toque para anexar</p>
                                     <p class="text-[10px] text-slate-400 mt-2">MP4 (Máx 500MB)</p>
                                 </div>
                                 <div id="uploadSuccess" class="hidden flex-col items-center w-full h-full justify-center bg-slate-800 text-white p-4 absolute inset-0">
-                                    <i class="fa-solid fa-circle-check text-4xl text-green-400 mb-3"></i>
-                                    <p class="text-sm font-medium mb-1 truncate w-full" id="videoFileName">video_pronto.mp4</p>
-                                    <p class="text-xs text-slate-300 mb-4">Pronto para envio</p>
+                                    <i class="fa-solid fa-circle-check text-3xl md:text-4xl text-green-400 mb-2 md:mb-3"></i>
+                                    <p class="text-xs md:text-sm font-medium mb-1 truncate w-full px-2" id="videoFileName">video_pronto.mp4</p>
+                                    <p class="text-[10px] md:text-xs text-slate-300 mb-4">Pronto para envio</p>
                                     <button onclick="removeVideo(event)" class="px-3 py-1.5 bg-red-500/20 text-red-200 border border-red-500/50 hover:bg-red-500 hover:text-white rounded text-xs font-medium transition-colors flex items-center z-10 relative">
-                                        <i class="fa-solid fa-trash mr-1.5"></i> Trocar Vídeo
+                                        <i class="fa-solid fa-trash mr-1.5"></i> Trocar
                                     </button>
                                 </div>
                             </div>
-                            <div class="mt-4">
-                                <label class="block text-sm font-medium text-slate-700 mb-2">Capa do Vídeo (Opcional)</label>
-                                <button class="px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg text-sm font-medium text-slate-700 transition-all flex items-center">
-                                    <i class="fa-solid fa-image mr-2"></i> Selecionar Imagem
+                            <div class="mt-4 flex justify-center lg:justify-start max-w-[200px] md:max-w-[220px] mx-auto lg:mx-0">
+                                <button class="w-full py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg text-xs font-medium text-slate-700 transition-all flex items-center justify-center">
+                                    <i class="fa-solid fa-image mr-2"></i> Capa (Opcional)
                                 </button>
                             </div>
                         </div>
 
                         <div>
-                            <h3 class="text-base font-semibold text-slate-800 mb-4">2. Legenda e Distribuição</h3>
+                            <h3 class="text-sm md:text-base font-semibold text-slate-800 mb-3 md:mb-4 mt-4 lg:mt-0">2. Legenda e Distribuição</h3>
                             <div class="mb-4">
                                 <label class="block text-sm font-medium text-slate-700 mb-2 flex items-center">
                                     Legenda Principal 
-                                    <i class="fa-solid fa-circle-info text-slate-400 ml-2 text-xs" title="Esta legenda será enviada para todas as redes, a menos que especifique o contrário abaixo."></i>
                                 </label>
-                                <textarea id="mainCaption" rows="4" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary resize-none" placeholder="Escreva a descrição padrão do seu vídeo aqui..."></textarea>
+                                <textarea id="mainCaption" rows="4" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary resize-none text-sm" placeholder="Escreva a descrição padrão do seu vídeo aqui..."></textarea>
                             </div>
 
                             <div class="space-y-3">
-                                <p class="text-sm font-medium text-slate-700 mb-2">Regras Específicas (Opcional)</p>
+                                <p class="text-xs md:text-sm font-medium text-slate-700 mb-2">Regras Específicas (Opcional)</p>
                                 
+                                <!-- Accordion Redes -->
                                 <details class="group bg-slate-50 border border-slate-200 rounded-lg overflow-hidden">
                                     <summary class="flex items-center justify-between p-3 cursor-pointer list-none font-medium text-sm text-slate-700 bg-white border-b border-transparent group-open:border-slate-200">
-                                        <div class="flex items-center"><i class="fa-brands fa-instagram text-insta text-lg mr-2"></i> Instagram Reels</div>
-                                        <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                        <div class="flex items-center text-xs md:text-sm"><i class="fa-brands fa-instagram text-insta text-base mr-2"></i> Instagram Reels</div>
+                                        <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform text-xs"></i>
                                     </summary>
-                                    <div class="p-4 bg-slate-50">
-                                        <div class="flex items-center mb-3">
-                                            <input type="checkbox" id="checkIg" onchange="toggleSpecificCaption('ig')" class="w-4 h-4 text-primary bg-white border-slate-300 rounded focus:ring-primary cursor-pointer">
-                                            <label for="checkIg" class="ml-2 text-sm font-medium text-slate-700 cursor-pointer">Escrever uma legenda diferente só para o Instagram</label>
+                                    <div class="p-3 md:p-4 bg-slate-50">
+                                        <div class="flex items-start mb-3">
+                                            <input type="checkbox" id="checkIg" onchange="toggleSpecificCaption('ig')" class="w-4 h-4 text-primary bg-white border-slate-300 rounded focus:ring-primary cursor-pointer mt-0.5 shrink-0">
+                                            <label for="checkIg" class="ml-2 text-xs md:text-sm font-medium text-slate-700 cursor-pointer leading-tight">Legenda diferente para o Instagram</label>
                                         </div>
-                                        <textarea id="captionIg" rows="2" disabled class="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-primary bg-slate-200 opacity-60 transition-all" placeholder="Se ativado, esta legenda substitui a principal no Instagram."></textarea>
+                                        <textarea id="captionIg" rows="2" disabled class="w-full px-3 py-2 text-xs md:text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-primary bg-slate-200 opacity-60 transition-all" placeholder="Substitui a legenda principal."></textarea>
                                     </div>
                                 </details>
 
                                 <details class="group bg-slate-50 border border-slate-200 rounded-lg overflow-hidden">
                                     <summary class="flex items-center justify-between p-3 cursor-pointer list-none font-medium text-sm text-slate-700 bg-white border-b border-transparent group-open:border-slate-200">
-                                        <div class="flex items-center"><i class="fa-brands fa-youtube text-youtube text-lg mr-2"></i> YouTube Shorts</div>
-                                        <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                        <div class="flex items-center text-xs md:text-sm"><i class="fa-brands fa-youtube text-youtube text-base mr-2"></i> YouTube Shorts</div>
+                                        <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform text-xs"></i>
                                     </summary>
-                                    <div class="p-4 bg-slate-50 space-y-3">
+                                    <div class="p-3 md:p-4 bg-slate-50 space-y-3">
                                         <div>
-                                            <label class="block text-xs font-semibold text-slate-600 mb-1">Título do Short (Obrigatório)</label>
-                                            <input type="text" class="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-primary bg-white" placeholder="Ex: Dica rápida de saúde!">
+                                            <label class="block text-[10px] md:text-xs font-semibold text-slate-600 mb-1">Título do Short (Obrigatório)</label>
+                                            <input type="text" class="w-full px-3 py-2 text-xs md:text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-primary bg-white" placeholder="Ex: Dica rápida de saúde!">
                                         </div>
                                         <div class="pt-2 border-t border-slate-200">
-                                            <div class="flex items-center mb-3">
-                                                <input type="checkbox" id="checkYt" onchange="toggleSpecificCaption('yt')" class="w-4 h-4 text-primary bg-white border-slate-300 rounded focus:ring-primary cursor-pointer">
-                                                <label for="checkYt" class="ml-2 text-sm font-medium text-slate-700 cursor-pointer">Descrição diferente da principal</label>
+                                            <div class="flex items-start mb-3">
+                                                <input type="checkbox" id="checkYt" onchange="toggleSpecificCaption('yt')" class="w-4 h-4 text-primary bg-white border-slate-300 rounded focus:ring-primary cursor-pointer mt-0.5 shrink-0">
+                                                <label for="checkYt" class="ml-2 text-xs md:text-sm font-medium text-slate-700 cursor-pointer leading-tight">Descrição diferente da principal</label>
                                             </div>
-                                            <textarea id="captionYt" rows="2" disabled class="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-primary bg-slate-200 opacity-60 transition-all" placeholder="Se ativado, substitui a legenda principal na descrição do YouTube."></textarea>
+                                            <textarea id="captionYt" rows="2" disabled class="w-full px-3 py-2 text-xs md:text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-primary bg-slate-200 opacity-60 transition-all" placeholder="Substitui a legenda principal."></textarea>
                                         </div>
                                     </div>
                                 </details>
                                 
                                 <details class="group bg-slate-50 border border-slate-200 rounded-lg overflow-hidden">
                                     <summary class="flex items-center justify-between p-3 cursor-pointer list-none font-medium text-sm text-slate-700 bg-white border-b border-transparent group-open:border-slate-200">
-                                        <div class="flex items-center"><i class="fa-brands fa-tiktok text-tiktok text-lg mr-2"></i> TikTok</div>
-                                        <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                        <div class="flex items-center text-xs md:text-sm"><i class="fa-brands fa-tiktok text-tiktok text-base mr-2"></i> TikTok</div>
+                                        <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform text-xs"></i>
                                     </summary>
-                                    <div class="p-4 bg-slate-50">
-                                        <div class="flex items-center mb-3">
-                                            <input type="checkbox" id="checkTk" onchange="toggleSpecificCaption('tk')" class="w-4 h-4 text-primary bg-white border-slate-300 rounded focus:ring-primary cursor-pointer">
-                                            <label for="checkTk" class="ml-2 text-sm font-medium text-slate-700 cursor-pointer">Escrever uma legenda diferente só para o TikTok</label>
+                                    <div class="p-3 md:p-4 bg-slate-50">
+                                        <div class="flex items-start mb-3">
+                                            <input type="checkbox" id="checkTk" onchange="toggleSpecificCaption('tk')" class="w-4 h-4 text-primary bg-white border-slate-300 rounded focus:ring-primary cursor-pointer mt-0.5 shrink-0">
+                                            <label for="checkTk" class="ml-2 text-xs md:text-sm font-medium text-slate-700 cursor-pointer leading-tight">Legenda diferente para o TikTok</label>
                                         </div>
-                                        <textarea id="captionTk" rows="2" disabled class="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-primary bg-slate-200 opacity-60 transition-all" placeholder="Se ativado, esta legenda substitui a principal no TikTok."></textarea>
+                                        <textarea id="captionTk" rows="2" disabled class="w-full px-3 py-2 text-xs md:text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-primary bg-slate-200 opacity-60 transition-all" placeholder="Substitui a legenda principal."></textarea>
                                     </div>
                                 </details>
 
                                 <details class="group bg-slate-50 border border-slate-200 rounded-lg overflow-hidden">
                                     <summary class="flex items-center justify-between p-3 cursor-pointer list-none font-medium text-sm text-slate-700 bg-white border-b border-transparent group-open:border-slate-200">
-                                        <div class="flex items-center"><i class="fa-brands fa-linkedin text-linkedin text-lg mr-2"></i> LinkedIn</div>
-                                        <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                        <div class="flex items-center text-xs md:text-sm"><i class="fa-brands fa-linkedin text-linkedin text-base mr-2"></i> LinkedIn</div>
+                                        <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform text-xs"></i>
                                     </summary>
-                                    <div class="p-4 bg-slate-50">
-                                        <div class="flex items-center mb-3">
-                                            <input type="checkbox" id="checkIn" onchange="toggleSpecificCaption('in')" class="w-4 h-4 text-primary bg-white border-slate-300 rounded focus:ring-primary cursor-pointer">
-                                            <label for="checkIn" class="ml-2 text-sm font-medium text-slate-700 cursor-pointer">Legenda mais formal para o LinkedIn</label>
+                                    <div class="p-3 md:p-4 bg-slate-50">
+                                        <div class="flex items-start mb-3">
+                                            <input type="checkbox" id="checkIn" onchange="toggleSpecificCaption('in')" class="w-4 h-4 text-primary bg-white border-slate-300 rounded focus:ring-primary cursor-pointer mt-0.5 shrink-0">
+                                            <label for="checkIn" class="ml-2 text-xs md:text-sm font-medium text-slate-700 cursor-pointer leading-tight">Legenda mais formal para LinkedIn</label>
                                         </div>
-                                        <textarea id="captionIn" rows="2" disabled class="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-primary bg-slate-200 opacity-60 transition-all" placeholder="Se ativado, esta legenda substitui a principal no LinkedIn."></textarea>
+                                        <textarea id="captionIn" rows="2" disabled class="w-full px-3 py-2 text-xs md:text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-primary bg-slate-200 opacity-60 transition-all" placeholder="Substitui a legenda principal."></textarea>
                                     </div>
                                 </details>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-8 pt-6 border-t border-slate-200 flex justify-end space-x-4">
-                        <button class="px-6 py-2.5 bg-primary text-white font-medium rounded-lg hover:bg-primaryHover transition-all shadow-md w-full md:w-auto flex justify-center items-center">
+                    <div class="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-slate-200">
+                        <button class="w-full py-3 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primaryHover transition-all shadow-md flex justify-center items-center">
                             <i class="fa-solid fa-paper-plane mr-2"></i> Publicar em Todas as Redes Agora
                         </button>
                     </div>
@@ -244,45 +259,47 @@
             </div>
 
             <!-- VIEW 3: HISTÓRICO DE PUBLICAÇÕES -->
-            <div id="view-calendario" class="view-hidden p-8 h-full">
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 h-full flex flex-col">
-                    <div class="p-6 border-b border-slate-200 bg-slate-50/50 rounded-t-xl">
+            <div id="view-calendario" class="view-hidden p-4 md:p-8 h-full">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 h-full flex flex-col min-h-[500px]">
+                    <div class="p-4 md:p-6 border-b border-slate-200 bg-slate-50/50 rounded-t-xl">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                            <div class="flex items-center w-full md:w-auto">
-                                <label class="text-sm font-semibold text-slate-700 mr-3 whitespace-nowrap">Histórico do Cliente:</label>
-                                <select id="historyClientSelect" onchange="renderHistoryCalendar()" class="w-full md:w-64 px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white">
+                            <div class="flex flex-col sm:flex-row sm:items-center w-full md:w-auto gap-2">
+                                <label class="text-xs md:text-sm font-semibold text-slate-700 whitespace-nowrap">Histórico do Cliente:</label>
+                                <select id="historyClientSelect" onchange="renderHistoryCalendar()" class="w-full sm:w-64 px-3 py-2 border border-slate-300 rounded-lg text-xs md:text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white truncate">
                                     <option value="">A carregar clientes...</option>
                                 </select>
                             </div>
-                            <div class="flex space-x-3 items-center w-full md:w-auto justify-end">
-                                <span class="text-xs text-slate-500 mr-2 hidden md:block"><i class="fa-solid fa-info-circle mr-1"></i>Últimos 3 meses</span>
-                                <h2 id="calendarMonthYear" class="text-base font-semibold text-slate-800 min-w-[120px] text-right">Mês Ano</h2>
-                                <div class="flex space-x-1">
-                                    <button id="btnPrevMonth" onclick="changeHistoryMonth(-1)" class="p-2 border border-slate-300 rounded hover:bg-slate-100 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"><i class="fa-solid fa-chevron-left text-sm"></i></button>
-                                    <button id="btnNextMonth" onclick="changeHistoryMonth(1)" class="p-2 border border-slate-300 rounded hover:bg-slate-100 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"><i class="fa-solid fa-chevron-right text-sm"></i></button>
+                            <div class="flex items-center justify-between w-full md:w-auto mt-2 md:mt-0">
+                                <span class="text-[10px] md:text-xs text-slate-500 mr-3 hidden sm:block"><i class="fa-solid fa-info-circle mr-1"></i>Últimos 3 meses</span>
+                                <div class="flex items-center space-x-3 w-full justify-between sm:justify-end">
+                                    <h2 id="calendarMonthYear" class="text-sm md:text-base font-semibold text-slate-800 min-w-[100px] text-left sm:text-right">Mês Ano</h2>
+                                    <div class="flex space-x-1 shrink-0">
+                                        <button id="btnPrevMonth" onclick="changeHistoryMonth(-1)" class="p-1.5 md:p-2 border border-slate-300 rounded hover:bg-slate-100 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"><i class="fa-solid fa-chevron-left text-xs md:text-sm"></i></button>
+                                        <button id="btnNextMonth" onclick="changeHistoryMonth(1)" class="p-1.5 md:p-2 border border-slate-300 rounded hover:bg-slate-100 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"><i class="fa-solid fa-chevron-right text-xs md:text-sm"></i></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="flex-1 p-6 relative">
-                        <div id="historyEmptyState" class="absolute inset-0 flex flex-col items-center justify-center bg-white z-10 rounded-b-xl">
-                            <i class="fa-solid fa-address-book text-5xl text-slate-300 mb-4"></i>
-                            <h3 class="text-lg font-medium text-slate-600">Nenhum cliente selecionado</h3>
-                            <p class="text-sm text-slate-500 mt-1">Selecione um cliente no topo para ver o histórico de postagens.</p>
+                    <div class="flex-1 p-2 md:p-6 relative flex flex-col">
+                        <div id="historyEmptyState" class="absolute inset-0 flex flex-col items-center justify-center bg-white z-10 rounded-b-xl px-4 text-center">
+                            <i class="fa-solid fa-address-book text-4xl md:text-5xl text-slate-300 mb-3 md:mb-4"></i>
+                            <h3 class="text-base md:text-lg font-medium text-slate-600">Nenhum cliente selecionado</h3>
+                            <p class="text-xs md:text-sm text-slate-500 mt-1">Selecione um cliente no topo para ver o histórico.</p>
                         </div>
 
-                        <div class="bg-slate-200 border border-slate-200 rounded-lg overflow-hidden flex flex-col h-full">
+                        <div class="bg-slate-200 border border-slate-200 rounded-lg overflow-hidden flex flex-col flex-1">
                             <div class="grid grid-cols-7 gap-px">
-                                <div class="bg-slate-50 text-center py-2 text-xs font-semibold text-slate-500 uppercase">Dom</div>
-                                <div class="bg-slate-50 text-center py-2 text-xs font-semibold text-slate-500 uppercase">Seg</div>
-                                <div class="bg-slate-50 text-center py-2 text-xs font-semibold text-slate-500 uppercase">Ter</div>
-                                <div class="bg-slate-50 text-center py-2 text-xs font-semibold text-slate-500 uppercase">Qua</div>
-                                <div class="bg-slate-50 text-center py-2 text-xs font-semibold text-slate-500 uppercase">Qui</div>
-                                <div class="bg-slate-50 text-center py-2 text-xs font-semibold text-slate-500 uppercase">Sex</div>
-                                <div class="bg-slate-50 text-center py-2 text-xs font-semibold text-slate-500 uppercase">Sáb</div>
+                                <div class="bg-slate-50 text-center py-1.5 md:py-2 text-[10px] md:text-xs font-semibold text-slate-500 uppercase truncate">Dom</div>
+                                <div class="bg-slate-50 text-center py-1.5 md:py-2 text-[10px] md:text-xs font-semibold text-slate-500 uppercase truncate">Seg</div>
+                                <div class="bg-slate-50 text-center py-1.5 md:py-2 text-[10px] md:text-xs font-semibold text-slate-500 uppercase truncate">Ter</div>
+                                <div class="bg-slate-50 text-center py-1.5 md:py-2 text-[10px] md:text-xs font-semibold text-slate-500 uppercase truncate">Qua</div>
+                                <div class="bg-slate-50 text-center py-1.5 md:py-2 text-[10px] md:text-xs font-semibold text-slate-500 uppercase truncate">Qui</div>
+                                <div class="bg-slate-50 text-center py-1.5 md:py-2 text-[10px] md:text-xs font-semibold text-slate-500 uppercase truncate">Sex</div>
+                                <div class="bg-slate-50 text-center py-1.5 md:py-2 text-[10px] md:text-xs font-semibold text-slate-500 uppercase truncate">Sáb</div>
                             </div>
-                            <div id="calendarGridDays" class="grid grid-cols-7 gap-px flex-1">
+                            <div id="calendarGridDays" class="grid grid-cols-7 gap-px flex-1 bg-slate-200">
                                 <!-- Dias gerados via JS -->
                             </div>
                         </div>
@@ -294,25 +311,25 @@
     </main>
 
     <!-- Modal Novo Cliente -->
-    <div id="modalNovoCliente" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 modal-hidden items-center justify-center transition-all">
-        <div class="bg-white rounded-xl shadow-xl w-full max-w-md m-4 overflow-hidden transform transition-all scale-95" id="modalContent">
-            <div class="px-6 py-4 border-b border-slate-200 flex justify-between items-center">
-                <h3 class="text-lg font-semibold text-slate-900">Novo Cliente</h3>
-                <button onclick="toggleModal('modalNovoCliente')" class="text-slate-400 hover:text-slate-600">
-                    <i class="fa-solid fa-times text-xl"></i>
+    <div id="modalNovoCliente" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 modal-hidden items-center justify-center transition-all p-4">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-md overflow-hidden transform transition-all scale-95" id="modalContent">
+            <div class="px-5 py-4 md:px-6 md:py-4 border-b border-slate-200 flex justify-between items-center">
+                <h3 class="text-base md:text-lg font-semibold text-slate-900">Novo Cliente</h3>
+                <button onclick="toggleModal('modalNovoCliente')" class="text-slate-400 hover:text-slate-600 p-1">
+                    <i class="fa-solid fa-times text-lg md:text-xl"></i>
                 </button>
             </div>
-            <div class="p-6 space-y-4">
+            <div class="p-5 md:p-6 space-y-4">
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Nome do Profissional / Clínica</label>
-                    <input type="text" id="novoNome" placeholder="Ex: Dra. Ana Silva" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                    <label class="block text-xs md:text-sm font-medium text-slate-700 mb-1">Nome do Profissional / Clínica</label>
+                    <input type="text" id="novoNome" placeholder="Ex: Dra. Ana Silva" class="w-full px-3 py-2 md:py-2.5 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Especialidade</label>
-                    <input type="text" id="novoNicho" placeholder="Ex: Pediatria" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                    <label class="block text-xs md:text-sm font-medium text-slate-700 mb-1">Especialidade</label>
+                    <input type="text" id="novoNicho" placeholder="Ex: Pediatria" class="w-full px-3 py-2 md:py-2.5 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
                 </div>
                 <div class="pt-4">
-                    <button onclick="adicionarClienteUI()" class="w-full bg-primary hover:bg-primaryHover text-white font-medium py-2.5 rounded-lg transition-all">
+                    <button onclick="adicionarClienteUI()" class="w-full bg-primary hover:bg-primaryHover text-white text-sm font-medium py-2.5 rounded-lg transition-all flex justify-center items-center">
                         Criar Perfil
                     </button>
                 </div>
@@ -326,8 +343,25 @@
         const SUPABASE_URL = 'https://azsclkfzhinagrsyjvrz.supabase.co'; 
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF6c2Nsa2Z6aGluYWdyc3lqdnJ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1NjczNTgsImV4cCI6MjA5MDE0MzM1OH0.N8y-rOxfvbDtUG7W84ZgMoQFP9MwcdzN5sVN-2BSbN8';
         
-        // CORREÇÃO: Usar um nome de variável seguro para não conflitar com o script do CDN
         const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // --- MENU MOBILE TOGGLE ---
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            if (sidebar.classList.contains('-translate-x-full')) {
+                // Abrir
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+            } else {
+                // Fechar
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
 
         // --- CARREGAR CLIENTES DO SUPABASE ---
         async function carregarClientes() {
@@ -341,29 +375,27 @@
                 const postSelect = document.getElementById('postClientSelect');
                 const historySelect = document.getElementById('historyClientSelect');
 
-                // Limpa as listas
                 grid.innerHTML = '';
                 postSelect.innerHTML = '<option value="">Selecione um cliente...</option>';
                 historySelect.innerHTML = '<option value="">Selecione um cliente para ver...</option>';
 
-                // Tratamento elegante de erro se a tabela ainda não existir no Supabase
                 if (error) {
                     console.error("Erro do Supabase:", error.message);
                     grid.innerHTML = `
-                        <div class="col-span-full flex flex-col items-center justify-center py-20 bg-amber-50 rounded-xl border border-amber-200 text-amber-800">
-                            <i class="fa-solid fa-triangle-exclamation text-4xl mb-4 text-amber-500"></i>
-                            <h3 class="text-lg font-semibold">Tabela de Clientes não encontrada</h3>
-                            <p class="text-sm mt-1 text-amber-700 text-center px-4">Conectado ao Supabase com sucesso, mas parece que você ainda não rodou o código SQL para criar a tabela "clientes".</p>
+                        <div class="col-span-full flex flex-col items-center justify-center py-12 md:py-20 bg-amber-50 rounded-xl border border-amber-200 text-amber-800 p-4 mx-4">
+                            <i class="fa-solid fa-triangle-exclamation text-3xl md:text-4xl mb-3 md:mb-4 text-amber-500"></i>
+                            <h3 class="text-base md:text-lg font-semibold text-center">Tabela de Clientes não encontrada</h3>
+                            <p class="text-xs md:text-sm mt-1 text-amber-700 text-center">Conectado ao Supabase com sucesso, mas parece que você ainda não rodou o código SQL para criar a tabela "clientes".</p>
                         </div>`;
                     return;
                 }
 
                 if (!clientes || clientes.length === 0) {
                     grid.innerHTML = `
-                        <div class="col-span-full flex flex-col items-center justify-center py-20 text-slate-500 bg-white rounded-xl border border-dashed border-slate-300">
-                            <i class="fa-solid fa-users text-4xl mb-4 text-slate-300"></i>
-                            <h3 class="text-lg font-medium text-slate-700">Nenhum cliente cadastrado</h3>
-                            <p class="text-sm mt-1">Clique em "Adicionar Cliente" no topo para começar.</p>
+                        <div class="col-span-full flex flex-col items-center justify-center py-12 md:py-20 text-slate-500 bg-white rounded-xl border border-dashed border-slate-300 p-4 mx-4 text-center">
+                            <i class="fa-solid fa-users text-3xl md:text-4xl mb-3 md:mb-4 text-slate-300"></i>
+                            <h3 class="text-base md:text-lg font-medium text-slate-700">Nenhum cliente cadastrado</h3>
+                            <p class="text-xs md:text-sm mt-1">Clique em "Adicionar Cliente" no topo para começar.</p>
                         </div>`;
                     return;
                 }
@@ -371,15 +403,15 @@
                 clientes.forEach(cliente => {
                     const cartaoHtml = `
                         <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-all" id="cliente-${cliente.id}">
-                            <div class="p-5 border-b border-slate-100 flex justify-between items-start">
+                            <div class="p-4 md:p-5 border-b border-slate-100 flex justify-between items-start">
                                 <div>
-                                    <h2 class="text-lg font-semibold text-slate-900">${cliente.nome}</h2>
-                                    <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-tag mr-1"></i> ${cliente.especialidade}</p>
+                                    <h2 class="text-base md:text-lg font-semibold text-slate-900 leading-tight">${cliente.nome}</h2>
+                                    <p class="text-[10px] md:text-xs text-slate-500 mt-1"><i class="fa-solid fa-tag mr-1"></i> ${cliente.especialidade}</p>
                                 </div>
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Ativo</span>
+                                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-green-100 text-green-800 shrink-0 ml-2">Ativo</span>
                             </div>
-                            <div class="p-5 space-y-3">
-                                <p class="text-sm font-medium text-slate-700 mb-2">Conexões Sociais:</p>
+                            <div class="p-4 md:p-5 space-y-2 md:space-y-3">
+                                <p class="text-xs md:text-sm font-medium text-slate-700 mb-2">Conexões Sociais:</p>
                                 ${gerarBotaoConexaoHTML('instagram', 'Instagram', 'fa-instagram', cliente.id)}
                                 ${gerarBotaoConexaoHTML('youtube', 'YouTube', 'fa-youtube', cliente.id)}
                                 ${gerarBotaoConexaoHTML('tiktok', 'TikTok', 'fa-tiktok', cliente.id)}
@@ -424,12 +456,17 @@
                 pageTitle.innerText = "Perfis e Integrações";
                 btnAction.style.display = "flex";
             } else if (viewName === 'postagem') {
-                pageTitle.innerText = "Nova Publicação Imediata";
+                pageTitle.innerText = "Nova Publicação";
                 btnAction.style.display = "none";
             } else if (viewName === 'calendario') {
-                pageTitle.innerText = "Histórico de Publicações";
+                pageTitle.innerText = "Histórico";
                 btnAction.style.display = "none"; 
                 renderHistoryCalendar();
+            }
+            
+            // Fecha menu mobile ao clicar num item
+            if(window.innerWidth < 768) {
+                toggleSidebar();
             }
         }
 
@@ -445,7 +482,7 @@
 
             const btn = document.querySelector('#modalContent button[onclick="adicionarClienteUI()"]');
             const textoOriginal = btn.innerText;
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> A salvar...';
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Salvando...';
             btn.disabled = true;
 
             const { data, error } = await supabaseClient
@@ -455,7 +492,7 @@
 
             if (error) {
                 console.error(error);
-                alert("Erro ao salvar cliente. Você já rodou o código SQL no Supabase?");
+                alert("Erro ao salvar cliente. Verifique a configuração do Supabase.");
                 btn.innerHTML = textoOriginal;
                 btn.disabled = false;
                 return;
@@ -472,14 +509,14 @@
 
         function gerarBotaoConexaoHTML(plataformaId, plataformaNome, iconeClass, clienteId) {
             return `
-                <div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-50 p-2.5 rounded-lg border border-slate-100 gap-2 sm:gap-0">
                     <div class="flex items-center">
-                        <i class="fa-brands ${iconeClass} text-slate-400 text-lg w-8 text-center"></i>
-                        <span class="text-sm font-medium text-slate-500">${plataformaNome}</span>
+                        <i class="fa-brands ${iconeClass} text-slate-400 text-sm md:text-base w-6 text-center"></i>
+                        <span class="text-xs md:text-sm font-medium text-slate-600">${plataformaNome}</span>
                     </div>
-                    <div class="flex items-center space-x-3">
-                        <span class="text-[10px] font-semibold text-red-500 flex items-center"><i class="fa-solid fa-circle-exclamation mr-1"></i> Desconectado</span>
-                        <button onclick="simulateConnection(this, '${plataformaId}')" class="text-xs font-medium text-white bg-slate-800 hover:bg-black px-3 py-1.5 rounded transition-all">
+                    <div class="flex items-center justify-between sm:justify-end w-full sm:w-auto space-x-2">
+                        <span class="text-[9px] md:text-[10px] font-semibold text-red-500 flex items-center bg-red-50/50 px-1.5 py-0.5 rounded"><i class="fa-solid fa-circle-exclamation mr-1"></i> Desconectado</span>
+                        <button onclick="simulateConnection(this, '${plataformaId}')" class="text-[10px] md:text-xs font-medium text-white bg-slate-800 hover:bg-black px-2.5 py-1.5 rounded transition-all shrink-0">
                             Conectar
                         </button>
                     </div>
@@ -557,7 +594,7 @@
             const grid = document.getElementById('calendarGridDays');
             grid.innerHTML = '';
             
-            for (let i = 0; i < firstDay; i++) { grid.innerHTML += `<div class="bg-slate-50 p-2 min-h-[90px]"></div>`; }
+            for (let i = 0; i < firstDay; i++) { grid.innerHTML += `<div class="bg-slate-50 p-1 md:p-2 min-h-[50px] md:min-h-[90px]"></div>`; }
             
             for (let i = 1; i <= daysInMonth; i++) {
                 let postHtml = '';
@@ -565,17 +602,17 @@
                 
                 if (isPastOrToday && (i % 8 === 0 || i === 12)) {
                     postHtml = `
-                        <div class="mt-1 text-[10px] bg-green-100 text-green-800 p-1.5 rounded border border-green-200 font-medium flex items-center" title="Publicado em todas as redes">
-                            <i class="fa-solid fa-check mr-1"></i> Publicado
+                        <div class="mt-1 text-[8px] md:text-[10px] bg-green-100 text-green-800 p-0.5 md:p-1.5 rounded border border-green-200 font-medium flex items-center justify-center md:justify-start" title="Publicado em todas as redes">
+                            <i class="fa-solid fa-check md:mr-1"></i> <span class="hidden md:inline">Publicado</span>
                         </div>`;
                 }
 
                 const isToday = i === today.getDate() && month === today.getMonth() && year === today.getFullYear();
-                const dayClass = isToday ? 'bg-primary text-white w-6 h-6 rounded-full flex items-center justify-center' : 'font-medium text-slate-700';
+                const dayClass = isToday ? 'bg-primary text-white w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center' : 'font-medium text-slate-700';
                 
                 grid.innerHTML += `
-                    <div class="bg-white p-2 min-h-[90px] hover:bg-slate-50 transition-colors">
-                        <span class="text-sm inline-block ${dayClass}">${i}</span>
+                    <div class="bg-white p-1 md:p-2 min-h-[60px] md:min-h-[90px] hover:bg-slate-50 transition-colors border-b border-r border-slate-100/50">
+                        <span class="text-xs md:text-sm inline-block ${dayClass}">${i}</span>
                         ${postHtml}
                     </div>
                 `;
@@ -604,22 +641,23 @@
         function simulateConnection(btn, p) {
             btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i>'; btn.disabled = true;
             setTimeout(() => {
-                const row = btn.closest('.justify-between'); 
+                const wrapper = btn.closest('.justify-between.sm\\:justify-end'); 
+                const row = btn.closest('.flex-col.sm\\:flex-row');
                 const i = row.querySelector('.fa-brands'); 
+                
                 i.classList.remove('text-slate-400');
                 if(p==='instagram') i.classList.add('text-insta'); 
                 if(p==='youtube') i.classList.add('text-youtube');
                 if(p==='tiktok') i.classList.add('text-tiktok'); 
                 if(p==='linkedin') i.classList.add('text-linkedin');
                 
-                row.querySelector('span.text-slate-500').classList.replace('text-slate-500', 'text-slate-700');
+                row.querySelector('span.text-slate-600').classList.replace('text-slate-600', 'text-slate-800');
                 
-                const actionArea = btn.parentElement; 
                 const badgeConectado = document.createElement('span'); 
-                badgeConectado.className = "text-xs font-semibold text-green-600 flex items-center bg-green-50 px-2 py-1 rounded";
+                badgeConectado.className = "text-[9px] md:text-[10px] font-semibold text-green-700 flex items-center bg-green-100 px-2 py-1 rounded shrink-0 w-full justify-center sm:w-auto";
                 badgeConectado.innerHTML = '<i class="fa-solid fa-check-circle mr-1"></i> Conectado';
                 
-                row.replaceChild(badgeConectado, actionArea);
+                row.replaceChild(badgeConectado, wrapper);
             }, 1000);
         }
 
