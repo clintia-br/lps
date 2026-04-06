@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Relatório Executivo - Alpha Diagnóstico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.1/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            500: '#0f172a',
+                            600: '#1e293b',
+                            700: '#334155',
+                            900: '#020617',
+                            accent: '#2563eb'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .funnel-layer { transition: all 0.3s ease; border-left-width: 4px; }
+        .funnel-layer:hover { transform: translateX(4px); }
+        .clintia-badge {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        /* Ajuste fino da barra de rolagem para a tabela no mobile */
+        ::-webkit-scrollbar { height: 6px; width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        @media print {
+            .no-print { display: none !important; }
+            body { background-color: white; }
+            .shadow-sm, .shadow-md, .shadow-lg { box-shadow: none !important; border: 1px solid #e2e8f0; }
+            canvas { max-height: 250px !important; }
+            main { padding: 0 !important; margin-top: 20px; }
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Header Executivo -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-20 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 md:gap-4">
+                <img src="https://i.imgur.com/ctIBCAN.png" alt="Alpha Diagnóstico Logo" class="h-8 md:h-10 w-auto object-contain">
+                <div class="border-l border-slate-200 pl-3 md:pl-4">
+                    <h1 class="font-bold text-base md:text-lg text-slate-900 tracking-tight leading-tight">Alpha Diagnóstico</h1>
+                    <p class="text-[10px] md:text-[11px] text-slate-500 font-semibold tracking-widest uppercase">João Pessoa, PB</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 md:gap-4">
+                <div class="text-right hidden md:block">
+                    <p class="text-sm font-semibold text-slate-900">Relatório Executivo</p>
+                    <p class="text-xs text-slate-500 mt-0.5">Março 2026 · <span class="clintia-badge ml-1">Clintia</span></p>
+                </div>
+                <button onclick="window.print()" class="no-print flex items-center justify-center gap-2 bg-white border border-slate-300 hover:bg-slate-50 hover:text-blue-600 text-slate-700 p-2 md:px-4 md:py-2.5 rounded-lg md:rounded-xl text-sm font-medium transition-all active:scale-95">
+                    <i data-lucide="printer" class="w-4 h-4 md:w-5 md:h-5"></i> 
+                    <span class="hidden md:inline">Exportar PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 w-full flex flex-col gap-6 md:gap-8">
+        
+        <!-- Sumário Executivo -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 md:p-7">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-4">
+                <h2 class="text-base md:text-lg font-bold text-slate-900">Sumário Executivo</h2>
+                <span class="w-fit bg-green-50 text-green-700 text-xs font-bold px-3 py-1 rounded-full border border-green-200 uppercase tracking-wide">Alta Performance</span>
+            </div>
+            <p class="text-sm md:text-base text-slate-600 leading-relaxed text-justify">
+                A análise de performance reflete os resultados das operações de aquisição de pacientes durante o mês de março de 2026. Com um aporte financeiro em mídia de <strong>R$ 1.500,00</strong>, a clínica registrou um afluxo de <strong>180 pacientes finalizados</strong>. A estratégia multicanal resultou em um Custo de Aquisição de Cliente (CAC) consolidado de <strong>R$ 8,33</strong>. O ticket médio estimado mantido em R$ 80,00 gerou uma receita estimada de <strong>R$ 14.400,00</strong> associada às frentes mapeadas neste relatório.
+            </p>
+        </section>
+
+        <!-- Key Performance Indicators (KPIs) -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between mb-3">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Investimento</p>
+                    <i data-lucide="wallet" class="w-4 h-4 text-slate-400"></i>
+                </div>
+                <p class="text-2xl md:text-3xl font-extrabold text-slate-900">R$ 1.500<span class="text-base font-medium text-slate-400">,00</span></p>
+                <div class="mt-3 flex items-center text-xs text-slate-500 font-medium bg-slate-50 w-fit px-2 py-1 rounded-md">
+                    <i data-lucide="bar-chart-2" class="w-3 h-3 mr-1.5"></i> Mídia Direta
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between mb-3">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Atendimentos</p>
+                    <i data-lucide="users" class="w-4 h-4 text-blue-500"></i>
+                </div>
+                <p class="text-2xl md:text-3xl font-extrabold text-slate-900">180</p>
+                <div class="mt-3 flex items-center text-xs text-blue-700 font-semibold bg-blue-50 w-fit px-2 py-1 rounded-md">
+                    <i data-lucide="check-circle" class="w-3 h-3 mr-1.5"></i> Volume Total Convertido
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between mb-3">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Custo Aquisição</p>
+                    <i data-lucide="target" class="w-4 h-4 text-green-500"></i>
+                </div>
+                <p class="text-2xl md:text-3xl font-extrabold text-slate-900">R$ 8,33</p>
+                <div class="mt-3 flex items-center text-xs text-green-700 font-semibold bg-green-50 w-fit px-2 py-1 rounded-md">
+                    <i data-lucide="trending-down" class="w-3 h-3 mr-1.5"></i> Meta: &lt; R$ 10,00
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-lg border border-slate-700 p-5 text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <i data-lucide="pie-chart" class="w-16 h-16"></i>
+                </div>
+                <div class="flex items-center justify-between mb-3 relative z-10">
+                    <p class="text-xs font-bold text-slate-300 uppercase tracking-wider">Receita (Est.)</p>
+                </div>
+                <p class="text-2xl md:text-3xl font-extrabold relative z-10">R$ 14.400<span class="text-base font-medium text-slate-400">,00</span></p>
+                <div class="mt-3 flex items-center text-xs text-slate-200 font-medium bg-slate-800/50 w-fit px-2 py-1 rounded-md border border-slate-600 relative z-10">
+                    <i data-lucide="calculator" class="w-3 h-3 mr-1.5"></i> Ticket Base: R$ 80
+                </div>
+            </div>
+
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+            
+            <!-- Funnel Section -->
+            <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 md:p-7">
+                <div class="border-b border-slate-100 pb-4 mb-6">
+                    <h2 class="text-base md:text-lg font-bold text-slate-900">Funil de Conversão</h2>
+                    <p class="text-xs md:text-sm text-slate-500 mt-1">Jornada de captação até a cadeira da clínica.</p>
+                </div>
+
+                <div class="flex flex-col gap-3 md:gap-4">
+                    <div class="funnel-layer border-l-slate-300 bg-slate-50 p-4 md:p-5 flex justify-between items-center rounded-xl md:rounded-r-2xl">
+                        <div class="flex items-center gap-3 md:gap-4">
+                            <span class="bg-white shadow-sm border border-slate-200 text-slate-500 font-bold font-mono text-xs w-8 h-8 flex items-center justify-center rounded-lg">01</span>
+                            <div>
+                                <p class="font-bold text-slate-800 text-sm md:text-base">Volume de Leads</p>
+                                <p class="text-[11px] md:text-xs text-slate-500 mt-0.5">WhatsApp e Telefone</p>
+                            </div>
+                        </div>
+                        <div class="text-right pl-2">
+                            <p class="font-black text-xl md:text-2xl text-slate-800">450</p>
+                        </div>
+                    </div>
+
+                    <div class="funnel-layer border-l-slate-500 bg-slate-50 p-4 md:p-5 flex justify-between items-center rounded-xl md:rounded-r-2xl md:ml-4">
+                        <div class="flex items-center gap-3 md:gap-4">
+                            <span class="bg-white shadow-sm border border-slate-200 text-slate-600 font-bold font-mono text-xs w-8 h-8 flex items-center justify-center rounded-lg">02</span>
+                            <div>
+                                <p class="font-bold text-slate-800 text-sm md:text-base">Agendamentos</p>
+                                <p class="text-[11px] md:text-xs text-slate-500 mt-0.5">Conversão: 57,7%</p>
+                            </div>
+                        </div>
+                        <div class="text-right pl-2">
+                            <p class="font-black text-xl md:text-2xl text-slate-800">260</p>
+                        </div>
+                    </div>
+
+                    <div class="funnel-layer border-l-[#2563eb] bg-blue-50 p-4 md:p-5 flex justify-between items-center rounded-xl md:rounded-r-2xl md:ml-8">
+                        <div class="flex items-center gap-3 md:gap-4">
+                            <span class="bg-blue-600 text-white shadow-sm font-bold font-mono text-xs w-8 h-8 flex items-center justify-center rounded-lg">03</span>
+                            <div>
+                                <p class="font-bold text-slate-900 text-sm md:text-base">Finalizados</p>
+                                <p class="text-[11px] md:text-xs text-blue-700 font-medium mt-0.5">Comparecimento: 69,2%</p>
+                            </div>
+                        </div>
+                        <div class="text-right pl-2">
+                            <p class="font-black text-2xl md:text-3xl text-blue-600">180</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Channels Chart Section -->
+            <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 md:p-7 flex flex-col">
+                <div class="border-b border-slate-100 pb-4 mb-4 md:mb-6">
+                    <h2 class="text-base md:text-lg font-bold text-slate-900">Origem de Aquisição</h2>
+                    <p class="text-xs md:text-sm text-slate-500 mt-1">Distribuição dos 180 pacientes gerados.</p>
+                </div>
+                
+                <div class="flex-grow flex items-center justify-center relative min-h-[200px] md:min-h-[250px] mb-4 md:mb-0">
+                    <canvas id="channelsChart"></canvas>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 mt-4 md:mt-6 text-xs md:text-sm border-t border-slate-100 pt-4 md:pt-5">
+                    <div class="flex justify-between items-center p-2.5 md:p-3 bg-slate-50 hover:bg-slate-100 rounded-lg transition-colors">
+                        <span class="flex items-center gap-2.5 font-medium text-slate-700"><span class="w-2.5 h-2.5 rounded-full bg-[#2563eb]"></span> Meta Ads</span>
+                        <span class="font-bold text-slate-900">35% <span class="text-slate-400 font-normal ml-1">(63)</span></span>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 md:p-3 bg-slate-50 hover:bg-slate-100 rounded-lg transition-colors">
+                        <span class="flex items-center gap-2.5 font-medium text-slate-700"><span class="w-2.5 h-2.5 rounded-full bg-[#16a34a]"></span> Google Ads</span>
+                        <span class="font-bold text-slate-900">25% <span class="text-slate-400 font-normal ml-1">(45)</span></span>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 md:p-3 bg-slate-50 hover:bg-slate-100 rounded-lg transition-colors">
+                        <span class="flex items-center gap-2.5 font-medium text-slate-700"><span class="w-2.5 h-2.5 rounded-full bg-[#94a3b8]"></span> Orgânico</span>
+                        <span class="font-bold text-slate-900">20% <span class="text-slate-400 font-normal ml-1">(36)</span></span>
+                    </div>
+                    <div class="flex justify-between items-center p-2.5 md:p-3 bg-slate-50 hover:bg-slate-100 rounded-lg transition-colors">
+                        <span class="flex items-center gap-2.5 font-medium text-slate-700"><span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b]"></span> Indicação</span>
+                        <span class="font-bold text-slate-900">20% <span class="text-slate-400 font-normal ml-1">(36)</span></span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Data Table Details -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-5 md:p-6 border-b border-slate-100 bg-slate-50 flex items-center gap-3">
+                <i data-lucide="badge-dollar-sign" class="w-5 h-5 text-slate-500"></i>
+                <h2 class="text-base md:text-lg font-bold text-slate-900">Detalhamento Financeiro — Mídia Paga</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-slate-600">
+                    <thead class="text-xs text-slate-500 uppercase bg-white border-b border-slate-200 whitespace-nowrap">
+                        <tr>
+                            <th scope="col" class="px-5 py-4 font-bold tracking-wider">Canal de Aquisição</th>
+                            <th scope="col" class="px-5 py-4 font-bold tracking-wider text-right">Investimento</th>
+                            <th scope="col" class="px-5 py-4 font-bold tracking-wider text-center">Convertidos</th>
+                            <th scope="col" class="px-5 py-4 font-bold tracking-wider text-right">CAC Específico</th>
+                        </tr>
+                    </thead>
+                    <tbody class="whitespace-nowrap sm:whitespace-normal">
+                        <tr class="bg-white border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                            <td class="px-5 py-4 font-semibold text-slate-900 flex items-center gap-2.5">
+                                <div class="w-7 h-7 rounded bg-blue-100 flex items-center justify-center"><i data-lucide="facebook" class="w-4 h-4 text-[#2563eb]"></i></div> 
+                                Meta Ads
+                            </td>
+                            <td class="px-5 py-4 text-right">R$ 800,00</td>
+                            <td class="px-5 py-4 text-center font-bold text-slate-800">63</td>
+                            <td class="px-5 py-4 text-right">R$ 12,69</td>
+                        </tr>
+                        <tr class="bg-white border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                            <td class="px-5 py-4 font-semibold text-slate-900 flex items-center gap-2.5">
+                                <div class="w-7 h-7 rounded bg-green-100 flex items-center justify-center"><i data-lucide="search" class="w-4 h-4 text-[#16a34a]"></i></div>
+                                Google Ads
+                            </td>
+                            <td class="px-5 py-4 text-right">R$ 700,00</td>
+                            <td class="px-5 py-4 text-center font-bold text-slate-800">45</td>
+                            <td class="px-5 py-4 text-right">R$ 15,55</td>
+                        </tr>
+                        <tr class="bg-slate-50 border-t border-slate-200">
+                            <td class="px-5 py-4 font-bold text-slate-900">Total (Mídia Paga)</td>
+                            <td class="px-5 py-4 text-right font-black text-slate-900">R$ 1.500,00</td>
+                            <td class="px-5 py-4 text-center font-black text-slate-900">108</td>
+                            <td class="px-5 py-4 text-right font-black text-slate-900">R$ 13,88 <span class="text-[10px] text-slate-500 block font-medium mt-0.5 whitespace-nowrap">(Média Mídia Paga)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-4 md:p-5 bg-white text-xs md:text-sm text-slate-500 border-t border-slate-100 flex items-start gap-2">
+                <i data-lucide="info" class="w-4 h-4 text-slate-400 mt-0.5 shrink-0"></i>
+                <p>O CAC Consolidado global de <strong>R$ 8,33</strong> contabiliza o total de 180 pacientes (incluindo orgânico e indicações). O quadro acima demonstra o custo isolado apenas das plataformas de anúncios.</p>
+            </div>
+        </section>
+
+        <!-- Próximos Passos -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 md:p-7">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-5 md:mb-6">
+                <div>
+                    <h2 class="text-base md:text-lg font-bold text-slate-900">Plano de Ação e Recomendações</h2>
+                    <p class="text-xs md:text-sm text-slate-500 mt-1">Oportunidades identificadas para ampliar os resultados.</p>
+                </div>
+                <span class="w-fit bg-slate-100 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-lg border border-slate-200 flex items-center gap-1.5">
+                    <i data-lucide="calendar-clock" class="w-3.5 h-3.5"></i> Foco: Abril 2026
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+
+                <div class="border border-slate-100 bg-slate-50 hover:bg-white rounded-xl p-5 transition-colors shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center shrink-0">
+                            <i data-lucide="target" class="w-5 h-5 text-blue-600"></i>
+                        </div>
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Otimização de Funil</p>
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Reduzir faltas (30,8%) com confirmação via WhatsApp. Potencial de <strong class="text-blue-700 bg-blue-50 px-1 rounded">+55 pacientes/mês</strong> sem aumento de investimento.</p>
+                </div>
+
+                <div class="border border-slate-100 bg-slate-50 hover:bg-white rounded-xl p-5 transition-colors shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center shrink-0">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-green-600"></i>
+                        </div>
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Escalada de Mídia</p>
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Com CAC consolidado em R$ 8,33 (abaixo da meta de R$ 10), há margem super segura para escalar o investimento em Meta Ads.</p>
+                </div>
+
+                <div class="border border-slate-100 bg-slate-50 hover:bg-white rounded-xl p-5 transition-colors shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center shrink-0">
+                            <i data-lucide="refresh-cw" class="w-5 h-5 text-amber-600"></i>
+                        </div>
+                        <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Reativação de Base</p>
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Campanha para pacientes que agendaram mas não compareceram. Custo zero de aquisição de mídia e alta conversão esperada.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-auto py-6">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center md:text-left">
+            <p>Documento Confidencial · <strong class="text-slate-500">Alpha Diagnóstico</strong> · João Pessoa, PB</p>
+            <p class="flex items-center justify-center md:justify-end gap-1.5">
+                Elaborado por <img src="https://i.imgur.com/DOYHPYg.png" alt="Clintia Soluções Tecnológicas" class="h-4 md:h-5 object-contain">
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener("load", function() {
+            try {
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+                
+                if (typeof Chart !== 'undefined') {
+                    const ctx = document.getElementById('channelsChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Meta Ads (Pago)', 'Google Ads (Pago)', 'Busca Orgânica', 'Indicação/Reativação'],
+                            datasets: [{
+                                data: [63, 45, 36, 36],
+                                backgroundColor: ['#2563eb', '#16a34a', '#94a3b8', '#f59e0b'],
+                                borderWidth: 0,
+                                hoverOffset: 6
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            cutout: '72%',
+                            layout: {
+                                padding: 10
+                            },
+                            plugins: {
+                                legend: { display: false },
+                                tooltip: {
+                                    backgroundColor: '#1e293b',
+                                    padding: 12,
+                                    titleFont: { size: 13, family: "'Inter', sans-serif" },
+                                    bodyFont: { size: 14, family: "'Inter', sans-serif", weight: 'bold' },
+                                    cornerRadius: 8,
+                                    callbacks: {
+                                        label: function(context) {
+                                            return ' ' + context.parsed + ' pacientes';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            } catch (error) {
+                console.error("Erro na inicialização:", error);
+            }
+        });
+    </script>
+</body>
+</html>
