@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Auditoria Especializada GMN - Clínica Mais Med</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            bg: '#020617', // slate-950
+                            card: '#0f172a', // slate-900
+                            border: '#1e293b', // slate-800
+                            text: '#94a3b8', // slate-400
+                            heading: '#f8fafc', // slate-50
+                        },
+                        google: {
+                            blue: '#4285F4',
+                            red: '#EA4335',
+                            yellow: '#FBBC05',
+                            green: '#34A853'
+                        }
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 20px -5px rgba(66, 133, 244, 0.4)',
+                        'glow-red': '0 0 20px -5px rgba(234, 67, 53, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: '"Plus Jakarta Sans"', sans-serif; background-color: #020617; color: #f8fafc; }
+        .glass-panel { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(30, 41, 59, 0.8); }
+        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-4px); border-color: #334155; }
+        .gradient-text { background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Scrollbar customizada para tema escuro */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-google-blue selection:text-white">
+
+    <!-- Header Premium -->
+    <header class="glass-panel sticky top-0 z-50 border-b-0 border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-dark-card border border-dark-border rounded-xl flex items-center justify-center shadow-glow-blue">
+                    <i data-lucide="map-pin" class="text-google-blue w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-lg md:text-xl tracking-tight text-white leading-none">Google Meu Negócio</h1>
+                    <p class="text-[10px] md:text-xs text-google-blue font-bold mt-1 uppercase tracking-widest">Auditoria de Dominação Local</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <div class="text-right hidden md:block">
+                    <p class="text-xs text-dark-text font-medium">Relatório Executivo por</p>
+                </div>
+                <!-- Logo da Clintia corrigida com fundo escuro para destacar a logo branca -->
+                <div class="bg-slate-800/80 border border-slate-700 px-3 py-2 rounded-lg flex items-center justify-center shadow-lg backdrop-blur-sm">
+                    <img src="https://i.imgur.com/DOYHPYg.png" alt="Clintia Soluções" class="h-5 md:h-6 object-contain">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 w-full flex flex-col gap-12 md:gap-16">
+        
+        <!-- Hero Section com a Imagem Real -->
+        <section class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+            <div class="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
+                <div class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-dark-card border border-dark-border text-slate-300 text-xs font-extrabold uppercase tracking-widest mb-6 shadow-sm">
+                    <i data-lucide="scan-search" class="w-4 h-4 mr-2 text-google-yellow"></i> Análise de Presença Digital
+                </div>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                    Auditoria SEO Local <br>
+                    <span class="bg-gradient-to-r from-google-blue via-blue-400 to-cyan-400 gradient-text">Clínica Mais Med</span>
+                </h2>
+                <p class="text-dark-text text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+                    Sua clínica possui a melhor nota da região (5.0), mas falhas estruturais ocultas na ficha do Google estão drenando seus pacientes diários para concorrentes com avaliações piores. Descubra o diagnóstico completo.
+                </p>
+                <a href="#plano-acao" class="bg-google-blue hover:bg-blue-600 text-white font-bold py-3.5 px-8 rounded-xl transition-colors shadow-glow-blue flex items-center gap-2">
+                    Ver Plano de Dominação <i data-lucide="arrow-down" class="w-5 h-5"></i>
+                </a>
+            </div>
+            
+            <!-- Imagem fornecida pelo usuário -->
+            <div class="lg:w-1/2 w-full relative">
+                <div class="absolute inset-0 bg-gradient-to-tr from-google-blue/20 to-transparent rounded-2xl blur-2xl"></div>
+                <div class="relative rounded-2xl overflow-hidden border border-slate-700 shadow-2xl transform lg:rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <div class="bg-slate-800 px-4 py-2 border-b border-slate-700 flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="text-xs text-slate-400 ml-2 font-mono">Visão Atual no Google Maps</span>
+                    </div>
+                    <img src="https://i.imgur.com/rGMdBng.png" alt="Ficha Google Meu Negócio Mais Med" class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Alerta Crítico (Dark/Neon Red Theme) -->
+        <section class="bg-gradient-to-r from-red-950/40 to-dark-bg border border-red-900/50 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-6 md:items-center relative overflow-hidden shadow-glow-red">
+            <div class="absolute left-0 top-0 w-1.5 h-full bg-google-red shadow-[0_0_10px_#EA4335]"></div>
+            <div class="w-16 h-16 bg-red-900/30 rounded-2xl flex items-center justify-center shrink-0 border border-red-500/30">
+                <i data-lucide="shield-alert" class="w-8 h-8 text-google-red"></i>
+            </div>
+            <div>
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="bg-google-red text-white text-[10px] font-black px-2.5 py-1 rounded uppercase tracking-widest shadow-sm">Risco Máximo</span>
+                    <h2 class="text-white font-extrabold text-xl md:text-2xl tracking-tight">Ficha Abandonada (Sem Dono)</h2>
+                </div>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-4xl">
+                    A presença visível do link <strong class="text-white bg-white/10 px-1.5 py-0.5 rounded">"Reivindicar esta empresa"</strong> indica que a clínica não possui o controle de propriedade no Google. Hoje, qualquer concorrente pode entrar na sua ficha, sugerir que ela fechou ou alterar o telefone para roubar seus agendamentos sem que você perceba.
+                </p>
+            </div>
+        </section>
+
+        <!-- Diagnóstico (Dark Cards) -->
+        <section>
+            <div class="mb-8 md:mb-12">
+                <h2 class="text-3xl font-extrabold text-white mb-2 flex items-center gap-3">
+                    <i data-lucide="activity" class="text-google-blue"></i> Raio-X do Perfil Atual
+                </h2>
+                <p class="text-dark-text">Onde a clínica está perdendo dinheiro todos os dias.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Horários -->
+                <div class="glass-panel rounded-3xl p-6 card-hover">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center border border-slate-700">
+                            <i data-lucide="clock" class="w-6 h-6 text-slate-300"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-xl">Horários Ocultos</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-red-950/20 rounded-2xl p-4 border border-red-900/30">
+                            <span class="flex items-center gap-2 text-xs font-bold text-red-400 uppercase tracking-wider mb-2">
+                                <i data-lucide="x-circle" class="w-4 h-4"></i> O Problema
+                            </span>
+                            <p class="text-sm text-slate-300 leading-relaxed">Sem horários configurados, a clínica não aparece para pacientes com urgência que buscam por "médico aberto agora".</p>
+                        </div>
+                        <div class="bg-blue-950/20 rounded-2xl p-4 border border-blue-900/30">
+                            <span class="flex items-center gap-2 text-xs font-bold text-google-blue uppercase tracking-wider mb-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4"></i> A Solução
+                            </span>
+                            <p class="text-sm text-slate-300 leading-relaxed">Configurar horários exatos para ativar a tag verde <strong class="text-google-green">"Aberto"</strong> no Maps, disparando a taxa de cliques.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoria -->
+                <div class="glass-panel rounded-3xl p-6 card-hover">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center border border-slate-700">
+                            <i data-lucide="tags" class="w-6 h-6 text-slate-300"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-xl">Categoria Errada</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-red-950/20 rounded-2xl p-4 border border-red-900/30">
+                            <span class="flex items-center gap-2 text-xs font-bold text-red-400 uppercase tracking-wider mb-2">
+                                <i data-lucide="x-circle" class="w-4 h-4"></i> O Problema
+                            </span>
+                            <p class="text-sm text-slate-300 leading-relaxed">A ficha está catalogada como "Hospital". O algoritmo do Google esconde a ficha de quem busca consultas clínicas e de rotina.</p>
+                        </div>
+                        <div class="bg-blue-950/20 rounded-2xl p-4 border border-blue-900/30">
+                            <span class="flex items-center gap-2 text-xs font-bold text-google-blue uppercase tracking-wider mb-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4"></i> A Solução
+                            </span>
+                            <p class="text-sm text-slate-300 leading-relaxed">Redefinir a Categoria Primária para "Clínica Médica" e adicionar todas as especialidades no painel oculto (SEO On-Page).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Site -->
+                <div class="glass-panel rounded-3xl p-6 card-hover">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center border border-slate-700">
+                            <i data-lucide="mouse-pointer-click" class="w-6 h-6 text-slate-300"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-xl">Barreiras de Agendamento</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-red-950/20 rounded-2xl p-4 border border-red-900/30">
+                            <span class="flex items-center gap-2 text-xs font-bold text-red-400 uppercase tracking-wider mb-2">
+                                <i data-lucide="x-circle" class="w-4 h-4"></i> O Problema
+                            </span>
+                            <p class="text-sm text-slate-300 leading-relaxed">Uso de site amador gratuito (sites.google.com). Ausência total de um botão rápido que leve direto ao WhatsApp da recepção.</p>
+                        </div>
+                        <div class="bg-blue-950/20 rounded-2xl p-4 border border-blue-900/30">
+                            <span class="flex items-center gap-2 text-xs font-bold text-google-blue uppercase tracking-wider mb-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4"></i> A Solução
+                            </span>
+                            <p class="text-sm text-slate-300 leading-relaxed">Integrar link oficial de "Agendamento" (UTM rastreável) enviando o tráfego do Google direto para o WhatsApp comercial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mídia -->
+                <div class="glass-panel rounded-3xl p-6 card-hover">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center border border-slate-700">
+                            <i data-lucide="image" class="w-6 h-6 text-slate-300"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-xl">Apresentação Amadora</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-red-950/20 rounded-2xl p-4 border border-red-900/30">
+                            <span class="flex items-center gap-2 text-xs font-bold text-red-400 uppercase tracking-wider mb-2">
+                                <i data-lucide="x-circle" class="w-4 h-4"></i> O Problema
+                            </span>
+                            <p class="text-sm text-slate-300 leading-relaxed">A foto de capa atual é uma captura feia e automática do Street View. Não passa autoridade médica, limpeza ou segurança.</p>
+                        </div>
+                        <div class="bg-blue-950/20 rounded-2xl p-4 border border-blue-900/30">
+                            <span class="flex items-center gap-2 text-xs font-bold text-google-blue uppercase tracking-wider mb-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4"></i> A Solução
+                            </span>
+                            <p class="text-sm text-slate-300 leading-relaxed">Upload do logotipo em alta resolução. Substituição da capa por foto da fachada reformada e tour interno da infraestrutura.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Plano de Dominação Local (Ultra Avançado) -->
+        <section id="plano-acao" class="relative">
+            <div class="absolute inset-0 bg-google-blue/5 rounded-[3rem] blur-3xl -z-10"></div>
+            
+            <div class="glass-panel border-dark-border rounded-[2rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                <!-- Efeito visual no background do card -->
+                <div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+                    <i data-lucide="rocket" class="w-64 h-64 text-google-blue transform rotate-12"></i>
+                </div>
+
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12 border-b border-slate-800 pb-8 relative z-10">
+                    <div>
+                        <div class="inline-flex items-center bg-blue-950/50 border border-blue-900/50 text-google-blue text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-lg mb-3">
+                            <i data-lucide="swords" class="w-4 h-4 mr-2"></i> Estratégia de Combate
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-white">Plano de Dominação Local</h2>
+                        <p class="text-dark-text mt-2 text-lg">7 Passos avançados para esmagar a concorrência em Ipiaú-BA.</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-8 relative z-10">
+                    
+                    <div class="flex flex-col sm:flex-row gap-5 group">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 text-white flex items-center justify-center font-extrabold text-xl shrink-0 group-hover:bg-google-blue group-hover:border-google-blue transition-colors shadow-lg">1</div>
+                        <div>
+                            <h4 class="font-extrabold text-white text-xl mb-1.5">Reivindicação e Blindagem de Posse</h4>
+                            <p class="text-slate-400 leading-relaxed">Processo imediato de verificação da ficha junto ao Google para assumir a propriedade. Configuração de autenticação de dois fatores e bloqueio contra edições não autorizadas de terceiros (concorrentes).</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-5 group">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 text-white flex items-center justify-center font-extrabold text-xl shrink-0 group-hover:bg-google-blue group-hover:border-google-blue transition-colors shadow-lg">2</div>
+                        <div>
+                            <h4 class="font-extrabold text-white text-xl mb-1.5">Engenharia de Dados (NAP & SEO On-Page)</h4>
+                            <p class="text-slate-400 leading-relaxed">Alinhamento cirúrgico de Nome, Endereço e Telefone (NAP). Inserção de "Clínica Médica" como categoria principal e adição de até 9 categorias secundárias estratégicas (Ginecologia, Exames de Sangue, etc). Abertura de horários para forçar o selo "Aberto".</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-5 group">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 text-white flex items-center justify-center font-extrabold text-xl shrink-0 group-hover:bg-google-blue group-hover:border-google-blue transition-colors shadow-lg">3</div>
+                        <div>
+                            <h4 class="font-extrabold text-white text-xl mb-1.5">Catálogo de Produtos e Serviços</h4>
+                            <p class="text-slate-400 leading-relaxed">Transformar o perfil em um e-commerce de saúde. Cadastrar manualmente aba por aba cada exame e especialidade realizada, com descrições otimizadas para palavras-chave, botões de ação e preços (ou botões "Saiba Mais").</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-5 group">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 text-white flex items-center justify-center font-extrabold text-xl shrink-0 group-hover:bg-google-blue group-hover:border-google-blue transition-colors shadow-lg">4</div>
+                        <div>
+                            <h4 class="font-extrabold text-white text-xl mb-1.5">Vitrine Visual Premium</h4>
+                            <p class="text-slate-400 leading-relaxed">Limpeza das imagens geradas pelo Google. Upload focado em neurovendas: fachada iluminada, equipe médica uniformizada sorrindo, fotos limpas dos aparelhos de exame e recepção acolhedora.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-5 group">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 text-white flex items-center justify-center font-extrabold text-xl shrink-0 group-hover:bg-google-yellow group-hover:border-google-yellow transition-colors shadow-lg text-google-yellow group-hover:text-dark-bg">5</div>
+                        <div>
+                            <h4 class="font-extrabold text-google-yellow text-xl mb-1.5 flex items-center gap-2">Máquina Ativa de Avaliações (O Segredo)</h4>
+                            <p class="text-slate-400 leading-relaxed">A Clínica tem nota 5.0, mas apenas 16 avaliações. Vamos implementar tecnologia física na recepção (Display de Acrílico com NFC e QR Code) para o paciente tocar o celular na saída e avaliar em 3 segundos. Meta: +100 avaliações no primeiro trimestre.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-5 group">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 text-white flex items-center justify-center font-extrabold text-xl shrink-0 group-hover:bg-google-blue group-hover:border-google-blue transition-colors shadow-lg">6</div>
+                        <div>
+                            <h4 class="font-extrabold text-white text-xl mb-1.5">FAQ Estratégico Anti-Objeção</h4>
+                            <p class="text-slate-400 leading-relaxed">Vamos popular a aba "Perguntas e Respostas" do Google antecipadamente. Nós mesmos faremos perguntas comuns (Ex: "Aceitam plano X?", "Fazem ultrassom?") e responderemos. O algoritmo lê isso e entrega a ficha nas buscas diretas por exames.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-5 group">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 text-white flex items-center justify-center font-extrabold text-xl shrink-0 group-hover:bg-google-blue group-hover:border-google-blue transition-colors shadow-lg">7</div>
+                        <div>
+                            <h4 class="font-extrabold text-white text-xl mb-1.5">Funil de Conteúdo (Google Posts)</h4>
+                            <p class="text-slate-400 leading-relaxed">Tratar o Google como Instagram. Faremos postagens semanais na ficha (Ofertas de Exames, Alertas de Saúde, Datas Comemorativas). Fichas ativas recebem até 4x mais tráfego pelo algoritmo de novidade do Google.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Premium -->
+    <footer class="glass-panel border-t-0 border-slate-800 py-10 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="text-center md:text-left">
+                <p class="text-white font-extrabold text-sm uppercase tracking-widest mb-1">Engenharia de SEO Local</p>
+                <p class="text-dark-text text-xs">Transformando pesquisas orgânicas em pacientes na recepção.</p>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-end gap-3">
+                <span class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Projeto Desenvolvido Por</span>
+                <!-- Logo da Clintia corrigida com fundo escuro para destacar a logo branca -->
+                <div class="bg-slate-800/80 border border-slate-700 px-4 py-2 rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform backdrop-blur-sm">
+                    <img src="https://i.imgur.com/DOYHPYg.png" alt="Clintia Soluções" class="h-6 md:h-7 object-contain">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Carrega os ícones imediatamente
+        lucide.createIcons();
+
+        // Fallback de segurança para garantir a renderização caso a página demore
+        window.addEventListener("load", function() {
+            try {
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            } catch (error) {
+                console.error("Erro ao carregar ícones:", error);
+            }
+        });
+    </script>
+</body>
+</html>
