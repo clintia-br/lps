@@ -1,276 +1,325 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Users, 
-  CalendarCheck, 
-  Stethoscope, 
-  Syringe, 
-  TrendingUp, 
-  DollarSign, 
-  ChevronRight,
-  Activity
-} from 'lucide-react';
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Crescimento Digital - PRO Médicos</title>
+    
+    <!-- Tailwind CSS (Framework de Estilos) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonte Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Configuração de Cores Customizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#1F497D',
+                            light: 'rgba(31, 73, 125, 0.1)',
+                            lighter: 'rgba(31, 73, 125, 0.05)',
+                            dark: '#122e50'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
-export default function App() {
-  // Estados Iniciais baseados no seu print
-  const [investimento, setInvestimento] = useState(3000);
-  const [cpl, setCpl] = useState(21);
-  const [taxaAgendamento, setTaxaAgendamento] = useState(25);
-  const [taxaComparecimento, setTaxaComparecimento] = useState(60);
-  const [taxaConversao, setTaxaConversao] = useState(35);
+    <!-- Estilização das barras de rolagem (Sliders) -->
+    <style>
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: #e2e8f0;
+            border-radius: 999px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #1F497D;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.1s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-[#f8fafc] text-slate-800 font-sans p-4 md:p-8 min-h-screen">
 
-  // Estados Calculados
-  const [funnel, setFunnel] = useState({
-    leads: 0,
-    agendamentos: 0,
-    realizadas: 0,
-    procedimentos: 0,
-    custoAgendamento: 0,
-    custoRealizada: 0,
-    cac: 0
-  });
-
-  // Cálculo Dinâmico em Tempo Real
-  useEffect(() => {
-    const leads = Math.round(investimento / cpl) || 0;
-    const agendamentos = Math.round(leads * (taxaAgendamento / 100));
-    const realizadas = Math.round(agendamentos * (taxaComparecimento / 100));
-    const procedimentos = Math.round(realizadas * (taxaConversao / 100));
-
-    setFunnel({
-      leads,
-      agendamentos,
-      realizadas,
-      procedimentos,
-      custoAgendamento: agendamentos > 0 ? investimento / agendamentos : 0,
-      custoRealizada: realizadas > 0 ? investimento / realizadas : 0,
-      cac: procedimentos > 0 ? investimento / procedimentos : 0,
-    });
-  }, [investimento, cpl, taxaAgendamento, taxaComparecimento, taxaConversao]);
-
-  // Função para formatar moeda
-  const formatCurrency = (value) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }).format(value);
-  };
-
-  return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-800 p-4 md:p-8 font-sans" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-      {/* Importando Montserrat do Google Fonts */}
-      <style dangerouslySetInnerHTML={{__html: `
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-      `}} />
-
-      <div className="max-w-7xl mx-auto space-y-8">
+    <div class="max-w-7xl mx-auto space-y-8">
         
-        {/* Cabeçalho */}
-        <header className="text-center space-y-2">
-          <div className="inline-flex items-center justify-center p-3 bg-[#1F497D]/10 text-[#1F497D] rounded-full mb-2">
-            <Activity size={28} />
-          </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-            Simulador de Crescimento Digital
-          </h1>
-          <p className="text-slate-500 font-medium max-w-2xl mx-auto">
-            Ajuste as variáveis de investimento e performance para projetar o volume de pacientes e o custo de aquisição da clínica.
-          </p>
+        <!-- Cabeçalho -->
+        <header class="text-center space-y-2">
+            <div class="inline-flex items-center justify-center p-3 bg-brand-light text-brand rounded-full mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+                Simulador de Crescimento Digital
+            </h1>
+            <p class="text-slate-500 font-medium max-w-2xl mx-auto">
+                Ajuste as variáveis de investimento e performance para projetar o volume de pacientes e o custo de aquisição da clínica.
+            </p>
         </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          
-          {/* COLUNA ESQUERDA: Controles */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200">
-              <h2 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-                <DollarSign className="text-[#1F497D]" />
-                Parâmetros da Campanha
-              </h2>
-
-              <div className="space-y-8">
-                {/* Input: Investimento */}
-                <div className="space-y-3">
-                  <div className="flex justify-between items-end">
-                    <label className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Investimento Mensal</label>
-                    <span className="text-2xl font-bold text-[#1F497D]">{formatCurrency(investimento)}</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    min="500" max="20000" step="500"
-                    value={investimento} 
-                    onChange={(e) => setInvestimento(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#1F497D]"
-                  />
-                </div>
-
-                {/* Input: CPL */}
-                <div className="space-y-3">
-                  <div className="flex justify-between items-end">
-                    <label className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Custo por Lead (CPL)</label>
-                    <span className="text-xl font-bold text-slate-700">{formatCurrency(cpl)}</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    min="5" max="100" step="1"
-                    value={cpl} 
-                    onChange={(e) => setCpl(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#1F497D]"
-                  />
-                </div>
-
-                <div className="h-px bg-slate-100 my-4"></div>
-
-                <div>
-                  <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-1">Taxas de Conversão do Funil</h3>
-                  <p className="text-xs text-slate-500 mb-4">* Valores iniciais baseados em médias realistas de mercado.</p>
-                </div>
-
-                {/* Input: Agendamento */}
-                <div className="space-y-3">
-                  <div className="flex justify-between items-end">
-                    <label className="text-sm font-medium text-slate-600">Leads → Agendamentos</label>
-                    <span className="text-lg font-bold text-slate-700">{taxaAgendamento}%</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    min="10" max="100" step="1"
-                    value={taxaAgendamento} 
-                    onChange={(e) => setTaxaAgendamento(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#1F497D]"
-                  />
-                </div>
-
-                {/* Input: Comparecimento */}
-                <div className="space-y-3">
-                  <div className="flex justify-between items-end">
-                    <label className="text-sm font-medium text-slate-600">Agendamentos → Comparecimento</label>
-                    <span className="text-lg font-bold text-slate-700">{taxaComparecimento}%</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    min="10" max="100" step="1"
-                    value={taxaComparecimento} 
-                    onChange={(e) => setTaxaComparecimento(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#1F497D]"
-                  />
-                </div>
-
-                {/* Input: Procedimento */}
-                <div className="space-y-3">
-                  <div className="flex justify-between items-end">
-                    <label className="text-sm font-medium text-slate-600">Consulta → Fechamento</label>
-                    <span className="text-lg font-bold text-slate-700">{taxaConversao}%</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    min="5" max="100" step="1"
-                    value={taxaConversao} 
-                    onChange={(e) => setTaxaConversao(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#1F497D]"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* COLUNA DIREITA: O Funil Visual */}
-          <div className="lg:col-span-7 relative flex flex-col justify-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
             
-            {/* Etapa 1: Leads */}
-            <div className="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 flex items-center justify-between relative z-10 transition-transform hover:-translate-y-1 hover:shadow-md duration-300">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
-                  <Users size={24} />
+            <!-- COLUNA ESQUERDA: Controles -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200">
+                    <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        Parâmetros da Campanha
+                    </h2>
+
+                    <div class="space-y-8">
+                        <!-- Input: Investimento -->
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-end">
+                                <label class="text-sm font-semibold text-slate-600 uppercase tracking-wider">Investimento Mensal</label>
+                                <span id="val-investimento" class="text-2xl font-bold text-brand">R$ 3.000,00</span>
+                            </div>
+                            <input type="range" id="inp-investimento" min="500" max="20000" step="500" value="3000">
+                        </div>
+
+                        <!-- Input: CPL -->
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-end">
+                                <label class="text-sm font-semibold text-slate-600 uppercase tracking-wider">Custo por Lead (CPL)</label>
+                                <span id="val-cpl" class="text-xl font-bold text-slate-700">R$ 21,00</span>
+                            </div>
+                            <input type="range" id="inp-cpl" min="5" max="100" step="1" value="21">
+                        </div>
+
+                        <div class="h-px bg-slate-100 my-4"></div>
+
+                        <div>
+                            <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-1">Taxas de Conversão do Funil</h3>
+                            <p class="text-xs text-slate-500 mb-4">* Valores iniciais baseados em médias realistas de mercado.</p>
+                        </div>
+
+                        <!-- Input: Agendamento -->
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-end">
+                                <label class="text-sm font-medium text-slate-600">Leads → Agendamentos</label>
+                                <span id="val-agendamento" class="text-lg font-bold text-slate-700">25%</span>
+                            </div>
+                            <input type="range" id="inp-agendamento" min="10" max="100" step="1" value="25">
+                        </div>
+
+                        <!-- Input: Comparecimento -->
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-end">
+                                <label class="text-sm font-medium text-slate-600">Agendamentos → Comparecimento</label>
+                                <span id="val-comparecimento" class="text-lg font-bold text-slate-700">60%</span>
+                            </div>
+                            <input type="range" id="inp-comparecimento" min="10" max="100" step="1" value="60">
+                        </div>
+
+                        <!-- Input: Procedimento -->
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-end">
+                                <label class="text-sm font-medium text-slate-600">Consulta → Fechamento</label>
+                                <span id="val-conversao" class="text-lg font-bold text-slate-700">35%</span>
+                            </div>
+                            <input type="range" id="inp-conversao" min="5" max="100" step="1" value="35">
+                        </div>
+                    </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider">Leads Gerados</h3>
-                  <div className="text-3xl font-extrabold text-slate-800">{funnel.leads}</div>
-                </div>
-              </div>
-              <div className="text-right">
-                <div className="text-xs font-semibold text-slate-400 uppercase">Custo por Lead</div>
-                <div className="text-lg font-bold text-slate-700">{formatCurrency(cpl)}</div>
-              </div>
             </div>
 
-            {/* Conector */}
-            <div className="w-full flex justify-center my-3 relative z-0">
-              <div className="bg-[#1F497D]/5 text-[#1F497D] text-xs font-bold px-3 py-1 rounded-full border border-[#1F497D]/20 flex items-center gap-1">
-                {taxaAgendamento}% Agendam <ChevronRight size={14}/>
-              </div>
-            </div>
-
-            {/* Etapa 2: Agendamentos */}
-            <div className="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 flex items-center justify-between mx-4 relative z-10 transition-transform hover:-translate-y-1 hover:shadow-md duration-300">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#1F497D]/10 flex items-center justify-center text-[#1F497D]">
-                  <CalendarCheck size={24} />
+            <!-- COLUNA DIREITA: O Funil Visual -->
+            <div class="lg:col-span-7 relative flex flex-col justify-center">
+                
+                <!-- Etapa 1: Leads -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 flex items-center justify-between relative z-10 transition-transform hover:-translate-y-1 hover:shadow-md duration-300">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider">Leads Gerados</h3>
+                            <div id="out-leads" class="text-3xl font-extrabold text-slate-800">0</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs font-semibold text-slate-400 uppercase">Custo por Lead</div>
+                        <div id="out-cpl" class="text-lg font-bold text-slate-700">R$ 0,00</div>
+                    </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider">Consultas Agendadas</h3>
-                  <div className="text-3xl font-extrabold text-slate-800">{funnel.agendamentos}</div>
-                </div>
-              </div>
-              <div className="text-right">
-                <div className="text-xs font-semibold text-slate-400 uppercase">Custo Agendamento</div>
-                <div className="text-lg font-bold text-slate-700">{formatCurrency(funnel.custoAgendamento)}</div>
-              </div>
-            </div>
 
-            {/* Conector */}
-            <div className="w-full flex justify-center my-3 relative z-0">
-              <div className="bg-[#1F497D]/5 text-[#1F497D] text-xs font-bold px-3 py-1 rounded-full border border-[#1F497D]/20 flex items-center gap-1">
-                {taxaComparecimento}% Comparecem <ChevronRight size={14}/>
-              </div>
-            </div>
-
-            {/* Etapa 3: Realizadas */}
-            <div className="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 flex items-center justify-between mx-8 relative z-10 transition-transform hover:-translate-y-1 hover:shadow-md duration-300">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#1F497D]/10 flex items-center justify-center text-[#1F497D]">
-                  <Stethoscope size={24} />
+                <!-- Conector -->
+                <div class="w-full flex justify-center my-3 relative z-0">
+                    <div class="bg-brand-lighter text-brand text-xs font-bold px-3 py-1 rounded-full border border-brand/20 flex items-center gap-1">
+                        <span id="label-agendamento">25%</span> Agendam 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider">Consultas Realizadas</h3>
-                  <div className="text-3xl font-extrabold text-slate-800">{funnel.realizadas}</div>
-                </div>
-              </div>
-              <div className="text-right">
-                <div className="text-xs font-semibold text-slate-400 uppercase">Custo p/ Consulta</div>
-                <div className="text-lg font-bold text-slate-700">{formatCurrency(funnel.custoRealizada)}</div>
-              </div>
-            </div>
 
-            {/* Conector */}
-            <div className="w-full flex justify-center my-3 relative z-0">
-              <div className="bg-[#1F497D]/5 text-[#1F497D] text-xs font-bold px-3 py-1 rounded-full border border-[#1F497D]/20 flex items-center gap-1">
-                {taxaConversao}% Fecham Procedimento <ChevronRight size={14}/>
-              </div>
-            </div>
-
-            {/* Etapa 4: Procedimentos (Destaque) */}
-            <div className="bg-gradient-to-br from-[#1F497D] to-[#122e50] rounded-2xl p-6 shadow-lg border border-[#1F497D]/50 flex flex-col sm:flex-row items-center justify-between mx-12 relative z-10 text-white transition-transform hover:-translate-y-1 hover:shadow-xl duration-300">
-              <div className="flex items-center gap-4 mb-4 sm:mb-0">
-                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-white backdrop-blur-sm shadow-inner">
-                  <Syringe size={28} />
+                <!-- Etapa 2: Agendamentos -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 flex items-center justify-between mx-4 relative z-10 transition-transform hover:-translate-y-1 hover:shadow-md duration-300">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center text-brand">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="m9 16 2 2 4-4"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider">Consultas Agendadas</h3>
+                            <div id="out-agendamentos" class="text-3xl font-extrabold text-slate-800">0</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs font-semibold text-slate-400 uppercase">Custo Agendamento</div>
+                        <div id="out-custo-agendamento" class="text-lg font-bold text-slate-700">R$ 0,00</div>
+                    </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-blue-100 uppercase tracking-wider">Novos Procedimentos</h3>
-                  <div className="text-4xl font-extrabold text-white">{funnel.procedimentos}</div>
-                </div>
-              </div>
-              <div className="text-center sm:text-right bg-black/10 px-4 py-2 rounded-xl backdrop-blur-sm border border-white/10">
-                <div className="text-xs font-semibold text-blue-100 uppercase mb-1">Custo de Aquisição (CAC)</div>
-                <div className="text-2xl font-bold text-white">{formatCurrency(funnel.cac)}</div>
-              </div>
-            </div>
 
-          </div>
+                <!-- Conector -->
+                <div class="w-full flex justify-center my-3 relative z-0">
+                    <div class="bg-brand-lighter text-brand text-xs font-bold px-3 py-1 rounded-full border border-brand/20 flex items-center gap-1">
+                        <span id="label-comparecimento">60%</span> Comparecem 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                </div>
+
+                <!-- Etapa 3: Realizadas -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 flex items-center justify-between mx-8 relative z-10 transition-transform hover:-translate-y-1 hover:shadow-md duration-300">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center text-brand">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"></path><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"></path><circle cx="20" cy="10" r="2"></circle></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider">Consultas Realizadas</h3>
+                            <div id="out-realizadas" class="text-3xl font-extrabold text-slate-800">0</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs font-semibold text-slate-400 uppercase">Custo p/ Consulta</div>
+                        <div id="out-custo-realizada" class="text-lg font-bold text-slate-700">R$ 0,00</div>
+                    </div>
+                </div>
+
+                <!-- Conector -->
+                <div class="w-full flex justify-center my-3 relative z-0">
+                    <div class="bg-brand-lighter text-brand text-xs font-bold px-3 py-1 rounded-full border border-brand/20 flex items-center gap-1">
+                        <span id="label-conversao">35%</span> Fecham Procedimento 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                </div>
+
+                <!-- Etapa 4: Procedimentos (Destaque) -->
+                <div class="bg-gradient-to-br from-brand to-brand-dark rounded-2xl p-6 shadow-lg border border-brand/50 flex flex-col sm:flex-row items-center justify-between mx-12 relative z-10 text-white transition-transform hover:-translate-y-1 hover:shadow-xl duration-300">
+                    <div class="flex items-center gap-4 mb-4 sm:mb-0">
+                        <div class="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-white backdrop-blur-sm shadow-inner">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4"></path><path d="m17 7 3-3"></path><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"></path><path d="m9 11 4 4"></path><path d="m5 19-3 3"></path><path d="m14 4 6 6"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold text-blue-100 uppercase tracking-wider">Novos Procedimentos</h3>
+                            <div id="out-procedimentos" class="text-4xl font-extrabold text-white">0</div>
+                        </div>
+                    </div>
+                    <div class="text-center sm:text-right bg-black/10 px-4 py-2 rounded-xl backdrop-blur-sm border border-white/10">
+                        <div class="text-xs font-semibold text-blue-100 uppercase mb-1">Custo de Aquisição (CAC)</div>
+                        <div id="out-cac" class="text-2xl font-bold text-white">R$ 0,00</div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-
-      </div>
     </div>
-  );
-}
+
+    <!-- Script com a Lógica da Calculadora -->
+    <script>
+        // Função para formatar como Moeda (R$)
+        const formatCurrency = (value) => {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(value);
+        };
+
+        // Selecionando os Inputs
+        const inpInvestimento = document.getElementById('inp-investimento');
+        const inpCpl = document.getElementById('inp-cpl');
+        const inpAgendamento = document.getElementById('inp-agendamento');
+        const inpComparecimento = document.getElementById('inp-comparecimento');
+        const inpConversao = document.getElementById('inp-conversao');
+
+        // Função Principal de Cálculo e Atualização da Tela
+        const calcularFunil = () => {
+            // Pegando os valores atuais dos inputs
+            const investimento = Number(inpInvestimento.value);
+            const cpl = Number(inpCpl.value);
+            const tAgendamento = Number(inpAgendamento.value);
+            const tComparecimento = Number(inpComparecimento.value);
+            const tConversao = Number(inpConversao.value);
+
+            // Atualizando os Rótulos Visuais dos Inputs
+            document.getElementById('val-investimento').innerText = formatCurrency(investimento);
+            document.getElementById('val-cpl').innerText = formatCurrency(cpl);
+            document.getElementById('val-agendamento').innerText = tAgendamento + '%';
+            document.getElementById('val-comparecimento').innerText = tComparecimento + '%';
+            document.getElementById('val-conversao').innerText = tConversao + '%';
+
+            // Atualizando os Rótulos dos Conectores
+            document.getElementById('label-agendamento').innerText = tAgendamento + '%';
+            document.getElementById('label-comparecimento').innerText = tComparecimento + '%';
+            document.getElementById('label-conversao').innerText = tConversao + '%';
+
+            // Cálculos da Matemática do Funil
+            const leads = Math.round(investimento / cpl) || 0;
+            const agendamentos = Math.round(leads * (tAgendamento / 100));
+            const realizadas = Math.round(agendamentos * (tComparecimento / 100));
+            const procedimentos = Math.round(realizadas * (tConversao / 100));
+
+            // Cálculo dos Custos
+            const custoAgendamento = agendamentos > 0 ? (investimento / agendamentos) : 0;
+            const custoRealizada = realizadas > 0 ? (investimento / realizadas) : 0;
+            const cac = procedimentos > 0 ? (investimento / procedimentos) : 0;
+
+            // Injetando os resultados no Visual do Funil
+            document.getElementById('out-leads').innerText = leads;
+            document.getElementById('out-cpl').innerText = formatCurrency(cpl);
+            
+            document.getElementById('out-agendamentos').innerText = agendamentos;
+            document.getElementById('out-custo-agendamento').innerText = formatCurrency(custoAgendamento);
+            
+            document.getElementById('out-realizadas').innerText = realizadas;
+            document.getElementById('out-custo-realizada').innerText = formatCurrency(custoRealizada);
+            
+            document.getElementById('out-procedimentos').innerText = procedimentos;
+            document.getElementById('out-cac').innerText = formatCurrency(cac);
+        };
+
+        // Adicionando os Eventos para recalcular sempre que o usuário mexer na barra
+        const inputs = [inpInvestimento, inpCpl, inpAgendamento, inpComparecimento, inpConversao];
+        inputs.forEach(input => {
+            input.addEventListener('input', calcularFunil);
+        });
+
+        // Chamada inicial para carregar os valores assim que a página abrir
+        calcularFunil();
+    </script>
+</body>
+</html>
