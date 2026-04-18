@@ -34,19 +34,25 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..700;1,300..700;0,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    --bg: #0A0A0C;
-    --bg-elev: #101014;
-    --ink: #F2EDE3;
-    --ink-dim: #9D978C;
-    --ink-muted: #5D594F;
-    --line: #1C1C21;
-    --line-strong: #2A2A30;
-    --accent: #D97642;
-    --accent-glow: rgba(217, 118, 66, 0.22);
+    --bg: #F9FAFB;
+    --bg-elev: #FFFFFF;
+    --bg-elev-2: #F3F4F6;
+    --ink: #0F172A;
+    --ink-dim: #334155;
+    --ink-muted: #64748B;
+    --line: #E5E7EB;
+    --line-strong: #D1D5DB;
+    --accent: #0F172A; /* Slate 900 */
+    --accent-hot: #020617;
+    --accent-dim: rgba(15, 23, 42, 0.10);
+    --accent-glow: rgba(15, 23, 42, 0.22);
+    --navy: #053C73;
+    --navy-dark: #032a52;
+    --success: #10b981;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -54,7 +60,7 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   html, body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Montserrat', -apple-system, sans-serif;
+    font-family: 'Inter', -apple-system, sans-serif;
     font-weight: 400;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -64,21 +70,10 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     flex-direction: column;
   }
 
-  /* Efeito de fundo Premium igual à LP */
+  /* Efeito de fundo Premium Light */
   body {
     background-image:
-      radial-gradient(ellipse 70% 50% at 50% -5%, rgba(217, 118, 66, 0.08), transparent 60%);
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.93 0 0 0 0 0.89 0 0 0 0.028 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    opacity: 0.55;
-    pointer-events: none;
-    z-index: 1;
-    mix-blend-mode: overlay;
+      radial-gradient(ellipse 70% 50% at 50% -5%, rgba(15, 23, 42, 0.04), transparent 60%);
   }
 
   .container {
@@ -105,6 +100,8 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     height: 28px;
     width: auto;
     display: block;
+    /* Filtro para deixar o logo escuro no modo light */
+    filter: brightness(0) invert(0.15) sepia(1) hue-rotate(180deg) saturate(300%);
   }
 
   /* Conteúdo Principal (Vídeo) */
@@ -121,13 +118,16 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   .kicker {
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--success, #7BB88E);
-    margin-bottom: 16px;
+    color: var(--success);
+    margin-bottom: 24px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
   }
 
   .kicker::before {
@@ -137,16 +137,16 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     height: 8px;
     border-radius: 50%;
     background: currentColor;
-    box-shadow: 0 0 10px currentColor;
+    box-shadow: 0 0 8px currentColor;
   }
 
   h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 800;
-    font-size: clamp(26px, 5vw, 42px);
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    color: var(--ink);
+    font-size: clamp(28px, 5vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--navy);
     margin-bottom: 40px;
     max-width: 800px;
   }
@@ -158,21 +158,21 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   /* Container do Vídeo (Vertical/Story 9:16) */
   .video-container {
     width: 100%;
-    max-width: 420px; /* Limitado para simular o ecrã de um telemóvel no desktop */
+    max-width: 420px; /* Reduzido de volta para simular o formato de telemóvel */
     background: var(--bg-elev);
-    border: 1px solid var(--line-strong);
-    border-radius: 20px; /* Bordas mais arredondadas simulando um dispositivo */
-    padding: 8px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px var(--accent-glow);
+    border: 1px solid var(--line);
+    border-radius: 32px; /* Bordas mais arredondadas simulando um dispositivo mais moderno */
+    padding: 12px;
+    box-shadow: 0 25px 50px -12px rgba(5, 60, 115, 0.20), 0 0 0 1px rgba(15, 23, 42, 0.02);
     margin: 0 auto;
   }
 
   .video-wrapper {
     position: relative;
-    aspect-ratio: 9 / 16; /* Proporção exata de Story/Reels/TikTok */
+    aspect-ratio: 9 / 16; /* Retornado para a proporção vertical (Story) */
     width: 100%;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 20px;
     background: #000;
   }
 
@@ -195,13 +195,14 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   }
 
   .footer-text {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--ink-muted);
   }
 
   @media (max-width: 640px) {
     h1 { margin-bottom: 32px; }
-    .video-container { padding: 4px; border-radius: 6px; }
+    .video-container { padding: 8px; border-radius: 24px; }
+    .video-wrapper { border-radius: 16px; }
   }
 </style>
 </head>
@@ -222,7 +223,7 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
 
     <div class="video-container">
       <div class="video-wrapper">
-        <iframe id="panda-3ad97114-e08c-49f9-8636-60242414bc3a" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=3ad97114-e08c-49f9-8636-60242414bc3a" style="border:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen="true" fetchpriority="high"></iframe>
+        <iframe id="panda-bd3cff21-d6dc-4ff9-baa9-cf38b4220e02" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=bd3cff21-d6dc-4ff9-baa9-cf38b4220e02" style="border:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen=true width="720" height="360" fetchpriority="high"></iframe>
       </div>
     </div>
   </main>
