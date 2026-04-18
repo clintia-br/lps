@@ -121,7 +121,6 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   }
 
   .logo-light {
-    /* Transforma a imagem em 100% branco para contrastar com o fundo escuro */
     filter: brightness(0) invert(1);
   }
 
@@ -556,7 +555,7 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     height: auto;
     display: block;
     filter: blur(5px) brightness(0.35);
-    transform: scale(1.1); /* Evita bordas brancas do desfoque */
+    transform: scale(1.1); 
   }
 
   .carousel-item-cta .cta-overlay {
@@ -866,7 +865,7 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
 
   @media (max-width: 640px) {
     header { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .eyebrow { font-size: 10.5px; } /* Ajuste de fonte no mobile para caber melhor */
+    .eyebrow { font-size: 10.5px; } 
     h1 { line-height: 1.1; }
     .form-title { line-height: 1.2; }
     .form-card { padding: 32px 24px; }
@@ -1128,7 +1127,7 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     e.target.value = v;
   });
 
-  // Funcionalidade de scroll suave dos botões novos CTA
+  // Scroll suave
   document.querySelectorAll('.cta-scroll-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -1140,7 +1139,6 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   const form = document.getElementById('leadForm');
   const card = document.getElementById('formCard');
   
-  // Elementos dos passos
   const step1Div = document.getElementById('step1');
   const step2Div = document.getElementById('step2');
   const btnStep1 = document.getElementById('btnStep1');
@@ -1148,13 +1146,9 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   const errorStep1 = document.getElementById('errorStep1');
   const errorStep2 = document.getElementById('errorStep2');
 
-  // Variável para guardar o ID gerado no Passo 1
   let leadId = null;
 
-  // Substitua este link pelo link gerado no Google Apps Script (Passo 4 do guia abaixo)
   const GOOGLE_APP_URL = 'https://script.google.com/macros/s/AKfycbxEHJNyCa87qPJrMffgEa6TKYfyYOI1FKtz70Y0wsEeHJe7MpW2PB_xGYeuPDvrzecqZQ/exec'; 
-  
-  // Substitua pelo link da página onde o vídeo está hospedado
   const VIDEO_URL = 'https://lp.clintia.com.br/video-estudo-de-caso-proclip';
 
   function setError(name, hasError) {
@@ -1162,7 +1156,7 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     if (el) el.classList.toggle('error', hasError);
   }
 
-  // --- PASSO 1: Enviar Nome e WhatsApp ---
+  // PASSO 1
   btnStep1.addEventListener('click', async () => {
     const name = form.name.value.trim();
     const whatsapp = form.whatsapp.value.replace(/\D/g, '');
@@ -1176,7 +1170,6 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
 
     if (!valid) return;
 
-    // Estado de carregamento
     btnStep1.classList.add('btn-loading');
     btnStep1.innerHTML = 'Salvando...';
     errorStep1.style.display = 'none';
@@ -1190,26 +1183,27 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
 
       const response = await fetch(GOOGLE_APP_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // text/plain evita bloqueio de CORS
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload)
       });
 
       const result = await response.json();
       
       if(result.status === 'success') {
-        leadId = result.id; // Guarda o ID recebido da planilha
+        leadId = result.id;
         
-        // Transição de tela
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead');
+        }
+        
         step1Div.style.display = 'none';
         step2Div.style.display = 'block';
         
-        // Oculta os títulos principais para focar direto nos novos campos
         document.getElementById('formMainTitle').style.display = 'none';
         document.getElementById('formSubTitle').style.display = 'none';
       } else {
         throw new Error("Erro na resposta do servidor");
       }
-
     } catch (err) {
       console.error(err);
       errorStep1.style.display = 'block';
@@ -1219,11 +1213,11 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     }
   });
 
-  // --- PASSO 2: Enviar Clínica, Cargo e E-mail ---
+  // PASSO 2
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    if(!leadId) return; // Garante que o passo 1 foi concluído
+    if(!leadId) return;
 
     const data = {
       step: 2,
@@ -1244,7 +1238,6 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
 
     if (!valid) return;
 
-    // Estado de carregamento
     btnStep2.classList.add('btn-loading');
     btnStep2.innerHTML = 'Liberando Acesso...';
     errorStep2.style.display = 'none';
@@ -1256,15 +1249,14 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
         body: JSON.stringify(data)
       });
 
-      // Disparar eventos de Conversão (Facebook Pixel e Google Ads)
+      // Disparar eventos de Conversão
       if (typeof fbq === 'function') {
-        fbq('trackCustom', 'Lead ProClip');
+        fbq('track', 'SubmitApplication');
       }
       if (typeof gtag === 'function') {
         gtag('event', 'conversion', {'send_to': 'AW-17614228842'});
       }
 
-      // Independente do que o servidor retornar, se não der crash na requisição, redirecionamos.
       window.location.href = VIDEO_URL;
 
     } catch (err) {
