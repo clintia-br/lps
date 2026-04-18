@@ -35,24 +35,25 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Montserrat:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    --bg: #0A0A0C;
-    --bg-elev: #101014;
-    --bg-elev-2: #16161B;
-    --ink: #F2EDE3;
-    --ink-dim: #9D978C;
-    --ink-muted: #5D594F;
-    --line: #1C1C21;
-    --line-strong: #2A2A30;
-    --accent: #D97642;
-    --accent-hot: #E8844E;
-    --accent-dim: rgba(217, 118, 66, 0.10);
-    --accent-glow: rgba(217, 118, 66, 0.22);
-    --navy: #1E2A42;
-    --success: #7BB88E;
+    --bg: #F9FAFB;
+    --bg-elev: #FFFFFF;
+    --bg-elev-2: #F3F4F6;
+    --ink: #0F172A;
+    --ink-dim: #334155;
+    --ink-muted: #64748B;
+    --line: #E5E7EB;
+    --line-strong: #D1D5DB;
+    --accent: #0F172A;
+    --accent-hot: #020617;
+    --accent-dim: rgba(15, 23, 42, 0.10);
+    --accent-glow: rgba(15, 23, 42, 0.22);
+    --navy: #053C73;
+    --navy-dark: #032a52;
+    --success: #10b981;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -60,7 +61,7 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   html, body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Montserrat', -apple-system, sans-serif;
+    font-family: 'Inter', -apple-system, sans-serif;
     font-weight: 400;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -72,19 +73,8 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
 
   body {
     background-image:
-      radial-gradient(ellipse 70% 50% at 15% -5%, rgba(217, 118, 66, 0.07), transparent 55%),
-      radial-gradient(ellipse 55% 45% at 110% 105%, rgba(30, 42, 66, 0.22), transparent 60%);
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.93 0 0 0 0 0.89 0 0 0 0.028 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    opacity: 0.55;
-    pointer-events: none;
-    z-index: 1;
-    mix-blend-mode: overlay;
+      radial-gradient(ellipse 70% 50% at 15% -5%, rgba(15, 23, 42, 0.04), transparent 55%),
+      radial-gradient(ellipse 55% 45% at 110% 105%, rgba(5, 60, 115, 0.08), transparent 60%);
   }
 
   .container {
@@ -107,7 +97,7 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     display: flex;
     align-items: center;
     gap: 3px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 22px;
     letter-spacing: -0.025em;
@@ -118,17 +108,18 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     height: 32px;
     width: auto;
     display: block;
+    filter: brightness(0) invert(0.15) sepia(1) hue-rotate(180deg) saturate(300%);
   }
 
   .logo-light {
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(0.15) sepia(1) hue-rotate(180deg) saturate(300%);
   }
 
   .brand .pro { color: var(--ink); }
   .brand .clip {
     color: var(--accent);
     font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   .brand-meta {
@@ -136,7 +127,7 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink-muted);
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .brand-meta::before {
@@ -154,6 +145,8 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     padding: 24px 0 56px;
     border-top: 1px solid var(--line);
     margin-top: 8px;
+    display: flex;
+    justify-content: center;
   }
 
   .eyebrow {
@@ -161,18 +154,19 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     align-items: center;
     gap: 14px;
     font-size: 11.5px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink-dim);
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .eyebrow-mark {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 11.5px;
-    color: var(--ink);
+    color: var(--navy);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
@@ -201,30 +195,25 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     .container { padding: 0 22px; }
   }
 
-  /* Hero Grid */
+  /* Hero Grid - Squeeze Center */
   .hero-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 64px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-  }
-
-  @media (max-width: 980px) {
-    .hero-grid { 
-      grid-template-columns: 1fr; 
-      gap: 40px;
-      text-align: left;
-    }
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 0;
   }
 
   /* Headline */
   h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 800;
-    font-size: clamp(28px, 4.5vw, 50px);
-    line-height: 1.1;
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.15;
     letter-spacing: -0.03em;
-    color: var(--ink);
+    color: var(--navy);
     margin-bottom: 24px;
   }
 
@@ -237,9 +226,9 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
 
   .subhead {
     font-size: 18.5px;
-    line-height: 1.55;
+    line-height: 1.6;
     color: var(--ink-dim);
-    max-width: 54ch;
+    max-width: 60ch;
     font-weight: 400;
     margin-bottom: 32px;
   }
@@ -247,7 +236,7 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   .subhead strong {
     color: var(--ink);
     font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     letter-spacing: 0;
   }
@@ -255,130 +244,57 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   /* Buttons */
   .btn-primary {
     width: 100%;
-    background: var(--accent);
-    color: #15100A;
+    background: var(--navy);
+    color: #FFFFFF;
     border: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 15.5px;
+    font-size: 16px;
     letter-spacing: -0.005em;
-    padding: 17px 20px;
-    border-radius: 4px;
+    padding: 18px 24px;
+    border-radius: 32px;
     cursor: pointer;
-    transition: all 0.18s ease;
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     text-decoration: none;
+    box-shadow: 0 15px 35px -10px rgba(5, 60, 115, 0.35);
   }
 
   @media (min-width: 640px) {
-    .hero-text .btn-primary, .transition-block .btn-primary {
+    .hero-grid .btn-primary, .transition-block .btn-primary {
       width: max-content;
-      padding: 18px 36px;
+      padding: 18px 48px;
     }
   }
 
   .btn-primary:hover {
-    background: var(--accent-hot);
-    transform: translateY(-1px);
-    box-shadow: 0 10px 28px var(--accent-glow);
+    background: var(--navy-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -10px rgba(5, 60, 115, 0.45);
   }
 
   .btn-primary:active { transform: translateY(0); }
 
   .btn-primary svg {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     transition: transform 0.2s ease;
   }
 
-  .btn-primary:hover svg { transform: translateX(3px); }
-
-  /* Image slot */
-  .media {
-    position: relative;
-    width: 100%;
-  }
-
-  .media-frame {
-    aspect-ratio: 16 / 9;
-    background: var(--bg-elev);
-    border: 1px solid var(--line-strong);
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image:
-      linear-gradient(135deg, rgba(217, 118, 66, 0.03) 0%, transparent 50%),
-      repeating-linear-gradient(
-        45deg,
-        transparent 0,
-        transparent 18px,
-        rgba(255,255,255,0.015) 18px,
-        rgba(255,255,255,0.015) 19px
-      );
-  }
-
-  .media-frame::before, .media-frame::after {
-    content: '';
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border-color: var(--accent);
-    border-style: solid;
-  }
-  .media-frame::before {
-    top: 12px; left: 12px;
-    border-width: 1.5px 0 0 1.5px;
-  }
-  .media-frame::after {
-    bottom: 12px; right: 12px;
-    border-width: 0 1.5px 1.5px 0;
-  }
-
-  .media-placeholder {
-    text-align: center;
-    color: var(--ink-muted);
-    font-size: 12.5px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  .media-placeholder span {
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-size: 14px;
-    text-transform: none;
-    letter-spacing: 0;
-    color: var(--ink-dim);
-    margin-top: 8px;
-    font-weight: 500;
-  }
-
-  .media-img {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid var(--line-strong);
-    display: block;
-  }
+  .btn-primary:hover svg { transform: translateX(4px); }
 
   /* Deliverables grid */
-  .delivery { margin-top: 24px; }
+  .delivery { margin-top: 0; }
 
   .delivery-label {
     font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--ink-muted);
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 28px;
     display: flex;
     align-items: center;
@@ -395,9 +311,8 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   .delivery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--line);
-    border-left: 1px solid var(--line);
+    gap: 16px;
+    border: none;
   }
 
   @media (max-width: 520px) {
@@ -405,22 +320,29 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   }
 
   .delivery-card {
-    padding: 28px 26px 30px;
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    padding: 32px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: 24px;
     position: relative;
-    transition: background 0.2s ease;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
   }
 
-  .delivery-card:hover { background: rgba(217, 118, 66, 0.025); }
+  .delivery-card:hover { 
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px -10px rgba(0,0,0,0.08);
+    border-color: var(--accent-dim);
+    background: var(--bg-elev);
+  }
   .delivery-card:hover .delivery-num { color: var(--accent); }
 
   .delivery-num {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 300;
     font-size: 44px;
-    color: var(--ink-muted);
+    color: var(--line-strong);
     line-height: 1;
     margin-bottom: 20px;
     display: block;
@@ -429,31 +351,35 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   }
 
   .delivery-title {
-    font-size: 10.5px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 10px;
+    color: var(--navy);
+    margin-bottom: 12px;
   }
 
   .delivery-body {
     font-size: 14.5px;
-    color: var(--ink);
-    line-height: 1.5;
+    color: var(--ink-dim);
+    line-height: 1.6;
     font-weight: 400;
   }
 
+  .delivery-body strong {
+    color: var(--ink);
+  }
+
   .delivery-body em {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
-    color: var(--accent);
-    font-weight: 600;
+    color: var(--navy);
+    font-weight: 700;
     font-size: 15.5px;
   }
 
-  /* Orange Underline */
-  .orange-underline {
+  /* Accent Underline */
+  .accent-underline {
     text-decoration: underline;
     text-decoration-color: var(--accent);
     text-decoration-thickness: 3px;
@@ -466,14 +392,14 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
 
   /* Social Proof Carousel */
   .social-proof {
-    margin-top: 48px;
+    margin-top: 24px;
   }
   .social-proof-label {
     font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--ink-muted);
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 24px;
     display: flex;
     align-items: center;
@@ -491,9 +417,9 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 16px;
-    padding-bottom: 20px;
+    padding-bottom: 32px;
     scrollbar-width: thin;
-    scrollbar-color: var(--accent) transparent;
+    scrollbar-color: var(--line-strong) transparent;
   }
   .carousel::-webkit-scrollbar {
     height: 6px;
@@ -502,22 +428,22 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     background: transparent;
   }
   .carousel::-webkit-scrollbar-thumb {
-    background-color: var(--accent);
+    background-color: var(--line-strong);
     border-radius: 4px;
   }
   
-  /* Carousel Items - Modificados para imagens */
   .carousel-item {
     flex: 0 0 80%;
     scroll-snap-align: center;
     background: var(--bg-elev);
-    border: 1px solid var(--line-strong);
-    border-radius: 6px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     position: relative;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
   }
   @media (min-width: 640px) {
     .carousel-item { flex: 0 0 320px; }
@@ -530,32 +456,25 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     display: block;
   }
 
-  .carousel-placeholder {
-    color: var(--ink-muted);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-align: center;
-    padding: 20px;
-  }
-
   /* CTA Carousel Card */
   .carousel-item.carousel-item-cta {
-    background: transparent;
+    background: var(--navy);
     border: none;
     padding: 0;
     display: block;
     position: relative;
     overflow: hidden;
-    border-radius: 6px;
   }
 
   .carousel-item-cta .blur-bg {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
-    filter: blur(5px) brightness(0.35);
+    filter: blur(8px) brightness(0.4);
     transform: scale(1.1); 
+    position: absolute;
+    inset: 0;
   }
 
   .carousel-item-cta .cta-overlay {
@@ -566,17 +485,18 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 24px;
+    padding: 32px;
     gap: 24px;
-    border: 1px dashed var(--accent);
-    border-radius: 6px;
+    border: 1px dashed rgba(255,255,255,0.3);
+    border-radius: 24px;
+    margin: 8px;
   }
 
   .carousel-item-cta .cta-card-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 700;
-    color: var(--ink);
+    color: #FFFFFF;
     text-align: center;
     line-height: 1.3;
     font-style: normal;
@@ -586,11 +506,17 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     padding: 14px 20px;
     font-size: 14.5px;
     width: 100%;
+    background: var(--accent);
+    box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.4);
+  }
+
+  .btn-small:hover {
+    background: var(--accent-hot);
   }
 
   /* Transition Phrase Block */
   .transition-block {
-    margin: 80px auto 40px;
+    margin: 40px auto 20px;
     text-align: center;
     max-width: 800px;
     display: flex;
@@ -600,10 +526,10 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   }
 
   .transition-phrase {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(22px, 5vw, 32px);
-    line-height: 1.3;
-    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(22px, 4vw, 32px);
+    line-height: 1.4;
+    color: var(--navy);
     font-weight: 500;
   }
 
@@ -623,61 +549,63 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
 
   .form-card {
     background: var(--bg-elev);
-    border: 1px solid var(--line-strong);
-    border-radius: 6px;
-    padding: 48px 44px;
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 56px 48px;
     position: relative;
     width: 100%;
-    max-width: 680px;
+    max-width: 640px;
+    box-shadow: 0 15px 35px -10px rgba(0,0,0,0.12);
   }
 
   .form-card::before {
     content: '';
     position: absolute;
-    top: -1px;
-    left: 24px;
-    right: 24px;
-    height: 2px;
+    top: 0;
+    left: 32px;
+    right: 32px;
+    height: 4px;
     background: var(--accent);
+    border-radius: 0 0 4px 4px;
   }
 
   .form-kicker {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 12px;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     letter-spacing: 0.1em;
   }
 
   .form-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 800;
-    font-size: clamp(24px, 6vw, 28px);
+    font-size: clamp(24px, 5vw, 32px);
     line-height: 1.2;
     letter-spacing: -0.02em;
-    color: var(--ink);
+    color: var(--navy);
     margin-bottom: 12px;
   }
 
   .form-sub {
-    font-size: 14.5px;
+    font-size: 15px;
     color: var(--ink-dim);
-    margin-bottom: 30px;
-    line-height: 1.5;
+    margin-bottom: 36px;
+    line-height: 1.6;
   }
 
-  .field { margin-bottom: 16px; }
+  .field { margin-bottom: 20px; }
 
   .field label {
     display: block;
-    font-size: 10.5px;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--ink-muted);
+    color: var(--ink-dim);
     margin-bottom: 8px;
   }
 
@@ -686,19 +614,19 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     background: var(--bg);
     border: 1px solid var(--line-strong);
     color: var(--ink);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    padding: 14px 16px;
-    border-radius: 4px;
-    transition: all 0.15s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    padding: 16px 20px;
+    border-radius: 16px;
+    transition: all 0.2s ease;
     outline: none;
   }
 
   .field select {
     appearance: none;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239D978C%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748B%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
-    background-position: right 16px top 50%;
+    background-position: right 20px top 50%;
     background-size: 10px auto;
     cursor: pointer;
   }
@@ -708,17 +636,18 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
 
   .field input:focus, .field select:focus {
     border-color: var(--accent);
-    background: var(--bg-elev-2);
-    box-shadow: 0 0 0 3px var(--accent-dim);
+    background: var(--bg-elev);
+    box-shadow: 0 0 0 4px var(--accent-dim);
   }
 
-  .field.error input, .field.error select { border-color: #B54747; }
+  .field.error input, .field.error select { border-color: #ef4444; }
 
   .field .error-msg {
     display: none;
     font-size: 12px;
-    color: #D97070;
-    margin-top: 6px;
+    color: #ef4444;
+    margin-top: 8px;
+    font-weight: 500;
   }
 
   .field.error .error-msg { display: block; }
@@ -737,32 +666,38 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   .step-indicator {
     font-size: 13px;
     color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 20px;
+    font-weight: 600;
+    margin-bottom: 24px;
     display: flex;
     align-items: center;
     gap: 8px;
+    background: var(--accent-dim);
+    padding: 6px 12px;
+    border-radius: 20px;
+    width: max-content;
   }
   
   .step-indicator::before {
     content: '';
     display: block;
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: var(--success);
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.2);
   }
 
   .btn-loading {
-    opacity: 0.7;
+    opacity: 0.8;
     cursor: wait;
   }
 
   .form-error-global {
-    color: #D97070;
+    color: #ef4444;
     font-size: 13px;
     text-align: center;
     margin-top: 12px;
+    font-weight: 500;
     display: none;
   }
 
@@ -770,13 +705,13 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     font-size: 12px;
     color: var(--ink-muted);
     text-align: center;
-    margin-top: 18px;
+    margin-top: 20px;
     line-height: 1.55;
   }
 
   .form-fineprint strong {
     color: var(--ink-dim);
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .success-state { display: none; text-align: center; padding: 20px 0; }
@@ -787,12 +722,12 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   .form-card.success .form-kicker { display: none; }
 
   .success-icon {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
-    background: rgba(123, 184, 142, 0.12);
-    border: 1px solid var(--success);
-    margin: 0 auto 22px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 2px solid var(--success);
+    margin: 0 auto 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -800,51 +735,51 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   }
 
   .success-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 800;
-    font-size: 24px;
-    color: var(--ink);
-    margin-bottom: 10px;
+    font-size: 28px;
+    color: var(--navy);
+    margin-bottom: 12px;
     letter-spacing: -0.015em;
   }
 
   .success-msg {
-    font-size: 14.5px;
+    font-size: 15px;
     color: var(--ink-dim);
-    line-height: 1.55;
+    line-height: 1.6;
   }
 
   /* Footer */
   footer {
     border-top: 1px solid var(--line);
-    padding: 28px 0 40px;
+    padding: 32px 0 48px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 18px;
-    font-size: 12.5px;
+    gap: 20px;
+    font-size: 13px;
     color: var(--ink-muted);
   }
 
   .footer-brand {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     color: var(--ink-dim);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
   }
 
   .footer-brand strong {
     font-weight: 700;
-    color: var(--ink);
+    color: var(--navy);
   }
 
   .footer-logo {
-    height: 18px;
+    height: 20px;
     width: auto;
     display: block;
   }
@@ -855,7 +790,7 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   }
 
   .footer-strip span {
-    padding: 0 18px;
+    padding: 0 20px;
     border-left: 1px solid var(--line-strong);
     line-height: 1;
   }
@@ -864,17 +799,20 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   .footer-strip span:last-child { padding-right: 0; }
 
   @media (max-width: 640px) {
-    header { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .eyebrow { font-size: 10.5px; } 
-    h1 { line-height: 1.1; }
+    header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .hero-top { justify-content: flex-start; padding-bottom: 40px; }
+    .eyebrow { font-size: 10.5px; justify-content: flex-start; } 
+    h1 { line-height: 1.15; text-align: left; }
+    .subhead { text-align: left; }
+    .hero-grid { align-items: flex-start; text-align: left; }
     .form-title { line-height: 1.2; }
-    .form-card { padding: 32px 24px; }
-    .delivery-card { padding: 24px 22px; }
+    .form-card { padding: 40px 24px; border-radius: 20px; }
+    .delivery-card { padding: 24px; }
     footer { flex-direction: column; align-items: flex-start; }
-    .footer-strip span { padding: 0 14px 0 0; border-left: none; }
+    .footer-strip span { padding: 0 16px 0 0; border-left: none; }
     .footer-strip span + span::before {
       content: '·';
-      margin-right: 14px;
+      margin-right: 16px;
       color: var(--line-strong);
     }
   }
@@ -906,7 +844,7 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
       <div class="hero-grid">
         <div class="hero-text">
           <h1>
-            <span class="text-accent">Dobre</span> o faturamento da sua <span class="orange-underline">clínica popular</span> em até <span class="num">45 dias</span> <span class="text-accent">sem investir R$ 1 a mais em marketing.</span>
+            <span class="text-accent">Dobre</span> o faturamento da sua <span class="accent-underline">clínica popular</span> em até <span class="num">45 dias</span> <span class="text-accent">sem investir R$ 1 a mais em marketing.</span>
           </h1>
 
           <p class="subhead">
@@ -919,10 +857,6 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
               <path d="M5 12h14M13 5l7 7-7 7"/>
             </svg>
           </button>
-        </div>
-
-        <div class="hero-image media">
-          <img src="https://i.imgur.com/5GNtc1H.png" alt="O Método CLIP" class="media-img">
         </div>
       </div>
 
