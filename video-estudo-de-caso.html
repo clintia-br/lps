@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROClip · Estudo de Caso Liberado</title>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '805479242068446');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17614228842"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17614228842');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..700;1,300..700;0,800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0A0A0C;
+    --bg-elev: #101014;
+    --ink: #F2EDE3;
+    --ink-dim: #9D978C;
+    --ink-muted: #5D594F;
+    --line: #1C1C21;
+    --line-strong: #2A2A30;
+    --accent: #D97642;
+    --accent-glow: rgba(217, 118, 66, 0.22);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Montserrat', -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Efeito de fundo Premium igual à LP */
+  body {
+    background-image:
+      radial-gradient(ellipse 70% 50% at 50% -5%, rgba(217, 118, 66, 0.08), transparent 60%);
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.93 0 0 0 0 0.89 0 0 0 0.028 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header Minimalista */
+  header {
+    padding: 32px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-logo {
+    height: 28px;
+    width: auto;
+    display: block;
+  }
+
+  /* Conteúdo Principal (Vídeo) */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4vh;
+    padding-bottom: 80px;
+    text-align: center;
+  }
+
+  .kicker {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--success, #7BB88E);
+    margin-bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .kicker::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 10px currentColor;
+  }
+
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: clamp(26px, 5vw, 42px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 40px;
+    max-width: 800px;
+  }
+
+  .text-accent {
+    color: var(--accent);
+  }
+
+  /* Container do Vídeo (Vertical/Story 9:16) */
+  .video-container {
+    width: 100%;
+    max-width: 420px; /* Limitado para simular o ecrã de um telemóvel no desktop */
+    background: var(--bg-elev);
+    border: 1px solid var(--line-strong);
+    border-radius: 20px; /* Bordas mais arredondadas simulando um dispositivo */
+    padding: 8px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px var(--accent-glow);
+    margin: 0 auto;
+  }
+
+  .video-wrapper {
+    position: relative;
+    aspect-ratio: 9 / 16; /* Proporção exata de Story/Reels/TikTok */
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* Footer Minimalista */
+  footer {
+    padding: 32px 0;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    position: relative;
+    z-index: 2;
+  }
+
+  .footer-text {
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+
+  @media (max-width: 640px) {
+    h1 { margin-bottom: 32px; }
+    .video-container { padding: 4px; border-radius: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <img src="https://i.imgur.com/Mmk5to4.png" alt="PROClip" class="brand-logo">
+  </header>
+
+  <main>
+    <div class="kicker">Acesso Liberado</div>
+    
+    <h1>
+      Como funciona a engrenagem para <span class="text-accent">dobrar o faturamento</span> da sua clínica em 45 dias.
+    </h1>
+
+    <div class="video-container">
+      <div class="video-wrapper">
+        <iframe id="panda-3ad97114-e08c-49f9-8636-60242414bc3a" src="https://player-vz-ebe391f4-db4.tv.pandavideo.com.br/embed/?v=3ad97114-e08c-49f9-8636-60242414bc3a" style="border:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen="true" fetchpriority="high"></iframe>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<footer>
+  <div class="footer-text">
+    &copy; PROClip por Clintia. Todos os direitos reservados.
+  </div>
+</footer>
+
+</body>
+</html>
