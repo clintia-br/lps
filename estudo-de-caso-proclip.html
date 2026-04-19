@@ -413,7 +413,7 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
   }
   .carousel {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 16px;
@@ -461,7 +461,8 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
     background: var(--navy);
     border: none;
     padding: 0;
-    display: block;
+    display: flex;
+    min-height: 400px;
     position: relative;
     overflow: hidden;
   }
@@ -918,9 +919,9 @@ src="https://www.facebook.com/tr?id=805479242068446&ev=PageView&noscript=1"
           <div class="carousel-item carousel-item-cta">
             <img src="https://i.imgur.com/l7xSSWP.jpeg" alt="Fundo Desfocado" class="blur-bg">
             <div class="cta-overlay">
-              <h3 class="cta-card-title">Quer ver mais resultados?</h3>
+              <h3 class="cta-card-title">Quer ver mais depoimentos?</h3>
               <button class="btn-primary cta-scroll-btn btn-small">
-                ver + depoimento
+                ver mais depoimentos
               </button>
             </div>
           </div>
