@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clínica da Cidade Campos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #F7F3EE;
+      --sage:     #6B8F71;
+      --sage-lt:  #A8C5AB;
+      --sage-dk:  #3E5C42;
+      --warm:     #C9A96E;
+      --ink:      #1A1F1B;
+      --muted:    #7A7D78;
+      --card-bg:  rgba(255,255,255,0.72);
+      --blur:     saturate(180%) blur(16px);
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--cream);
+      background-image:
+        radial-gradient(ellipse 80% 60% at 10% 0%,   rgba(107,143,113,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90% 100%,  rgba(201,169,110,0.15) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 60px 20px 80px;
+    }
+
+    /* ── Card Container ── */
+    .card {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* ── Avatar ── */
+    .avatar-wrap {
+      position: relative;
+      margin-bottom: 28px;
+      animation: fadeUp .7s ease both;
+    }
+    .avatar-ring {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--sage-lt), var(--warm));
+    }
+    .avatar-ring img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: contain;
+      background: #fff;
+      display: block;
+    }
+    .status-dot {
+      position: absolute;
+      bottom: 6px; right: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: #4ade80;
+      border: 2.5px solid var(--cream);
+    }
+
+    /* ── Headline ── */
+    .headline {
+      text-align: center;
+      margin-bottom: 8px;
+      animation: fadeUp .7s .1s ease both;
+    }
+    .headline h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+    .headline .sub {
+      margin-top: 6px;
+      font-size: .82rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 48px;
+      height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--sage), var(--warm));
+      margin: 18px auto 32px;
+      animation: fadeUp .7s .15s ease both;
+    }
+
+    /* ── Links ── */
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .link-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 18px 24px;
+      background: var(--card-bg);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      border: 1px solid rgba(107,143,113,0.18);
+      border-radius: 18px;
+      text-decoration: none;
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      font-weight: 500;
+      letter-spacing: .01em;
+      cursor: pointer;
+      transition: transform .22s cubic-bezier(.34,1.56,.64,1),
+                  box-shadow .22s ease,
+                  border-color .22s ease,
+                  background .22s ease;
+      box-shadow: 0 2px 12px rgba(62,92,66,.07), 0 1px 3px rgba(0,0,0,.05);
+      overflow: hidden;
+    }
+
+    .link-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(107,143,113,.08), rgba(201,169,110,.06));
+      opacity: 0;
+      transition: opacity .22s;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 8px 28px rgba(62,92,66,.14), 0 2px 6px rgba(0,0,0,.06);
+      border-color: rgba(107,143,113,.35);
+      background: rgba(255,255,255,.88);
+    }
+    .link-btn:hover::before { opacity: 1; }
+    .link-btn:active { transform: translateY(-1px) scale(1.005); }
+
+    .link-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-right: 16px;
+      font-size: 1.3rem;
+      transition: transform .22s;
+    }
+    .link-btn:hover .link-icon { transform: scale(1.1); }
+
+    .icon-wa  { background: linear-gradient(135deg,#25d366,#128c7e); color: #fff; }
+    .icon-cal { background: linear-gradient(135deg, var(--sage), var(--sage-dk)); color: #fff; }
+    .icon-ra  { background: linear-gradient(135deg, var(--warm), #a87340); color: #fff; }
+
+    .link-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .link-title { font-weight: 500; font-size: .95rem; }
+    .link-desc  { font-size: .75rem; color: var(--muted); font-weight: 300; }
+
+    .link-arrow {
+      opacity: .35;
+      font-size: 1.1rem;
+      transition: opacity .22s, transform .22s;
+      margin-left: 8px;
+    }
+    .link-btn:hover .link-arrow { opacity: .7; transform: translateX(4px); }
+
+    /* ── Staggered fade-up ── */
+    .link-btn { opacity: 0; animation: fadeUp .6s ease forwards; }
+    .link-btn:nth-child(1) { animation-delay: .25s; }
+    .link-btn:nth-child(2) { animation-delay: .35s; }
+    .link-btn:nth-child(3) { animation-delay: .45s; }
+
+    /* ── Badge ── */
+    .badge-row {
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card-bg);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      border: 1px solid rgba(107,143,113,.15);
+      border-radius: 99px;
+      padding: 8px 18px 8px 10px;
+      font-size: .74rem;
+      color: var(--muted);
+      animation: fadeUp .6s .55s ease both;
+    }
+    .badge-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--sage-lt);
+      animation: pulse 2.2s ease infinite;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 48px;
+      text-align: center;
+      font-size: .7rem;
+      color: var(--muted);
+      letter-spacing: .08em;
+      opacity: .6;
+      animation: fadeUp .6s .65s ease both;
+    }
+
+    /* ── Keyframes ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .5; transform: scale(.8); }
+    }
+
+    /* ── Floating leaves (decorative) ── */
+    .leaf {
+      position: fixed;
+      border-radius: 50% 0;
+      opacity: .07;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .leaf-1 { width: 220px; height: 220px; background: var(--sage); top: -60px; left: -80px; transform: rotate(-30deg); }
+    .leaf-2 { width: 160px; height: 160px; background: var(--warm); bottom: -50px; right: -50px; transform: rotate(20deg); }
+    .leaf-3 { width: 100px; height: 100px; background: var(--sage-dk); top: 45%; right: -30px; transform: rotate(-10deg); opacity: .05; }
+  </style>
+</head>
+<body>
+
+  <!-- Decorative shapes -->
+  <div class="leaf leaf-1"></div>
+  <div class="leaf leaf-2"></div>
+  <div class="leaf leaf-3"></div>
+
+  <div class="card">
+
+    <!-- Avatar -->
+    <div class="avatar-wrap">
+      <div class="avatar-ring">
+        <img
+          src="https://ugc.production.linktr.ee/39efb0ca-aa66-4e24-93dc-cb47dd973ed7_Logo---redes-sociais.png"
+          alt="Clínica da Cidade Campos"
+        />
+      </div>
+      <div class="status-dot"></div>
+    </div>
+
+    <!-- Title -->
+    <div class="headline">
+      <h1>Clínica da Cidade<br>Campos</h1>
+      <p class="sub">Campos dos Goytacazes · RJ</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Links -->
+    <div class="links">
+
+      <a class="link-btn" href="https://api.whatsapp.com/send?phone=22992906359&text&source&app_absent" target="_blank" rel="noopener">
+        <div class="link-icon icon-wa">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div class="link-text">
+          <span class="link-title">WhatsApp</span>
+          <span class="link-desc">Fale conosco agora</span>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+      <a class="link-btn" href="https://clinicadacidade.com.br/centro-medico/campos-dos-goytacazes-rj/" target="_blank" rel="noopener">
+        <div class="link-icon icon-cal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+        </div>
+        <div class="link-text">
+          <span class="link-title">Agendamento Online</span>
+          <span class="link-desc">Marque sua consulta</span>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+      <a class="link-btn" href="https://www.reclameaqui.com.br/premio/votacao/saude/231/" target="_blank" rel="noopener">
+        <div class="link-icon icon-ra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="link-text">
+          <span class="link-title">Prêmio Reclame AQUI 2024</span>
+          <span class="link-desc">Vote em nós — saúde</span>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+    </div>
+
+    <!-- Online badge -->
+    <div class="badge-row">
+      <div class="badge-dot"></div>
+      Atendimento disponível
+    </div>
+
+    <!-- Footer -->
+    <p class="footer">© Clínica da Cidade Campos</p>
+
+  </div>
+
+</body>
+</html>
