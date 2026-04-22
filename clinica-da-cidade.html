@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Centro Médico: Campos dos Goytacazes - RJ | Clínica da Cidade</title>
+  <meta name="description" content="Clínica da Cidade Campos dos Goytacazes: consultas e exames acessíveis, mais de 20 especialidades e sem mensalidade. Agende já!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════
+       RESET & VARIABLES
+    ═══════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:     #00A99D;
+      --teal-dk:  #008F85;
+      --teal-lt:  #E6F9F7;
+      --mint:     #F0FAF8;
+      --slate:    #1B2B2A;
+      --charcoal: #2D3E3C;
+      --body:     #4A5C5A;
+      --muted:    #8A9B99;
+      --border:   #DAE5E3;
+      --surface:  #FFFFFF;
+      --bg:       #F6F9F8;
+      --bg2:      #EDF3F1;
+      --warm:     #F8F6F3;
+      --radius:   16px;
+      --radius-sm: 10px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 1px 3px rgba(27,43,42,.06), 0 1px 2px rgba(27,43,42,.04);
+      --shadow-md: 0 4px 16px rgba(27,43,42,.08), 0 1px 3px rgba(27,43,42,.04);
+      --shadow-lg: 0 12px 40px rgba(27,43,42,.1), 0 4px 12px rgba(27,43,42,.04);
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--body);
+      background: var(--bg);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; transition: color .2s; }
+    img { max-width: 100%; display: block; }
+    button { border: none; cursor: pointer; font-family: inherit; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       REVEAL ANIMATION (scroll-triggered)
+    ═══════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ═══════════════════════════════════════════════
+       HEADER
+    ═══════════════════════════════════════════════ */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: saturate(180%) blur(18px);
+      -webkit-backdrop-filter: saturate(180%) blur(18px);
+      border-bottom: 1px solid rgba(218,229,227,.5);
+      transition: box-shadow .3s;
+    }
+    .header.scrolled { box-shadow: var(--shadow-sm); }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo-img { height: 36px; }
+
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 6px;
+    }
+    @media (min-width: 1024px) {
+      .nav-links { display: flex; }
+    }
+
+    .nav-links a {
+      padding: 8px 16px;
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      border-radius: 99px;
+      transition: background .2s, color .2s;
+    }
+    .nav-links a:hover {
+      background: var(--teal-lt);
+      color: var(--teal-dk);
+    }
+
+    .btn-paciente {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--slate);
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 600;
+      border-radius: 99px;
+      transition: background .2s, transform .15s;
+    }
+    .btn-paciente:hover { background: var(--charcoal); transform: translateY(-1px); }
+    .btn-paciente svg { width: 16px; height: 16px; }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      background: none;
+      border-radius: 12px;
+    }
+    @media (min-width: 1024px) { .menu-toggle { display: none; } }
+    .menu-toggle span {
+      display: block; width: 20px; height: 2px;
+      background: var(--slate);
+      position: relative;
+      transition: .2s;
+    }
+    .menu-toggle span::before, .menu-toggle span::after {
+      content: '';
+      position: absolute; left: 0;
+      width: 100%; height: 2px;
+      background: var(--slate);
+      transition: .2s;
+    }
+    .menu-toggle span::before { top: -6px; }
+    .menu-toggle span::after  { top: 6px; }
+
+    /* ═══════════════════════════════════════════════
+       BREADCRUMB
+    ═══════════════════════════════════════════════ */
+    .breadcrumb-bar {
+      padding: 16px 0;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+    .breadcrumb-bar a {
+      color: var(--teal-dk);
+      font-weight: 500;
+    }
+    .breadcrumb-bar a:hover { text-decoration: underline; }
+    .breadcrumb-sep { margin: 0 8px; opacity: .4; }
+
+    /* ═══════════════════════════════════════════════
+       HERO SECTION
+    ═══════════════════════════════════════════════ */
+    .hero {
+      padding: 0 0 80px;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--slate);
+      line-height: 1.15;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+    .hero-title span {
+      color: var(--teal);
+      font-style: italic;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) {
+      .hero-card { grid-template-columns: 1.1fr 1fr; }
+    }
+
+    .hero-card-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+    @media (min-width: 768px) {
+      .hero-card-img { height: 100%; min-height: 340px; }
+    }
+
+    .hero-card-body {
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+    .hero-card-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      color: var(--slate);
+      font-weight: 400;
+      line-height: 1.25;
+    }
+    .hero-card-body p {
+      font-size: .95rem;
+      color: var(--body);
+      line-height: 1.6;
+    }
+    .hero-card-address {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 16px;
+      background: var(--mint);
+      border-radius: var(--radius-sm);
+      font-size: .85rem;
+      color: var(--charcoal);
+      line-height: 1.5;
+    }
+    .hero-card-address svg { flex-shrink: 0; margin-top: 2px; color: var(--teal); }
+
+    /* ═══════════════════════════════════════════════
+       FEATURES STRIP
+    ═══════════════════════════════════════════════ */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    @media (min-width: 768px) {
+      .features { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .feature-item {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--border);
+      transition: transform .3s var(--ease), box-shadow .3s;
+    }
+    .feature-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .feature-icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      background: var(--teal-lt);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .feature-icon svg { width: 22px; height: 22px; color: var(--teal); }
+    .feature-item span {
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--slate);
+      line-height: 1.35;
+    }
+
+    /* ═══════════════════════════════════════════════
+       SECTION TITLES
+    ═══════════════════════════════════════════════ */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--slate);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       GALLERY
+    ═══════════════════════════════════════════════ */
+    .gallery-section {
+      padding: 80px 0;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    @media (min-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    }
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .5s var(--ease);
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.15), transparent 50%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .gallery-item:hover::after { opacity: 1; }
+
+    /* ═══════════════════════════════════════════════
+       VIDEO SECTION
+    ═══════════════════════════════════════════════ */
+    .video-section {
+      padding: 80px 0;
+      background: var(--warm);
+    }
+    .video-wrapper {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    .video-wrapper img { width: 100%; display: block; }
+    .video-play {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px; height: 72px;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,.15);
+      transition: transform .3s var(--ease), box-shadow .3s;
+    }
+    .video-wrapper:hover .video-play {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 0 12px 40px rgba(0,0,0,.2);
+    }
+    .video-play svg { color: var(--teal); margin-left: 3px; }
+
+    /* ═══════════════════════════════════════════════
+       SERVICES CARDS
+    ═══════════════════════════════════════════════ */
+    .services-section {
+      padding: 80px 0;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform .3s var(--ease), box-shadow .3s, border-color .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-dk));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s var(--ease);
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: transparent;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--slate);
+      font-weight: 400;
+    }
+    .service-card p {
+      font-size: .9rem;
+      color: var(--body);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 24px;
+      background: var(--teal);
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 600;
+      border-radius: 99px;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      align-self: flex-start;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: var(--teal-dk);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0,169,157,.3);
+    }
+    .btn-primary svg { width: 14px; height: 14px; }
+
+    /* ═══════════════════════════════════════════════
+       MAP & INFO
+    ═══════════════════════════════════════════════ */
+    .map-section {
+      padding: 80px 0;
+      background: var(--warm);
+    }
+    .map-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .map-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .map-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: var(--border);
+    }
+    .map-frame iframe { width: 100%; height: 380px; border: none; display: block; }
+
+    .info-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .info-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      border: 1px solid var(--border);
+      transition: box-shadow .2s;
+    }
+    .info-card:hover { box-shadow: var(--shadow-sm); }
+
+    .info-icon {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      background: var(--teal-lt);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .info-icon svg { width: 18px; height: 18px; color: var(--teal); }
+
+    .info-card span {
+      font-size: .88rem;
+      line-height: 1.5;
+      color: var(--charcoal);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: var(--teal);
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 600;
+      border-radius: 99px;
+      transition: background .2s, transform .15s;
+    }
+    .social-link:hover { background: var(--teal-dk); transform: translateY(-1px); }
+    .social-link svg { width: 15px; height: 15px; }
+
+    .responsavel-box {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      border: 1px solid var(--border);
+    }
+    .responsavel-box b { color: var(--charcoal); }
+
+    /* ═══════════════════════════════════════════════
+       FAQ
+    ═══════════════════════════════════════════════ */
+    .faq-section {
+      padding: 80px 0;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    @media (min-width: 768px) {
+      .faq-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+    }
+
+    .faq-intro p {
+      font-size: .95rem;
+      line-height: 1.65;
+      color: var(--body);
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+    .faq-item:hover { box-shadow: var(--shadow-sm); }
+
+    .faq-question {
+      width: 100%;
+      padding: 18px 22px;
+      background: none;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--slate);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      transition: color .2s;
+      line-height: 1.4;
+    }
+    .faq-question:hover { color: var(--teal); }
+
+    .faq-chevron {
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+      transition: transform .3s var(--ease);
+      color: var(--muted);
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--teal); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s var(--ease), padding .4s;
+      padding: 0 22px;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 22px 20px;
+    }
+    .faq-answer p {
+      font-size: .88rem;
+      color: var(--body);
+      line-height: 1.65;
+    }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════ */
+    .footer {
+      background: var(--slate);
+      color: rgba(255,255,255,.75);
+      padding: 64px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; }
+    }
+
+    .footer h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: #fff;
+      font-weight: 400;
+      margin-bottom: 14px;
+    }
+    .footer p {
+      font-size: .88rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .btn-footer {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      border: 1px solid rgba(255,255,255,.25);
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 600;
+      border-radius: 99px;
+      transition: background .2s, border-color .2s;
+      margin-bottom: 8px;
+    }
+    .btn-footer:hover {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.5);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .footer-social a {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.08);
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .footer-social a:hover { background: rgba(255,255,255,.18); }
+    .footer-social svg { width: 18px; height: 18px; color: #fff; }
+
+    .footer-bottom {
+      margin-top: 48px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,.1);
+      font-size: .75rem;
+      color: rgba(255,255,255,.4);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       FLOATING CTA
+    ═══════════════════════════════════════════════ */
+    .float-cta {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .float-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 99px;
+      font-size: .82rem;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(0,0,0,.18);
+      transition: transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    }
+    .float-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,.24);
+    }
+    .float-btn svg { width: 18px; height: 18px; }
+    .float-wapp { background: #25D366; }
+    .float-agendar { background: var(--teal); }
+    .float-tel { background: var(--slate); }
+
+    @media (max-width: 640px) {
+      .float-cta {
+        bottom: 16px; right: 16px; left: 16px;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .float-btn span { display: none; }
+      .float-btn { padding: 14px; border-radius: 50%; }
+    }
+
+    /* ═══════════════════════════════════════════════
+       UTILITY
+    ═══════════════════════════════════════════════ */
+    .d-none-mobile { display: none; }
+    @media (min-width: 768px) { .d-none-mobile { display: block; } }
+  </style>
+</head>
+<body>
+
+<!-- ════════ HEADER ════════ -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="https://www.clinicadacidade.com.br">
+        <img src="https://www.clinicadacidade.com.br/wp-content/themes/clinica/assets/img/logo-clinica.svg" alt="Clínica da Cidade" class="logo-img">
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="https://www.clinicadacidade.com.br/quem-somos/">Quem Somos</a></li>
+          <li><a href="/centro-medico/">Centros Médicos</a></li>
+          <li><a href="/checkup/">Check-up</a></li>
+          <li><a href="/consultas/">Consultas</a></li>
+          <li><a href="/exames/">Exames</a></li>
+          <li><a href="https://www.cartaoprevinia.com.br/" target="_blank" rel="noopener noreferrer">Previnia</a></li>
+          <li><a href="https://franquiaclinicadacidade.com.br/" target="_blank" rel="noopener noreferrer">Seja um franqueado</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a href="https://api.feegow.com.br/patient-interface/w9kG/login" target="_blank" rel="noopener noreferrer" class="btn-paciente d-none-mobile">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/></svg>
+          <span>Área do Paciente</span>
+        </a>
+        <button class="menu-toggle" aria-label="Menu">
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ════════ BREADCRUMB ════════ -->
+<section class="breadcrumb-bar">
+  <div class="container">
+    <a href="https://www.clinicadacidade.com.br/">Início</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="https://www.clinicadacidade.com.br/centro-medico/">Centros Médicos</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Campos dos Goytacazes – RJ</span>
+  </div>
+</section>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-title reveal">
+      Bem-vindo à unidade <br><span>Campos dos Goytacazes</span>
+    </h1>
+
+    <div class="hero-card reveal">
+      <img src="https://www.clinicadacidade.com.br/wp-content/uploads/2025/11/topo-centros-cdc-v2.jpg" alt="Campos dos Goytacazes – RJ" class="hero-card-img">
+      <div class="hero-card-body">
+        <h2>A sua saúde em primeiro lugar</h2>
+        <p>Consultas e exames de qualidade, com agendamento rápido e preços acessíveis.</p>
+        <div class="hero-card-address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Avenida Senador José Carlos Pereira Pinto, n° 442 - Parque Calabouço - Campos dos Goytacazes/RJ</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Strip -->
+    <div class="features reveal">
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span>Agendamento rápido</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <span>Preços acessíveis</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <span>+20 especialidades</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <span>Saúde sem mensalidade</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ GALLERY ════════ -->
+<section class="gallery-section">
+  <div class="container">
+    <h2 class="section-title reveal">Unidade</h2>
+    <div class="gallery-grid reveal">
+      <a href="https://www.clinicadacidade.com.br/wp-content/uploads/2025/11/Campos-dos-Goytacazes-1-1024x768.jpeg" class="gallery-item">
+        <img src="https://www.clinicadacidade.com.br/wp-content/uploads/2025/11/Campos-dos-Goytacazes-1-1024x768.jpeg" alt="">
+      </a>
+      <a href="https://www.clinicadacidade.com.br/wp-content/uploads/2025/11/whatsapp-image-2024-08-19-at-155237-4-768x1024.jpeg" class="gallery-item">
+        <img src="https://www.clinicadacidade.com.br/wp-content/uploads/2025/11/whatsapp-image-2024-08-19-at-155237-4-768x1024.jpeg" alt="">
+      </a>
+      <a href="https://www.clinicadacidade.com.br/wp-content/uploads/2025/11/whatsapp-image-2024-08-19-at-155237-5-1024x768.jpeg" class="gallery-item">
+        <img src="https://www.clinicadacidade.com.br/wp-content/uploads/2025/11/whatsapp-image-2024-08-19-at-155237-5-1024x768.jpeg" alt="">
+      </a>
+      <a href="https://www.clinicadacidade.com.br/wp-content/uploads/2025/11/whatsapp-image-2024-08-19-at-155237-1024x768.jpeg" class="gallery-item">
+        <img src="https://www.clinicadacidade.com.br/wp-content/uploads/2025/11/whatsapp-image-2024-08-19-at-155237-1024x768.jpeg" alt="">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ VIDEO ════════ -->
+<section class="video-section">
+  <div class="container">
+    <h2 class="section-title reveal">Saúde que cabe no bolso</h2>
+    <a href="https://www.youtube.com/watch?v=qIvgGCpfetI" target="_blank" class="video-wrapper reveal">
+      <picture>
+        <source srcset="https://www.clinicadacidade.com.br/wp-content/themes/clinica/assets/img/home/full-video-thumb_m.jpg" media="(max-width: 480px)">
+        <img src="https://www.clinicadacidade.com.br/wp-content/themes/clinica/assets/img/home/full-video-thumb.jpg" alt="Vídeo institucional da Clínica da Cidade">
+      </picture>
+      <div class="video-play">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ════════ SERVICES ════════ -->
+<section class="services-section">
+  <div class="container">
+    <h2 class="section-title reveal">O que podemos fazer por você</h2>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <h3>Consultas Médicas</h3>
+        <p>Atendimento médico presencial ou online, através da Teleconsulta. Sua saúde com alta qualidade e o toque humano que você merece.</p>
+        <a href="https://www.clinicadacidade.com.br/consultas/" class="btn-primary">
+          Saiba mais
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="service-card reveal">
+        <h3>Exames Laboratoriais e de Imagem</h3>
+        <p>Conte com uma infraestrutura moderna para realizar seus exames com agilidade e resultados confiáveis, garantindo um diagnóstico preciso.</p>
+        <a href="https://www.clinicadacidade.com.br/exames/" class="btn-primary">
+          Saiba mais
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="service-card reveal">
+        <h3>Pacotes de Check-ups</h3>
+        <p>Prevenção é o melhor remédio. Nossos pacotes de check-ups são feitos para você manter a saúde em dia e ter a tranquilidade de que está tudo bem.</p>
+        <a href="https://www.clinicadacidade.com.br/checkup/" class="btn-primary">
+          Saiba mais
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ MAP & INFO ════════ -->
+<section class="map-section">
+  <div class="container">
+    <h2 class="section-title reveal">Como chegar</h2>
+    <div class="map-grid">
+      <div class="map-frame reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3706.058877899702!2d-41.31600292396621!3d-21.739242997191667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbdd51de704af73%3A0x958e5c5d1b517f66!2sCl%C3%ADnica%20da%20Cidade%20Campos%20dos%20Goytacazes!5e0!3m2!1spt-BR!2sbr!4v1763995544154!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="info-panel reveal">
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span>Avenida Senador José Carlos Pereira Pinto, n° 442 - Parque Calabouço - Campos dos Goytacazes/RJ</span>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span>2ª a 6ª: das 7h às 18h | Sábado: das 7h às 12h</span>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:10px;">
+          <a href="https://www.facebook.com/clinicadacidaderjcampos" target="_blank" rel="noopener noreferrer" class="social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.instagram.com/clinicadacidaderjcampos/" target="_blank" rel="noopener noreferrer" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a href="tel:+552236420219" class="social-link" style="background:var(--slate);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            (22) 3642-0219
+          </a>
+          <a href="https://wa.me/5522992906359" target="_blank" rel="noopener noreferrer" class="social-link" style="background:#25D366;">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            (22) 99290-6359
+          </a>
+        </div>
+
+        <div class="responsavel-box">
+          <b>Responsável Técnico |</b> Mariana Vieira Marciano Borges<br>
+          <b>CRM |</b> 97004-2 &nbsp;&nbsp; <b>CNPJ Unidade |</b> 08.961.407/0008-63
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FAQ ════════ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-intro reveal">
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        <p>Para facilitar sua experiência, preparamos uma lista de perguntas frequentes com respostas rápidas e claras sobre nossos serviços e processos.</p>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item open">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Qual a diferença entre a Clínica da Cidade e uma clínica popular?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>A principal diferença está na qualidade e no propósito. Somos uma rede de medicina acessível, que oferece a mesma qualidade e tecnologia de clínicas particulares, mas com preços que cabem no seu bolso. Nossos profissionais são qualificados e nossas unidades contam com tecnologia de ponta, sem a longa espera ou a falta de estrutura das clínicas populares.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Tenho plano de saúde, posso pedir reembolso?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Sim, dependendo do seu Plano de Saúde, você pode pedir o reembolso de qualquer serviço na Clínica da Cidade. Exames de todos os tipos, check-ups e consultas.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Quais taxas preciso pagar a mais?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Na Clínica da Cidade, a transparência é fundamental. O valor informado no momento do agendamento é o preço final. Não existe nenhuma taxa a mais para ser paga, nem de agendamento e nem de qualquer outro serviço. O preço da sua consulta ou exame é único e sem surpresas.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Posso agendar exames ou consultas para o mesmo dia?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! Uma das nossas principais vantagens é a agilidade. Dependendo da disponibilidade da unidade e do tipo de exame e especialidade, é possível agendar para o mesmo dia, sem a necessidade de longas esperas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="https://www.clinicadacidade.com.br/central-de-atendimento/">
+          <img src="https://www.clinicadacidade.com.br/wp-content/themes/clinica/assets/img/logo-cap.png" alt="Clínica da Cidade - Central de Atenção ao Paciente" style="height:42px;margin-bottom:20px;filter:brightness(10);">
+        </a>
+        <h3>Nós queremos te ouvir</h3>
+        <p>Fale conosco sua sugestão é muito importante para nós!</p>
+        <a href="https://www.clinicadacidade.com.br/central-de-atendimento/" class="btn-footer">Fale conosco</a>
+      </div>
+      <div>
+        <h3>Seja um Parceiro</h3>
+        <p>Faça parte da maior rede de clínicas particulares acessíveis do Brasil.</p>
+        <a href="https://www.clinicadacidade.com.br/seja-um-medico-parceiro/" class="btn-footer">Quero fazer parte</a><br>
+        <a href="https://franquiaclinicadacidade.com.br/" target="_blank" rel="noopener noreferrer" class="btn-footer">Seja um franqueado</a>
+      </div>
+      <div>
+        <h3>Dicas exclusivas</h3>
+        <a href="https://www.clinicadacidade.com.br/blog/" class="btn-footer">Conheça nosso blog</a>
+        <h3 style="margin-top:24px;">Fique conectado</h3>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/clinicadacidade/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/clinicadacidade" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/ClinicadaCidadeOficial" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.33 29 29 0 00-.46-5.35zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/clinicadacidade/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 2a2 2 0 110 4 2 2 0 010-4z"/></svg>
+          </a>
+        </div>
+        <p style="margin-top:20px;font-size:.78rem;">Acesse nossa Política de Privacidade <a href="https://www.clinicadacidade.com.br/politica-de-privacidade/" style="color:var(--teal-lt);text-decoration:underline;">aqui.</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Clínica Da Cidade Franchising LTDA © 2026 | Verificar Responsável Técnico e CNPJ na Página de Cada Unidade.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════ FLOATING CTA ════════ -->
+<div class="float-cta">
+  <a href="https://wa.me/5522992906359" target="_blank" rel="noopener noreferrer" class="float-btn float-wapp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+  <a href="https://www.clinicadacidade.com.br/agendamento/?areaid=sc167057f7306d12" class="float-btn float-agendar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span>Agendar online</span>
+  </a>
+  <a href="tel:+552236420219" class="float-btn float-tel">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    <span>Ligar</span>
+  </a>
+</div>
+
+<!-- ════════ SCRIPTS ════════ -->
+<script>
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Header shadow on scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+</script>
+
+</body>
+</html>
