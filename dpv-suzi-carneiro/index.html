@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Suzi Carneiro — Dossiê Estratégico | Design de Interiores para Saúde</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #FAF8F4;
+            --surface-color: #FFFFFF;
+            --text-primary: #2D2926;
+            --text-secondary: #6B6560;
+            --brand: #5B8C5A;
+            --brand-light: rgba(91,140,90,0.08);
+            --brand-dark: #4A7349;
+            --border-color: #E2DDD5;
+            --border-light: #EDEAE4;
+            --success: #10B981;
+            --danger: #D32F2F;
+            --text-muted: #9B9590;
+            --bg-alt: #F3EFE9;
+            --placeholder: #A3A3A3;
+            --font-sans: 'DM Sans', sans-serif;
+            --font-serif: 'DM Serif Display', serif;
+            --sidebar-width: 280px;
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:var(--font-sans);background:var(--bg-color);color:var(--text-primary);display:flex;min-height:100vh;line-height:1.6;overflow-wrap:break-word}
+        a{color:var(--brand);text-decoration:none}
+        a:hover{color:var(--brand-dark)}
+        img{max-width:100%;display:block}
+        .sidebar{width:var(--sidebar-width);background:var(--text-primary);color:#fff;position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;z-index:100;overflow-y:auto}
+        .sidebar-header{padding:32px 24px 24px;border-bottom:1px solid rgba(255,255,255,0.08)}
+        .sidebar-header .brand-icon{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+        .sidebar-header .brand-icon i{color:var(--brand);font-size:18px}
+        .sidebar-header h2{font-family:var(--font-serif);font-size:20px;font-weight:400;line-height:1.3}
+        .sidebar-header p{font-size:12px;opacity:0.6;margin-top:4px}
+        .sidebar-header small{font-size:10px;opacity:0.4;text-transform:uppercase;letter-spacing:1.5px;display:block;margin-top:12px}
+        .sidebar-nav{padding:12px 0;flex:1}
+        .nav-item{display:flex;align-items:center;gap:12px;padding:14px 24px;color:rgba(255,255,255,0.6);text-decoration:none;font-size:14px;font-weight:500;transition:all .2s;border-left:3px solid transparent}
+        .nav-item:hover{color:#fff;background:rgba(255,255,255,0.05)}
+        .nav-item.active{color:#fff;background:var(--brand);border-left-color:var(--brand-dark)}
+        .nav-item i{width:20px;text-align:center;font-size:15px}
+        .sidebar-footer{padding:16px 24px;border-top:1px solid rgba(255,255,255,0.08);font-size:11px;opacity:0.4}
+        .main-content{margin-left:var(--sidebar-width);flex:1;overflow-y:auto;height:100vh}
+        .tab-content{display:none}
+        .tab-content.active{display:block}
+        .tab-header{background:var(--brand);color:#fff;padding:48px 48px 40px}
+        .tab-header h1{font-family:var(--font-serif);font-size:32px;font-weight:400;margin-bottom:8px}
+        .tab-header p{font-size:15px;opacity:0.85;max-width:640px;line-height:1.6}
+        .tab-body{padding:40px 48px 80px;max-width:1200px}
+        .section-title{font-family:var(--font-serif);font-size:24px;font-weight:400;color:var(--text-primary);margin-bottom:8px;display:flex;align-items:center;gap:12px}
+        .section-title i{color:var(--brand);font-size:20px}
+        .section-subtitle{color:var(--text-secondary);font-size:14px;margin-bottom:32px;line-height:1.6}
+        .section-divider{margin:48px 0;border:none;border-top:1px solid var(--border-color)}
+        .nota-estrategica{background:linear-gradient(135deg,#FEF9E7,#FDE68A);border:1px solid #F59E0B;border-radius:12px;padding:28px 28px 24px;margin-bottom:40px;position:relative;overflow:hidden}
+        .nota-estrategica::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:#D97706}
+        .nota-estrategica h3{color:#92400E;font-size:15px;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+        .nota-estrategica h3 i{font-size:18px}
+        .nota-estrategica p{color:#78350F;font-size:14px;line-height:1.8}
+        .alert-banner{display:flex;align-items:flex-start;gap:16px;padding:20px 24px;border-radius:10px;margin-bottom:32px}
+        .alert-banner.critical{background:rgba(211,47,47,0.05);border:1px solid rgba(211,47,47,0.15)}
+        .alert-banner.critical>i{color:var(--danger);font-size:20px;margin-top:2px;flex-shrink:0}
+        .alert-banner strong{display:block;margin-bottom:4px;font-size:14px;color:var(--text-primary)}
+        .alert-banner p{font-size:13px;color:var(--text-secondary);line-height:1.6}
+        .profiles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px}
+        .profile-card{background:var(--surface-color);border-radius:12px;border:1px solid var(--border-color);overflow:hidden;transition:box-shadow .3s}
+        .profile-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+        .profile-card-header{padding:20px 24px;background:var(--bg-alt);border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+        .profile-card-header h4{font-family:var(--font-serif);font-size:18px;font-weight:400}
+        .profile-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px;border-radius:20px;background:var(--brand-light);color:var(--brand-dark);white-space:nowrap;flex-shrink:0}
+        .profile-card-body{padding:24px}
+        .profile-card-body>p{font-size:14px;line-height:1.7;color:var(--text-secondary);margin-bottom:20px}
+        .detail-item{padding:10px 0;border-bottom:1px solid var(--border-light);font-size:14px}
+        .detail-item:last-child{border-bottom:none}
+        .detail-item strong{color:var(--text-primary);display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:13px;font-weight:600}
+        .detail-item strong i{color:var(--brand);font-size:12px}
+        .detail-item>span{color:var(--text-secondary);line-height:1.6;display:block}
+        .profile-card.gold-tier{border-color:#D4A847}
+        .profile-card.gold-tier .profile-card-header{background:linear-gradient(135deg,#FDF8E8,#F5EDD0);border-bottom-color:#E8D890}
+        .profile-card.gold-tier .profile-tag{background:linear-gradient(135deg,#D4A847,#B8922F);color:#fff}
+        .pain-layers{display:flex;flex-direction:column;gap:24px}
+        .pain-layer{background:var(--surface-color);border-radius:12px;border:1px solid var(--border-color);padding:28px 28px 24px;border-left:4px solid var(--brand)}
+        .layer-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+        .layer-number{background:var(--brand);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
+        .layer-header h4{font-family:var(--font-serif);font-size:18px;font-weight:400}
+        .layer-subtitle{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--brand);font-weight:600}
+        .pain-layer>p{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:12px}
+        .client-voice{background:var(--bg-alt);border-radius:8px;padding:14px 18px;font-style:italic;color:var(--text-secondary);border-left:3px solid var(--brand);margin-top:12px;font-size:14px;line-height:1.7}
+        .client-voice strong{display:block;font-size:11px;font-style:normal;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px}
+        .vocab-section{margin-bottom:32px}
+        .vocab-section h3{font-size:16px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+        .vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px}
+        .vocab-card{padding:16px;border-radius:8px;font-size:14px}
+        .vocab-card.positive{background:rgba(91,140,90,0.06);border:1px solid rgba(91,140,90,0.15)}
+        .vocab-card.negative{background:rgba(211,47,47,0.04);border:1px solid rgba(211,47,47,0.12)}
+        .vocab-word{font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+        .vocab-card.positive .vocab-word{color:var(--brand-dark)}
+        .vocab-card.negative .vocab-word{color:var(--danger)}
+        .vocab-reason{color:var(--text-secondary);font-size:13px;line-height:1.5}
+        .quote-block{background:var(--surface-color);border-left:4px solid var(--brand);padding:20px 24px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:15px;color:var(--text-secondary);font-style:italic;line-height:1.7}
+        .quote-block.featured{background:var(--brand-light);border-left-width:5px;font-size:17px;color:var(--text-primary);padding:28px 32px}
+        .quote-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--brand);font-style:normal;margin-bottom:8px;display:block}
+        .quotes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:16px}
+        .highlight-box{background:var(--brand-light);border:1px solid rgba(91,140,90,0.2);border-radius:12px;padding:24px;margin:24px 0}
+        .highlight-box h4{font-size:15px;font-weight:600;color:var(--brand-dark);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+        .highlight-box p{font-size:14px;color:var(--text-secondary);line-height:1.7}
+        .feature-list{list-style:none;padding:0}
+        .feature-list li{padding:8px 0;font-size:14px;color:var(--text-secondary);display:flex;align-items:flex-start;gap:10px;line-height:1.6}
+        .feature-list li i{color:var(--brand);margin-top:4px;flex-shrink:0}
+        .method-ab-container{margin:32px 0}
+        .point-card{background:var(--surface-color);border-radius:12px;border:1px solid var(--border-color);padding:28px}
+        .point-card.point-a{border-left:5px solid var(--danger)}
+        .point-card.point-b{border-left:5px solid var(--success)}
+        .point-card h4{font-family:var(--font-serif);font-size:20px;font-weight:400;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+        .point-card.point-a h4{color:var(--danger)}
+        .point-card.point-b h4{color:var(--success)}
+        .point-card p{font-size:14px;color:var(--text-secondary);line-height:1.8}
+        .method-bridge{padding:40px 0;text-align:center}
+        .method-name{font-family:var(--font-serif);font-size:28px;font-weight:400;color:var(--brand);margin-bottom:4px}
+        .method-tagline{font-size:14px;color:var(--text-secondary);margin-bottom:32px}
+        .steps-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;text-align:left}
+        .step-card{background:var(--surface-color);border:1px solid var(--border-color);border-radius:10px;padding:20px}
+        .step-number{background:var(--brand);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;margin-bottom:12px}
+        .step-card h4{font-size:15px;font-weight:600;margin-bottom:8px}
+        .step-card p{font-size:13px;color:var(--text-secondary);line-height:1.6}
+        .step-card small{display:block;margin-top:10px;font-size:12px;color:var(--brand);font-weight:600}
+        .saas-block{background:var(--surface-color);border:2px solid var(--brand);border-radius:12px;padding:32px;margin-bottom:32px}
+        .saas-block h3{font-family:var(--font-serif);font-size:22px;font-weight:400;color:var(--brand);margin-bottom:4px}
+        .saas-subtitle{font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:20px}
+        .saas-price{font-size:28px;font-weight:700;color:var(--text-primary);margin-bottom:4px}
+        .saas-price-note{font-size:13px;color:var(--text-secondary);margin-bottom:20px}
+        .tier-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;margin-top:24px}
+        .tier-card{background:var(--surface-color);border:1px solid var(--border-color);border-radius:12px;overflow:hidden;transition:box-shadow .3s}
+        .tier-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+        .tier-card-header{padding:20px 24px;background:var(--bg-alt);border-bottom:1px solid var(--border-color)}
+        .tier-card-header h4{font-family:var(--font-serif);font-size:18px;font-weight:400}
+        .tier-tag{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:4px;color:var(--text-secondary);display:block}
+        .tier-card-body{padding:24px}
+        .tier-price{font-size:20px;font-weight:700;color:var(--brand);margin-bottom:16px}
+        .tier-detail{padding:8px 0;border-bottom:1px solid var(--border-light);font-size:14px;color:var(--text-secondary);line-height:1.6}
+        .tier-detail:last-child{border-bottom:none}
+        .tier-detail strong{color:var(--text-primary)}
+        .tier-card.featured-tier{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand);position:relative}
+        .tier-card.featured-tier .tier-card-header{background:var(--brand);color:#fff;border-bottom-color:var(--brand)}
+        .tier-card.featured-tier .tier-tag{color:rgba(255,255,255,0.8)}
+        .featured-badge{position:absolute;top:12px;right:12px;background:#D97706;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px;border-radius:20px}
+        .bio-card{background:var(--surface-color);border:1px solid var(--border-color);border-radius:12px;padding:28px;max-width:480px;margin-bottom:32px}
+        .bio-card h4{font-size:15px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px;color:var(--brand-dark)}
+        .bio-line{font-size:14px;color:var(--text-secondary);padding:4px 0;line-height:1.6}
+        .ig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
+        .ig-element{background:var(--surface-color);border:1px solid var(--border-color);border-radius:10px;padding:24px}
+        .ig-element h4{font-size:15px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+        .ig-element h4 i{color:var(--brand);font-size:14px}
+        .ig-element p,.ig-element li{font-size:14px;color:var(--text-secondary);line-height:1.7}
+        .raw-story-block{background:var(--surface-color);border:1px solid var(--border-color);border-radius:12px;padding:32px}
+        .story-section{margin-bottom:24px}
+        .story-section:last-child{margin-bottom:0}
+        .story-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--brand);margin-bottom:8px}
+        .raw-story-block p{font-size:14px;color:var(--text-secondary);line-height:1.8}
+        .journey-flow{display:flex;flex-direction:column;align-items:center;gap:0}
+        .jf-node{background:var(--surface-color);border:2px solid var(--brand);border-radius:10px;padding:20px 28px;text-align:center;width:100%;max-width:500px}
+        .jf-node h4{font-size:15px;font-weight:600;color:var(--brand-dark)}
+        .jf-node p{font-size:13px;color:var(--text-secondary);margin-top:4px}
+        .jf-connector{text-align:center;padding:12px 0;color:var(--brand);font-size:20px}
+        .jf-branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px;width:100%}
+        .jf-branch{background:var(--surface-color);border:1px solid var(--border-color);border-radius:10px;padding:24px;border-top:3px solid var(--brand)}
+        .jf-branch h4{font-size:15px;font-weight:600;margin-bottom:8px;color:var(--brand-dark)}
+        .jf-branch p{font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:6px}
+        .branch-steps{margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light)}
+        .branch-step{font-size:13px;color:var(--text-secondary);padding:4px 0;display:flex;align-items:center;gap:8px}
+        .branch-step i{color:var(--brand);font-size:10px}
+        .pillar-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px}
+        .pillar-card{background:var(--surface-color);border:1px solid var(--border-color);border-radius:12px;overflow:hidden}
+        .pillar-card-header{padding:20px 24px;background:var(--brand);color:#fff}
+        .pillar-card-header h4{font-family:var(--font-serif);font-size:18px;font-weight:400}
+        .pillar-card-header p{font-size:13px;opacity:0.85;margin-top:4px}
+        .pillar-card-body{padding:24px}
+        .cta-line{font-size:13px;font-weight:600;color:var(--brand);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+        .pillar-card-body ul{list-style:none;padding:0}
+        .pillar-card-body ul li{padding:8px 0;font-size:14px;color:var(--text-secondary);border-bottom:1px solid var(--border-light);display:flex;align-items:flex-start;gap:8px;line-height:1.6}
+        .pillar-card-body ul li:last-child{border-bottom:none}
+        .pillar-card-body ul li i{color:var(--brand);margin-top:4px;flex-shrink:0;font-size:10px}
+        .fixed-posts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
+        .fixed-post{background:var(--surface-color);border:1px solid var(--border-color);border-radius:10px;padding:24px}
+        .post-number{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--brand);margin-bottom:8px}
+        .fixed-post h4{font-size:15px;font-weight:600;margin-bottom:12px}
+        .fixed-post p{font-size:14px;color:var(--text-secondary);line-height:1.7}
+        .script-steps{list-style:none;padding:0;counter-reset:script-counter}
+        .script-steps li{counter-increment:script-counter;padding:16px 20px;background:var(--surface-color);border:1px solid var(--border-color);border-radius:8px;margin-bottom:12px;font-size:14px;color:var(--text-secondary);line-height:1.7;display:flex;align-items:flex-start;gap:14px}
+        .script-steps li::before{content:counter(script-counter);background:var(--brand);color:#fff;min-width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+        .criteria-box{background:var(--brand-light);border:1px solid rgba(91,140,90,0.2);border-radius:10px;padding:24px;margin-top:24px}
+        .criteria-box h4{font-size:15px;font-weight:600;color:var(--brand-dark);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+        .criteria-box p{font-size:14px;color:var(--text-secondary);line-height:1.7}
+        .call-steps{display:flex;flex-direction:column;gap:16px}
+        .call-step{background:var(--surface-color);border:1px solid var(--border-color);border-radius:10px;padding:20px 24px;display:grid;grid-template-columns:48px 1fr;gap:20px;align-items:start}
+        .call-step-number{background:var(--brand);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0}
+        .call-step-content h4{font-size:16px;font-weight:600;margin-bottom:2px}
+        .call-duration{font-size:12px;color:var(--brand);font-weight:600;margin-bottom:8px}
+        .call-step-content p{font-size:14px;color:var(--text-secondary);line-height:1.6}
+        .call-questions{margin-top:8px;font-style:italic;color:var(--text-muted);font-size:13px;line-height:1.6}
+        .objection-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:20px}
+        .objection-card{background:var(--surface-color);border:1px solid var(--border-color);border-radius:10px;padding:24px}
+        .objection-question{font-weight:600;font-size:15px;color:var(--danger);margin-bottom:12px;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+        .objection-question i{margin-top:3px;flex-shrink:0}
+        .objection-answer{font-size:14px;color:var(--text-secondary);line-height:1.7;padding-left:26px}
+        .field-empty{color:var(--placeholder);font-style:italic;font-size:14px;padding:12px 16px;background:rgba(163,163,163,0.08);border-radius:6px;border:1px dashed var(--border-color);display:flex;align-items:center;gap:8px}
+        .field-empty i{color:#F59E0B;flex-shrink:0}
+        .section-empty{padding:40px;text-align:center;background:var(--bg-alt);border:2px dashed var(--border-color);border-radius:8px;color:var(--text-muted)}
+        .section-empty i{font-size:32px;color:#F59E0B;margin-bottom:16px;display:block}
+        .inferred-badge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;background:rgba(245,158,11,0.1);color:#B45309;padding:3px 8px;border-radius:4px;display:inline-flex;align-items:center;gap:4px}
+        @media(max-width:900px){
+            .sidebar{width:100%;height:auto;position:fixed;top:0;left:0;right:0;flex-direction:column;overflow:visible}
+            .sidebar-header{display:none}
+            .sidebar-footer{display:none}
+            .sidebar-nav{display:flex;padding:0;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+            .nav-item{flex-direction:column;padding:12px 16px;font-size:11px;gap:4px;white-space:nowrap;border-left:none;border-bottom:3px solid transparent;text-align:center}
+            .nav-item.active{border-bottom-color:#fff;border-left-color:transparent;background:var(--brand)}
+            .nav-item i{font-size:16px}
+            .main-content{margin-left:0;margin-top:68px;height:calc(100vh - 68px)}
+            .tab-header{padding:32px 20px 28px}
+            .tab-header h1{font-size:24px}
+            .tab-body{padding:24px 20px 60px}
+            .profiles-grid,.tier-grid,.pillar-cards,.ig-grid,.jf-branches,.fixed-posts,.objection-grid,.quotes-grid{grid-template-columns:1fr}
+            .steps-grid{grid-template-columns:1fr 1fr}
+            .call-step{grid-template-columns:1fr}
+            .bio-card{max-width:100%}
+        }
+        @media(max-width:480px){
+            .steps-grid{grid-template-columns:1fr}
+            .vocab-grid{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="brand-icon">
+                <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+                <h2>Suzi Carneiro</h2>
+            </div>
+            <p>Design de Interiores para Saúde</p>
+            <small>Dossiê Estratégico v1.0</small>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-target="tab-comunicacao">
+                <i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Comunicação
+            </a>
+            <a href="#" class="nav-item" data-target="tab-oferta">
+                <i class="fa-solid fa-box-open" aria-hidden="true"></i> Oferta
+            </a>
+            <a href="#" class="nav-item" data-target="tab-conteudo">
+                <i class="fa-solid fa-pen-nib" aria-hidden="true"></i> Conteúdo
+            </a>
+            <a href="#" class="nav-item" data-target="tab-aquisicao">
+                <i class="fa-solid fa-magnet" aria-hidden="true"></i> Aquisição
+            </a>
+            <a href="#" class="nav-item" data-target="tab-vendas">
+                <i class="fa-solid fa-chart-line" aria-hidden="true"></i> Vendas
+            </a>
+        </nav>
+        <div class="sidebar-footer">Versão 1.0 — Abril 2025</div>
+    </aside>
+    <main class="main-content">
+        <div id="tab-comunicacao" class="tab-content active">
+            <div class="tab-header">
+                <h1>Comunicação e Posicionamento</h1>
+                <p>Quem são seus clientes ideais, que dores eles carregam, como falar com eles e qual é a promessa que move tudo.</p>
+            </div>
+            <div class="tab-body">
+                <div class="alert-banner critical">
+                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    <div>
+                        <strong>Informações críticas pendentes nesta seção</strong>
+                        <p>Nome do negócio/marca ainda não definido. História de origem em texto corrido e portfólio fotográfico são necessários para completar a estratégia de comunicação.</p>
+                    </div>
+                </div>
+                <div class="nota-estrategica">
+                    <h3><i class="fa-solid fa-star" aria-hidden="true"></i> Nota Estratégica</h3>
+                    <p>Suzi tem 20 anos de experiência real, autoridade construída (ABD nacional, projetos aprovados pela vigilância sanitária, indicações ininterruptas desde 2004) e um método diferenciado. O problema: ela opera 100% no <strong>modo invisível</strong> — zero presença digital, zero conteúdo, zero mecanismo de captação ativo. A única fonte de clientes hoje são indicações passivas — frágil demais para o negócio que ela quer construir. A boa notícia: <strong>o ativo está inteiramente construído. O que falta é a vitrine.</strong> Resolver os 5 campos críticos e ativar o LinkedIn e o Instagram é o próximo passo mais urgente.</p>
+                </div>
+                <div style="background:var(--surface-color);border:1px solid var(--border-color);border-radius:10px;padding:20px 24px;margin-bottom:40px;display:flex;flex-wrap:wrap;gap:24px;">
+                    <div style="flex:1;min-width:200px;">
+                        <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-weight:600;margin-bottom:4px;">Especialista</div>
+                        <div style="font-size:15px;font-weight:600;">Suzi Carneiro</div>
+                    </div>
+                    <div style="flex:1;min-width:200px;">
+                        <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-weight:600;margin-bottom:4px;">Segmento</div>
+                        <div style="font-size:15px;">Design de Interiores para Saúde</div>
+                    </div>
+                    <div style="flex:1;min-width:200px;">
+                        <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-weight:600;margin-bottom:4px;">Nome do Negócio</div>
+                        <p class="field-empty" style="margin:0;"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> A definir com o cliente</p>
+                    </div>
+                    <div style="flex:1;min-width:200px;">
+                        <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-weight:600;margin-bottom:4px;">Tom de Voz</div>
+                        <div style="font-size:14px;color:var(--text-secondary);">Empático e técnico-acessível · Confiante sem arrogância · Caloroso e próximo</div>
+                    </div>
+                </div>
+                <h2 class="section-title"><i class="fa-solid fa-users" aria-hidden="true"></i> Perfis de Cliente Ideal</h2>
+                <p class="section-subtitle">Os 3 estágios do seu cliente: do médico que está começando ao sócio de clínica que busca legado.</p>
+                <div class="profiles-grid">
+                    <div class="profile-card">
+                        <div class="profile-card-header">
+                            <h4>O Iniciante / Inconformado</h4>
+                            <span class="profile-tag">Perfil 1</span>
+                        </div>
+                        <div class="profile-card-body">
+                            <p>Médico jovem (25–35 anos), recém-formado ou nos primeiros 3 anos de carreira. Está abrindo ou assumindo seu primeiro consultório próprio. Faz plantões, acumulou algum capital e quer profissionalizar sua imagem sem grandes investimentos ou obras demoradas.</p>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-clock" aria-hidden="true"></i> Urgência</strong>
+                                <span>Toda hora parada é dinheiro perdido. O prazo é inegociável para ele.</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-bolt" aria-hidden="true"></i> Resultado Rápido</strong>
+                                <span>Quer resultado visual e sem complicação técnica. Não quer lidar sozinho com construtoras, marceneiros ou vigilância sanitária.</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-trophy" aria-hidden="true"></i> Consolidação de Imagem</strong>
+                                <span>Um consultório bem resolvido é um ativo de posicionamento, mesmo com orçamento enxuto.</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-box-open" aria-hidden="true"></i> Produto Recomendado</strong>
+                                <span>Maquiagem de Consultório — intervenção rápida em um final de semana.</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Onde Encontrar</strong>
+                                <span>Instagram, LinkedIn, grupos de médicos no WhatsApp.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-card">
+                        <div class="profile-card-header">
+                            <h4>O Intermediário / Frustrado</h4>
+                            <span class="profile-tag">Perfil 2</span>
+                        </div>
+                        <div class="profile-card-body">
+                            <p>Médico ou profissional de saúde estabelecido (35–50 anos) em dermatologia, pediatria ou odontologia. Tem consultório funcionando há anos, mas o espaço nunca foi pensado com profundidade.</p>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> A Insegurança</strong>
+                                <span>"E se a reforma atrasar? Vou ter que fechar o consultório por semanas e perder pacientes e receita."</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-ghost" aria-hidden="true"></i> O Medo</strong>
+                                <span>Gastar dinheiro com algo que no final vai parecer genérico, impessoal.</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-lock" aria-hidden="true"></i> A Trava de Execução</strong>
+                                <span>Não sabe por onde começar. Não conhece as normas sanitárias. Fica postergando porque parece muito complexo.</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-box-open" aria-hidden="true"></i> Produto Recomendado</strong>
+                                <span>Projeto técnico completo com plantas para marcenaria, elétrica e hidráulica.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-card gold-tier">
+                        <div class="profile-card-header">
+                            <h4>O Ideal / Lead Ouro</h4>
+                            <span class="profile-tag">Perfil 3</span>
+                        </div>
+                        <div class="profile-card-body">
+                            <p>Casal de médicos, dupla de sócios ou gestor de clínica de pequeno a médio porte (35–55 anos). Tem orçamento para investir e reconhece o valor de um projeto especializado.</p>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-building" aria-hidden="true"></i> O Teto Físico</strong>
+                                <span>Cresceu no número de pacientes e o espaço não acompanhou — ambiente apertado e mal distribuído.</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-gem" aria-hidden="true"></i> O Desejo de Legado</strong>
+                                <span>Ter uma clínica referência no bairro — não apenas pelo atendimento, mas pela experiência do paciente.</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-handshake" aria-hidden="true"></i> Dinâmica de Compra</strong>
+                                <span>Decide por confiança e indicação. Menor resistência a preço quando vê expertise real.</span>
+                                <span class="inferred-badge" style="margin-top:6px;"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Inferido</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-heart" aria-hidden="true"></i> Desejo Oculto</strong>
+                                <span>Ser reconhecido pelos pares como alguém que tem "uma clínica diferente" — motivo de orgulho.</span>
+                                <span class="inferred-badge" style="margin-top:6px;"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Inferido</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong><i class="fa-solid fa-box-open" aria-hidden="true"></i> Produto Recomendado</strong>
+                                <span>Projeto completo + acompanhamento de obra + curadoria de fornecedores + sinalização interna.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="section-divider">
+                <h2 class="section-title"><i class="fa-solid fa-heart-crack" aria-hidden="true"></i> Anatomia da Dor</h2>
+                <p class="section-subtitle">As 3 camadas de dor do cliente — da queixa superficial à raiz emocional.</p>
+                <div class="pain-layers">
+                    <div class="pain-layer">
+                        <div class="layer-header">
+                            <div class="layer-number">1</div>
+                            <div>
+                                <h4>Dor Financeira / Operacional</h4>
+                                <div class="layer-subtitle">O Superficial</div>
+                            </div>
+                        </div>
+                        <p>O médico teme o custo imprevisível de uma obra longa, a perda de dias de atendimento e o caos de coordenar fornecedores sem expertise técnica.</p>
+                        <div class="client-voice">
+                            <strong>Como o cliente descreve:</strong>
+                            "Eu não tenho como fechar o consultório por semanas." · "Não tenho tempo para ficar atrás de marceneiro, encanador."
+                        </div>
+                        <div class="highlight-box" style="margin-top:16px;">
+                            <h4><i class="fa-solid fa-bolt" aria-hidden="true"></i> Gatilho de Urgência</h4>
+                            <p>Um concorrente inaugurou uma clínica nova e moderna na mesma rua. Ou um paciente fez um comentário negativo sobre o ambiente.</p>
+                        </div>
+                    </div>
+                    <div class="pain-layer">
+                        <div class="layer-header">
+                            <div class="layer-number">2</div>
+                            <div>
+                                <h4>Dor de Posicionamento</h4>
+                                <div class="layer-subtitle">O Intermediário</div>
+                            </div>
+                        </div>
+                        <p>O médico percebe que o ambiente onde trabalha não reflete o nível de expertise que ele tem. Passou anos se formando — mas o consultório parece qualquer coisa.</p>
+                        <div class="client-voice">
+                            <strong>Como o cliente descreve: <span class="inferred-badge"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Inferido</span></strong>
+                            "Meu trabalho é excelente, mas quando o paciente entra aqui, ele não percebe isso pelo que vê."
+                        </div>
+                        <p style="margin-top:12px;"><strong>Comparação com concorrência:</strong> Ele se sente subestimado quando vê clínicas mais novas e com ambientes mais bem resolvidos.</p>
+                    </div>
+                    <div class="pain-layer">
+                        <div class="layer-header">
+                            <div class="layer-number">3</div>
+                            <div>
+                                <h4>Dor Existencial / Emocional</h4>
+                                <div class="layer-subtitle">A Raiz</div>
+                            </div>
+                        </div>
+                        <p>O médico passa a maior parte da sua vida profissional dentro do consultório. Um ambiente funcional e acolhedor não é luxo — é combustível.</p>
+                        <div class="client-voice">
+                            <strong>A voz de Suzi sobre o médico:</strong>
+                            "O médico chega lá desgostoso, tá desmotivado, tá depressivo, tá agitado — mas mal imagina que o ambiente tá refletindo isso para ele."
+                        </div>
+                        <div class="highlight-box" style="margin-top:16px;">
+                            <h4><i class="fa-solid fa-fingerprint" aria-hidden="true"></i> Ligação com Identidade</h4>
+                            <p>O ambiente é a extensão visível de quem o médico é. Um consultório genérico diz "sou qualquer um". Um consultório com identidade diz "sou exatamente quem você precisa".</p>
+                        </div>
+                    </div>
+                </div>
+                <hr class="section-divider">
+                <h2 class="section-title"><i class="fa-solid fa-language" aria-hidden="true"></i> Linguagem e Vocabulário Estratégico</h2>
+                <p class="section-subtitle">As palavras certas conectam. As erradas afastam.</p>
+                <div class="vocab-section">
+                    <h3><i class="fa-solid fa-circle-check" style="color:var(--brand);" aria-hidden="true"></i> Vocabulário Positivo</h3>
+                    <div class="vocab-grid">
+                        <div class="vocab-card positive"><div class="vocab-word"><i class="fa-solid fa-check" aria-hidden="true"></i> "Maquiagem de consultório"</div><div class="vocab-reason">Linguagem acessível, remete a transformação rápida.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word"><i class="fa-solid fa-check" aria-hidden="true"></i> "Obra limpa"</div><div class="vocab-reason">Elimina o maior medo: entulho, barulho, fechamento.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word"><i class="fa-solid fa-check" aria-hidden="true"></i> "Funcionalidade"</div><div class="vocab-reason">Diferenciador real — ressoa com quem pensa em fluxo.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word"><i class="fa-solid fa-check" aria-hidden="true"></i> "Captar a essência"</div><div class="vocab-reason">O que Suzi faz que a concorrência não faz.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word"><i class="fa-solid fa-check" aria-hidden="true"></i> "Acolhimento"</div><div class="vocab-reason">Valor central da medicina e da marca Suzi.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word"><i class="fa-solid fa-check" aria-hidden="true"></i> "Atualizada"</div><div class="vocab-reason">Domina tendências sem ser exclusivista.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word"><i class="fa-solid fa-check" aria-hidden="true"></i> "Biofilia"</div><div class="vocab-reason">Técnica com apelo emocional — natureza no ambiente clínico.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word"><i class="fa-solid fa-check" aria-hidden="true"></i> "Cada especialidade é uma norma"</div><div class="vocab-reason">Domínio técnico que generalistas não têm.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word"><i class="fa-solid fa-check" aria-hidden="true"></i> "No prazo"</div><div class="vocab-reason">Resposta direta ao maior medo do cliente.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word"><i class="fa-solid fa-check" aria-hidden="true"></i> "Diagnóstico do ambiente"</div><div class="vocab-reason">Linguagem médica aplicada ao design.</div></div>
+                    </div>
+                </div>
+                <div class="vocab-section">
+                    <h3><i class="fa-solid fa-circle-xmark" style="color:var(--danger);" aria-hidden="true"></i> Vocabulário Proibido</h3>
+                    <div class="vocab-grid">
+                        <div class="vocab-card negative"><div class="vocab-word"><i class="fa-solid fa-xmark" aria-hidden="true"></i> "Moderno"</div><div class="vocab-reason">Limitante — exclui estilos clássicos ou rústicos.</div></div>
+                        <div class="vocab-card negative"><div class="vocab-word"><i class="fa-solid fa-xmark" aria-hidden="true"></i> "Refinado"</div><div class="vocab-reason">Contradiz o acolhimento que Suzi transmite.</div></div>
+                        <div class="vocab-card negative"><div class="vocab-word"><i class="fa-solid fa-xmark" aria-hidden="true"></i> "Barato"</div><div class="vocab-reason">Destrói o posicionamento premium de 20 anos.</div></div>
+                        <div class="vocab-card negative"><div class="vocab-word"><i class="fa-solid fa-xmark" aria-hidden="true"></i> "Decoração"</div><div class="vocab-reason">Subestima o serviço — design é técnico.</div></div>
+                        <div class="vocab-card negative"><div class="vocab-word"><i class="fa-solid fa-xmark" aria-hidden="true"></i> "Fazer bonito"</div><div class="vocab-reason">Reforça percepção de superficialidade.</div></div>
+                        <div class="vocab-card negative"><div class="vocab-word"><i class="fa-solid fa-xmark" aria-hidden="true"></i> "Reforma"</div><div class="vocab-reason">Remete a caos. Usar "transformação" ou "revitalização".</div></div>
+                    </div>
+                </div>
+                <div class="vocab-section">
+                    <h3><i class="fa-solid fa-quote-left" style="color:#D4A847;" aria-hidden="true"></i> Frases Ouro para Copy</h3>
+                    <div class="quotes-grid">
+                        <div class="quote-block">"A vigilância sanitária chegou, olhou tudo e disse que nunca tinha visto um projeto tão perfeito. Pediram para tirar foto para usar como exemplo."</div>
+                        <div class="quote-block">"Eu nunca cobrei barato. Meu preço nunca foi barato. Eu sempre me valorizei."</div>
+                        <div class="quote-block">"A maior parte da sua vida é ali trabalhando — e as pessoas não pensam no conforto de quem está trabalhando."</div>
+                        <div class="quote-block">"O médico chega lá desgostoso, desmotivado, mas mal imagina que o ambiente tá refletindo isso para ele."</div>
+                        <div class="quote-block">"Quando eu mandei o projeto, ela falou: 'Era exatamente isso que eu queria. Como você conseguiu captar?'"</div>
+                        <div class="quote-block">"Eu me meti as caras — fui estudar, pesquisar, fui sugando as pessoas das empresas para aprender e fazer certo."</div>
+                        <div class="quote-block">"Cada especialidade é uma norma diferente. Não existe projeto igual."</div>
+                        <div class="quote-block">"Obra limpa é quando você não quebra, porque até ecologicamente não é bom."</div>
+                        <div class="quote-block">"As pessoas é que me convidam. Não sou eu que me divulgo. As pessoas estão olhando e puxam."</div>
+                        <div class="quote-block">"Salvador era o número um da ABD. Número um durante 4 anos."</div>
+                        <div class="quote-block">"O design também é psicólogo. Você tem que entender a rotina, entender o universo do cliente."</div>
+                    </div>
+                </div>
+                <hr class="section-divider">
+                <h2 class="section-title"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Promessa Central e Ângulos de Venda</h2>
+                <p class="section-subtitle">A fórmula da promessa e as 3 variações testáveis.</p>
+                <div class="highlight-box" style="margin-bottom:32px;">
+                    <h4><i class="fa-solid fa-flask" aria-hidden="true"></i> Fórmula Base</h4>
+                    <p><strong>QUEM:</strong> Médicos e profissionais de saúde com consultórios e clínicas de pequeno/médio porte<br>
+                    <strong>PROBLEMA:</strong> Ambiente que não reflete identidade, não acolhe pacientes e impacta performance<br>
+                    <strong>MECANISMO:</strong> Método Revela — diagnóstico técnico + projeto humanizado + execução no prazo<br>
+                    <strong>SEM O QUÊ:</strong> Sem fechar a clínica · Sem obras invasivas · Sem abrir mão da funcionalidade</p>
+                </div>
+                <div class="quote-block featured">
+                    <span class="quote-label">Promessa 1 — Vencedora</span>
+                    "Transformo o seu consultório no reflexo exato do médico que você é — com projeto especializado por especialidade médica, no prazo que você precisa e sem fechar sua clínica por semanas."
+                </div>
+                <div class="quote-block">
+                    <span class="quote-label">Promessa 2 — Facilidade</span>
+                    "Em um final de semana, seu consultório pode ter uma nova identidade — sem obra pesada, sem entulho, sem perder um único dia de consulta."
+                </div>
+                <div class="quote-block">
+                    <span class="quote-label">Promessa 3 — Quebra de Objeção</span>
+                    "Mesmo que você não saiba o que quer para o seu consultório, eu consigo captar — porque um bom projeto não começa pela decoração. Começa por entender quem você é."
+                </div>
+                <hr class="section-divider">
+                <h2 class="section-title"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Estratégia de Perfil</h2>
+                <p class="section-subtitle">Configuração do perfil no Instagram.</p>
+                <div class="ig-grid" style="margin-bottom:32px;">
+                    <div class="ig-element">
+                        <h4><i class="fa-solid fa-camera" aria-hidden="true"></i> Foto de Perfil</h4>
+                        <p>Profissional, produzida, fundo neutro, expressão calorosa e confiante.</p>
+                    </div>
+                    <div class="ig-element">
+                        <h4><i class="fa-solid fa-clock" aria-hidden="true"></i> Frequência de Stories</h4>
+                        <p>Diária — mínimo 3 a 5 stories por dia.</p>
+                    </div>
+                    <div class="ig-element">
+                        <h4><i class="fa-solid fa-hashtag" aria-hidden="true"></i> Palavras-chave</h4>
+                        <p>design de interiores, consultório médico, humanização de ambientes, obra limpa, designer RJ.</p>
+                    </div>
+                    <div class="ig-element">
+                        <h4><i class="fa-solid fa-palette" aria-hidden="true"></i> Identidade Visual</h4>
+                        <p class="field-empty" style="margin:0;"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Paleta a definir. Sugestão: neutros quentes + verde biofílico.</p>
+                    </div>
+                </div>
+                <h3 style="font-size:18px;font-weight:600;margin-bottom:16px;">Bio Estratégica</h3>
+                <div class="bio-card">
+                    <h4><i class="fa-brands fa-instagram" aria-hidden="true"></i> Bio do Instagram</h4>
+                    <div class="bio-line" style="font-weight:600;color:var(--text-primary);">Transformo consultórios no reflexo do médico que você é 🏥</div>
+                    <div class="bio-line">Designer de Interiores | Ex-Diretora ABD | Especialista em Saúde</div>
+                    <div class="bio-line">👇 Conheça o Método Revela</div>
+                    <div class="bio-line" style="color:var(--brand);">[Link WhatsApp ou Linktree]</div>
+                </div>
+                <hr class="section-divider">
+                <h2 class="section-title"><i class="fa-solid fa-book-open" aria-hidden="true"></i> História de Origem</h2>
+                <p class="section-subtitle">A narrativa que sustenta autoridade e gera conexão.</p>
+                <div class="raw-story-block">
+                    <div class="story-section">
+                        <div class="story-label">Gancho</div>
+                        <p>"A vigilância sanitária chegou no meu projeto, olhou tudo e pediu para tirar foto — para usar como exemplo do que deveria ser. Esse dia me mostrou que o que eu faço é mais do que decoração."</p>
+                    </div>
+                    <div class="story-section">
+                        <div class="story-label">Origem</div>
+                        <p>Suzi sempre foi movida por curiosidade incansável e pelo desconforto com ambientes desorganizados. Formada em Publicidade, trabalhou em agências de alto padrão (OPM — Petrobras, Aliança Francesa), co-fundou a Marketm (primeira empresa de marketing médico do Brasil, 2001), fez pós-graduação em Gestão de Clientes. Em paralelo, autodidata, transformava a própria casa.</p>
+                    </div>
+                    <div class="story-section">
+                        <div class="story-label">Momento de Dor</div>
+                        <p>Em 2004, sem recursos, fazia tudo com as mãos. Até que uma arquiteta amiga percebeu o talento: "Quer fazer um móvel para uma cliente?" — "Eu nunca fiz na minha vida. Mas tô precisando de dinheiro — vou meter as caras."</p>
+                    </div>
+                    <div class="story-section">
+                        <div class="story-label">A Virada</div>
+                        <p>Captou pelo telefone cada detalhe. Mandou o projeto. A resposta: "Era exatamente isso que eu queria. Como você conseguiu captar?" Ali nasceu a marca registrada de Suzi: ouvir o que o cliente ainda não sabe que quer — e entregar com precisão.</p>
+                    </div>
+                    <div class="story-section">
+                        <div class="story-label">O Resultado</div>
+                        <p>Projetos sempre por indicação. Diretora regional da ABD por 4 anos — Salvador nº 1 do Brasil. Projeto elogiado pela vigilância sanitária e usado como exemplo para toda a rede. Convidada para presidência nacional da ABD.</p>
+                    </div>
+                    <div class="story-section">
+                        <div class="story-label">A Missão</div>
+                        <p>"Eu não faço projeto de consultório. Eu faço o ambiente onde o médico vai passar a maior parte da vida — e isso precisa refletir quem ele é, não só parecer bonito."</p>
+                    </div>
+                    <div class="story-section">
+                        <div class="story-label">Texto Bruto</div>
+                        <p class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> A ser construído com Suzi — agendar 30 min de conversa gravada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tab-oferta" class="tab-content">
+            <div class="tab-header">
+                <h1>Oferta Produtizada</h1>
+                <p>O método que guia cada projeto, a esteira de produtos e as fichas detalhadas de cada oferta.</p>
+            </div>
+            <div class="tab-body">
+                <div class="alert-banner critical">
+                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    <div>
+                        <strong>Informações críticas pendentes nesta seção</strong>
+                        <p>Tabela de preços 2025, garantia dos serviços e bônus ainda não definidos.</p>
+                    </div>
+                </div>
+                <h2 class="section-title"><i class="fa-solid fa-route" aria-hidden="true"></i> Método Revela</h2>
+                <p class="section-subtitle">A ponte que leva o cliente do Ponto A ao Ponto B em 5 etapas.</p>
+                <div class="method-ab-container">
+                    <div class="point-card point-a">
+                        <h4><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> Ponto A — Situação Atual</h4>
+                        <p>O médico tem um consultório que funciona — mas apenas como "sala de trabalho". Sem identidade, sem acolhimento, com fluxo desorganizado e iluminação inadequada. Resultado: profissional mais cansado, paciente menos confiante, marca que não se destaca.</p>
+                    </div>
+                    <div class="method-bridge">
+                        <div class="method-name">Método Revela</div>
+                        <p class="method-tagline">Revelar a identidade no espaço. Revelar o que o ambiente precisa ser. Revelar o potencial de cada metro quadrado.</p>
+                        <div class="steps-grid">
+                            <div class="step-card">
+                                <div class="step-number">1</div>
+                                <h4>Diagnóstico</h4>
+                                <p>Especialidade, rotina, normas técnicas, perfil dos pacientes.</p>
+                                <small>→ Briefing técnico + Mapa de necessidades</small>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">2</div>
+                                <h4>Essência</h4>
+                                <p>Sessão de descoberta: estilo de vida, referências, valores, percepção desejada.</p>
+                                <small>→ Mood board + Diretrizes</small>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">3</div>
+                                <h4>Projeto</h4>
+                                <p>Layout, cores, materiais, mobiliário, iluminação, plantas técnicas.</p>
+                                <small>→ Projeto AutoCAD/SketchUp + Pranchas</small>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">4</div>
+                                <h4>Curadoria</h4>
+                                <p>Seleção de fornecedores e materiais dentro do orçamento.</p>
+                                <small>→ Lista curada + Planilha de orçamento</small>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">5</div>
+                                <h4>Revela</h4>
+                                <p>Execução e acompanhamento com fidelidade ao projeto e prazo.</p>
+                                <small>→ Ambiente entregue + Fotos</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="point-card point-b">
+                        <h4><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Ponto B — A Chegada</h4>
+                        <p>O médico entra no consultório toda manhã e sente que chegou em casa. O espaço comunica quem ele é. Pacientes comentam o ambiente. A equipe trabalha com fluidez. A vigilância sanitária pede para tirar foto. Tudo no prazo, sem fechar a clínica.</p>
+                    </div>
+                </div>
+                <hr class="section-divider">
+                <h2 class="section-title"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Esteira de Produtos</h2>
+                <p class="section-subtitle">Do produto de entrada ao projeto completo.</p>
+                <div class="saas-block">
+                    <h3>Maquiagem de Consultório</h3>
+                    <div class="saas-subtitle">Produto Front-End · Porta de entrada</div>
+                    <div class="saas-price">R$ 2.500 a R$ 4.000</div>
+                    <div class="saas-price-note">Consultoria presencial + projeto básico + execução em 1–2 dias</div>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Transformação visual em um final de semana</li>
+                        <li><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Sem obra pesada, sem fechar a clínica</li>
+                        <li><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Pintura, revestimentos, iluminação e decoração de impacto</li>
+                        <li><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Abre caminho para projetos completos</li>
+                    </ul>
+                </div>
+                <div class="tier-grid">
+                    <div class="tier-card">
+                        <div class="tier-card-header">
+                            <h4>Projeto Técnico Completo</h4>
+                            <span class="tier-tag">Back-end Nível 1 · Modelo DWY</span>
+                        </div>
+                        <div class="tier-card-body">
+                            <div class="tier-price"><p class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Ticket a definir</p></div>
+                            <div class="tier-detail"><strong>Modelo:</strong> Suzi entrega o projeto, cliente executa</div>
+                            <div class="tier-detail"><strong>Duração:</strong> 2 a 4 semanas</div>
+                            <div class="tier-detail"><strong>Entregáveis:</strong> Layout, especificações, pranchas de marcenaria, planta elétrica/hidráulica, memorial descritivo, fornecedores</div>
+                        </div>
+                    </div>
+                    <div class="tier-card featured-tier">
+                        <span class="featured-badge">Carro-chefe</span>
+                        <div class="tier-card-header">
+                            <h4>Projeto Completo + Acompanhamento</h4>
+                            <span class="tier-tag">Back-end Nível 2 · Modelo DFY</span>
+                        </div>
+                        <div class="tier-card-body">
+                            <div class="tier-price"><p class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Ticket a definir</p></div>
+                            <div class="tier-detail"><strong>Modelo:</strong> Suzi assume projeto e coordena execução</div>
+                            <div class="tier-detail"><strong>Duração:</strong> 4 a 8 semanas</div>
+                            <div class="tier-detail"><strong>Entregáveis:</strong> Todo Nível 1 + presença em obras, coordenação, controle de prazo, entrega final</div>
+                            <div class="tier-detail"><strong>Pós-venda:</strong> Visita de entrega, fotos, depoimento</div>
+                            <div class="tier-detail"><strong>Bônus:</strong> <span class="field-empty" style="display:inline-flex;padding:6px 12px;font-size:13px;"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> A definir</span></div>
+                            <div class="tier-detail"><strong>Garantia:</strong> <span class="field-empty" style="display:inline-flex;padding:6px 12px;font-size:13px;"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> A definir</span></div>
+                        </div>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-card-header">
+                            <h4>Assessoria de Projeto Remoto</h4>
+                            <span class="tier-tag">Back-end Nível 3 · DWY Remoto</span>
+                        </div>
+                        <div class="tier-card-body">
+                            <div class="tier-price"><p class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Ticket a definir</p></div>
+                            <div class="tier-detail"><strong>Perfil:</strong> Profissional de saúde fora do Rio de Janeiro</div>
+                            <div class="tier-detail"><strong>Entregáveis:</strong> Projeto digital, fornecedores locais, suporte por vídeo/WhatsApp</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tab-conteudo" class="tab-content">
+            <div class="tab-header">
+                <h1>Produção de Conteúdo</h1>
+                <p>Os 3 pilares editoriais, os destaques obrigatórios e os posts fixados.</p>
+            </div>
+            <div class="tab-body">
+                <h2 class="section-title"><i class="fa-solid fa-columns" aria-hidden="true"></i> Os 3 Pilares de Conteúdo</h2>
+                <p class="section-subtitle">Cada post deve se encaixar em um destes pilares.</p>
+                <div class="pillar-cards">
+                    <div class="pillar-card">
+                        <div class="pillar-card-header">
+                            <h4>1. Alcance (Topo)</h4>
+                            <p>Atrair médicos que não conhecem Suzi</p>
+                        </div>
+                        <div class="pillar-card-body">
+                            <div class="cta-line"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i> CTA: "Siga meu perfil"</div>
+                            <ul>
+                                <li><i class="fa-solid fa-circle" aria-hidden="true"></i> O que a vigilância sanitária olha quando entra no consultório</li>
+                                <li><i class="fa-solid fa-circle" aria-hidden="true"></i> 5 erros de iluminação em consultórios de dermatologia</li>
+                                <li><i class="fa-solid fa-circle" aria-hidden="true"></i> Cada especialidade tem uma norma diferente de ambiente</li>
+                                <li><i class="fa-solid fa-circle" aria-hidden="true"></i> Cores que acalmam vs. cores que geram ansiedade</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card-header">
+                            <h4>2. Movimento (Dor/Venda)</h4>
+                            <p>Gerar demanda e conversões</p>
+                        </div>
+                        <div class="pillar-card-body">
+                            <div class="cta-line"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i> CTA: "Me chama no WhatsApp"</div>
+                            <ul>
+                                <li><i class="fa-solid fa-circle" aria-hidden="true"></i> Você chega cansado antes do primeiro paciente?</li>
+                                <li><i class="fa-solid fa-circle" aria-hidden="true"></i> Before &amp; After de projetos reais</li>
+                                <li><i class="fa-solid fa-circle" aria-hidden="true"></i> Seu consultório reflete quem você é — ou quanto você tinha?</li>
+                                <li><i class="fa-solid fa-circle" aria-hidden="true"></i> O custo de NÃO investir no ambiente</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card-header">
+                            <h4>3. Doutrinação (Valores)</h4>
+                            <p>Criar identificação e fãs</p>
+                        </div>
+                        <div class="pillar-card-body">
+                            <div class="cta-line"><i class="fa-solid fa-heart" aria-hidden="true"></i> Sem CTA — só conexão</div>
+                            <ul>
+                                <li><i class="fa-solid fa-circle" aria-hidden="true"></i> Por que comecei a fazer design sem ter planejado</li>
+                                <li><i class="fa-solid fa-circle" aria-hidden="true"></i> O que o design tem a ver com psicologia</li>
+                                <li><i class="fa-solid fa-circle" aria-hidden="true"></i> A maior parte da sua vida é ali trabalhando</li>
+                                <li><i class="fa-solid fa-circle" aria-hidden="true"></i> Por que eu nunca cobrei barato</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr class="section-divider">
+                <h2 class="section-title"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> Os 3 Destaques Obrigatórios</h2>
+                <p class="section-subtitle">Os destaques fixos do Instagram.</p>
+                <div class="ig-grid">
+                    <div class="ig-element">
+                        <h4><i class="fa-solid fa-user" aria-hidden="true"></i> Destaque 1 — Quem é Suzi</h4>
+                        <p>Trajetória: Publicidade → Marketm → ABD → Design para Saúde. Convite para conhecer o trabalho.</p>
+                    </div>
+                    <div class="ig-element">
+                        <h4><i class="fa-solid fa-compass" aria-hidden="true"></i> Destaque 2 — Método Revela</h4>
+                        <p>Passo a passo das 5 etapas. Mostra processo técnico estruturado.</p>
+                    </div>
+                    <div class="ig-element">
+                        <h4><i class="fa-solid fa-star" aria-hidden="true"></i> Destaque 3 — Resultados</h4>
+                        <p>Depoimentos + fotos de projetos + aprovação da vigilância sanitária.</p>
+                    </div>
+                </div>
+                <hr class="section-divider">
+                <h2 class="section-title"><i class="fa-solid fa-thumbtack" aria-hidden="true"></i> Os 3 Posts Fixados</h2>
+                <p class="section-subtitle">Os primeiros posts que qualquer visitante vê no perfil.</p>
+                <div class="fixed-posts">
+                    <div class="fixed-post">
+                        <div class="post-number">Post 1 — Campeão de Vendas</div>
+                        <h4>O seu consultório tá te adoecendo.</h4>
+                        <p>O ambiente onde você passa a maior parte da vida precisa ser pensado com a mesma seriedade que você pensa no seu diagnóstico.</p>
+                        <p style="margin-top:12px;font-weight:600;color:var(--brand);font-size:13px;">→ CTA para Maquiagem ou WhatsApp</p>
+                    </div>
+                    <div class="fixed-post">
+                        <div class="post-number">Post 2 — Princípios</div>
+                        <h4>Design para médico não é sobre decorar. É sobre funcionar.</h4>
+                        <p>Um consultório bonito que não funciona é só uma sala cara.</p>
+                    </div>
+                    <div class="fixed-post">
+                        <div class="post-number">Post 3 — Diferenciação</div>
+                        <h4>A IA gera imagens bonitas. Mas ela não capta sua rotina.</h4>
+                        <p>O que a IA não faz é entender as normas da sua especialidade e garantir que a vigilância sanitária aprove.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tab-aquisicao" class="tab-content">
+            <div class="tab-header">
+                <h1>Aquisição de Clientes</h1>
+                <p>O fluxograma completo do funil — desde o primeiro contato até cada ramo de oferta.</p>
+            </div>
+            <div class="tab-body">
+                <h2 class="section-title"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Mapa do Funil</h2>
+                <p class="section-subtitle">Toda a jornada do lead, da descoberta à conversão.</p>
+                <div class="journey-flow">
+                    <div class="jf-node">
+                        <h4><i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Conteúdo Instagram / LinkedIn + Indicações</h4>
+                        <p>Médicos descobrem Suzi pelo conteúdo ou por indicação de colegas</p>
+                    </div>
+                    <div class="jf-connector"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                    <div class="jf-node">
+                        <h4><i class="fa-solid fa-comment-dots" aria-hidden="true"></i> Comentário / DM / Link da Bio</h4>
+                        <p>O lead demonstra interesse e inicia contato</p>
+                    </div>
+                    <div class="jf-connector"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                    <div class="jf-branches">
+                        <div class="jf-branch">
+                            <h4>Ramo 1 — High-Ticket</h4>
+                            <p>Lead qualificado busca projeto completo.</p>
+                            <div class="branch-steps">
+                                <div class="branch-step"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> WhatsApp — qualificação</div>
+                                <div class="branch-step"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Call de diagnóstico</div>
+                                <div class="branch-step"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Projeto Completo</div>
+                            </div>
+                        </div>
+                        <div class="jf-branch">
+                            <h4>Ramo 2 — Maquiagem</h4>
+                            <p>Médico jovem busca transformação imediata.</p>
+                            <div class="branch-steps">
+                                <div class="branch-step"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Avaliação gratuita</div>
+                                <div class="branch-step"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Agendamento</div>
+                                <div class="branch-step"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Execução em 1 final de semana</div>
+                            </div>
+                        </div>
+                        <div class="jf-branch">
+                            <h4>Ramo 3 — Remoto</h4>
+                            <p>Profissional fora do RJ.</p>
+                            <div class="branch-steps">
+                                <div class="branch-step"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> WhatsApp — briefing</div>
+                                <div class="branch-step"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Proposta personalizada</div>
+                                <div class="branch-step"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Projeto digital + suporte</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="section-divider">
+                <h2 class="section-title"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Detalhamento dos Ramos</h2>
+                <p class="section-subtitle">Isca, dor atacada e CTA de cada caminho.</p>
+                <div style="background:var(--surface-color);border:1px solid var(--border-color);border-radius:12px;padding:28px;margin-bottom:24px;">
+                    <h3 style="font-family:var(--font-serif);font-size:20px;font-weight:400;color:var(--brand);margin-bottom:16px;">Ramo 1 — Funil High-Ticket</h3>
+                    <div class="detail-item"><strong><i class="fa-solid fa-magnet" aria-hidden="true"></i> Isca</strong><span>"Seu consultório está refletindo quem você é — ou quanto você tinha quando abriu?" + CTA WhatsApp</span></div>
+                    <div class="detail-item"><strong><i class="fa-solid fa-heart-crack" aria-hidden="true"></i> Dor</strong><span>Ambiente desalinhado com identidade + impacto na performance.</span></div>
+                    <div class="detail-item"><strong><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Momento Aha</strong><span>"Nunca tinha pensado que o ambiente me afeta assim."</span></div>
+                    <div class="detail-item"><strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i> CTA</strong><span>"Me conta sobre o seu consultório. Qual é o maior problema hoje?"</span></div>
+                    <div class="detail-item"><strong><i class="fa-solid fa-filter" aria-hidden="true"></i> Qualificação</strong><span>Especialidade + tamanho + prazo + orçamento (indireto).</span></div>
+                </div>
+                <div style="background:var(--surface-color);border:1px solid var(--border-color);border-radius:12px;padding:28px;margin-bottom:24px;">
+                    <h3 style="font-family:var(--font-serif);font-size:20px;font-weight:400;color:var(--brand);margin-bottom:16px;">Ramo 2 — Funil Maquiagem</h3>
+                    <div class="detail-item"><strong><i class="fa-solid fa-magnet" aria-hidden="true"></i> Isca</strong><span>Reel com before &amp; after de maquiagem em 48h.</span></div>
+                    <div class="detail-item"><strong><i class="fa-solid fa-anchor" aria-hidden="true"></i> Ancoragem</strong><span>"Por menos do que um fim de semana em plantão, seu consultório pode ter uma nova cara."</span></div>
+                    <div class="detail-item"><strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i> CTA</strong><span>"Clique no link e agende sua avaliação gratuita."</span></div>
+                </div>
+                <div style="background:var(--surface-color);border:1px solid var(--border-color);border-radius:12px;padding:28px;">
+                    <h3 style="font-family:var(--font-serif);font-size:20px;font-weight:400;color:var(--brand);margin-bottom:16px;">Ramo 3 — Funil Remoto</h3>
+                    <div class="detail-item"><strong><i class="fa-solid fa-magnet" aria-hidden="true"></i> Isca</strong><span>"Fora do Rio e quer transformar seu consultório?" + CTA WhatsApp</span></div>
+                    <div class="detail-item"><strong><i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Promessa</strong><span>"Projeto completo sem que eu precise estar lá. Você executa, eu dirijo."</span></div>
+                    <div class="detail-item"><strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Destino</strong><span>WhatsApp → proposta remota personalizada.</span></div>
+                </div>
+            </div>
+        </div>
+        <div id="tab-vendas" class="tab-content">
+            <div class="tab-header">
+                <h1>Vendas e Escala</h1>
+                <p>Scripts de qualificação, roteiro de call e respostas para objeções.</p>
+            </div>
+            <div class="tab-body">
+                <h2 class="section-title"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Script de Qualificação — WhatsApp</h2>
+                <p class="section-subtitle">As 5 perguntas que filtram o lead.</p>
+                <ol class="script-steps">
+                    <li>"Qual é a sua especialidade médica e como é o espaço hoje? (consultório solo, clínica com sócios, quantas salas)"</li>
+                    <li>"Qual é o maior incômodo com o ambiente atual? (estética, funcionalidade, normas, outro)"</li>
+                    <li>"Você precisa manter o consultório funcionando durante a transformação, ou pode ter parada?"</li>
+                    <li>"Você já tem alguma referência visual ou está partindo do zero?"</li>
+                    <li>"Qual é o prazo ideal? E você tem uma ideia do investimento disponível?"</li>
+                </ol>
+                <div class="criteria-box">
+                    <h4><i class="fa-solid fa-filter" aria-hidden="true"></i> Critério de Passagem para Call</h4>
+                    <p>Profissional de saúde + espaço próprio ou contrato ≥ 2 anos + dor clara com o ambiente + prazo definido ou urgência demonstrada.</p>
+                </div>
+                <hr class="section-divider">
+                <h2 class="section-title"><i class="fa-solid fa-phone" aria-hidden="true"></i> Roteiro da Call de Fechamento</h2>
+                <p class="section-subtitle">6 etapas em ~50 minutos.</p>
+                <div class="call-steps">
+                    <div class="call-step">
+                        <div class="call-step-number">1</div>
+                        <div class="call-step-content">
+                            <h4>Rapport</h4>
+                            <div class="call-duration">~5 minutos</div>
+                            <p>Criar conexão genuína.</p>
+                            <div class="call-questions">"Me conta sobre você e sua trajetória na medicina."</div>
+                        </div>
+                    </div>
+                    <div class="call-step">
+                        <div class="call-step-number">2</div>
+                        <div class="call-step-content">
+                            <h4>Diagnóstico</h4>
+                            <div class="call-duration">~15 minutos</div>
+                            <p>Entender a dor real por trás da queixa superficial.</p>
+                            <div class="call-questions">"O que te incomoda quando entra no consultório?" · "Como quer que os pacientes se sintam?"</div>
+                        </div>
+                    </div>
+                    <div class="call-step">
+                        <div class="call-step-number">3</div>
+                        <div class="call-step-content">
+                            <h4>Solução</h4>
+                            <div class="call-duration">~10 minutos</div>
+                            <p>Apresentar Método Revela + portfólio de caso similar.</p>
+                            <div class="call-questions">Mostrar caso da mesma especialidade + aprovação da vigilância sanitária.</div>
+                        </div>
+                    </div>
+                    <div class="call-step">
+                        <div class="call-step-number">4</div>
+                        <div class="call-step-content">
+                            <h4>Preço</h4>
+                            <div class="call-duration">~5 minutos</div>
+                            <p>Apresentar opções com segurança. Ancorar no custo de não fazer nada.</p>
+                            <div class="call-questions">Maquiagem vs. Completo. "Quanto custa cada mês com um ambiente que afasta pacientes?"</div>
+                        </div>
+                    </div>
+                    <div class="call-step">
+                        <div class="call-step-number">5</div>
+                        <div class="call-step-content">
+                            <h4>Objeções</h4>
+                            <div class="call-duration">~10 minutos</div>
+                            <p>Neutralizar dúvidas com empatia e provas.</p>
+                            <div class="call-questions">Ver tabela de objeções abaixo.</div>
+                        </div>
+                    </div>
+                    <div class="call-step">
+                        <div class="call-step-number">6</div>
+                        <div class="call-step-content">
+                            <h4>Fechamento</h4>
+                            <div class="call-duration">~5 minutos</div>
+                            <p>Definir próximo passo concreto.</p>
+                            <div class="call-questions">"Vamos começar pelo diagnóstico? Posso ir ao seu consultório essa semana."</div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="section-divider">
+                <h2 class="section-title"><i class="fa-solid fa-shield" aria-hidden="true"></i> Objeções e Respostas</h2>
+                <p class="section-subtitle">As 5 objeções mais comuns e como neutralizar cada uma.</p>
+                <div class="objection-grid">
+                    <div class="objection-card">
+                        <div class="objection-question"><i class="fa-solid fa-quote-left" aria-hidden="true"></i> "Está caro."</div>
+                        <div class="objection-answer">"Quanto você perde por mês com um ambiente que não transmite o padrão que você tem? Um projeto que posiciona sua marca vale mais que o investimento — e parcelamos em até 12x."</div>
+                    </div>
+                    <div class="objection-card">
+                        <div class="objection-question"><i class="fa-solid fa-quote-left" aria-hidden="true"></i> "Preciso pensar."</div>
+                        <div class="objection-answer">"O que especificamente você precisa avaliar? Assim posso te ajudar a chegar na resposta mais rápido."</div>
+                    </div>
+                    <div class="objection-card">
+                        <div class="objection-question"><i class="fa-solid fa-quote-left" aria-hidden="true"></i> "Não tenho tempo agora."</div>
+                        <div class="objection-answer">"É exatamente por isso que existe a Maquiagem de Consultório — acontece em um final de semana, sem perder um dia de consulta."</div>
+                    </div>
+                    <div class="objection-card">
+                        <div class="objection-question"><i class="fa-solid fa-quote-left" aria-hidden="true"></i> "O espaço é alugado, não posso quebrar parede."</div>
+                        <div class="objection-answer">"Obras limpas são uma especialidade minha. Revestimento, iluminação e mobiliário transformam completamente sem modificação estrutural."</div>
+                    </div>
+                    <div class="objection-card">
+                        <div class="objection-question"><i class="fa-solid fa-quote-left" aria-hidden="true"></i> "Preciso ver seu portfólio."</div>
+                        <div class="objection-answer">"Vou te enviar projetos da sua especialidade. Inclusive, tenho um caso em que a vigilância sanitária usou o projeto como referência de excelência para toda a rede."</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="lacunas-report" style="display:none;">
+        <h2>RELATÓRIO DE LACUNAS</h2>
+        <h3>Campos Críticos</h3>
+        <ul>
+            <li>Nome do negócio/marca — Metadados</li>
+            <li>Tabela de preços 2025 — Bloco 5</li>
+            <li>Garantia e condições — Bloco 5</li>
+            <li>História texto corrido — Bloco 7</li>
+            <li>Portfólio fotográfico — Bloco 8</li>
+        </ul>
+        <h3>Campos Importantes</h3>
+        <ul>
+            <li>Paleta de cores e identidade visual — Bloco 8</li>
+            <li>Depoimentos em texto/vídeo — Bloco 8</li>
+            <li>Ticket Projeto Completo — Bloco 5</li>
+            <li>Bônus dos produtos — Bloco 5</li>
+            <li>Capacidade produtiva — Bloco 9/10</li>
+        </ul>
+        <h3>Campos Opcionais</h3>
+        <ul>
+            <li>Referências bibliográficas — Bloco 3</li>
+            <li>Contato Casacor — Bloco 5/9</li>
+            <li>Plano de expansão — Bloco 10</li>
+        </ul>
+        <p>Completude: 52/62 campos (72%)</p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navItems = document.querySelectorAll('.nav-item');
+            const tabContents = document.querySelectorAll('.tab-content');
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    tabContents.forEach(tab => tab.classList.remove('active'));
+                    item.classList.add('active');
+                    const targetTab = document.getElementById(item.getAttribute('data-target'));
+                    if (targetTab) {
+                        targetTab.classList.add('active');
+                        document.querySelector('.main-content').scrollTop = 0;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
