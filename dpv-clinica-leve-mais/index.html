@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Clínica Leve Mais — Dossiê Estratégico</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #F5F7F5;
+            --surface-color: #FFFFFF;
+            --text-primary: #1A2332;
+            --text-secondary: #4A5568;
+            --brand: #1B4332;
+            --brand-light: rgba(27, 67, 50, 0.07);
+            --brand-dark: #143728;
+            --accent: #D4A853;
+            --accent-light: rgba(212, 168, 83, 0.10);
+            --border-color: #E2E8F0;
+            --border-light: #F1F5F9;
+            --success: #10B981;
+            --danger: #D32F2F;
+            --text-muted: #888888;
+            --bg-alt: #EEF2EF;
+            --placeholder: #A3A3A3;
+            --font-sans: 'Nunito', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --sidebar-width: 280px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.65;
+            display: flex;
+            min-height: 100vh;
+        }
+        h1, h2, h3, h4, h5 { line-height: 1.3; }
+        a { color: var(--brand); text-decoration: none; }
+        ul, ol { padding-left: 20px; }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--brand);
+            color: #fff;
+            position: fixed;
+            top: 0; left: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            overflow-y: auto;
+        }
+        .sidebar-header {
+            padding: 28px 24px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .sidebar-header h2 {
+            font-family: var(--font-serif);
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .sidebar-header .sub {
+            font-size: 11px;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .sidebar-progress {
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .sidebar-progress label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .progress-bar-track {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 82%;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        .progress-text {
+            font-size: 12px;
+            margin-top: 6px;
+            opacity: 0.8;
+        }
+        .sidebar-nav {
+            flex: 1;
+            padding: 16px 12px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            margin-bottom: 4px;
+            cursor: pointer;
+        }
+        .nav-item:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        .nav-item.active {
+            background: var(--accent);
+            color: var(--brand);
+        }
+        .nav-item i { width: 20px; text-align: center; font-size: 15px; }
+        .sidebar-footer {
+            padding: 16px 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 11px;
+            opacity: 0.45;
+            line-height: 1.6;
+        }
+        .mobile-nav { display: none; }
+
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+        .tab-content {
+            display: none;
+            padding: 40px 48px 60px;
+            max-width: 1100px;
+        }
+        .tab-content.active { display: block; }
+
+        .tab-header {
+            margin-bottom: 40px;
+            padding-bottom: 28px;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .tab-header .tab-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px; height: 48px;
+            background: var(--brand-light);
+            color: var(--brand);
+            border-radius: 12px;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+        .tab-header h1 {
+            font-family: var(--font-serif);
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .tab-header p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            max-width: 700px;
+        }
+
+        h2.section-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            padding-top: 12px;
+        }
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 48px 0 32px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        .cards-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .profile-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .profile-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+        .card-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+        .tag-green { background: rgba(16,185,129,0.1); color: #059669; }
+        .tag-amber { background: rgba(245,158,11,0.1); color: #B45309; }
+        .tag-gold { background: var(--accent-light); color: #8B6914; }
+        .tag-brand { background: var(--brand-light); color: var(--brand); }
+        .tag-red { background: rgba(211,47,47,0.08); color: #C62828; }
+        .profile-card h3 {
+            font-family: var(--font-serif);
+            font-size: 19px;
+            margin-bottom: 4px;
+        }
+        .profile-card .card-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+        .profile-card p, .profile-card li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .profile-card h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 16px 0 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .profile-card.gold-tier {
+            border: 2px solid var(--accent);
+            background: linear-gradient(145deg, rgba(212,168,83,0.04) 0%, var(--surface-color) 100%);
+            position: relative;
+        }
+        .gold-badge {
+            position: absolute;
+            top: -1px; right: 20px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 12px;
+            border-radius: 0 0 6px 6px;
+        }
+
+        .pain-layer {
+            background: var(--surface-color);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 20px;
+            border-left: 4px solid;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .pain-layer.layer-1 { border-left-color: #F59E0B; }
+        .pain-layer.layer-2 { border-left-color: #F97316; }
+        .pain-layer.layer-3 { border-left-color: #DC2626; }
+        .pain-layer .layer-tag {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .pain-layer.layer-1 .layer-tag { background: rgba(245,158,11,0.1); color: #B45309; }
+        .pain-layer.layer-2 .layer-tag { background: rgba(249,115,22,0.1); color: #C2410C; }
+        .pain-layer.layer-3 .layer-tag { background: rgba(220,38,38,0.1); color: #B91C1C; }
+        .pain-layer h3 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        .pain-layer p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .pain-layer .voice-quote {
+            font-style: italic;
+            color: var(--text-muted);
+            padding: 10px 16px;
+            background: var(--bg-alt);
+            border-radius: 6px;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        .vocab-column h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .vocab-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .vocab-card .word { font-weight: 700; min-width: 160px; }
+        .vocab-card .reason { color: var(--text-secondary); font-size: 13px; }
+        .vocab-card.positive {
+            background: rgba(16,185,129,0.06);
+            border: 1px solid rgba(16,185,129,0.15);
+        }
+        .vocab-card.positive .word { color: #065F46; }
+        .vocab-card.negative {
+            background: rgba(220,38,38,0.04);
+            border: 1px solid rgba(220,38,38,0.12);
+        }
+        .vocab-card.negative .word { color: #B91C1C; }
+
+        .quote-block {
+            background: var(--surface-color);
+            border-left: 4px solid var(--brand);
+            padding: 20px 24px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 16px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+        .quote-block .quote-text {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 17px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .quote-block small { font-size: 12px; color: var(--text-muted); }
+        .quote-block.featured {
+            border-left-color: var(--accent);
+            background: linear-gradient(135deg, rgba(212,168,83,0.05), var(--surface-color));
+            padding: 28px 28px;
+        }
+        .quote-block.featured .quote-text { font-size: 19px; }
+        .quotes-group { margin-bottom: 48px; }
+
+        .highlight-box {
+            background: var(--brand-light);
+            border: 1px solid rgba(27,67,50,0.12);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+        .highlight-box h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--brand);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .highlight-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .warning-box {
+            background: rgba(212,168,83,0.08);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 10px 10px 0;
+            padding: 20px 24px;
+            margin-bottom: 32px;
+        }
+        .warning-box h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #8B6914;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warning-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .alert-banner {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            font-size: 14px;
+        }
+        .alert-banner.critical {
+            background: rgba(211,47,47,0.05);
+            border: 1px solid rgba(211,47,47,0.18);
+            color: #B71C1C;
+        }
+        .alert-banner.critical > i {
+            color: #D32F2F;
+            font-size: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .alert-banner strong { display: block; margin-bottom: 4px; }
+        .alert-banner p { margin: 0; font-size: 13px; opacity: 0.85; }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 16px;
+        }
+        .feature-list li {
+            position: relative;
+            padding: 8px 0 8px 28px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .feature-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0; top: 10px;
+            color: var(--success);
+            font-size: 12px;
+        }
+
+        .method-ab-container { margin-bottom: 48px; }
+        .point-card {
+            background: var(--surface-color);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .point-card.point-a { border-left: 5px solid #DC2626; }
+        .point-card.point-b { border-left: 5px solid var(--success); }
+        .point-card h3 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .point-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .method-bridge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px 0;
+            margin-bottom: 24px;
+        }
+        .method-bridge .bridge-title {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--brand);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .method-bridge .bridge-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+        .step-card {
+            background: var(--brand-light);
+            border: 1px solid rgba(27,67,50,0.1);
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .step-card .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; height: 36px;
+            background: var(--brand);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .step-card h4 {
+            font-family: var(--font-serif);
+            font-size: 16px;
+            color: var(--brand);
+            margin-bottom: 8px;
+        }
+        .step-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .step-card .step-deliverable {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(27,67,50,0.15);
+            font-size: 12px;
+            color: var(--brand);
+            font-weight: 600;
+        }
+        .method-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 0;
+            color: var(--brand);
+            font-size: 24px;
+            opacity: 0.4;
+        }
+
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        .tier-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .tier-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+        .tier-card .tier-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+        .tier-card h3 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .tier-card .tier-model {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        .tier-card p, .tier-card li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .tier-card h4 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+            margin: 16px 0 8px;
+        }
+        .tier-card.featured-tier {
+            border: 2px solid var(--accent);
+            background: linear-gradient(145deg, rgba(212,168,83,0.04) 0%, var(--surface-color) 100%);
+        }
+        .tier-card.featured-tier::before {
+            content: '\2605  CARRO-CHEFE';
+            position: absolute;
+            top: -1px; right: 20px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 0 0 6px 6px;
+        }
+
+        .ig-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+        .ig-element {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 24px;
+        }
+        .ig-element h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--brand);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ig-element p, .ig-element li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .ig-bio-mock {
+            background: var(--bg-alt);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 24px;
+            font-family: var(--font-sans);
+        }
+        .ig-bio-mock .bio-name {
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .ig-bio-mock .bio-line {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .journey-flow { margin-bottom: 48px; }
+        .jf-node {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px 24px;
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .jf-node.jf-entry {
+            background: var(--brand);
+            color: #fff;
+            border-color: var(--brand);
+        }
+        .jf-node.jf-action {
+            background: var(--accent-light);
+            border-color: var(--accent);
+            color: #8B6914;
+        }
+        .jf-arrow {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 20px;
+            padding: 4px 0;
+        }
+        .jf-branches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 20px;
+            margin-top: 16px;
+            margin-bottom: 48px;
+        }
+        .jf-branch {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 24px;
+        }
+        .jf-branch h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--brand);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .jf-branch p, .jf-branch li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .field-empty {
+            color: var(--placeholder);
+            font-style: italic;
+            font-size: 14px;
+            padding: 12px 16px;
+            background: rgba(163,163,163,0.08);
+            border-radius: 6px;
+            border: 1px dashed var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .field-empty i { color: #F59E0B; }
+        .section-empty {
+            padding: 40px;
+            text-align: center;
+            background: var(--bg-alt);
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+        .section-empty i {
+            font-size: 32px;
+            color: #F59E0B;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .section-empty p { font-size: 15px; margin-bottom: 4px; }
+        .section-empty small { font-size: 12px; opacity: 0.7; }
+        .inferred-badge {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: rgba(245,158,11,0.1);
+            color: #B45309;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .script-steps { margin-bottom: 48px; }
+        .script-step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+        .script-step .step-number {
+            width: 32px; height: 32px;
+            background: var(--brand);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+        .script-step .step-text {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 16px 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            flex: 1;
+        }
+        .script-step .step-text em {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .objection-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+        .objection-card .objection-trigger {
+            font-weight: 700;
+            color: var(--danger);
+            font-size: 15px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .objection-card .objection-response {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            padding-left: 16px;
+            border-left: 3px solid var(--success);
+        }
+
+        .pillar-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+        .pillar-card .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .pillar-card .pillar-icon {
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .pillar-card h3 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+        }
+        .pillar-card .pillar-obj {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .pillar-card p, .pillar-card li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .pillar-card h4 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+            margin: 16px 0 8px;
+        }
+        .example-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .example-topics span {
+            background: var(--bg-alt);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .roteiro-step {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            align-items: start;
+        }
+        .roteiro-step .rs-number {
+            width: 40px; height: 40px;
+            background: var(--brand-light);
+            color: var(--brand);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .roteiro-step h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .roteiro-step .rs-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .roteiro-step p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 900px) {
+            .sidebar { display: none; }
+            .mobile-nav {
+                display: flex;
+                position: fixed;
+                top: 0; left: 0; right: 0;
+                background: var(--brand);
+                z-index: 100;
+                overflow-x: auto;
+                padding: 0 8px;
+                gap: 4px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .mobile-nav .nav-item {
+                padding: 14px 14px;
+                font-size: 12px;
+                white-space: nowrap;
+                gap: 6px;
+                margin: 0;
+                border-radius: 0;
+            }
+            .mobile-nav .nav-item.active {
+                border-bottom: 3px solid var(--accent);
+                background: transparent;
+                color: var(--accent);
+                border-radius: 0;
+            }
+            .mobile-nav .nav-item:hover { background: transparent; }
+            .main-content { margin-left: 0; margin-top: 52px; }
+            .tab-content { padding: 24px 16px 48px; }
+            .tab-header h1 { font-size: 24px; }
+            .cards-grid, .cards-grid-2, .tier-grid, .vocab-grid, .jf-branches, .ig-grid, .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            .roteiro-step { grid-template-columns: 1fr; }
+            .roteiro-step .rs-number { width: 32px; height: 32px; font-size: 12px; }
+        }
+        @media (max-width: 480px) {
+            .tab-content { padding: 20px 12px 40px; }
+            .profile-card, .pain-layer, .tier-card, .pillar-card, .jf-branch, .ig-element, .objection-card {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-nav">
+        <a href="#" class="nav-item active" data-target="tab-comunicacao">
+            <i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Comunicação
+        </a>
+        <a href="#" class="nav-item" data-target="tab-oferta">
+            <i class="fa-solid fa-box-open" aria-hidden="true"></i> Oferta
+        </a>
+        <a href="#" class="nav-item" data-target="tab-conteudo">
+            <i class="fa-solid fa-pen-nib" aria-hidden="true"></i> Conteúdo
+        </a>
+        <a href="#" class="nav-item" data-target="tab-aquisicao">
+            <i class="fa-solid fa-magnet" aria-hidden="true"></i> Aquisição
+        </a>
+        <a href="#" class="nav-item" data-target="tab-vendas">
+            <i class="fa-solid fa-chart-line" aria-hidden="true"></i> Vendas
+        </a>
+    </div>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Clínica Leve Mais</h2>
+            <p class="sub">Dossiê Estratégico</p>
+        </div>
+        <div class="sidebar-progress">
+            <label>Completude do Dossiê</label>
+            <div class="progress-bar-track">
+                <div class="progress-bar-fill"></div>
+            </div>
+            <div class="progress-text">82% — 47 de 57 campos preenchidos</div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-target="tab-comunicacao">
+                <i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Comunicação
+            </a>
+            <a href="#" class="nav-item" data-target="tab-oferta">
+                <i class="fa-solid fa-box-open" aria-hidden="true"></i> Oferta Produtizada
+            </a>
+            <a href="#" class="nav-item" data-target="tab-conteudo">
+                <i class="fa-solid fa-pen-nib" aria-hidden="true"></i> Produção de Conteúdo
+            </a>
+            <a href="#" class="nav-item" data-target="tab-aquisicao">
+                <i class="fa-solid fa-magnet" aria-hidden="true"></i> Aquisição de Clientes
+            </a>
+            <a href="#" class="nav-item" data-target="tab-vendas">
+                <i class="fa-solid fa-chart-line" aria-hidden="true"></i> Vendas e Escala
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            Versão 1.0 · 24/04/2026<br>
+            Alphaville, Barueri/SP
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <div id="tab-comunicacao" class="tab-content active">
+            <div class="tab-header">
+                <div class="tab-icon"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></div>
+                <h1>Comunicação e Posicionamento</h1>
+                <p>Perfis de cliente ideal, anatomia da dor, vocabulário estratégico, promessas de venda e identidade de comunicação da Clínica Leve Mais.</p>
+            </div>
+
+            <div class="alert-banner critical">
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                <div>
+                    <strong>Informações críticas pendentes nesta seção</strong>
+                    <p>A História de Origem do Dr. Rodrigo está ausente. Este é o ativo de copy mais poderoso em saúde — sem ele, a comunicação perde profundidade e diferenciação.</p>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fa-solid fa-exclamation-triangle" aria-hidden="true"></i> Nota Estratégica — Tensão de Posicionamento</h4>
+                <p>A clínica quer ser percebida como "acessível/popular", mas opera em Alphaville com protocolos médicos de alto padrão. Posicionar-se como "barato" em Alphaville é erro estratégico duplo: repele o público premium que vive ali e não é crível para o público de menor renda que não irá até Alphaville. <strong>A recomendação é reposicionar para "acessível em acesso, premium em resultado"</strong> — o foco é na viabilidade do acesso (reembolso de convênio, parcelamento, facilidade de agendar), não no preço baixo.</p>
+            </div>
+
+            <h2 class="section-title">Perfis de Cliente Ideal (ICPs)</h2>
+            <p class="section-subtitle">Os 3 arquétipos que a Clínica Leve Mais deve atrair, engajar e converter — do curioso ao paciente fidelizado.</p>
+
+            <div class="cards-grid">
+                <div class="profile-card">
+                    <span class="card-tag tag-green">Perfil 1 — Iniciante</span>
+                    <h3>O Inconformado</h3>
+                    <p class="card-subtitle">"A pessoa que ouviu falar das canetas e quer entender se funciona pra ela"</p>
+                    <p>Homem ou mulher entre 28 e 48 anos, com sobrepeso moderado, que vive ou trabalha na região de Alphaville/Barueri. Já ouviu falar das "canetas emagrecedoras" pelas redes sociais, pelo trabalho ou por amigos. Está curiosa, levemente desconfiante e sem saber como acessar esse tratamento de forma segura.</p>
+                    <h4><i class="fa-solid fa-fingerprint" aria-hidden="true"></i> Características</h4>
+                    <ul class="feature-list">
+                        <li>Não tem clareza sobre a causa do sobrepeso — acredita que é "falta de força de vontade" ou "genética", mas nunca fez avaliação hormonal.</li>
+                        <li>Já tentou dieta e academia. Resultado momentâneo seguido de efeito rebote gerou frustração e narrativa de "não funciona pra mim".</li>
+                        <li>Sente cansaço frequente que atribui ao estresse — não conecta fadiga com desequilíbrio metabólico/hormonal.</li>
+                    </ul>
+                    <h4><i class="fa-solid fa-box-open" aria-hidden="true"></i> Produto Recomendado</h4>
+                    <p>Consulta de Avaliação Inicial (porta de entrada → converte para protocolo de emagrecimento)</p>
+                    <h4><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Onde Encontrar</h4>
+                    <p>Instagram (reels sobre emagrecimento, GLP-1, receitas) e Google (busca ativa por "caneta emagrecedora Alphaville", "médico para emagrecer Barueri")</p>
+                </div>
+
+                <div class="profile-card">
+                    <span class="card-tag tag-amber">Perfil 2 — Intermediário</span>
+                    <h3>O Frustrado</h3>
+                    <p class="card-subtitle">"Tentou, teve resultado, perdeu tudo. Está com medo de se frustrar de novo."</p>
+                    <p>Homem ou mulher entre 35 e 55 anos, com sobrepeso mais estabelecido, que já entrou em contato com algum tipo de tratamento — dieta, nutri, academia, talvez automedicação com caneta. O resultado veio, mas o efeito rebote foi devastador. Hoje está mais pesado(a) e carrega descrença.</p>
+                    <h4><i class="fa-solid fa-lock" aria-hidden="true"></i> A Insegurança</h4>
+                    <p>"Será que o tratamento vai funcionar pra mim? Já tentei tantas coisas." — Paralisa com a dúvida de que seu corpo é "diferente" e não responde ao que funciona para outros.</p>
+                    <h4><i class="fa-solid fa-ghost" aria-hidden="true"></i> O Medo</h4>
+                    <p>Gastar dinheiro em mais uma promessa e se frustrar publicamente — com família, amigos, cônjuge que já viram tantas tentativas fracassarem.</p>
+                    <h4><i class="fa-solid fa-circle-pause" aria-hidden="true"></i> A Trava de Execução</h4>
+                    <p>Começou protocolo (geralmente dieta + academia), teve resultado nos primeiros 30 dias, perdeu motivação com a estagnação ou efeitos colaterais, abandonou. O ciclo se repete.</p>
+                    <h4><i class="fa-solid fa-box-open" aria-hidden="true"></i> Produto Recomendado</h4>
+                    <p>Protocolo de Emagrecimento Completo com acompanhamento mensal</p>
+                </div>
+
+                <div class="profile-card gold-tier">
+                    <div class="gold-badge"><i class="fa-solid fa-star" aria-hidden="true"></i> Lead Ouro</div>
+                    <span class="card-tag tag-gold">Perfil 3 — Ideal</span>
+                    <h3>O Paciente de Alta Fidelização</h3>
+                    <p class="card-subtitle">"O paciente que vai fidelizar, agregar e permanecer."</p>
+                    <p>Homem entre 38–58 anos com obesidade + sintomas associados (cansaço crônico, baixa libido, dificuldade de manter massa muscular, resistência insulínica). <strong>OU</strong> mulher entre 42–58 anos em menopausa/climatério com ganho de peso, fadiga e sintomas hormonais. Trabalha em Alphaville ou mora nas proximidades. Renda média-alta. Já investe em saúde.</p>
+                    <h4><i class="fa-solid fa-mountain" aria-hidden="true"></i> O Teto Físico</h4>
+                    <p>Sente que o corpo "parou de responder". Treina mas não ganha massa. Segue dieta mas não emagrece. Energia reduzida impacta performance profissional.</p>
+                    <h4><i class="fa-solid fa-gem" aria-hidden="true"></i> O Desejo de Legado</h4>
+                    <p>Não quer só emagrecer — quer voltar a se sentir como se sentia aos 30. Quer presença, disposição, performance. Para o homem: resgatar vitalidade e identidade. Para a mulher: passar pela menopausa sem perder o controle.</p>
+                    <h4><i class="fa-solid fa-eye-slash" aria-hidden="true"></i> O Desejo Oculto</h4>
+                    <p>Ser visto como alguém que "cuida de si" — não como alguém que "precisa emagrecer". A transformação é sobre retomar o controle, a disciplina, a identidade de alta performance.</p>
+                    <h4><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Dinâmica de Compra</h4>
+                    <p>Pesquisa antes, valoriza referência médica e científica, compra por confiança. Não é sensível a preço quando percebe valor e segurança. Tende a trazer família e amigos quando satisfeito.</p>
+                    <h4><i class="fa-solid fa-route" aria-hidden="true"></i> Jornada na Clínica</h4>
+                    <p>Diagnóstico de causa raiz → Protocolo de emagrecimento com GLP-1 → Soroterapia de disposição → Reposição hormonal → Protocolo de hipertrofia. É o paciente de maior LTV da clínica.</p>
+                    <h4><i class="fa-solid fa-box-open" aria-hidden="true"></i> Produto Recomendado</h4>
+                    <p>Protocolo Metabólico Completo (escalonado)</p>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2 class="section-title">Anatomia da Dor</h2>
+            <p class="section-subtitle">As 3 camadas de dor — do superficial ao existencial — que movem o paciente a agir.</p>
+
+            <div class="pain-layer layer-1">
+                <span class="layer-tag">Camada 1 — Dor Financeira / Operacional</span>
+                <h3>O Superficial</h3>
+                <p>O paciente sente que já gastou dinheiro com soluções que não funcionaram — academia, nutri, suplementos, e possivelmente automedicação com canetas compradas sem prescrição. Chega à clínica com um histórico de investimento perdido e medo de gastar mais no errado.</p>
+                <div class="voice-quote">
+                    <i class="fa-solid fa-quote-left" aria-hidden="true"></i> "Já tentei de tudo e gastei uma fortuna." · "Fiz automedicação porque não sabia como acessar o médico." · "Será que eu consigo pagar esse tratamento?"
+                </div>
+                <h4 style="margin-top:16px; font-size:13px; font-weight:700; color:var(--text-primary);">Gatilho de Urgência</h4>
+                <p>Verão/evento se aproximando, piora de um exame, comentário do médico do plano sobre o peso, ou um momento de "chega" diante do espelho.</p>
+            </div>
+
+            <div class="pain-layer layer-2">
+                <span class="layer-tag">Camada 2 — Dor de Posicionamento</span>
+                <h3>O Intermediário</h3>
+                <p>O paciente sente que o mercado de saúde o trata como um número. Nas clínicas comuns, sai com uma receita de sibutramina e um "volte em 3 meses". As soluções "premium" parecem inacessíveis. Está no meio — sabe que tem um problema sério, mas não se sente acolhido.</p>
+                <div class="voice-quote">
+                    <i class="fa-solid fa-quote-left" aria-hidden="true"></i> "O médico só me deu uma receita e mandou embora." · "Essas clínicas parecem ser só pra rico." · "Eu nem sabia que existia esse tipo de tratamento aqui perto."
+                </div>
+                <h4 style="margin-top:16px; font-size:13px; font-weight:700; color:var(--text-primary);">Comparação com Concorrência</h4>
+                <p>O paciente se sente subestimado pelo mercado. Vê pessoas obtendo resultados mas não teve acesso a um protocolo seguro e personalizado. Mistura de inveja e desconfiança.</p>
+            </div>
+
+            <div class="pain-layer layer-3">
+                <span class="layer-tag">Camada 3 — Dor Existencial / Emocional</span>
+                <h3>A Raiz</h3>
+                <p>O peso não é só estético. Para o homem, é uma ameaça à identidade — vitalidade, libido, força e presença física são pilares de como ele se vê no mundo. Para a mulher em menopausa, é uma sensação de perder o controle do próprio corpo em um momento de vida que já é de transição.</p>
+                <div class="voice-quote">
+                    <i class="fa-solid fa-quote-left" aria-hidden="true"></i> "Estou cansado de estar cansado." · "Não me reconheço mais no espelho." · "Quero ter a energia que eu tinha antes." · "Minha libido sumiu e isso está afetando meu relacionamento."
+                </div>
+                <h4 style="margin-top:16px; font-size:13px; font-weight:700; color:var(--text-primary);">Ligação com Identidade</h4>
+                <p>Para o homem, obesidade + baixa testosterona é uma crise silenciosa de masculinidade. Para a mulher em climatério, é a sensação de "o corpo me traiu". A clínica que os acolhe com seriedade e humanidade conquista fidelidade além do ciclo de emagrecimento.</p>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2 class="section-title">Vocabulário Estratégico</h2>
+            <p class="section-subtitle">Palavras que abrem portas e palavras que as fecham. Use com intenção em toda comunicação.</p>
+
+            <div class="vocab-grid">
+                <div class="vocab-column">
+                    <h3><i class="fa-solid fa-circle-check" style="color:var(--success);" aria-hidden="true"></i> Use e Abuse</h3>
+                    <div class="vocab-card positive"><span class="word">Protocolo médico</span><span class="reason">Diferencia de receita avulsa — transmite estrutura e cuidado</span></div>
+                    <div class="vocab-card positive"><span class="word">Avaliação hormonal completa</span><span class="reason">Promete descoberta da causa raiz</span></div>
+                    <div class="vocab-card positive"><span class="word">Destravar o emagrecimento</span><span class="reason">Linguagem de movimento — algo estava bloqueando</span></div>
+                    <div class="vocab-card positive"><span class="word">Saúde metabólica</span><span class="reason">Eleva o tema além do estético</span></div>
+                    <div class="vocab-card positive"><span class="word">Acompanhamento mensal</span><span class="reason">Transmite continuidade — combate medo do abandono</span></div>
+                    <div class="vocab-card positive"><span class="word">Resultado duradouro</span><span class="reason">Resposta ao trauma do efeito rebote</span></div>
+                    <div class="vocab-card positive"><span class="word">Personalizado</span><span class="reason">Combate sensação de tratamento genérico</span></div>
+                    <div class="vocab-card positive"><span class="word">Seguro / Segurança</span><span class="reason">Ataca medo da automedicação</span></div>
+                    <div class="vocab-card positive"><span class="word">Performance</span><span class="reason">Conecta com universo de quem já treina</span></div>
+                    <div class="vocab-card positive"><span class="word">Modulação metabólica</span><span class="reason">Autoridade sem ser inacessível</span></div>
+                    <div class="vocab-card positive"><span class="word">Tratamento integrado</span><span class="reason">Posiciona como parceira de saúde total</span></div>
+                    <div class="vocab-card positive"><span class="word">Canetas emagrecedoras</span><span class="reason">Linguagem DO paciente — use em topo de funil</span></div>
+                    <div class="vocab-card positive"><span class="word">Análogos de GLP-1</span><span class="reason">Versão técnica para contextos de autoridade</span></div>
+                    <div class="vocab-card positive"><span class="word">Vitalidade</span><span class="reason">Palavra-chave para público masculino e menopausa</span></div>
+                </div>
+                <div class="vocab-column">
+                    <h3><i class="fa-solid fa-circle-xmark" style="color:var(--danger);" aria-hidden="true"></i> Nunca Use</h3>
+                    <div class="vocab-card negative"><span class="word">Barato / Econômico</span><span class="reason">Desvalua percepção de qualidade médica</span></div>
+                    <div class="vocab-card negative"><span class="word">Emagrecimento rápido</span><span class="reason">Promessa sem base + ativa ceticismo</span></div>
+                    <div class="vocab-card negative"><span class="word">Milagre / Milagroso</span><span class="reason">Mata credibilidade médica instantaneamente</span></div>
+                    <div class="vocab-card negative"><span class="word">Resultados garantidos</span><span class="reason">Problema regulatório (CFM) + desconfiança</span></div>
+                    <div class="vocab-card negative"><span class="word">Popular</span><span class="reason">Colide com posicionamento de clínica especializada</span></div>
+                    <div class="vocab-card negative"><span class="word">Solução definitiva</span><span class="reason">Linguagem de charlatanismo</span></div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Frases Ouro para Copy</h2>
+            <p class="section-subtitle">Literais do material estratégico — prontas para usar em headlines, stories, anúncios e scripts.</p>
+            <div class="quotes-group">
+                <div class="quote-block"><div class="quote-text">"Muito além da receita"</div><small>Funciona como tagline de diferenciação</small></div>
+                <div class="quote-block"><div class="quote-text">"Destravar o emagrecimento"</div><small>Linguagem visceral, ideal para headlines</small></div>
+                <div class="quote-block"><div class="quote-text">"A automedicação traz riscos graves e o peso volta rápido"</div><small>Quebra de objeção pronta</small></div>
+                <div class="quote-block"><div class="quote-text">"Reeducação do seu metabolismo"</div><small>Diferencia de "dieta" e de "efeito temporário"</small></div>
+                <div class="quote-block"><div class="quote-text">"Tratamento sério para obesidade e sobrepeso"</div><small>Posicionamento direto</small></div>
+                <div class="quote-block"><div class="quote-text">"Resultados duradouros e seguros"</div><small>Elimina os dois maiores medos do ICP 2</small></div>
+                <div class="quote-block featured"><div class="quote-text">"Estou cansado de estar cansado."</div><small><i class="fa-solid fa-star" aria-hidden="true"></i> Frase do paciente — ouro puro para copy de dor</small></div>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2 class="section-title">Promessa Central e Ângulos de Venda</h2>
+            <p class="section-subtitle">Fórmula: QUEM + PROBLEMA + MECANISMO + SEM O QUÊ</p>
+
+            <div class="highlight-box" style="margin-bottom: 24px;">
+                <h4><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Fórmula Base</h4>
+                <p><strong>QUEM:</strong> Homens e mulheres com sobrepeso ou obesidade que não conseguem emagrecer sozinhos · <strong>PROBLEMA:</strong> Um metabolismo bloqueado por desequilíbrios hormonais e metabólicos nunca investigados · <strong>MECANISMO:</strong> Protocolo Leve Mais de Reequilíbrio Metabólico em 4 Etapas · <strong>SEM O QUÊ:</strong> Sem automedicação, sem efeito rebote, sem dieta genérica</p>
+            </div>
+
+            <div class="quote-block featured" style="margin-bottom: 16px;">
+                <span class="card-tag tag-gold" style="margin-bottom: 12px;">★ Promessa Vencedora — Foco na Dor Principal</span>
+                <div class="quote-text">"Descubra o bloqueio metabólico que impede seu corpo de emagrecer — e elimine gordura com segurança, acompanhamento médico e resultado que permanece."</div>
+                <small>Uso: hero section da landing page, headline de anúncio, abertura de VSL</small>
+            </div>
+            <div class="quote-block" style="margin-bottom: 16px;">
+                <span class="card-tag tag-brand" style="margin-bottom: 12px;">Promessa 2 — Facilidade</span>
+                <div class="quote-text">"Em uma avaliação médica completa, você finalmente entende por que não conseguia emagrecer — e sai com um protocolo personalizado para mudar isso."</div>
+                <small>Uso: stories de topo de funil, reels educativos, CTA de captura de lead</small>
+            </div>
+            <div class="quote-block" style="margin-bottom: 48px;">
+                <span class="card-tag tag-brand" style="margin-bottom: 12px;">Promessa 3 — Quebra de Objeção</span>
+                <div class="quote-text">"Mesmo que você já tenha tentado de tudo — dieta, academia, e até automedicação com caneta — nosso protocolo médico age na causa real do problema. Não no sintoma."</div>
+                <small>Uso: post fixado de diferenciação, copy de remarketing, stories comparativos</small>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2 class="section-title">Estratégia de Perfil Instagram</h2>
+            <p class="section-subtitle">Identidade, bio otimizada e regras de operação do perfil principal.</p>
+
+            <div class="ig-grid">
+                <div class="ig-element"><h4><i class="fa-solid fa-at" aria-hidden="true"></i> Nome com SEO</h4><p><strong>Opção A:</strong> Leve Mais | Emagrecimento Médico Alphaville</p><p><strong>Opção B:</strong> Dr. Rodrigo | Medicina Metabólica Alphaville</p></div>
+                <div class="ig-element"><h4><i class="fa-solid fa-clock" aria-hidden="true"></i> Frequência de Stories</h4><p>Mínimo 5/dia — mix de: educação (2), bastidores/humanização (2) e CTA suave (1)</p></div>
+                <div class="ig-element"><h4><i class="fa-solid fa-palette" aria-hidden="true"></i> Identidade Visual</h4><p>Verde-escuro (saúde + seriedade) + Branco (limpeza + confiança) + Dourado-mel como acento (premium acessível). Sem azul hospitalar genérico.</p></div>
+                <div class="ig-element"><h4><i class="fa-solid fa-hashtag" aria-hidden="true"></i> Palavras-chave para Algoritmo</h4><p>emagrecimento médico, caneta emagrecedora, saúde metabólica, hormônios, GLP-1, Alphaville, Barueri, soroterapia, reposição hormonal, obesidade, hipertrofia médica, lipedema, menopausa</p></div>
+            </div>
+
+            <h3 style="font-family: var(--font-serif); font-size: 18px; margin-bottom: 16px;">Bio Estratégica</h3>
+            <div class="ig-bio-mock">
+                <div class="bio-name">Leve Mais | Emagrecimento Médico Alphaville</div>
+                <div class="bio-line">Emagrecimento médico que trata a causa, não o sintoma 🧬</div>
+                <div class="bio-line">Protocolos de GLP-1 | Saúde Hormonal | Metabolismo · Alphaville</div>
+                <div class="bio-line">👇 Agende sua avaliação — funciona com convênio</div>
+                <div class="bio-line" style="color: var(--brand); font-weight: 600;">wa.me/5511940395689</div>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2 class="section-title">História de Origem</h2>
+            <p class="section-subtitle">A narrativa que humaniza a marca e constrói confiança profunda com o paciente.</p>
+
+            <div class="section-empty">
+                <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                <p>A História de Origem do Dr. Rodrigo está pendente.</p>
+                <small>Campos ausentes: O Gancho, A Origem, O Momento de Dor, A Virada, O Resultado e o Texto Bruto. Consulte o Relatório de Lacunas.</small>
+            </div>
+
+            <div class="highlight-box">
+                <h4><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> A Missão <span class="inferred-badge"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Inferido</span></h4>
+                <p>A filosofia latente é tornar o acesso ao tratamento metabólico de alta qualidade menos exclusivo geograficamente e financeiramente. O Dr. Rodrigo parece crer que a maioria das pessoas que falha no emagrecimento nunca foi investigada de verdade — e a missão da Leve Mais é ser essa investigação.</p>
+            </div>
+        </div>
+
+        <div id="tab-oferta" class="tab-content">
+            <div class="tab-header">
+                <div class="tab-icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></div>
+                <h1>Oferta Produtizada</h1>
+                <p>O Método Leve Mais, a esteira de produtos e serviços, e a estrutura de cada oferta da clínica.</p>
+            </div>
+
+            <div class="alert-banner critical">
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                <div>
+                    <strong>Informações críticas pendentes nesta seção</strong>
+                    <p>Tickets/preços de todos os produtos, bônus dos protocolos e garantia da oferta principal estão ausentes. Sem precificação, não é possível finalizar o funil ou os scripts de vendas.</p>
+                </div>
+            </div>
+
+            <h2 class="section-title">O Método — A Ponte A→B</h2>
+            <p class="section-subtitle">A jornada do paciente, do estado de frustração ao resultado desejado.</p>
+
+            <div class="method-ab-container">
+                <div class="point-card point-a">
+                    <h3><i class="fa-solid fa-circle-xmark" style="color: #DC2626;" aria-hidden="true"></i> Ponto A — Situação Atual do Paciente</h3>
+                    <p>Você acorda cansado, mesmo depois de dormir. A balança não se move apesar das dietas tentadas. O treino não dá resultado como antes. Você não sabe se o problema é o que come, o que treina, ou algo que ninguém nunca investigou de verdade — seus hormônios, seu metabolismo. Talvez já tenha tentado automedicar com alguma "caneta" comprada de recomendação e o peso voltou. Você chega carregando não só os quilos no corpo, mas o peso de anos de tentativas frustradas.</p>
+                </div>
+                <div class="method-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                <div class="method-bridge">
+                    <div class="bridge-title">Protocolo Leve Mais — Reequilíbrio Metabólico em 4 Etapas</div>
+                    <div class="bridge-sub">Preserva a marca, entrega a promessa de transformação, indica estrutura e diferencia de uma simples consulta médica.</div>
+                    <div class="steps-grid">
+                        <div class="step-card">
+                            <div class="step-num">1</div>
+                            <h4>Diagnóstico Raiz</h4>
+                            <p>Avaliação hormonal e metabólica completa. Identificamos o bloqueio real — resistência insulínica, deficiência hormonal ou alteração metabólica — antes de prescrever qualquer coisa.</p>
+                            <div class="step-deliverable"><i class="fa-solid fa-file-medical" aria-hidden="true"></i> Laudo de avaliação + plano personalizado</div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-num">2</div>
+                            <h4>Ativação Metabólica</h4>
+                            <p>Prescrição personalizada de análogos de GLP-1 com ajuste de dosagem mensal. Protocolo anti-rebote com monitoramento e reposição preventiva de vitaminas.</p>
+                            <div class="step-deliverable"><i class="fa-solid fa-prescription" aria-hidden="true"></i> Prescrição + acompanhamento mensal</div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-num">3</div>
+                            <h4>Restauração Celular</h4>
+                            <p>Soroterapia endovenosa com vitaminas, aminoácidos e ferro. Combate à fadiga crônica, baixa imunidade e deficiências que travam a energia.</p>
+                            <div class="step-deliverable"><i class="fa-solid fa-syringe" aria-hidden="true"></i> Sessões de soroterapia + suplementação</div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-num">4</div>
+                            <h4>Performance e Composição</h4>
+                            <p>Reposição hormonal (testosterona, implantes, manejo de menopausa) e protocolo de hipertrofia para quem treina mas não vê resultado.</p>
+                            <div class="step-deliverable"><i class="fa-solid fa-dumbbell" aria-hidden="true"></i> Protocolo hormonal contínuo + composição corporal</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="method-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                <div class="point-card point-b">
+                    <h3><i class="fa-solid fa-circle-check" style="color: var(--success);" aria-hidden="true"></i> Ponto B — A Chegada (Resultado Prometido)</h3>
+                    <p>Você acorda disposto. Os exames normalizaram. A roupa voltou a caber — ou você comprou novas. Você não está "fazendo dieta": está vivendo com um metabolismo que funciona. <strong>Para o homem:</strong> voltou a libido, a disposição e a identidade física de quem está no controle do próprio corpo. <strong>Para a mulher em menopausa:</strong> passou pela transição sem perder o controle do peso, do humor e da energia. <strong>Para quem treina:</strong> finalmente o treino está produzindo o resultado que merecia.</p>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2 class="section-title">Esteira de Produtos e Ofertas</h2>
+            <p class="section-subtitle">Da porta de entrada à fidelização máxima — cada nível escala o valor percebido e o LTV do paciente.</p>
+
+            <div class="tier-grid">
+                <div class="tier-card">
+                    <span class="tier-label tag-green">Front-End — Porta de Entrada</span>
+                    <h3>Consulta de Avaliação Metabólica</h3>
+                    <div class="tier-model">Formato: Consulta presencial em Alphaville</div>
+                    <p>"Em uma consulta, você descobre o que está travando seu corpo de emagrecer — e sai com um plano médico personalizado."</p>
+                    <h4>Ticket</h4>
+                    <div class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Valor da consulta não informado — completar após coleta com a clínica</div>
+                    <h4>Objetivo Estratégico</h4>
+                    <p>Qualificar o lead, gerar diagnóstico de causa raiz, criar vínculo de confiança médica e converter para o Protocolo de Emagrecimento.</p>
+                </div>
+                <div class="tier-card">
+                    <span class="tier-label tag-amber">Back-End — Nível 1</span>
+                    <h3>Protocolo de Emagrecimento Ativo</h3>
+                    <div class="tier-model">Modelo: DWY — acompanhamento mensal + prescrição GLP-1</div>
+                    <h4>Entregáveis</h4>
+                    <ul class="feature-list">
+                        <li>Exames iniciais</li>
+                        <li>Prescrição de análogo de GLP-1</li>
+                        <li>Ajuste mensal de dosagem</li>
+                        <li>Reposição vitamínica preventiva</li>
+                        <li>Orientações de estilo de vida</li>
+                    </ul>
+                    <h4>Duração</h4><p>Mínimo 3 a 6 meses (recorrente)</p>
+                    <h4>Ticket</h4>
+                    <div class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Valor do protocolo mensal não informado</div>
+                </div>
+                <div class="tier-card featured-tier">
+                    <span class="tier-label tag-gold">Back-End — Nível 2</span>
+                    <h3>Protocolo Metabólico Completo Leve Mais</h3>
+                    <div class="tier-model">Modelo: DFY / Acompanhamento contínuo — emagrecimento + soroterapia + hormonal</div>
+                    <h4>Entregáveis Detalhados</h4>
+                    <ul class="feature-list">
+                        <li>Avaliação hormonal completa</li>
+                        <li>Protocolo GLP-1 personalizado</li>
+                        <li>Sessões de soroterapia (vitaminas + aminoácidos + ferro)</li>
+                        <li>Acompanhamento mensal com ajuste de dosagem</li>
+                        <li>Suporte via WhatsApp entre consultas</li>
+                    </ul>
+                    <h4>Ticket</h4>
+                    <div class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Valor do protocolo completo não informado</div>
+                    <h4>Processo Pós-Venda</h4>
+                    <p>Consultas mensais de monitoramento, exames periódicos, evolução para etapas 3 e 4 do método.</p>
+                    <h4>Bônus</h4>
+                    <div class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Bônus a definir com a clínica — aumentam percepção de valor</div>
+                    <h4>Garantia</h4>
+                    <div class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Garantia não definida — avaliar possibilidade de garantia de satisfação</div>
+                    <h4>Duração</h4><p>Recorrente — modelo de fidelização</p>
+                </div>
+                <div class="tier-card">
+                    <span class="tier-label tag-gold">Back-End — Nível 3</span>
+                    <h3>Protocolo de Performance e Longevidade</h3>
+                    <div class="tier-model">Modelo: Retainer mensal — reposição hormonal + hipertrofia + manutenção</div>
+                    <h4>Perfil Elegível</h4>
+                    <p>Lead Ouro (Perfil 3) — paciente que completou o emagrecimento e busca otimização de composição, hormônios e longevidade.</p>
+                    <h4>Entregáveis Contínuos</h4>
+                    <ul class="feature-list">
+                        <li>Reposição hormonal (testosterona / implantes / menopausa)</li>
+                        <li>Lipoenzima</li>
+                        <li>Soroterapia de manutenção</li>
+                        <li>Avaliações periódicas de composição corporal</li>
+                        <li>Protocolos de hipertrofia</li>
+                    </ul>
+                    <h4>Ticket</h4>
+                    <div class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Valor do retainer mensal não informado</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-conteudo" class="tab-content">
+            <div class="tab-header">
+                <div class="tab-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></div>
+                <h1>Produção de Conteúdo</h1>
+                <p>Os 3 pilares de conteúdo, pautas prontas, destaques obrigatórios e posts fixados para o perfil da Clínica Leve Mais.</p>
+            </div>
+
+            <h2 class="section-title">Os 3 Pilares de Conteúdo</h2>
+            <p class="section-subtitle">Cada pilar tem uma função estratégica no funil — alcance, conversão e doutrinação.</p>
+
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-icon" style="background: rgba(59,130,246,0.1); color: #2563EB;"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></div>
+                    <div><h3>Pilar 1 — Alcance (Topo de Funil)</h3><p class="pillar-obj">Objetivo: Atrair pessoas novas para o perfil</p></div>
+                </div>
+                <h4>CTA Principal</h4><p>"Siga meu perfil" / "Salva esse post"</p>
+                <h4>Exemplos de Pauta</h4>
+                <div class="example-topics">
+                    <span>Por que a dieta não funciona para obesidade real</span>
+                    <span>O que é GLP-1 e como age no corpo</span>
+                    <span>5 sinais de que seu cansaço tem causa hormonal</span>
+                </div>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-icon" style="background: rgba(245,158,11,0.1); color: #D97706;"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+                    <div><h3>Pilar 2 — Movimento (Dor / Venda)</h3><p class="pillar-obj">Objetivo: Gerar demanda e caixa</p></div>
+                </div>
+                <h4>CTA Principal</h4><p>"Comente QUERO" / "Manda uma mensagem"</p>
+                <h4>Exemplos de Pauta</h4>
+                <div class="example-topics">
+                    <span>Automedicação vs protocolo médico: o que acontece com o peso</span>
+                    <span>Como funciona a consulta de avaliação</span>
+                </div>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-icon" style="background: var(--brand-light); color: var(--brand);"><i class="fa-solid fa-heart" aria-hidden="true"></i></div>
+                    <div><h3>Pilar 3 — Doutrinação (Valores)</h3><p class="pillar-obj">Objetivo: Criar identificação e fãs</p></div>
+                </div>
+                <h4>CTA Principal</h4><p>Nenhum — apenas conexão emocional</p>
+                <h4>Exemplos de Pauta</h4>
+                <div class="example-topics">
+                    <span>Bastidores da clínica</span>
+                    <span>Filosofia de cuidado total</span>
+                    <span>Dr. Rodrigo explicando um conceito</span>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2 class="section-title">Os 3 Destaques Obrigatórios</h2>
+            <p class="section-subtitle">Destaques fixos no perfil do Instagram — cada um com uma função na jornada do lead.</p>
+
+            <div class="cards-grid">
+                <div class="profile-card">
+                    <span class="card-tag tag-brand">Destaque 1</span>
+                    <h3>Quem Somos</h3>
+                    <ul class="feature-list"><li>Abertura com a missão da Leve Mais</li><li>Apresentação do Dr. Rodrigo e equipe</li><li>Estrutura da clínica</li><li>Convite para avaliar</li></ul>
+                    <div class="field-empty" style="margin-top: 12px;"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Depende da História de Origem — pendente</div>
+                </div>
+                <div class="profile-card">
+                    <span class="card-tag tag-brand">Destaque 2</span>
+                    <h3>Como Funciona</h3>
+                    <ul class="feature-list"><li>O problema (estado do paciente)</li><li>Nossa abordagem em 4 etapas</li><li>O que você recebe na avaliação</li><li>CTA para WhatsApp</li></ul>
+                </div>
+                <div class="profile-card">
+                    <span class="card-tag tag-brand">Destaque 3</span>
+                    <h3>Resultados</h3>
+                    <div class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Clínica tem 2-3 meses — documentar primeiros casos com autorização</div>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2 class="section-title">Os 3 Posts Fixados</h2>
+            <p class="section-subtitle">Os posts que ficam no topo do perfil — cada um com função estratégica definida.</p>
+
+            <div class="cards-grid">
+                <div class="profile-card">
+                    <span class="card-tag tag-gold">Post 1 — Campeão de Vendas (Pitch)</span>
+                    <h3>Como funciona o protocolo de emagrecimento médico da Leve Mais</h3>
+                    <p><strong>Formato:</strong> Carrossel</p>
+                    <ul class="feature-list"><li>Slide 1: Headline impactante</li><li>Slides 2-5: As 4 etapas do método</li><li>Slide 6: Para quem é indicado</li><li>Slide 7: CTA para WhatsApp</li></ul>
+                </div>
+                <div class="profile-card">
+                    <span class="card-tag tag-brand">Post 2 — Princípios e Valores</span>
+                    <h3>"Por que não entregamos só uma receita"</h3>
+                    <p>Filosofia da clínica — tratamento integrado, causa raiz, acompanhamento mensal. Diferenciação pelo cuidado contínuo.</p>
+                </div>
+                <div class="profile-card">
+                    <span class="card-tag tag-brand">Post 3 — Diferenciação</span>
+                    <h3>"Automedicação com caneta emagrecedora: o que ninguém te conta"</h3>
+                    <p>Os riscos reais da automedicação vs. o protocolo médico personalizado. Educa e posiciona a clínica como a alternativa segura.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-aquisicao" class="tab-content">
+            <div class="tab-header">
+                <div class="tab-icon"><i class="fa-solid fa-magnet" aria-hidden="true"></i></div>
+                <h1>Aquisição de Clientes</h1>
+                <p>Fluxograma do funil, canais de captação e estratégia de geração de leads para a Clínica Leve Mais.</p>
+            </div>
+
+            <h2 class="section-title">Mapa do Funil de Aquisição</h2>
+            <p class="section-subtitle">Visão geral dos caminhos que um lead percorre até virar paciente.</p>
+
+            <div class="journey-flow">
+                <div class="jf-node jf-entry"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram (Reels / Carrosséis / Stories) &nbsp;+&nbsp; <i class="fa-brands fa-google" aria-hidden="true"></i> Google Ads (Busca Local)</div>
+                <div class="jf-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                <div class="jf-node jf-action">Comentário · Clique no Link · Mensagem Direta</div>
+                <div class="jf-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+            </div>
+
+            <div class="jf-branches">
+                <div class="jf-branch">
+                    <h4><i class="fa-solid fa-gem" aria-hidden="true"></i> Ramo 1 — Funil High-Ticket</h4>
+                    <p><strong>Caminho:</strong> Conteúdo Orgânico → WhatsApp → Consulta</p>
+                    <h4 style="margin-top: 16px;">Isca</h4>
+                    <p>Reels e carrosséis educativos sobre emagrecimento médico, GLP-1, fadiga hormonal</p>
+                    <h4>Dor que Ataca</h4>
+                    <p>"Já tentei de tudo e o peso volta" / "Estou cansado sem saber por quê"</p>
+                    <h4>"Momento Aha"</h4>
+                    <p>"Pode ser um problema hormonal ou metabólico — e tem tratamento médico específico pra isso"</p>
+                    <h4>CTA Final</h4>
+                    <p>"Manda uma mensagem no WhatsApp e agende sua avaliação"</p>
+                </div>
+                <div class="jf-branch">
+                    <h4><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Ramo 2 — Funil Infoproduto</h4>
+                    <div class="section-empty" style="margin-top: 12px; padding: 24px;">
+                        <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                        <p>Não existe ainda.</p>
+                        <small>Recomendação: criar mini-guia ou aula gratuita como isca digital para segunda fase de escala.</small>
+                    </div>
+                </div>
+                <div class="jf-branch">
+                    <h4><i class="fa-solid fa-map-pin" aria-hidden="true"></i> Ramo 3 — Captação Local</h4>
+                    <p><strong>Caminho:</strong> Google Ads → Landing Page → WhatsApp</p>
+                    <h4 style="margin-top: 16px;">Formato</h4>
+                    <p>Anúncios de busca no Google + tráfego local geolocalizado para Alphaville / Barueri / Santana de Parnaíba</p>
+                    <div class="warning-box" style="margin-top: 16px;">
+                        <h4><i class="fa-solid fa-exclamation-triangle" aria-hidden="true"></i> Estratégia de Contorno — Restrição Google</h4>
+                        <p>Usar termos adjacentes: "médico emagrecimento Alphaville", "clínica obesidade Barueri", "tratamento metabólico Alphaville", "reposição hormonal Alphaville", "médico GLP-1 São Paulo"</p>
+                    </div>
+                    <h4>Promessa do Anúncio</h4>
+                    <p>"Tratamento médico de emagrecimento em Alphaville — avaliação hormonal completa + protocolo personalizado. Aceita reembolso de convênio."</p>
+                    <h4>Destino do Lead</h4>
+                    <p>WhatsApp com mensagem pré-preenchida → qualificação → agendamento de consulta</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-vendas" class="tab-content">
+            <div class="tab-header">
+                <div class="tab-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+                <h1>Vendas e Escala</h1>
+                <p>Script de qualificação via WhatsApp, roteiro da consulta de fechamento e tratamento de objeções.</p>
+            </div>
+
+            <h2 class="section-title">Script de Qualificação — WhatsApp</h2>
+            <p class="section-subtitle">Sequência de 5 mensagens para qualificar o lead antes de agendar a consulta.</p>
+
+            <div class="script-steps">
+                <div class="script-step"><div class="step-number">1</div><div class="step-text">"Olá! Aqui é [nome], da Clínica Leve Mais, em Alphaville. Fico feliz que você entrou em contato! Para que eu possa entender melhor sua situação e indicar o melhor caminho, me conta: <strong>qual é seu principal objetivo hoje — emagrecimento, disposição/energia, hormônios ou ganho de massa?</strong>"<br><em>↳ Identifica a porta de entrada do interesse</em></div></div>
+                <div class="script-step"><div class="step-number">2</div><div class="step-text">"Você mora ou trabalha próximo à Alphaville? (Perguntamos porque nossa clínica fica aqui — e muitos pacientes aproveitam o horário de almoço para a consulta.)"<br><em>↳ Qualifica geografia + já sugere conveniência</em></div></div>
+                <div class="script-step"><div class="step-number">3</div><div class="step-text">"Você já fez algum tratamento médico para emagrecer antes? O que aconteceu?"<br><em>↳ Pergunta diagnóstica — revela nível de frustração e ICP</em></div></div>
+                <div class="script-step"><div class="step-number">4</div><div class="step-text">"Você tem plano de saúde? (A Leve Mais trabalha com sistema de reembolso — pode facilitar bastante.)"<br><em>↳ Qualifica capacidade financeira + apresenta facilitador</em></div></div>
+                <div class="script-step"><div class="step-number">5</div><div class="step-text">"<strong>O que te fez buscar esse tratamento agora?</strong>"<br><em>↳ Pergunta de urgência — revela o gatilho de compra real</em></div></div>
+            </div>
+
+            <div class="highlight-box">
+                <h4><i class="fa-solid fa-filter" aria-hidden="true"></i> Critério de Passagem</h4>
+                <p>Lead pronto quando: <strong>(a)</strong> é da região ou aceita se deslocar, <strong>(b)</strong> tem queixa clara de sobrepeso ou sintoma associado, e <strong>(c)</strong> demonstrou urgência ou frustração com tentativas anteriores.</p>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2 class="section-title">Roteiro da Consulta de Fechamento</h2>
+            <p class="section-subtitle">As 6 etapas da consulta presencial — do rapport ao agendamento.</p>
+
+            <div class="roteiro-step"><div class="rs-number">1</div><div><h4>Rapport e Apresentação</h4><p class="rs-meta">3-5 min · Humanizar o atendimento e reduzir ansiedade</p><p>"Me conta um pouco sobre sua trajetória com o peso..." — Acolhimento antes de qualquer análise clínica.</p></div></div>
+            <div class="roteiro-step"><div class="rs-number">2</div><div><h4>Diagnóstico (Anamnese Estratégica)</h4><p class="rs-meta">10-15 min · Identificar causa raiz + camadas de dor</p><p>"Quando você sente mais cansaço? Há quanto tempo isso acontece? Como isso está afetando sua vida?" — Ir além do sintoma até o impacto na identidade.</p></div></div>
+            <div class="roteiro-step"><div class="rs-number">3</div><div><h4>Apresentação da Solução</h4><p class="rs-meta">5-8 min · Conectar protocolo com a dor identificada</p><p>"Com base no que você me contou, aqui está o que eu recomendo para o seu caso específico..." — Personalizar a proposta com base na anamnese.</p></div></div>
+            <div class="roteiro-step"><div class="rs-number">4</div><div><h4>Apresentação do Preço</h4><p class="rs-meta">2-3 min · Ancorar valor antes do número + mencionar reembolso</p><p>"O protocolo completo inclui X, Y e Z. O investimento é [valor]. E você sabia que consultas e exames podem ter reembolso pelo seu plano?"</p><div class="field-empty" style="margin-top: 8px;"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Tickets de preço ausentes — completar valores para finalizar o script</div></div></div>
+            <div class="roteiro-step"><div class="rs-number">5</div><div><h4>Tratamento de Objeções</h4><p class="rs-meta">Variável · Dissolver resistências sem pressionar</p><p>Consultar tabela de objeções abaixo.</p></div></div>
+            <div class="roteiro-step"><div class="rs-number">6</div><div><h4>Fechamento</h4><p class="rs-meta">2-3 min · Gerar comprometimento e próximo passo concreto</p><p>"Vamos agendar já sua primeira consulta? Tenho [dia] disponível." — Fechar com data concreta.</p></div></div>
+
+            <hr class="section-divider">
+
+            <h2 class="section-title">Principais Objeções e Respostas</h2>
+            <p class="section-subtitle">As 5 objeções mais comuns e como dissolvê-las com estratégia e empatia.</p>
+
+            <div class="objection-card"><div class="objection-trigger"><i class="fa-solid fa-hand" aria-hidden="true"></i> "Está caro"</div><div class="objection-response">"Entendo. Mas deixa eu te perguntar: quanto você já gastou em dietas, nutricionistas, academia e talvez automedicação sem resultado duradouro? O protocolo da Leve Mais é um investimento único que trata a causa — não o sintoma. E boa parte pode ter reembolso pelo seu convênio."</div></div>
+            <div class="objection-card"><div class="objection-trigger"><i class="fa-solid fa-hand" aria-hidden="true"></i> "Preciso pensar"</div><div class="objection-response">"Claro, é uma decisão importante. O que está te travando — é o valor, é dúvida se vai funcionar pra você, ou é outra coisa?" — Sempre qualifique a objeção real antes de responder.</div></div>
+            <div class="objection-card"><div class="objection-trigger"><i class="fa-solid fa-hand" aria-hidden="true"></i> "Não tenho tempo agora"</div><div class="objection-response">"A clínica fica em Alphaville — muitos dos nossos pacientes vêm no horário de almoço ou antes do trabalho. A consulta inicial dura cerca de 45 minutos. Qual é a melhor janela pra você?"</div></div>
+            <div class="objection-card"><div class="objection-trigger"><i class="fa-solid fa-hand" aria-hidden="true"></i> "Já tentei de tudo e não funciona"</div><div class="objection-response">"É exatamente por isso que você precisa de uma avaliação hormonal completa. Na maioria dos casos que atendemos, o paciente nunca foi investigado de verdade — e o tratamento que recebeu foi genérico. Aqui a gente começa pelo diagnóstico da causa real."</div></div>
+            <div class="objection-card"><div class="objection-trigger"><i class="fa-solid fa-hand" aria-hidden="true"></i> "Tenho medo do efeito colateral das canetas"</div><div class="objection-response">"Faz todo sentido ter essa preocupação — e é exatamente essa a diferença entre automedicação e um protocolo médico. Com nós, a dosagem é personalizada, ajustada mês a mês, e você tem acompanhamento contínuo pra evitar qualquer intercorrência."</div></div>
+        </div>
+
+    </main>
+
+    <div id="lacunas-report" style="display:none;">
+        <h2>RELATÓRIO DE LACUNAS — Clínica Leve Mais</h2>
+        <p>Completude: 82% — 47 de 57 campos preenchidos</p>
+        <h3>🔴 CRÍTICOS (5)</h3>
+        <ul>
+            <li>Tabela de preços / tickets de todos os produtos (Bloco 5)</li>
+            <li>História de origem do Dr. Rodrigo (Bloco 7)</li>
+            <li>Resultados e casos de pacientes (Bloco 8)</li>
+            <li>Garantia da oferta principal (Bloco 5)</li>
+            <li>Bônus dos protocolos (Bloco 5)</li>
+        </ul>
+        <h3>🟡 IMPORTANTES (5)</h3>
+        <ul>
+            <li>Diferencial de Keila/Viviane na clínica</li>
+            <li>Mapa de concorrência local</li>
+            <li>Capacidade de atendimento atual</li>
+            <li>Redes sociais e conteúdo anterior</li>
+            <li>Detalhamento da lipoenzima</li>
+        </ul>
+        <h3>🟢 OPCIONAIS (4)</h3>
+        <ul>
+            <li>Estrutura física da clínica</li>
+            <li>Possibilidade de infoproduto futuro</li>
+            <li>Parcerias locais</li>
+            <li>Planos de expansão</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const allNavItems = document.querySelectorAll('.nav-item');
+            const tabContents = document.querySelectorAll('.tab-content');
+            allNavItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = item.getAttribute('data-target');
+                    allNavItems.forEach(nav => nav.classList.remove('active'));
+                    tabContents.forEach(tab => tab.classList.remove('active'));
+                    document.querySelectorAll(`.nav-item[data-target="${target}"]`).forEach(n => n.classList.add('active'));
+                    const targetTab = document.getElementById(target);
+                    if (targetTab) {
+                        targetTab.classList.add('active');
+                        document.querySelector('.main-content').scrollTop = 0;
+                        window.scrollTo(0, 0);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
