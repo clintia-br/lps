@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MarketMED — Dossiê Estratégico</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #F8F8F6;
+            --surface-color: #FFFFFF;
+            --text-primary: #1A1A2E;
+            --text-secondary: #6B7280;
+            --brand: #1B2B4B;
+            --brand-light: rgba(27,43,75,0.07);
+            --brand-dark: #111D35;
+            --accent: #C9A84C;
+            --accent-light: rgba(201,168,76,0.10);
+            --border-color: #E0E0DC;
+            --border-light: #EDEDEA;
+            --success: #10B981;
+            --danger: #D32F2F;
+            --text-muted: #888888;
+            --bg-alt: #F1F0ED;
+            --placeholder: #A3A3A3;
+            --font-sans: 'DM Sans', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --sidebar-width: 280px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1,h2,h3,h4,h5 { line-height: 1.3; }
+        a { text-decoration: none; color: inherit; }
+        ul,ol { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        .sidebar {
+            position: fixed;
+            top: 0; left: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: #0F172A;
+            color: #E2E8F0;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            overflow-y: auto;
+        }
+        .main-content {
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .sidebar-header {
+            padding: 32px 24px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .sidebar-header h2 {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+        .sidebar-header p {
+            font-size: 11px;
+            color: rgba(255,255,255,0.45);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .sidebar-stats {
+            padding: 16px 24px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .sidebar-stats .stat {
+            text-align: center;
+            font-size: 10px;
+            color: rgba(255,255,255,0.35);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .sidebar-stats .stat strong {
+            display: block;
+            font-size: 18px;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 0;
+        }
+        .sidebar-nav {
+            padding: 16px 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.55);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+        .nav-item:hover {
+            background: rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.85);
+        }
+        .nav-item.active {
+            background: var(--brand);
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+        .nav-item.active i { color: var(--accent); }
+        .nav-item i { width: 20px; text-align: center; font-size: 14px; }
+        .sidebar-footer {
+            padding: 16px 24px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 11px;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .tab-header {
+            background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+            color: #FFFFFF;
+            padding: 48px 48px 40px;
+        }
+        .tab-header h1 {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .tab-header p {
+            font-size: 16px;
+            opacity: 0.7;
+            max-width: 600px;
+        }
+        .tab-body {
+            padding: 40px 48px 80px;
+            max-width: 1100px;
+        }
+
+        .section-block { margin-bottom: 56px; }
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            margin-top: 4px;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%,155px),1fr));
+            gap: 12px;
+            margin-bottom: 48px;
+        }
+        .stat-item {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px 16px;
+            text-align: center;
+        }
+        .stat-item .stat-number {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--brand);
+        }
+        .stat-item .stat-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .stat-item.gold-stat {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+        .stat-item.gold-stat .stat-number { color: #92700C; }
+
+        .profile-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            position: relative;
+            transition: box-shadow 0.2s ease;
+        }
+        .profile-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+        .profile-badge {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            background: var(--brand-light);
+            color: var(--brand);
+            padding: 4px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        .profile-card h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        .profile-description {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        .profile-card.gold-tier {
+            border-color: var(--accent);
+            border-width: 2px;
+            box-shadow: 0 4px 24px rgba(201,168,76,0.1);
+        }
+        .profile-card.gold-tier .profile-badge {
+            background: var(--accent-light);
+            color: #92700C;
+        }
+        .profile-card.gold-tier::before {
+            content: '★ LEAD OURO';
+            position: absolute;
+            top: -12px; right: 24px;
+            background: var(--accent);
+            color: #FFFFFF;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+        .profile-meta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+        }
+        .profile-meta-item {
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .profile-meta-item i { color: var(--accent); font-size: 12px; }
+
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li {
+            padding: 10px 0 10px 28px;
+            position: relative;
+            font-size: 14px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-light);
+            line-height: 1.6;
+        }
+        .feature-list li:last-child { border-bottom: none; }
+        .feature-list li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 16px;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        .feature-list li strong { color: var(--text-primary); }
+
+        .highlight-box {
+            background: var(--brand-light);
+            border-left: 4px solid var(--brand);
+            padding: 20px 24px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 24px;
+        }
+        .highlight-box p {
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .highlight-box.gold {
+            background: var(--accent-light);
+            border-left-color: var(--accent);
+        }
+
+        .quote-block {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .quote-block .quote-text {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 16px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .quote-label {
+            font-family: var(--font-sans);
+            font-style: normal;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: block;
+        }
+        .quote-block.featured {
+            border-color: var(--accent);
+            border-width: 2px;
+            background: linear-gradient(135deg, rgba(201,168,76,0.04), rgba(201,168,76,0.01));
+        }
+        .quote-block.featured::before {
+            content: '★ VENCEDORA';
+            position: absolute;
+            top: -10px; left: 20px;
+            background: var(--accent);
+            color: #FFF;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-family: var(--font-sans);
+            font-style: normal;
+        }
+
+        .pain-layer {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .pain-layer::after {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+        }
+        .pain-layer.layer-1::after { background: #F59E0B; }
+        .pain-layer.layer-2::after { background: #EF4444; }
+        .pain-layer.layer-3::after { background: #7C3AED; }
+        .layer-number {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+        .layer-1 .layer-number { background: rgba(245,158,11,0.1); color: #B45309; }
+        .layer-2 .layer-number { background: rgba(239,68,68,0.1); color: #DC2626; }
+        .layer-3 .layer-number { background: rgba(124,58,237,0.1); color: #6D28D9; }
+        .pain-layer h3 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        .pain-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .client-voice {
+            background: var(--bg-alt);
+            border-radius: 6px;
+            padding: 16px;
+            margin-top: 12px;
+        }
+        .client-voice .cv-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .client-voice p {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 14px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .client-voice p:last-of-type { margin-bottom: 0; }
+        .pain-trigger {
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 12px 16px;
+            background: rgba(239,68,68,0.04);
+            border-radius: 6px;
+            border-left: 3px solid var(--danger);
+        }
+        .pain-trigger strong { color: var(--text-primary); }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%,280px),1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .vocab-card {
+            padding: 14px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .vocab-card.positive {
+            background: rgba(16,185,129,0.05);
+            border: 1px solid rgba(16,185,129,0.18);
+        }
+        .vocab-card.positive .vocab-word {
+            color: #059669;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .vocab-card.negative {
+            background: rgba(211,47,47,0.04);
+            border: 1px solid rgba(211,47,47,0.14);
+        }
+        .vocab-card.negative .vocab-word {
+            color: var(--danger);
+            font-weight: 600;
+            margin-bottom: 4px;
+            text-decoration: line-through;
+        }
+        .vocab-reason {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .point-card {
+            background: var(--surface-color);
+            border-radius: 12px;
+            padding: 32px;
+            border: 2px solid var(--border-color);
+            margin-bottom: 8px;
+        }
+        .point-card.point-a { border-color: var(--danger); border-left-width: 6px; }
+        .point-card.point-b { border-color: var(--success); border-left-width: 6px; }
+        .point-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+        .point-a .point-label { background: rgba(211,47,47,0.08); color: var(--danger); }
+        .point-b .point-label { background: rgba(16,185,129,0.08); color: var(--success); }
+        .point-card h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        .point-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .method-connector {
+            text-align: center;
+            padding: 16px 0;
+            font-size: 24px;
+            color: var(--accent);
+        }
+        .method-bridge {
+            text-align: center;
+            padding: 24px 0;
+        }
+        .bridge-label {
+            display: inline-block;
+            background: var(--brand);
+            color: #FFF;
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        .bridge-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%,300px),1fr));
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+        .step-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 24px;
+        }
+        .step-number {
+            width: 32px; height: 32px;
+            background: var(--brand);
+            color: #FFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .step-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .step-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px; }
+        .deliverable {
+            background: var(--bg-alt);
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .deliverable strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .saas-block {
+            background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+            color: #FFF;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        .saas-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.6;
+            margin-bottom: 8px;
+        }
+        .saas-block h3 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            margin-bottom: 4px;
+        }
+        .saas-tagline {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 24px;
+        }
+        .saas-features {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%,250px),1fr));
+            gap: 12px;
+        }
+        .saas-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .saas-features li i { color: var(--accent); }
+
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%,320px),1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+        .tier-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            position: relative;
+        }
+        .tier-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .tier-card h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+        .tier-model {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .tier-card.featured-tier {
+            border-color: var(--accent);
+            border-width: 2px;
+            box-shadow: 0 8px 32px rgba(201,168,76,0.12);
+        }
+        .tier-card.featured-tier::before {
+            content: '★ CARRO-CHEFE';
+            position: absolute;
+            top: -12px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #FFF;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 4px 14px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .tier-card.tier-wide { grid-column: 1 / -1; }
+
+        .offer-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%,280px),1fr));
+            gap: 16px;
+        }
+        .offer-detail-item {
+            background: var(--bg-alt);
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .detail-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+        .offer-detail-item p {
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .ig-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%,300px),1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .ig-element {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 24px;
+        }
+        .ig-element h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ig-element p, .ig-element li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .content-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%,300px),1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .bio-block {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+        .bio-line {
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            gap: 12px;
+            align-items: baseline;
+        }
+        .bio-line:last-child { border-bottom: none; }
+        .bio-line .bio-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            min-width: 90px;
+            flex-shrink: 0;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .bio-line .bio-text { color: var(--text-secondary); }
+
+        .raw-story-block {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        .raw-story-block h4 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        .raw-story-block p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .raw-story-block p:last-of-type { margin-bottom: 0; }
+
+        .jf-node {
+            background: var(--surface-color);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+        .jf-node.jf-entry {
+            background: var(--brand);
+            color: #FFF;
+            border-color: var(--brand);
+        }
+        .jf-node h4 { font-size: 16px; font-weight: 600; }
+        .jf-node p { font-size: 13px; opacity: 0.8; margin-top: 4px; }
+        .jf-connector {
+            text-align: center;
+            padding: 12px 0;
+            color: var(--accent);
+            font-size: 24px;
+        }
+        .jf-branches {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%,300px),1fr));
+            gap: 16px;
+        }
+        .jf-branch {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            border-top: 4px solid var(--brand);
+        }
+        .jf-branch h4 { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+        .jf-branch p, .jf-branch li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .script-steps { counter-reset: script-step; }
+        .script-step {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px 24px 20px 60px;
+            margin-bottom: 12px;
+            position: relative;
+            counter-increment: script-step;
+        }
+        .script-step::before {
+            content: counter(script-step);
+            position: absolute;
+            left: 20px; top: 20px;
+            width: 28px; height: 28px;
+            background: var(--brand);
+            color: #FFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .script-step p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .script-step em {
+            font-family: var(--font-serif);
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+        .call-stage {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            gap: 16px;
+            align-items: start;
+        }
+        .stage-time {
+            background: var(--brand);
+            color: #FFF;
+            border-radius: 6px;
+            padding: 8px 4px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .call-stage h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+        .stage-objective {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        .stage-questions {
+            font-size: 13px;
+            color: var(--text-primary);
+            font-style: italic;
+            font-family: var(--font-serif);
+            line-height: 1.6;
+        }
+        .objection-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+        .objection-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--danger);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .objection-response {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            padding-left: 16px;
+            border-left: 3px solid var(--success);
+        }
+
+        .pilar-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            border-top: 4px solid var(--brand);
+        }
+        .pilar-card .pilar-number {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .pilar-card h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+        .pilar-card .pilar-objective {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .pilar-card .pilar-cta {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 600;
+            background: var(--accent-light);
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        .pilar-pautas { margin-top: 12px; }
+        .pilar-pautas h5 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .pilar-pautas li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 6px 0 6px 20px;
+            position: relative;
+            line-height: 1.5;
+        }
+        .pilar-pautas li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .ramo-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        .ramo-card h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .ramo-card h3 .ramo-num {
+            width: 28px; height: 28px;
+            background: var(--brand);
+            color: #FFF;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .alert-banner {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px 24px;
+            border-radius: 10px;
+            margin-bottom: 32px;
+        }
+        .alert-banner.critical {
+            background: rgba(211,47,47,0.06);
+            border: 1px solid rgba(211,47,47,0.2);
+        }
+        .alert-banner.critical > i {
+            color: var(--danger);
+            font-size: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .alert-banner strong {
+            display: block;
+            font-size: 14px;
+            color: var(--danger);
+            margin-bottom: 4px;
+        }
+        .alert-banner p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .field-empty {
+            color: var(--placeholder);
+            font-style: italic;
+            font-size: 14px;
+            padding: 12px 16px;
+            background: rgba(163,163,163,0.08);
+            border-radius: 6px;
+            border: 1px dashed var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .field-empty i { color: #F59E0B; flex-shrink: 0; }
+        .section-empty {
+            padding: 40px;
+            text-align: center;
+            background: var(--bg-alt);
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        .section-empty i {
+            font-size: 32px;
+            color: #F59E0B;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .section-empty small { display: block; margin-top: 8px; }
+        .inferred-badge {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: rgba(245,158,11,0.1);
+            color: #B45309;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            vertical-align: middle;
+            margin-left: 6px;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 40px 0;
+        }
+        .mb-8 { margin-bottom: 8px; }
+        .mb-16 { margin-bottom: 16px; }
+        .mb-24 { margin-bottom: 24px; }
+        .mb-32 { margin-bottom: 32px; }
+        .mt-16 { margin-top: 16px; }
+
+        @media (max-width: 900px) {
+            .sidebar {
+                position: fixed;
+                top: 0; left: 0; right: 0;
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+            }
+            .sidebar-header {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 16px;
+                border-bottom: none;
+            }
+            .sidebar-header h2 { font-size: 16px; }
+            .sidebar-header p { display: none; }
+            .sidebar-stats { display: none; }
+            .sidebar-nav {
+                flex-direction: row;
+                overflow-x: auto;
+                padding: 0 8px 10px;
+                gap: 4px;
+                scrollbar-width: none;
+            }
+            .sidebar-nav::-webkit-scrollbar { display: none; }
+            .nav-item {
+                white-space: nowrap;
+                flex-shrink: 0;
+                padding: 8px 14px;
+                font-size: 12px;
+                gap: 6px;
+            }
+            .sidebar-footer { display: none; }
+            .main-content {
+                margin-left: 0;
+                padding-top: 96px;
+            }
+            .tab-header { padding: 28px 20px 24px; }
+            .tab-header h1 { font-size: 22px; }
+            .tab-header p { font-size: 14px; }
+            .tab-body { padding: 24px 16px 60px; }
+            .stats-bar,
+            .steps-grid,
+            .tier-grid,
+            .ig-grid,
+            .jf-branches,
+            .vocab-grid,
+            .content-grid-3,
+            .offer-detail-grid,
+            .saas-features {
+                grid-template-columns: 1fr;
+            }
+            .call-stage { grid-template-columns: 1fr; }
+            .profile-card, .pain-layer, .tier-card,
+            .offer-model-detail, .raw-story-block,
+            .ramo-card { padding: 20px; }
+            .saas-block { padding: 24px 20px; }
+            .point-card { padding: 24px; }
+            .section-title { font-size: 20px; }
+            .bio-line { flex-direction: column; gap: 4px; }
+        }
+
+        @media print {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; }
+            .tab-content { display: block; page-break-before: always; }
+            .tab-content:first-of-type { page-break-before: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>MarketMED</h2>
+            <p>Dossiê Estratégico</p>
+        </div>
+        <div class="sidebar-stats">
+            <div class="stat"><strong>24</strong>anos</div>
+            <div class="stat"><strong>6k+</strong>clientes</div>
+            <div class="stat"><strong>15k+</strong>projetos</div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-target="tab-comunicacao">
+                <i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Comunicação
+            </a>
+            <a href="#" class="nav-item" data-target="tab-oferta">
+                <i class="fa-solid fa-box-open" aria-hidden="true"></i> Oferta Produtizada
+            </a>
+            <a href="#" class="nav-item" data-target="tab-conteudo">
+                <i class="fa-solid fa-pen-nib" aria-hidden="true"></i> Produção de Conteúdo
+            </a>
+            <a href="#" class="nav-item" data-target="tab-aquisicao">
+                <i class="fa-solid fa-magnet" aria-hidden="true"></i> Aquisição de Clientes
+            </a>
+            <a href="#" class="nav-item" data-target="tab-vendas">
+                <i class="fa-solid fa-chart-line" aria-hidden="true"></i> Vendas e Escala
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <small>v1.0 · Abril 2025</small>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <div id="tab-comunicacao" class="tab-content active">
+            <div class="tab-header">
+                <h1>Comunicação e Posicionamento</h1>
+                <p>Identidade do cliente ideal, anatomia das dores, linguagem estratégica e presença digital</p>
+            </div>
+            <div class="tab-body">
+
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Anos de mercado</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">6.000+</div>
+                        <div class="stat-label">Clientes atendidos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15.400+</div>
+                        <div class="stat-label">Projetos entregues</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">69</div>
+                        <div class="stat-label">Cidades</div>
+                    </div>
+                    <div class="stat-item gold-stat">
+                        <div class="stat-number">Top 3%</div>
+                        <div class="stat-label">Google Partner Premier</div>
+                    </div>
+                    <div class="stat-item gold-stat">
+                        <div class="stat-number">Top 1%</div>
+                        <div class="stat-label">Meta Business Partner</div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2 class="section-title">Perfis de Cliente Ideal</h2>
+                    <p class="section-subtitle">Os 3 perfis que compõem a audiência da MarketMED — com o Lead Ouro no centro gravitacional da comunicação.</p>
+
+                    <div class="highlight-box gold mb-32">
+                        <p><strong>Nota Estratégica:</strong> O reposicionamento da MarketMED não elimina os Perfis 1 e 2 — eles continuam existindo na esteira. O que muda é que o Perfil 3 (Lead Ouro) passa a ser o centro gravitacional de toda a comunicação, estratégia de conteúdo e desenvolvimento de produto. Os perfis 1 e 2 são atraídos como consequência natural — não como alvo principal.</p>
+                    </div>
+
+                    <div class="profile-card">
+                        <span class="profile-badge">Perfil 1</span>
+                        <h3>O Iniciante / Inconformado</h3>
+                        <p class="profile-description">Médico recém-especialista (2 a 7 anos de formado), que concluiu residência ou fellowship e está construindo sua prática independente. Atende em hospital, consultório compartilhado ou em início de clínica própria. Tem um perfil no Instagram inconsistente e um site que, se existe, envergonha. Quer ser levado a sério pelo mercado — mas ainda não sabe como traduzir sua competência clínica em presença digital sem parecer que está "se vendendo".</p>
+                        <ul class="feature-list">
+                            <li><strong>Autoridade sem vocabulário:</strong> Construiu autoridade clínica sólida durante a formação, mas não tem vocabulário nem ferramentas para comunicar isso ao mercado de forma ética e eficiente.</li>
+                            <li><strong>Paralisia por medo do CFM:</strong> Tem consciência das restrições do CFM (Resolução 2.336/2023) mas não sabe como agir dentro delas de forma estratégica — o medo de errar o paralisa.</li>
+                            <li><strong>Frustração com soluções baratas:</strong> Já tentou freelancers, amigos com "agência", plataformas de template — e os resultados foram mediocres. Frustra-se mas não desiste.</li>
+                        </ul>
+                        <div class="profile-meta">
+                            <span class="profile-meta-item"><i class="fa-solid fa-box-open" aria-hidden="true"></i> Produto: SIMM</span>
+                            <span class="profile-meta-item"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</span>
+                            <span class="profile-meta-item"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Grupos de WhatsApp</span>
+                            <span class="profile-meta-item"><i class="fa-brands fa-youtube" aria-hidden="true"></i> YouTube</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-card">
+                        <span class="profile-badge">Perfil 2</span>
+                        <h3>O Intermediário / Frustrado</h3>
+                        <p class="profile-description">Especialista estabelecido (10 a 20 anos de carreira), dono de consultório próprio ou sócio de clínica pequena/média. Já contratou agência antes — e se decepcionou. Recebeu posts genéricos, relatórios sem sentido e uma equipe que nunca tinha entrado em um consultório médico. Tem presença digital mas ela não reflete quem ele é. Sente que está abaixo do radar para os pacientes certos.</p>
+                        <ul class="feature-list">
+                            <li><strong>A Insegurança:</strong> "Não sei se o que estou investindo em marketing está certo ou se estou jogando dinheiro fora."</li>
+                            <li><strong>O Medo:</strong> "Tenho medo de que minha imagem online comprometa a reputação que construí em anos de consultório." / "Medo de aparecer de forma que infrinja o CFM ou envergonhe meus colegas."</li>
+                            <li><strong>A Trava de Execução:</strong> Contratou agência genérica, não viu resultado real em 6 meses, pausou o marketing, ficou em dúvida se o problema era o marketing ou a agência. Resultado: inércia.</li>
+                        </ul>
+                        <div class="profile-meta">
+                            <span class="profile-meta-item"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i> Produto: Diagnóstico de Autoridade + Método Presença Sólida (gradual)</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-card gold-tier">
+                        <span class="profile-badge">Perfil 3 — Centro da Estratégia</span>
+                        <h3>O Ideal / Lead Ouro</h3>
+                        <p class="profile-description">Médico especialista sênior ou cirurgião de alta performance (15 a 30+ anos de carreira). Reputação sólida construída dentro do ambiente clínico — reconhecido por pares, agenda cheia de pacientes particulares, referenciado dentro do seu hospital ou especialidade em âmbito regional. Não precisa de mais volume de pacientes. Precisa de presença digital que reflita e proteja o que já construiu. Quer ser A referência da sua especialidade — não apenas localmente, mas nacionalmente.</p>
+                        <ul class="feature-list">
+                            <li><strong>O Teto Físico:</strong> Atingiu o limite do que consegue crescer por indicação boca a boca. Percebe que pacientes de alto valor pesquisam no Google e LinkedIn antes de confirmar — e que o que encontram não faz jus ao que ele é na vida real.</li>
+                            <li><strong>O Desejo de Legado:</strong> Quer ser reconhecido como referência técnica nacional na sua especialidade. Quer que seu nome apareça nas buscas qualificadas, nas recomendações de colegas, nas respostas de IAs quando alguém pergunta "qual o melhor especialista em X no Brasil".</li>
+                            <li><strong>A Dinâmica de Compra:</strong> Não compra por impulsividade. Pesquisa extensivamente. Compra por confiança e reputação — não por preço. Precisa sentir que a agência entende seu mundo. Decisão solitária ou compartilhada com gestor da clínica.</li>
+                            <li><strong>O Desejo Oculto:</strong> Ser reconhecido pelos seus pares como o maior nome da sua especialidade — e ter a segurança de que sua imagem está nas mãos de quem não vai comprometer o que ele levou décadas para construir.</li>
+                            <li><strong>Como a MarketMED resolve:</strong> Assume toda a estratégia de presença digital — SEO, LinkedIn, YouTube, Instagram — de forma que ele não precise aparecer mais do que quer, mas esteja presente onde precisa estar. A comunicação reflete quem ele é, não quem ele não é.</li>
+                        </ul>
+                        <div class="profile-meta">
+                            <span class="profile-meta-item"><i class="fa-solid fa-crown" aria-hidden="true"></i> Produto: Método Presença Sólida — Gestão Completa / Autoridade Nacional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2 class="section-title">Anatomia da Dor</h2>
+                    <p class="section-subtitle">As 3 camadas de dor do especialista — da superfície financeira à raiz existencial.</p>
+
+                    <div class="pain-layer layer-1">
+                        <span class="layer-number">Camada 1 — Superficial</span>
+                        <h3>Dor Financeira e Operacional</h3>
+                        <p class="pain-description">Agenda dependente de convênio ou de indicações casuais — sem previsibilidade. Não consegue cobrar os honorários que merece porque pacientes não encontram evidências digitais do seu nível de especialização. Invisível para o paciente particular qualificado que pesquisa no Google antes de marcar consulta.</p>
+                        <div class="client-voice">
+                            <div class="cv-label">Voz do cliente <span class="inferred-badge"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Inferido</span></div>
+                            <p>"Minha agenda está cheia de convênio mas não consigo construir uma carteira de particular."</p>
+                            <p>"Quando o paciente me pesquisa no Google, o que aparece não me representa — ou pior, não aparece nada."</p>
+                            <p>"Colegas com menos experiência estão sendo escolhidos porque aparecem primeiro."</p>
+                        </div>
+                        <div class="pain-trigger"><strong><i class="fa-solid fa-bolt" aria-hidden="true"></i> Gatilho de urgência:</strong> O gap digital está aumentando. Cada mês sem presença sólida é um mês em que colegas menos qualificados — mas digitalmente mais visíveis — são escolhidos no lugar dele.</div>
+                    </div>
+
+                    <div class="pain-layer layer-2">
+                        <span class="layer-number">Camada 2 — Intermediária</span>
+                        <h3>Dor de Posicionamento</h3>
+                        <p class="pain-description">O especialista é reconhecido no seu ambiente clínico mas invisível para o mundo externo. O Google não o acha. O LinkedIn parece um currículo abandonado em 2019. O Instagram (quando existe) parece amador. Agências generalistas que tentou antes não entendiam medicina — entregavam conteúdo raso que envergonhava mais do que ajudava.</p>
+                        <div class="client-voice">
+                            <div class="cv-label">Voz do cliente <span class="inferred-badge"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Inferido</span></div>
+                            <p>"Já contratei agência antes e me decepcionei. Eles não entendiam nada do que eu faço."</p>
+                            <p>"Tenho medo de publicar algo que infrinja o código do CFM."</p>
+                            <p>"O que está na internet não é quem eu sou."</p>
+                        </div>
+                        <div class="pain-trigger"><strong><i class="fa-solid fa-bolt" aria-hidden="true"></i> Comparação com concorrência:</strong> Ele percebe claramente que colegas com menos qualificação técnica mas melhor presença digital estão sendo mais escolhidos. É uma ferida de injustiça.</div>
+                    </div>
+
+                    <div class="pain-layer layer-3">
+                        <span class="layer-number">Camada 3 — A Raiz</span>
+                        <h3>Dor Existencial e Emocional</h3>
+                        <p class="pain-description">O especialista passou 10, 15, 20 anos construindo sua reputação dentro da medicina. Congressos, publicações, cirurgias complexas, formações internacionais. E sente que o mundo digital não reconhece — ou pior, pode desfazer — tudo isso. A dor mais profunda: "Será que vou ter que me tornar um influencer para ser relevante?" A resposta emocional visceral é: "Isso vai contra tudo que eu sou."</p>
+                        <div class="client-voice">
+                            <div class="cv-label">Voz do cliente <span class="inferred-badge"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Inferido</span></div>
+                            <p>"Não quero aparecer dançando. Não sou influencer. Sou médico."</p>
+                            <p>"Minha reputação levou 20 anos para ser construída. Não vou arriscar com marketing de segunda."</p>
+                            <p>"Quero ser encontrado — não famoso."</p>
+                        </div>
+                        <div class="pain-trigger"><strong><i class="fa-solid fa-bolt" aria-hidden="true"></i> Ligação com identidade:</strong> A identidade desse profissional é construída sobre seriedade, rigor técnico e décadas de prática clínica. A ideia de "virar influencer" é percebida como uma traição a essa identidade. O que ele quer não é fama — é reconhecimento qualificado.</div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2 class="section-title">Vocabulário Estratégico</h2>
+                    <p class="section-subtitle">A linguagem que conecta vs. a linguagem que repele — calibrada para o universo do especialista médico.</p>
+
+                    <h3 class="mb-16" style="color: var(--success); font-size: 16px;"><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Use e abuse</h3>
+                    <div class="vocab-grid mb-32">
+                        <div class="vocab-card positive"><div class="vocab-word">Autoridade</div><div class="vocab-reason">É o que o especialista passou a vida construindo — ressoa imediatamente.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word">Reputação construída</div><div class="vocab-reason">Remete a décadas de trabalho sério — oposto de "fama rápida".</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word">Presença qualificada / Presença sólida</div><div class="vocab-reason">Captura o tipo de visibilidade que eles querem: séria, duradoura, estratégica.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word">Reconhecimento por pares</div><div class="vocab-reason">Um dos desejos ocultos mais fortes desse perfil.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word">Posicionamento de longo prazo</div><div class="vocab-reason">Alinha com a mentalidade de quem pensa em carreira, não em resultado imediato.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word">Rigor / Seriedade / Ética</div><div class="vocab-reason">Os três valores centrais da identidade médica — criam identificação forte.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word">Discrição estratégica</div><div class="vocab-reason">Valida que ele pode ser visível sem ser barulhento.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word">Referência técnica / Referência nacional</div><div class="vocab-reason">O destino que ele quer chegar — nomear isso é poderoso.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word">Construção consistente</div><div class="vocab-reason">Transmite solidez e processo — contrário de resultados artificiais.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word">Imagem protegida</div><div class="vocab-reason">Ativa o medo de perder o que construiu — e apresenta a MarketMED como solução.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word">Ser encontrado pelas pessoas certas</div><div class="vocab-reason">Captura o desejo de qualidade, não de volume.</div></div>
+                        <div class="vocab-card positive"><div class="vocab-word">Marketing ético / Comunicação ética</div><div class="vocab-reason">Resolve o medo CFM imediatamente.</div></div>
+                    </div>
+
+                    <h3 class="mb-16" style="color: var(--danger); font-size: 16px;"><i class="fa-solid fa-ban" aria-hidden="true"></i> Nunca use</h3>
+                    <div class="vocab-grid mb-32">
+                        <div class="vocab-card negative"><div class="vocab-word">Volume / Mais pacientes / Captação em massa</div><div class="vocab-reason">Transforma o especialista em commodity.</div></div>
+                        <div class="vocab-card negative"><div class="vocab-word">Viral / Viralizar</div><div class="vocab-reason">Associado a superficialidade — oposto da segurança que ele busca.</div></div>
+                        <div class="vocab-card negative"><div class="vocab-word">Influencer</div><div class="vocab-reason">Ativa resistência imediata nesse perfil. Jamais.</div></div>
+                        <div class="vocab-card negative"><div class="vocab-word">Seguidores / Curtidas / Engajamento</div><div class="vocab-reason">Métricas de vaidade sem correlação com reputação clínica séria.</div></div>
+                        <div class="vocab-card negative"><div class="vocab-word">Growth / Growth Hacking</div><div class="vocab-reason">Linguagem de startup genérica — soa irresponsável para esse público.</div></div>
+                        <div class="vocab-card negative"><div class="vocab-word">Fama / Exposição</div><div class="vocab-reason">Objetivos que ele ativamente rejeita.</div></div>
+                        <div class="vocab-card negative"><div class="vocab-word">Conteúdo frenético / Posts diários</div><div class="vocab-reason">Confirma o medo de "ter que virar influencer".</div></div>
+                        <div class="vocab-card negative"><div class="vocab-word">Funil de pacientes</div><div class="vocab-reason">Tom comercial agressivo que destoa do universo ético da medicina.</div></div>
+                        <div class="vocab-card negative"><div class="vocab-word">Escala / Escalar</div><div class="vocab-reason">Connota mercantilização da medicina — tabu para esse público.</div></div>
+                    </div>
+
+                    <h3 class="mb-16" style="color: var(--accent); font-size: 16px;"><i class="fa-solid fa-quote-left" aria-hidden="true"></i> Frases de ouro para copy</h3>
+                    <div class="mb-24">
+                        <div class="quote-block"><p class="quote-text">"O especialista não precisa de barulho. Precisa de presença qualificada."</p></div>
+                        <div class="quote-block"><p class="quote-text">"Deixar de ser invisível para o mundo certo."</p></div>
+                        <div class="quote-block"><p class="quote-text">"Ser encontrado, recomendado e reconhecido sem abrir mão da seriedade que construiu ao longo de anos de formação e prática clínica."</p></div>
+                        <div class="quote-block"><p class="quote-text">"Marketing ético e empresarialmente sólido."</p></div>
+                        <div class="quote-block"><p class="quote-text">"A única agência no Brasil com autoridade para assinar esse tipo de trabalho."</p></div>
+                        <div class="quote-block"><p class="quote-text">"A construção acontece de forma consistente, sem exposição desnecessária."</p></div>
+                        <div class="quote-block"><p class="quote-text">"A comunicação reflete quem ele é — não quem ele não é."</p></div>
+                        <div class="quote-block"><p class="quote-text">"Segurança: está com uma empresa que entende o seu mundo."</p></div>
+                        <div class="quote-block"><p class="quote-text">"Proteção: sua imagem é gerida por quem sabe o que está fazendo."</p></div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2 class="section-title">Promessa Central e Ângulos de Venda</h2>
+                    <p class="section-subtitle">A promessa que ancora toda a comunicação da MarketMED no reposicionamento 2025.</p>
+
+                    <div class="highlight-box mb-32">
+                        <p><strong>Fórmula:</strong> Para <em>médicos especialistas e cirurgiões experientes</em> que sofrem com <em>invisibilidade digital que não reflete — e pode comprometer — a reputação clínica construída em décadas</em>, o <em>Método Presença Sólida</em> oferece gestão estratégica de autoridade digital de longo prazo — <em>sem precisar virar influencer, sem exposição desnecessária, sem abrir mão da seriedade que levou anos para construir</em>.</p>
+                    </div>
+
+                    <div class="quote-block featured mb-16">
+                        <span class="quote-label">Promessa 1 — Foco na Dor Principal</span>
+                        <p class="quote-text">"Você passou décadas construindo sua reputação dentro da medicina. A MarketMED garante que o mundo digital finalmente vai refletir isso — com a seriedade, o rigor e a discrição que você levou anos para conquistar."</p>
+                    </div>
+                    <div class="quote-block mb-16">
+                        <span class="quote-label">Promessa 2 — Facilidade / Delegação Total</span>
+                        <p class="quote-text">"A partir de agora, sua presença digital está nas mãos de quem entende marketing médico há 24 anos. Você cuida de pacientes. A gente cuida da sua autoridade online."</p>
+                    </div>
+                    <div class="quote-block mb-16">
+                        <span class="quote-label">Promessa 3 — Quebra de Objeção</span>
+                        <p class="quote-text">"Você não precisa virar influencer. Não precisa postar todo dia. Não precisa dançar para a câmera. Precisa ser encontrado pelas pessoas certas, nos lugares certos — e para isso existe o Método Presença Sólida."</p>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2 class="section-title">Estratégia de Perfil — Instagram</h2>
+                    <p class="section-subtitle">Configuração do perfil institucional da MarketMED para o reposicionamento.</p>
+
+                    <div class="bio-block mb-24">
+                        <h4 class="mb-16" style="font-size: 16px; font-weight: 600;">Bio Estratégica</h4>
+                        <div class="bio-line"><span class="bio-label">Nome</span><span class="bio-text">MarketMED | Marketing Médico</span></div>
+                        <div class="bio-line"><span class="bio-label">Foto</span><span class="bio-text">Logotipo da MarketMED em fundo escuro premium. Alta resolução, centralizado, sem poluição visual.</span></div>
+                        <div class="bio-line"><span class="bio-label">Linha 1</span><span class="bio-text">Presença digital que reflete quem você realmente é</span></div>
+                        <div class="bio-line"><span class="bio-label">Linha 2</span><span class="bio-text">A 1ª agência de Marketing Médico do Brasil | Desde 2001 | Google Partner Premier</span></div>
+                        <div class="bio-line"><span class="bio-label">Linha 3</span><span class="bio-text">👇 Conheça o Método Presença Sólida</span></div>
+                        <div class="bio-line"><span class="bio-label">Link</span><span class="bio-text">Landing page do Método Presença Sólida / Agendamento de Diagnóstico</span></div>
+                    </div>
+
+                    <div class="ig-grid">
+                        <div class="ig-element">
+                            <h4><i class="fa-solid fa-clock" aria-hidden="true"></i> Frequência de Stories</h4>
+                            <p>3 a 5 vezes por semana. Bastidores de projetos, insights do mercado médico, depoimentos de clientes, dados e resultados. <span class="inferred-badge"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Inferido</span></p>
+                        </div>
+                        <div class="ig-element">
+                            <h4><i class="fa-solid fa-hashtag" aria-hidden="true"></i> Palavras-chave SEO</h4>
+                            <p>marketing médico, autoridade médica, posicionamento digital para médicos, marketing para especialistas, médico no Google, marketing ético em saúde</p>
+                        </div>
+                        <div class="ig-element">
+                            <h4><i class="fa-solid fa-palette" aria-hidden="true"></i> Identidade Visual</h4>
+                            <p class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Identidade visual em definição — recomendação: paleta sóbria e premium (azul profundo, off-white, preto, dourado discreto). Tipografia serifada para títulos. Design limpo, com respiro.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2 class="section-title">História de Origem</h2>
+                    <p class="section-subtitle">A narrativa fundacional da MarketMED — o ativo de copy mais poderoso do dossiê.</p>
+
+                    <div class="alert-banner critical">
+                        <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                        <div>
+                            <strong>Informações críticas pendentes nesta seção</strong>
+                            <p>A história de origem completa (gancho, momento de dor, virada e texto bruto) é essencial para o reposicionamento funcionar no nível emocional. Sem ela, a comunicação depende apenas de credenciais — convence, mas não conecta.</p>
+                        </div>
+                    </div>
+
+                    <div class="raw-story-block"><h4>O Gancho</h4><p class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Campo não informado — completar após coleta de dados com Nori e Bernardo Carneiro</p></div>
+                    <div class="raw-story-block"><h4>A Origem</h4><p>Em 2001, Nori Carneiro fundou a MarketMED — quando o termo "marketing médico" ainda era um oximoro para a maioria dos profissionais de saúde no Brasil. O CFM tinha restrições severas. Médicos achavam que "se vender" era antiético. E ainda assim havia um problema real: bons médicos sendo invisíveis para bons pacientes.</p></div>
+                    <div class="raw-story-block"><h4>O Momento de Dor</h4><p class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Campo não informado — qual foi o momento mais difícil da trajetória?</p></div>
+                    <div class="raw-story-block"><h4>A Virada</h4><p class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Campo não informado — o que mudou o rumo da empresa?</p></div>
+                    <div class="raw-story-block"><h4>O Resultado</h4><p>24 anos depois — mais de 6.000 clientes atendidos, mais de 15.400 projetos entregues, presença em 69 cidades, Google Partner Premier (top 3%), Meta Business Partner (top 1%). A empresa que pioneirou o marketing médico no Brasil agora decide para onde aponta.</p></div>
+                    <div class="raw-story-block"><h4>A Missão <span class="inferred-badge"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Inferido</span></h4><p>Provar que marketing médico pode ser feito com o mesmo nível de rigor, ética e profundidade que a medicina exige — e que o especialista não precisa abrir mão de quem é para finalmente ser reconhecido pelo mercado que merece atender.</p></div>
+                    <div class="raw-story-block"><h4>Texto Bruto Completo</h4><p class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Texto bruto da história não fornecido — a ser redigido após coleta de dados com os fundadores</p></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="tab-oferta" class="tab-content">
+            <div class="tab-header">
+                <h1>Oferta Produtizada</h1>
+                <p>O Método Presença Sólida, a esteira completa de produtos e fichas de oferta detalhadas</p>
+            </div>
+            <div class="tab-body">
+
+                <div class="alert-banner critical">
+                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    <div>
+                        <strong>Informações críticas pendentes: Precificação de todos os produtos</strong>
+                        <p>Sem os tickets definidos (SIMM, Diagnóstico, Presença Sólida e Autoridade Nacional), a esteira não funciona operacionalmente. Impossível construir ancoragem de preço, scripts de venda e funis sem esses valores.</p>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2 class="section-title">O Método Presença Sólida</h2>
+                    <p class="section-subtitle">A ponte estratégica do Ponto A (invisibilidade) ao Ponto B (referência reconhecida).</p>
+
+                    <div class="point-card point-a">
+                        <span class="point-label">Ponto A — A Situação Atual</span>
+                        <h3>O especialista invisível</h3>
+                        <p>O especialista acumulou 15, 20, 25 anos de carreira exemplar. Seus pares o respeitam. Seus pacientes o indicam. Ele foi a congressos internacionais, publicou em periódicos respeitados, desenvolveu técnicas próprias. Mas o Google não sabe que ele existe. O LinkedIn parece um currículo abandonado em 2019. O Instagram — quando existe — tem 300 seguidores e o último post foi um meme de medicina. E quando um paciente de alto valor pesquisa seu nome antes de confirmar a consulta, o que encontra não faz jus ao que ele é. Enquanto isso, colegas com menos formação — mas com presença digital competente — estão sendo escolhidos no lugar dele. O especialista está invisível para o mercado que merece atender. Não por falta de competência. Por ausência de presença.</p>
+                    </div>
+
+                    <div class="method-connector"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+
+                    <div class="method-bridge">
+                        <div class="bridge-label">Método Presença Sólida</div>
+                        <p class="bridge-subtitle">Conceito narrativo: "Autoridade Silenciosa" — 5 pilares de construção</p>
+                    </div>
+
+                    <div class="steps-grid mb-24">
+                        <div class="step-card"><div class="step-number">1</div><h4>SEO e Conteúdo de Autoridade</h4><p>Produção de artigos técnicos e editoriais de alto valor, otimizados para Google orgânico e para referenciamento por IAs (SGE, ChatGPT, Perplexity). O especialista passa a ser encontrado quando alguém pesquisa sua especialidade.</p><div class="deliverable"><strong>Entregáveis</strong>Blog ativo com publicações mensais, artigos otimizados para palavras-chave de intenção qualificada, estruturação para aparecer nas respostas de IA.</div></div>
+                        <div class="step-card"><div class="step-number">2</div><h4>LinkedIn Institucional</h4><p>Construção e gestão do perfil como referência técnica da especialidade. Publicações com linguagem densa e séria, rede de conexões estratégicas (pares, gestores hospitalares, mídia médica).</p><div class="deliverable"><strong>Entregáveis</strong>Perfil otimizado e ativo, calendário editorial de artigos e posts, mapa de conexões estratégicas.</div></div>
+                        <div class="step-card"><div class="step-number">3</div><h4>YouTube — Canal de Autoridade</h4><p>Produção audiovisual consistente e de qualidade que posiciona o especialista como referência educacional e técnica. Presença nas buscas do YouTube — onde pacientes pesquisam antes de dormir.</p><div class="deliverable"><strong>Entregáveis</strong>Canal configurado, produção regular de vídeos educativos e técnicos, reaproveitamento multiplataforma.</div></div>
+                        <div class="step-card"><div class="step-number">4</div><h4>Instagram — Relevância, não Volume</h4><p>Presença consistente com estética alinhada ao nível do especialista. Não é ferramenta de captação de pacientes — é instrumento de reforço de autoridade para quem já chegou até o perfil.</p><div class="deliverable"><strong>Entregáveis</strong>Calendário editorial mensal, identidade visual coerente, conteúdo técnico e institucional de alto padrão (dentro das normas CFM).</div></div>
+                        <div class="step-card"><div class="step-number">5</div><h4>Eventos e Networking</h4><p>Participação e criação de eventos presenciais de alto nível. Posicionamento como nome de referência em encontros e congressos médicos. (Opcional / Premium)</p><div class="deliverable"><strong>Entregáveis</strong>Estratégia de presença em eventos, materiais de representação, networking qualificado.</div></div>
+                    </div>
+
+                    <div class="method-connector"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+
+                    <div class="point-card point-b">
+                        <span class="point-label">Ponto B — A Chegada</span>
+                        <h3>O especialista como referência reconhecida</h3>
+                        <p>O especialista existe onde importa. Quando alguém pesquisa sua especialidade no Google, ele aparece — com profundidade, com rigor, com o peso do que construiu. Quando um colega recomenda um nome, o dele está na lista — com presença digital que valida a recomendação. Quando a IA responde "qual o melhor especialista em X", ele é citado. Sua imagem online finalmente reflete o que levou décadas construindo — com seriedade, sem exposição desnecessária, sem ter aberto mão de quem é. Ele não virou influencer. Não precisou. Tornou-se referência.</p>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2 class="section-title">Esteira de Produtos e Ofertas</h2>
+                    <p class="section-subtitle">Do produto de entrada ao retainer premium — a jornada completa do cliente MarketMED.</p>
+
+                    <div class="saas-block">
+                        <div class="saas-label">Produto Front-End — Entrada</div>
+                        <h3>SIMM</h3>
+                        <p class="saas-tagline">Sistema Inicial de Marketing para Médicos — Marca profissional + site médico + presença no Google em 15 dias.</p>
+                        <ul class="saas-features">
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Identidade visual profissional</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Site médico completo</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Google Meu Negócio e/ou Google Ads básico</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Entrega em 15 dias</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Porta de entrada para o Método Presença Sólida</li>
+                        </ul>
+                        <div style="margin-top: 24px;"><p class="field-empty" style="color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2);"><i class="fa-solid fa-circle-exclamation" aria-hidden="true" style="color: #F59E0B;"></i> Ticket não definido — completar com o valor do SIMM</p></div>
+                    </div>
+
+                    <div class="tier-grid">
+                        <div class="tier-card">
+                            <div class="tier-label">Back-End — Nível 1</div>
+                            <h3>Diagnóstico de Autoridade Digital <span class="inferred-badge"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Inferido</span></h3>
+                            <div class="tier-model">DWY (Done With You) — Consultoria estratégica de posicionamento</div>
+                            <p class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Ticket não definido</p>
+                            <ul class="feature-list" style="margin-top: 16px;">
+                                <li>Análise completa da presença digital atual</li>
+                                <li>Mapa estratégico personalizado de posicionamento</li>
+                                <li>Recomendação de ativação dos pilares do Método para aquela especialidade</li>
+                                <li>Sessão de diagnóstico (90 min) + documento estratégico em até 5 dias úteis</li>
+                            </ul>
+                        </div>
+
+                        <div class="tier-card featured-tier">
+                            <div class="tier-label">Back-End — Nível 2 — Principal gerador de receita</div>
+                            <h3>Método Presença Sólida — Gestão Completa <span class="inferred-badge"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Inferido</span></h3>
+                            <div class="tier-model">DFY (Done For You) — Gestão recorrente de autoridade digital · Contrato mínimo 12 meses</div>
+                            <p class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Ticket não definido — definir mensalidade e ticket anual</p>
+                            <ul class="feature-list" style="margin-top: 16px;">
+                                <li>Gestão editorial e SEO do blog (publicações mensais)</li>
+                                <li>Gestão do LinkedIn (publicações semanais + construção de rede estratégica)</li>
+                                <li>Gestão do YouTube (produção ou orientação de vídeos mensais)</li>
+                                <li>Gestão do Instagram (calendário editorial + identidade visual + conteúdo ético CFM)</li>
+                                <li>Relatório mensal de autoridade (posições no Google, citações em IA, crescimento de rede qualificada)</li>
+                            </ul>
+                            <div style="margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap;">
+                                <span class="field-empty" style="flex: 1; min-width: 200px;"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Processo pós-venda não definido</span>
+                            </div>
+                            <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+                                <span class="field-empty" style="flex: 1; min-width: 140px;"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Bônus não definidos</span>
+                                <span class="field-empty" style="flex: 1; min-width: 140px;"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Garantia não definida</span>
+                            </div>
+                        </div>
+
+                        <div class="tier-card tier-wide" style="border-top: 3px solid var(--accent);">
+                            <div class="tier-label">Back-End — Nível 3 — Premium</div>
+                            <h3>Autoridade Nacional <span class="inferred-badge"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Inferido</span></h3>
+                            <div class="tier-model">Retainer Premium — Máximo envolvimento estratégico, mínimo esforço operacional do cliente</div>
+                            <p class="field-empty"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Ticket e modelo de precificação não definidos</p>
+                            <div class="offer-detail-grid" style="margin-top: 20px;">
+                                <div class="offer-detail-item"><div class="detail-label">Perfil Elegível</div><p>Especialista sênior com objetivo de tornar-se referência nacional. Nome já reconhecido regionalmente. Volume de clínica que justifica investimento premium.</p></div>
+                                <div class="offer-detail-item"><div class="detail-label">Inclui todos os entregáveis do Nível 2, mais:</div><p>Estratégia de eventos e networking (congressos nacionais, eventos próprios) · Assessoria de imprensa especializada em saúde · Estratégia de reacts a publicações internacionais · Consultoria mensal de posicionamento com equipe sênior</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="tab-conteudo" class="tab-content">
+            <div class="tab-header">
+                <h1>Produção de Conteúdo</h1>
+                <p>Pilares de conteúdo, pautas estratégicas, destaques e posts fixados para o Instagram da MarketMED</p>
+            </div>
+            <div class="tab-body">
+
+                <div class="section-block">
+                    <h2 class="section-title">Os 3 Pilares de Conteúdo</h2>
+                    <p class="section-subtitle">Toda publicação da MarketMED deve se encaixar em um destes três pilares estratégicos.</p>
+
+                    <div class="content-grid-3 mb-32">
+                        <div class="pilar-card">
+                            <div class="pilar-number">Pilar 1</div>
+                            <h3>Alcance</h3>
+                            <p class="pilar-objective"><strong>Objetivo:</strong> Atrair especialistas que não conhecem a MarketMED</p>
+                            <div class="pilar-cta"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> CTA: "Siga o perfil"</div>
+                            <div class="pilar-pautas"><h5>Exemplos de pauta</h5><ul>
+                                <li>Por que médicos de alto nível são invisíveis no Google</li>
+                                <li>O que uma IA responde quando pesquisa o nome do seu especialista</li>
+                                <li>O erro que destrói a reputação digital de cirurgiões sérios</li>
+                            </ul></div>
+                        </div>
+                        <div class="pilar-card" style="border-top-color: var(--accent);">
+                            <div class="pilar-number">Pilar 2</div>
+                            <h3>Movimento</h3>
+                            <p class="pilar-objective"><strong>Objetivo:</strong> Gerar demanda e agendamentos de diagnóstico</p>
+                            <div class="pilar-cta"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> CTA: "Comente PRESENÇA" / "Chame no DM"</div>
+                            <div class="pilar-pautas"><h5>Exemplos de pauta</h5><ul>
+                                <li>O que acontece com a agenda de um especialista quando o Google passa a reconhecê-lo</li>
+                                <li>Case: o cirurgião que não precisava postar para ser referência</li>
+                                <li>Por que você está perdendo pacientes para colegas menos qualificados</li>
+                            </ul></div>
+                        </div>
+                        <div class="pilar-card" style="border-top-color: var(--success);">
+                            <div class="pilar-number">Pilar 3</div>
+                            <h3>Doutrinação</h3>
+                            <p class="pilar-objective"><strong>Objetivo:</strong> Criar identificação e fãs — construir a tribo</p>
+                            <div class="pilar-cta"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> CTA: Nenhum — só conexão</div>
+                            <div class="pilar-pautas"><h5>Exemplos de pauta</h5><ul>
+                                <li>Seriedade não combina com marketing de barulho</li>
+                                <li>O que 24 anos de marketing médico nos ensinaram sobre reputação</li>
+                                <li>Marketing ético não é limitação — é o único diferencial que dura</li>
+                            </ul></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2 class="section-title">Os 3 Destaques Obrigatórios</h2>
+                    <p class="section-subtitle">Stories fixados no perfil — cada um com narrativa contínua de autoridade e conversão.</p>
+                    <div class="content-grid-3">
+                        <div class="ig-element"><h4><i class="fa-solid fa-building" aria-hidden="true" style="color: var(--brand);"></i> Quem é a MarketMED</h4><p>Pioneirismo em 2001 → Construção → Certificações (Google Premier, Meta Partner) → Equipe → Missão → O que diferencia de qualquer outra agência do mercado.</p></div>
+                        <div class="ig-element"><h4><i class="fa-solid fa-shield-halved" aria-hidden="true" style="color: var(--accent);"></i> O Método Presença Sólida</h4><p>"O que é presença qualificada vs. presença de volume" → Os 5 pilares → O que você para de fazer → O que você passa a ter → Quem é elegível.</p></div>
+                        <div class="ig-element"><h4><i class="fa-solid fa-trophy" aria-hidden="true" style="color: var(--success);"></i> Resultados / Prova Social</h4><p>Cases do portfólio atual alinhados ao perfil premium: Núcleo, Oftalmocare, Instituto Prata, Oncoclinic.</p><p class="field-empty mt-16"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Cases premium detalhados parcialmente ausentes — completar com métricas de autoridade específicas</p></div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2 class="section-title">Os 3 Posts Fixados</h2>
+                    <p class="section-subtitle">Os três posts que ficam no topo do grid — cada um com função estratégica clara.</p>
+                    <div class="content-grid-3">
+                        <div class="ig-element" style="border-top: 3px solid var(--danger);"><h4><i class="fa-solid fa-fire" aria-hidden="true" style="color: var(--danger);"></i> Post 1 — Campeão de Vendas</h4><p><strong>Formato:</strong> Carrossel ou Reels</p><p style="margin-top: 8px;"><strong>Gancho:</strong> "Você passou 20 anos construindo sua reputação. O Google vai levar 20 segundos para mostrar que ela não existe digitalmente."</p><p style="margin-top: 8px;"><strong>Estrutura:</strong> Problema → Método Presença Sólida → Prova → CTA diagnóstico</p></div>
+                        <div class="ig-element" style="border-top: 3px solid var(--brand);"><h4><i class="fa-solid fa-scroll" aria-hidden="true" style="color: var(--brand);"></i> Post 2 — Princípios e Valores</h4><p><strong>Título:</strong> "Por que a MarketMED não atende qualquer tipo de clínica"</p><p style="margin-top: 8px;">Manifesto do reposicionamento. O que acreditamos sobre marketing médico. Seleção do cliente certo como posicionamento de autoridade.</p></div>
+                        <div class="ig-element" style="border-top: 3px solid var(--accent);"><h4><i class="fa-solid fa-gem" aria-hidden="true" style="color: var(--accent);"></i> Post 3 — Diferenciação</h4><p><strong>Título:</strong> "Agências generalistas entendem de marketing. A MarketMED entende de medicina."</p><p style="margin-top: 8px;">Diferenciação clara e sem arrogância. 24 anos de especialização vs. agência genérica que atende padaria e clínica no mesmo dia.</p></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="tab-aquisicao" class="tab-content">
+            <div class="tab-header">
+                <h1>Aquisição de Clientes</h1>
+                <p>Funil de entrada com 3 ramos estratégicos — do high-ticket ao infoproduto de entrada</p>
+            </div>
+            <div class="tab-body">
+
+                <div class="section-block">
+                    <h2 class="section-title">Mapa do Funil de Aquisição</h2>
+                    <p class="section-subtitle">Visão geral do fluxo de captura e qualificação de leads da MarketMED.</p>
+                    <div class="journey-flow">
+                        <div class="jf-node jf-entry"><h4><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i> Fontes de Tráfego</h4><p>SEO Blog + LinkedIn + YouTube + Instagram + Tráfego Pago</p></div>
+                        <div class="jf-connector"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                        <div class="jf-node"><h4>Lead pesquisa, encontra conteúdo, clica em CTA</h4><p>O especialista reconhece a dor e busca solução</p></div>
+                        <div class="jf-connector"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                        <div class="jf-branches">
+                            <div class="jf-branch"><h4><i class="fa-solid fa-crown" aria-hidden="true" style="color: var(--accent);"></i> Ramo 1 — High-Ticket</h4><p><strong>Método Presença Sólida</strong></p><p>Para especialistas sêniores e cirurgiões de alta performance. Gestão completa de autoridade digital.</p></div>
+                            <div class="jf-branch"><h4><i class="fa-solid fa-box" aria-hidden="true" style="color: var(--brand);"></i> Ramo 2 — Infoproduto / SIMM</h4><p><strong>Sistema Inicial de Marketing para Médicos</strong></p><p>Para médicos recém-especialistas. Marca + site + Google em 15 dias. Porta de entrada.</p></div>
+                            <div class="jf-branch"><h4><i class="fa-solid fa-users" aria-hidden="true" style="color: var(--success);"></i> Ramo 3 — Evento / Captação de Lista</h4><p><strong>Webinar de Autoridade</strong></p><p>Captação de leads para nutrição por e-mail → qualificação → Diagnóstico → High-Ticket.</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <h2 class="section-title">Detalhamento dos Ramos</h2>
+                    <p class="section-subtitle">Estratégia específica de cada ramo do funil — iscas, estrutura e CTAs.</p>
+
+                    <div class="ramo-card">
+                        <h3><span class="ramo-num">1</span> Funil High-Ticket — Método Presença Sólida</h3>
+                        <div class="offer-detail-grid mb-24">
+                            <div class="offer-detail-item"><div class="detail-label">Isca</div><p>Artigo SEO: <em>"Como médicos especialistas constroem autoridade digital sem virar influencer"</em> + Minitreinamento: <em>"Os 3 erros que tornam especialistas invisíveis no Google"</em></p></div>
+                            <div class="offer-detail-item"><div class="detail-label">Objetivo da isca</div><p>Gerar "dor consciente" — fazer o especialista perceber o gap entre sua reputação clínica e sua presença digital atual.</p></div>
+                            <div class="offer-detail-item"><div class="detail-label">Dor que ataca</div><p>"Estou invisível para os pacientes certos enquanto o Google reconhece colegas com menos qualificação."</p></div>
+                            <div class="offer-detail-item"><div class="detail-label">"Momento Aha"</div><p>"Existe uma metodologia para construir autoridade digital séria sem precisar virar influencer — e existe uma agência com 24 anos de especialização para fazer isso por mim."</p></div>
+                        </div>
+                        <div class="highlight-box gold"><p><strong>CTA final:</strong> "Se você quer saber como o Método Presença Sólida funciona para a sua especialidade, clique aqui e agende um Diagnóstico de Autoridade gratuito."</p></div>
+                        <div class="highlight-box"><p><strong>Critério de qualificação no WhatsApp:</strong> Especialista com prática estabelecida (5+ anos), que entende posicionamento de longo prazo, atende ou quer atender preferencialmente particular.</p></div>
+                    </div>
+
+                    <div class="ramo-card">
+                        <h3><span class="ramo-num">2</span> Funil Infoproduto — SIMM</h3>
+                        <div class="offer-detail-grid mb-24">
+                            <div class="offer-detail-item"><div class="detail-label">Isca</div><p>VSL (Video Sales Letter) para o SIMM, voltada ao médico recém-especialista que não tem presença digital nenhuma.</p></div>
+                            <div class="offer-detail-item"><div class="detail-label">Estrutura da VSL</div><p>Prova de autoridade → Problema ("você não existe digitalmente") → Solução (SIMM) → Resultado em 15 dias → Preço → CTA</p></div>
+                            <div class="offer-detail-item"><div class="detail-label">Ancoragem de preço</div><p class="field-empty" style="margin: 0;"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Ancoragem não definida — depende do ticket do SIMM</p></div>
+                        </div>
+                        <div class="highlight-box gold"><p><strong>CTA final:</strong> "Comece sua presença digital profissional hoje — em 15 dias, você existe."</p></div>
+                    </div>
+
+                    <div class="ramo-card">
+                        <h3><span class="ramo-num">3</span> Captação de Leads — Webinar de Autoridade</h3>
+                        <div class="offer-detail-grid mb-24">
+                            <div class="offer-detail-item"><div class="detail-label">Formato</div><p>Webinar ao vivo: <em>"Como especialistas sérios constroem autoridade digital sem abrir mão de quem são."</em></p></div>
+                            <div class="offer-detail-item"><div class="detail-label">Promessa do webinar</div><p>Diagnóstico de onde sua presença digital está hoje + mapa de como sua especialidade pode ser encontrada no Google, LinkedIn e YouTube de forma ética.</p></div>
+                            <div class="offer-detail-item"><div class="detail-label">Destino do lead</div><p>Sequência de e-mails (7-14 dias) → Convite para Diagnóstico → Funil High-Ticket.</p></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="tab-vendas" class="tab-content">
+            <div class="tab-header">
+                <h1>Vendas e Escala</h1>
+                <p>Scripts de qualificação, roteiro de call de fechamento e tratamento de objeções</p>
+            </div>
+            <div class="tab-body">
+
+                <div class="section-block">
+                    <h2 class="section-title">Script de Qualificação — WhatsApp</h2>
+                    <p class="section-subtitle">Sequência de mensagens para qualificar o lead antes da call de fechamento.</p>
+                    <div class="script-steps">
+                        <div class="script-step"><p><em>"Olá, Doutor(a) [nome]. Fico feliz com o contato! Para que eu possa entender o que faz mais sentido para o seu momento, me conta: qual é a sua especialidade e há quanto tempo você está em prática clínica?"</em></p></div>
+                        <div class="script-step"><p><em>"Você tem alguma presença digital hoje — site, Instagram, LinkedIn? Como você descreveria o que está lá agora?"</em></p></div>
+                        <div class="script-step"><p><em>"O que te trouxe até a MarketMED neste momento? Qual é o principal desafio ou objetivo em relação à sua imagem online?"</em></p></div>
+                        <div class="script-step"><p><em>"Você atende predominantemente pacientes particulares ou ainda depende fortemente de convênios?"</em></p></div>
+                        <div class="script-step"><p><em>"Se você tivesse que descrever a presença digital ideal para a sua carreira daqui a 2 anos, como ela seria?"</em></p></div>
+                    </div>
+                    <div class="highlight-box gold mt-16"><p><strong>Critério de passagem para a call:</strong> Especialista/cirurgião com prática estabelecida (5+ anos), compreende posicionamento de longo prazo, atende ou quer preferencialmente pacientes particulares, tem perfil de investimento condizente com serviço premium.</p></div>
+                </div>
+
+                <div class="section-block">
+                    <h2 class="section-title">Roteiro da Call de Fechamento</h2>
+                    <p class="section-subtitle">As 6 etapas da call consultiva — do rapport ao fechamento.</p>
+                    <div class="call-stage"><div class="stage-time">5 min</div><div><h4>1. Rapport e Apresentação</h4><p class="stage-objective">Criar conexão e apresentar a MarketMED com autoridade.</p><p class="stage-questions">"Antes de começar, me conta: como você chegou até nós?"</p></div></div>
+                    <div class="call-stage"><div class="stage-time">15-20 min</div><div><h4>2. Diagnóstico</h4><p class="stage-objective">Entender profundamente situação atual, objetivos e dores.</p><p class="stage-questions">"Como você descreveria sua presença digital hoje, sendo brutalmente honesto?" · "O que você já tentou antes em marketing?" · "O que acontece com sua carreira se isso não mudar nos próximos 12 meses?"</p></div></div>
+                    <div class="call-stage"><div class="stage-time">15-20 min</div><div><h4>3. Apresentação da Solução</h4><p class="stage-objective">Apresentar o Método Presença Sólida como resposta customizada ao cenário do lead.</p><p class="stage-questions">"Com base no que você me contou, aqui está exatamente o que enxergo para o seu caso."</p></div></div>
+                    <div class="call-stage"><div class="stage-time">5 min</div><div><h4>4. Apresentação do Preço</h4><p class="stage-objective">Ancorar no valor, não no custo. Apresentar valor anual primeiro, depois mensal.</p><p class="stage-questions">Ancorar pelo custo de estar invisível — "Um procedimento de alto valor que você perdeu por não ser encontrado representa quanto?"</p></div></div>
+                    <div class="call-stage"><div class="stage-time">10 min</div><div><h4>5. Tratamento de Objeções</h4><p class="stage-objective">Neutralizar resistências com lógica, segurança e provas sociais.</p><p class="stage-questions">"O que especificamente te impede de avançar agora?"</p></div></div>
+                    <div class="call-stage"><div class="stage-time">5 min</div><div><h4>6. Fechamento</h4><p class="stage-objective">Definir próximo passo concreto e imediato. Não deixar em aberto.</p><p class="stage-questions">"Para darmos início, o próximo passo é X. Você prefere avançar ainda essa semana ou na próxima?"</p></div></div>
+                </div>
+
+                <div class="section-block">
+                    <h2 class="section-title">Principais Objeções e Respostas</h2>
+                    <p class="section-subtitle">As 6 objeções mais comuns e as respostas estratégicas calibradas para o perfil premium.</p>
+                    <div class="objection-card"><div class="objection-title"><i class="fa-solid fa-comment-slash" aria-hidden="true"></i> "Está caro"</div><div class="objection-response">"Doutor(a), quanto custa para você estar invisível? Um procedimento de alto valor que você deixou de realizar porque o paciente não te encontrou representa quanto na sua receita? O Método Presença Sólida é um investimento na sua reputação — a mesma reputação que levou 20 anos para construir."</div></div>
+                    <div class="objection-card"><div class="objection-title"><i class="fa-solid fa-comment-slash" aria-hidden="true"></i> "Preciso pensar"</div><div class="objection-response">"Faz todo sentido. O que especificamente você precisa avaliar? Posso te ajudar a pensar agora." [Identificar a objeção real]. "Só quero que você considere que, enquanto você pensa, o Google continua não te reconhecendo."</div></div>
+                    <div class="objection-card"><div class="objection-title"><i class="fa-solid fa-comment-slash" aria-hidden="true"></i> "Não tenho tempo agora"</div><div class="objection-response">"É exatamente por isso que o Método Presença Sólida existe. Você não vai fazer nada — a MarketMED assume tudo. Sua participação é de menos de 1h por mês, para validar direções estratégicas."</div></div>
+                    <div class="objection-card"><div class="objection-title"><i class="fa-solid fa-comment-slash" aria-hidden="true"></i> "Já tentei agência antes e não funcionou"</div><div class="objection-response">"O que você contratou antes era uma agência de marketing digital. A MarketMED tem 24 anos de especialização exclusiva em marketing médico — são universos completamente diferentes. Podemos te mostrar a diferença na prática?"</div></div>
+                    <div class="objection-card"><div class="objection-title"><i class="fa-solid fa-comment-slash" aria-hidden="true"></i> "Não quero me expor demais"</div><div class="objection-response">"É exatamente por isso que desenvolvemos o Método Presença Sólida. Ele foi feito para especialistas que não querem virar influencer — mas precisam ser encontrados pelas pessoas certas. Você define o nível de exposição. A gente cuida de tudo dentro desse limite."</div></div>
+                    <div class="objection-card"><div class="objection-title"><i class="fa-solid fa-comment-slash" aria-hidden="true"></i> "Quero resultado rápido"</div><div class="objection-response">"Construção de autoridade real não acontece em 30 dias — e qualquer agência que prometa isso está te vendendo ilusão. O que entregamos é sólido e duradouro: uma vez construído, é seu para sempre."</div></div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <div id="lacunas-report" style="display:none;">
+        <h2>Relatório de Lacunas — MarketMED</h2>
+        <p>Completude estimada do DPV: 78% (52 de 65 campos preenchidos)</p>
+        <p>Campos [INFERIDO]: 14</p>
+        <h3>🔴 CAMPOS CRÍTICOS AUSENTES (3)</h3>
+        <ul>
+            <li>Precificação de todos os produtos (SIMM, Diagnóstico, Presença Sólida, Autoridade Nacional) — Bloco 5</li>
+            <li>História de origem de Nori Carneiro e/ou Bernardo (gancho, momento de dor, virada, texto bruto) — Bloco 7</li>
+            <li>Cases e resultados específicos do perfil premium (especialistas sêniores, cirurgiões) — Blocos 1, 8, 9</li>
+        </ul>
+        <h3>🟡 CAMPOS IMPORTANTES AUSENTES (5)</h3>
+        <ul>
+            <li>Identidade visual atual e direção do reposicionamento — Bloco 8</li>
+            <li>Processo de onboarding e pós-venda — Bloco 5</li>
+            <li>Bônus e garantia do produto principal — Bloco 5</li>
+            <li>Depoimentos de clientes do perfil premium — Blocos 8, 9</li>
+            <li>Meta de receita e crescimento com o reposicionamento — Metadados</li>
+        </ul>
+        <h3>🟢 CAMPOS OPCIONAIS AUSENTES (3)</h3>
+        <ul>
+            <li>Presença e estratégia atual no LinkedIn e YouTube da MarketMED — Bloco 8</li>
+            <li>Papel e perfil de Bernardo (narrativa de transição/sucessão) — Bloco 7</li>
+            <li>Frequência e formatos de conteúdo que já funcionam atualmente — Bloco 8</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navItems = document.querySelectorAll('.nav-item');
+            const tabContents = document.querySelectorAll('.tab-content');
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    tabContents.forEach(tab => tab.classList.remove('active'));
+                    item.classList.add('active');
+                    const targetTab = document.getElementById(item.getAttribute('data-target'));
+                    if (targetTab) {
+                        targetTab.classList.add('active');
+                        document.querySelector('.main-content').scrollTop = 0;
+                        window.scrollTo(0, 0);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
