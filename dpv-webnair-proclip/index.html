@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinar CLIP® — Por que sua clínica popular sangra caixa mesmo com agenda lotada</title>
+    <meta name="description" content="Masterclass ao vivo e gratuita: o protocolo de 45 dias para clínicas populares. Segunda, 28/04 às 20h. Vagas limitadas. Sem gravação.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Webinar CLIP® — Protocolo de captação previsível para clínicas populares">
+    <meta property="og:description" content="Masterclass ao vivo e gratuita para donos de clínica popular que cansaram de agência genérica e agenda parada. Segunda, 28/04 às 20h.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- ============================================ -->
+    <!-- TRACKING — INSERIR PIXELS QUANDO DISPONÍVEIS  -->
+    <!-- ============================================ -->
+    <!-- Meta Pixel: inserir script aqui              -->
+    <!-- Google Analytics 4: inserir script aqui      -->
+    <!-- Google Tag Manager: inserir script aqui      -->
+    <!-- ============================================ -->
+
+    <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+    :root{
+        --c-bg:#fff;
+        --c-surface:#F1F5F9;
+        --c-surface-alt:#F8FAFC;
+        --c-txt:#0F172A;
+        --c-txt2:#475569;
+        --c-txt3:#64748B;
+        --c-border:#E2E8F0;
+        --c-brand:#0D2137;
+        --c-brand-mid:#1E3A5F;
+        --c-brand-light:#2B4C7E;
+        --c-cta:#22C55E;
+        --c-cta-h:#15803D;
+        --c-cta-txt:#fff;
+        --c-danger:#DC2626;
+        --c-danger-bg:#991B1B;
+        --c-ok:#10B981;
+        --s1:.5rem;--s2:1rem;--s3:1.5rem;--s4:2rem;--s5:3rem;--s6:4rem;--s7:6rem;--s8:8rem;
+        --ff:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+        --t-xs:clamp(.8125rem,.78rem + .15vw,.875rem);
+        --t-sm:clamp(.875rem,.84rem + .18vw,1rem);
+        --t-base:clamp(1rem,.95rem + .25vw,1.125rem);
+        --t-lg:clamp(1.0625rem,1rem + .35vw,1.3125rem);
+        --t-xl:clamp(1.25rem,1.12rem + .55vw,1.5rem);
+        --t-2xl:clamp(1.5rem,1.25rem + 1vw,2rem);
+        --t-3xl:clamp(1.625rem,1.3rem + 1.4vw,2.5rem);
+        --t-hero:clamp(1.375rem,1rem + 2vw,3.125rem);
+        --r-sm:6px;--r-md:10px;--r-lg:16px;--r-pill:999px;
+        --tr:.25s ease;
+        --mw:1100px;--mw-n:720px;
+    }
+
+    html{-webkit-text-size-adjust:100%}
+    body{font-family:var(--ff);font-size:var(--t-base);line-height:1.65;color:var(--c-txt);background:var(--c-bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    img{max-width:100%;height:auto;display:block}
+    a{color:inherit;text-decoration:none}
+    button{font-family:inherit}
+    strong{font-weight:700}
+
+    .ctn{width:100%;max-width:var(--mw);margin:0 auto;padding:0 20px}
+    .ctn-n{max-width:var(--mw-n)}
+
+    .ubar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--c-danger-bg);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--t-xs);font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:10px 16px;text-align:center;gap:8px;flex-wrap:wrap;line-height:1.4}
+    .ubar__dot{width:8px;height:8px;background:#EF4444;border-radius:50%;animation:blink 1.5s ease-in-out infinite;flex-shrink:0}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+    .ubar__cd{display:inline-flex;gap:3px;font-variant-numeric:tabular-nums}
+    .ubar__cd span{background:rgba(255,255,255,.15);padding:2px 5px;border-radius:3px;font-size:.7rem}
+    .ubar__full{display:none}
+    @media(min-width:641px){.ubar__mob{display:none}.ubar__full{display:inline}}
+
+    .hdr{padding:var(--s2) 0;border-bottom:1px solid var(--c-border);background:var(--c-bg)}
+    .hdr .ctn{display:flex;align-items:center;justify-content:center}
+    .logo{font-family:var(--ff);font-weight:800;font-size:var(--t-xl);color:var(--c-brand);letter-spacing:-.02em}
+    .logo b{color:var(--c-cta);font-weight:800}
+
+    .cta{display:inline-flex;align-items:center;justify-content:center;gap:var(--s1);padding:var(--s3) var(--s5);background:var(--c-cta);color:var(--c-cta-txt);font-size:var(--t-lg);font-weight:700;border:none;border-radius:var(--r-md);cursor:pointer;transition:all var(--tr);box-shadow:0 4px 16px rgba(34,197,94,.3);min-height:56px;text-align:center;line-height:1.3;text-decoration:none;animation:glow 2.5s ease-in-out infinite}
+    .cta:hover{background:var(--c-cta-h);transform:translateY(-2px);box-shadow:0 8px 28px rgba(34,197,94,.45);animation:none}
+    .cta:active{transform:translateY(0);box-shadow:0 2px 8px rgba(34,197,94,.3)}
+    .cta--lg{font-size:var(--t-xl);padding:var(--s4) var(--s6);min-height:64px}
+    @keyframes glow{0%,100%{box-shadow:0 4px 16px rgba(34,197,94,.3)}50%{box-shadow:0 4px 28px rgba(34,197,94,.55)}}
+    @media(max-width:640px){.cta{width:100%;max-width:420px}}
+    .cta-mc{font-size:var(--t-xs);color:var(--c-txt3);margin-top:var(--s1);text-align:center}
+    .cta-wrap{display:flex;flex-direction:column;align-items:center}
+
+    .sec{padding:var(--s6) 0}
+    @media(min-width:768px){.sec{padding:var(--s7) 0}}
+    @media(min-width:1024px){.sec{padding:var(--s8) 0}}
+    .sec-h{font-family:var(--ff);font-size:var(--t-3xl);font-weight:800;line-height:1.15;letter-spacing:-.02em;color:var(--c-txt);margin-bottom:var(--s4)}
+
+    .hero{padding:var(--s4) 0 var(--s6)}
+    .hero__h1{font-size:var(--t-hero);font-weight:800;line-height:1.1;letter-spacing:-.025em;color:var(--c-txt);margin-bottom:var(--s3)}
+    .hero__h1 em{font-style:normal;color:var(--c-brand-mid)}
+    .hero__sub{font-size:var(--t-base);color:var(--c-txt2);line-height:1.6;margin-bottom:var(--s3);max-width:700px}
+    .hero__bul{list-style:none;margin-bottom:var(--s4);display:flex;flex-direction:column;gap:var(--s1)}
+    .hero__bul li{display:flex;align-items:flex-start;gap:8px;font-size:var(--t-sm);color:var(--c-txt2);line-height:1.5}
+    .hero__bul li::before{content:'✓';color:var(--c-cta);font-weight:700;flex-shrink:0;margin-top:1px}
+    @media(max-width:640px){
+        .hero{padding:var(--s2) 0 var(--s4)}
+        .hero__h1{margin-bottom:var(--s2)}
+        .hero__sub{font-size:var(--t-sm);margin-bottom:var(--s2);line-height:1.5}
+        .hero__bul{margin-bottom:var(--s3);gap:4px}
+        .hero__bul li{font-size:var(--t-xs);line-height:1.4}
+    }
+    @media(min-width:768px){
+        .hero{padding:var(--s7) 0}
+        .hero__sub{font-size:var(--t-lg)}
+        .hero__bul li{font-size:var(--t-base)}
+    }
+
+    .diag{background:var(--c-surface)}
+    .diag__body{max-width:var(--mw-n)}
+    .diag__body p{margin-bottom:var(--s3);color:var(--c-txt2);line-height:1.7}
+    .diag__body p:last-child{margin-bottom:0}
+    .bq{border-left:4px solid var(--c-brand-mid);padding:var(--s3) var(--s4);margin:var(--s4) 0;background:var(--c-bg);border-radius:0 var(--r-md) var(--r-md) 0}
+    .bq p{font-size:var(--t-xl)!important;font-weight:700;color:var(--c-brand)!important;font-style:italic;line-height:1.35!important;margin-bottom:0!important}
+
+    .virada__body{max-width:var(--mw-n)}
+    .virada__body p{margin-bottom:var(--s3);color:var(--c-txt2);line-height:1.7}
+    .vlist{list-style:none;margin:var(--s4) 0;display:flex;flex-direction:column;gap:var(--s2)}
+    .vlist li{display:flex;align-items:flex-start;gap:12px;font-size:var(--t-base);color:var(--c-txt2);line-height:1.6;padding:var(--s2);background:var(--c-surface);border-radius:var(--r-sm);border-left:3px solid var(--c-brand-mid)}
+    .vlist li::before{content:'›';color:var(--c-brand-mid);font-weight:800;font-size:1.3em;flex-shrink:0;line-height:1.4}
+    .virada__end{font-weight:600;color:var(--c-txt)!important;font-size:var(--t-lg);margin-top:var(--s4)!important;padding:var(--s3);background:var(--c-surface);border-radius:var(--r-md);border:1px solid var(--c-border)}
+
+    .psoc{background:var(--c-surface);padding:var(--s5) 0}
+    .psoc__badge{text-align:center;font-size:var(--t-lg);font-weight:700;color:var(--c-brand);margin-bottom:var(--s4)}
+    .tcard{background:var(--c-bg);border-radius:var(--r-md);padding:var(--s4);border:1px solid var(--c-border)}
+    .tcard__hd{display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3)}
+    .tcard__av-svg{flex-shrink:0;border-radius:50%;overflow:hidden}
+    .tcard__name{font-weight:700;font-size:var(--t-sm);color:var(--c-txt)}
+    .tcard__role{font-size:var(--t-xs);color:var(--c-txt3)}
+    .tcard__txt{font-size:var(--t-base);color:var(--c-txt2);line-height:1.65;font-style:italic}
+
+    .carousel{position:relative;overflow:hidden;max-width:660px;margin:0 auto;-webkit-user-select:none;user-select:none}
+    .carousel__track{display:flex;transition:transform .45s cubic-bezier(.25,.46,.45,.94);will-change:transform}
+    .carousel__slide{min-width:100%;flex-shrink:0;padding:0 6px;box-sizing:border-box}
+    .carousel__arrow{position:absolute;top:50%;transform:translateY(-70%);background:var(--c-bg);border:1px solid var(--c-border);width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.5rem;color:var(--c-txt2);z-index:2;transition:all .15s ease;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:0}
+    .carousel__arrow:hover{background:var(--c-surface);color:var(--c-txt);box-shadow:0 4px 14px rgba(0,0,0,.12)}
+    .carousel__arrow--prev{left:-6px}
+    .carousel__arrow--next{right:-6px}
+    @media(max-width:720px){
+        .carousel__arrow{width:34px;height:34px;font-size:1.2rem}
+        .carousel__arrow--prev{left:4px}
+        .carousel__arrow--next{right:4px}
+    }
+    .carousel__dots{display:flex;justify-content:center;gap:8px;margin-top:var(--s3);padding:var(--s1) 0}
+    .carousel__dot{width:10px;height:10px;border-radius:50%;background:var(--c-border);border:none;cursor:pointer;transition:all .25s ease;padding:0}
+    .carousel__dot.on{background:var(--c-brand-mid);transform:scale(1.3)}
+
+    .rev__intro{font-size:var(--t-base);color:var(--c-txt2);line-height:1.7;margin-bottom:var(--s5);max-width:var(--mw-n)}
+    .rev__grid{display:grid;grid-template-columns:1fr;gap:var(--s3)}
+    @media(min-width:768px){.rev__grid{grid-template-columns:repeat(2,1fr)}}
+    .rcard{background:var(--c-surface-alt);border:1px solid var(--c-border);border-radius:var(--r-lg);padding:var(--s4);transition:all var(--tr)}
+    .rcard:hover{border-color:var(--c-brand-mid);box-shadow:0 4px 20px rgba(13,33,55,.08)}
+    .rcard__num{font-size:var(--t-3xl);font-weight:800;color:var(--c-brand);opacity:.12;line-height:1;margin-bottom:var(--s1)}
+    .rcard__ttl{font-size:var(--t-lg);font-weight:700;color:var(--c-txt);line-height:1.3;margin-bottom:var(--s2)}
+    .rcard__desc{font-size:var(--t-sm);color:var(--c-txt2);line-height:1.6}
+
+    .pq{background:var(--c-surface)}
+    .pq__grid{display:grid;grid-template-columns:1fr;gap:var(--s4)}
+    @media(min-width:768px){.pq__grid{grid-template-columns:1fr 1fr}}
+    .pq__col{background:var(--c-bg);border-radius:var(--r-lg);padding:var(--s4);border:1px solid var(--c-border)}
+    .pq__col--y{border-top:3px solid var(--c-ok)}
+    .pq__col--n{border-top:3px solid var(--c-danger)}
+    .pq__col-t{font-weight:700;font-size:var(--t-lg);margin-bottom:var(--s3);display:flex;align-items:center;gap:8px}
+    .pq__col--y .pq__col-t{color:var(--c-ok)}
+    .pq__col--n .pq__col-t{color:var(--c-danger)}
+    .pq__list{list-style:none;display:flex;flex-direction:column;gap:var(--s2)}
+    .pq__list li{display:flex;align-items:flex-start;gap:8px;font-size:var(--t-sm);color:var(--c-txt2);line-height:1.5}
+    .ic{font-weight:700;flex-shrink:0;margin-top:1px}
+    .ic--y{color:var(--c-ok)}
+    .ic--n{color:var(--c-danger)}
+
+    .obj__list{max-width:var(--mw-n);display:flex;flex-direction:column;gap:var(--s4)}
+    .obj-i{padding-bottom:var(--s4);border-bottom:1px solid var(--c-border)}
+    .obj-i:last-child{border-bottom:none;padding-bottom:0}
+    .obj-i__q{font-size:var(--t-lg);font-weight:700;color:var(--c-txt);margin-bottom:var(--s2);display:flex;align-items:flex-start;gap:8px}
+    .obj-i__q::before{content:'\201C';color:var(--c-brand-mid);font-size:1.5em;line-height:1;flex-shrink:0}
+    .obj-i__a{font-size:var(--t-sm);color:var(--c-txt2);line-height:1.7;padding-left:1.75rem}
+
+    .urg{background:var(--c-brand);color:#fff}
+    .urg .sec-h{color:#fff}
+    .urg p{color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:var(--s3)}
+    .urg__alerts{list-style:none;margin:var(--s4) 0;display:flex;flex-direction:column;gap:var(--s2)}
+    .urg__alerts li{display:flex;align-items:center;gap:12px;font-size:var(--t-base);font-weight:600;color:#FCA5A5}
+    .urg__alerts li::before{content:'\2715';background:rgba(239,68,68,.2);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem;color:#FCA5A5}
+    .urg__end{color:rgba(255,255,255,.95)!important;font-size:var(--t-lg)}
+    .urg .cta-mc{color:rgba(255,255,255,.5)}
+
+    .ctaf{background:var(--c-surface);text-align:center}
+    .ctaf .sec-h{max-width:700px;margin-left:auto;margin-right:auto}
+    .ctaf__body{max-width:var(--mw-n);margin:0 auto var(--s5)}
+    .ctaf__body p{color:var(--c-txt2);line-height:1.7;margin-bottom:var(--s3)}
+    .ctaf__body p:last-child{font-weight:700;color:var(--c-txt);font-size:var(--t-lg)}
+    .ctaf .cta-mc{max-width:500px;margin-left:auto;margin-right:auto}
+
+    .faq__list{max-width:var(--mw-n);margin:0 auto}
+    .faq-i{border-bottom:1px solid var(--c-border)}
+    .faq-i__q{width:100%;background:none;border:none;padding:var(--s3) 0;font-size:var(--t-base);font-weight:600;color:var(--c-txt);text-align:left;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:var(--s2);line-height:1.4}
+    .faq-i__q:hover{color:var(--c-brand-mid)}
+    .faq-i__ico{flex-shrink:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center;transition:transform var(--tr);font-size:1.2rem;color:var(--c-txt3)}
+    .faq-i.on .faq-i__ico{transform:rotate(45deg)}
+    .faq-i__a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+    .faq-i__a-in{padding:0 0 var(--s3);font-size:var(--t-sm);color:var(--c-txt2);line-height:1.7}
+
+    .mo{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,.7);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:all var(--tr);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+    .mo.on{opacity:1;visibility:visible}
+    .mo__box{background:var(--c-bg);border-radius:var(--r-lg);width:100%;max-width:480px;max-height:90vh;overflow-y:auto;transform:translateY(20px);transition:transform var(--tr);box-shadow:0 24px 48px rgba(0,0,0,.2)}
+    .mo.on .mo__box{transform:translateY(0)}
+    .mo__hd{padding:var(--s3) var(--s4);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--c-border)}
+    .mo__ttl{font-size:var(--t-lg);font-weight:700;color:var(--c-txt)}
+    .mo__x{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--c-surface);border:none;border-radius:var(--r-sm);cursor:pointer;font-size:1.1rem;color:var(--c-txt3);transition:all .15s ease}
+    .mo__x:hover{background:var(--c-border);color:var(--c-txt)}
+    .mo__bd{padding:var(--s4)}
+    .mo__sub{font-size:var(--t-sm);color:var(--c-txt2);margin-bottom:var(--s3);line-height:1.5;text-align:center}
+    .mo__info{display:flex;align-items:center;justify-content:center;gap:var(--s2);flex-wrap:wrap;padding:var(--s2);background:var(--c-surface);border-radius:var(--r-sm);margin-bottom:var(--s3);font-size:var(--t-xs);color:var(--c-txt2);font-weight:500}
+    .fg{margin-bottom:var(--s3)}
+    .fg label{display:block;font-size:var(--t-sm);font-weight:600;color:var(--c-txt);margin-bottom:6px}
+    .fg input{width:100%;padding:14px 16px;font-family:var(--ff);font-size:16px;border:2px solid var(--c-border);border-radius:var(--r-sm);background:var(--c-bg);color:var(--c-txt);transition:border-color .15s ease;outline:none}
+    .fg input:focus{border-color:var(--c-brand-mid)}
+    .fg input::placeholder{color:var(--c-txt3)}
+    .f-submit{width:100%;padding:var(--s3);background:var(--c-cta);color:var(--c-cta-txt);font-size:var(--t-lg);font-weight:700;border:none;border-radius:var(--r-md);cursor:pointer;transition:all var(--tr);min-height:56px;box-shadow:0 4px 16px rgba(34,197,94,.3)}
+    .f-submit:hover{background:var(--c-cta-h);box-shadow:0 8px 24px rgba(34,197,94,.4)}
+    .f-submit:focus{outline:2px solid var(--c-cta);outline-offset:2px}
+    .f-submit:active{transform:scale(.98)}
+    .f-legal{font-size:var(--t-xs);color:var(--c-txt3);text-align:center;margin-top:var(--s2);line-height:1.5}
+
+    .mo-p{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,.7);z-index:2500;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:all var(--tr);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+    .mo-p.on{opacity:1;visibility:visible}
+    .mo-p__box{background:var(--c-bg);border-radius:var(--r-lg);width:100%;max-width:540px;max-height:85vh;overflow-y:auto;transform:translateY(20px);transition:transform var(--tr);box-shadow:0 24px 48px rgba(0,0,0,.2)}
+    .mo-p.on .mo-p__box{transform:translateY(0)}
+    .mo-p__hd{padding:var(--s3) var(--s4);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--c-border)}
+    .mo-p__ttl{font-size:var(--t-lg);font-weight:700;color:var(--c-txt)}
+    .mo-p__bd{padding:var(--s4)}
+    .mo-p__bd p{font-size:var(--t-sm);color:var(--c-txt2);line-height:1.7;margin-bottom:var(--s3)}
+    .mo-p__bd p:last-of-type{margin-bottom:var(--s4)}
+    .mo-p__btn{display:block;width:100%;padding:var(--s2) var(--s3);background:var(--c-brand);color:#fff;font-size:var(--t-sm);font-weight:600;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .15s ease;text-align:center}
+    .mo-p__btn:hover{background:var(--c-brand-mid)}
+
+    .ft{background:var(--c-brand);color:rgba(255,255,255,.6);padding:var(--s5) 0;font-size:var(--t-xs);text-align:center}
+    .ft p{margin-bottom:var(--s1);line-height:1.6}
+    .ft a{color:rgba(255,255,255,.8);text-decoration:underline;text-underline-offset:2px}
+    .ft a:hover{color:#fff}
+    .ft__priv{font-size:.75rem;color:rgba(255,255,255,.45)!important;cursor:pointer}
+    .ft__priv:hover{color:rgba(255,255,255,.7)!important}
+    .ft__disc{margin-top:var(--s3)!important;max-width:600px;margin-left:auto;margin-right:auto;font-size:.7rem;color:rgba(255,255,255,.35)}
+    </style>
+</head>
+<body>
+
+    <div class="ubar" role="banner">
+        <span class="ubar__dot" aria-hidden="true"></span>
+        <span class="ubar__full">AO VIVO · SEGUNDA-FEIRA, 28/04 · 20H (BRASÍLIA) · VAGAS LIMITADAS · NÃO HAVERÁ GRAVAÇÃO</span>
+        <span class="ubar__mob">AO VIVO · 28/04 · 20H · SEM GRAVAÇÃO</span>
+        <span class="ubar__cd" id="cd" aria-label="Tempo restante"></span>
+    </div>
+
+    <header class="hdr">
+        <div class="ctn"><div class="logo">PRO<b>Clip</b></div></div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="ctn">
+                <h1 class="hero__h1">Por que sua clínica popular sangra caixa mesmo com a agenda lotada — <em>e o protocolo de 45 dias que transforma agenda oscilante em canal previsível de captação.</em></h1>
+                <p class="hero__sub">Masterclass ao vivo e gratuita para donos de clínica popular que cansaram de agência genérica, posts bonitos e agenda parada. Em 90 minutos, você vai entender exatamente por que sua clínica não cresce sem você ser o hub central — e o que fazer a partir de segunda-feira.</p>
+                <ul class="hero__bul">
+                    <li>Por que agência genérica nunca funciona para clínica popular — e o que funciona</li>
+                    <li>Como estruturar captação previsível sem risco de autuação pelo CFM</li>
+                    <li>Os 4 pilares da metodologia CLIP® aplicados na operação real</li>
+                </ul>
+                <div class="cta-wrap">
+                    <a href="#" class="cta js-mo">Garantir minha vaga no webinar →</a>
+                    <p class="cta-mc">Inscrição gratuita · Vagas limitadas · Segunda, 28/04 às 20h</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec diag">
+            <div class="ctn">
+                <h2 class="sec-h">Se você é dono de clínica popular, provavelmente está vivendo isto — mesmo que ninguém mais entenda.</h2>
+                <div class="diag__body">
+                    <p>Você abriu a clínica para ter liberdade. Saiu do plantão, do SUS, do hospital — e descobriu que construiu uma prisão diferente.</p>
+                    <p>A agenda oscila sem motivo aparente. Em uma semana lota, na outra esvazia. O no-show consome entre 16% e 30% das consultas. A recepção gasta 4 horas por dia confirmando paciente por paciente no WhatsApp pessoal. As glosas chegam a 15% da fatura — e 80% delas são por erro de cadastro que poderia ter sido evitado na admissão.</p>
+                    <p>No fim do mês, você olha o extrato e pensa a mesma frase:</p>
+                    <div class="bq"><p>"Trabalho igual um louco e no fim do mês não sobrou nada."</p></div>
+                    <p>Você já tentou marketing. Contratou agência. Recebeu posts bonitos, stories engajados, "conteúdo de valor" — e a agenda continuou parada. Pior: descobriu, na conversa com colegas, que agência genérica nunca entendeu a diferença estrutural da clínica popular. Eles vendem o mesmo pacote para clínica de estética, dentista e cardiologista de alto padrão.</p>
+                    <p>Enquanto isso, as franquias dominam o Google Maps da sua região. Sua clínica continua invisível no digital. E todo mês você vira gestor em modo de apagar incêndio — recepção, estoque, convênio, glosa, equipe, paciente reclamando — sem nunca conseguir sentar na cadeira que importa: a cadeira de CEO.</p>
+                    <p><strong>Se isso descreve a sua semana, este webinar foi construído especificamente para você.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec">
+            <div class="ctn">
+                <h2 class="sec-h">Esta não é uma palestra de marketing. É um diagnóstico operacional da sua clínica.</h2>
+                <div class="virada__body">
+                    <p>O que você vai assistir na segunda-feira não é uma versão reciclada de "como crescer no Instagram" adaptada para médico.</p>
+                    <p>É a apresentação ao vivo da <strong>Metodologia CLIP®</strong> — o protocolo construído especificamente para clínicas populares brasileiras, que trata marketing como o que ele realmente é: um sistema operacional integrado à gestão clínica, em conformidade com o CFM, mensurável por CAP e auditável por dados.</p>
+                    <p>Não vamos falar de leads, alcance, impressões ou stories engajados. Vamos falar de:</p>
+                    <ul class="vlist">
+                        <li>Taxa de no-show e os 3 pontos da admissão onde ela é gerada</li>
+                        <li>CAP (Custo de Aquisição de Paciente) e como precificá-lo em clínica popular</li>
+                        <li>Glosa e por que ela começa na recepção, não no convênio</li>
+                        <li>Conformidade CFM como pilar estrutural — não como anexo jurídico</li>
+                        <li>Previsibilidade de caixa a partir de canal digital estruturado</li>
+                    </ul>
+                    <p class="virada__end">Se você é o tipo de médico-empreendedor que pesquisa antes de comprar, exige ROI demonstrável e desconfia de promessa vazia — você está no lugar certo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             DEPOIMENTOS — SUBSTITUIR CONTEÚDO DOS 3 CARDS
+             Trocar: nome, cidade/estado, texto do depoimento
+             Opcional: substituir SVG de iniciais por <img> com foto real
+             ===================================================== -->
+        <section class="psoc">
+            <div class="ctn">
+                <p class="psoc__badge">Mais de [X] clínicas populares já implantaram a metodologia CLIP®</p>
+                <div class="carousel" id="tCarousel">
+                    <div class="carousel__track" id="tTrack">
+                        <div class="carousel__slide">
+                            <div class="tcard">
+                                <div class="tcard__hd">
+                                    <svg class="tcard__av-svg" width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#0D2137"/><text x="24" y="24" text-anchor="middle" dy=".35em" fill="#fff" font-family="Inter,sans-serif" font-weight="700" font-size="15">RM</text></svg>
+                                    <div>
+                                        <p class="tcard__name">Dr. Ricardo M.</p>
+                                        <p class="tcard__role">São Paulo/SP</p>
+                                    </div>
+                                </div>
+                                <p class="tcard__txt">"Em 60 dias de implantação, o no-show da clínica caiu de 28% para 11%. Pela primeira vez consigo prever o caixa do mês com precisão."</p>
+                            </div>
+                        </div>
+                        <div class="carousel__slide">
+                            <div class="tcard">
+                                <div class="tcard__hd">
+                                    <svg class="tcard__av-svg" width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#0D2137"/><text x="24" y="24" text-anchor="middle" dy=".35em" fill="#fff" font-family="Inter,sans-serif" font-weight="700" font-size="15">CA</text></svg>
+                                    <div>
+                                        <p class="tcard__name">Dra. Camila A.</p>
+                                        <p class="tcard__role">Belo Horizonte/MG</p>
+                                    </div>
+                                </div>
+                                <p class="tcard__txt">"Já tinha contratado três agências antes. Nenhuma entendia clínica popular. O CLIP® foi o primeiro método que me trouxe consulta agendada de fato — não engajamento."</p>
+                            </div>
+                        </div>
+                        <div class="carousel__slide">
+                            <div class="tcard">
+                                <div class="tcard__hd">
+                                    <svg class="tcard__av-svg" width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#0D2137"/><text x="24" y="24" text-anchor="middle" dy=".35em" fill="#fff" font-family="Inter,sans-serif" font-weight="700" font-size="15">FB</text></svg>
+                                    <div>
+                                        <p class="tcard__name">Dr. Fernando B.</p>
+                                        <p class="tcard__role">Curitiba/PR</p>
+                                    </div>
+                                </div>
+                                <p class="tcard__txt">"Saí da cadeira de balcão. Hoje a clínica funciona com previsibilidade mesmo nos dias em que não estou nela. Era exatamente o que eu queria quando saí do hospital."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel__arrow carousel__arrow--prev" aria-label="Depoimento anterior">&#8249;</button>
+                    <button class="carousel__arrow carousel__arrow--next" aria-label="Próximo depoimento">&#8250;</button>
+                    <div class="carousel__dots">
+                        <button class="carousel__dot on" aria-label="Slide 1"></button>
+                        <button class="carousel__dot" aria-label="Slide 2"></button>
+                        <button class="carousel__dot" aria-label="Slide 3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec">
+            <div class="ctn">
+                <h2 class="sec-h">O que vai ser revelado ao vivo na segunda, 28/04 — às 20h.</h2>
+                <p class="rev__intro">Em 90 minutos, você vai sair com clareza operacional sobre 6 frentes que hoje estão sangrando sua clínica. Sem teoria genérica. Com protocolo aplicável a partir de terça-feira.</p>
+                <div class="rev__grid">
+                    <div class="rcard">
+                        <div class="rcard__num">01</div>
+                        <h3 class="rcard__ttl">Por que a sua agenda oscila — e o protocolo de captação previsível</h3>
+                        <p class="rcard__desc">Você vai entender exatamente onde, na arquitetura da sua operação, a previsibilidade quebra. E como estruturar um canal digital que não depende de boca a boca nem da sua presença no balcão.</p>
+                    </div>
+                    <div class="rcard">
+                        <div class="rcard__num">02</div>
+                        <h3 class="rcard__ttl">Marketing médico sem risco de autuação pelo CFM</h3>
+                        <p class="rcard__desc">Vamos revisar, item a item, o que pode e o que não pode em comunicação de clínica popular. Conformidade não como anexo — como pilar estrutural do método.</p>
+                    </div>
+                    <div class="rcard">
+                        <div class="rcard__num">03</div>
+                        <h3 class="rcard__ttl">Por que agência genérica nunca funciona para clínica popular (e o que funciona)</h3>
+                        <p class="rcard__desc">A diferença estrutural que nenhuma agência tradicional entende. Por que posts bonitos não lotam agenda de clínica popular. E qual o modelo de comunicação que efetivamente converte em consulta agendada.</p>
+                    </div>
+                    <div class="rcard">
+                        <div class="rcard__num">04</div>
+                        <h3 class="rcard__ttl">Como medir CAP, controlar no-show e parar de sangrar caixa</h3>
+                        <p class="rcard__desc">As 4 métricas que todo dono de clínica popular precisa olhar toda segunda-feira de manhã. Como cada uma se conecta. E o ponto exato da operação onde cada uma é destruída.</p>
+                    </div>
+                    <div class="rcard">
+                        <div class="rcard__num">05</div>
+                        <h3 class="rcard__ttl">Os 4 pilares do CLIP® aplicados na prática</h3>
+                        <p class="rcard__desc">Captação · Lealdade · Identidade · Performance — como cada pilar se traduz em ação operacional dentro da clínica nos primeiros 45 dias de implantação.</p>
+                    </div>
+                    <div class="rcard">
+                        <div class="rcard__num">06</div>
+                        <h3 class="rcard__ttl">O protocolo que transforma a clínica de refém do dono para ativo que funciona</h3>
+                        <p class="rcard__desc">A transição da cadeira de médico para a cadeira de CEO. Como sair do modo "apagar incêndio" sem largar o controle — e fazer a clínica funcionar com previsibilidade mesmo nos dias em que você não está nela.</p>
+                    </div>
+                </div>
+                <div class="cta-wrap" style="margin-top:var(--s5)">
+                    <a href="#" class="cta js-mo">Garantir minha vaga no webinar →</a>
+                    <p class="cta-mc">Segunda, 28/04 · 20h (Brasília) · Ao vivo · Vagas limitadas</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec pq">
+            <div class="ctn">
+                <h2 class="sec-h">Este webinar é para você se...</h2>
+                <div class="pq__grid">
+                    <div class="pq__col pq__col--y">
+                        <p class="pq__col-t"><span aria-hidden="true">✓</span> É para você</p>
+                        <ul class="pq__list">
+                            <li><span class="ic ic--y" aria-hidden="true">✓</span> Você é dono de clínica popular com 1 a 5 anos de operação</li>
+                            <li><span class="ic ic--y" aria-hidden="true">✓</span> Sua clínica fatura entre R$&nbsp;15k e R$&nbsp;200k/mês e bateu em um teto que você não consegue romper</li>
+                            <li><span class="ic ic--y" aria-hidden="true">✓</span> Você já tentou agência e ficou frustrado com o resultado</li>
+                            <li><span class="ic ic--y" aria-hidden="true">✓</span> Você quer ser reconhecido como empresário sério da saúde — não "o médico que abriu uma clínica"</li>
+                            <li><span class="ic ic--y" aria-hidden="true">✓</span> Você compra por ROI demonstrável e desconfia de método sem dado</li>
+                            <li><span class="ic ic--y" aria-hidden="true">✓</span> Você quer parar de ser o hub central da operação</li>
+                        </ul>
+                    </div>
+                    <div class="pq__col pq__col--n">
+                        <p class="pq__col-t"><span aria-hidden="true">✕</span> Não é para você</p>
+                        <ul class="pq__list">
+                            <li><span class="ic ic--n" aria-hidden="true">✕</span> Você procura "dicas de Instagram para médicos"</li>
+                            <li><span class="ic ic--n" aria-hidden="true">✕</span> Você quer crescer com hype, viralização e conteúdo motivacional</li>
+                            <li><span class="ic ic--n" aria-hidden="true">✕</span> Você não tem disposição para encarar a clínica como uma empresa</li>
+                            <li><span class="ic ic--n" aria-hidden="true">✕</span> Você acha que marketing é despesa, não infraestrutura</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec">
+            <div class="ctn">
+                <h2 class="sec-h">Antes de você fechar esta página, três coisas precisam ser ditas.</h2>
+                <div class="obj__list">
+                    <div class="obj-i">
+                        <p class="obj-i__q">Já tentei agência, não funcionou.</p>
+                        <p class="obj-i__a">Você não está errado. Agência genérica não foi construída para clínica popular. Ela foi construída para vender o mesmo pacote para qualquer cliente — e o resultado é exatamente o que você viveu: posts bonitos, agenda parada. A metodologia CLIP® nasceu da observação operacional de dezenas de clínicas populares. Cada protocolo foi desenhado a partir do problema real do nicho — não adaptado depois.</p>
+                    </div>
+                    <div class="obj-i">
+                        <p class="obj-i__q">Tenho medo de fazer marketing e ser autuado pelo CFM.</p>
+                        <p class="obj-i__a">Esse medo é legítimo — e é exatamente por isso que conformidade com o CFM é o primeiro pilar estrutural do método, não um anexo jurídico. No webinar, você vai ver o que pode e o que não pode item por item, com base nas resoluções vigentes. Você vai sair com mais segurança técnica do que tem hoje.</p>
+                    </div>
+                    <div class="obj-i">
+                        <p class="obj-i__q">Marketing digital não funciona para o meu público.</p>
+                        <p class="obj-i__a">O número diz o contrário: o setor de clínicas populares cresceu 200% nos últimos 12 anos no Brasil — e o crescimento foi puxado por operações que entenderam o digital antes da concorrência local. Seu paciente está no Google Maps, está no WhatsApp, está pesquisando "clínica popular perto de mim" agora. A pergunta não é se ele está online. É se a sua clínica aparece quando ele procura.</p>
+                    </div>
+                    <div class="obj-i">
+                        <p class="obj-i__q">Não tenho tempo.</p>
+                        <p class="obj-i__a">Por isso o webinar tem 90 minutos cravados, ao vivo, sem enrolação. E é por isso também que a metodologia CLIP®, quando implantada, é conduzida pela equipe — não pelo dono. A premissa do método é exatamente esta: você não pode ser o gargalo. Se for, não funciona.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec urg">
+            <div class="ctn ctn-n">
+                <h2 class="sec-h">O webinar é amanhã. E não haverá gravação.</h2>
+                <p>Esta é uma transmissão única e ao vivo, na segunda-feira, 28 de abril, às 20h (Brasília).</p>
+                <ul class="urg__alerts">
+                    <li>Não haverá reprise.</li>
+                    <li>Não haverá gravação enviada por e-mail.</li>
+                    <li>As vagas da sala ao vivo são limitadas pela capacidade técnica da plataforma.</li>
+                </ul>
+                <p class="urg__end">Se você tem dois minutos agora, garante a vaga. Se deixar para depois, é provável que a inscrição esteja encerrada.</p>
+                <div class="cta-wrap" style="margin-top:var(--s4)">
+                    <a href="#" class="cta cta--lg js-mo">Garantir minha vaga no webinar →</a>
+                    <p class="cta-mc">Inscrição gratuita · Vagas limitadas · Sem gravação</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec ctaf" id="oferta">
+            <div class="ctn">
+                <h2 class="sec-h">Segunda-feira, sua clínica continua exatamente como está hoje — ou começa a mudar.</h2>
+                <div class="ctaf__body">
+                    <p>Você passou seis anos estudando medicina para ter liberdade. Construiu a clínica como rota de saída. E hoje, na maioria dos dias, sente que apenas trocou de prisão.</p>
+                    <p>Existe um caminho técnico para sair disso. Não é hype. Não é guru. É protocolo, é método, é gestão orientada a dados.</p>
+                    <p>Na segunda-feira, às 20h, esse caminho vai ser apresentado ao vivo, em detalhe, gratuitamente.</p>
+                    <p>Sua única decisão agora é se você vai estar na sala.</p>
+                </div>
+                <div class="cta-wrap">
+                    <a href="#" class="cta cta--lg js-mo">Garantir minha vaga no webinar →</a>
+                    <p class="cta-mc">Inscrição 100% gratuita · Webinar ao vivo · Segunda, 28/04 às 20h · Vagas limitadas · Sem gravação</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec">
+            <div class="ctn">
+                <h2 class="sec-h" style="text-align:center">Perguntas frequentes</h2>
+                <div class="faq__list">
+                    <div class="faq-i">
+                        <button class="faq-i__q" aria-expanded="false">Quando e onde acontece o webinar?<span class="faq-i__ico" aria-hidden="true">+</span></button>
+                        <div class="faq-i__a"><div class="faq-i__a-in">Segunda-feira, 28 de abril, às 20h (horário de Brasília). A transmissão é online e ao vivo. O link da sala é enviado por e-mail e WhatsApp logo após sua inscrição.</div></div>
+                    </div>
+                    <div class="faq-i">
+                        <button class="faq-i__q" aria-expanded="false">É realmente gratuito?<span class="faq-i__ico" aria-hidden="true">+</span></button>
+                        <div class="faq-i__a"><div class="faq-i__a-in">Sim. Inscrição 100% gratuita. Não há cobrança em nenhuma etapa do webinar.</div></div>
+                    </div>
+                    <div class="faq-i">
+                        <button class="faq-i__q" aria-expanded="false">Vai ter gravação?<span class="faq-i__ico" aria-hidden="true">+</span></button>
+                        <div class="faq-i__a"><div class="faq-i__a-in">Não. A transmissão é única e ao vivo. Quem não estiver na sala perde o conteúdo.</div></div>
+                    </div>
+                    <div class="faq-i">
+                        <button class="faq-i__q" aria-expanded="false">Quanto tempo dura?<span class="faq-i__ico" aria-hidden="true">+</span></button>
+                        <div class="faq-i__a"><div class="faq-i__a-in">90 minutos cravados, com bloco final de perguntas ao vivo.</div></div>
+                    </div>
+                    <div class="faq-i">
+                        <button class="faq-i__q" aria-expanded="false">É um webinar para vender curso?<span class="faq-i__ico" aria-hidden="true">+</span></button>
+                        <div class="faq-i__a"><div class="faq-i__a-in">O foco do evento é apresentar a metodologia CLIP® em profundidade. Ao final, quem quiser entender como funciona a implantação na sua clínica vai poder seguir adiante. Quem só quiser o conteúdo do método sai com clareza operacional sobre as 6 frentes apresentadas — sem nenhum compromisso.</div></div>
+                    </div>
+                    <div class="faq-i">
+                        <button class="faq-i__q" aria-expanded="false">Sou médico de outra especialidade. Vale a pena?<span class="faq-i__ico" aria-hidden="true">+</span></button>
+                        <div class="faq-i__a"><div class="faq-i__a-in">O conteúdo é desenhado para a estrutura operacional específica de clínica popular. Donos de clínicas com outro modelo podem extrair princípios — mas o método foi construído para o popular.</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="ft">
+        <div class="ctn">
+            <p><strong>PROClip</strong> · Metodologia CLIP® · Marketing operacional para clínicas populares</p>
+            <p>[CNPJ] · <a href="#" id="privLink" class="ft__priv">Política de Privacidade</a> · <a href="mailto:[contato]">Contato</a></p>
+            <p class="ft__disc">Este webinar é uma apresentação técnica da metodologia. Os resultados mencionados são referentes a clínicas que implantaram o protocolo completo e variam conforme operação, região e equipe.</p>
+        </div>
+    </footer>
+
+    <div class="mo" id="mo" role="dialog" aria-modal="true" aria-labelledby="moTtl">
+        <div class="mo__box">
+            <div class="mo__hd">
+                <h2 class="mo__ttl" id="moTtl">Inscreva-se no webinar</h2>
+                <button class="mo__x" id="moX" aria-label="Fechar">✕</button>
+            </div>
+            <div class="mo__bd">
+                <div class="mo__info">
+                    <span>📅 Seg, 28/04</span>
+                    <span>🕐 20h (Brasília)</span>
+                    <span>🔴 Ao vivo</span>
+                </div>
+                <p class="mo__sub">Preencha abaixo para garantir sua vaga. O link da sala será enviado por e-mail e WhatsApp.</p>
+                <!-- Substituir action="#" pelo endpoint do CRM quando integrar -->
+                <form action="#" method="POST" id="formInsc">
+                    <div class="fg">
+                        <label for="nome">Seu nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Como quer ser chamado(a)" required autocomplete="given-name">
+                    </div>
+                    <div class="fg">
+                        <label for="email">Seu melhor e-mail</label>
+                        <input type="email" id="email" name="email" placeholder="voce@email.com" required autocomplete="email">
+                    </div>
+                    <div class="fg">
+                        <label for="whatsapp">WhatsApp (com DDD)</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required autocomplete="tel">
+                    </div>
+                    <button type="submit" class="f-submit">Garantir minha vaga no webinar →</button>
+                    <p class="f-legal">Seus dados estão seguros. Usamos apenas para enviar o link da sala e lembretes do evento.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="mo-p" id="moPriv" role="dialog" aria-modal="true" aria-labelledby="moPrivTtl">
+        <div class="mo-p__box">
+            <div class="mo-p__hd">
+                <h2 class="mo-p__ttl" id="moPrivTtl">Política de Privacidade</h2>
+                <button class="mo__x" id="moPrivX" aria-label="Fechar">✕</button>
+            </div>
+            <div class="mo-p__bd">
+                <p>Seus dados são tratados com confidencialidade e utilizados exclusivamente para envio de informações sobre o webinar e materiais relacionados à metodologia CLIP®.</p>
+                <p>Não compartilhamos suas informações com terceiros. Não vendemos sua base de dados. Você pode solicitar a exclusão dos seus dados a qualquer momento entrando em contato pelo e-mail de suporte.</p>
+                <p>Esta página utiliza apenas os dados estritamente necessários para concluir sua inscrição no evento ao vivo. O tratamento é feito em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei 13.709/2018).</p>
+                <button class="mo-p__btn" id="moPrivBtn">Entendi</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function(){
+        var now=new Date(),y=now.getFullYear();
+        var t=new Date(Date.UTC(y,3,28,23,0,0));
+        if(now>t)t=new Date(Date.UTC(y+1,3,28,23,0,0));
+        var el=document.getElementById('cd');
+        function upd(){
+            var n=new Date(),d=t-n;
+            if(d<=0){el.innerHTML='<span style="background:rgba(34,197,94,.35);color:#fff">AO VIVO AGORA</span>';return}
+            var dd=Math.floor(d/864e5),hh=Math.floor(d%864e5/36e5),mm=Math.floor(d%36e5/6e4),ss=Math.floor(d%6e4/1e3),p=[];
+            if(dd>0)p.push('<span>'+dd+'d</span>');
+            p.push('<span>'+String(hh).padStart(2,'0')+'h</span>');
+            p.push('<span>'+String(mm).padStart(2,'0')+'m</span>');
+            p.push('<span>'+String(ss).padStart(2,'0')+'s</span>');
+            el.innerHTML=p.join('')
+        }
+        upd();setInterval(upd,1e3)
+    })();
+
+    (function(){
+        function adj(){var b=document.querySelector('.ubar');if(b)document.body.style.paddingTop=b.offsetHeight+'px'}
+        adj();window.addEventListener('resize',adj);window.addEventListener('load',adj)
+    })();
+
+    (function(){
+        var o=document.getElementById('mo'),x=document.getElementById('moX'),btns=document.querySelectorAll('.js-mo');
+        function op(e){e.preventDefault();o.classList.add('on');document.body.style.overflow='hidden';setTimeout(function(){document.getElementById('nome').focus()},300)}
+        function cl(){o.classList.remove('on');document.body.style.overflow=''}
+        btns.forEach(function(b){b.addEventListener('click',op)});
+        x.addEventListener('click',cl);
+        o.addEventListener('click',function(e){if(e.target===o)cl()});
+        document.addEventListener('keydown',function(e){if(e.key==='Escape'&&o.classList.contains('on'))cl()})
+    })();
+
+    (function(){
+        document.getElementById('formInsc').addEventListener('submit',function(e){
+            e.preventDefault();
+            var n=document.getElementById('nome').value;
+            alert('Inscrição registrada com sucesso, '+n+'!\n\nVocê receberá o link da sala por e-mail e WhatsApp antes do webinar.');
+            document.getElementById('mo').classList.remove('on');
+            document.body.style.overflow='';
+            this.reset()
+        })
+    })();
+
+    (function(){
+        document.querySelectorAll('.faq-i__q').forEach(function(btn){
+            btn.addEventListener('click',function(){
+                var p=this.parentElement,a=p.querySelector('.faq-i__a'),inner=a.querySelector('.faq-i__a-in'),isOn=p.classList.contains('on');
+                document.querySelectorAll('.faq-i').forEach(function(i){i.classList.remove('on');i.querySelector('.faq-i__q').setAttribute('aria-expanded','false');i.querySelector('.faq-i__a').style.maxHeight='0'});
+                if(!isOn){p.classList.add('on');this.setAttribute('aria-expanded','true');a.style.maxHeight=inner.scrollHeight+'px'}
+            })
+        })
+    })();
+
+    (function(){
+        var i=document.getElementById('whatsapp');
+        i.addEventListener('input',function(e){
+            var v=e.target.value.replace(/\D/g,'');
+            if(v.length>11)v=v.slice(0,11);
+            if(v.length>7)v='('+v.slice(0,2)+') '+v.slice(2,7)+'-'+v.slice(7);
+            else if(v.length>2)v='('+v.slice(0,2)+') '+v.slice(2);
+            else if(v.length>0)v='('+v;
+            e.target.value=v
+        })
+    })();
+
+    (function(){
+        var el=document.getElementById('tCarousel');
+        if(!el)return;
+        var track=document.getElementById('tTrack');
+        var slides=track.querySelectorAll('.carousel__slide');
+        var total=slides.length;
+        var cur=0;
+        var dots=el.querySelectorAll('.carousel__dot');
+        var autoId;
+
+        function go(n){
+            cur=((n%total)+total)%total;
+            track.style.transform='translateX(-'+cur*100+'%)';
+            dots.forEach(function(d,i){d.classList.toggle('on',i===cur)})
+        }
+
+        el.querySelector('.carousel__arrow--prev').addEventListener('click',function(){go(cur-1);resetAuto()});
+        el.querySelector('.carousel__arrow--next').addEventListener('click',function(){go(cur+1);resetAuto()});
+        dots.forEach(function(d,i){d.addEventListener('click',function(){go(i);resetAuto()})});
+
+        var sx=0,dragging=false;
+        track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;dragging=true;clearInterval(autoId)},{passive:true});
+        track.addEventListener('touchend',function(e){
+            if(!dragging)return;
+            dragging=false;
+            var dx=sx-e.changedTouches[0].clientX;
+            if(Math.abs(dx)>40){dx>0?go(cur+1):go(cur-1)}
+            startAuto()
+        },{passive:true});
+
+        function startAuto(){clearInterval(autoId);autoId=setInterval(function(){go(cur+1)},6000)}
+        function resetAuto(){clearInterval(autoId);startAuto()}
+        el.addEventListener('mouseenter',function(){clearInterval(autoId)});
+        el.addEventListener('mouseleave',function(){startAuto()});
+        startAuto()
+    })();
+
+    (function(){
+        var o=document.getElementById('moPriv'),x=document.getElementById('moPrivX'),btn=document.getElementById('moPrivBtn'),trigger=document.getElementById('privLink');
+        if(!o||!trigger)return;
+        function op(e){e.preventDefault();o.classList.add('on');document.body.style.overflow='hidden'}
+        function cl(){o.classList.remove('on');document.body.style.overflow=''}
+        trigger.addEventListener('click',op);
+        x.addEventListener('click',cl);
+        btn.addEventListener('click',cl);
+        o.addEventListener('click',function(e){if(e.target===o)cl()});
+        document.addEventListener('keydown',function(e){if(e.key==='Escape'&&o.classList.contains('on'))cl()})
+    })();
+    </script>
+
+</body>
+</html>
