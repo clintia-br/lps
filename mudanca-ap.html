@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento de Mudança</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilização da barra de rolagem para facilitar a navegação horizontal */
+        .scrollbar-custom::-webkit-scrollbar {
+            height: 10px;
+        }
+        .scrollbar-custom::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+        .scrollbar-custom::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+        .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-4 md:p-8 min-h-screen flex flex-col items-center">
+
+    <div class="max-w-full w-full bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h1 class="text-2xl font-bold text-gray-700 mb-6 text-center md:text-left">
+            📅 Cronograma de Mudança (27/04 a 11/05)
+        </h1>
+
+        <!-- Container com rolagem horizontal -->
+        <div class="overflow-x-auto scrollbar-custom pb-4">
+            <table class="w-full border-collapse text-sm min-w-max text-center">
+                <thead>
+                    <!-- Dias da Semana -->
+                    <tr class="bg-gray-100 text-gray-600 font-bold uppercase text-xs tracking-wider">
+                        <th class="border border-gray-200 p-3">seg</th>
+                        <th class="border border-gray-200 p-3">ter</th>
+                        <th class="border border-gray-200 p-3">qua</th>
+                        <th class="border border-gray-200 p-3">qui</th>
+                        <th class="border border-gray-200 p-3">sext</th>
+                        <th class="border border-gray-200 p-3 bg-gray-50">sab</th>
+                        <th class="border border-gray-200 p-3 bg-gray-50">dom</th>
+                        <th class="border border-gray-200 p-3">seg</th>
+                        <th class="border border-gray-200 p-3">ter</th>
+                        <th class="border border-gray-200 p-3">qua</th>
+                        <th class="border border-gray-200 p-3">qui</th>
+                        <th class="border border-gray-200 p-3">sext</th>
+                        <th class="border border-gray-200 p-3 bg-gray-50">sab</th>
+                        <th class="border border-gray-200 p-3 bg-gray-50">dom</th>
+                        <th class="border border-gray-200 p-3">seg</th>
+                    </tr>
+                    <!-- Datas -->
+                    <tr class="bg-gray-800 text-white font-bold text-lg">
+                        <td class="border border-gray-700 p-2">27</td>
+                        <td class="border border-gray-700 p-2">28</td>
+                        <td class="border border-gray-700 p-2">29</td>
+                        <td class="border border-gray-700 p-2">30</td>
+                        <td class="border border-gray-700 p-2">1</td>
+                        <td class="border border-gray-700 p-2">2</td>
+                        <td class="border border-gray-700 p-2">3</td>
+                        <td class="border border-gray-700 p-2">4</td>
+                        <td class="border border-gray-700 p-2">5</td>
+                        <td class="border border-gray-700 p-2">6</td>
+                        <td class="border border-gray-700 p-2">7</td>
+                        <td class="border border-gray-700 p-2">8</td>
+                        <td class="border border-gray-700 p-2">9</td>
+                        <td class="border border-gray-700 p-2">10</td>
+                        <td class="border border-gray-700 p-2">11</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Linha 1 de Tarefas -->
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="border border-gray-200 p-3">pegar nº proprietária</td>
+                        <td class="border border-gray-200 p-3 text-gray-500">planejar retirada de móveis ap novo</td>
+                        <td class="border border-gray-200 p-3 text-gray-500">planejar retirada de móveis ap novo</td>
+                        <td class="border border-gray-200 p-3 text-gray-500">planejar retirada de móveis ap novo</td>
+                        <td class="border border-gray-200 p-3 text-gray-500">planejar retirada de móveis ap novo</td>
+                        <td class="border border-gray-200 p-3 text-gray-500">planejar retirada de móveis ap novo</td>
+                        <td class="border border-gray-200 p-3 text-gray-500">planejar retirada de móveis ap novo</td>
+                        <td class="border border-green-200 p-3 text-emerald-600 font-bold bg-green-50">dia da mudança</td>
+                        <td class="border border-gray-200 p-3">valdo</td>
+                        <td class="border border-gray-200 p-3">valdo</td>
+                        <td class="border border-gray-200 p-3">valdo</td>
+                        <td class="border border-green-200 p-3 text-emerald-600 font-bold bg-green-50">vistoria</td>
+                        <td class="border border-gray-200 p-3 text-gray-400">-</td>
+                        <td class="border border-gray-200 p-3 text-gray-400">-</td>
+                        <td class="border border-gray-200 p-3 font-semibold">entrega de chaves</td>
+                    </tr>
+                    
+                    <!-- Linha 2 de Tarefas -->
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="border border-gray-200 p-3 text-gray-600">vender ar condicionado</td>
+                        <td class="border border-gray-200 p-3 text-gray-600">vender ar condicionado</td>
+                        <td class="border border-gray-200 p-3 text-gray-600">vender ar condicionado</td>
+                        <td class="border border-gray-200 p-3 text-gray-600">vender ar condicionado</td>
+                        <td class="border border-gray-200 p-3 text-gray-600">vender ar condicionado</td>
+                        <td class="border border-gray-200 p-3 text-gray-600">vender ar condicionado</td>
+                        <td class="border border-gray-200 p-3 text-gray-600">vender ar condicionado (último dia)</td>
+                        <td class="border border-gray-200 p-3">retirada ar condicionado Vini</td>
+                        <td class="border border-gray-200 p-3 text-gray-500">arrumação ap novo</td>
+                        <td class="border border-gray-200 p-3 text-gray-500">arrumação ap novo</td>
+                        <td class="border border-gray-200 p-3 text-gray-500">arrumação ap novo</td>
+                        <td class="border border-gray-200 p-3 text-gray-500">arrumação ap novo</td>
+                        <td class="border border-gray-200 p-3 text-gray-500">arrumação ap novo</td>
+                        <td class="border border-gray-200 p-3 text-gray-500">arrumação ap novo</td>
+                        <td class="border border-gray-200 p-3 text-gray-400">-</td>
+                    </tr>
+
+                    <!-- Linha 3 de Tarefas -->
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="border border-gray-200 p-3"></td>
+                        <td class="border border-gray-200 p-3">agendar vistoria ap e gás</td>
+                        <td class="border border-gray-200 p-3"></td>
+                        <td class="border border-gray-200 p-3"></td>
+                        <td class="border border-gray-200 p-3"></td>
+                        <td class="border border-gray-200 p-3"></td>
+                        <td class="border border-gray-200 p-3"></td>
+                        <td class="border border-gray-200 p-3"></td>
+                        <td class="border border-gray-200 p-3"></td>
+                        <td class="border border-gray-200 p-3"></td>
+                        <td class="border border-gray-200 p-3"></td>
+                        <td class="border border-gray-200 p-3"></td>
+                        <td class="border border-gray-200 p-3"></td>
+                        <td class="border border-gray-200 p-3"></td>
+                        <td class="border border-gray-200 p-3"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <p class="text-xs text-gray-400 mt-4 text-center md:text-right">Deslize para a direita para ver os dias seguintes →</p>
+    </div>
+
+</body>
+</html>
