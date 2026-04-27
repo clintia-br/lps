@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dossiê CLIP® — Posicionamento e Vendas para Clínica Popular</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #F6F7FB;
+            --surface-color: #FFFFFF;
+            --text-primary: #0B1B36;
+            --text-secondary: #475467;
+            --brand: #0E9F8E;
+            --brand-light: rgba(14, 159, 142, 0.08);
+            --brand-dark: #087367;
+            --accent-deep: #0B1B36;
+            --border-color: #E4E7EC;
+            --border-light: #EFF1F4;
+            --success: #10B981;
+            --danger: #D32F2F;
+            --warning: #F59E0B;
+            --text-muted: #667085;
+            --bg-alt: #F2F4F8;
+            --placeholder: #98A2B3;
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Fraunces', serif;
+            --sidebar-width: 280px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; overflow-wrap: break-word; }
+        html, body { overflow-x: hidden; max-width: 100vw; width: 100%; }
+        body { font-family: var(--font-sans); background-color: var(--bg-color); color: var(--text-primary); line-height: 1.7; display: flex; height: 100vh; overflow: hidden; -webkit-font-smoothing: antialiased; font-size: 15px; }
+
+        /* SIDEBAR */
+        .sidebar { width: var(--sidebar-width); background-color: var(--accent-deep); color: #FFFFFF; display: flex; flex-direction: column; border-right: 1px solid var(--border-color); z-index: 10; }
+        .sidebar-header { padding: 32px 24px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .sidebar-header .brand-tag { font-size: 10px; color: var(--brand); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 6px; }
+        .sidebar-header h2 { font-family: var(--font-serif); font-size: 22px; color: #FFFFFF; margin-bottom: 4px; font-weight: 600; letter-spacing: -0.3px; line-height: 1.25; }
+        .sidebar-header h2 span { color: var(--brand); }
+        .sidebar-header p { font-size: 11px; color: var(--placeholder); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; margin-top: 8px; }
+        .sidebar-meta { padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+        .sidebar-meta strong { color: var(--brand); display:block; font-size:10px; text-transform:uppercase; letter-spacing:1.2px; margin-bottom:4px; font-weight:600; }
+        .sidebar-nav { padding: 20px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; overflow-y: auto; }
+        .nav-item { display: flex; align-items: center; gap: 12px; padding: 13px 16px; color: #D4D7DD; text-decoration: none; font-size: 14px; font-weight: 500; border-radius: 8px; transition: all 0.25s ease; }
+        .nav-item i { font-size: 15px; width: 20px; text-align: center; }
+        .nav-item:hover { background-color: rgba(255,255,255,0.05); color: #FFFFFF; }
+        .nav-item.active { background-color: var(--brand); color: #FFFFFF; box-shadow: 0 4px 16px rgba(14, 159, 142, 0.35); }
+        .sidebar-footer { padding: 16px 24px 20px; font-size: 11px; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.08); }
+        /* ── Camaleão ── */
+        .sidebar-camaleon { margin: 0 16px 16px; background: linear-gradient(135deg, rgba(14,159,142,0.18) 0%, rgba(14,159,142,0.06) 100%); border: 1px solid rgba(14,159,142,0.35); border-radius: 10px; padding: 14px 16px; }
+        .sidebar-camaleon .cam-label { font-size: 9px; text-transform: uppercase; letter-spacing: 1.8px; color: var(--brand); font-weight: 700; display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+        .sidebar-camaleon .cam-label span { font-size: 14px; }
+        .sidebar-camaleon p { font-size: 11px; color: rgba(255,255,255,0.65); line-height: 1.55; margin: 0; }
+        .camaleon-banner { background: linear-gradient(135deg, #0B2D28 0%, #0B1B36 100%); border: 1.5px dashed rgba(14,159,142,0.5); border-radius: 12px; padding: 24px 28px; margin-bottom: 32px; display: flex; gap: 20px; align-items: flex-start; }
+        .camaleon-banner .cam-icon { font-size: 28px; line-height: 1; flex-shrink: 0; }
+        .camaleon-banner .cam-body {}
+        .camaleon-banner .cam-title { font-family: var(--font-serif); font-size: 17px; color: #FFFFFF; font-weight: 600; margin-bottom: 6px; }
+        .camaleon-banner .cam-title em { color: var(--brand); font-style: normal; }
+        .camaleon-banner p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0 0 12px; }
+        .camaleon-banner .cam-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .camaleon-banner .cam-tag { font-size: 11px; font-weight: 600; background: rgba(14,159,142,0.15); color: var(--brand); border: 1px solid rgba(14,159,142,0.3); padding: 4px 10px; border-radius: 20px; letter-spacing: 0.3px; }
+        .adapt-flag { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #D97706; background: rgba(217,119,6,0.1); border: 1px solid rgba(217,119,6,0.3); padding: 3px 9px; border-radius: 20px; vertical-align: middle; margin-left: 8px; }
+        .adapt-flag i { font-size: 9px; }
+        .adapt-note { background: rgba(217,119,6,0.06); border: 1px solid rgba(217,119,6,0.2); border-left: 3px solid #D97706; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 16px; font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+        .adapt-note strong { color: #B45309; }
+        .adapt-note ul { margin: 8px 0 0 16px; padding: 0; }
+        .adapt-note ul li { margin-bottom: 4px; }
+
+        /* MAIN */
+        .main-content { flex: 1; overflow-y: auto; overflow-x: hidden; background-color: var(--bg-color); position: relative; width: 100%; }
+        .tab-content { display: none; animation: fadeIn 0.4s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .tab-header { background-color: var(--surface-color); padding: 48px 56px; border-bottom: 1px solid var(--border-color); position: relative; overflow: hidden; }
+        .tab-header::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--brand); }
+        .tab-header .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand); font-weight: 600; margin-bottom: 12px; }
+        .tab-header h1 { font-family: var(--font-serif); font-size: 40px; line-height: 1.15; margin-bottom: 14px; color: var(--text-primary); font-weight: 600; letter-spacing: -1px; }
+        .tab-header p { color: var(--text-secondary); font-size: 16px; max-width: 780px; line-height: 1.6; }
+        .container { max-width: 980px; margin: 0 auto; padding: 48px 56px 100px 56px; }
+
+        /* TYPOGRAPHY */
+        h2.section-title { font-family: var(--font-serif); color: var(--text-primary); font-size: 28px; background: linear-gradient(90deg, var(--brand-light) 0%, transparent 100%); border-left: 4px solid var(--brand); padding: 18px 24px; border-radius: 0 8px 8px 0; margin-top: 64px; margin-bottom: 32px; font-weight: 600; letter-spacing: -0.5px; }
+        h2.section-title .badge-num { font-family: var(--font-sans); display: inline-block; background: var(--brand); color: #FFF; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 4px; vertical-align: middle; margin-right: 12px; letter-spacing: 0.5px; }
+        h3.subsection-title { font-family: var(--font-serif); font-size: 22px; color: var(--text-primary); margin-top: 40px; margin-bottom: 20px; font-weight: 600; letter-spacing: -0.3px; }
+        h4.block-title { font-family: var(--font-sans); font-size: 14px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 14px; }
+        p { color: var(--text-secondary); margin-bottom: 14px; }
+        p strong { color: var(--text-primary); font-weight: 600; }
+
+        /* INSTRUCTION BOX */
+        .instruction-box { background: linear-gradient(135deg, var(--brand-light) 0%, transparent 100%); border: 1px solid rgba(14, 159, 142, 0.25); padding: 18px 22px; border-radius: 10px; margin-bottom: 32px; font-size: 14px; color: var(--text-primary); display: flex; gap: 14px; align-items: flex-start; }
+        .instruction-box i { color: var(--brand); font-size: 18px; margin-top: 2px; }
+        .instruction-box strong { color: var(--brand-dark); }
+
+        /* PLACEHOLDER */
+        .placeholder-text { color: var(--placeholder); font-style: italic; }
+        .field-empty { background: rgba(245, 158, 11, 0.08); border: 1px dashed rgba(245, 158, 11, 0.4); padding: 12px 16px; border-radius: 6px; color: #92400E; font-size: 13.5px; display: flex; gap: 10px; align-items: flex-start; }
+        .field-empty i { color: var(--warning); margin-top: 2px; }
+        .fill-here { background: rgba(14, 159, 142, 0.06); border: 1px dashed rgba(14, 159, 142, 0.4); padding: 14px 18px; border-radius: 6px; color: var(--text-secondary); font-size: 14px; font-style: italic; }
+
+        /* PROFILE CARD */
+        .profile-card { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; padding: 36px; margin-bottom: 28px; box-shadow: 0 1px 3px rgba(11, 27, 54, 0.04), 0 4px 24px rgba(11, 27, 54, 0.04); border-left: 5px solid var(--brand); position: relative; }
+        .profile-card.gold-tier { border-left: 6px solid var(--brand); background: linear-gradient(145deg, #FFFFFF 0%, #F0FDFB 100%); box-shadow: 0 4px 24px rgba(14, 159, 142, 0.12); }
+        .profile-card .profile-tag { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--brand); background: var(--brand-light); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
+        .profile-card.gold-tier .profile-tag { background: var(--brand); color: #FFF; }
+        .profile-card h3 { font-family: var(--font-serif); font-size: 26px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; letter-spacing: -0.5px; }
+        .profile-card .subtitle { font-size: 14px; color: var(--text-secondary); font-style: italic; margin-bottom: 24px; display: block; }
+        .profile-card p { font-size: 14.5px; line-height: 1.75; }
+        .profile-block { background: var(--bg-alt); padding: 18px 20px; border-radius: 8px; margin-bottom: 16px; border-left: 3px solid var(--brand); }
+        .profile-card.gold-tier .profile-block { background: rgba(14, 159, 142, 0.05); }
+        .profile-block h5 { font-family: var(--font-sans); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--brand-dark); font-weight: 700; margin-bottom: 8px; }
+        .profile-block p { margin-bottom: 0; font-size: 14.5px; }
+
+        .feature-list { list-style: none; padding: 0; margin: 16px 0 24px 0; }
+        .feature-list li { position: relative; padding-left: 28px; margin-bottom: 12px; color: var(--text-secondary); font-size: 14.5px; line-height: 1.65; }
+        .feature-list li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; background: var(--brand); border-radius: 50%; }
+        .feature-list li strong { color: var(--text-primary); }
+
+        .highlight-box { background-color: var(--brand-light); border: 1px solid rgba(14, 159, 142, 0.2); padding: 22px 24px; border-radius: 10px; margin-top: 20px; }
+        .highlight-box p { margin: 0 0 12px 0; font-size: 14.5px; }
+        .highlight-box p:last-child { margin-bottom: 0; }
+        .highlight-box strong { color: var(--brand-dark); }
+
+        /* PAIN SECTIONS */
+        .pain-section { margin-bottom: 36px; }
+        .pain-camada-header { background: var(--accent-deep); color: #FFF; padding: 16px 24px; border-radius: 10px 10px 0 0; display: flex; align-items: center; gap: 14px; }
+        .pain-camada-header .num { background: var(--brand); color: #FFF; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+        .pain-camada-header h3 { font-family: var(--font-serif); font-size: 20px; font-weight: 500; margin: 0; color: #FFF; }
+        .pain-camada-header .label { margin-left: auto; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--brand); font-weight: 700; }
+        .pain-list { background: var(--surface-color); border: 1px solid var(--border-color); border-top: none; border-radius: 0 0 10px 10px; padding: 0; }
+        .pain-item { padding: 24px 28px; border-bottom: 1px solid var(--border-light); }
+        .pain-item:last-child { border-bottom: none; }
+        .pain-item h4 { font-family: var(--font-serif); font-size: 18px; color: var(--text-primary); margin-bottom: 10px; font-weight: 600; line-height: 1.4; }
+        .pain-item h4 .pain-num { font-family: var(--font-sans); display: inline-block; background: var(--bg-alt); color: var(--brand-dark); font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-right: 10px; vertical-align: middle; letter-spacing: 0.5px; }
+        .pain-item p { font-size: 14.5px; line-height: 1.7; }
+        .pain-item p:last-child { margin-bottom: 0; }
+        .pain-quotes { background: var(--bg-alt); padding: 24px 28px; border-radius: 10px; margin-top: 16px; border-left: 3px solid var(--brand); }
+        .pain-quotes h5 { font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--brand-dark); font-weight: 700; margin-bottom: 14px; }
+        .pain-quotes blockquote { font-family: var(--font-serif); font-size: 15px; font-style: italic; color: var(--text-primary); margin-bottom: 10px; padding-left: 16px; border-left: 2px solid var(--brand); line-height: 1.55; }
+        .pain-quotes blockquote:last-child { margin-bottom: 0; }
+
+        /* VOCAB */
+        .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px; margin-top: 24px; }
+        .vocab-card { padding: 28px; border-radius: 12px; }
+        .vocab-card.positive { background: rgba(16, 185, 129, 0.04); border: 1px solid rgba(16, 185, 129, 0.25); }
+        .vocab-card.negative { background: rgba(211, 47, 47, 0.03); border: 1px solid rgba(211, 47, 47, 0.2); }
+        .vocab-card h5 { font-family: var(--font-serif); font-size: 18px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+        .vocab-card.positive h5 { color: var(--success); }
+        .vocab-card.negative h5 { color: var(--danger); }
+        .vocab-card .vocab-sub { font-size: 13px; color: var(--text-secondary); margin-bottom: 18px; }
+        .vocab-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+        .vocab-table th, .vocab-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+        .vocab-table th { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 700; background: rgba(255,255,255,0.5); }
+        .vocab-table td:first-child { font-weight: 600; color: var(--text-primary); white-space: nowrap; font-family: var(--font-sans); }
+        .vocab-card.positive .vocab-table td:first-child { color: var(--success); }
+        .vocab-card.negative .vocab-table td:first-child { color: var(--danger); }
+        .vocab-table td:last-child { color: var(--text-secondary); }
+
+        /* QUOTE BLOCKS */
+        .quote-block { font-family: var(--font-serif); font-size: 18px; color: var(--text-primary); border-left: 4px solid var(--border-color); padding: 8px 0 8px 24px; margin: 24px 0; line-height: 1.5; font-style: italic; font-weight: 500; }
+        .quote-block.featured { border-left: 4px solid var(--brand); background: var(--brand-light); padding: 28px 32px; border-radius: 0 10px 10px 0; font-size: 20px; box-shadow: 0 8px 24px rgba(14, 159, 142, 0.08); font-style: normal; }
+        .quote-block small { font-family: var(--font-sans); display: block; font-size: 11px; color: var(--text-muted); margin-top: 14px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; font-style: normal; }
+        .quote-block.featured small { color: var(--brand-dark); }
+
+        /* METHOD A B */
+        .method-ab-container { display: flex; flex-direction: column; gap: 24px; margin-top: 24px; }
+        .point-card { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; padding: 32px; position: relative; }
+        .point-card.point-a { border-top: 4px solid var(--danger); }
+        .point-card.point-b { border-top: 4px solid var(--success); }
+        .point-card h4 { font-family: var(--font-serif); font-size: 22px; margin: 0 0 14px 0; display: flex; align-items: center; gap: 12px; font-weight: 600; }
+        .point-card.point-a h4 { color: var(--danger); }
+        .point-card.point-b h4 { color: var(--success); }
+        .point-card p { font-size: 14.5px; line-height: 1.7; }
+
+        /* METHOD CLIP */
+        .method-name-block { background: var(--accent-deep); color: #FFF; padding: 28px 32px; border-radius: 12px; margin: 24px 0; text-align: center; }
+        .method-name-block .label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand); font-weight: 700; margin-bottom: 8px; }
+        .method-name-block h3 { font-family: var(--font-serif); font-size: 36px; color: #FFF; font-weight: 600; letter-spacing: -1px; margin: 0; }
+        .method-name-block .acronym { color: var(--brand); font-weight: 700; }
+        .method-bridge { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; margin: 32px 0; }
+        .step-card { background: var(--accent-deep); color: white; padding: 28px 22px; border-radius: 12px; position: relative; border: 2px solid transparent; transition: transform 0.25s ease; }
+        .step-card:hover { transform: translateY(-4px); border-color: var(--brand); }
+        .step-letter { position: absolute; top: -16px; left: 22px; background: var(--brand); color: #FFF; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-weight: 700; font-size: 22px; box-shadow: 0 8px 18px rgba(14, 159, 142, 0.3); }
+        .step-card h5 { font-family: var(--font-serif); font-size: 20px; margin: 16px 0 10px 0; color: #FFF; font-weight: 600; }
+        .step-card .step-tag { display: block; font-size: 11px; color: var(--brand); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 6px; }
+        .step-card p { font-size: 13px; color: rgba(255,255,255,0.75); margin: 0; line-height: 1.55; }
+
+        /* PILLAR DETAIL */
+        .pillar-detail { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; padding: 32px 36px; margin-bottom: 24px; border-left: 4px solid var(--brand); position: relative; }
+        .pillar-letter { position: absolute; top: 28px; right: 32px; font-family: var(--font-serif); font-size: 56px; color: var(--brand-light); font-weight: 700; line-height: 1; }
+        .pillar-detail h4 { font-family: var(--font-serif); font-size: 22px; color: var(--text-primary); font-weight: 600; margin-bottom: 16px; }
+        .pillar-detail h4 small { display: block; font-family: var(--font-sans); font-size: 13px; color: var(--text-secondary); font-weight: 400; font-style: italic; margin-top: 6px; line-height: 1.5; }
+        .pillar-detail h5 { font-family: var(--font-sans); font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--brand-dark); font-weight: 700; margin-top: 20px; margin-bottom: 10px; }
+        .pillar-detail p { font-size: 14.5px; line-height: 1.75; }
+        .pillar-impact { background: var(--brand-light); border: 1px solid rgba(14, 159, 142, 0.2); padding: 16px 20px; border-radius: 8px; margin-top: 20px; font-size: 14px; }
+        .pillar-impact strong { color: var(--brand-dark); }
+
+        /* OFFER ESTEIRA */
+        .saas-block { background: var(--accent-deep); color: #FFF; border-radius: 14px; padding: 36px 40px; margin-bottom: 32px; position: relative; overflow: hidden; box-shadow: 0 16px 40px rgba(11, 27, 54, 0.15); }
+        .saas-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+        .saas-icon { width: 56px; height: 56px; background: var(--brand); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #FFF; }
+        .saas-title span { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand); font-weight: 700; display: block; margin-bottom: 4px; }
+        .saas-title h4 { font-family: var(--font-serif); font-size: 28px; margin: 0; color: #FFF; font-weight: 600; letter-spacing: -0.5px; }
+        .saas-block p { color: rgba(255,255,255,0.8); font-size: 14.5px; }
+        .saas-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); gap: 16px; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .saas-meta-item { font-size: 12px; }
+        .saas-meta-item span { display: block; color: var(--brand); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-size: 10px; margin-bottom: 4px; }
+        .saas-meta-item strong { color: #FFF; font-size: 14px; }
+
+        .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 22px; margin-top: 28px; }
+        .tier-card { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; padding: 32px; display: flex; flex-direction: column; position: relative; transition: transform 0.3s ease; }
+        .tier-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(11, 27, 54, 0.06); }
+        .tier-card.featured-tier { border-color: var(--brand); border-width: 2px; box-shadow: 0 8px 25px rgba(14, 159, 142, 0.15); }
+        .tier-header { border-bottom: 1px solid var(--border-light); padding-bottom: 20px; margin-bottom: 22px; }
+        .tier-name { font-family: var(--font-serif); font-size: 22px; color: var(--text-primary); margin-bottom: 8px; font-weight: 600; }
+        .tier-desc { font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; min-height: 40px; }
+        .tier-price { font-family: var(--font-sans); font-size: 22px; font-weight: 700; color: var(--text-primary); margin-top: 14px; }
+        .tier-price small { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-top: 4px; letter-spacing: 0; }
+        .tier-features { list-style: none; padding: 0; margin: 0; flex: 1; }
+        .tier-features li { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 12px; padding-left: 26px; position: relative; line-height: 1.55; }
+        .tier-features li i { position: absolute; left: 0; top: 4px; color: var(--success); font-size: 12px; }
+        .tier-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--brand); color: #FFF; font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; letter-spacing: 1px; white-space: nowrap; }
+
+        /* OFFER MODEL DETAIL */
+        .offer-model-detail { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; margin-bottom: 32px; box-shadow: 0 4px 24px rgba(11, 27, 54, 0.04); }
+        .offer-model-header { background: var(--bg-alt); padding: 22px 28px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .offer-model-header h4 { font-family: var(--font-serif); font-size: 22px; color: var(--text-primary); margin: 0; font-weight: 600; letter-spacing: -0.3px; }
+        .offer-model-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #FFF; background: var(--accent-deep); padding: 5px 12px; border-radius: 4px; white-space: nowrap; }
+        .offer-model-badge.brand-bg { background: var(--brand); }
+        .offer-model-body { padding: 28px; display: grid; gap: 22px; }
+        .offer-row { display: flex; flex-direction: column; gap: 8px; }
+        .offer-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+        .offer-content { font-size: 14.5px; color: var(--text-secondary); line-height: 1.6; }
+        .offer-content strong { color: var(--text-primary); }
+        .deliverables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; margin-top: 8px; }
+        .deliverable-item { background: var(--bg-alt); padding: 14px 16px; border-radius: 6px; border: 1px solid var(--border-light); font-size: 13.5px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+        .deliverable-item i { color: var(--brand); font-size: 13px; margin-top: 4px; flex-shrink: 0; }
+
+        /* RAW STORY */
+        .raw-story-block { background: var(--surface-color); border: 1px solid var(--border-color); border-left: 4px solid var(--accent-deep); padding: 36px 40px; border-radius: 0 12px 12px 0; }
+        .story-section { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border-light); }
+        .story-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .story-section h4 { font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--brand); font-weight: 700; margin-bottom: 8px; }
+        .story-section h3 { font-family: var(--font-serif); font-size: 22px; color: var(--text-primary); margin-bottom: 14px; font-weight: 600; letter-spacing: -0.3px; }
+        .story-section p { font-size: 15px; line-height: 1.75; color: var(--text-secondary); margin-bottom: 12px; }
+        .story-section p:last-child { margin-bottom: 0; }
+        .story-quote { font-family: var(--font-serif); font-style: italic; font-size: 17px; color: var(--text-primary); padding: 16px 20px; background: var(--brand-light); border-left: 3px solid var(--brand); border-radius: 0 8px 8px 0; }
+
+        /* IG GRID */
+        .ig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; margin-top: 24px; }
+        .ig-element { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px 26px; }
+        .ig-element h4 { font-family: var(--font-sans); color: var(--text-primary); font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; margin: 0 0 16px 0; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+        .ig-element h4 i { color: var(--brand); }
+        .ig-bio-render { background: var(--bg-alt); padding: 16px 20px; border-radius: 8px; font-size: 13.5px; color: var(--text-primary); border-left: 3px solid var(--brand); margin: 14px 0; line-height: 1.65; }
+
+        /* PINNED POSTS */
+        .pinned-grid { display: grid; gap: 18px; margin-top: 20px; }
+        .pinned-post { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; padding: 26px 30px; position: relative; border-left: 4px solid var(--brand); }
+        .pin-num { font-family: var(--font-serif); font-size: 32px; color: var(--brand-light); font-weight: 700; position: absolute; right: 24px; top: 18px; }
+        .pinned-post h5 { font-family: var(--font-serif); font-size: 20px; color: var(--text-primary); margin-bottom: 12px; font-weight: 600; padding-right: 60px; }
+        .pinned-post p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px; }
+        .pin-cta { display: inline-block; font-size: 12px; font-weight: 600; color: var(--brand-dark); background: var(--brand-light); padding: 6px 12px; border-radius: 6px; margin-top: 4px; }
+
+        /* CONTENT PILLARS */
+        .pillar-content-grid { display: grid; gap: 22px; }
+        .pillar-content-card { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px 32px; border-top: 4px solid var(--brand); }
+        .pillar-content-card.alcance { border-top-color: #0EA5E9; }
+        .pillar-content-card.movimento { border-top-color: var(--success); }
+        .pillar-content-card.doutrinacao { border-top-color: var(--brand); }
+        .pillar-content-card h4 { font-family: var(--font-serif); font-size: 22px; margin-bottom: 8px; font-weight: 600; }
+        .pillar-content-card .ratio { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 10px; border-radius: 4px; margin-bottom: 14px; }
+        .pillar-content-card.alcance .ratio { color: #0369A1; background: rgba(14, 165, 233, 0.1); }
+        .pillar-content-card.movimento .ratio { color: var(--success); background: rgba(16, 185, 129, 0.1); }
+        .pillar-content-card.doutrinacao .ratio { color: var(--brand-dark); background: var(--brand-light); }
+        .pillar-content-card p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+        .pillar-content-card .ideas-box { background: var(--bg-alt); border-radius: 8px; padding: 18px 20px; border-left: 3px solid var(--brand); }
+        .pillar-content-card .ideas-box strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 12px; font-weight: 700; }
+        .pillar-content-card .ideas-box ul { padding-left: 20px; }
+        .pillar-content-card .ideas-box li { font-size: 13.5px; color: var(--text-primary); margin-bottom: 8px; line-height: 1.55; }
+
+        /* CALENDAR */
+        .call-stages { display: grid; gap: 12px; margin-top: 18px; }
+        .call-stage { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 10px; padding: 18px 22px; display: grid; grid-template-columns: 140px 110px 1fr; gap: 18px; align-items: start; }
+        .call-stage .stage-name { font-family: var(--font-serif); font-size: 17px; color: var(--text-primary); font-weight: 600; }
+        .call-stage .stage-time { background: var(--brand-light); color: var(--brand-dark); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; width: fit-content; height: fit-content; }
+        .call-stage .stage-obj { font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; }
+        .call-stage .stage-obj strong { color: var(--text-primary); }
+
+        /* JOURNEY FLOW */
+        .journey-flow { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 14px; padding: 36px; margin-bottom: 32px; }
+        .journey-stage { margin-bottom: 24px; }
+        .journey-stage:last-child { margin-bottom: 0; }
+        .journey-stage-label { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--brand-dark); background: var(--brand-light); padding: 5px 12px; border-radius: 4px; font-weight: 700; margin-bottom: 14px; }
+        .journey-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px; }
+        .journey-card { background: var(--bg-alt); border: 1px solid var(--border-light); border-radius: 10px; padding: 18px; display: flex; align-items: center; gap: 14px; transition: all 0.2s ease; }
+        .journey-card:hover { border-color: var(--brand); background: var(--surface-color); }
+        .journey-card i { color: var(--brand); font-size: 20px; flex-shrink: 0; }
+        .journey-card span { font-size: 14px; font-weight: 600; color: var(--text-primary); line-height: 1.4; }
+        .journey-arrow { text-align: center; padding: 8px 0; color: var(--text-muted); font-size: 18px; }
+
+        /* SCRIPT BLOCK */
+        .script-block { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px 34px; margin-bottom: 24px; }
+        .script-block h4.block-title { margin-top: 0; }
+        .script-list { padding-left: 24px; }
+        .script-list li { font-size: 14.5px; color: var(--text-primary); line-height: 1.7; margin-bottom: 14px; }
+        .script-list li:last-child { margin-bottom: 0; }
+        .script-list li strong { color: var(--brand-dark); }
+
+        /* OBJECTIONS */
+        .objection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 18px; margin-top: 18px; }
+        .objection-card { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 10px; padding: 24px 26px; border-top: 3px solid var(--warning); }
+        .objection-question { font-family: var(--font-serif); font-size: 16px; color: var(--text-primary); font-weight: 600; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border-light); font-style: italic; line-height: 1.4; }
+        .objection-question::before { content: '“'; color: var(--brand); font-size: 22px; line-height: 1; margin-right: 4px; }
+        .objection-question::after { content: '”'; color: var(--brand); font-size: 22px; line-height: 1; margin-left: 4px; }
+        .objection-answer { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+        .objection-answer strong { color: var(--text-primary); }
+
+        /* KPI GRID */
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 16px; margin-top: 22px; }
+        .kpi-card { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 10px; padding: 22px; border-left: 4px solid var(--brand); }
+        .kpi-card h5 { font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted); font-weight: 700; margin-bottom: 8px; }
+        .kpi-card .kpi-name { font-family: var(--font-serif); font-size: 18px; color: var(--text-primary); font-weight: 600; margin-bottom: 6px; }
+        .kpi-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.55; margin: 0; }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            body { flex-direction: column; overflow-y: auto; overflow-x: hidden; height: auto; min-height: 100vh; }
+            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--brand); position: sticky; top: 0; z-index: 100; }
+            .sidebar-header, .sidebar-meta, .sidebar-footer { display: none; }
+            .sidebar-nav { flex-direction: row; padding: 12px; overflow-x: auto; white-space: nowrap; align-items: center; -webkit-overflow-scrolling: touch; -ms-overflow-style: none; scrollbar-width: none; }
+            .sidebar-nav::-webkit-scrollbar { display: none; }
+            .nav-item { padding: 10px 16px; font-size: 13px; }
+            .main-content { overflow-y: visible; overflow-x: hidden; }
+            .tab-header { padding: 32px 22px; }
+            .tab-header h1 { font-size: 28px; }
+            .container { padding: 28px 18px 70px 18px; }
+            h2.section-title { font-size: 22px; padding: 14px 18px; margin-top: 44px; }
+            .profile-card { padding: 26px; }
+            .profile-card h3 { font-size: 22px; }
+            .pillar-detail { padding: 26px 22px; }
+            .saas-block { padding: 28px 24px; }
+            .offer-model-header { flex-direction: column; align-items: flex-start; gap: 12px; padding: 22px; }
+            .offer-model-body { padding: 22px; }
+            .raw-story-block { padding: 28px 22px; }
+            .call-stage { grid-template-columns: 1fr; gap: 10px; }
+            .call-stage .stage-time { width: fit-content; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="brand-tag">Implantação CLIP®</div>
+            <h2>Dossiê de <span>Posicionamento</span> e Vendas</h2>
+            <p>[Nome da Clínica]</p>
+        </div>
+        <div class="sidebar-meta">
+            <strong>Operador</strong>
+            Clintia Soluções Tecnológicas para Clínicas Ltda<br>
+            Bernardo Carneiro · Fundador<br>
+            Versão 1.0 · Onboarding
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-target="tab-comunicacao"><i class="fa-solid fa-bullhorn"></i> Posicionamento</a>
+            <a href="#" class="nav-item" data-target="tab-oferta"><i class="fa-solid fa-box-open"></i> Oferta da Clínica</a>
+            <a href="#" class="nav-item" data-target="tab-conteudo"><i class="fa-solid fa-pen-nib"></i> Conteúdo</a>
+            <a href="#" class="nav-item" data-target="tab-aquisicao"><i class="fa-solid fa-magnet"></i> Aquisição (CLIP®)</a>
+            <a href="#" class="nav-item" data-target="tab-vendas"><i class="fa-solid fa-chart-line"></i> Vendas e Operação</a>
+        </nav>
+        <div class="sidebar-camaleon">
+                <div class="cam-label"><span>🦎</span> Documento Camaleão</div>
+                <p>Este material é adaptado à realidade de cada clínica durante o onboarding. Estrutura, esteira e scripts são pontos de partida — não engessamento.</p>
+            </div>
+        <div class="sidebar-footer">Documento entregue como parte da Cláusula 4ª · Implantação CLIP®. Uso interno da clínica.</div>
+    </aside>
+
+    <main class="main-content">
+
+        <!-- =========================================================
+             ABA 1 — POSICIONAMENTO E COMUNICAÇÃO DA CLÍNICA
+             ========================================================= -->
+        <div id="tab-comunicacao" class="tab-content active">
+            <div class="tab-header">
+                <div class="eyebrow">Fase 1 — Fundação Estratégica</div>
+                <h1>Posicionamento e Comunicação</h1>
+                <p>O mapa do paciente da sua clínica popular. Aqui ficam os 3 perfis de paciente, as 3 camadas de dor, o vocabulário CFM-safe, a promessa central e a história de origem da clínica que sustenta toda a comunicação.</p>
+            </div>
+            <div class="container">
+                <div class="instruction-box"><i class="fa-solid fa-circle-info"></i><div><strong>Como esta aba é usada:</strong> O Perfil 1 alimenta os anúncios de topo (Google + Facebook). O Perfil 2 é o público dos posts de movimento e conversão. O Perfil 3 (Paciente Ouro) é o foco dos pacotes de exames, planos de cuidado e programas de retorno. Toda a copy do site, dos criativos e dos posts nasce desse mapa.</div></div>
+
+                <h2 class="section-title"><span class="badge-num">BLOCO 1</span>Os 3 Perfis de Paciente Ideal</h2>
+
+                <div class="profile-card">
+                    <span class="profile-tag">Perfil 1 · Topo de funil</span>
+                    <h3>O Paciente sem Acesso</h3>
+                    <span class="subtitle">Adulto de 25 a 45 anos, classe C/D, sem plano de saúde ou com plano básico de baixa cobertura. Busca preço e proximidade.</span>
+                    <p>É o paciente que <strong>desistiu de marcar pelo SUS</strong> depois de meses de espera. Não tem plano de saúde — ou tem um plano básico em que falta especialista, falta exame, falta marcação. Ouviu falar da clínica popular pela vizinha, pelo grupo de WhatsApp do bairro, ou caiu em um anúncio do Facebook procurando "consulta barata perto de mim". Decide a clínica em 24–72 horas: se a recepção responder rápido e tiver vaga essa semana, ele agenda. Se a recepção demorar 30 minutos para responder no WhatsApp, ele já marcou na concorrência.</p>
+                    <div class="profile-block"><h5>Como ele fala</h5><p>"Quanto custa a consulta de [especialidade]?" "Tem para essa semana?" "Aceita cartão? Faz parcelado?" "É perto da [referência do bairro]?"</p></div>
+                    <div class="profile-block"><h5>Como ele decide</h5><p>Preço primeiro. Depois rapidez de resposta no WhatsApp. Depois reputação no Google (se a clínica tiver menos de 4.5 estrelas, ele desconfia). Por último, especialidades disponíveis.</p></div>
+                    <ul class="feature-list">
+                        <li><strong>O que teme:</strong> Clínica popular ser sinônimo de atendimento ruim. Médico pressa de despachar. Não conseguir voltar para retorno. Pagar e não resolver.</li>
+                        <li><strong>O que deseja:</strong> Ser atendido nessa semana. Ser tratado com respeito. Sair da consulta com diagnóstico claro e plano definido. Pagar um preço que cabe no orçamento.</li>
+                        <li><strong>Onde encontra a clínica:</strong> Google Maps · Google Ads · Facebook Ads · indicação de família e vizinhos · placa na rua.</li>
+                    </ul>
+                    <div class="highlight-box"><p><strong>Onde ele aparece no funil:</strong> entrada por anúncio (Google Ads pesquisa + Facebook Ads) ou GMB. Resposta em &lt; 5 min no WhatsApp converte. Acima de 30 min, ele já agendou em outro lugar.</p></div>
+                </div>
+
+                <div class="profile-card">
+                    <span class="profile-tag">Perfil 2 · Meio de funil</span>
+                    <h3>O Paciente Frustrado com o Convênio</h3>
+                    <span class="subtitle">Adulto de 30 a 55 anos, classe C+/B, tem plano básico ou intermediário, mas cansou da fila do convênio. Busca atendimento decente sem precisar pagar particular caro.</span>
+                    <p>Tem plano de saúde, mas <strong>já desistiu de usar para certas especialidades</strong>: a fila para dermatologista é de 4 meses, o ginecologista do credenciado faz consulta de 8 minutos, o exame que precisa fazer só está disponível em laboratório do outro lado da cidade. Considera particular, mas o preço de consulta particular num consultório premium é proibitivo (R$ 400–600). Ouviu falar da clínica popular pela colega de trabalho que disse "lá é bom, é mais barato e é rápido". Está pesquisando.</p>
+                    <div class="profile-block"><h5>Como ele fala</h5><p>"Vocês atendem [especialidade] sem convênio?" "Qual o valor da consulta?" "Vocês pedem exame? Quanto custa cada um?" "O médico é bom mesmo? Tem alguma referência?"</p></div>
+                    <div class="profile-block"><h5>Como ele decide</h5><p>Mais cético que o Perfil 1. Lê reviews no Google. Olha o Instagram para validar se a clínica é séria. Compara preço com outras 2 ou 3 clínicas populares da região. Decide em 3 a 7 dias.</p></div>
+                    <ul class="feature-list">
+                        <li><strong>A insegurança:</strong> "Será que clínica popular é como falam? O médico é mesmo formado? O equipamento é decente?" Reviews ruins quebram a venda imediatamente.</li>
+                        <li><strong>O medo:</strong> Pagar consulta + exames e descobrir que precisa pagar mais coisa. Ser empurrado para procedimento que não precisa.</li>
+                        <li><strong>Como decide comprar:</strong> Precisa ver <strong>autoridade visual</strong> — fotos da clínica limpa e bem montada, médicos identificados com CRM, depoimentos reais de pacientes, GMB acima de 4.7 com avaliações respondidas.</li>
+                    </ul>
+                    <div class="highlight-box"><p><strong>Produto recomendado:</strong> Pacote de Exames + Consulta combinada. Programas de cuidado para condições crônicas (diabetes, hipertensão, tireoide).</p></div>
+                </div>
+
+                <div class="profile-card gold-tier">
+                    <span class="profile-tag">Perfil 3 · Paciente Ouro</span>
+                    <h3>O Paciente de Cuidado Continuado</h3>
+                    <span class="subtitle">Adulto de 35 a 65 anos com condição crônica (diabetes, hipertensão, tireoide, ansiedade), histórico familiar relevante ou que se tornou referência da família para questões de saúde.</span>
+                    <p>Já passou pelo Perfil 1 ou Perfil 2. Foi atendido na clínica, gostou, voltou. Hoje, é o paciente que <strong>retorna 3, 4, 6 vezes por ano</strong>. Tem condição crônica que exige acompanhamento regular. Faz exames de rotina. Compra o pacote anual de check-up. E o mais importante: <strong>indica a clínica</strong> — para o marido, para a mãe, para a colega de trabalho, para o vizinho. Cada Paciente Ouro vale entre 5 e 12 outros pacientes ao longo de 2 anos.</p>
+                    <div class="profile-block"><h5>Como ele fala</h5><p>"O Doutor [Nome] tá atendendo essa semana?" "Vou marcar minha esposa também." "Lembra que da última vez você pediu aquele exame?" Já chama a recepcionista pelo nome. Já sabe o caminho.</p></div>
+                    <div class="profile-block"><h5>O que diferencia ele</h5><p>Não compara mais por preço. Compra por <strong>vínculo e confiança</strong>. Se a clínica oferecer um pacote anual de cuidado continuado, ele compra sem hesitar. Se a clínica abrir uma segunda unidade mais perto da casa dele, ele migra com a família inteira.</p></div>
+                    <ul class="feature-list">
+                        <li><strong>O que valoriza:</strong> Continuidade de atendimento (atender com o mesmo médico). Memória clínica (recepção lembrar dele e do histórico). Lembrete de retorno e exame de rotina. Atendimento humanizado da equipe.</li>
+                        <li><strong>O que destrói o vínculo:</strong> O médico que ele gostava saiu da clínica e ninguém avisou. Esquecerem dele entre uma consulta e outra. Mudança de preço sem comunicação. Erro de cadastro que faz o convênio glosar.</li>
+                        <li><strong>Como ele toma decisão de retorno:</strong> Por confiança e por contato proativo. Se a clínica mandar mensagem de aniversário, lembrete de exame anual, convite para programa de cuidado — ele aceita. Se ficar 6 meses sem contato, ele pode esquecer.</li>
+                    </ul>
+                    <div class="highlight-box"><p><strong>Desejo Oculto:</strong> Sentir que a clínica é "a clínica dele". Que tem médicos que conhecem o caso dele. Que faz parte da rotina de cuidado da família. <strong>Reativação de base</strong> e <strong>programa de cuidado continuado</strong> são as ofertas certas para o Paciente Ouro.</p></div>
+                </div>
+
+                <h2 class="section-title"><span class="badge-num">BLOCO 2</span>A Anatomia da Dor do Paciente</h2>
+                <div class="instruction-box"><i class="fa-solid fa-stethoscope"></i><div><strong>Estrutura em 3 camadas:</strong> A dor de acesso/financeira é o que ele fala em voz alta no WhatsApp e no Google. A dor de desconfiança é o que ele admite nos comentários e em conversa com a família. A dor existencial é o medo médico — o que ele <em>nunca</em> verbaliza primeiro, mas é o que faz ele vir agora ao invés de empurrar mais 6 meses. Toda copy bate na camada 1, ressoa na camada 2 e <em>resolve</em> a camada 3.</div></div>
+
+                <div class="pain-section">
+                    <div class="pain-camada-header"><div class="num">1</div><h3>Dor de Acesso e Financeira</h3><span class="label">O que ele fala</span></div>
+                    <div class="pain-list">
+                        <div class="pain-item"><h4><span class="pain-num">DOR 1</span>A consulta particular custa o que ele paga de luz no mês inteiro</h4><p>Uma consulta particular em consultório premium custa entre R$400 e R$600. Para o paciente de classe C, esse valor representa <strong>uma fatia inteira do orçamento doméstico mensal</strong>. Ele adia. Empurra com a barriga. Toma anti-inflamatório por conta própria. Vai à farmácia pedir orientação ao balconista. Quando finalmente decide marcar, está com sintoma há 3, 4, 6 meses — e a condição que era simples virou complicada.</p></div>
+                        <div class="pain-item"><h4><span class="pain-num">DOR 2</span>A fila do convênio que faz a doença avançar enquanto ele espera</h4><p>"Marquei a dermatologista em janeiro. A consulta foi marcada para julho." Sete meses de espera para uma especialidade. Para uma mãe que percebeu uma mancha estranha na pele do filho, sete meses é tempo suficiente para a ansiedade virar pânico. <strong>O paciente de plano popular está cronicamente esperando</strong> — e a clínica popular que oferece "consulta essa semana" resolve uma dor que ele já internalizou como inevitável.</p></div>
+                        <div class="pain-item"><h4><span class="pain-num">DOR 3</span>O exame que custa metade da consulta particular</h4><p>Pediram hemograma, glicemia, colesterol, tireoide. No laboratório do convênio, demora 3 semanas para conseguir agendamento. Particular, em laboratório de bairro, sai por R$ 250 a R$ 400 — quase uma consulta inteira. <strong>Quando a clínica popular oferece pacote de exames com preço fechado e coleta na própria clínica</strong>, ela resolve uma dor que o paciente já vinha empurrando há meses.</p></div>
+                        <div class="pain-item"><h4><span class="pain-num">DOR 4</span>A logística impossível para quem trabalha de segunda a sexta das 8 às 18</h4><p>O paciente de classe C trabalha em horário comercial e não pode faltar. Toda consulta exige planejamento — pedir folga, ajustar com a chefia, conseguir alguém para buscar a criança na escola. <strong>Clínica que abre aos sábados, no horário do almoço ou no fim do dia</strong> remove a barreira logística que paralisa metade dos agendamentos potenciais.</p></div>
+                    </div>
+                    <div class="pain-quotes"><h5>Como o paciente descreve essas dores</h5><blockquote>"Quanto custa a consulta? E o exame? Tem como pagar parcelado?"</blockquote><blockquote>"Marquei pelo plano e só consegui pra daqui 4 meses. Eu não aguento esperar."</blockquote><blockquote>"A consulta particular ali do centro custa R$500. Não tenho como."</blockquote><blockquote>"Vocês atendem sábado? Não consigo sair do trabalho de semana."</blockquote></div>
+                </div>
+
+                <div class="pain-section">
+                    <div class="pain-camada-header"><div class="num">2</div><h3>Dor de Desconfiança e Validação</h3><span class="label">O que ele admite com hesitação</span></div>
+                    <div class="pain-list">
+                        <div class="pain-item"><h4><span class="pain-num">DOR 5</span>O preconceito histórico contra "clínica popular"</h4><p>"Clínica popular" carrega no imaginário coletivo uma associação com atendimento de massa, médico apressado, equipamento sucateado, sala de espera lotada. <strong>O paciente do Perfil 2 carrega esse preconceito</strong> — e precisa ser convencido de que <em>esta</em> clínica popular específica é diferente. Reviews respondidas, fotos reais da estrutura, equipe identificada com CRM e nome completo, comunicação visual cuidada — esses são os elementos que quebram o preconceito antes que ele se materialize.</p></div>
+                        <div class="pain-item"><h4><span class="pain-num">DOR 6</span>O medo de ser "empurrado" para um procedimento que não precisa</h4><p>O paciente já viu acontecer com um conhecido. A pessoa entrou na clínica para uma consulta simples e saiu com a indicação de cirurgia, três exames caros e um retorno em 7 dias. <strong>O medo de ser explorado financeiramente</strong> é uma camada de desconfiança que precede qualquer agendamento. Comunicação transparente sobre preço, escopo e fluxo do atendimento neutraliza essa dor.</p></div>
+                        <div class="pain-item"><h4><span class="pain-num">DOR 7</span>A demora no WhatsApp que sinaliza desorganização</h4><p>O paciente manda mensagem às 10h da manhã. A primeira resposta da recepção chega às 14h. <strong>Esse intervalo, mesmo silencioso, comunica</strong>: "essa clínica é desorganizada, vai ser igual quando eu chegar lá pessoalmente, vou esperar 2 horas para ser atendido". Antes mesmo de pisar no espaço físico, o paciente já desistiu — e foi marcar na concorrente que respondeu em 3 minutos.</p></div>
+                    </div>
+                    <div class="pain-quotes"><h5>Como o paciente descreve</h5><blockquote>"Mas é clínica popular mesmo? Tem médico de verdade?"</blockquote><blockquote>"Não quero ser empurrada pra fazer um monte de exame que não preciso."</blockquote><blockquote>"Mandei mensagem ontem e até agora não me responderam. Já marquei em outro lugar."</blockquote></div>
+                </div>
+
+                <div class="pain-section">
+                    <div class="pain-camada-header"><div class="num">3</div><h3>Dor Existencial e Médica</h3><span class="label">O que faz ele agendar agora</span></div>
+                    <div class="pain-list">
+                        <div class="pain-item"><h4>O medo do diagnóstico que ele empurra há meses</h4><p>O sintoma apareceu há 4 meses. Ele percebeu, buscou no Google, leu coisas assustadoras, fechou o navegador. Empurrou. <strong>O sintoma não foi embora.</strong> A ansiedade do "será que é alguma coisa séria" é o motor existencial silencioso que faz ele finalmente decidir agendar. A clínica popular que comunica acolhimento — não preço, não rapidez — captura esse paciente no momento de decisão.</p></div>
+                        <div class="pain-item"><h4>A responsabilidade pela saúde da família</h4><p>O Paciente Ouro frequentemente é a "<strong>pessoa da saúde da família</strong>": marca a consulta da mãe idosa, busca o pai para o exame, leva o filho ao pediatra, agenda a ginecologista da filha adolescente. O peso emocional dessa responsabilidade combinado com a dificuldade logística do convênio gera exaustão. Quando uma clínica resolve <em>todos</em> esses agendamentos sob o mesmo teto, com a mesma recepção que conhece a família, o vínculo se torna intransferível.</p></div>
+                        <div class="pain-item"><h4>O desejo de ser tratado como pessoa, não como número</h4><p>No SUS, no convênio cheio, no consultório premium impessoal — em todos esses ambientes, o paciente vivencia o mesmo: <strong>ele é um número, uma senha, um próximo da fila</strong>. O que diferencia uma clínica popular bem operada não é o preço — é o atendimento humanizado da recepção que chama pelo nome, do médico que dedica os minutos necessários, da equipe que devolve a sensação de ser cuidado. Esse é o ativo competitivo que nenhum concorrente com mais budget consegue copiar de imediato.</p></div>
+                    </div>
+                    <div class="pain-quotes"><h5>Como o paciente descreve essa camada</h5><blockquote>"Tô com isso há um tempo, queria ver com um médico, mas tava enrolando."</blockquote><blockquote>"Preciso marcar pra mim, pra minha mãe e pro meu marido. Vocês atendem tudo no mesmo lugar?"</blockquote><blockquote>"O Doutor que me atendeu da última vez foi muito atencioso. Ele tá nessa semana?"</blockquote></div>
+                </div>
+
+                <h2 class="section-title"><span class="badge-num">BLOCO 3</span>Linguagem e Vocabulário CFM-Safe</h2>
+                <div class="instruction-box"><i class="fa-solid fa-language"></i><div><strong>O que ressoa vs. o que repele.</strong> Em clínica médica, a escolha de palavra não é só comercial — é regulatória. O CFM (Resolução nº 2.336/2023) restringe sensacionalismo, comparação direta com colegas, promessa de cura, garantia de resultado e exposição de paciente. Toda copy do site, post, anúncio e atendimento da recepção precisa respeitar essas regras. Esta tabela é a primeira régua.</div></div>
+
+                <div class="vocab-grid">
+                    <div class="vocab-card positive">
+                        <h5><i class="fa-solid fa-circle-check"></i> Use e abuse</h5>
+                        <p class="vocab-sub">Vocabulário que comunica acolhimento, profissionalismo e está dentro das normas do CFM.</p>
+                        <table class="vocab-table">
+                            <thead><tr><th>Termo</th><th>Por que ressoa</th></tr></thead>
+                            <tbody>
+                                <tr><td>atendimento humanizado</td><td>Toca a dor de "ser tratado como número". Não promete resultado, promete cuidado</td></tr>
+                                <tr><td>acolhimento</td><td>Linguagem do cuidado. Acessível, não-clínica, emocional</td></tr>
+                                <tr><td>preço acessível</td><td>Comunicação clara sem prometer "barato"</td></tr>
+                                <tr><td>consulta sem convênio</td><td>Especifica o público — quem não tem plano ou desistiu de usar</td></tr>
+                                <tr><td>agendamento rápido</td><td>Aborda a dor da fila do convênio sem comparar com concorrente</td></tr>
+                                <tr><td>equipe multiprofissional</td><td>Comunica diversidade de especialidades sem exagerar</td></tr>
+                                <tr><td>profissionais qualificados</td><td>Transmite competência. Evite "os melhores"</td></tr>
+                                <tr><td>cuidado continuado</td><td>Vocabulário do paciente crônico. Posicionamento premium da clínica popular</td></tr>
+                                <tr><td>retorno acompanhado</td><td>Comunica vínculo, fidelização, qualidade de seguimento</td></tr>
+                                <tr><td>pacote de exames</td><td>Linguagem comercial aceita pelo CFM. Concreto, sem promessa</td></tr>
+                                <tr><td>orientação médica</td><td>Substitui "diagnóstico garantido" — que é proibido</td></tr>
+                                <tr><td>especialidades</td><td>Linguagem técnica e neutra. Sempre acompanhada de RQE quando comunicar especialista</td></tr>
+                                <tr><td>fácil acesso</td><td>Comunica localização e logística sem prometer tempo de atendimento</td></tr>
+                                <tr><td>família toda atendida</td><td>Captura o Paciente Ouro responsável pela saúde da casa</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="vocab-card negative">
+                        <h5><i class="fa-solid fa-circle-xmark"></i> Nunca use</h5>
+                        <p class="vocab-sub">Termos proibidos pelo CFM ou que ativam desconfiança no paciente. Risco de autuação ou de quebra de venda imediata.</p>
+                        <table class="vocab-table">
+                            <thead><tr><th>Termo</th><th>Por que repele</th></tr></thead>
+                            <tbody>
+                                <tr><td>resultado garantido</td><td>Proibido pelo CFM em qualquer tratamento ou procedimento</td></tr>
+                                <tr><td>cura garantida</td><td>Proibido categoricamente. Risco de autuação imediata</td></tr>
+                                <tr><td>antes e depois</td><td>Proibido em estética, dermatologia, odontologia. Risco alto</td></tr>
+                                <tr><td>"o melhor" / "o mais"</td><td>Comparação superlativa proibida pelo CFM</td></tr>
+                                <tr><td>"clínica nº 1 da região"</td><td>Comparação direta — proibida</td></tr>
+                                <tr><td>preço de banana / consulta barata</td><td>Desvaloriza a marca. Atrai público desqualificado. Comunicação vulgar</td></tr>
+                                <tr><td>sensação garantida</td><td>Promessa de experiência subjetiva — não permitida</td></tr>
+                                <tr><td>milagre / transforma sua vida</td><td>Sensacionalismo médico — proibido pelo CFM</td></tr>
+                                <tr><td>sorteio / promoção / desconto relâmpago</td><td>Mercantilização de ato médico — proibida</td></tr>
+                                <tr><td>foto de paciente sem autorização</td><td>Violação de LGPD + CFM. Risco jurídico direto</td></tr>
+                                <tr><td>"100% de aprovação"</td><td>Estatística de resultado — vetada pelo CFM</td></tr>
+                                <tr><td>nome de medicamento + promessa</td><td>Promoção de produto controlado. Risco de Anvisa</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="instruction-box" style="margin-top: 32px; background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.3);"><i class="fa-solid fa-triangle-exclamation" style="color: var(--warning);"></i><div><strong>Regra de ouro de toda peça publicada:</strong> Ato médico é ato técnico, não produto de varejo. Toda peça de marketing produzida para a clínica passa por um <em>checklist de conformidade</em> antes de ir ao ar — RQE do médico identificado, ausência de promessa de resultado, ausência de comparação com colegas, ausência de imagem de paciente sem consentimento expresso por escrito. <strong>Esse checklist é parte da entrega CLIP®.</strong></div></div>
+
+                <h2 class="section-title"><span class="badge-num">BLOCO 4</span>A Promessa Central da Clínica</h2>
+                <div class="instruction-box"><i class="fa-solid fa-bullseye"></i><div><strong>A promessa da clínica não vende o ato médico.</strong> Vende a experiência, a logística e o acolhimento. Esta seção será preenchida no onboarding com base nas características específicas da sua clínica — especialidades, ticket médio, região, diferenciais. As variações abaixo são pontos de partida testados.</div></div>
+
+                <h3 class="subsection-title">Estrutura da Promessa</h3>
+                <div class="offer-model-detail">
+                    <div class="offer-model-body">
+                        <div class="offer-row"><span class="offer-label">Para quem</span><div class="offer-content"><div class="fill-here">[Preenchido no onboarding] Adultos sem plano de saúde ou cansados da fila do convênio na região de [bairro/cidade], que buscam consulta médica e exames com [as especialidades da clínica].</div></div></div>
+                        <div class="offer-row"><span class="offer-label">Que problema resolve</span><div class="offer-content"><div class="fill-here">[Preenchido no onboarding] Falta de acesso rápido a especialista, fila do convênio, custo proibitivo da consulta particular, dificuldade de logística para quem trabalha em horário comercial.</div></div></div>
+                        <div class="offer-row"><span class="offer-label">Mecanismo</span><div class="offer-content"><div class="fill-here">[Preenchido no onboarding] [Nome da Clínica] — [especialidades centrais], com [diferencial específico: ex. atendimento aos sábados / pacote de exames com coleta no local / equipe X médicos / cobertura Y do bairro].</div></div></div>
+                        <div class="offer-row"><span class="offer-label">Sem o quê</span><div class="offer-content"><div class="fill-here">[Preenchido no onboarding] Sem fila de meses como no convênio · sem custo proibitivo de consulta particular · sem precisar marcar em três lugares diferentes para cada exame.</div></div></div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Variações da Promessa</h3>
+                <div class="quote-block featured">"Atendimento médico humanizado, com agendamento na mesma semana e preço acessível, no [bairro/cidade]. Consulta + exames sob o mesmo teto, sem fila de convênio, sem precisar pagar particular caro."<small>Variação 1 — Foco na dor primária (acesso e logística)</small></div>
+                <div class="quote-block">"A clínica do bairro que sua família já confia. [N anos] cuidando das famílias de [bairro/cidade], com consulta, exames e retorno acompanhado — para você, para sua mãe, para os seus filhos."<small>Variação 2 — Foco em vínculo e família (Paciente Ouro)</small></div>
+                <div class="quote-block">"Cansou de marcar pelo convênio e esperar 4 meses? Aqui você consulta nessa semana. [Especialidades centrais] com profissionais qualificados, preço acessível e atendimento humanizado."<small>Variação 3 — Quebra de objeção contra o convênio</small></div>
+
+                <h2 class="section-title"><span class="badge-num">BLOCO 5</span>Estratégia de Instagram da Clínica</h2>
+                <div class="instruction-box"><i class="fa-solid fa-square-check"></i><div><strong>Importante:</strong> O Instagram da clínica popular não é canal de captação principal — é <em>vitrine de validação</em>. O canal principal é Google + Facebook + GMB. O paciente que chega por outro canal abre o Instagram para validar: "essa clínica parece séria? Tem fotos reais? A equipe é apresentada?". Se o IG estiver abandonado ou genérico, ele não agenda.</div></div>
+
+                <div class="ig-grid">
+                    <div class="ig-element">
+                        <h4><i class="fa-solid fa-camera"></i> 1. Foto e Nome (SEO de Busca)</h4>
+                        <p style="font-size:14px;"><strong>Foto de perfil:</strong> Logo da clínica em fundo neutro <em>ou</em> foto da fachada da clínica (gera reconhecimento local). Sem stock photo de médico genérico.</p>
+                        <p style="font-size:14px;"><strong>Nome estratégico (palavras-chave):</strong></p>
+                        <ul class="feature-list" style="margin-top:8px;margin-bottom:0;">
+                            <li style="font-size:14px;">[Nome da Clínica] · Clínica em [Bairro/Cidade]</li>
+                            <li style="font-size:14px;">[Nome da Clínica] | [Especialidades principais]</li>
+                        </ul>
+                    </div>
+                    <div class="ig-element" style="grid-column: 1 / -1;">
+                        <h4><i class="fa-solid fa-align-left"></i> 2. Bio Estratégica — modelo</h4>
+                        <p style="font-size:13px;color:var(--text-muted);"><strong>Estrutura:</strong> Promessa local → Especialidades / autoridade → CTA WhatsApp → Endereço → Link</p>
+                        <div class="ig-bio-render">
+                            🩺 <strong>Atendimento médico humanizado em [Bairro/Cidade]</strong><br>
+                            [Lista de especialidades] · Consulta + Exames<br>
+                            📅 Agende essa semana — [WhatsApp do botão]<br>
+                            📍 [Endereço com referência]<br>
+                            🔗 <strong>[link da clínica]</strong>
+                        </div>
+                        <p style="font-size:12.5px;color:var(--text-muted);margin-top:14px;"><em>Nota CFM: a bio precisa exibir CRM + RQE de cada especialista que aparece com nome no perfil. Veja política completa nas regras do CFM dentro do material entregue.</em></p>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Os 3 Destaques Obrigatórios</h3>
+                <div class="pinned-grid">
+                    <div class="pinned-post"><span class="pin-num">01</span><h5>Quem Somos · A Clínica</h5><p>Capa: foto da fachada ou da equipe. Sequência: 1) história curta da clínica (quando abriu, por quem, por quê) → 2) tour fotográfico real do espaço (recepção, consultório, sala de exames) → 3) horários e localização → 4) CTA WhatsApp.</p><span class="pin-cta">Quebra a desconfiança do Perfil 2 (clínica popular = clínica ruim)</span></div>
+                    <div class="pinned-post"><span class="pin-num">02</span><h5>Especialidades · O que atendemos</h5><p>Sequência: cada especialidade em um story estático com 1) nome da especialidade → 2) o que ela atende (em linguagem do paciente, não do médico) → 3) profissional responsável (foto + nome + CRM/RQE) → 4) faixa de preço de consulta → 5) CTA agendar.</p><span class="pin-cta">Substitui página de serviços do site no celular do paciente</span></div>
+                    <div class="pinned-post"><span class="pin-num">03</span><h5>Pacientes · Depoimentos e Cuidado</h5><p>Sequência: depoimentos reais (com autorização por escrito) → reposts de marcações + agradecimentos → fotos da equipe atendendo (sem identificar pacientes). Atualizado mensalmente. <strong>Nunca</strong> use foto de paciente sem autorização documentada — risco LGPD + CFM direto.</p><span class="pin-cta">Prova social que neutraliza a dor de desconfiança</span></div>
+                </div>
+
+                <h3 class="subsection-title">Os 3 Posts Fixados</h3>
+                <p>A vitrine do perfil. O paciente que chega via Google ou anúncio e abre o IG da clínica precisa, em 30 segundos, entender o que ela faz, em quem confia e como agendar.</p>
+                <div class="pinned-grid">
+                    <div class="pinned-post"><span class="pin-num">01</span><h5>Apresentação · O carro-chefe</h5><p>Carrossel ou vídeo curto. <strong>Estrutura:</strong> capa com promessa central → tour pela clínica → equipe principal apresentada (foto + nome + CRM/RQE de cada um) → depoimento real de paciente → CTA WhatsApp + endereço.</p><span class="pin-cta">CTA: "Marque sua consulta — link na bio"</span></div>
+                    <div class="pinned-post"><span class="pin-num">02</span><h5>Pacote de Exames · A oferta concreta</h5><p>Carrossel. <strong>Estrutura:</strong> "Você sabe quanto custa fazer todos os exames de rotina particular?" (gancho com a dor financeira) → comparativo de valores → o que está incluído no pacote da clínica → coleta no local, resultado em X dias → CTA WhatsApp.</p><span class="pin-cta">CTA: "Pacote de exames — chame no WhatsApp"</span></div>
+                    <div class="pinned-post"><span class="pin-num">03</span><h5>Por que [Nome da Clínica] · O posicionamento</h5><p>Carrossel ou vídeo. <strong>Estrutura:</strong> Os 3 problemas que o paciente da região enfrenta (fila do convênio, custo da particular, logística) → como a clínica resolve cada um (agendamento na semana, preço fechado, sábados abertos, equipe completa) → diferencial humano (nome dos médicos, anos no bairro) → CTA.</p><span class="pin-cta">CTA: "Agende na nossa clínica — WhatsApp"</span></div>
+                </div>
+
+                <h2 class="section-title"><span class="badge-num">BLOCO 6</span>História de Origem da Clínica</h2>
+                <div class="instruction-box"><i class="fa-solid fa-book-open"></i><div><strong>Para que serve:</strong> Esta é a fonte primária para roteiros de stories de "Quem Somos", abertura do site institucional, posts de doutrinação no IG, descrição do GMB e copy de anúncios institucionais. <em>História humana converte mais que catálogo de serviços.</em> Será coletada e redigida no onboarding.</div></div>
+
+                <div class="raw-story-block">
+                    <div class="story-section"><h4>Bloco 1 · O Gancho</h4><p class="story-quote">[A frase de abertura — como você resume em 2 linhas o motivo da clínica existir. Ex: "A gente abriu a clínica porque cansou de ver paciente esperando 4 meses pela consulta no convênio."]</p></div>
+                    <div class="story-section"><h4>Bloco 2 · Origem do médico-fundador</h4><h3>Quem é o médico/sócio que está à frente da clínica</h3><p class="fill-here">[Preenchido no onboarding] · Quem é o médico-fundador. Onde se formou. Em que hospitais e clínicas trabalhou antes. O que viu no SUS, no convênio, no plantão que o levou a abrir a própria clínica.</p></div>
+                    <div class="story-section"><h4>Bloco 3 · O momento de virada</h4><h3>Por que abriu uma clínica no modelo popular</h3><p class="fill-here">[Preenchido no onboarding] · O caso, a pessoa, a frustração específica que catalisou a decisão. Pode ser o paciente que ele teve que recusar, a família que não conseguiu pagar, a fila do plantão que ele cansou de operar. Um momento concreto, não abstrato.</p></div>
+                    <div class="story-section"><h4>Bloco 4 · O bairro e a comunidade</h4><h3>Por que [Bairro/Cidade]</h3><p class="fill-here">[Preenchido no onboarding] · Por que a clínica está exatamente nesta região. Conexão pessoal do médico com o bairro? Demanda visível na região? Vazio de atendimento médico de qualidade?</p></div>
+                    <div class="story-section"><h4>Bloco 5 · A equipe</h4><h3>Os médicos e profissionais que constroem a clínica</h3><p class="fill-here">[Preenchido no onboarding] · Quem são os principais médicos da clínica (com CRM e RQE). Há quanto tempo estão. O que cada um traz de história. A recepcionista que está desde a abertura. O time que faz a clínica funcionar.</p></div>
+                    <div class="story-section"><h4>Bloco 6 · Resultado e ambição</h4><h3>O que a clínica entregou até hoje · onde quer chegar</h3><p class="fill-here">[Preenchido no onboarding] · Quantas famílias a clínica já atendeu. Quantos pacientes em cuidado continuado. Próximos passos: nova especialidade, segunda unidade, programa de cuidado, etc.</p></div>
+                    <div class="story-section"><h4>Bloco 7 · Missão</h4><p class="story-quote">[Frase de fechamento — o porquê maior. Ex: "A gente não quer ser só mais uma clínica. A gente quer ser a clínica que a família do bairro chama de 'minha clínica'."]</p></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- =========================================================
+             ABA 2 — OFERTA PRODUTIZADA DA CLÍNICA
+             ========================================================= -->
+        <div id="tab-oferta" class="tab-content">
+            <div class="tab-header">
+                <div class="eyebrow">Fase 2 — Engenharia da Oferta</div>
+                <h1>A Oferta da Clínica</h1>
+                <p>A jornada do paciente traduzida em produto. Como a consulta avulsa, o pacote de exames e o programa de cuidado continuado se encaixam em uma esteira que aumenta o ticket médio sem violar o CFM e sem perder o paciente entre uma consulta e outra.</p>
+            </div>
+            <div class="container">
+
+                <h2 class="section-title" style="margin-top:0;"><span class="badge-num">BLOCO 7</span>O Método · Ponto A → Jornada → Ponto B</h2>
+                <div class="instruction-box"><i class="fa-solid fa-route"></i><div><strong>Como ler:</strong> O Ponto A é o estado do paciente antes de chegar à clínica. A Jornada é como a clínica conduz ele do primeiro contato até a fidelização. O Ponto B é o paciente que retorna, indica e compra cuidado continuado. <em>Esta jornada é o que vamos implantar tecnicamente nos 45 dias.</em></div></div>
+
+                <div class="method-ab-container">
+                    <div class="point-card point-a">
+                        <h4><i class="fa-solid fa-location-dot"></i> Ponto A · O paciente antes da clínica</h4>
+                        <p>O paciente está com o sintoma há semanas ou meses. Empurrou. Tentou marcar pelo SUS — fila enorme. Tentou pelo convênio — primeira vaga em 4 meses. Pesquisou consulta particular — R$500, fora do orçamento. Está cansado, ansioso e sem opção. Procura no Google "clínica popular [bairro]" ou cai num anúncio do Facebook. Manda WhatsApp para 2 ou 3 clínicas e <strong>marca onde respondem primeiro com clareza de preço, especialidade e horário</strong>.</p>
+                    </div>
+
+                    <div class="method-name-block"><div class="label">A Jornada · Implantação CLIP®</div><h3>O <span class="acronym">Funil de Cuidado</span> da Clínica</h3></div>
+
+                    <div class="method-bridge">
+                        <div class="step-card"><div class="step-letter">1</div><span class="step-tag">Etapa 1</span><h5>Captação</h5><p>Google + Facebook + GMB capturam intenção e atraem demanda. CRM Bolten registra todo contato.</p></div>
+                        <div class="step-card"><div class="step-letter">2</div><span class="step-tag">Etapa 2</span><h5>Conversão</h5><p>Recepção responde em &lt;5 min via WhatsApp. Fluxo padronizado leva ao agendamento. Sem slot vazio.</p></div>
+                        <div class="step-card"><div class="step-letter">3</div><span class="step-tag">Etapa 3</span><h5>Atendimento</h5><p>Consulta humanizada. Pedido de exame ou pacote integrado. Cadastro completo no CRM. Zero glosa.</p></div>
+                        <div class="step-card"><div class="step-letter">4</div><span class="step-tag">Etapa 4 · Resultado</span><h5>Retorno</h5><p>Reativação automática para retorno, exame anual, programa de cuidado. Paciente Ouro construído.</p></div>
+                    </div>
+
+                    <div class="point-card point-b">
+                        <h4><i class="fa-solid fa-flag-checkered"></i> Ponto B · O paciente fidelizado</h4>
+                        <p>Em até 6 meses, o paciente que entrou pela consulta avulsa retorna 2 ou 3 vezes, faz o pacote de exames anual, traz familiares para a clínica, deixa avaliação positiva no Google. <strong>O custo de aquisição de novos pacientes (CAP) cai 55–60%</strong> porque cada paciente fidelizado vira fonte orgânica de novos. A receita da clínica cresce sem aumentar o investimento em mídia. O dashboard mostra em tempo real de onde veio cada paciente, qual canal está performando melhor, qual recepcionista converte mais. <strong>A decisão deixa de ser por feeling e passa a ser por dado.</strong></p>
+                    </div>
+                </div>
+
+                <h2 class="section-title"><span class="badge-num">BLOCO 8</span>A Esteira de Produtos da Clínica</h2>
+
+                <div class="camaleon-banner">
+                    <div class="cam-icon">🦎</div>
+                    <div class="cam-body">
+                        <div class="cam-title">Esta esteira é um <em>ponto de partida</em> — não uma régua.</div>
+                        <p>A estrutura abaixo representa o modelo mais comum entre as clínicas populares atendidas pela CLIP®. Na prática, cada clínica tem seu próprio carro-chefe: para algumas é o Pacote de Exames, para outras é uma consulta especializada, um exame específico de alta demanda local (ex: ECG, ultrassom, hemograma isolado), ou até um procedimento que diferencia a clínica na cidade. O que não muda é a <strong style="color:var(--brand)">lógica da jornada</strong>: porta de entrada de baixo ticket → produto de maior ticket → fidelização e LTV.</p>
+                        <div class="cam-tags">
+                            <span class="cam-tag">🔄 Esteira adaptável por clínica</span>
+                            <span class="cam-tag">🏆 Carro-chefe definido no onboarding</span>
+                            <span class="cam-tag">💲 Tickets preenchidos com dados reais</span>
+                            <span class="cam-tag">📋 Fichas customizadas por serviço</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instruction-box"><i class="fa-solid fa-layer-group"></i><div><strong>Lógica da esteira:</strong> O paciente entra pelo serviço de menor ticket (consulta avulsa) e é conduzido — sem empurrar, dentro do CFM — para serviços de maior ticket e maior vínculo (pacote de exames, programa de cuidado continuado). Cada degrau da esteira tem uma promessa específica e um ponto de venda específico no fluxo de atendimento.</div></div>
+
+                <div class="saas-block">
+                    <div class="saas-header"><div class="saas-icon"><i class="fa-solid fa-stethoscope"></i></div><div class="saas-title"><span>Front-End · Porta de Entrada</span><h4>Consulta Médica Avulsa</h4></div></div>
+                    <p>O serviço de menor ticket e maior volume. É a primeira experiência do paciente com a clínica. <strong>Toda a esteira depende dessa primeira impressão.</strong> Atendimento humanizado, médico que escuta, recepção atenciosa. Nenhuma venda agressiva — o ato médico cuida primeiro.</p>
+                    <div class="saas-meta">
+                        <div class="saas-meta-item"><span>Ticket médio</span><strong>[A definir]</strong></div>
+                        <div class="saas-meta-item"><span>Frequência</span><strong>1 a 3x ano</strong></div>
+                        <div class="saas-meta-item"><span>Canal de captação</span><strong>Google + Facebook + GMB</strong></div>
+                        <div class="saas-meta-item"><span>Próximo passo</span><strong>Pacote de exames ou retorno</strong></div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Back-End · Esteira de Conversão e Fidelização</h3>
+                <div class="tier-grid">
+                    <div class="tier-card">
+                        <div class="tier-header">
+                            <h4 class="tier-name">Pacote de Exames</h4>
+                            <p class="tier-desc">Combo de exames de rotina ou específicos com preço fechado, coleta na própria clínica e resultado em prazo definido.</p>
+                            <div class="tier-price">[A definir]<small>ticket conforme escopo do pacote</small></div>
+                        </div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> Exames laboratoriais agrupados</li>
+                            <li><i class="fa-solid fa-check"></i> Coleta no local (sem deslocamento extra)</li>
+                            <li><i class="fa-solid fa-check"></i> Resultado em até [N] dias</li>
+                            <li><i class="fa-solid fa-check"></i> Retorno acompanhado para discussão</li>
+                            <li><i class="fa-solid fa-check"></i> Vendido na consulta ou via WhatsApp</li>
+                        </ul>
+                    </div>
+
+                    <div class="tier-card featured-tier">
+                        <div class="tier-badge">Carro-Chefe <span class="adapt-flag" style="background:rgba(255,255,255,0.15);color:#FFF;border-color:rgba(255,255,255,0.3);"><i class="fa-solid fa-sliders"></i> Adaptável</span></div>
+                        <div class="tier-header">
+                            <h4 class="tier-name">Check-Up Anual <span class="adapt-flag"><i class="fa-solid fa-sliders"></i> Exemplo</span></h4>
+                            <p class="tier-desc">Pacote completo: consulta + bateria de exames + retorno acompanhado. A oferta-chave para fidelizar e gerar previsibilidade de receita.</p>
+                            <div class="tier-price">[A definir]<small>recorrência anual · pode ser parcelado</small></div>
+                        </div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> Consulta inicial + anamnese completa</li>
+                            <li><i class="fa-solid fa-check"></i> Bateria de exames laboratoriais</li>
+                            <li><i class="fa-solid fa-check"></i> Exames complementares (ECG, USG conforme caso)</li>
+                            <li><i class="fa-solid fa-check"></i> Retorno acompanhado com plano</li>
+                            <li><i class="fa-solid fa-check"></i> Lembrete automático em 12 meses</li>
+                            <li><i class="fa-solid fa-check"></i> Maior ticket médio + melhor margem</li>
+                        </ul>
+                    </div>
+
+                    <div class="tier-card">
+                        <div class="tier-header">
+                            <h4 class="tier-name">Programa de Cuidado Continuado</h4>
+                            <p class="tier-desc">Acompanhamento mensal para pacientes com condição crônica (diabetes, hipertensão, tireoide, ansiedade, obesidade).</p>
+                            <div class="tier-price">[A definir]<small>mensalidade ou trimestralidade</small></div>
+                        </div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> Consulta de retorno mensal/trimestral</li>
+                            <li><i class="fa-solid fa-check"></i> Exames de monitoramento incluídos</li>
+                            <li><i class="fa-solid fa-check"></i> Canal direto com a equipe (WhatsApp)</li>
+                            <li><i class="fa-solid fa-check"></i> Dieta / orientação nutricional integrada</li>
+                            <li><i class="fa-solid fa-check"></i> LTV mais alto da esteira</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="adapt-note">
+                    <strong>🦎 O carro-chefe varia de clínica para clínica.</strong> O modelo acima usa o Check-Up Anual como exemplo. Na prática:
+                    <ul>
+                        <li><strong>Clínica sem estrutura de pacote ainda:</strong> o carro-chefe pode ser um exame de alta demanda local (ECG, hemograma + urina, ultrassom) vendido individualmente com preço diferenciado.</li>
+                        <li><strong>Clínica com especialidade forte</strong> (ex: cardiologia, ginecologia): o produto âncora pode ser uma consulta especializada com protocolo exclusivo.</li>
+                        <li><strong>Clínica com base de crônicos:</strong> o carro-chefe pode ir direto para um Programa de Cuidado Continuado, pulando o pacote.</li>
+                    </ul>
+                    A esteira e os nomes dos blocos serão reescritos no onboarding com os serviços reais da clínica.
+                </div>
+
+                <h2 class="section-title"><span class="badge-num">BLOCO 9</span>Fichas Detalhadas de Oferta</h2>
+                <p>Modelos das principais ofertas que serão <strong>estruturadas e produtizadas durante o onboarding</strong>. As fichas abaixo são exemplos com os serviços mais comuns — cada clínica terá suas próprias fichas, com seus próprios serviços, preços e protocolos. <span class="adapt-flag"><i class="fa-solid fa-sliders"></i> Customizadas no onboarding</span></p>
+
+                <!-- FICHA 1 -->
+                <div class="offer-model-detail">
+                    <div class="offer-model-header"><h4>Ficha 1 · Consulta Médica Avulsa</h4><span class="offer-model-badge">Front-End · Porta de entrada</span></div>
+                    <div class="offer-model-body">
+                        <div class="offer-row"><span class="offer-label">Para quem é</span><div class="offer-content"><div class="fill-here">[A preencher] Paciente do Perfil 1 ou Perfil 2 buscando primeira consulta na especialidade.</div></div></div>
+                        <div class="offer-row"><span class="offer-label">Especialidades atendidas</span><div class="offer-content"><div class="fill-here">[A preencher] Listar as especialidades da clínica com nome do médico responsável e CRM/RQE de cada.</div></div></div>
+                        <div class="offer-row"><span class="offer-label">O que está incluído</span><div class="deliverables-grid">
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Anamnese completa</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Exame físico</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Orientação médica e plano</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Pedido de exames quando indicado</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Receituário se necessário</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Cadastro completo no CRM</div>
+                        </div></div>
+                        <div class="offer-row"><span class="offer-label">Tempo de consulta</span><div class="offer-content"><div class="fill-here">[A preencher] Ex: 20 a 30 min · primeira consulta · 15 a 20 min retorno.</div></div></div>
+                        <div class="offer-row"><span class="offer-label">Preço</span><div class="offer-content"><div class="fill-here">[A preencher] Faixa de preço por especialidade · formas de pagamento aceitas (Pix, débito, crédito até X vezes).</div></div></div>
+                        <div class="offer-row"><span class="offer-label">Próximo passo</span><div class="offer-content">No fluxo padronizado da consulta, o médico identifica se o paciente é candidato a: <strong>(a)</strong> retorno em [N] dias para acompanhamento; <strong>(b)</strong> pacote de exames; <strong>(c)</strong> check-up anual; ou <strong>(d)</strong> programa de cuidado continuado. <em>Todo desfecho fica registrado no CRM.</em></div></div>
+                        <div class="offer-row"><span class="offer-label">Conformidade CFM</span><div class="offer-content">Comunicação respeita Resolução CFM 2.336/2023 — sem promessa de cura, sem comparação com colegas, sem antes/depois, com identificação completa do médico (CRM + RQE).</div></div>
+                    </div>
+                </div>
+
+                <!-- FICHA 2 -->
+                <div class="offer-model-detail">
+                    <div class="offer-model-header"><h4>Ficha 2 · Pacote de Exames <span class="adapt-flag"><i class="fa-solid fa-sliders"></i> Exemplo de carro-chefe</span></h4><span class="offer-model-badge brand-bg">Carro-Chefe · Maior margem</span></div>
+                    <div class="offer-model-body">
+                        <div class="offer-row"><span class="offer-label">Para quem é</span><div class="offer-content"><div class="fill-here">[A preencher] Paciente do Perfil 2 ou 3 que precisa de bateria de exames e busca preço fechado e logística simples (não quer marcar em três laboratórios diferentes).</div></div></div>
+                        <div class="offer-row"><span class="offer-label">Pacotes oferecidos</span><div class="offer-content"><div class="fill-here">[A preencher] Listar os pacotes (ex: Pacote Cardiológico, Pacote Mulher, Pacote Homem 40+, Pacote Tireoide, Pacote Diabetes) com preço fechado e o que está incluído em cada um.</div></div></div>
+                        <div class="offer-row"><span class="offer-label">Estrutura padrão de cada pacote</span><div class="deliverables-grid">
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Exames laboratoriais agrupados</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Exames complementares quando aplicável</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Coleta no local da clínica</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Resultado em até [N] dias úteis</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Retorno acompanhado para leitura</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Plano de cuidado pós-resultado</div>
+                        </div></div>
+                        <div class="offer-row"><span class="offer-label">Onde a oferta acontece</span><div class="offer-content"><strong>3 pontos de venda padronizados:</strong> (1) durante a consulta, quando o médico identifica indicação clínica; (2) no WhatsApp, quando o paciente pergunta "vocês fazem exame de [X]?"; (3) na recepção, na hora do agendamento, como cross-sell. <em>Todos os 3 pontos têm script padronizado.</em></div></div>
+                        <div class="offer-row"><span class="offer-label">Preço e parcelamento</span><div class="offer-content"><div class="fill-here">[A preencher] Preço de cada pacote e formas de pagamento (Pix à vista com desconto, parcelado em até X vezes no cartão).</div></div></div>
+                        <div class="offer-row"><span class="offer-label">Por que vira carro-chefe</span><div class="offer-content">Maior ticket médio que consulta avulsa. Margem mais alta. <strong>Resolve a logística do paciente</strong> (que detesta marcar exame em 3 laboratórios diferentes) e <strong>aumenta o LTV da clínica</strong> com o retorno acompanhado já agendado.</div></div>
+                    </div>
+                </div>
+
+                <!-- FICHA 3 -->
+                <div class="offer-model-detail">
+                    <div class="offer-model-header"><h4>Ficha 3 · Programa de Cuidado Continuado</h4><span class="offer-model-badge">Back-End · LTV mais alto</span></div>
+                    <div class="offer-model-body">
+                        <div class="offer-row"><span class="offer-label">Para quem é</span><div class="offer-content"><div class="fill-here">[A preencher] Paciente do Perfil 3 (Paciente Ouro) com condição crônica — diabetes, hipertensão, tireoide, ansiedade, obesidade — que precisa de acompanhamento regular.</div></div></div>
+                        <div class="offer-row"><span class="offer-label">Programas oferecidos</span><div class="offer-content"><div class="fill-here">[A preencher] Listar programas (ex: Cuidado em Diabetes, Cuidado em Hipertensão, Programa Tireoide) com escopo, periodicidade e médico responsável.</div></div></div>
+                        <div class="offer-row"><span class="offer-label">Estrutura padrão</span><div class="deliverables-grid">
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Consulta inicial completa</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Retornos mensais ou trimestrais</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Exames de monitoramento incluídos</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Canal direto via WhatsApp</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Orientação nutricional/multidisciplinar</div>
+                            <div class="deliverable-item"><i class="fa-solid fa-circle-dot"></i> Lembrete automático de retorno</div>
+                        </div></div>
+                        <div class="offer-row"><span class="offer-label">Modelo de pagamento</span><div class="offer-content"><div class="fill-here">[A preencher] Mensalidade fixa, trimestralidade ou anual. Inclui o que. Pode ser parcelado.</div></div></div>
+                        <div class="offer-row"><span class="offer-label">Por que é importante</span><div class="offer-content"><strong>O Paciente Ouro é o que sustenta a clínica no médio prazo.</strong> Um paciente em programa de cuidado continuado vale 8 a 15 vezes mais que um paciente avulso. Ele retorna, indica, é menos sensível a preço, gera receita previsível e estabiliza a operação contra picos sazonais.</div></div>
+                        <div class="offer-row"><span class="offer-label">Conformidade CFM</span><div class="offer-content">Comunicação do programa nunca promete cura, controle ou resultado garantido. Foco em <em>acompanhamento</em>, <em>monitoramento</em>, <em>cuidado</em>. Médico responsável identificado com CRM e RQE.</div></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- =========================================================
+             ABA 3 — PRODUÇÃO DE CONTEÚDO
+             ========================================================= -->
+        <div id="tab-conteudo" class="tab-content">
+            <div class="tab-header">
+                <div class="eyebrow">Fase 3 — Linha Editorial</div>
+                <h1>Produção de Conteúdo</h1>
+                <p>O conteúdo orgânico da clínica não é decoração de Instagram — é vitrine de validação e infraestrutura de SEO local. Cada peça serve a um objetivo claro: atrair, mover ou fidelizar.</p>
+            </div>
+            <div class="container">
+                <div class="instruction-box"><i class="fa-solid fa-pen-nib"></i><div><strong>Os 3 objetivos do conteúdo:</strong> (1) <em>Atrair</em> pessoas novas que ainda não conhecem a clínica (alcance no IG, ranqueamento no GMB, posicionamento no Google). (2) <em>Mover</em> quem já te conhece em direção ao agendamento (movimento). (3) <em>Fidelizar</em> emocionalmente o paciente atual com a marca da clínica (doutrinação). <strong>Sem CFM, todo o conteúdo é colocado em risco.</strong> Cada peça passa por checklist de conformidade antes de publicar.</div></div>
+
+                <h2 class="section-title" style="margin-top:0;"><span class="badge-num">BLOCO 10</span>Os 3 Pilares de Conteúdo</h2>
+
+                <div class="pillar-content-grid">
+                    <div class="pillar-content-card alcance">
+                        <h4>1. Conteúdo de Alcance · Topo de Funil</h4>
+                        <span class="ratio">Frequência sugerida · 1 a 2x semana</span>
+                        <p>Educação em saúde para o paciente que ainda não conhece a clínica. <strong>O CTA aqui é "Siga a clínica"</strong>. Nada de venda direta — é construção de autoridade local. Indexa bem na busca local e no Reels do Instagram. Usa linguagem do paciente, não jargão médico.</p>
+                        <div class="ideas-box">
+                            <strong>Exemplos de pauta para SUA clínica</strong>
+                            <ul>
+                                <li>"Quando vale a pena fazer hemograma de rotina? [Especialidade] explica" — Reel curto com o médico da clínica</li>
+                                <li>"3 sinais que dizem que você precisa marcar com [especialidade]" — carrossel</li>
+                                <li>"O que esperar de uma primeira consulta com [especialidade]" — vídeo curto</li>
+                                <li>"Mitos sobre [tema do bairro/região: dengue, calor, gripe sazonal] — o que o médico orienta"</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pillar-content-card movimento">
+                        <h4>2. Conteúdo de Movimento · Conversão</h4>
+                        <span class="ratio">Frequência sugerida · 1x semana</span>
+                        <p>Bate diretamente nas dores do paciente e oferece a clínica como solução. <strong>O CTA é "Chame no WhatsApp"</strong> ou "Agende essa semana". Tem menos curtida e mais comentário/DM. Métrica que importa é <em>volume de mensagens recebidas</em>, não like.</p>
+                        <div class="ideas-box">
+                            <strong>Exemplos de pauta</strong>
+                            <ul>
+                                <li>"Cansou de marcar pelo plano e esperar 4 meses? Aqui você consulta essa semana" — vídeo + CTA</li>
+                                <li>"Pacote de exames com coleta no local — quanto economiza vs. fazer separado" — comparativo visual</li>
+                                <li>"Atendemos sábado também — para quem trabalha de segunda a sexta" — story + post</li>
+                                <li>"Conheça nosso programa de [Cuidado em Diabetes/Hipertensão] — acompanhamento mensal"</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pillar-content-card doutrinacao">
+                        <h4>3. Conteúdo de Doutrinação · Vínculo</h4>
+                        <span class="ratio">Frequência sugerida · 1x semana</span>
+                        <p>O que a clínica acredita. Quem é a equipe. Como é o atendimento por dentro. <strong>O objetivo é fazer o paciente sentir que conhece a clínica antes de entrar nela.</strong> Reduz a desconfiança do Perfil 2, fortalece o vínculo do Perfil 3 e gera o "compartilhar com a comadre".</p>
+                        <div class="ideas-box">
+                            <strong>Exemplos de pauta</strong>
+                            <ul>
+                                <li>Bastidores: a recepcionista que está desde a abertura, o café da manhã da equipe</li>
+                                <li>Apresentação dos médicos com história pessoal — "Por que escolhi clinicar em [bairro]"</li>
+                                <li>Foto da fachada, do tour da clínica, da sala de espera (sem pacientes identificados)</li>
+                                <li>Marca o aniversário de X anos da clínica · marcos da operação</li>
+                                <li>Frase do médico-fundador sobre o porquê de cuidar do bairro</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Calendário Editorial Recomendado</h2>
+                <p>Cadência semanal sugerida para o Instagram da clínica e atualizações no GMB. Entregue no escopo da Cláusula 8ª do contrato.</p>
+                <div class="call-stages">
+                    <div class="call-stage"><div class="stage-name">Segunda</div><div class="stage-time">Alcance</div><div class="stage-obj">Reel ou carrossel educativo de topo. Pauta abre com uma pergunta que o paciente já fez no Google ("vale a pena fazer exame de tireoide depois dos 30?"). Médico da clínica explica.</div></div>
+                    <div class="call-stage"><div class="stage-name">Quarta</div><div class="stage-time">Movimento</div><div class="stage-obj">Post de conversão. Pacote do mês, oferta de exame, programa de cuidado, novo médico recém-chegado. CTA direto: WhatsApp. Métrica: DMs recebidas.</div></div>
+                    <div class="call-stage"><div class="stage-name">Sexta</div><div class="stage-time">Doutrinação</div><div class="stage-obj">Bastidor ou apresentação humana. A recepcionista, a equipe, o tour, a história. Conta quem é a clínica por dentro. Constrói vínculo.</div></div>
+                    <div class="call-stage"><div class="stage-name">Diário</div><div class="stage-time">Stories</div><div class="stage-obj">3 a 5 stories por dia: bastidores curtos, agradecimento de paciente (com autorização), enquete sobre dor de saúde, contagem regressiva para abertura, foto da equipe.</div></div>
+                    <div class="call-stage"><div class="stage-name">Semanal</div><div class="stage-time">GMB</div><div class="stage-obj">1 publicação no Google Meu Negócio com foto + texto curto + CTA. Mantém o GMB ativo (sinal forte de ranqueamento local). Responder novas avaliações em até 48h.</div></div>
+                </div>
+
+                <h2 class="section-title">Regras Editoriais Inegociáveis</h2>
+                <div class="instruction-box" style="background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.3);"><i class="fa-solid fa-shield-halved" style="color: var(--warning);"></i><div><strong>Toda peça publicada cumpre estas regras antes de ir ao ar.</strong> Risco de autuação CFM ou de violação LGPD não é teórico — é real e cresce com o volume de conteúdo. O checklist abaixo é parte do entregável da Cláusula 8ª e deve ser internalizado pela equipe da clínica para a produção pós-implantação.</div></div>
+
+                <ul class="feature-list">
+                    <li><strong>Identificação obrigatória do médico:</strong> Nome completo + CRM (com UF) + RQE quando especialista. Toda peça em que um médico aparece com fala, foto ou nome carrega essa identificação.</li>
+                    <li><strong>Sem promessa de cura ou resultado:</strong> Substituir "vai resolver", "cura", "elimina" por "acompanhamento", "orientação", "cuidado", "tratamento". Vetado pelo CFM.</li>
+                    <li><strong>Sem antes/depois em qualquer especialidade:</strong> Vetado em estética, dermatologia, odontologia, cirurgia. Risco de autuação imediata.</li>
+                    <li><strong>Sem comparação com colegas ou outras clínicas:</strong> Não usar "o melhor", "a melhor", "nº 1 da região", "diferente das outras clínicas". A diferenciação é narrada — não declarada.</li>
+                    <li><strong>Foto de paciente apenas com autorização por escrito:</strong> Termo assinado, com finalidade clara, prazo definido. Sem termo, a foto não vai ao ar — independentemente do incentivo.</li>
+                    <li><strong>Depoimento de paciente: cuidado redobrado:</strong> Permitido se o paciente for o autor, ele aparecer voluntariamente e o conteúdo não fizer promessa terapêutica. Texto-só é mais seguro que vídeo do paciente.</li>
+                    <li><strong>Linguagem cuidada:</strong> Sem "preço de banana", "consulta barata", "promoção", "queima de estoque". Palavras vulgares ou de varejo desvalorizam a marca e infringem o CFM.</li>
+                    <li><strong>Sorteios, "ganhe", descontos relâmpago em ato médico:</strong> Vetado. Mercantilização da medicina é proibida.</li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <!-- =========================================================
+             ABA 4 — AQUISIÇÃO (CLIP®)
+             ========================================================= -->
+        <div id="tab-aquisicao" class="tab-content">
+            <div class="tab-header">
+                <div class="eyebrow">Fase 4 — Captação de Pacientes</div>
+                <h1>Aquisição com a Metodologia CLIP®</h1>
+                <p>O motor de aquisição da clínica popular tem 4 pilares — Canais, Liderança Local, Inteligência Comercial e Previsibilidade. Cada pilar é implantado durante os 45 dias contratuais e fica funcionando de forma autônoma após o handoff.</p>
+            </div>
+            <div class="container">
+                <div class="instruction-box"><i class="fa-solid fa-magnet"></i><div><strong>Por que o método CLIP® funciona em clínica popular:</strong> O paciente popular está no Google ("clínica popular [bairro]") e no Facebook (não no Instagram). Ele decide pela rapidez de resposta no WhatsApp, valida pela reputação no GMB e fideliza pela qualidade do atendimento. <em>Cada pilar abaixo ataca uma etapa específica desse comportamento.</em></div></div>
+
+                <h2 class="section-title" style="margin-top:0;"><span class="badge-num">BLOCO 11</span>Os 4 Pilares CLIP®</h2>
+
+                <!-- PILAR C -->
+                <div class="pillar-detail">
+                    <span class="pillar-letter">C</span>
+                    <h4>Canais de Aquisição<small>A diferença entre captar quem já quer e criar desejo em quem ainda não sente necessidade. Confundir os dois é o erro de R$ 18.000 em 6 meses sem resultado.</small></h4>
+                    <h5>Canais de Intenção · 70% do esforço e budget</h5>
+                    <ul class="feature-list">
+                        <li><strong>Google Ads (rede de pesquisa):</strong> a pessoa digitou "clínica popular [bairro]", "consulta de [especialidade] sem convênio", "exame de sangue [bairro]". Já quer marcar. Conforme Cláusula 6.1.a do contrato — até 5 campanhas estruturadas com palavras-chave, grupos de anúncios, copy e segmentação configuradas.</li>
+                        <li><strong>SEO Local:</strong> ranqueamento orgânico do site OnePage (Cláusula 5ª) em buscas de alta intenção. Reduz o CAP médio progressivamente sem pagar por cada clique.</li>
+                        <li><strong>GMB (vide pilar L):</strong> capturando a busca local em mobile que aparece antes dos resultados pagos.</li>
+                    </ul>
+                    <h5>Canais de Atração · 30% do esforço e budget</h5>
+                    <ul class="feature-list">
+                        <li><strong>Meta Ads — Facebook é o canal:</strong> para o perfil demográfico de clínica popular, o Facebook converte mais que o Instagram. O paciente popular está no Facebook. Conforme Cláusula 6.1.b — até 2 funis estruturados com públicos, copy e criativos vinculados.</li>
+                        <li><strong>Instagram</strong> entra como vitrine de validação (vide pilar L), não como canal de captação principal.</li>
+                        <li><strong>Criativos:</strong> 10 vídeos editados (a partir do material da clínica) + 10 peças estáticas — Cláusula 6.1.c.</li>
+                    </ul>
+                    <div class="pillar-impact"><strong>Resultado dos canais alinhados:</strong> Com intenção + atração trabalhando em sincronia, a redução média de CAP em clínicas que implementaram a CLIP® chega a 55–60%. O mesmo budget que antes gerava 100 agendamentos passa a gerar até 250.</div>
+                </div>
+
+                <!-- PILAR L -->
+                <div class="pillar-detail">
+                    <span class="pillar-letter">L</span>
+                    <h4>Liderança Local<small>A vantagem competitiva que nenhum budget consegue comprar depois que é construída. Pertencimento ao bairro é a barreira de entrada que mais protege a clínica popular.</small></h4>
+                    <h5>Google Meu Negócio · o ativo mais subvalorizado</h5>
+                    <p>Conforme Cláusula 7ª do contrato. Otimização do GMB com: revisão completa do cadastro (nome, endereço, telefone, horários, categorias), descrição estratégica com palavras-chave, configuração de serviços por especialidade, upload e organização de fotos institucionais reais, FAQ configurado, orientação de boas práticas. <strong>Uma clínica com GMB acima de 4.7 estrelas e centenas de avaliações respondidas ranqueia acima de concorrentes que pagam Google Ads</strong> — recebendo entre 30% e 60% mais cliques orgânicos.</p>
+                    <h5>Instagram como vitrine de validação · não captação</h5>
+                    <p>Quando o paciente descobre a clínica via Google ou anúncio, a segunda ação é abrir o Instagram para validar. <strong>Um Instagram ativo confirma que vale a pena agendar.</strong> O Instagram não <em>traz</em> o paciente — ele decide se o paciente que chegou por outro canal vai ficar ou vai embora. Conforme Cláusula 8ª: pacote inicial de 5 vídeos + 3 carrosséis + 5 estáticos + 10 capas de destaques.</p>
+                    <h5>Pertencimento ao bairro como barreira competitiva</h5>
+                    <p>Uma clínica que os moradores reconhecem como "<strong>a clínica do bairro</strong>" — equipe que pacientes conhecem pelo nome, reviews que mencionam atendimento humanizado, fachada que está na rotina visual da comunidade — cria uma fidelidade que franquias com budget maior não replicam comprando anúncio.</p>
+                </div>
+
+                <!-- PILAR I -->
+                <div class="pillar-detail">
+                    <span class="pillar-letter">I</span>
+                    <h4>Inteligência Comercial<small>O dinheiro que já está na clínica mas ninguém está buscando. Pacientes que entraram em contato e não agendaram. Pacientes que agendaram e não compareceram. Pacientes que compareceram há 4 meses e não voltaram.</small></h4>
+                    <h5>CRM Bolten integrado ao WhatsApp · Cláusula 9ª</h5>
+                    <p>Todo contato é classificado e rastreado em tempo real em um funil em colunas: <strong>Novo Contato → Em Atendimento → Orçamento Enviado → Agendado → Compareceu → Paciente Ativo → Inativo</strong>. Sem esse funil, o paciente que mandou "quanto custa consulta de [especialidade]?" e não recebeu resposta em 15 minutos vai marcar na concorrência. <em>Configuração inicial, mapeamento dos canais, treinamento da equipe e métricas básicas estão no escopo da implantação.</em></p>
+                    <h5>Velocidade de resposta · meta &lt; 5 min</h5>
+                    <p>A primeira resposta automatizada — em segundos, não horas — muda completamente a taxa de conversão. Um contato que recebe resposta em <strong>menos de 5 minutos tem 3x mais chance de agendar</strong> do que um que aguarda 30 minutos. A primeira resposta pode ser automatizada (com transferência imediata para humano), mas não pode demorar.</p>
+                    <h5>Reativação de base · receita que já existe</h5>
+                    <p>Pacientes que vieram à clínica há 6, 12, 18 meses e não voltaram não são leads frios — são leads aquecidos esquecidos. Disparo estruturado para a base de pacientes inativos da clínica (com mensagem dentro do CFM, sem promessa, com convite para retorno ou exame anual) gera receita imediata sem aumentar 1 real em mídia. <strong>Caso de referência da metodologia: R$ 1.050 em disparo → 172 agendamentos → R$ 20.640 em receita → ROI de 19x.</strong></p>
+                    <div class="pillar-impact"><strong>Impacto combinado dos 3 primeiros pilares:</strong> CAP reduz 55–60%. Equivale a multiplicar por aproximadamente 2,5 o volume de pacientes com o mesmo investimento atual.</div>
+                </div>
+
+                <!-- PILAR P -->
+                <div class="pillar-detail">
+                    <span class="pillar-letter">P</span>
+                    <h4>Previsibilidade<small>O dashboard que transforma o dono de apostador em decisor. O problema não é falta de informação — é informação que não chega no momento certo, no formato certo, para quem precisa decidir agora.</small></h4>
+                    <p>Hoje, na maioria das clínicas, o dono decide marketing por feeling: "acho que o Instagram tá trazendo gente". Sem dado em tempo real, o budget é alocado por intuição e o resultado é imprevisível.</p>
+                    <h5>O dashboard mobile entrega em tempo real</h5>
+                    <ul class="feature-list">
+                        <li><strong>CAP por canal:</strong> quanto está custando cada agendamento gerado por Google Ads, Facebook Ads, GMB, reativação de base.</li>
+                        <li><strong>ROI por canal:</strong> para cada R$ 1 investido em cada canal, quanto voltou em receita.</li>
+                        <li><strong>Funil completo com taxas de conversão em cada etapa:</strong> cliques → contatos no WhatsApp → agendamentos → comparecimentos → retornos.</li>
+                        <li><strong>No-show rate</strong> por médico, por especialidade, por dia da semana.</li>
+                        <li><strong>Origem de cada novo paciente:</strong> nunca mais responder "indicação" sem dado.</li>
+                    </ul>
+                    <div class="pillar-impact"><strong>A transformação:</strong> O dono deixa de apostar e passa a decidir. Com o dashboard, a decisão de onde aumentar ou cortar investimento é matemática. Quando todos os dados estão integrados, o dono enxerga sua operação como o gestor de uma rede grande enxerga — só que na escala da clínica independente.</div>
+                </div>
+
+                <h2 class="section-title"><span class="badge-num">BLOCO 12</span>Funil Completo de Aquisição</h2>
+                <p>O caminho do paciente do primeiro clique até o atendimento — e do atendimento até o retorno e a indicação. Cada etapa tem métrica, dono e tempo médio.</p>
+
+                <div class="journey-flow">
+                    <div class="journey-stage">
+                        <span class="journey-stage-label">Topo · Atração</span>
+                        <div class="journey-cards">
+                            <div class="journey-card"><i class="fa-brands fa-google"></i><span>Google Ads<br><small style="color:var(--text-muted);font-weight:400;">canal de intenção</small></span></div>
+                            <div class="journey-card"><i class="fa-brands fa-facebook"></i><span>Meta Ads<br><small style="color:var(--text-muted);font-weight:400;">canal de atração</small></span></div>
+                            <div class="journey-card"><i class="fa-solid fa-location-dot"></i><span>GMB<br><small style="color:var(--text-muted);font-weight:400;">vitrine local</small></span></div>
+                            <div class="journey-card"><i class="fa-brands fa-instagram"></i><span>Instagram<br><small style="color:var(--text-muted);font-weight:400;">vitrine de validação</small></span></div>
+                        </div>
+                    </div>
+                    <div class="journey-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="journey-stage">
+                        <span class="journey-stage-label">Meio · Conversão</span>
+                        <div class="journey-cards">
+                            <div class="journey-card"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp<br><small style="color:var(--text-muted);font-weight:400;">resposta &lt; 5 min</small></span></div>
+                            <div class="journey-card"><i class="fa-solid fa-database"></i><span>CRM Bolten<br><small style="color:var(--text-muted);font-weight:400;">funil em colunas</small></span></div>
+                            <div class="journey-card"><i class="fa-solid fa-calendar-check"></i><span>Agendamento<br><small style="color:var(--text-muted);font-weight:400;">script padronizado</small></span></div>
+                        </div>
+                    </div>
+                    <div class="journey-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="journey-stage">
+                        <span class="journey-stage-label">Atendimento · Conversão Real</span>
+                        <div class="journey-cards">
+                            <div class="journey-card"><i class="fa-solid fa-stethoscope"></i><span>Consulta<br><small style="color:var(--text-muted);font-weight:400;">atendimento humanizado</small></span></div>
+                            <div class="journey-card"><i class="fa-solid fa-vial"></i><span>Pacote / Exame<br><small style="color:var(--text-muted);font-weight:400;">cross-sell na consulta</small></span></div>
+                            <div class="journey-card"><i class="fa-solid fa-rotate"></i><span>Retorno agendado<br><small style="color:var(--text-muted);font-weight:400;">na própria recepção</small></span></div>
+                        </div>
+                    </div>
+                    <div class="journey-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="journey-stage">
+                        <span class="journey-stage-label">Fundo · Fidelização e Reativação</span>
+                        <div class="journey-cards">
+                            <div class="journey-card"><i class="fa-solid fa-bell"></i><span>Lembrete automático<br><small style="color:var(--text-muted);font-weight:400;">retorno e exame anual</small></span></div>
+                            <div class="journey-card"><i class="fa-solid fa-heart-circle-check"></i><span>Programa Cuidado<br><small style="color:var(--text-muted);font-weight:400;">paciente crônico</small></span></div>
+                            <div class="journey-card"><i class="fa-solid fa-star"></i><span>Review GMB<br><small style="color:var(--text-muted);font-weight:400;">solicitado pós-consulta</small></span></div>
+                            <div class="journey-card"><i class="fa-solid fa-share-nodes"></i><span>Indicação<br><small style="color:var(--text-muted);font-weight:400;">paciente Ouro</small></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title"><span class="badge-num">BLOCO 13</span>Plano de Reativação de Base</h2>
+                <p>A "mina de ouro silenciosa" da clínica — pacientes que já conhecem o atendimento, já confiaram, e simplesmente precisam ser lembrados. Disparo estruturado, dentro do CFM, sem ferramenta pirata.</p>
+
+                <div class="script-block">
+                    <h4 class="block-title">Estratégia de reativação · 4 levas</h4>
+                    <ol class="script-list">
+                        <li><strong>Leva 1 · Pacientes 90 a 180 dias sem retorno:</strong> mensagem de retorno acompanhado. Texto curto, identificado, com CTA para agendamento. Conversão típica: 3 a 6%.</li>
+                        <li><strong>Leva 2 · Pacientes 6 a 12 meses sem retorno:</strong> mensagem de check-up anual. Foco em prevenção. Conversão típica: 2 a 4%.</li>
+                        <li><strong>Leva 3 · Pacientes com condição crônica em silêncio:</strong> mensagem do programa de cuidado continuado. Conversão típica: 4 a 8% — alto LTV.</li>
+                        <li><strong>Leva 4 · Pacientes 12+ meses inativos:</strong> mensagem de "sentimos sua falta" com convite para nova consulta. Conversão típica: 1 a 3%, mas a base inteira costuma ser grande.</li>
+                    </ol>
+                </div>
+
+                <div class="instruction-box" style="background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.3);"><i class="fa-solid fa-shield-halved" style="color: var(--warning);"></i><div><strong>Conformidade do disparo:</strong> mensagem de reativação não é spam. Identifica a clínica, identifica o médico, oferece opção de saída ("se não quiser mais receber, responda 'sair'"), respeita LGPD, evita ferramenta pirata que detona o WhatsApp Business. <em>Caso real do mercado: 73% das clínicas banidas pelo WhatsApp usavam ferramenta não-oficial. Banimento é irreversível.</em></div></div>
+
+            </div>
+        </div>
+
+
+        <!-- =========================================================
+             ABA 5 — VENDAS E OPERAÇÃO COMERCIAL
+             ========================================================= -->
+        <div id="tab-vendas" class="tab-content">
+            <div class="tab-header">
+                <div class="eyebrow">Fase 5 — Operação da Recepção</div>
+                <h1>Vendas e Operação Comercial</h1>
+                <p>O que separa uma clínica que cresce de uma clínica que apenas movimenta caixa é a operação da recepção. Script de WhatsApp, CRM bem usado, tratamento de objeção, cobrança e comparecimento. Aqui é onde o investimento em mídia se transforma em receita.</p>
+            </div>
+            <div class="container">
+                <div class="instruction-box"><i class="fa-solid fa-handshake"></i><div><strong>Posicionamento da operação:</strong> A recepção da clínica popular é o coração comercial da operação. Cada conversa de WhatsApp tem um tempo, um script e uma meta. Sem padronização, dois pacientes idênticos recebem respostas diferentes — e a conversão fica refém do humor da recepcionista do dia.</div></div>
+
+                <h2 class="section-title" style="margin-top:0;"><span class="badge-num">BLOCO 14</span>Script Padronizado · Recepção no WhatsApp</h2>
+                <p>O script abaixo é o esqueleto base. Será personalizado para a sua clínica no onboarding e implantado dentro do CRM Bolten como mensagens rápidas + treinamento da equipe (Cláusula 9.1.e).</p>
+
+                <div class="script-block">
+                    <h4 class="block-title">Etapa 1 · Resposta inicial (meta: &lt; 5 min)</h4>
+                    <p class="fill-here">"Olá! [Nome da Clínica] no [Bairro/Cidade]. Aqui é [nome da recepcionista]. Sobre qual especialidade você gostaria de informação? 😊"</p>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-top: 10px;"><em>Meta: identificar a recepcionista, humanizar, devolver a bola com pergunta aberta. Resposta inicial pode ser automatizada, mas a continuação precisa ser humana em &lt; 5 min.</em></p>
+                </div>
+
+                <div class="script-block">
+                    <h4 class="block-title">Etapa 2 · Qualificação rápida</h4>
+                    <ol class="script-list">
+                        <li>"Qual especialidade você gostaria de marcar?"</li>
+                        <li>"É primeira consulta ou retorno com algum dos nossos médicos?"</li>
+                        <li>"Você tem preferência por dia/horário? Atendemos [dias e horários da clínica]."</li>
+                        <li>"O endereço da clínica é [endereço]. Fica fácil pra você?"</li>
+                    </ol>
+                </div>
+
+                <div class="script-block">
+                    <h4 class="block-title">Etapa 3 · Apresentação de preço (sem ancoragem evasiva)</h4>
+                    <p style="font-size: 14.5px; color: var(--text-primary);">A pergunta "quanto custa?" recebe resposta direta — clara, sem rodeios. Tentar fugir do preço gera desconfiança e perde o paciente. <strong>Modelo:</strong></p>
+                    <p class="fill-here">"A consulta de [especialidade] com Dr.(a) [Nome] (CRM-XX [N], RQE [N]) custa R$ [Valor]. Aceitamos Pix com desconto à vista, débito e crédito parcelado em até [N] vezes. Posso reservar um horário pra você?"</p>
+                </div>
+
+                <div class="script-block">
+                    <h4 class="block-title">Etapa 4 · Confirmação e fechamento</h4>
+                    <ol class="script-list">
+                        <li>"Perfeito. Vou reservar [data] às [hora] com Dr.(a) [Nome]."</li>
+                        <li>"Para confirmar o agendamento, vou precisar do seu nome completo e CPF. Pode me enviar?"</li>
+                        <li>"Reservado. Mando uma mensagem de confirmação 24h antes e outra no dia. Endereço da clínica: [endereço com referência]. Qualquer coisa, é só chamar aqui mesmo. ☺"</li>
+                    </ol>
+                </div>
+
+                <div class="script-block">
+                    <h4 class="block-title">Etapa 5 · Confirmação 24h antes (anti no-show)</h4>
+                    <p class="fill-here">"Olá [Nome do Paciente], aqui é [Nome] da [Clínica]. Sua consulta com Dr.(a) [Nome] está marcada para amanhã, [data] às [hora]. Posso confirmar sua presença? 🩺"</p>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-top: 10px;"><em>Resposta automatizada possível: "Sim" → marca como confirmado · "Não" / "Reagendar" → abre fluxo humano para reagendar e <strong>libera o slot na agenda no mesmo instante</strong>.</em></p>
+                </div>
+
+                <h2 class="section-title"><span class="badge-num">BLOCO 15</span>Estrutura do CRM Bolten · Funil em Colunas</h2>
+                <p>O funil que será configurado dentro do CRM durante a implantação (Cláusula 9.1.a a 9.1.d). Cada coluna tem regra de entrada, regra de saída e métrica.</p>
+
+                <div class="call-stages">
+                    <div class="call-stage"><div class="stage-name">1. Novo Contato</div><div class="stage-time">Entrada</div><div class="stage-obj">Todo lead que chega via Google, Facebook, GMB, indicação ou WhatsApp direto entra aqui automaticamente. <strong>Origem do canal é registrada.</strong> Meta: passar para "Em Atendimento" em &lt; 5 min.</div></div>
+                    <div class="call-stage"><div class="stage-name">2. Em Atendimento</div><div class="stage-time">Conversa</div><div class="stage-obj">Recepção respondeu, está em conversa ativa. Identifica especialidade, dia/horário, preço. Meta: passar para "Orçamento Enviado" ou "Agendado" em &lt; 30 min.</div></div>
+                    <div class="call-stage"><div class="stage-name">3. Orçamento Enviado</div><div class="stage-time">Decisão</div><div class="stage-obj">Paciente recebeu o preço e está decidindo. Follow-up automático em 24h se não responder. Aqui mora a conversão que mais escapa por falta de retomada.</div></div>
+                    <div class="call-stage"><div class="stage-name">4. Agendado</div><div class="stage-time">Confirmado</div><div class="stage-obj">Slot reservado na agenda. Confirmação automática 24h antes. Meta: comparecimento &gt; 80% (no-show controlado abaixo de 20%).</div></div>
+                    <div class="call-stage"><div class="stage-name">5. Compareceu</div><div class="stage-time">Atendido</div><div class="stage-obj">Paciente foi atendido. Médico registra desfecho (alta, retorno, exame, programa). Cross-sell para pacote ou programa acontece aqui.</div></div>
+                    <div class="call-stage"><div class="stage-name">6. Paciente Ativo</div><div class="stage-time">Fidelização</div><div class="stage-obj">Tem retorno marcado ou está em programa de cuidado. Lembrete automático conforme periodicidade. Núcleo do Paciente Ouro.</div></div>
+                    <div class="call-stage"><div class="stage-name">7. Inativo</div><div class="stage-time">Reativação</div><div class="stage-obj">90+ dias sem contato. Entra na fila de reativação de base (vide Bloco 13). Não é descarte — é potencial de receita futura.</div></div>
+                </div>
+
+                <h2 class="section-title"><span class="badge-num">BLOCO 16</span>Tratamento de Objeções do Paciente</h2>
+                <p>As 6 objeções recorrentes do paciente popular no WhatsApp — e a resposta padrão para cada uma. Toda resposta começa com validação, nunca com confronto. Internalizada pela equipe da recepção durante o treinamento da Cláusula 9.1.e.</p>
+
+                <div class="objection-grid">
+                    <div class="objection-card"><div class="objection-question">Tá caro.</div><div class="objection-answer">"Eu entendo. A consulta de [especialidade] custa R$ [valor]. Para comparação, a mesma consulta particular num consultório do centro custa em média R$ [valor 2-3x maior]. Aceitamos Pix com desconto à vista e cartão em até [N] vezes — fica em parcelas de R$ [valor]. Quer que eu reserve um horário pra você?"</div></div>
+
+                    <div class="objection-card"><div class="objection-question">Tem pra essa semana?</div><div class="objection-answer">"Tenho sim. [Especialidade] tem horário [dias]. <strong>Já tô olhando aqui</strong> — temos [data e hora] disponível. Posso reservar pra você agora?" <em>(velocidade gera conversão — nunca dizer "vou verificar e te aviso depois")</em></div></div>
+
+                    <div class="objection-card"><div class="objection-question">É clínica popular mesmo? Médico de verdade?</div><div class="objection-answer">"Sim, somos clínica regular com médicos formados e registrados no CRM. Dr.(a) [Nome] é [especialidade] formado em [universidade], CRM-XX [número], RQE [número]. Pode pesquisar no site do CRM. Atendemos [N] pacientes por mês na nossa região."</div></div>
+
+                    <div class="objection-card"><div class="objection-question">Vou pensar e te respondo.</div><div class="objection-answer">"Claro, fico à disposição. Só pra você não perder o horário, tem [data e hora] disponível com Dr.(a) [Nome]. Se quiser, eu reservo provisoriamente até amanhã 18h e você confirma — assim garante a vaga sem compromisso."</div></div>
+
+                    <div class="objection-card"><div class="objection-question">Posso pagar parcelado?</div><div class="objection-answer">"Pode sim. Aceitamos cartão de crédito em até [N] vezes. Em [N] vezes, fica R$ [valor] por mês. Pix à vista tem desconto de [X]%. Qual fica melhor pra você?"</div></div>
+
+                    <div class="objection-card"><div class="objection-question">É longe? Tem estacionamento?</div><div class="objection-answer">"Estamos em [endereço com 2 referências do bairro: 'em frente ao mercado X', 'ao lado da padaria Y']. [Tem / não tem] estacionamento próprio, mas há [vagas na rua / estacionamento ao lado / linha de ônibus que para na porta]. Posso te mandar a localização aqui pelo WhatsApp?"</div></div>
+                </div>
+
+                <h2 class="section-title"><span class="badge-num">BLOCO 17</span>KPIs do Dashboard · O que monitorar mensalmente</h2>
+                <p>Os indicadores que ficam no celular do dono da clínica após a implantação. Esses são os números que substituem o "feeling" pela decisão por dado.</p>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <h5>Aquisição</h5>
+                        <div class="kpi-name">CAP por canal</div>
+                        <p>Quanto custou cada agendamento gerado por Google, Facebook, GMB e reativação. Meta: trajetória de queda mês a mês.</p>
+                    </div>
+                    <div class="kpi-card">
+                        <h5>Aquisição</h5>
+                        <div class="kpi-name">ROI por canal</div>
+                        <p>Para cada R$1 investido em cada canal, quanto voltou em receita. Decide onde aumentar e onde cortar.</p>
+                    </div>
+                    <div class="kpi-card">
+                        <h5>Conversão</h5>
+                        <div class="kpi-name">Taxa de agendamento</div>
+                        <p>% de leads que entraram no WhatsApp e viraram agendamento. Meta: acima de 35–45%.</p>
+                    </div>
+                    <div class="kpi-card">
+                        <h5>Operação</h5>
+                        <div class="kpi-name">No-show rate</div>
+                        <p>% de pacientes agendados que não compareceram. Meta: abaixo de 20% (com confirmação 24h ativa).</p>
+                    </div>
+                    <div class="kpi-card">
+                        <h5>Operação</h5>
+                        <div class="kpi-name">Tempo de resposta WhatsApp</div>
+                        <p>Tempo médio até a primeira resposta humana. Meta: &lt; 5 minutos em horário comercial.</p>
+                    </div>
+                    <div class="kpi-card">
+                        <h5>Receita</h5>
+                        <div class="kpi-name">Ticket médio</div>
+                        <p>Valor médio gasto por paciente atendido. Sobe quando cross-sell de pacote/programa funciona.</p>
+                    </div>
+                    <div class="kpi-card">
+                        <h5>Fidelização</h5>
+                        <div class="kpi-name">Taxa de retorno</div>
+                        <p>% de pacientes que voltam dentro de 12 meses. Meta: acima de 30% — sinal de Paciente Ouro sendo construído.</p>
+                    </div>
+                    <div class="kpi-card">
+                        <h5>Reputação</h5>
+                        <div class="kpi-name">Nota e volume GMB</div>
+                        <p>Nota média e número de avaliações no Google. Meta: acima de 4.7 e crescendo &gt; 10 avaliações/mês.</p>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Próximos Passos · Pós Onboarding</h2>
+                <div class="instruction-box"><i class="fa-solid fa-list-check"></i><div><strong>Após o preenchimento desse Dossiê na reunião de onboarding,</strong> a Clintia inicia a execução conforme a Cláusula 2ª do Contrato. Os entregáveis acontecem ao longo dos 45 dias contratuais — site OnePage, GMB otimizado, campanhas de tráfego pago, conteúdo orgânico do Instagram e implantação do CRM Bolten — totalizando a infraestrutura completa de aquisição da clínica.</div></div>
+
+                <div class="call-stages">
+                    <div class="call-stage"><div class="stage-name">Semanas 1–2</div><div class="stage-time">Setup</div><div class="stage-obj">Coleta de acessos · Dossiê em PDF entregue · GMB otimizado · CRM Bolten configurado · funil em colunas montado · automação de primeira resposta ativada.</div></div>
+                    <div class="call-stage"><div class="stage-name">Semanas 2–4</div><div class="stage-time">Produção</div><div class="stage-obj">Site OnePage no ar · campanhas Google Ads e Meta Ads estruturadas · 20 criativos produzidos · pacote de Instagram (vídeos, carrosséis, estáticos, destaques) entregue.</div></div>
+                    <div class="call-stage"><div class="stage-name">Semanas 4–6</div><div class="stage-time">Ativação</div><div class="stage-obj">Campanhas no ar · treinamento da recepção no CRM · script de WhatsApp implementado · primeira leva de reativação de base · dashboard mobile entregue.</div></div>
+                    <div class="call-stage"><div class="stage-name">Dia 45</div><div class="stage-time">Handoff</div><div class="stage-obj">Reunião de transição · entrega de acessos · relatório consolidado da implantação · clínica operando com infraestrutura completa de aquisição. <strong>Conforme Cláusula 14.4 do contrato.</strong></div></div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navItems = document.querySelectorAll('.nav-item');
+            const tabContents = document.querySelectorAll('.tab-content');
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    tabContents.forEach(tab => tab.classList.remove('active'));
+                    item.classList.add('active');
+                    const targetTab = document.getElementById(item.getAttribute('data-target'));
+                    if (targetTab) {
+                        targetTab.classList.add('active');
+                        document.querySelector('.main-content').scrollTop = 0;
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
