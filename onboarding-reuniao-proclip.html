@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit Operacional · Onboarding PROClip</title>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* PALETA CROMÁTICA CLINTIA */
+    --oxford:   #051E32; /* 40% */
+    --yale:     #053C73; /* 30% */
+    --celtic:   #055AAA; /* 18% */
+    --dodger:   #0578DC; /* 8% */
+    --sky:      #05D2FF; /* 4% — destaque */
+
+    /* Superfícies */
+    --bg:       #040f1a;
+    --surface:  #051E32;
+    --surface2: #072541;
+    --surface3: #073052;
+
+    /* Bordas */
+    --border:   rgba(5,120,220,0.18);
+    --border2:  rgba(5,120,220,0.28);
+
+    /* Accent principal */
+    --accent:     #05D2FF;
+    --accent2:    #0578DC;
+    --accent-dim: rgba(5,210,255,0.10);
+    --accent-dim2:rgba(5,210,255,0.05);
+
+    /* Alertas */
+    --red:      #ff4d6d;
+    --red-dim:  rgba(255,77,109,0.12);
+    --amber:    #f59e0b;
+    --amber-dim:rgba(245,158,11,0.12);
+    --green:    #10d986;
+    --green-dim:rgba(16,217,134,0.10);
+
+    /* Texto */
+    --text:       #e4eef8;
+    --text-muted: #7a9bb8;
+    --text-faint: #3d6180;
+
+    --font: 'Red Hat Display', sans-serif;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ─── HEADER ─── */
+  .doc-header {
+    background: linear-gradient(135deg, var(--oxford) 0%, var(--yale) 100%);
+    border-bottom: 2px solid var(--celtic);
+    padding: 40px 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(5,210,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .doc-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--sky), transparent);
+  }
+
+  .header-left {}
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+  .logo-img {
+    height: 38px;
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  .doc-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .doc-subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .header-right {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .badge-confidential {
+    display: inline-block;
+    background: var(--red-dim);
+    border: 1px solid rgba(255,77,109,0.5);
+    color: #ff8fa3;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 3px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .header-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.9;
+    font-weight: 400;
+  }
+
+  /* ─── TABS ─── */
+  .tab-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--yale);
+    border-bottom: 2px solid var(--celtic);
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    padding: 16px 26px;
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.45);
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .tab-btn:hover { color: rgba(255,255,255,0.75); background: rgba(5,210,255,0.05); }
+  .tab-btn.active {
+    color: var(--sky);
+    border-bottom-color: var(--sky);
+    background: rgba(5,210,255,0.08);
+  }
+  .tab-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  .tab-btn.active .tab-num {
+    background: var(--sky);
+    color: var(--oxford);
+  }
+
+  /* ─── PANELS ─── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .content-wrap {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 48px 48px 80px;
+  }
+
+
+  /* ─── MEETING STEPS ─── */
+  .meeting-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .step-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .step-title { font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 3px; }
+  .step-desc  { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+
+  /* ─── SECTION HERO ─── */
+  .section-hero {
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 20px; height: 2px;
+    background: var(--sky);
+    border-radius: 2px;
+  }
+  .section-hero h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .section-hero p { color: var(--text-muted); max-width: 660px; }
+
+  /* ─── ALERT ─── */
+  .alert {
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 28px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .alert.red    { background: var(--red-dim);   border-left: 3px solid var(--red);   color: #ffb3c1; }
+  .alert.green  { background: var(--green-dim);  border-left: 3px solid var(--green); color: #a7f3d0; }
+  .alert.amber  { background: var(--amber-dim);  border-left: 3px solid var(--amber); color: #fde68a; }
+  .alert.blue   { background: var(--accent-dim); border-left: 3px solid var(--sky);  color: #bae6fd; }
+  .alert-icon { font-size: 17px; line-height: 1.5; flex-shrink: 0; }
+
+  /* ─── BLOCK ─── */
+  .block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 22px;
+    overflow: hidden;
+  }
+  .block-header {
+    padding: 14px 22px;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .block-tag {
+    font-family: var(--font);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .tag-pos  { background: rgba(5,120,220,0.2);  color: #60b4ff; border: 1px solid rgba(5,120,220,0.35); }
+  .tag-ope  { background: rgba(167,139,250,0.15); color: #c4b5fd; border: 1px solid rgba(167,139,250,0.3); }
+  .tag-com  { background: rgba(245,158,11,0.15);  color: #fde68a; border: 1px solid rgba(245,158,11,0.3); }
+  .tag-crm  { background: rgba(5,210,255,0.12);  color: var(--sky); border: 1px solid rgba(5,210,255,0.25); }
+  .tag-pac  { background: rgba(248,113,113,0.15); color: #fca5a5; border: 1px solid rgba(248,113,113,0.3); }
+  .tag-req  { background: rgba(255,77,109,0.15);  color: #ffb3c1; border: 1px solid rgba(255,77,109,0.3); }
+  .tag-msg  { background: rgba(5,210,255,0.12);  color: var(--sky); border: 1px solid rgba(5,210,255,0.25); }
+  .tag-grp  { background: rgba(245,158,11,0.15);  color: #fde68a; border: 1px solid rgba(245,158,11,0.3); }
+
+  .block-title { font-size: 14px; font-weight: 700; color: #fff; }
+  .block-body  { padding: 22px; }
+
+  /* ─── QUESTIONS ─── */
+  .q-list { list-style: none; }
+  .q-item {
+    display: flex;
+    gap: 16px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .q-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .q-num {
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--oxford);
+    background: var(--sky);
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 6px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .q-content { flex: 1; }
+  .q-text  { color: var(--text); font-size: 14.5px; font-weight: 500; line-height: 1.5; }
+  .q-why   { color: var(--text-faint); font-size: 12.5px; margin-top: 5px; font-style: italic; }
+
+  /* ─── CHECKLIST ─── */
+  .checklist { list-style: none; }
+  .check-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .check-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .check-box {
+    width: 20px; height: 20px;
+    border: 1.5px solid var(--border2);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    background: rgba(5,210,255,0.03);
+  }
+  .check-label  { font-weight: 700; font-size: 14px; color: var(--text); }
+  .check-detail { font-size: 12.5px; color: var(--text-muted); margin-top: 4px; line-height: 1.55; }
+
+  /* ─── PRIORITY ─── */
+  .priority-flag {
+    display: inline-flex; align-items: center;
+    gap: 4px; font-size: 10px; font-weight: 700;
+    padding: 2px 8px; border-radius: 3px; margin-left: 8px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .flag-critical { background: var(--red-dim);   color: var(--red);   border: 1px solid rgba(255,77,109,0.3); }
+  .flag-high     { background: var(--amber-dim);  color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+  .flag-med      { background: var(--accent-dim); color: var(--sky);   border: 1px solid rgba(5,210,255,0.25); }
+
+  /* ─── MESSAGE BOX ─── */
+  .msg-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-faint);
+    margin-bottom: 12px; display: block;
+  }
+  .msg-box {
+    background: var(--bg);
+    border: 1px solid var(--border2);
+    border-radius: 10px;
+    padding: 24px 28px;
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #c8ddf0;
+    position: relative;
+  }
+  .msg-box::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 16px; bottom: 16px;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--sky), var(--dodger));
+    border-radius: 0 2px 2px 0;
+  }
+  .msg-box .pl { color: var(--sky); font-weight: 700; }
+  .msg-note {
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: var(--accent-dim2);
+    border-radius: 6px;
+    border: 1px solid rgba(5,210,255,0.15);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  .msg-note strong { color: var(--sky); }
+
+  /* ─── SPEC TABLE ─── */
+  .spec-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+  .spec-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .spec-key {
+    font-size: 11px; font-weight: 700; color: var(--text-muted);
+    letter-spacing: 0.06em; text-transform: uppercase; padding-top: 2px;
+  }
+  .spec-val { font-size: 14px; color: var(--text); line-height: 1.6; }
+  .spec-val code {
+    font-family: 'Courier New', monospace;
+    font-size: 12.5px;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--sky);
+  }
+
+  /* ─── PARTICIPANT CHIPS ─── */
+  .part-chip {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    border-radius: 7px;
+    margin-bottom: 8px;
+    font-size: 13.5px; font-weight: 500;
+  }
+  .part-chip:last-child { margin-bottom: 0; }
+  .part-ok  { background: rgba(5,210,255,0.07); border: 1px solid rgba(5,210,255,0.2); color: var(--text); }
+  .part-warn{ background: rgba(245,158,11,0.07); border: 1px solid rgba(245,158,11,0.25); color: var(--text); }
+  .part-no  { background: var(--red-dim); border: 1px solid rgba(255,77,109,0.3); color: #ffb3c1; }
+  .part-icon{ font-size: 15px; }
+
+  /* ─── NUNCA FAZER ─── */
+  .never-item {
+    display: flex; gap: 12px; padding: 12px 0;
+    border-bottom: 1px solid var(--border); align-items: flex-start;
+  }
+  .never-item:last-child { border-bottom: none; }
+  .never-x { color: var(--red); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+
+  /* ─── FOOTER ─── */
+  .doc-footer {
+    background: var(--oxford);
+    border-top: 2px solid var(--celtic);
+    padding: 20px 52px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: var(--text-faint); font-weight: 500;
+  }
+  .footer-brand { color: var(--sky); font-weight: 700; }
+
+  @media (max-width: 680px) {
+    .doc-header { flex-direction: column; align-items: flex-start; gap: 18px; padding: 28px 24px; }
+    .content-wrap { padding: 28px 20px 60px; }
+    .spec-row { grid-template-columns: 1fr; gap: 6px; }
+    .doc-footer { flex-direction: column; gap: 6px; text-align: center; padding: 18px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="doc-header">
+  <div class="header-left">
+    <div class="header-logo">
+      <img class="logo-img" src="https://i.imgur.com/DOYHPYg.png" alt="Clintia">
+    </div>
+    <h1 class="doc-title">Kit Operacional · Onboarding</h1>
+    <p class="doc-subtitle">Gerente de Operações · Método CLIP®</p>
+  </div>
+  <div class="header-right">
+    <div class="badge-confidential">Uso Interno · Confidencial</div>
+    <div class="header-meta">
+      Clintia Soluções Tecnológicas<br>
+      Responsável: G. Operações<br>
+      Versão 1.0
+    </div>
+  </div>
+</header>
+
+<!-- TABS -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('t0',this)">
+    <span class="tab-num">0</span>Condução da Reunião
+  </button>
+  <button class="tab-btn" onclick="showTab('t1',this)">
+    <span class="tab-num">1</span>Perguntas da Reunião
+  </button>
+  <button class="tab-btn" onclick="showTab('t2',this)">
+    <span class="tab-num">2</span>Solicitações Pós-Reunião
+  </button>
+  <button class="tab-btn" onclick="showTab('t3',this)">
+    <span class="tab-num">3</span>Padrão de Mensagem
+  </button>
+  <button class="tab-btn" onclick="showTab('t4',this)">
+    <span class="tab-num">4</span>Padrão do Grupo
+  </button>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 0 · CONDUÇÃO DA REUNIÃO
+═══════════════════════════════════════════════════════ -->
+<div id="t0" class="tab-panel active">
+<div class="content-wrap">
+
+  <div class="section-hero">
+    <div class="eyebrow">Etapa 04 · Visão Geral</div>
+    <h2>Como Conduzir a Reunião de Onboarding</h2>
+    <p>Este é o mapa da reunião. Antes de abrir o roteiro de perguntas, entenda o ritmo, os objetivos de cada bloco e o que o cliente precisa sentir em cada momento. A reunião dura <strong>~45 minutos</strong> e tem três movimentos distintos.</p>
+  </div>
+
+  <div class="alert blue">
+    <span class="alert-icon">🎙️</span>
+    <div><strong>Mentalidade certa:</strong> Você não está fazendo uma entrevista. Você está conduzindo uma conversa estratégica. O cliente deve sair sentindo que foi <em>ouvido de verdade</em> — e que a equipe entende o negócio dele melhor do que qualquer agência que já contratou.</div>
+  </div>
+
+  <!-- LINHA DO TEMPO VISUAL -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-crm">Estrutura</span>
+      <span class="block-title">Os 3 Blocos da Reunião · ~45 min no total</span>
+    </div>
+    <div class="block-body" style="padding: 0;">
+
+      <!-- BLOCO 1 -->
+      <div class="meeting-block" style="display:flex; gap:0; border-bottom: 1px solid var(--border);">
+        <div class="meeting-marker" style="width:6px; background: var(--sky); flex-shrink:0; border-radius:0;"></div>
+        <div style="padding: 22px 24px; flex:1;">
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px; flex-wrap:wrap;">
+            <span style="font-family:var(--font); font-size:11px; font-weight:800; color:var(--oxford); background:var(--sky); padding:4px 12px; border-radius:4px; letter-spacing:.06em; text-transform:uppercase;">Bloco 01</span>
+            <span style="font-size:17px; font-weight:800; color:#fff;">Abertura e Alinhamento</span>
+            <span style="margin-left:auto; font-size:12px; color:var(--text-faint); font-weight:600; background:var(--surface2); padding:4px 12px; border-radius:20px; border:1px solid var(--border2);">⏱ ~10 min</span>
+          </div>
+          <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">O cliente acabou de assinar e ainda está ansioso. Este bloco serve para <strong style="color:var(--text);">dar segurança e previsibilidade</strong> — não para coletar informação ainda.</p>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div class="meeting-step">
+              <span class="step-icon">👋</span>
+              <div>
+                <p class="step-title">Apresentação pessoal</p>
+                <p class="step-desc">Apresente-se como Gerente de Operações e deixe claro que você é o ponto único de contato. "Tudo passa por mim — você não vai precisar falar com ninguém mais." Isso gera alívio imediato.</p>
+              </div>
+            </div>
+            <div class="meeting-step">
+              <span class="step-icon">📋</span>
+              <div>
+                <p class="step-title">Mostrar que fez o dever de casa</p>
+                <p class="step-desc">Mencione algo específico que você viu no Instagram ou no briefing. Ex: "Vi que vocês têm ultrassonografia — é um serviço que costuma performar bem nas campanhas." Isso prova preparo antes mesmo de começar.</p>
+              </div>
+            </div>
+            <div class="meeting-step">
+              <span class="step-icon">🗓️</span>
+              <div>
+                <p class="step-title">Apresentar o cronograma dos 45 dias</p>
+                <p class="step-desc">Mostre o que vai acontecer, quando vai acontecer e o que você vai precisar do cliente em cada etapa. Nomeie os entregáveis: DPV, site, campanhas, CRM. Quanto mais previsível, menos ansiedade.</p>
+              </div>
+            </div>
+            <div class="meeting-step">
+              <span class="step-icon">📜</span>
+              <div>
+                <p class="step-title">Reforçar os combinados do contrato</p>
+                <p class="step-desc">Lembre os prazos de aprovação (5 dias úteis), a necessidade de disponibilidade para reuniões pontuais e que os prazos ficam suspensos se os acessos demorarem a chegar. Sem drama — só clareza.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCO 2 -->
+      <div class="meeting-block" style="display:flex; gap:0; border-bottom: 1px solid var(--border);">
+        <div class="meeting-marker" style="width:6px; background: var(--dodger); flex-shrink:0;"></div>
+        <div style="padding: 22px 24px; flex:1;">
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px; flex-wrap:wrap;">
+            <span style="font-family:var(--font); font-size:11px; font-weight:800; color:#fff; background:var(--dodger); padding:4px 12px; border-radius:4px; letter-spacing:.06em; text-transform:uppercase;">Bloco 02</span>
+            <span style="font-size:17px; font-weight:800; color:#fff;">Briefing Estratégico</span>
+            <span style="margin-left:auto; font-size:12px; color:var(--text-faint); font-weight:600; background:var(--surface2); padding:4px 12px; border-radius:20px; border:1px solid var(--border2);">⏱ ~30 min</span>
+          </div>
+          <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">Este é o coração da reunião. É aqui que você extrai a inteligência que vai abastecer <strong style="color:var(--text);">toda a operação</strong> — DPV, copy, campanhas, site, CRM. Use as perguntas da <strong style="color:var(--sky);">Aba 1</strong> como guia, mas deixe a conversa fluir naturalmente.</p>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div class="meeting-step">
+              <span class="step-icon">🏆</span>
+              <div>
+                <p class="step-title">Carro-chefe e serviços prioritários</p>
+                <p class="step-desc">O que gera mais receita hoje. O que o cliente quer escalar. Onde estão as maiores oportunidades. Isso define o foco das campanhas.</p>
+              </div>
+            </div>
+            <div class="meeting-step">
+              <span class="step-icon">🎯</span>
+              <div>
+                <p class="step-title">Perfil do paciente ideal</p>
+                <p class="step-desc">Quem são as pessoas que pagam, aparecem e voltam. Bairro, faixa etária, comportamento. Isso alimenta a segmentação do Meta e do Google.</p>
+              </div>
+            </div>
+            <div class="meeting-step">
+              <span class="step-icon">💬</span>
+              <div>
+                <p class="step-title">Objeções que a recepção ouve todo dia</p>
+                <p class="step-desc">"Tá caro", "vou pensar", "meu plano não cobre" — essas frases viram copy de anúncio e script de follow-up do CRM.</p>
+              </div>
+            </div>
+            <div class="meeting-step">
+              <span class="step-icon">⭐</span>
+              <div>
+                <p class="step-title">Diferenciais reais da clínica</p>
+                <p class="step-desc">Equipamentos, localização, preço, facilidade de pagamento, corpo clínico. O que faz o paciente escolher essa clínica e não a do concorrente.</p>
+              </div>
+            </div>
+            <div class="meeting-step">
+              <span class="step-icon">🏗️</span>
+              <div>
+                <p class="step-title">Estrutura e operação atual</p>
+                <p class="step-desc">Quantos médicos, especialidades, horários, como funciona o agendamento hoje. Contexto operacional que o time de CRM e tráfego precisa para calibrar a estratégia.</p>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:18px; padding:14px 16px; background:rgba(5,120,220,0.08); border-radius:7px; border:1px solid rgba(5,120,220,0.2);">
+            <p style="font-size:13px; color:#93c5fd;"><strong>Dica de condução:</strong> Deixe o cliente falar. Quanto mais ele fala, mais inteligência você coleta. Se ele for em uma direção interessante, siga. Você pode voltar às perguntas depois. O objetivo não é seguir o roteiro — é extrair o máximo de contexto real.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCO 3 -->
+      <div class="meeting-block" style="display:flex; gap:0;">
+        <div class="meeting-marker" style="width:6px; background: var(--celtic); flex-shrink:0; border-radius:0 0 0 9px;"></div>
+        <div style="padding: 22px 24px; flex:1;">
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px; flex-wrap:wrap;">
+            <span style="font-family:var(--font); font-size:11px; font-weight:800; color:#fff; background:var(--celtic); padding:4px 12px; border-radius:4px; letter-spacing:.06em; text-transform:uppercase;">Bloco 03</span>
+            <span style="font-size:17px; font-weight:800; color:#fff;">Fechamento e Próximos Passos</span>
+            <span style="margin-left:auto; font-size:12px; color:var(--text-faint); font-weight:600; background:var(--surface2); padding:4px 12px; border-radius:20px; border:1px solid var(--border2);">⏱ ~5 min</span>
+          </div>
+          <p style="color:var(--text-muted); font-size:14px; margin-bottom:16px;">O cliente nunca pode sair de uma reunião sem saber exatamente o que acontece a seguir. Este bloco fecha o loop e aciona a próxima etapa.</p>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div class="meeting-step">
+              <span class="step-icon">📱</span>
+              <div>
+                <p class="step-title">Anunciar a criação do grupo de WhatsApp</p>
+                <p class="step-desc">"Vou criar nosso grupo ainda hoje — é por lá que centralizo tudo e qualquer dúvida você me marca." Já prepara o cliente para receber o convite.</p>
+              </div>
+            </div>
+            <div class="meeting-step">
+              <span class="step-icon">📝</span>
+              <div>
+                <p class="step-title">Comunicar o envio do formulário</p>
+                <p class="step-desc">"Vou te mandar um formulário agora com tudo que precisamos coletar — acessos, logo, fotos. Pode pedir pra secretária preencher." Remove fricção e agiliza o recebimento dos materiais.</p>
+              </div>
+            </div>
+            <div class="meeting-step">
+              <span class="step-icon">🚀</span>
+              <div>
+                <p class="step-title">Confirmar a previsão do primeiro entregável</p>
+                <p class="step-desc">"Assim que recebermos os materiais, em até 3 dias úteis você já tem o Dossiê de Posicionamento." Dá ao cliente algo concreto para esperar — reduz ansiedade pós-reunião.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- O QUE NÃO FAZER -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-req">Atenção</span>
+      <span class="block-title">O Que Evitar Durante a Reunião</span>
+    </div>
+    <div class="block-body">
+      <div class="never-item"><span class="never-x">✗</span><span style="color:var(--text-muted); font-size:14px;">Pedir senhas, logins ou acessos ao vivo — isso quebra o ritmo e passa imagem de desorganização. Tudo vai pelo formulário depois.</span></div>
+      <div class="never-item"><span class="never-x">✗</span><span style="color:var(--text-muted); font-size:14px;">Perguntar coisas que já estavam no briefing do comercial — demonstra que você não se preparou.</span></div>
+      <div class="never-item"><span class="never-x">✗</span><span style="color:var(--text-muted); font-size:14px;">Deixar silêncios longos sem condução — se o cliente travar, mude o ângulo da pergunta ou dê um exemplo.</span></div>
+      <div class="never-item"><span class="never-x">✗</span><span style="color:var(--text-muted); font-size:14px;">Prometer prazo ou entregável que não está no contrato — qualquer combinado extra precisa passar pelo comercial.</span></div>
+      <div class="never-item" style="border:none;"><span class="never-x">✗</span><span style="color:var(--text-muted); font-size:14px;">Encerrar sem deixar claro o próximo passo — o cliente precisa saber o que acontece nas próximas horas.</span></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 1 · PERGUNTAS
+═══════════════════════════════════════════════════════ -->
+<div id="t1" class="tab-panel">
+<div class="content-wrap">
+
+  <div class="section-hero">
+    <div class="eyebrow">Etapa 04 · Briefing Estratégico</div>
+    <h2>Roteiro de Perguntas — Reunião de Onboarding</h2>
+    <p>Perguntas que alimentam diretamente o DPV: proposta de valor, público-alvo, diferenciais, tom de voz e orientações estratégicas. A reunião dura ~30 min de briefing. Chegue com o contexto do handoff absorvido — use estas perguntas para <strong>aprofundar</strong>, não para descobrir o óbvio.</p>
+  </div>
+
+  <div class="alert red">
+    <span class="alert-icon">⚠️</span>
+    <div><strong>Regra inegociável:</strong> A reunião precisa ser gravada, sem exceção. A transcrição é o material bruto que alimenta campanhas, copy, site, criativos e agentes de IA. Sem gravação, não há produção de qualidade.</div>
+  </div>
+
+  <!-- BLOCO 1 -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-pos">Posicionamento</span>
+      <span class="block-title">Proposta de Valor e Diferenciais Reais</span>
+    </div>
+    <div class="block-body">
+      <ul class="q-list">
+        <li class="q-item">
+          <span class="q-num">01</span>
+          <div class="q-content">
+            <p class="q-text">Se um paciente te perguntasse "por que eu devo escolher a sua clínica e não a do concorrente?", o que você responderia?</p>
+            <p class="q-why">↳ Extrai o diferencial real na voz do cliente — ouro para headline e copy do DPV.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">02</span>
+          <div class="q-content">
+            <p class="q-text">O que vocês têm ou fazem que o concorrente mais próximo não tem — equipamento, profissional, localização, facilidade de pagamento, atendimento?</p>
+            <p class="q-why">↳ Lista os diferenciais concretos que entram no DPV como proposta de valor.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">03</span>
+          <div class="q-content">
+            <p class="q-text">Tem alguma especialidade, exame ou procedimento que vocês fazem e que é difícil de encontrar na região?</p>
+            <p class="q-why">↳ Identifica ativos de posicionamento exclusivo para campanhas e SEO local.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">04</span>
+          <div class="q-content">
+            <p class="q-text">Quais formas de pagamento são aceitas? Convênio, plano de saúde ou 100% particular?</p>
+            <p class="q-why">↳ Informação comercial crítica para copy de anúncios e landing page.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">05</span>
+          <div class="q-content">
+            <p class="q-text">Como você descreveria a personalidade da clínica — se ela fosse uma pessoa, como seria o jeito de falar e se comportar?</p>
+            <p class="q-why">↳ Define o tom de voz para o DPV, Instagram e copy de todas as peças.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BLOCO 2 -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-com">Carro-Chefe e Serviços</span>
+      <span class="block-title">O Que Vai Para o Centro das Campanhas</span>
+    </div>
+    <div class="block-body">
+      <ul class="q-list">
+        <li class="q-item">
+          <span class="q-num">06</span>
+          <div class="q-content">
+            <p class="q-text">Qual é o serviço que mais gera receita ou mais atrai pacientes novos hoje — o carro-chefe?</p>
+            <p class="q-why">↳ Define o foco principal das campanhas de tráfego pago e do site.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">07</span>
+          <div class="q-content">
+            <p class="q-text">Se você pudesse escolher 2 ou 3 serviços para dobrar o volume agora, quais seriam e por quê?</p>
+            <p class="q-why">↳ Prioriza o escopo das campanhas e os grupos de anúncio no Meta e Google Ads.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">08</span>
+          <div class="q-content">
+            <p class="q-text">Tem algum serviço que vocês oferecem mas que os pacientes raramente pedem — por que você acha que isso acontece?</p>
+            <p class="q-why">↳ Revela gaps de comunicação que o DPV e o Instagram podem corrigir.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">09</span>
+          <div class="q-content">
+            <p class="q-text">Qual é o ticket médio de uma consulta? E de um procedimento? Existe algum pacote ou combo?</p>
+            <p class="q-why">↳ Permite o cálculo de CAP e ROI real que ancora a estratégia de lances.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BLOCO 3 -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-pac">Paciente Ideal</span>
+      <span class="block-title">Persona e Segmentação para Campanhas</span>
+    </div>
+    <div class="block-body">
+      <ul class="q-list">
+        <li class="q-item">
+          <span class="q-num">10</span>
+          <div class="q-content">
+            <p class="q-text">Pense nos seus 10 pacientes mais fiéis. Qual é o perfil: idade, gênero, bairro onde mora, classe social, situação de emprego?</p>
+            <p class="q-why">↳ Base da persona para segmentação de público no Meta Ads e Google.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">11</span>
+          <div class="q-content">
+            <p class="q-text">Esses pacientes chegam por qual canal — indicação, Google, Instagram, passando na frente da clínica?</p>
+            <p class="q-why">↳ Valida prioridade de canal antes de criar as campanhas pagas.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">12</span>
+          <div class="q-content">
+            <p class="q-text">Tem algum perfil de paciente que você <em>não</em> quer atrair — que gera problema, cancela muito, não paga ou não é o público certo?</p>
+            <p class="q-why">↳ Cria exclusões de público e filtros de copy para qualificar leads.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">13</span>
+          <div class="q-content">
+            <p class="q-text">O paciente que chega geralmente está com qual urgência — dor aguda, prevenção ou encaminhamento médico?</p>
+            <p class="q-why">↳ Define o ângulo da copy (urgência vs. prevenção) e o funil de decisão.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BLOCO 4 -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-req">Objeções e Fricções</span>
+      <span class="block-title">Armas para Copy, CRM e Script de Vendas</span>
+    </div>
+    <div class="block-body">
+      <ul class="q-list">
+        <li class="q-item">
+          <span class="q-num">14</span>
+          <div class="q-content">
+            <p class="q-text">Quais são as perguntas ou reclamações que a recepção mais ouve — antes do agendamento e depois?</p>
+            <p class="q-why">↳ Material bruto para copy de quebra de objeção e treinamento da recepção.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">15</span>
+          <div class="q-content">
+            <p class="q-text">Quando um paciente some no WhatsApp depois de perguntar o preço, o que você acha que está passando pela cabeça dele?</p>
+            <p class="q-why">↳ Revela a objeção de preço real para o script de follow-up do CRM.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">16</span>
+          <div class="q-content">
+            <p class="q-text">Alguma vez um paciente foi ao concorrente depois de falar com vocês? Por que você acha que foi?</p>
+            <p class="q-why">↳ Mapeia gaps competitivos para reposicionamento no DPV.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">17</span>
+          <div class="q-content">
+            <p class="q-text">Qual é a taxa de no-show hoje? O que vocês fazem quando o paciente não aparece?</p>
+            <p class="q-why">↳ Diagnóstico da operação atual para calibrar o funil do CRM e automações de confirmação.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BLOCO 5 -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-ope">Estrutura Operacional</span>
+      <span class="block-title">Contexto para Produção do Site, GMB e CRM</span>
+    </div>
+    <div class="block-body">
+      <ul class="q-list">
+        <li class="q-item">
+          <span class="q-num">18</span>
+          <div class="q-content">
+            <p class="q-text">Quantos médicos atendem na clínica e quais são as especialidades?</p>
+            <p class="q-why">↳ Popula o site, o Google Meu Negócio e os grupos de anúncio por especialidade.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">19</span>
+          <div class="q-content">
+            <p class="q-text">Qual é o endereço exato e o horário de funcionamento? Tem alguma unidade diferente?</p>
+            <p class="q-why">↳ Dados do GMB e copy de localização para anúncios de raio.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">20</span>
+          <div class="q-content">
+            <p class="q-text">Como funciona o agendamento hoje — WhatsApp, telefone, sistema online? Quem responde e em qual horário?</p>
+            <p class="q-why">↳ Mapeia o fluxo atual para integração do CRM e automação de atendimento.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">21</span>
+          <div class="q-content">
+            <p class="q-text">Você já trabalhou com alguma agência de marketing antes? O que funcionou e o que não funcionou?</p>
+            <p class="q-why">↳ Evita repetir erros anteriores e entende expectativas (e traumas) do cliente.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">22</span>
+          <div class="q-content">
+            <p class="q-text">Qual é sua maior preocupação em relação ao CFM e à comunicação digital da clínica?</p>
+            <p class="q-why">↳ Endereça o medo do CFM — crucial para alinhar o tom dentro das normas e gerar confiança.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BLOCO 6 -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-crm">Metas e Expectativas</span>
+      <span class="block-title">Âncora de Resultado para o DPV e Estratégia</span>
+    </div>
+    <div class="block-body">
+      <ul class="q-list">
+        <li class="q-item">
+          <span class="q-num">23</span>
+          <div class="q-content">
+            <p class="q-text">Em 45 dias, qual seria o resultado que faria você dizer "valeu cada centavo"? Me dá um número.</p>
+            <p class="q-why">↳ Ancora a expectativa em métrica concreta — base para definir o KPI da campanha.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">24</span>
+          <div class="q-content">
+            <p class="q-text">Quanto você investe (ou está disposto a investir) em tráfego pago por mês — além do contrato com a Clintia?</p>
+            <p class="q-why">↳ Define o budget de mídia para calibrar estratégia de lances e volume esperado.</p>
+          </div>
+        </li>
+        <li class="q-item">
+          <span class="q-num">25</span>
+          <div class="q-content">
+            <p class="q-text">Você tem alguma referência — uma clínica, empresa ou comunicação — que admira e gostaria de se parecer?</p>
+            <p class="q-why">↳ Calibra referência estética e de posicionamento para design e tom de voz do DPV.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alert green">
+    <span class="alert-icon">✅</span>
+    <div><strong>Lembre-se:</strong> Você vai para aprofundar, não descobrir. O que estava no briefing do comercial não deve ser perguntado de novo. Adapte as perguntas ao contexto já mapeado na preparação prévia.</div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 2 · SOLICITAÇÕES PÓS-REUNIÃO
+═══════════════════════════════════════════════════════ -->
+<div id="t2" class="tab-panel">
+<div class="content-wrap">
+
+  <div class="section-hero">
+    <div class="eyebrow">Etapa 05 · Burocracia Assíncrona</div>
+    <h2>Solicitações Pós-Reunião</h2>
+    <p>Tudo que precisa ser coletado <strong>depois</strong> da reunião, via formulário. Nunca pedir senha ao vivo — quebra o ritmo e passa imagem de desorganização. O formulário pode ser preenchido pela secretária; não precisa ser o médico.</p>
+  </div>
+
+  <div class="alert amber">
+    <span class="alert-icon">⚡</span>
+    <div><strong>Timing crítico:</strong> O formulário deve ser enviado imediatamente após o encerramento da reunião — enquanto o cliente ainda está engajado. Não deixar para o dia seguinte.</div>
+  </div>
+
+  <!-- CRÍTICO -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-req">Crítico</span>
+      <span class="block-title">Itens que Bloqueiam o Início da Produção</span>
+    </div>
+    <div class="block-body">
+      <ul class="checklist">
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Acesso ao Gerenciador de Negócios da Meta (BM) <span class="priority-flag flag-critical">Crítico</span></p>
+            <p class="check-detail">Solicitar que o cliente adicione a conta da Clintia como Parceiro no BM dele. Enviar o ID do BM da Clintia no formulário. Sem isso, não há como subir campanhas no Meta Ads.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Acesso ao Instagram da Clínica <span class="priority-flag flag-critical">Crítico</span></p>
+            <p class="check-detail">Perfil vinculado à página do Facebook e ao BM. O cliente precisa dar acesso de editor/administrador. Confirmar se a conta é Business ou Creator — e se o perfil já está conectado ao BM.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Logotipo em alta resolução <span class="priority-flag flag-critical">Crítico</span></p>
+            <p class="check-detail">PNG com fundo transparente e/ou arquivo vetor (AI, EPS ou SVG). Sem logo, design e site ficam bloqueados desde o dia 1.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Acesso ao Google Ads <span class="priority-flag flag-critical">Crítico</span></p>
+            <p class="check-detail">Se já tiver conta: informar o e-mail Google para convite de administrador. Se não tiver: a Clintia cria. Confirmar o e-mail principal da clínica para vinculação.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Acesso ao Google Meu Negócio <span class="priority-flag flag-critical">Crítico</span></p>
+            <p class="check-detail">E-mail Google com acesso de gerente ao perfil do GMB. Se o perfil não existir, a Clintia cria com os dados fornecidos no onboarding.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- IMPORTANTE -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-pac">Importante</span>
+      <span class="block-title">Itens que Podem Ser Coletados na Semana 1</span>
+    </div>
+    <div class="block-body">
+      <ul class="checklist">
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Acesso ao domínio e site atual <span class="priority-flag flag-high">Importante</span></p>
+            <p class="check-detail">Login no painel de hospedagem (Hostinger, GoDaddy, Registro.br etc.) ou painel WordPress. Se necessário, solicitar transferência de hospedagem.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Fotos e vídeos da clínica e equipe <span class="priority-flag flag-high">Importante</span></p>
+            <p class="check-detail">Fotos do espaço físico, equipe médica e atendimento — mínimo 1080px. Se não houver, abrir ordem de produção fotográfica ou usar banco de imagens como interim.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Paleta de cores e identidade visual existente <span class="priority-flag flag-high">Importante</span></p>
+            <p class="check-detail">Cores primárias, tipografia e manual de marca (se houver). Se não existir identidade definida, o Design da Clintia irá propor com base no briefing.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Acesso ao CRM atual (se houver) <span class="priority-flag flag-high">Importante</span></p>
+            <p class="check-detail">Login e senha ou convite de parceiro. Necessário para mapear a migração antes da implantação do Bolten.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Número do WhatsApp Business oficial da clínica <span class="priority-flag flag-high">Importante</span></p>
+            <p class="check-detail">Número que será integrado ao CRM Bolten. Confirmar se é exclusivo da clínica (não pessoal do médico) e se já tem API ativa.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMPLEMENTAR -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-crm">Complementar</span>
+      <span class="block-title">Informações Adicionais para Produção Completa</span>
+    </div>
+    <div class="block-body">
+      <ul class="checklist">
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Lista de serviços com preços (se autorizado a publicar) <span class="priority-flag flag-med">Complementar</span></p>
+            <p class="check-detail">Confirmação de quais preços podem aparecer em anúncio e quais são apenas para WhatsApp.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Acesso ao Google Analytics / Search Console (se existir) <span class="priority-flag flag-med">Complementar</span></p>
+            <p class="check-detail">Acesso de leitor ao Analytics para diagnóstico do tráfego atual e identificação de palavras-chave que já convertem.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Contato da secretária / responsável administrativo <span class="priority-flag flag-med">Complementar</span></p>
+            <p class="check-detail">Nome, WhatsApp e e-mail. Esta pessoa é o ponto de contato operacional do dia a dia para aprovações e envio de materiais.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <p class="check-label">Acordos com convênios ou parceiros locais <span class="priority-flag flag-med">Complementar</span></p>
+            <p class="check-detail">Convênios aceitos, parcerias com empresas locais ou programas de saúde. Impacta copy de anúncios e segmentação de público.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alert blue">
+    <span class="alert-icon">📋</span>
+    <div><strong>Ferramenta sugerida:</strong> Typeform, Google Forms ou ClickUp Forms. Link único, enviado direto no WhatsApp do cliente logo após o encerramento da reunião. O formulário deve ter campo de upload para logo, fotos e documentos.</div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 3 · PADRÃO DE MENSAGEM
+═══════════════════════════════════════════════════════ -->
+<div id="t3" class="tab-panel">
+<div class="content-wrap">
+
+  <div class="section-hero">
+    <div class="eyebrow">Etapa 02 · Comunicação Padrão</div>
+    <h2>Padrões de Mensagem</h2>
+    <p>Cada mensagem tem objetivo único e tom específico. Não misture etapas em uma mesma mensagem. Personalize sempre com o nome do cliente — nunca mensagem genérica.</p>
+  </div>
+
+  <!-- MENSAGEM 01 -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-msg">Mensagem 01</span>
+      <span class="block-title">Primeiro Contato · WhatsApp Individual · Até 24h Após a Assinatura</span>
+    </div>
+    <div class="block-body">
+      <span class="msg-label">// Canal: WhatsApp direto da Luizianna → cliente · O grupo ainda NÃO existe nesta etapa</span>
+      <div class="msg-box">
+        Olá, Dr(a). <span class="pl">[Nome]</span>! Tudo bem? 😊<br><br>
+        Me chamo Luizianna, sou a Gerente de Operações aqui na Clintia. A partir de agora, sou eu quem vai conduzir todo o processo da sua implantação.<br><br>
+        Já recebi seu contrato e li o briefing do comercial — fiquei animada com o potencial que enxergo aí na <span class="pl">[Nome da Clínica]</span>. Seja muito bem-vindo(a) à Clintia! 🎉<br><br>
+        Para darmos o start oficial, precisamos agendar nossa <strong>Reunião de Onboarding</strong> — é uma conversa de ~45 minutos onde vou entender sua operação em profundidade para garantir que a produção saia certeira desde o dia 1.<br><br>
+        Consigo te encaixar em algum desses horários?<br>
+        📅 <span class="pl">[Opção 1 — ex: Terça, 14h]</span><br>
+        📅 <span class="pl">[Opção 2 — ex: Quarta, 10h]</span><br>
+        📅 <span class="pl">[Opção 3 — ex: Quinta, 16h]</span><br><br>
+        Pode ser por Google Meet ou Zoom — confirmo o link assim que você escolher! ✅
+      </div>
+      <div class="msg-note">
+        <strong>O que esta mensagem transmite:</strong> Organização · Acolhimento · Controle. O cliente acabou de assinar e está ansioso. Esta mensagem diz "existe processo aqui, você está em boas mãos".
+      </div>
+    </div>
+  </div>
+
+  <!-- MENSAGEM 02 -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-msg">Mensagem 02</span>
+      <span class="block-title">Confirmação da Reunião · Véspera do Onboarding</span>
+    </div>
+    <div class="block-body">
+      <span class="msg-label">// Canal: WhatsApp direto · enviar no dia anterior à reunião</span>
+      <div class="msg-box">
+        Boa tarde, Dr(a). <span class="pl">[Nome]</span>!<br><br>
+        Passando para confirmar nossa reunião de amanhã às <span class="pl">[Horário]</span>. 🗓️<br><br>
+        🔗 Link da chamada: <span class="pl">[Link do Meet/Zoom]</span><br><br>
+        Para aproveitarmos ao máximo nosso tempo, se possível, tenha em mãos:<br>
+        → O número de WhatsApp da clínica<br>
+        → Instagram da clínica aberto no celular<br>
+        → Nome de algum concorrente que você acompanha<br><br>
+        Qualquer dúvida, estou por aqui! Até amanhã. 👋
+      </div>
+    </div>
+  </div>
+
+  <!-- MENSAGEM 03 -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-msg">Mensagem 03</span>
+      <span class="block-title">Pós-Reunião + Formulário · Imediatamente Após Encerrar a Call</span>
+    </div>
+    <div class="block-body">
+      <span class="msg-label">// Canal: WhatsApp direto · enviar em até 15 minutos após encerrar a reunião</span>
+      <div class="msg-box">
+        Dr(a). <span class="pl">[Nome]</span>, foi ótimo conversar! A reunião foi muito produtiva e já tenho clareza do que vamos construir para a <span class="pl">[Nome da Clínica]</span>. 💪<br><br>
+        Próximo passo: te envio agora o <strong>Formulário de Integração</strong>. Ele vai coletar os acessos e materiais que precisamos para iniciar a produção.<br><br>
+        🔗 <span class="pl">[Link do Formulário]</span><br><br>
+        Pode ser preenchido pela secretária — ela tem todas as informações necessárias. Quanto mais rápido recebermos, mais rápido a equipe começa! ⚡<br><br>
+        Em breve também crio o nosso grupo de WhatsApp para manter tudo organizado. Qualquer dúvida me manda aqui. 😊
+      </div>
+    </div>
+  </div>
+
+  <!-- MENSAGEM 04 -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-msg">Mensagem 04</span>
+      <span class="block-title">Boas-Vindas ao Grupo · Mensagem Fixada · Enviar ao Criar o Grupo</span>
+    </div>
+    <div class="block-body">
+      <span class="msg-label">// Canal: WhatsApp do grupo · FIXAR IMEDIATAMENTE após o envio</span>
+      <div class="msg-box">
+        📌 <strong>BOAS-VINDAS AO PROJETO · <span class="pl">[NOME DA CLÍNICA]</span> × CLINTIA</strong><br><br>
+        Olá, equipe! Estou muito feliz em dar início à nossa parceria. Este grupo é o canal oficial do projeto.<br><br>
+        <strong>👤 Meu papel aqui:</strong><br>
+        Sou a Luizianna, Gerente de Operações. Sou o ponto central de contato entre vocês e toda a equipe da Clintia. <em>Sempre que precisarem de algo, me marquem aqui — assim garantimos agilidade e nada se perde.</em><br><br>
+        <strong>📅 Cronograma da Implantação (45 dias):</strong><br>
+        ✅ Dias 01–03 → Dossiê de Posicionamento e Vendas (DPV)<br>
+        ✅ Dias 01–05 → Otimização do Google Meu Negócio<br>
+        ✅ Dias 01–10 → Site Institucional (OnePage WordPress)<br>
+        ✅ Dias 01–20 → Campanhas de Tráfego Pago (Google + Meta)<br>
+        ✅ Dias 01–20 → Implantação do CRM Bolten<br>
+        ✅ Dias 01–30 → Conteúdo Orgânico para Instagram<br><br>
+        <strong>🕐 Horário de funcionamento da equipe:</strong><br>
+        Segunda a sexta, das 10h às 18h. Retornamos em até 4h úteis.<br><br>
+        <strong>📋 Como funciona a comunicação aqui:</strong><br>
+        → Dúvidas e solicitações → me marque no grupo<br>
+        → Aprovações de peças → apresento aqui para validação<br>
+        → Urgências fora do horário → mensagem direto para mim<br><br>
+        Vamos juntos construir uma máquina de captação para a <span class="pl">[Nome da Clínica]</span>! 🚀
+      </div>
+      <div class="msg-note" style="background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.2);">
+        <strong style="color: var(--amber);">⚠️ Fixar esta mensagem imediatamente após enviar.</strong> Ela define as regras do jogo antes de qualquer problema aparecer. Reduz mensagens dispersas e dá ao cliente referência clara de prazos e próximos passos.
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 4 · PADRÃO DO GRUPO
+═══════════════════════════════════════════════════════ -->
+<div id="t4" class="tab-panel">
+<div class="content-wrap">
+
+  <div class="section-hero">
+    <div class="eyebrow">Etapa 06 · Setup do Ecossistema</div>
+    <h2>Padrão do Grupo de WhatsApp</h2>
+    <p>O grupo é criado <strong>somente após a reunião de onboarding</strong> — nunca antes. Precisa existir dentro de um padrão visual e operacional que comunique organização e profissionalismo desde o primeiro segundo.</p>
+  </div>
+
+  <div class="alert red">
+    <span class="alert-icon">🚫</span>
+    <div><strong>Regra inegociável:</strong> O grupo NUNCA é criado antes do onboarding. Criar grupo sem contexto do cliente é erro operacional crítico listado explicitamente no nosso processo.</div>
+  </div>
+
+  <!-- CONFIGURAÇÕES -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-grp">Configuração</span>
+      <span class="block-title">Nome, Foto e Permissões</span>
+    </div>
+    <div class="block-body">
+      <div class="spec-row">
+        <span class="spec-key">Nome do grupo</span>
+        <div class="spec-val">
+          <code>[Nome da Clínica] — Clintia</code>
+          <p style="font-size:12.5px; color:var(--text-muted); margin-top:6px;">Ex: <em>"Clínica Popular Saúde Mais — Clintia"</em><br>Sempre exatamente neste formato. Nunca abreviado ou invertido.</p>
+        </div>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">Foto do grupo</span>
+        <span class="spec-val">Logo do cliente + logo da Clintia, no padrão visual da agência. O Design gera a imagem de capa padrão com os dois logos lado a lado. Nunca usar foto genérica ou de profissional de saúde.</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">Descrição</span>
+        <span class="spec-val"><code>Canal oficial do projeto CLIP® · Gestora: Luizianna · Clintia</code></span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-key">Permissões</span>
+        <span class="spec-val">Somente admins editam informações do grupo. Participantes enviam mensagens livremente. Luizianna é a única administradora além do número institucional da Clintia.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARTICIPANTES -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-grp">Participantes</span>
+      <span class="block-title">Quem Entra e Quem Não Entra</span>
+    </div>
+    <div class="block-body">
+      <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px; font-weight:600; text-transform:uppercase; letter-spacing:.05em;">LADO DO CLIENTE</p>
+      <div class="part-chip part-ok"><span class="part-icon">✅</span><div><strong>Médico / Sócio responsável</strong> — sempre, sem exceção</div></div>
+      <div class="part-chip part-ok"><span class="part-icon">✅</span><div><strong>Secretária / Responsável administrativo</strong> — essencial para aprovações ágeis</div></div>
+      <div class="part-chip part-warn"><span class="part-icon">⚠️</span><div><strong>Sócio(s) adicional(is)</strong> — apenas se participarem das decisões. Avaliar caso a caso para evitar ruído.</div></div>
+
+      <p style="font-size:13px; color:var(--text-muted); margin: 20px 0 16px; font-weight:600; text-transform:uppercase; letter-spacing:.05em;">LADO DA CLINTIA</p>
+      <div class="part-chip part-ok"><span class="part-icon">✅</span><div><strong>Luizianna (G. Operações)</strong> — ponto central, obrigatório, administradora</div></div>
+      <div class="part-chip part-ok"><span class="part-icon">✅</span><div><strong>Atendimento</strong> — para histórico e comunicação com o cliente</div></div>
+      <div class="part-chip part-no"><span class="part-icon">🚫</span><div><strong>Tráfego, Copy, Design</strong> — equipe técnica NÃO entra no grupo. Toda comunicação técnica passa obrigatoriamente pela Luizianna.</div></div>
+    </div>
+  </div>
+
+  <!-- REGRAS DE OPERAÇÃO -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-grp">Regras</span>
+      <span class="block-title">Como o Grupo Funciona no Dia a Dia</span>
+    </div>
+    <div class="block-body">
+      <ul class="checklist">
+        <li class="check-item">
+          <div class="check-box" style="border-color:var(--celtic); background:rgba(5,90,170,0.1);"></div>
+          <div class="check-content">
+            <p class="check-label">Mensagem fixada → fixar imediatamente ao criar o grupo</p>
+            <p class="check-detail">A Mensagem 04 (ver Tab 3) deve estar fixada no topo desde o primeiro segundo. Ela define as regras antes de qualquer problema aparecer.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box" style="border-color:var(--celtic); background:rgba(5,90,170,0.1);"></div>
+          <div class="check-content">
+            <p class="check-label">Canal único de acionamento — sempre "@Luizianna" para tudo</p>
+            <p class="check-detail">O cliente é orientado desde a mensagem fixada a marcar sempre a Luizianna. Evita mensagens dispersas para outros membros e garante rastreabilidade total.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box" style="border-color:var(--celtic); background:rgba(5,90,170,0.1);"></div>
+          <div class="check-content">
+            <p class="check-label">Aprovações de peças → sempre apresentadas pela Luizianna no grupo</p>
+            <p class="check-detail">Nunca enviar peça diretamente do designer para o cliente. A Luizianna centraliza a apresentação, captura o feedback e repassa internamente para o time técnico.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box" style="border-color:var(--celtic); background:rgba(5,90,170,0.1);"></div>
+          <div class="check-content">
+            <p class="check-label">Prazo de resposta do cliente → 5 dias úteis (conforme contrato)</p>
+            <p class="check-detail">Cláusula 3.5 do contrato. Se não houver retorno, considera-se aprovação tácita. Luizianna deve sinalizar o prazo no grupo ao enviar qualquer peça para aprovação.</p>
+          </div>
+        </li>
+        <li class="check-item">
+          <div class="check-box" style="border-color:var(--celtic); background:rgba(5,90,170,0.1);"></div>
+          <div class="check-content">
+            <p class="check-label">Urgências fora do horário → WhatsApp direto da Luizianna</p>
+            <p class="check-detail">Se o cliente tiver urgência fora do horário comercial (10h–18h), deve mandar mensagem direto para a Luizianna — nunca mandar no grupo esperando que alguém veja.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- NUNCA FAZER -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-tag tag-req">Nunca Fazer</span>
+      <span class="block-title">Erros Operacionais Que Não Podem Acontecer</span>
+    </div>
+    <div class="block-body">
+      <div class="never-item"><span class="never-x">✗</span><span style="color:var(--text-muted); font-size:14px;">Criar o grupo antes da reunião de onboarding ser realizada</span></div>
+      <div class="never-item"><span class="never-x">✗</span><span style="color:var(--text-muted); font-size:14px;">Adicionar membros da equipe técnica (tráfego, copy, design) ao grupo do cliente</span></div>
+      <div class="never-item"><span class="never-x">✗</span><span style="color:var(--text-muted); font-size:14px;">Usar nome genérico para o grupo sem o nome real da clínica</span></div>
+      <div class="never-item"><span class="never-x">✗</span><span style="color:var(--text-muted); font-size:14px;">Não fixar a mensagem padrão imediatamente após criar o grupo</span></div>
+      <div class="never-item"><span class="never-x">✗</span><span style="color:var(--text-muted); font-size:14px;">Deixar o cliente sem saber qual é o próximo passo após qualquer interação</span></div>
+      <div class="never-item" style="border:none;"><span class="never-x">✗</span><span style="color:var(--text-muted); font-size:14px;">Usar o grupo para conversa casual sem objetivo claro de aprovação, entrega ou alinhamento</span></div>
+    </div>
+  </div>
+
+  <div class="alert green">
+    <span class="alert-icon">💡</span>
+    <div><strong>Princípio central:</strong> O grupo existe para comunicar organização, não substituir processos. Cada mensagem enviada deve ter objetivo claro — aprovação, atualização de entrega ou alinhamento de prazo. O cliente que percebe processo, confia na operação.</div>
+  </div>
+
+</div>
+</div>
+
+<!-- BOTÃO DE DOWNLOAD PDF -->
+<div style="text-align: center; padding: 20px 48px 40px;">
+  <button onclick="generatePDF()" style="background: var(--sky); color: var(--oxford); padding: 14px 28px; border: none; border-radius: 8px; font-weight: 800; font-size: 15px; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: 0.2s; font-family: var(--font);">
+    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+    Baixar Resumo em PDF (Abas 0, 1 e 2)
+  </button>
+</div>
+
+<!-- FOOTER -->
+<footer class="doc-footer">
+  <span>Kit Operacional · Onboarding PROClip · Método CLIP®</span>
+  <span><span class="footer-brand">Clintia</span> Soluções Tecnológicas · USO INTERNO</span>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function generatePDF() {
+    let content = '';
+    ['t0', 't1', 't2'].forEach(id => {
+      let el = document.getElementById(id);
+      if(el) {
+        let clone = el.cloneNode(true);
+        content += clone.innerHTML;
+      }
+    });
+
+    // Regex para remover emojis
+    const emojiRegex = /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g;
+    content = content.replace(emojiRegex, '');
+
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Kit Operacional - Impressão</title>
+        <style>
+          body { font-family: Arial, sans-serif; color: #000; background: #fff; line-height: 1.5; padding: 30px; max-width: 800px; margin: 0 auto; }
+          * { color: #000 !important; background: transparent !important; box-shadow: none !important; border-color: #000 !important; }
+          h1, h2, h3, h4 { margin-top: 0; }
+          .section-hero { border-bottom: 2px solid #000; margin-bottom: 20px; padding-bottom: 10px; margin-top: 40px; }
+          .section-hero h2 { font-size: 22px; margin-bottom: 5px; }
+          .eyebrow { font-weight: bold; text-transform: uppercase; font-size: 12px; margin-bottom: 5px; border-bottom: 1px solid #000; display: inline-block; padding-bottom: 2px; }
+          .block { border: 1px solid #000; margin-bottom: 25px; page-break-inside: avoid; }
+          .block-header { border-bottom: 1px solid #000; padding: 12px; font-weight: bold; font-size: 14px; text-transform: uppercase; }
+          .block-title { display: block; margin-top: 5px; font-size: 16px; }
+          .block-tag { display: none; }
+          .block-body { padding: 15px; }
+          ul { list-style: none; padding: 0; margin: 0; }
+          .q-item, .check-item, .meeting-step { border-bottom: 1px solid #ccc; padding: 12px 0; display: block; page-break-inside: avoid; }
+          .q-item:last-child, .check-item:last-child, .meeting-step:last-child { border-bottom: none; padding-bottom: 0; }
+          .q-num { font-weight: bold; margin-right: 10px; display: inline-block; width: 25px; }
+          .q-text { font-weight: bold; display: inline; font-size: 14px; }
+          .q-why { font-style: italic; font-size: 13px; display: block; margin-top: 5px; }
+          .alert { border: 1px dashed #000; padding: 15px; margin-bottom: 20px; font-weight: bold; page-break-inside: avoid; }
+          .check-box { display: inline-block; width: 14px; height: 14px; border: 1px solid #000; margin-right: 8px; vertical-align: middle; }
+          .check-label { font-weight: bold; display: inline-block; font-size: 14px; }
+          .check-detail { display: block; font-size: 13px; margin-top: 5px; }
+          .priority-flag { font-size: 10px; border: 1px solid #000; padding: 2px 4px; margin-left: 5px; text-transform: uppercase; }
+          .step-title { font-weight: bold; font-size: 15px; display: block; margin-bottom: 3px; }
+          .step-desc { font-size: 13px; display: block; margin-top: 4px; }
+          .meeting-block { border-bottom: 1px solid #000; margin-bottom: 15px; padding-bottom: 15px; page-break-inside: avoid; }
+          .meeting-block:last-child { border-bottom: none; }
+          /* Esconder elementos visuais desnecessários */
+          .alert-icon, .step-icon, .meeting-marker { display: none !important; }
+          .content-wrap { padding: 0; }
+        </style>
+      </head>
+      <body>
+        <div style="text-align: center; margin-bottom: 40px; border-bottom: 3px solid #000; padding-bottom: 15px;">
+          <h1 style="font-size: 26px;">Kit Operacional · Onboarding</h1>
+          <p style="margin: 0; font-size: 14px; text-transform: uppercase; font-weight: bold;">Resumo de Implantação e Coleta de Dados</p>
+        </div>
+        ${content}
+        <script>
+          window.onload = function() {
+            window.print();
+          };
+        <\/script>
+      </body>
+      </html>
+    `);
+    printWindow.document.close();
+  }
+</script>
+</body>
+</html>
