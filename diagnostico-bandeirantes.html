@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Digital — Bandeirantes Diagnósticos</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #06090D;
+  --surface: #0D1117;
+  --surface2: #131A23;
+  --surface3: #1A2333;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.1);
+  --white: #EEF2F7;
+  --muted: #4A5568;
+  --muted2: #6B7A8D;
+  --red: #FF4757;
+  --orange: #FF6B35;
+  --yellow: #FFD93D;
+  --green: #00E5A0;
+  --blue: #4ECDC4;
+  --purple: #A78BFA;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Figtree', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* LAYOUT */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+
+/* HEADER */
+.report-header {
+  background: linear-gradient(135deg, #0D1117 0%, #0A1628 100%);
+  border-bottom: 1px solid var(--border2);
+  padding: 56px 0 48px;
+  position: relative;
+  overflow: hidden;
+}
+.report-header::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0,229,160,.08) 0%, transparent 70%);
+}
+.report-header::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: 10%;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(255,107,53,.05) 0%, transparent 70%);
+}
+.header-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--green);
+  padding: 5px 14px;
+  border: 1px solid rgba(0,229,160,.2);
+  border-radius: 100px;
+  background: rgba(0,229,160,.05);
+  margin-bottom: 20px;
+}
+.header-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+.report-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+.report-title span { color: var(--green); }
+.report-subtitle { font-size: 15px; color: var(--muted2); max-width: 560px; }
+.header-meta {
+  display: flex;
+  gap: 24px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.meta-item { font-size: 12px; color: var(--muted); }
+.meta-item strong { color: var(--white); display: block; font-size: 13px; }
+
+/* SCORE OVERVIEW */
+.scores-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+}
+.scores-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+}
+.score-item {
+  padding: 16px 24px;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+.score-item:last-child { border-right: none; }
+.score-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.score-label { font-size: 11px; color: var(--muted2); letter-spacing: .05em; text-transform: uppercase; }
+.score-bar-wrap {
+  height: 3px;
+  background: var(--border2);
+  border-radius: 2px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.score-bar { height: 100%; border-radius: 2px; transition: width 1s ease; }
+.red { color: var(--red); }
+.orange { color: var(--orange); }
+.yellow { color: var(--yellow); }
+.green { color: var(--green); }
+.blue { color: var(--blue); }
+.bg-red { background: var(--red); }
+.bg-orange { background: var(--orange); }
+.bg-yellow { background: var(--yellow); }
+.bg-green { background: var(--green); }
+.bg-blue { background: var(--blue); }
+
+/* SECTIONS */
+.section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+.section:last-child { border-bottom: none; }
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.section-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.section-desc { font-size: 13px; color: var(--muted2); }
+.score-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  padding: 8px 20px;
+  border-radius: 12px;
+  border: 2px solid;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.badge-red { color: var(--red); border-color: rgba(255,71,87,.2); background: rgba(255,71,87,.05); }
+.badge-orange { color: var(--orange); border-color: rgba(255,107,53,.2); background: rgba(255,107,53,.05); }
+.badge-yellow { color: var(--yellow); border-color: rgba(255,217,61,.2); background: rgba(255,217,61,.05); }
+.badge-green { color: var(--green); border-color: rgba(0,229,160,.2); background: rgba(0,229,160,.05); }
+
+/* ISSUE CARDS */
+.issues-grid { display: flex; flex-direction: column; gap: 12px; }
+.issue {
+  display: flex;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  align-items: flex-start;
+  transition: border-color .2s;
+}
+.issue:hover { border-color: var(--border2); }
+.issue-severity {
+  flex-shrink: 0;
+  width: 8px;
+  border-radius: 4px;
+  align-self: stretch;
+  min-height: 20px;
+}
+.sev-critical { background: var(--red); }
+.sev-high { background: var(--orange); }
+.sev-medium { background: var(--yellow); }
+.sev-low { background: var(--green); }
+.issue-tag {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+.tag-c { background: rgba(255,71,87,.15); color: var(--red); }
+.tag-h { background: rgba(255,107,53,.15); color: var(--orange); }
+.tag-m { background: rgba(255,217,61,.15); color: var(--yellow); }
+.tag-l { background: rgba(0,229,160,.15); color: var(--green); }
+.issue-body { flex: 1; }
+.issue-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+.issue-desc { font-size: 13px; color: var(--muted2); line-height: 1.5; }
+.issue-fix {
+  font-size: 12px;
+  color: var(--green);
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.issue-fix::before { content: '→'; font-weight: 700; }
+
+/* GOOD ITEMS */
+.goods-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+.good-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(0,229,160,.04);
+  border: 1px solid rgba(0,229,160,.1);
+  border-radius: 10px;
+  font-size: 13px;
+}
+.good-item::before { content: '✓'; color: var(--green); font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+
+/* 2-col layout */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+/* STAT CARDS */
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+.stat-card .num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-card .lbl { font-size: 12px; color: var(--muted2); text-transform: uppercase; letter-spacing: .06em; }
+.stat-card .desc { font-size: 13px; color: var(--muted2); margin-top: 10px; line-height: 1.5; }
+
+/* PRIORITY TABLE */
+.priority-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+.priority-table th {
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  padding: 10px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border2);
+}
+.priority-table td {
+  padding: 14px 16px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.priority-table tr:last-child td { border-bottom: none; }
+.priority-table tr:hover td { background: var(--surface2); }
+.p-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+.impact { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; }
+.impact-h { background: rgba(255,71,87,.1); color: var(--red); }
+.impact-m { background: rgba(255,217,61,.1); color: var(--yellow); }
+.impact-l { background: rgba(0,229,160,.1); color: var(--green); }
+
+/* TECH STACK */
+.tech-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.tech-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.tech-name { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+.tech-status { font-size: 11px; color: var(--muted2); }
+.tech-flag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 6px;
+  display: inline-block;
+}
+.flag-ok { background: rgba(0,229,160,.1); color: var(--green); }
+.flag-warn { background: rgba(255,217,61,.1); color: var(--yellow); }
+.flag-err { background: rgba(255,71,87,.1); color: var(--red); }
+
+/* GMB GRID */
+.gmb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.gmb-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+.gmb-unit { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+.gmb-addr { font-size: 12px; color: var(--muted2); margin-bottom: 12px; line-height: 1.5; }
+.gmb-checks { display: flex; flex-direction: column; gap: 6px; }
+.gmb-check { font-size: 12px; display: flex; align-items: center; gap: 8px; }
+.dot-ok { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+.dot-warn { width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); flex-shrink: 0; }
+.dot-err { width: 6px; height: 6px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+
+/* IG ANALYSIS */
+.ig-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; }
+.ig-stats { display: flex; flex-direction: column; gap: 12px; }
+.ig-stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.ig-stat .n { font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 800; line-height: 1; }
+.ig-stat .l { font-size: 11px; color: var(--muted2); margin-top: 2px; }
+
+/* ROADMAP */
+.roadmap { display: flex; flex-direction: column; gap: 0; }
+.rm-phase {
+  display: flex;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+.rm-phase:last-child { border-bottom: none; }
+.rm-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--green);
+  width: 80px;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+.rm-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+.rm-items { display: flex; flex-direction: column; gap: 4px; }
+.rm-item { font-size: 13px; color: var(--muted2); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+.rm-item::before { content: '·'; flex-shrink: 0; margin-top: 1px; }
+.rm-impact {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 100px;
+  background: rgba(0,229,160,.08);
+  border: 1px solid rgba(0,229,160,.15);
+  color: var(--green);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* DIVIDER */
+.divider { width: 32px; height: 3px; background: var(--green); border-radius: 2px; margin: 16px 0; }
+
+/* FOOTER */
+.report-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border2);
+  padding: 32px 0;
+  text-align: center;
+}
+.report-footer p { font-size: 12px; color: var(--muted); }
+.report-footer strong { color: var(--green); }
+
+/* INFOBOX */
+.infobox {
+  background: rgba(0,229,160,.04);
+  border: 1px solid rgba(0,229,160,.12);
+  border-left: 3px solid var(--green);
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-size: 13px;
+  color: #7A9A8A;
+  line-height: 1.6;
+  margin: 16px 0;
+}
+.warnbox {
+  background: rgba(255,107,53,.04);
+  border: 1px solid rgba(255,107,53,.12);
+  border-left: 3px solid var(--orange);
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-size: 13px;
+  color: #9A7A6A;
+  line-height: 1.6;
+  margin: 16px 0;
+}
+.critbox {
+  background: rgba(255,71,87,.04);
+  border: 1px solid rgba(255,71,87,.12);
+  border-left: 3px solid var(--red);
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-size: 13px;
+  color: #9A6A6A;
+  line-height: 1.6;
+  margin: 16px 0;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  .scores-grid { grid-template-columns: repeat(3,1fr); }
+  .two-col, .three-col, .tech-grid, .gmb-grid, .goods-grid { grid-template-columns: 1fr; }
+  .ig-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="report-header">
+  <div class="container">
+    <div class="header-tag">Diagnóstico Digital Completo</div>
+    <h1 class="report-title">Bandeirantes<br><span>Diagnósticos</span></h1>
+    <p class="report-subtitle">Análise técnica e estratégica completa: Site, Instagram, SEO, Google Meu Negócio e presença digital da rede.</p>
+    <div class="header-meta">
+      <div class="meta-item"><strong>bandeirantesdiagnosticos.com.br</strong>Site institucional</div>
+      <div class="meta-item"><strong>@bandeirantesdiagnosticos</strong>Instagram</div>
+      <div class="meta-item"><strong>7 unidades</strong>Rede no RJ</div>
+      <div class="meta-item"><strong>Abril 2025</strong>Data do diagnóstico</div>
+      <div class="meta-item"><strong>Elaborado por</strong>Clintia · PROClip</div>
+    </div>
+  </div>
+</div>
+
+<!-- SCORES -->
+<div class="scores-bar">
+  <div class="container">
+    <div class="scores-grid">
+      <div class="score-item">
+        <div class="score-num orange">4.8</div>
+        <div class="score-label">Site · /10</div>
+        <div class="score-bar-wrap"><div class="score-bar bg-orange" style="width:48%"></div></div>
+      </div>
+      <div class="score-item">
+        <div class="score-num red">3.1</div>
+        <div class="score-label">SEO · /10</div>
+        <div class="score-bar-wrap"><div class="score-bar bg-red" style="width:31%"></div></div>
+      </div>
+      <div class="score-item">
+        <div class="score-num red">2.4</div>
+        <div class="score-label">Google Meu Negócio · /10</div>
+        <div class="score-bar-wrap"><div class="score-bar bg-red" style="width:24%"></div></div>
+      </div>
+      <div class="score-item">
+        <div class="score-num yellow">5.2</div>
+        <div class="score-label">Instagram · /10</div>
+        <div class="score-bar-wrap"><div class="score-bar bg-yellow" style="width:52%"></div></div>
+      </div>
+      <div class="score-item">
+        <div class="score-num red">2.9</div>
+        <div class="score-label">Digital Geral · /10</div>
+        <div class="score-bar-wrap"><div class="score-bar bg-red" style="width:29%"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEÇÃO 1 — SITE -->
+<div class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-icon" style="background:rgba(255,107,53,.1);">🌐</div>
+        <div class="section-title">Diagnóstico do Site</div>
+        <div class="section-desc">bandeirantesdiagnosticos.com.br · WordPress 6.9.4 + Elementor Pro</div>
+      </div>
+      <div class="score-badge badge-orange">4.8/10</div>
+    </div>
+
+    <div class="two-col" style="margin-bottom:28px;">
+      <div>
+        <p style="font-size:13px;color:var(--muted2);line-height:1.7;margin-bottom:16px;">O site existe, tem as informações básicas e funciona como canal de agendamento. A estrutura visual é reconhecível e usa a identidade correta da marca. Mas tecnicamente e estrategicamente está longe do potencial de captura que a rede deveria ter.</p>
+        <div class="infobox"><strong>Ponto positivo principal:</strong> O site já possui GTM instalado, Google Ads com pixel de conversão ativo (AW-613814020) e um layout funcional com CTAs visíveis. A base técnica existe — o problema é o que está sendo construído em cima dela.</div>
+      </div>
+      <div>
+        <div class="three-col" style="gap:12px;">
+          <div class="stat-card" style="padding:16px;">
+            <div class="num orange" style="font-family:'Outfit',sans-serif;font-size:28px;font-weight:800;">WP 6.9</div>
+            <div class="lbl">Versão WordPress</div>
+            <div class="desc">Atualizado. ✓</div>
+          </div>
+          <div class="stat-card" style="padding:16px;">
+            <div class="num red" style="font-family:'Outfit',sans-serif;font-size:28px;font-weight:800;">2×</div>
+            <div class="lbl">GTM duplicado</div>
+            <div class="desc">Dois containers ativos</div>
+          </div>
+          <div class="stat-card" style="padding:16px;">
+            <div class="num red" style="font-family:'Outfit',sans-serif;font-size:28px;font-weight:800;">0</div>
+            <div class="lbl">Schema Markup</div>
+            <div class="desc">Nenhum implementado</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stack técnica -->
+    <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin-bottom:16px;">Stack Técnica Identificada</h3>
+    <div class="tech-grid" style="margin-bottom:28px;">
+      <div class="tech-item">
+        <div class="tech-name">WordPress</div>
+        <div class="tech-status">Versão 6.9.4</div>
+        <span class="tech-flag flag-ok">OK</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">Elementor Pro</div>
+        <div class="tech-status">v3.22.2 + Hello Theme</div>
+        <span class="tech-flag flag-warn">Pesado</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">Jet Engine</div>
+        <div class="tech-status">PATH: "jet-engine-<strong>desativada</strong>"</div>
+        <span class="tech-flag flag-err">⚠ Atenção</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">Jet Popup</div>
+        <div class="tech-status">v2.0.4 ativo</div>
+        <span class="tech-flag flag-warn">Verificar</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">Happy Addons</div>
+        <div class="tech-status">v3.12.1</div>
+        <span class="tech-flag flag-warn">Peso extra</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">GTM</div>
+        <div class="tech-status">2 containers: GTM-W8LKBRD + GTM-T23ZJ7L6</div>
+        <span class="tech-flag flag-err">Duplicado!</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">Google Ads</div>
+        <div class="tech-status">AW-613814020 ativo</div>
+        <span class="tech-flag flag-ok">Configurado</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">WPForms Lite</div>
+        <div class="tech-status">Para currículo</div>
+        <span class="tech-flag flag-ok">OK</span>
+      </div>
+    </div>
+
+    <!-- Problemas críticos -->
+    <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin-bottom:16px;">Problemas Identificados</h3>
+    <div class="issues-grid">
+      <div class="issue">
+        <div class="issue-severity sev-critical"></div>
+        <div style="flex-shrink:0;padding-top:2px;"><span class="issue-tag tag-c">Crítico</span></div>
+        <div class="issue-body">
+          <div class="issue-title">Dois containers GTM disparando simultaneamente</div>
+          <div class="issue-desc">GTM-W8LKBRD e GTM-T23ZJ7L6 estão ambos instalados no head. Isso causa duplicação de eventos de conversão, dados corrompidos no GA4, custos inflados no Google Ads e tags disparando em dobro. O custo por agendamento reportado pode estar com erro de até 50%.</div>
+          <div class="issue-fix">Remover um dos containers. Manter apenas o primário. Verificar quais tags estão em qual container e consolidar.</div>
+        </div>
+      </div>
+      <div class="issue">
+        <div class="issue-severity sev-critical"></div>
+        <div style="flex-shrink:0;padding-top:2px;"><span class="issue-tag tag-c">Crítico</span></div>
+        <div class="issue-body">
+          <div class="issue-title">Plugin Jet Engine com path "desativada" mas carregando ativos CSS/JS</div>
+          <div class="issue-desc">O path do plugin é <code style="background:var(--surface3);padding:1px 4px;border-radius:3px;font-size:11px;">/jet-engine-desativada/</code> — indica plugin renomeado ou versão desativada que ainda está gerando requisições. Pode causar erros de performance, conflitos e falhas silenciosas nas listagens de exames e banners.</div>
+          <div class="issue-fix">Verificar qual versão está ativa. Reinstalar o Jet Engine limpo ou substituir pela versão oficial. Testar todas as listagens dinâmicas.</div>
+        </div>
+      </div>
+      <div class="issue">
+        <div class="issue-severity sev-high"></div>
+        <div style="flex-shrink:0;padding-top:2px;"><span class="issue-tag tag-h">Alto</span></div>
+        <div class="issue-body">
+          <div class="issue-title">Nenhum Schema Markup implementado</div>
+          <div class="issue-desc">O site não possui nenhum structured data (JSON-LD). Sem LocalBusiness schema por unidade, sem MedicalOrganization, sem FAQPage schema (apesar de ter página de FAQ), sem BreadcrumbList. Isso impede rich snippets nos resultados do Google e reduz CTR orgânico em até 30%.</div>
+          <div class="issue-fix">Implementar LocalBusiness com endereço, telefone, horário por unidade + FAQPage na página de perguntas + MedicalOrganization no home.</div>
+        </div>
+      </div>
+      <div class="issue">
+        <div class="issue-severity sev-high"></div>
+        <div style="flex-shrink:0;padding-top:2px;"><span class="issue-tag tag-h">Alto</span></div>
+        <div class="issue-body">
+          <div class="issue-title">Ausência de landing pages por unidade e por exame</div>
+          <div class="issue-desc">O menu tem apenas uma página genérica de "Unidades". Não existe uma URL dedicada como <code style="background:var(--surface3);padding:1px 4px;border-radius:3px;font-size:11px;">/bangu</code>, <code style="background:var(--surface3);padding:1px 4px;border-radius:3px;font-size:11px;">/campo-grande</code> ou <code style="background:var(--surface3);padding:1px 4px;border-radius:3px;font-size:11px;">/mamografia-bangu</code>. Essas são as páginas que ranqueiam localmente no Google. Sem elas, campanhas pagas não têm destino relevante e o SEO local é zero.</div>
+          <div class="issue-fix">Criar 7 landing pages de unidade + páginas de exames principais (mamografia, USG, raio-x) com conteúdo otimizado para bairro + exame.</div>
+        </div>
+      </div>
+      <div class="issue">
+        <div class="issue-severity sev-high"></div>
+        <div style="flex-shrink:0;padding-top:2px;"><span class="issue-tag tag-h">Alto</span></div>
+        <div class="issue-body">
+          <div class="issue-title">Popup de "WhatsApp temporário" ainda ativo no site</div>
+          <div class="issue-desc">Há um popup (elementor-338) ainda disparando com mensagem sobre número de WhatsApp temporário e aviso de "problema" no número principal. Esse popup foi claramente criado para uma situação de crise pontual e nunca foi removido. Transmite insegurança e confunde novos pacientes.</div>
+          <div class="issue-fix">Remover o popup imediatamente. Verificar se o número correto (21 98458-5548) está funcionando e atualizar todos os botões.</div>
+        </div>
+      </div>
+      <div class="issue">
+        <div class="issue-severity sev-medium"></div>
+        <div style="flex-shrink:0;padding-top:2px;"><span class="issue-tag tag-m">Médio</span></div>
+        <div class="issue-body">
+          <div class="issue-title">Title tag genérico e sem meta description</div>
+          <div class="issue-desc">O título da página home é apenas "Bandeirantes diagnósticos" — sem cidade, sem especialidade, sem diferencial. Nenhuma meta description foi encontrada no HTML. Isso reduz drasticamente o CTR no Google e deixa o snippet padrão sem controle.</div>
+          <div class="issue-fix">Definir title: "Bandeirantes Diagnósticos | Exames e Imagem no Rio de Janeiro" + meta description de 150 chars com diferencial e CTA.</div>
+        </div>
+      </div>
+      <div class="issue">
+        <div class="issue-severity sev-medium"></div>
+        <div style="flex-shrink:0;padding-top:2px;"><span class="issue-tag tag-m">Médio</span></div>
+        <div class="issue-body">
+          <div class="issue-title">Performance pesada — Elementor + 5 plugins adicionais</div>
+          <div class="issue-desc">O stack atual carrega: Elementor Pro + Hello Theme + Jet Engine + Jet Popup + Happy Addons Pro + WPForms + Swiper + jQuery. Isso gera dezenas de requisições CSS/JS desnecessárias no load. Em conexão 4G suburbana (perfil do paciente da Bandeirantes), o site provavelmente leva 4-6s para carregar — acima do threshold de abandono.</div>
+          <div class="issue-fix">Implementar caching (WP Rocket ou Perfmatters), lazy load em imagens, remover plugins não essenciais e minificar assets.</div>
+        </div>
+      </div>
+      <div class="issue">
+        <div class="issue-severity sev-medium"></div>
+        <div style="flex-shrink:0;padding-top:2px;"><span class="issue-tag tag-m">Médio</span></div>
+        <div class="issue-body">
+          <div class="issue-title">Conteúdo do site é exclusivamente institucional — zero SEO de conteúdo</div>
+          <div class="issue-desc">Não há blog, artigos ou conteúdo de texto substancial. O site depende 100% de tráfego pago e direto. Sem conteúdo, o site nunca ranqueará para buscas como "como fazer mamografia", "o que é ultrassom transvaginal" ou "exames de rotina no Rio de Janeiro" — termos que trazem pacientes qualificados de graça.</div>
+          <div class="issue-fix">Criar seção de blog/conteúdo com 1 artigo por mês por exame principal, otimizado para bairro + procedimento.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- O que está bom -->
+    <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin:28px 0 16px;">O que está bem</h3>
+    <div class="goods-grid">
+      <div class="good-item">GTM instalado com pixel de conversão do Google Ads ativo (AW-613814020)</div>
+      <div class="good-item">WordPress atualizado (v6.9.4) — sem risco de vulnerabilidades antigas</div>
+      <div class="good-item">CTAs visíveis: "Agende agora", "Entrega Resultado" e "Acessar Clube" no header</div>
+      <div class="good-item">Carousel de convênios com 17 logos — social proof visual eficiente</div>
+      <div class="good-item">WhatsApp e telefone acessíveis no footer e popups de contato</div>
+      <div class="good-item">Seção do Clube de Benefícios bem estruturada com 8 cards de serviços</div>
+      <div class="good-item">Canonical tag presente — sem risco de conteúdo duplicado</div>
+      <div class="good-item">Google Fonts carregando com display=swap — evita FOUT no render</div>
+    </div>
+  </div>
+</div>
+
+<!-- SEÇÃO 2 — SEO -->
+<div class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-icon" style="background:rgba(255,71,87,.1);">🔍</div>
+        <div class="section-title">Diagnóstico de SEO</div>
+        <div class="section-desc">SEO técnico, on-page e local para a rede de 7 unidades</div>
+      </div>
+      <div class="score-badge badge-red">3.1/10</div>
+    </div>
+
+    <div class="critbox"><strong>Diagnóstico central:</strong> A Bandeirantes tem presença de SEO quase nula. O site não possui estrutura de palavras-chave, não tem conteúdo indexável relevante, não tem links internos estratégicos e não possui nenhuma otimização local por bairro. Uma busca por "exame em Bangu" ou "mamografia Campo Grande" provavelmente não retorna a Bandeirantes na primeira página orgânica.</div>
+
+    <div class="two-col" style="margin:24px 0;">
+      <div>
+        <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin-bottom:16px;">Problemas SEO Técnico</h3>
+        <div class="issues-grid">
+          <div class="issue" style="padding:14px 16px;">
+            <div class="issue-severity sev-critical"></div>
+            <div style="flex-shrink:0;"><span class="issue-tag tag-c">Crítico</span></div>
+            <div class="issue-body">
+              <div class="issue-title">Zero Schema LocalBusiness por unidade</div>
+              <div class="issue-desc">7 endereços diferentes sem structured data. O Google não consegue exibir endereços, horários e telefones como rich snippets.</div>
+            </div>
+          </div>
+          <div class="issue" style="padding:14px 16px;">
+            <div class="issue-severity sev-critical"></div>
+            <div style="flex-shrink:0;"><span class="issue-tag tag-c">Crítico</span></div>
+            <div class="issue-body">
+              <div class="issue-title">Sem páginas de destino por bairro</div>
+              <div class="issue-desc">Google não indexa uma "Bandeirantes em Bangu" separada de "Bandeirantes em Madureira". SEO local impossível sem URLs dedicadas.</div>
+            </div>
+          </div>
+          <div class="issue" style="padding:14px 16px;">
+            <div class="issue-severity sev-high"></div>
+            <div style="flex-shrink:0;"><span class="issue-tag tag-h">Alto</span></div>
+            <div class="issue-body">
+              <div class="issue-title">Meta description ausente no home</div>
+              <div class="issue-desc">Google gera automaticamente snippet genérico. CTR no orgânico reduzido em até 40% sem meta description controlada.</div>
+            </div>
+          </div>
+          <div class="issue" style="padding:14px 16px;">
+            <div class="issue-severity sev-high"></div>
+            <div style="flex-shrink:0;"><span class="issue-tag tag-h">Alto</span></div>
+            <div class="issue-body">
+              <div class="issue-title">Sem blog / conteúdo indexável</div>
+              <div class="issue-desc">100% de dependência de tráfego pago. Sem conteúdo, o domínio não ganha autoridade e não aparece em buscas informacionais.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin-bottom:16px;">Oportunidades de Palavras-chave</h3>
+        <table class="priority-table">
+          <thead>
+            <tr>
+              <th>Palavra-chave</th>
+              <th>Intenção</th>
+              <th>Impacto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>mamografia Bangu / Campo Grande</td>
+              <td style="color:var(--muted2)">Transacional</td>
+              <td><span class="impact impact-h">Alto</span></td>
+            </tr>
+            <tr>
+              <td>ultrassom barato Rio de Janeiro</td>
+              <td style="color:var(--muted2)">Transacional</td>
+              <td><span class="impact impact-h">Alto</span></td>
+            </tr>
+            <tr>
+              <td>exames de imagem Madureira</td>
+              <td style="color:var(--muted2)">Local</td>
+              <td><span class="impact impact-h">Alto</span></td>
+            </tr>
+            <tr>
+              <td>clínica popular Zona Oeste RJ</td>
+              <td style="color:var(--muted2)">Local</td>
+              <td><span class="impact impact-h">Alto</span></td>
+            </tr>
+            <tr>
+              <td>endoscopia preço popular RJ</td>
+              <td style="color:var(--muted2)">Transacional</td>
+              <td><span class="impact impact-m">Médio</span></td>
+            </tr>
+            <tr>
+              <td>como fazer ultrassom transvaginal</td>
+              <td style="color:var(--muted2)">Informacional</td>
+              <td><span class="impact impact-m">Médio</span></td>
+            </tr>
+            <tr>
+              <td>raio x sem convênio Rio</td>
+              <td style="color:var(--muted2)">Transacional</td>
+              <td><span class="impact impact-m">Médio</span></td>
+            </tr>
+            <tr>
+              <td>club saúde particular mensalidade</td>
+              <td style="color:var(--muted2)">Informacional</td>
+              <td><span class="impact impact-l">Potencial</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin-bottom:16px;">Plano de Arquitetura de Conteúdo Recomendada</h3>
+    <div class="infobox">
+      <strong>Estrutura de URLs sugerida para dominância local:</strong><br>
+      <code style="font-size:12px;line-height:2;">/bangu · /madureira · /campo-grande · /bonsucesso · /taquara</code> (páginas de unidade)<br>
+      <code style="font-size:12px;line-height:2;">/exames/mamografia · /exames/ultrassonografia · /exames/raio-x · /exames/endoscopia</code> (páginas de exame)<br>
+      <code style="font-size:12px;line-height:2;">/blog/como-agendar-mamografia-bangu · /blog/ultrassom-transvaginal-o-que-e</code> (conteúdo)
+    </div>
+  </div>
+</div>
+
+<!-- SEÇÃO 3 — GMB -->
+<div class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-icon" style="background:rgba(255,71,87,.1);">📍</div>
+        <div class="section-title">Google Meu Negócio</div>
+        <div class="section-desc">7 unidades — diagnóstico presumido com base nos dados disponíveis</div>
+      </div>
+      <div class="score-badge badge-red">2.4/10</div>
+    </div>
+
+    <div class="critbox"><strong>Diagnóstico central:</strong> O Google Meu Negócio é o canal de maior ROI para clínicas populares locais. Uma unidade bem otimizada no GMB aparece ACIMA dos anúncios pagos para buscas com intenção de visita. A Bandeirantes tem 7 unidades em posições geográficas privilegiadas e não explora isso de forma estruturada.</div>
+
+    <div class="gmb-grid" style="margin-top:24px;margin-bottom:28px;">
+      <div class="gmb-card">
+        <div class="gmb-unit">Bangu</div>
+        <div class="gmb-addr">Rua Doze de Fevereiro, 282</div>
+        <div class="gmb-checks">
+          <div class="gmb-check"><div class="dot-warn"></div>Perfil provavelmente existe mas não otimizado</div>
+          <div class="gmb-check"><div class="dot-err"></div>Sem posts regulares no GMB</div>
+          <div class="gmb-check"><div class="dot-err"></div>Sem estratégia de coleta de avaliações</div>
+          <div class="gmb-check"><div class="dot-err"></div>Fotos provavelmente básicas/genéricas</div>
+          <div class="gmb-check"><div class="dot-err"></div>Atributos de acessibilidade não preenchidos</div>
+        </div>
+      </div>
+      <div class="gmb-card">
+        <div class="gmb-unit">Madureira I</div>
+        <div class="gmb-addr">Estrada do Portela, 99</div>
+        <div class="gmb-checks">
+          <div class="gmb-check"><div class="dot-warn"></div>Perfil provavelmente existe mas não otimizado</div>
+          <div class="gmb-check"><div class="dot-err"></div>Sem posts regulares no GMB</div>
+          <div class="gmb-check"><div class="dot-err"></div>Descrição da empresa provavelmente genérica</div>
+          <div class="gmb-check"><div class="dot-err"></div>Horários podem estar desatualizados</div>
+          <div class="gmb-check"><div class="dot-err"></div>Sem Q&A gerenciado</div>
+        </div>
+      </div>
+      <div class="gmb-card">
+        <div class="gmb-unit">Madureira II</div>
+        <div class="gmb-addr">Rua Carolina Machado, 560</div>
+        <div class="gmb-checks">
+          <div class="gmb-check"><div class="dot-err"></div>Pode não ter perfil próprio ativo</div>
+          <div class="gmb-check"><div class="dot-err"></div>Confusão com Madureira I no Google</div>
+          <div class="gmb-check"><div class="dot-err"></div>Sem diferenciação de serviços entre as duas</div>
+        </div>
+      </div>
+      <div class="gmb-card">
+        <div class="gmb-unit">Campo Grande I</div>
+        <div class="gmb-addr">Av. Cesário de Melo, 2839</div>
+        <div class="gmb-checks">
+          <div class="gmb-check"><div class="dot-warn"></div>Perfil provavelmente existe</div>
+          <div class="gmb-check"><div class="dot-err"></div>Av. Cesário é altamente competitiva — sem ranqueamento estruturado</div>
+          <div class="gmb-check"><div class="dot-err"></div>Sem posts sazonais (campanhas Outubro Rosa, etc)</div>
+        </div>
+      </div>
+      <div class="gmb-card">
+        <div class="gmb-unit">Campo Grande II</div>
+        <div class="gmb-addr">Rua Coronel Agostinho, 76</div>
+        <div class="gmb-checks">
+          <div class="gmb-check"><div class="dot-err"></div>Calçadão — alto tráfego físico não convertido em avaliações</div>
+          <div class="gmb-check"><div class="dot-err"></div>Sem integração WhatsApp no GMB</div>
+          <div class="gmb-check"><div class="dot-err"></div>Provavelmente sem fotos do interior</div>
+        </div>
+      </div>
+      <div class="gmb-card">
+        <div class="gmb-unit">Bonsucesso</div>
+        <div class="gmb-addr">Rua Cardoso de Morais, 218</div>
+        <div class="gmb-checks">
+          <div class="gmb-check"><div class="dot-warn"></div>Bonsucesso tem alta densidade de clínicas concorrentes</div>
+          <div class="gmb-check"><div class="dot-err"></div>Sem destaque de exames diferenciados (endoscopia)</div>
+          <div class="gmb-check"><div class="dot-err"></div>Sem resposta sistemática a avaliações</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin-bottom:16px;">O que precisa ser feito em cada perfil GMB</h3>
+    <div class="issues-grid">
+      <div class="issue">
+        <div class="issue-severity sev-critical"></div>
+        <div><span class="issue-tag tag-c">Crítico</span></div>
+        <div class="issue-body">
+          <div class="issue-title">Descrição estratégica com palavras-chave locais</div>
+          <div class="issue-desc">A descrição padrão do GMB deve incluir: nome do bairro, exames principais, modalidades de pagamento, convênios aceitos e diferenciais. "Clínica de diagnóstico por imagem em Bangu, Rio de Janeiro. Raio-X a partir de R$75, ultrassonografia, mamografia digital. Convênios e particular."</div>
+        </div>
+      </div>
+      <div class="issue">
+        <div class="issue-severity sev-critical"></div>
+        <div><span class="issue-tag tag-c">Crítico</span></div>
+        <div class="issue-body">
+          <div class="issue-title">Estratégia de coleta de avaliações (meta: 4.8+)</div>
+          <div class="issue-desc">A meta mínima para aparecer no "pacote local" do Google é 4.5+ com volume. A Bandeirantes atende centenas de pacientes por semana — com um script simples de pedido pós-atendimento via WhatsApp, poderia acumular 50+ avaliações por mês por unidade. Isso é ouro para SEO local.</div>
+          <div class="issue-fix">Implementar fluxo automático pós-atendimento: "Como foi sua experiência? Deixe sua avaliação → [link]". Responder TODAS as avaliações existentes.</div>
+        </div>
+      </div>
+      <div class="issue">
+        <div class="issue-severity sev-high"></div>
+        <div><span class="issue-tag tag-h">Alto</span></div>
+        <div class="issue-body">
+          <div class="issue-title">Posts semanais no GMB por unidade</div>
+          <div class="issue-desc">O Google Meu Negócio tem uma função de "Posts" (equivalente ao Instagram do Google) que influencia diretamente o ranqueamento local. Nenhuma unidade está usando. 1 post por semana com CTA de agendamento seria suficiente para ganhar posições no mapa.</div>
+          <div class="issue-fix">Criar calendário de posts GMB: promoções de exames, campanhas de saúde (Outubro Rosa, etc.), novos serviços.</div>
+        </div>
+      </div>
+      <div class="issue">
+        <div class="issue-severity sev-high"></div>
+        <div><span class="issue-tag tag-h">Alto</span></div>
+        <div class="issue-body">
+          <div class="issue-title">Fotos profissionais da estrutura física</div>
+          <div class="issue-desc">Perfis com 10+ fotos de qualidade convertem 42% mais cliques do que perfis com fotos genéricas. As fotos devem mostrar: fachada, recepção, salas de exame, equipamentos. Para uma clínica de diagnóstico por imagem, mostrar o mamógrafo e o equipamento de USG é argumento de conversão direto.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEÇÃO 4 — INSTAGRAM -->
+<div class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-icon" style="background:rgba(255,217,61,.1);">📱</div>
+        <div class="section-title">Diagnóstico do Instagram</div>
+        <div class="section-desc">@bandeirantesdiagnosticos · 3.334 seguidores · 495 posts</div>
+      </div>
+      <div class="score-badge badge-yellow">5.2/10</div>
+    </div>
+
+    <div class="ig-grid" style="margin-bottom:28px;">
+      <div class="ig-stats">
+        <div class="ig-stat">
+          <div class="n orange">3.334</div>
+          <div class="l">Seguidores</div>
+        </div>
+        <div class="ig-stat">
+          <div class="n" style="font-family:'Outfit',sans-serif;font-size:28px;font-weight:800;color:var(--white);">495</div>
+          <div class="l">Posts publicados</div>
+        </div>
+        <div class="ig-stat">
+          <div class="n" style="font-family:'Outfit',sans-serif;font-size:28px;font-weight:800;color:var(--white);">638</div>
+          <div class="l">Contas seguidas</div>
+        </div>
+        <div class="ig-stat">
+          <div class="n red">~0,3%</div>
+          <div class="l">Taxa de engajamento estimada</div>
+        </div>
+        <div class="ig-stat">
+          <div class="n green">4</div>
+          <div class="l">Story Highlights configurados</div>
+        </div>
+      </div>
+      <div>
+        <div class="infobox" style="margin-bottom:16px;"><strong>Diagnóstico de postura:</strong> O Instagram da Bandeirantes tem o básico funcionando — identidade visual consistente (paleta teal/ciano), posts regulares e highlights organizados. O problema é a <strong>estratégia de crescimento</strong>: 495 posts para 3.334 seguidores em uma marca com 36 anos e 7 unidades é uma relação muito ruim. A conta opera como "quadro de avisos digital" e não como canal de captação.</div>
+        <div class="issues-grid">
+          <div class="issue" style="padding:12px 16px;">
+            <div class="issue-severity sev-critical"></div>
+            <div><span class="issue-tag tag-c">Crítico</span></div>
+            <div class="issue-body">
+              <div class="issue-title">Zero estratégia de Reels</div>
+              <div class="issue-desc">O grid visível não mostra Reels. No algoritmo atual do Instagram, Reels é o principal formato de alcance orgânico. Sem Reels, a conta cresce zero organicamente.</div>
+              <div class="issue-fix">Meta: 2 Reels por semana. Formato sugerido: "Você sabe o que é [exame]? Vem aqui na Bandeirantes em [bairro] fazer o seu."</div>
+            </div>
+          </div>
+          <div class="issue" style="padding:12px 16px;">
+            <div class="issue-severity sev-high"></div>
+            <div><span class="issue-tag tag-h">Alto</span></div>
+            <div class="issue-body">
+              <div class="issue-title">Sem conteúdo de prova social</div>
+              <div class="issue-desc">Não há depoimentos de pacientes, antes/depois (dentro do CFM), nem conteúdo de bastidores da equipe. 100% do conteúdo é institucional frio — sem humanização.</div>
+            </div>
+          </div>
+          <div class="issue" style="padding:12px 16px;">
+            <div class="issue-severity sev-high"></div>
+            <div><span class="issue-tag tag-h">Alto</span></div>
+            <div class="issue-body">
+              <div class="issue-title">Bio não converte — falta CTA direto</div>
+              <div class="issue-desc">A bio diz o que é a clínica, mas não direciona o visitante. Sem "Agende pelo link" ou "WhatsApp para agendamento" no topo da bio, o visitante não sabe o próximo passo.</div>
+            </div>
+          </div>
+          <div class="issue" style="padding:12px 16px;">
+            <div class="issue-severity sev-medium"></div>
+            <div><span class="issue-tag tag-m">Médio</span></div>
+            <div class="issue-body">
+              <div class="issue-title">Uma conta para 7 unidades — sem segmentação local</div>
+              <div class="issue-desc">Todos os posts falam da "Bandeirantes" genericamente. Paciente de Taquara não se identifica com post sobre Madureira. Geotags e menções de bairro aumentariam relevância e alcance local.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin-bottom:16px;">O que está bem no Instagram</h3>
+    <div class="goods-grid">
+      <div class="good-item">Identidade visual consistente com paleta teal/ciano em todos os posts</div>
+      <div class="good-item">4 Story Highlights organizados: Exames, Unidades, Agendamento, Fale Conosco</div>
+      <div class="good-item">Publicação de horários de feriados — informação útil e prática para seguidores</div>
+      <div class="good-item">Conteúdo educativo sobre exames (ecocardiograma, USG) — boa estratégia base</div>
+      <div class="good-item">Clube de Benefícios sendo divulgado — produto certo no canal certo</div>
+      <div class="good-item">Link na bio apontando para o site oficial</div>
+    </div>
+
+    <div class="infobox" style="margin-top:24px;"><strong>Comparativo de contexto:</strong> Uma clínica popular com 36 anos, 7 unidades físicas e fluxo estimado de 500+ pacientes por semana deveria ter entre 15.000 e 30.000 seguidores no Instagram. Os 3.334 atuais representam menos de 2% do potencial real. Com uma estratégia de Reels + conteúdo local + coleta ativa de seguidores pós-atendimento, chegar a 10.000 seguidores em 6 meses é completamente factível.</div>
+  </div>
+</div>
+
+<!-- SEÇÃO 5 — PRESENÇA DIGITAL GERAL -->
+<div class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-icon" style="background:rgba(78,205,196,.1);">🗺</div>
+        <div class="section-title">Presença Digital Geral</div>
+        <div class="section-desc">WhatsApp, tráfego pago, reputação online e canais complementares</div>
+      </div>
+    </div>
+
+    <div class="three-col" style="margin-bottom:28px;">
+      <div class="stat-card">
+        <div class="num orange" style="font-family:'Outfit',sans-serif;font-size:28px;font-weight:800;">WhatsApp</div>
+        <div class="lbl">Canal principal de contato</div>
+        <div class="desc">Número (21) 98458-5548 bem divulgado no site e redes. <strong style="color:var(--yellow);">Porém sem CRM/funil.</strong> Cada contato que não agenda é perdido para sempre — sem follow-up automatizado.</div>
+      </div>
+      <div class="stat-card">
+        <div class="num red" style="font-family:'Outfit',sans-serif;font-size:28px;font-weight:800;">Google Ads</div>
+        <div class="lbl">Tráfego pago ativo</div>
+        <div class="desc">Pixel de conversão configurado (AW-613814020). Mas sem landing pages por unidade, os anúncios provavelmente mandam tráfego para a home genérica — perdendo performance e elevando o CPC.</div>
+      </div>
+      <div class="stat-card">
+        <div class="num yellow" style="font-family:'Outfit',sans-serif;font-size:28px;font-weight:800;">Doctoralia</div>
+        <div class="lbl">Diretório médico terceiro</div>
+        <div class="desc">A rede é indexada via perfis de médicos parceiros (ex: Dra. Ana Flávia). Isso gera tráfego secundário sem custo, mas a Bandeirantes não controla a narrativa nesses perfis.</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin-bottom:12px;">Canais ausentes / subexplorados</h3>
+        <div class="issues-grid">
+          <div class="issue" style="padding:12px 16px;">
+            <div class="issue-severity sev-high"></div>
+            <div><span class="issue-tag tag-h">Alto</span></div>
+            <div class="issue-body">
+              <div class="issue-title">YouTube — zero presença</div>
+              <div class="issue-desc">Videos de 60-90s explicando exames ranqueiam no Google com facilidade e trazem tráfego orgânico por anos. "Como funciona a mamografia digital" filmado na própria clínica é conteúdo de baixo custo e alto retorno.</div>
+            </div>
+          </div>
+          <div class="issue" style="padding:12px 16px;">
+            <div class="issue-severity sev-medium"></div>
+            <div><span class="issue-tag tag-m">Médio</span></div>
+            <div class="issue-body">
+              <div class="issue-title">Facebook — oportunidade para público 40+</div>
+              <div class="issue-desc">O perfil demográfico dos pacientes da Bandeirantes (40-65 anos, periferia do RJ) usa Facebook mais do que Instagram. A presença no Facebook pode estar desatualizada ou inexistente.</div>
+            </div>
+          </div>
+          <div class="issue" style="padding:12px 16px;">
+            <div class="issue-severity sev-medium"></div>
+            <div><span class="issue-tag tag-m">Médio</span></div>
+            <div class="issue-body">
+              <div class="issue-title">E-mail / SMS marketing — base de pacientes inexplorada</div>
+              <div class="issue-desc">A Bandeirantes tem uma base de pacientes acumulada de anos. Sem um sistema de reativação (lembrete anual de mamografia, SMS de check-up), essa base está dormindo. O Clube de Benefícios seria o produto perfeito para essa base.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin-bottom:12px;">Reputação Online</h3>
+        <div class="warnbox">
+          <strong>Ponto de atenção:</strong> Um popup ainda ativo no site avisando sobre "problemas no WhatsApp" e número temporário indica gestão reativa da comunicação de crise. Isso afeta percepção de confiabilidade para novos visitantes.
+        </div>
+        <div class="warnbox" style="margin-top:12px;">
+          <strong>Sem gestão ativa de reviews:</strong> Com 7 unidades atendendo centenas de pacientes por semana, a rede acumula avaliações de forma passiva — e provavelmente inclui reclamações não respondidas no Google e no Reclame Aqui. Cada avaliação negativa sem resposta equivale a uma rejeição pública.
+        </div>
+        <div class="infobox" style="margin-top:12px;">
+          <strong>Oportunidade:</strong> O site já tem a seção "Trabalhe conosco" com formulário funcionando — isso é positivo para employer branding e recrutamento de técnicos locais.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEÇÃO 6 — ROADMAP -->
+<div class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-icon" style="background:rgba(0,229,160,.1);">🚀</div>
+        <div class="section-title">Roadmap de Ações Prioritárias</div>
+        <div class="section-desc">O que fazer, em que ordem, e qual impacto esperado</div>
+      </div>
+    </div>
+
+    <div class="roadmap">
+      <div class="rm-phase">
+        <div class="rm-num">Semana 1</div>
+        <div>
+          <div class="rm-title">🔴 Correções Críticas — sem essas, todo o resto perde eficácia</div>
+          <div class="rm-items">
+            <div class="rm-item">Remover container GTM duplicado — dados de conversão estão corrompidos agora <span class="rm-impact">Urgente</span></div>
+            <div class="rm-item">Remover popup de "WhatsApp temporário" ainda ativo no site</div>
+            <div class="rm-item">Verificar e corrigir o Jet Engine desativado gerando requisições</div>
+            <div class="rm-item">Atualizar title tag e adicionar meta descriptions em todas as páginas principais</div>
+          </div>
+        </div>
+      </div>
+      <div class="rm-phase">
+        <div class="rm-num">Semanas 2–4</div>
+        <div>
+          <div class="rm-title">🟠 Fundação Digital — estrutura que sustenta tudo</div>
+          <div class="rm-items">
+            <div class="rm-item">Criar 7 landing pages de unidade com nome, endereço, horário, exames e CTA local <span class="rm-impact">SEO Local</span></div>
+            <div class="rm-item">Implementar Schema LocalBusiness em todas as páginas de unidade</div>
+            <div class="rm-item">Otimizar os 7 perfis do Google Meu Negócio — descrição, fotos, atributos, horários</div>
+            <div class="rm-item">Ativar CRM Bolten com funil de WhatsApp por unidade — nenhum lead perdido</div>
+            <div class="rm-item">Consolidar campanhas Google Ads apontando para landing pages específicas por unidade</div>
+          </div>
+        </div>
+      </div>
+      <div class="rm-phase">
+        <div class="rm-num">Mês 2</div>
+        <div>
+          <div class="rm-title">🟡 Crescimento de Autoridade — tráfego orgânico e social</div>
+          <div class="rm-items">
+            <div class="rm-item">Lançar estratégia de Reels: 2 por semana, formato educativo + local <span class="rm-impact">Instagram</span></div>
+            <div class="rm-item">Ativar fluxo automático pós-atendimento pedindo avaliação no GMB</div>
+            <div class="rm-item">Publicar primeiros 4 artigos de blog otimizados (1 por exame principal)</div>
+            <div class="rm-item">Implementar FAQ Schema na página de perguntas frequentes</div>
+            <div class="rm-item">Criar rotina de posts semanais no GMB (1 por semana, com foto e CTA)</div>
+          </div>
+        </div>
+      </div>
+      <div class="rm-phase">
+        <div class="rm-num">Mês 3+</div>
+        <div>
+          <div class="rm-title">🟢 Escala e Recorrência — resultados compostos</div>
+          <div class="rm-items">
+            <div class="rm-item">Lançar campanha de reativação de base via SMS/WhatsApp para o Clube de Benefícios <span class="rm-impact">Recorrência</span></div>
+            <div class="rm-item">Criar canal YouTube com vídeos de exames para SEO de busca + Google</div>
+            <div class="rm-item">Dashboard consolidado: CAP, ROI, volume e avaliações por unidade em tempo real</div>
+            <div class="rm-item">Expandir estrutura de landing pages + conteúdo para as 7 unidades completas</div>
+            <div class="rm-item">Meta: 100+ avaliações por unidade no GMB com média 4.7+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEÇÃO 7 — RESUMO EXECUTIVO -->
+<div class="section" style="background:var(--surface);border-top:1px solid var(--border2);">
+  <div class="container">
+    <h2 style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;margin-bottom:24px;">Resumo Executivo</h2>
+    <div class="two-col">
+      <div>
+        <div class="divider"></div>
+        <p style="font-size:14px;color:var(--muted2);line-height:1.8;margin-bottom:16px;">A Bandeirantes Diagnósticos tem um negócio real, sólido e de alto volume. O problema não é o negócio — é que o digital está 5 anos atrasado em relação à operação física. A presença online atual serve apenas quem já conhece a marca. Não capta ninguém novo.</p>
+        <p style="font-size:14px;color:var(--muted2);line-height:1.8;margin-bottom:16px;">O maior gap está no SEO local. Com 7 unidades em posições geográficas de alto tráfego — Bangu, Madureira, Campo Grande, Bonsucesso, Taquara — a rede deveria dominar as buscas locais por exame em cada bairro. Não domina porque não tem páginas, não tem schema e não tem conteúdo.</p>
+        <p style="font-size:14px;color:var(--muted2);line-height:1.8;">O segundo gap é o WhatsApp sem CRM. Centenas de contatos por semana entram e saem sem rastreamento. Leads que não agendaram na primeira conversa somem para sempre. Isso é receita que existe mas não é coletada.</p>
+      </div>
+      <div>
+        <div class="stat-card" style="margin-bottom:16px;border-color:rgba(255,71,87,.15);">
+          <div style="font-size:13px;font-weight:600;color:var(--red);margin-bottom:12px;">⚠ Problemas Críticos (ação imediata)</div>
+          <div style="font-size:13px;color:var(--muted2);line-height:1.8;">GTM duplicado · popup de crise ativo · Jet Engine com path quebrado · zero Schema · zero landing pages locais</div>
+        </div>
+        <div class="stat-card" style="margin-bottom:16px;border-color:rgba(255,107,53,.15);">
+          <div style="font-size:13px;font-weight:600;color:var(--orange);margin-bottom:12px;">🔨 Fundação necessária (mês 1)</div>
+          <div style="font-size:13px;color:var(--muted2);line-height:1.8;">7 landing pages de unidade · 7 GMBs otimizados · CRM no WhatsApp · campanhas apontando para destinos corretos</div>
+        </div>
+        <div class="stat-card" style="border-color:rgba(0,229,160,.15);">
+          <div style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:12px;">📈 Resultado esperado (90 dias)</div>
+          <div style="font-size:13px;color:var(--muted2);line-height:1.8;">CAP reduzido em 55-60% · GMB top 3 em pelo menos 3 bairros · 500+ avaliações novas coletadas · Reels crescendo seguidores organicamente</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="report-footer">
+  <div class="container">
+    <p>Diagnóstico elaborado por <strong>Clintia · Programa PROClip</strong> · Abril 2025</p>
+    <p style="margin-top:6px;">Este documento é confidencial e destinado exclusivamente à RX Bandeirantes Serviços Radiológicos Ltda.</p>
+  </div>
+</div>
+
+</body>
+</html>
