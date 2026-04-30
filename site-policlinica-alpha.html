@@ -23,7 +23,7 @@
 <meta property="og:url" content="https://alphapoliclinica.com.br/">
 <meta property="og:title" content="Clínica Popular em Jaguaribe, João Pessoa | Alpha Policlínica">
 <meta property="og:description" content="A clínica popular mais rápida da região. 15+ especialidades, exames completos e ressonância de campo aberto. Agende agora via WhatsApp.">
-<meta property="og:image" content="https://i.imgur.com/WaP7COt.jpeg">
+<meta property="og:image" content="https://res.cloudinary.com/dwiyrcjah/image/upload/c_fill,g_auto,w_1200,h_630/f_auto/q_auto/hero-atendimento">
 <meta property="og:site_name" content="Alpha Policlínica">
 
 <!-- Favicon -->
@@ -47,7 +47,7 @@
   "description": "Clínica popular em João Pessoa com mais de 15 especialidades médicas, exames de imagem, laboratoriais e exames para concursos públicos.",
   "url": "https://alphapoliclinica.com.br/",
   "logo": "https://alphapoliclinica.com.br/wp-content/uploads/2024/12/logo-verde.svg",
-  "image": "https://i.imgur.com/WaP7COt.jpeg",
+  "image": "https://res.cloudinary.com/dwiyrcjah/image/upload/c_fill,g_auto,w_1200,h_630/f_auto/q_auto/hero-atendimento",
   "telephone": "+55-83-99314-9477",
   "priceRange": "$",
   "currenciesAccepted": "BRL",
@@ -272,8 +272,10 @@
   .hero-sub{font-size:clamp(15px, 2.5vw, 18px);line-height:1.6;color:var(--ink-500);max-width:560px;margin-bottom:24px;}
   .hero-sub strong{color:var(--ink-900); font-weight:700;}
 
-  /* Search Bar Component */
-  .hero-search { position: relative; margin-bottom: 32px; max-width: 500px; z-index: 10; }
+  /* ============================================
+     SEARCH BAR — VERSÃO AGRUPADA
+     ============================================ */
+  .hero-search { position: relative; margin-bottom: 32px; max-width: 540px; z-index: 10; }
   .search-input-wrapper { position: relative; display: flex; align-items: center; }
   .search-icon { position: absolute; left: 16px; color: var(--ink-400); width: 20px; height: 20px; }
   #quickSearch {
@@ -287,20 +289,45 @@
   .search-results {
     position: absolute; top: 100%; left: 0; right: 0; background: var(--white); 
     border-radius: var(--radius-md); box-shadow: var(--shadow-lg); margin-top: 8px; 
-    max-height: 280px; overflow-y: auto; display: none; flex-direction: column; 
+    max-height: 360px; overflow-y: auto; display: none; flex-direction: column; 
     padding: 8px; border: 1px solid var(--paper-2);
   }
   .search-results.active { display: flex; }
-  .search-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-radius: var(--radius-sm); transition: background 0.2s; }
+  .search-item { 
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    padding: 12px 14px; border-radius: var(--radius-sm); transition: background 0.2s; 
+  }
   .search-item:hover { background: var(--brand-50); }
-  .search-item span { font-weight: 600; color: var(--ink-900); font-size: 15px; }
+  .search-item-text { display:flex; flex-direction:column; gap:2px; min-width:0; flex:1; }
+  .search-item-title { 
+    font-weight: 700; color: var(--ink-900); font-size: 14px; 
+    display:flex; align-items:center; gap:8px;
+  }
+  .search-item-tag {
+    display:inline-block; font-size:10px; font-weight:800; letter-spacing:.05em;
+    text-transform:uppercase; color:var(--brand-700); background:var(--brand-50);
+    padding:2px 8px; border-radius:var(--radius-pill); white-space:nowrap;
+  }
+  .search-item-sub { 
+    font-size: 12px; color: var(--ink-500); line-height:1.4;
+    overflow:hidden; text-overflow:ellipsis; display:-webkit-box;
+    -webkit-line-clamp:1; -webkit-box-orient:vertical;
+  }
   .search-item .btn-agendar {
     background: #25D366; color: var(--white); padding: 8px 14px; border-radius: var(--radius-pill); 
     font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; 
-    text-decoration: none; transition: background 0.3s;
+    text-decoration: none; transition: background 0.3s; flex-shrink:0;
   }
   .search-item .btn-agendar:hover { background: #1ebd5a; }
   .search-item .btn-agendar svg { width: 14px; height: 14px; }
+
+  .search-empty {
+    padding: 20px 16px; text-align:center; color: var(--ink-500); font-size:13px;
+  }
+  .search-empty a {
+    display:inline-flex;align-items:center;gap:6px;
+    color:var(--brand-700); font-weight:700; margin-top:8px;
+  }
   
   .hero-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
   .hero-ctas .btn { padding: 12px 20px; font-size: 14px;}
@@ -750,11 +777,11 @@
           <h1>A sua Clínica Popular em Jaguaribe, <em>João Pessoa</em></h1>
           <p class="hero-sub">A clínica médica com o <strong>melhor preço, atendimento mais rápido e menor espera</strong> da região. Consultas em 15+ especialidades e laboratório completo sem filas.</p>
 
-          <!-- BUSCADOR INTELIGENTE -->
+          <!-- BUSCADOR INTELIGENTE (AGRUPADO) -->
           <div class="hero-search">
             <div class="search-input-wrapper">
               <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              <input type="text" id="quickSearch" placeholder="O que procura? Ex: Cardiologia, Raio-X..." autocomplete="off">
+              <input type="text" id="quickSearch" placeholder="Busque por consulta, exame ou concurso..." autocomplete="off">
             </div>
             <ul id="searchResults" class="search-results"></ul>
           </div>
@@ -771,7 +798,7 @@
         </div>
 
         <div class="hero-visual reveal delay-100">
-          <img src="https://i.imgur.com/WaP7COt.jpeg" alt="Atendimento Alpha Policlínica">
+          <img src="https://res.cloudinary.com/dwiyrcjah/image/upload/c_fill,g_auto,w_1000,h_1250/f_auto/q_auto/hero-atendimento" alt="Atendimento Alpha Policlínica" width="1000" height="1250" fetchpriority="high">
           <div class="hero-badge reveal delay-200">
             <div class="hero-badge-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -955,7 +982,7 @@
           </a>
         </div>
         <div class="reveal delay-200">
-          <img src="https://alphapoliclinica.com.br/wp-content/uploads/2024/11/consultorio2.png" alt="Candidatos realizando exames na Alpha" loading="lazy">
+          <img src="https://res.cloudinary.com/dwiyrcjah/image/upload/c_limit,w_800/f_auto/q_auto/consultorio-concursos" alt="Candidatos realizando exames na Alpha" width="800" height="572" loading="lazy">
         </div>
       </div>
 
@@ -1195,46 +1222,376 @@
   // Ano atual automático no rodapé
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Funcionalidade da Busca Inteligente
-  const searchInput = document.getElementById('quickSearch');
-  const searchResults = document.getElementById('searchResults');
-  const clinicaData = [
-    "Cardiologia", "Ginecologia", "Dermatologia", "Ortopedia", "Neurologia", "Oftalmologia",
-    "Urologia", "Endocrinologia", "Gastroenterologia", "Nutrição", "Pediatria", "Psiquiatria",
-    "Psicologia", "Geriatria", "Mastologia", "Otorrino", "Angiologia", "Reumatologia", "Obstetrícia",
-    "Proctologia", "Odontologia", "Exame Toxicológico",
-    "Laboratório completo", "Exame de Sangue", "Raio-X Digital", "Ultrassonografia", "Mamografia", "Ressonância Magnética",
-    "Ressonância de Campo Aberto", "Endoscopia Digestiva", "Colonoscopia", "Eletrocardiograma",
-    "Ecocardiograma", "Eletroencefalograma", "Eletroneuromiografia", "MAPA 24h", "Holter", "Doppler",
-    "Audiometria", "Espirometria", "Teste Ergométrico", "Risco Cirúrgico", "ASO", "Exame para Concurso"
+  /* ============================================================
+     BUSCA INTELIGENTE - VERSÃO AGRUPADA
+     Cada item representa um GRUPO de consultas/exames.
+     Os "keywords" ajudam o usuário a encontrar pelo nome popular
+     OU pelo nome técnico do exame específico que ele procura.
+     ============================================================ */
+  const grupos = [
+    // ===== CONSULTAS =====
+    {
+      titulo: "Consultas Médicas",
+      tag: "Consultas",
+      descricao: "Cardiologia, Ginecologia, Ortopedia, Dermatologia, Endocrinologia e mais",
+      keywords: "consulta consultas medico médico especialista cardiologia cardiologista ginecologia ginecologista ortopedia ortopedista dermatologia dermatologista endocrinologia endocrinologista neurologia neurologista oftalmologia oftalmologista urologia urologista gastroenterologia gastro nutrição nutricionista nutrologo psiquiatra psiquiatria psicologo psicologia pediatra pediatria pneumologia pneumologista reumatologia reumatologista mastologia mastologista angiologia angiologista cirurgião cirurgia geral otorrino otorrinolaringologia alergologia alergista infectologia infectologia geriatria obstetrícia obstetra hepatologia hepatologista neuropediatra neurocirurgião proctologia proctologista coloproctologia clínico geral medico do trabalho odontologia dentista oftalmologista"
+    },
+
+    // ===== CARDIOLOGIA - EXAMES =====
+    {
+      titulo: "Exames de Cardiologia",
+      tag: "Cardiologia",
+      descricao: "ECG, Ecocardiograma, Holter, MAPA, Teste Ergométrico e Risco Cirúrgico",
+      keywords: "ecg eletrocardiograma eletro ecocardiograma eco holter mapa mapa 24 24h teste ergometrico ergometrico risco cirurgico mrpa cardiologia coração coracao"
+    },
+
+    // ===== ULTRASSONOGRAFIAS =====
+    {
+      titulo: "Ultrassonografias (USG)",
+      tag: "Imagem",
+      descricao: "Abdome, Tireoide, Transvaginal, Obstétrica, Mamas, Próstata, Doppler",
+      keywords: "usg ultrassom ultrassonografia abdome abdomen total superior inferior tireoide transvaginal obstetrica obstetrica morfologica translucencia nucal mama mamas pelvica pelve prostata bolsa escrotal vias urinarias rins inguinal pescoço cervical tireoide axila parede abdominal hernia paredes joelho ombro punho mão pe perna braço antebraço cotovelo quadril tornozelo dedo torax bexiga penis penal escroto coluna lombar dorsal supra renal glandulas salivares suprarenal calcaneo flanco transfontanela panturrilha sub mandibular doppler arterial venoso"
+    },
+
+    // ===== RAIO-X =====
+    {
+      titulo: "Raio-X (Radiografia Digital)",
+      tag: "Imagem",
+      descricao: "Tórax, Coluna, Membros, Bacia, Crânio, Panorâmica Odontológica",
+      keywords: "raio raio-x radiografia rx torax cranio coluna cervical lombar dorsal sacro coccigea toracica lombossacra lombo-sacra panoramica odontologica dentes dentaria mao maos punho pulso braço antebraço ombro escapula clavicula bacia quadril costela esternal coxa femur perna joelho tornozelo pe calcaneo seios face mastoide ouvido cavum sela turcica abdomen articulação periapical interproximal idade ossea"
+    },
+
+    // ===== RESSONÂNCIA MAGNÉTICA =====
+    {
+      titulo: "Ressonância Magnética (incluindo Campo Aberto)",
+      tag: "Imagem",
+      descricao: "Coluna, Joelho, Crânio, Pelve, Próstata e Campo Aberto sem claustrofobia",
+      keywords: "rm rnm ressonancia magnetica campo aberto claustrofobia coluna cervical lombar dorsal toracica lombossacral sacroiliacas sacrocoxigea sacrocoxix joelho ombro punho mao maos pe pes tornozelo cotovelo quadril cranio encefalo cerebro torax abdomen superior inferior total bacia pelve pelvica prostata mamas glandulas salivares hipofise sela turcica orbita face ouvido mastoide brama braço antebraço perna coxa femur sedação contraste angioressonancia enterorressonancia"
+    },
+
+    // ===== TOMOGRAFIA =====
+    {
+      titulo: "Tomografia Computadorizada (TC)",
+      tag: "Imagem",
+      descricao: "Tórax, Crânio, Abdome, Coluna, Vias Urinárias, Ossos e Articulações",
+      keywords: "tc tomografia computadorizada com sem contraste torax cranio encefalo abdomen total superior inferior coluna cervical lombar dorsal toracica lombossacra sacrocoxix vias urinarias rins urotomografia rim pelve pescoço seios face mastoide ouvido joelho ombro punho pe pes mao tornozelo coxa femur perna braço punho clavicula angiotomografia escore calcio"
+    },
+
+    // ===== MAMOGRAFIA & DENSITOMETRIA =====
+    {
+      titulo: "Mamografia & Densitometria Óssea",
+      tag: "Imagem",
+      descricao: "Diagnóstico de mama e avaliação de osteoporose (coluna e fêmur)",
+      keywords: "mamografia mama exame mama densitometria ossea osteoporose coluna lombar colo femur fêmur"
+    },
+
+    // ===== EXAMES NEUROLÓGICOS =====
+    {
+      titulo: "Exames Neurológicos",
+      tag: "Neurologia",
+      descricao: "Eletroencefalograma (EEG), Eletroneuromiografia, Acuidade Visual",
+      keywords: "eletroencefalograma eeg eletroneuromiografia neurologia membro superior inferior face acuidade visual romberg vop vfc sedação"
+    },
+
+    // ===== ENDOSCOPIA & COLONOSCOPIA =====
+    {
+      titulo: "Endoscopia & Colonoscopia",
+      tag: "Procedimento",
+      descricao: "Endoscopia digestiva, colonoscopia, retossigmoidoscopia, polipectomia",
+      keywords: "endoscopia digestiva colonoscopia retossigmoidoscopia polipectomia teste urease biopsia helicobacter pylori"
+    },
+
+    // ===== AUDIOMETRIA & ESPIROMETRIA =====
+    {
+      titulo: "Audiometria & Espirometria",
+      tag: "Funcional",
+      descricao: "Testes de audição e função pulmonar (com ou sem broncodilatador)",
+      keywords: "audiometria espirometria broncodilatador peak flow timpanometria audiologia tonal vocal pulmonar respiratorio asma"
+    },
+
+    // ===== TOXICOLÓGICO =====
+    {
+      titulo: "Exame Toxicológico (CNH e Concursos)",
+      tag: "Toxicológico",
+      descricao: "Toxicológico de larga janela de detecção - CNH, concursos e empresas",
+      keywords: "toxicologico tóxico cnh larga janela detrancuc carteira motorista concurso empresa admissional acido hipurico metil"
+    },
+
+    // ===== LAB - HEMATOLOGIA =====
+    {
+      titulo: "Laboratório · Hematologia",
+      tag: "Laboratório",
+      descricao: "Hemograma, Coagulograma, Ferritina, Ferro, Plaquetas, VHS",
+      keywords: "hemograma sangue hematologia coagulograma plaquetas reticulocitos ferritina ferro transferrina capacidade ligação saturação eletroforese hemoglobina hematocrito tipagem sanguinea fator rh d-dimero ddimero kptt tempo tromboplastina protrombina tap fibrogeno fator von willebrand vhs hemossedimentação coombs"
+    },
+
+    // ===== LAB - BIOQUÍMICA =====
+    {
+      titulo: "Laboratório · Bioquímica Geral",
+      tag: "Laboratório",
+      descricao: "Glicemia, Ureia, Creatinina, TGO, TGP, Ácido Úrico, Eletrólitos",
+      keywords: "glicemia glicose jejum hemoglobina glicada hba1c hba ureia creatinina depuração clearance tgo tgp ast alt fosfatase alcalina amilase lipase gama gt ggt bilirrubina acido urico calcio magnesio fosforo potassio sodio cloreto bicarbonato ionograma na k cpk creatina quinase ldh dhl colinesterase frutosamina"
+    },
+
+    // ===== LAB - PERFIL LIPÍDICO =====
+    {
+      titulo: "Laboratório · Perfil Lipídico",
+      tag: "Laboratório",
+      descricao: "Colesterol Total, HDL, LDL, VLDL, Triglicerídeos, Apolipoproteínas",
+      keywords: "colesterol total hdl ldl vldl triglicerides triglicerideos lipidograma lipidico lipoproteina apolipoproteina apo a apo b homocisteina lipides"
+    },
+
+    // ===== LAB - HORMÔNIOS =====
+    {
+      titulo: "Laboratório · Hormônios",
+      tag: "Laboratório",
+      descricao: "TSH, T3, T4, FSH, LH, Prolactina, Testosterona, Cortisol, Insulina",
+      keywords: "tsh t3 t4 t3l t4l hormonio tireoide tireoestimulante fsh lh prolactina estradiol estrogenos progesterona testosterona livre total dheas dhea cortisol insulina peptideo c hgh hormonio crescimento somatomedina igf1 paratormonio pth calcitonina aldosterona renina anti mulleriano shbg androstenediona inibina b hidroxiprogesterona ocitocina pregnenolona acth adrenocorticotrofico dht hidrotestosterona serotonina"
+    },
+
+    // ===== LAB - SOROLOGIAS =====
+    {
+      titulo: "Laboratório · Sorologias e Infecções",
+      tag: "Laboratório",
+      descricao: "Hepatites A/B/C, HIV, Sífilis, Dengue, Toxoplasmose, COVID, Chagas",
+      keywords: "sorologia hepatite a b c hbsag anti-hbs anti-hbc anti hbe hbeag hcv hiv sifilis vdrl ftaabs dengue chikungunya zika toxoplasmose rubeola citomegalovirus cmv chagas covid coronavirus htlv epstein barr mononucleose herpes labial helicobacter pylori esquistossomose schistossomose esporotricose toxocara streptococcus chlamydia bartonella ihla aquaporina"
+    },
+
+    // ===== LAB - VITAMINAS =====
+    {
+      titulo: "Laboratório · Vitaminas e Minerais",
+      tag: "Laboratório",
+      descricao: "Vitamina D, B12, B1, B6, C, E, Ácido Fólico, Zinco, Selênio",
+      keywords: "vitamina vit d 25 hidroxi b12 b1 b2 b3 b6 c e a acido folico zinco selenio cobre manganes aluminio cromo"
+    },
+
+    // ===== LAB - AUTOIMUNES =====
+    {
+      titulo: "Laboratório · Autoimunes e Reumatológicos",
+      tag: "Laboratório",
+      descricao: "FAN, Anti-DNA, ANCA, Anti-CCP, Complemento C3/C4, Fator Reumatoide",
+      keywords: "fan anti dna nucleo anti-ccp anca anti centromero scl 70 ssa ssb la ro rnp sm waaler rose fator reumatoide latex anticoagulante lupico cardiolipina beta2 glicoproteina hla b27 mthfr proteina c s antitrombina anti tireoglobulina anti tpo trab atpo aldolase calprotectina anti gliadina anti endomisio anti transglutaminase anti musculo liso anti mitocondria anti lkm anti gad anti ilhota anti insulina anti rna polimerase aldolase complemento c3 c4 ch50 imunoglobulina iga igg igm ige imunofixação eletroforese proteinas"
+    },
+
+    // ===== LAB - MARCADORES TUMORAIS =====
+    {
+      titulo: "Laboratório · Marcadores Tumorais",
+      tag: "Laboratório",
+      descricao: "PSA, CA125, CA15-3, CA19-9, CA72-4, CEA, Alfafetoproteína",
+      keywords: "psa total livre cancer ca 125 153 199 19-9 724 72-4 cea antigeno carcinoembrionario alfafetoproteina marcador tumoral oncologia ca50 beta 2 microglobulina haptoglobina"
+    },
+
+    // ===== LAB - URINA E FEZES =====
+    {
+      titulo: "Laboratório · Urina e Fezes",
+      tag: "Laboratório",
+      descricao: "EAS, Urocultura, Parasitológico, Sangue Oculto, Microalbuminúria",
+      keywords: "urina sumario eas urocultura urinaria 24 horas microalbuminuria proteinuria parasitologico fezes coprologica sangue oculto sop calprotectina cultura antibiograma rptcr cistina citrato oxalato indican disbiose"
+    },
+
+    // ===== LAB - GENÉTICOS / ESPECIAIS =====
+    {
+      titulo: "Laboratório · Genéticos e Especiais",
+      tag: "Laboratório",
+      descricao: "Teste de Paternidade, Sexagem Fetal, Teste do Pezinho, HPV",
+      keywords: "teste paternidade pai mae filho dna sexagem fetal sexo bebe pezinho ampliado master plus hpv captura hibrida fator v leiden mthfr"
+    },
+
+    // ===== LAB - ALERGIA =====
+    {
+      titulo: "Laboratório · Alergia (IgE Específica)",
+      tag: "Laboratório",
+      descricao: "Painéis para ácaros, alimentos, fungos, epitélios e Prick Test",
+      keywords: "alergia alergico ige especifica acaros pteronyssinus farinae blomia tropicalis epitelio caspa cao gato fungos baratas alimentos clara ovo gluten caseina alfa lactoalbumina beta lactoglobulina prick test contato hx2 fx5 inalantes"
+    },
+
+    // ===== PROCEDIMENTOS GINECOLÓGICOS =====
+    {
+      titulo: "Procedimentos Ginecológicos",
+      tag: "Ginecologia",
+      descricao: "Colposcopia, Citológico (Papanicolau), Biópsia, DIU, Vulvoscopia",
+      keywords: "colposcopia citologico papanicolau papa biopsia colo utero diu inserção retirada vulvoscopia ginecologia"
+    },
+
+    // ===== PROCEDIMENTOS GERAIS =====
+    {
+      titulo: "Procedimentos & Biópsias",
+      tag: "Procedimentos",
+      descricao: "PAAF Tireoide e Mama, Biópsias, Escleroterapia, Anuscopia",
+      keywords: "paaf puncao agulha fina nodulo tireoide mama biopsia analise histopatologia escleroterapia espuma safena anuscopia retirada cisto retossigmoidoscopia colposcopia core nasofibroscopia videolaringoscopia"
+    },
+
+    // ===== ODONTOLOGIA =====
+    {
+      titulo: "Odontologia",
+      tag: "Odonto",
+      descricao: "Restauração, Limpeza, Canal, Clareamento, Próteses, Aparelho",
+      keywords: "odontologia odonto dentista restauração face limpeza profilaxia raspagem ultrassom canal endodontia clareamento caseiro consultorio prótese protese total parcial removivel coroa metaloceramica resina pino bruxismo placa silicone faceta polimento aparelho ortodontico contenção expansor documentação ortodontica modelo exodontia siso incluso resto radicular periapical interproximal radiografia panoramica odontologica"
+    },
+
+    // ===== EXAMES OFTALMOLÓGICOS =====
+    {
+      titulo: "Exames Oftalmológicos",
+      tag: "Oftalmologia",
+      descricao: "Mapeamento de Retina, Campimetria, Paquimetria, Curva Tensional",
+      keywords: "oftalmologia oftalmo olhinho mapeamento retina campimetria paquimetria curva tensional teste lentes contato adaptação retinografia topografia tonometrica acuidade visual"
+    },
+
+    // ===== EXAMES ADMISSIONAIS / OCUPACIONAIS =====
+    {
+      titulo: "Exames Admissionais e Ocupacionais",
+      tag: "Empresas",
+      descricao: "ASO, Admissional, Demissional, Periódico, Mudança de Função",
+      keywords: "admissional demissional periodico mudança função aso medico trabalho ocupacional empresa funcionario avaliação psicossocial bemais audiometria ocupacional"
+    },
+
+    // ===== CONCURSOS - PCPE =====
+    {
+      titulo: "Concurso · PCPE (Polícia Civil PE)",
+      tag: "Concurso",
+      descricao: "Combo completo de exames para PCPE com laudos aceitos pela banca",
+      keywords: "concurso pcpe policia civil pernambuco mapa exames combo edital"
+    },
+
+    // ===== CONCURSOS - PMPB =====
+    {
+      titulo: "Concurso · PMPB e CBMPB (PM e Bombeiros PB)",
+      tag: "Concurso",
+      descricao: "Combos para Polícia Militar e Corpo de Bombeiros da Paraíba (M e F)",
+      keywords: "concurso pmpb pm policia militar paraiba cbmpb bombeiros corpo combo masculino feminino edital exames laboratorio raio-x ecocardiograma ergometrico eeg toxicologico audiometria psiquiatrico ressonancia"
+    },
+
+    // ===== CONCURSOS - POLÍCIA FEDERAL =====
+    {
+      titulo: "Concurso · Polícia Federal",
+      tag: "Concurso",
+      descricao: "Combo completo para PF (à vista ou parcelado)",
+      keywords: "concurso policia federal pf combo a vista credito parcelado"
+    },
+
+    // ===== CONCURSOS - GCM / GUARDA =====
+    {
+      titulo: "Concurso · GCM (Guarda Municipal)",
+      tag: "Concurso",
+      descricao: "GCM João Pessoa, GCM Santa Rita e demais guardas municipais",
+      keywords: "concurso gcm guarda municipal joão pessoa santa rita scc porte arma laudo combo laboratorio raio-x audiometria toxicologico ecg eeg psiquiatrico ortopedista oftalmo panoramica odontologica"
+    },
+
+    // ===== CONCURSOS - SEMOB =====
+    {
+      titulo: "Concurso · SEMOB (Mobilidade)",
+      tag: "Concurso",
+      descricao: "SEMOB João Pessoa e SEMOB Olinda - exames completos",
+      keywords: "concurso semob mobilidade trafego trânsito joão pessoa olinda combo laboratorio audiometria toxicologico raio-x ecg eeg ergometrico ecocardiograma usg ortopedista psiquiatra"
+    },
+
+    // ===== CONCURSOS - POLÍCIA PENAL =====
+    {
+      titulo: "Concurso · Polícia Penal (CE e GO)",
+      tag: "Concurso",
+      descricao: "Combos para Polícia Penal Ceará e Goiás",
+      keywords: "concurso policia penal pp ceara goias ce go combo laboratorio audiometria toxicologico ecg eco eeg raio-x panoramica laudo ortopedico psiquiatrico oftalmo otorrino cardiologista neurologista pneumologista"
+    },
+
+    // ===== CONCURSOS - POLITEC PE =====
+    {
+      titulo: "Concurso · POLITEC e Prefeituras PE",
+      tag: "Concurso",
+      descricao: "POLITEC PE, Camaragibe, Ibirajuba, Água Branca e demais prefeituras",
+      keywords: "concurso politec pernambuco pe camaragibe ibirajuba água branca prefeitura combo laboratorio toxicologico raio-x audiometria eeg espirometria ergometrico oftalmo otorrino cardiologista pneumologista psiquiatrico neurologista panoramica dentista"
+    },
+
+    // ===== CONCURSOS - PROFESSOR =====
+    {
+      titulo: "Concurso · Professor PB",
+      tag: "Concurso",
+      descricao: "Combos para concurso de Professor da Paraíba",
+      keywords: "concurso professor paraiba pb educação combo laboratorio sem lab"
+    },
+
+    // ===== LAUDOS PARA CONCURSO =====
+    {
+      titulo: "Laudos Médicos para Concurso",
+      tag: "Concurso",
+      descricao: "Psiquiátrico (RQE), Oftalmológico, Cardiológico, Ortopédico, PCD",
+      keywords: "laudo concurso psiquiatra rqe oftalmologico cardiologista neurologista ortopedico pcd portador deficiencia bioimpedancia teste aptidão fisica mental tafe taf"
+    },
+
+    // ===== FISIOTERAPIA =====
+    {
+      titulo: "Fisioterapia",
+      tag: "Reabilitação",
+      descricao: "Sessões de fisioterapia para reabilitação",
+      keywords: "fisioterapia fisio reabilitação sessão"
+    },
+
+    // ===== ESTUDO URODINÂMICO =====
+    {
+      titulo: "Estudo Urodinâmico",
+      tag: "Urologia",
+      descricao: "Avaliação completa do funcionamento da bexiga e uretra",
+      keywords: "estudo urodinamico urologia bexiga uretra incontinencia"
+    }
   ];
 
+  // Função normalize: remove acentos e deixa lowercase para busca
+  function normalize(str) {
+    return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  const searchInput = document.getElementById('quickSearch');
+  const searchResults = document.getElementById('searchResults');
+  const WHATSAPP_BASE = 'https://api.whatsapp.com/send/?phone=5583993149477&text=';
+
   searchInput.addEventListener('input', function() {
-    const val = this.value.toLowerCase().trim();
+    const val = normalize(this.value.trim());
     searchResults.innerHTML = '';
     
-    if(val.length > 1) {
-      const matches = clinicaData.filter(item => item.toLowerCase().includes(val));
-      
-      if(matches.length > 0) {
-        searchResults.classList.add('active');
-        matches.forEach(match => {
-          const li = document.createElement('li');
-          li.className = 'search-item';
-          li.innerHTML = `
-            <span>${match}</span>
-            <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Olá, gostaria de agendar: ${encodeURIComponent(match)}" target="_blank" class="btn-agendar">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-              Agendar
-            </a>
-          `;
-          searchResults.appendChild(li);
-        });
-      } else {
-        searchResults.classList.remove('active');
-      }
-    } else {
+    if(val.length < 2) {
       searchResults.classList.remove('active');
+      return;
+    }
+
+    // Busca no título, descrição e keywords (todos normalizados)
+    const matches = grupos.filter(g => {
+      const haystack = normalize(g.titulo + ' ' + g.descricao + ' ' + g.keywords);
+      return haystack.includes(val);
+    });
+    
+    if(matches.length > 0) {
+      searchResults.classList.add('active');
+      matches.forEach(grupo => {
+        const li = document.createElement('li');
+        li.className = 'search-item';
+        const msg = encodeURIComponent(`Olá! Gostaria de informações sobre: ${grupo.titulo}`);
+        li.innerHTML = `
+          <div class="search-item-text">
+            <div class="search-item-title">
+              ${grupo.titulo}
+              <span class="search-item-tag">${grupo.tag}</span>
+            </div>
+            <div class="search-item-sub">${grupo.descricao}</div>
+          </div>
+          <a href="${WHATSAPP_BASE}${msg}" target="_blank" rel="noopener" class="btn-agendar" aria-label="Agendar ${grupo.titulo}">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+            Agendar
+          </a>
+        `;
+        searchResults.appendChild(li);
+      });
+    } else {
+      // Mensagem amigável quando não acha + atalho pro WhatsApp
+      searchResults.classList.add('active');
+      const liEmpty = document.createElement('li');
+      liEmpty.className = 'search-empty';
+      const msgGenerica = encodeURIComponent(`Olá! Gostaria de informações sobre: ${this.value.trim()}`);
+      liEmpty.innerHTML = `
+        Não achamos um grupo exato para "<strong>${this.value.trim()}</strong>".<br>
+        <a href="${WHATSAPP_BASE}${msgGenerica}" target="_blank" rel="noopener">
+          Falar com um atendente no WhatsApp →
+        </a>
+      `;
+      searchResults.appendChild(liEmpty);
     }
   });
 
@@ -1242,6 +1599,13 @@
   document.addEventListener('click', (e) => {
     if(!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
       searchResults.classList.remove('active');
+    }
+  });
+
+  // Reabre busca ao focar (se tiver texto)
+  searchInput.addEventListener('focus', () => {
+    if(searchInput.value.trim().length >= 2) {
+      searchInput.dispatchEvent(new Event('input'));
     }
   });
 
