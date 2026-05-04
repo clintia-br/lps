@@ -202,7 +202,7 @@
 
   .nav-menu {
     display: flex;
-    gap: 2.2rem;
+    gap: 1.9rem;
     list-style: none;
   }
   .nav-menu a {
@@ -227,7 +227,7 @@
   }
   .nav-cta:hover { background: var(--ink); color: var(--bg); }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     .nav-menu { display: none; }
   }
   @media (max-width: 520px) {
@@ -743,25 +743,27 @@
     max-width: 680px;
   }
 
-  /* ---------- OUTRAS ESPECIALIDADES ---------- */
+  /* ---------- ATUAÇÃO CLÍNICA ---------- */
   #outras { background: var(--bg); }
 
   .outras-intro {
-    max-width: 680px;
+    max-width: 720px;
     margin: 0 auto clamp(2rem, 4vw, 3rem);
     text-align: center;
   }
   .outras-intro h2 {
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-size: clamp(1.8rem, 3.4vw, 2.4rem);
     margin-bottom: 1rem;
   }
   .outras-intro p {
     font-size: 1rem;
     color: var(--ink-soft);
+    max-width: 580px;
+    margin: 0 auto;
   }
 
   .outras-grid {
-    max-width: 960px;
+    max-width: 1080px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -778,6 +780,11 @@
     letter-spacing: 0.01em;
     color: var(--ink-soft);
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70px;
+    line-height: 1.35;
   }
   .outras-grid span:hover { background: var(--white); color: var(--accent); }
 
@@ -985,6 +992,7 @@
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#varizes">Varizes</a></li>
       <li><a href="#tratamentos">Tratamentos</a></li>
+      <li><a href="#outras">Especialidades</a></li>
       <li><a href="#consultorio">Consultório</a></li>
     </ul>
     <a href="https://api.whatsapp.com/send/?phone=5554999984505&text=Ol%C3%A1%2C+gostaria+de+marcar+uma+consulta+com+a+Dra.+Let%C3%ADcia+Pereira%2C+pode+me+ajudar%3F" target="_blank" rel="noopener" class="nav-cta"><span>Agendar Consulta</span></a>
@@ -997,8 +1005,8 @@
   <div class="hero-grid">
     <div class="hero-content reveal">
       <div class="hero-caption">Cirurgia Vascular · Passo Fundo — RS</div>
-      <h1>Varizes merecem<br>um olhar <em>especializado.</em></h1>
-      <p class="hero-sub">Diagnóstico preciso e tratamento moderno para a saúde das suas veias — com a escuta de quem entende que cada paciente traz uma história única.</p>
+      <h1>Cuidar da sua <em>circulação</em> é cuidar da sua saúde.</h1>
+      <p class="hero-sub">Atendimento em cirurgia vascular: das varizes às tromboses, aneurismas e doenças arteriais — com diagnóstico moderno e a escuta de quem entende que cada paciente traz uma história única.</p>
       <div class="hero-credentials">
         <span>CRM 40057</span>
         <span>RQE 36778 — Cirurgia Vascular</span>
@@ -1026,7 +1034,7 @@
 
     <div class="sobre-text reveal">
       <p>Varizes, muitas vezes, são tratadas apenas como uma questão estética. Na minha prática, entendo que elas contam algo sobre a sua circulação — e esse é o ponto de partida para cuidar bem da sua saúde.</p>
-      <p>Sou médica cirurgiã vascular em Passo Fundo, com formação complementar em Cirurgia Endovascular e Angiorradiologia. Minha atuação integra o cuidado clínico, a precisão diagnóstica e as técnicas modernas para oferecer a cada paciente o tratamento mais adequado ao seu caso.</p>
+      <p>Sou médica cirurgiã vascular em Passo Fundo, com formação complementar em Cirurgia Endovascular e Angiorradiologia. Atendo varizes — foco diário do meu consultório — mas também tromboses, doenças arteriais, aneurismas, acessos vasculares e demais condições do sistema circulatório, sempre com o mesmo cuidado clínico e as técnicas mais atuais que cada caso pede.</p>
       <p>Acredito que informação clara e um atendimento sem pressa são parte do tratamento. Consulta, para mim, é diálogo — e é ali que começa qualquer decisão sobre a sua saúde.</p>
 
       <div class="sobre-creds">
@@ -1053,41 +1061,102 @@
     <div class="varizes-visual reveal">
       <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
-          <linearGradient id="vein" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#2C4A7C" stop-opacity="0.85"/>
-            <stop offset="100%" stop-color="#8B2C3E" stop-opacity="0.85"/>
-          </linearGradient>
           <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#EFEADF"/>
             <stop offset="100%" stop-color="#E3DCCA"/>
           </linearGradient>
+          <linearGradient id="leg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#FDFCF9" stop-opacity="0.7"/>
+            <stop offset="50%" stop-color="#FDFCF9" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#FDFCF9" stop-opacity="0.7"/>
+          </linearGradient>
         </defs>
         <rect width="400" height="500" fill="url(#bg)"/>
+
         <!-- soft circles -->
-        <circle cx="320" cy="90" r="140" fill="#FDFCF9" opacity="0.4"/>
-        <circle cx="80" cy="400" r="100" fill="#FDFCF9" opacity="0.3"/>
-        <!-- main vein -->
-        <path d="M 200 30 Q 190 120, 210 200 T 200 370 Q 195 430, 210 470"
-              fill="none" stroke="url(#vein)" stroke-width="3.5" stroke-linecap="round"/>
-        <!-- branch veins -->
-        <path d="M 200 140 Q 150 170, 140 220 T 155 300"
-              fill="none" stroke="#8B2C3E" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
-        <path d="M 200 180 Q 250 210, 265 260 T 250 340"
-              fill="none" stroke="#2C4A7C" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-        <path d="M 210 280 Q 175 310, 168 360"
-              fill="none" stroke="#8B2C3E" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-        <path d="M 200 320 Q 240 350, 245 400"
-              fill="none" stroke="#2C4A7C" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-        <!-- nodes -->
-        <circle cx="200" cy="140" r="3.5" fill="#0F1F3D"/>
-        <circle cx="200" cy="180" r="3.5" fill="#0F1F3D"/>
-        <circle cx="210" cy="280" r="3.5" fill="#0F1F3D"/>
-        <circle cx="200" cy="320" r="3.5" fill="#0F1F3D"/>
-        <!-- small decorative ticks -->
-        <line x1="60" y1="60" x2="90" y2="60" stroke="#0F1F3D" stroke-width="1" opacity="0.4"/>
-        <line x1="60" y1="68" x2="78" y2="68" stroke="#0F1F3D" stroke-width="1" opacity="0.4"/>
-        <text x="60" y="52" font-family="Fraunces, serif" font-size="10" font-style="italic" fill="#8B2C3E" opacity="0.85">fig. anatomia venosa</text>
-        <text x="305" y="478" font-family="Fraunces, serif" font-size="9" font-style="italic" fill="#6B6860">membro inferior</text>
+        <circle cx="320" cy="90" r="140" fill="#FDFCF9" opacity="0.35"/>
+        <circle cx="80" cy="400" r="100" fill="#FDFCF9" opacity="0.25"/>
+
+        <!-- Leg silhouette (anterior view, thigh to ankle) -->
+        <path d="M 168 35
+                 C 160 100, 162 180, 175 235
+                 C 168 275, 165 360, 182 460
+                 C 184 470, 191 475, 200 475
+                 C 209 475, 216 470, 218 460
+                 C 235 360, 232 275, 225 235
+                 C 238 180, 240 100, 232 35
+                 Z"
+              fill="url(#leg)"
+              stroke="#0F1F3D" stroke-width="0.6" stroke-opacity="0.35"/>
+
+        <!-- Greater saphenous vein (medial, slight S-curve) -->
+        <path d="M 198 45
+                 C 195 80, 200 115, 196 150
+                 C 192 185, 198 215, 194 245
+                 C 192 255, 191 262, 195 270
+                 C 199 285, 196 300, 200 320
+                 C 202 410, 199 440, 200 470"
+              fill="none" stroke="#0F1F3D" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
+
+        <!-- Lateral perforator branch (upper) -->
+        <path d="M 196 140
+                 C 178 152, 168 175, 168 200
+                 C 169 220, 178 230, 188 240"
+              fill="none" stroke="#2C4A7C" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+
+        <!-- Medial branch (mid-thigh) -->
+        <path d="M 198 195
+                 C 218 205, 228 230, 222 260"
+              fill="none" stroke="#2C4A7C" stroke-width="1.3" stroke-linecap="round" opacity="0.5"/>
+
+        <!-- Calf branch -->
+        <path d="M 200 410
+                 C 215 420, 222 435, 218 455"
+              fill="none" stroke="#2C4A7C" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+
+        <!-- Varicose segment — tortuous, dilated -->
+        <path d="M 200 320
+                 C 178 332, 218 348, 188 365
+                 C 168 378, 212 392, 192 408
+                 C 175 420, 207 432, 200 445"
+              fill="none" stroke="#8B2C3E" stroke-width="2.6" stroke-linecap="round" opacity="0.92"/>
+
+        <!-- Perforator dots -->
+        <circle cx="196" cy="150" r="2.5" fill="#0F1F3D"/>
+        <circle cx="198" cy="195" r="2.5" fill="#0F1F3D"/>
+        <circle cx="200" cy="320" r="2.5" fill="#0F1F3D"/>
+        <circle cx="200" cy="410" r="2.5" fill="#0F1F3D"/>
+
+        <!-- Teleangectasias cluster (lateral lower leg) -->
+        <g opacity="0.6" stroke="#8B2C3E" stroke-width="0.5" fill="none">
+          <path d="M 230 380 Q 240 383, 248 380"/>
+          <path d="M 232 386 Q 242 390, 250 387"/>
+          <path d="M 229 392 Q 240 396, 248 394"/>
+          <path d="M 233 398 Q 244 402, 251 400"/>
+          <path d="M 231 404 Q 241 408, 248 406"/>
+        </g>
+
+        <!-- Top label -->
+        <text x="35" y="50" font-family="Fraunces, serif" font-size="10" font-style="italic" fill="#8B2C3E" opacity="0.85">fig. anatomia venosa</text>
+        <text x="35" y="63" font-family="Fraunces, serif" font-size="8" font-style="italic" fill="#6B6860">membro inferior</text>
+
+        <!-- Annotation: greater saphenous -->
+        <line x1="200" y1="105" x2="312" y2="80" stroke="#0F1F3D" stroke-width="0.5" stroke-opacity="0.4"/>
+        <circle cx="200" cy="105" r="1.6" fill="#0F1F3D"/>
+        <text x="316" y="78" font-family="Fraunces, serif" font-size="9" font-style="italic" fill="#6B6860">v. safena magna</text>
+
+        <!-- Annotation: varicose -->
+        <line x1="178" y1="378" x2="78" y2="395" stroke="#8B2C3E" stroke-width="0.5" stroke-opacity="0.6"/>
+        <circle cx="178" cy="378" r="1.6" fill="#8B2C3E"/>
+        <text x="32" y="398" font-family="Fraunces, serif" font-size="9" font-style="italic" fill="#8B2C3E" opacity="0.85">veia varicosa</text>
+
+        <!-- Annotation: teleangectasias -->
+        <line x1="252" y1="392" x2="320" y2="370" stroke="#0F1F3D" stroke-width="0.5" stroke-opacity="0.4"/>
+        <circle cx="252" cy="392" r="1.6" fill="#8B2C3E" opacity="0.7"/>
+        <text x="324" y="368" font-family="Fraunces, serif" font-size="9" font-style="italic" fill="#6B6860">teleangectasias</text>
+
+        <!-- Bottom label -->
+        <text x="305" y="478" font-family="Fraunces, serif" font-size="9" font-style="italic" fill="#6B6860">vista anterior</text>
       </svg>
     </div>
 
@@ -1183,7 +1252,7 @@
           <h3>Escleroterapia</h3>
           <span class="tag">Tratamento ambulatorial</span>
         </div>
-        <p class="trat-desc">Aplicações que eliminam vasinhos e pequenas varizes por meio de uma substância que provoca o fechamento do vaso. Realizada em consultório, sem necessidade de afastamento das atividades.</p>
+        <p class="trat-desc">Aplicações que eliminam vasinhos por meio de uma substância que provoca o fechamento do vaso. Realizada em consultório, sem necessidade de afastamento das atividades.</p>
       </div>
 
       <div class="trat-row reveal">
@@ -1198,15 +1267,6 @@
       <div class="trat-row reveal">
         <span class="trat-num">— 03</span>
         <div class="trat-title">
-          <h3>Laser transdérmico</h3>
-          <span class="tag">Alternativa estética</span>
-        </div>
-        <p class="trat-desc">Indicado para teleangectasias finas e microvasos. O laser atua de forma seletiva, com bons resultados em tons de pele variados quando bem indicado.</p>
-      </div>
-
-      <div class="trat-row reveal">
-        <span class="trat-num">— 04</span>
-        <div class="trat-title">
           <h3>Termoablação endovenosa</h3>
           <span class="tag">Laser / radiofrequência</span>
         </div>
@@ -1214,7 +1274,7 @@
       </div>
 
       <div class="trat-row reveal">
-        <span class="trat-num">— 05</span>
+        <span class="trat-num">— 04</span>
         <div class="trat-title">
           <h3>Cirurgia convencional</h3>
           <span class="tag">Em casos selecionados</span>
@@ -1223,7 +1283,7 @@
       </div>
 
       <div class="trat-row reveal">
-        <span class="trat-num">— 06</span>
+        <span class="trat-num">— 05</span>
         <div class="trat-title">
           <h3>Check-up vascular</h3>
           <span class="tag">Prevenção e diagnóstico</span>
@@ -1348,31 +1408,39 @@
   </div>
 </section>
 
-<!-- OUTRAS ESPECIALIDADES -->
+<!-- ATUAÇÃO CLÍNICA / OUTRAS ESPECIALIDADES -->
 <section id="outras">
   <div class="outras-intro reveal">
     <span class="eyebrow" style="justify-content:center;">Atuação clínica</span>
-    <h2 style="margin-top:1rem;">Além das varizes.</h2>
-    <p>Como cirurgiã vascular e endovascular, também atuo em outras condições do sistema circulatório, com a mesma abordagem individual e cuidadosa.</p>
+    <h2 style="margin-top:1rem;">Atendimento <em>completo</em> em cirurgia vascular.</h2>
+    <p>Além das varizes, atendo todo o espectro da cirurgia vascular — das condições mais frequentes até quadros que exigem técnicas endovasculares específicas. Se você busca avaliação para alguma das condições abaixo, posso ajudar.</p>
   </div>
 
   <div class="outras-grid reveal">
+    <span>Escleroterapia</span>
+    <span>Check-up Vascular</span>
     <span>Trombose Venosa Profunda</span>
     <span>Lipedema</span>
     <span>Linfedema</span>
-    <span>Úlceras Vasculares</span>
-    <span>Doença das Carótidas</span>
-    <span>Aneurisma de Aorta</span>
+    <span>Acessos Vasculares</span>
+    <span>Acesso para Quimioterapia (Portocath)</span>
+    <span>Acessos para Hemodiálise</span>
+    <span>Aneurisma de Aorta Torácica</span>
+    <span>Aneurisma Abdominal</span>
     <span>Aneurisma Periférico</span>
+    <span>Doença das Carótidas</span>
+    <span>Dissecção de Aorta</span>
+    <span>Embolizações</span>
+    <span>Malformações Vasculares</span>
+    <span>Úlcera Varicosa</span>
     <span>Pé Diabético</span>
     <span>Oclusão Arterial</span>
+    <span>Síndromes Venosas Obstrutivas</span>
+    <span>Trombose Arterial</span>
+    <span>Úlceras de Membros Inferiores</span>
     <span>Trauma Vascular</span>
-    <span>Acessos para Hemodiálise</span>
-    <span>Cateter Portocath</span>
-    <span>Embolizações</span>
-    <span>Hemangiomas</span>
-    <span>Malformações Vasculares</span>
-    <span>Revascularizações</span>
+    <span>Doença Arterial Obstrutiva Periférica</span>
+    <span>Revascularização de Membros Inferiores</span>
   </div>
 </section>
 
