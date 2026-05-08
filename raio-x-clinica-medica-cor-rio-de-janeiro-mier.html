@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Raio-X Digital — Clínica Médica Cor</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{--az:#0D1B2A;--am:#1B4F72;--ac:#00B4D8;--al:#E8F4F8;--c50:#F9FAFB;--c100:#F3F4F6;--c200:#E5E7EB;--c500:#6B7280;--c700:#374151;--c900:#111827;--vd:#10B981;--vdbg:#ECFDF5;--vm:#EF4444;--vmbg:#FEF2F2;--am2:#F59E0B;--ambg:#FFFBEB;--la:#F97316;--p:18px}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Inter',-apple-system,sans-serif;background:#F0F2F5;color:var(--c700);line-height:1.5;-webkit-text-size-adjust:100%}
+.page{max-width:680px;margin:0 auto;background:#fff;min-height:100vh}
+.header{background:var(--az);padding:14px var(--p);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.logo{height:22px;flex-shrink:0;filter:brightness(0) invert(1)}
+.header-right{text-align:right}
+.header-title{color:#fff;font-size:16px;font-weight:800;letter-spacing:1px}
+.header-sub{color:var(--ac);font-size:10px;margin-top:2px}
+.accent-bar{height:3px;background:linear-gradient(90deg,var(--ac),var(--am))}
+.clinica-info{padding:14px var(--p) 12px;border-bottom:1px solid var(--c200)}
+.clinica-nome{font-size:16px;font-weight:700;color:var(--c900);line-height:1.3}
+.clinica-end{font-size:11px;color:var(--c500);margin-top:3px}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px var(--p)}
+.mc{background:var(--c50);border:1px solid var(--c200);border-radius:10px;padding:12px 8px;text-align:center}
+.mv{font-size:24px;font-weight:800;line-height:1}
+.mv.good{color:var(--vd)}.mv.warn{color:var(--am2)}.mv.bad{color:var(--vm)}.mv.neutral{color:var(--c500)}
+.ml{font-size:9px;color:var(--c500);margin-top:5px;text-transform:uppercase;letter-spacing:.5px;font-weight:600;line-height:1.3}
+.me{font-size:10px;color:var(--c500);margin-top:4px}
+.stars{color:var(--am2);font-size:11px}
+.section{padding:16px var(--p)}.section+.section{border-top:1px solid var(--c100)}
+.sh{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.sn{background:var(--ac);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.st{font-size:13px;font-weight:700;color:var(--c900)}
+.ss{font-size:11px;color:var(--c500);margin-left:auto}
+.rank-row{display:flex;align-items:center;gap:6px;padding:7px 8px;border-radius:8px;margin-bottom:3px}
+.rank-row:nth-child(odd){background:var(--c50)}
+.rank-alvo{background:var(--al)!important;border:2px solid var(--ac)}
+.rank-pos{font-weight:700;font-size:11px;color:var(--c500);width:20px;flex-shrink:0}
+.rank-alvo .rank-pos{color:var(--am)}
+.rank-name{font-size:11px;color:var(--c900);width:130px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-alvo .rank-name{font-weight:700}
+.rank-you{color:var(--ac);font-size:9px;font-weight:700}
+.rank-bar-wrap{flex:1;height:6px;background:var(--c200);border-radius:3px;overflow:hidden;min-width:20px}
+.rank-bar{height:100%;border-radius:3px}
+.rank-bar.good{background:var(--vd)}.rank-bar.warn{background:var(--am2)}.rank-bar.bad{background:var(--vm)}
+.rank-score{font-size:13px;font-weight:800;width:24px;text-align:right}
+.rank-score.good{color:var(--vd)}.rank-score.warn{color:var(--am2)}.rank-score.bad{color:var(--vm)}
+.rank-label{font-size:9px;font-weight:600;text-transform:uppercase;width:46px}
+.rank-label.good{color:var(--vd)}.rank-label.warn{color:var(--am2)}.rank-label.bad{color:var(--vm)}
+.rank-leg{font-size:10px;color:var(--c500);margin-top:8px;line-height:1.5}
+@media(max-width:380px){.rank-label{display:none}.rank-name{width:100px}}
+.check-row{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;margin-bottom:6px}
+.check-row.ok{background:var(--vdbg)}.check-row.fail{background:var(--vmbg)}
+.check-icon{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;color:#fff;min-width:20px}
+.check-icon.ok{background:var(--vd)}.check-icon.fail{background:var(--vm)}
+.check-label{font-size:12px;font-weight:600;color:var(--c900)}
+.check-sub{display:block;font-size:11px;color:var(--vm);margin-top:2px;line-height:1.4}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px;border:1px solid var(--c200)}
+.comp-table{width:100%;border-collapse:collapse;font-size:11px;min-width:380px}
+.comp-table thead th{background:var(--am);color:#fff;padding:9px 8px;text-align:left;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap}
+.comp-table tbody tr{border-bottom:1px solid var(--c100)}
+.comp-table tbody tr:last-child{border-bottom:none}
+.comp-table tbody tr.alvo{background:var(--al);font-weight:600}
+.comp-table td{padding:8px}
+.nome-col{max-width:150px;word-break:break-word}
+.center{text-align:center}
+.nota-badge{display:inline-block;padding:2px 6px;border-radius:10px;font-weight:700;font-size:11px}
+.nota-badge.good{background:var(--vdbg);color:var(--vd)}.nota-badge.warn{background:var(--ambg);color:var(--am2)}.nota-badge.bad{background:var(--vmbg);color:var(--vm)}.nota-badge.neutral{background:var(--c100);color:var(--c500)}
+.tag-sim{color:var(--vd);font-weight:600}.tag-nao{color:var(--vm);font-weight:600}
+.score-mini{font-weight:700;font-size:11px}
+.score-mini.good{color:var(--vd)}.score-mini.warn{color:var(--am2)}.score-mini.bad{color:var(--vm)}
+.aval-cell{display:flex;align-items:center;gap:4px;justify-content:center}
+.bar-bg{width:36px;height:5px;background:var(--c200);border-radius:3px;flex-shrink:0}
+.bar-fill{height:100%;background:var(--ac);border-radius:3px}
+.oport-card{display:flex;gap:10px;padding:12px;background:var(--c50);border:1px solid var(--c200);border-radius:10px;margin-bottom:8px;border-left:4px solid var(--la)}
+.oport-num{background:var(--la);color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;min-width:24px}
+.oport-body{flex:1;min-width:0}
+.oport-header{display:flex;align-items:flex-start;gap:6px;margin-bottom:5px;flex-wrap:wrap}
+.oport-titulo{font-weight:700;font-size:12px;color:var(--c900);line-height:1.3}
+.oport-tag{font-size:9px;font-weight:600;padding:2px 7px;border-radius:10px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;flex-shrink:0}
+.oport-tag.alto,.oport-tag.critico{background:var(--vmbg);color:var(--vm)}
+.oport-tag.medio{background:var(--ambg);color:var(--am2)}
+.oport-desc{font-size:11px;color:var(--c700);line-height:1.6}
+.janela{margin:0 var(--p);padding:14px;background:linear-gradient(135deg,#FFF7ED,#FFFBEB);border:1px solid #FDE68A;border-radius:10px;border-left:4px solid var(--la)}
+.janela-title{font-size:13px;font-weight:700;color:var(--c900);margin-bottom:7px;display:flex;align-items:center;gap:6px}
+.janela-text{font-size:12px;color:var(--c700);line-height:1.7}
+.janela-urg{margin-top:8px;padding:9px 11px;background:rgba(239,68,68,.08);border-radius:6px;font-size:11px;color:var(--vm);font-weight:600;line-height:1.5}
+.cta{margin:18px var(--p);background:var(--az);border-radius:12px;padding:20px 16px;text-align:center;border-left:5px solid var(--ac)}
+.cta-title{color:#fff;font-size:14px;font-weight:700;margin-bottom:6px;line-height:1.4}
+.cta-sub{color:var(--ac);font-size:12px;line-height:1.4}
+.proclip{margin:0 var(--p) 18px;padding:14px;background:var(--c50);border:1px solid var(--c200);border-radius:10px}
+.proclip-title{font-size:12px;font-weight:700;color:var(--am);margin-bottom:5px}
+.proclip-text{font-size:11px;color:var(--c700);line-height:1.7}
+.proclip-items{list-style:none;margin-top:7px;padding:0}
+.proclip-items li{font-size:11px;color:var(--c700);padding:3px 0 3px 16px;position:relative;line-height:1.5}
+.proclip-items li::before{content:"→";position:absolute;left:0;color:var(--ac);font-weight:700}
+.cases{padding:0 var(--p) 18px}
+.cases-title{font-size:13px;font-weight:700;color:var(--c900);margin-bottom:10px}
+.cases-grid{display:grid;grid-template-columns:1fr;gap:8px}
+@media(min-width:480px){.cases-grid{grid-template-columns:repeat(3,1fr)}}
+.case-card{background:var(--c50);border:1px solid var(--c200);border-radius:10px;padding:12px;border-top:3px solid var(--ac)}
+.case-nome{display:block;font-size:11px;font-weight:700;color:var(--c900)}
+.case-local{display:block;font-size:10px;color:var(--c500);margin-top:2px;margin-bottom:8px}
+.case-metrics{display:flex;gap:6px;margin-bottom:8px}
+.case-metric{flex:1;text-align:center;background:#fff;border-radius:6px;padding:7px 4px;border:1px solid var(--c200)}
+.case-valor{display:block;font-size:14px;font-weight:800}
+.case-valor.verde{color:var(--vd)}.case-valor.azul{color:var(--am)}
+.case-label{display:block;font-size:9px;color:var(--c500);margin-top:2px;line-height:1.3}
+.case-depo{font-size:10px;color:var(--c700);font-style:italic;line-height:1.5;border-left:2px solid var(--ac);padding-left:7px}
+.footer{padding:12px var(--p);border-top:1px solid var(--c200);display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;font-size:10px;color:var(--c500)}
+@media print{body{background:#fff}.page{max-width:100%}}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="header"><img src="https://i.imgur.com/DOYHPYg.png" class="logo" alt="Clintia"><div class="header-right"><div class="header-title">RAIO-X DIGITAL</div><div class="header-sub">Análise de presença digital &bull; 08/05/2026</div></div></div>
+<div class="accent-bar"></div>
+<div class="clinica-info"><div class="clinica-nome">Clínica Médica Cor</div><div class="clinica-end">R. do Catete, 228 - 116 - Catete, Rio de Janeiro - RJ, 22220-001, Brasil</div></div>
+<div class="metrics"><div class="mc"><div class="mv good">4.7</div><div class="ml">Nota Google</div><div class="me"><span class="stars">★★★★½</span></div></div><div class="mc"><div class="mv" style="color:var(--am)">112</div><div class="ml">Avaliações</div></div><div class="mc"><div class="mv good">73<span style="font-size:11px;font-weight:400">/100</span></div><div class="ml">Score Digital</div><div class="me" style="font-weight:600;color:var(--c700)">Ótimo &bull; #8 de 40</div></div></div>
+<div class="section"><div class="sh"><div class="sn">1</div><div class="st">Ranking de Presença Digital — Rio De Janeiro Mier</div></div><div class="rank-row"><span class="rank-pos">#1</span><span class="rank-name">Dra Claudia Reis - Serviços de</span><div class="rank-bar-wrap"><div class="rank-bar good" style="width:84%"></div></div><span class="rank-score good">84</span><span class="rank-label good">Ótimo</span></div>
+<div class="rank-row"><span class="rank-pos">#2</span><span class="rank-name">ClinicMaix - Clinica Médica e </span><div class="rank-bar-wrap"><div class="rank-bar good" style="width:81%"></div></div><span class="rank-score good">81</span><span class="rank-label good">Ótimo</span></div>
+<div class="rank-row"><span class="rank-pos">#3</span><span class="rank-name">Clínica Popular Sensivita | Mé</span><div class="rank-bar-wrap"><div class="rank-bar good" style="width:80%"></div></div><span class="rank-score good">80</span><span class="rank-label good">Ótimo</span></div>
+<div class="rank-row"><span class="rank-pos">#4</span><span class="rank-name">Centro Médico Pastore - Consul</span><div class="rank-bar-wrap"><div class="rank-bar good" style="width:80%"></div></div><span class="rank-score good">80</span><span class="rank-label good">Ótimo</span></div>
+<div class="rank-row"><span class="rank-pos">#5</span><span class="rank-name">Centro Médico Pastore - Consul</span><div class="rank-bar-wrap"><div class="rank-bar good" style="width:79%"></div></div><span class="rank-score good">79</span><span class="rank-label good">Ótimo</span></div>
+<div class="rank-row"><span class="rank-pos">#6</span><span class="rank-name">Labs a+</span><div class="rank-bar-wrap"><div class="rank-bar good" style="width:78%"></div></div><span class="rank-score good">78</span><span class="rank-label good">Ótimo</span></div>
+<p class="rank-leg">Score 0–100: nota Google + avaliações + website + horário + fotos.</p></div>
+<div class="section"><div class="sh"><div class="sn">2</div><div class="st">Visibilidade Local</div><div class="ss">4/4 OK</div></div><div class="check-row ok"><div class="check-icon ok">✓</div><div class="check-text"><span class="check-label">Website próprio</span></div></div>
+<div class="check-row ok"><div class="check-icon ok">✓</div><div class="check-text"><span class="check-label">Horário atualizado no Google</span></div></div>
+<div class="check-row ok"><div class="check-icon ok">✓</div><div class="check-text"><span class="check-label">Fotos no perfil do Google</span></div></div>
+<div class="check-row ok"><div class="check-icon ok">✓</div><div class="check-text"><span class="check-label">Telefone cadastrado</span></div></div>
+</div>
+<div class="section"><div class="sh"><div class="sn">3</div><div class="st">Posição entre os Concorrentes</div><div class="ss">#8 de 40</div></div><div class="table-wrap"><table class="comp-table"><thead><tr><th>Clínica</th><th class="center">Nota</th><th class="center">Aval.</th><th class="center">Site</th><th class="center">Score</th></tr></thead><tbody><tr><td colspan="5" style="text-align:center;padding:8px;font-size:11px;color:var(--vm);font-weight:600;background:var(--vmbg)">⚠️ Existem 7 clínicas com melhor presença digital em Rio De Janeiro Mier</td></tr>
+<tr><td class="nome-col">#6 Labs a+</td><td class="center"><span class="nota-badge warn">4</span></td><td class="center"><div class="aval-cell"><span>538</span><div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div></div></td><td class="center"><span class="tag-sim">Sim</span></td><td class="center"><span class="score-mini good">78</span></td></tr>
+<tr><td class="nome-col">#7 Docctor Med Méier</td><td class="center"><span class="nota-badge good">4.8</span></td><td class="center"><div class="aval-cell"><span>390</span><div class="bar-bg"><div class="bar-fill" style="width:78%"></div></div></div></td><td class="center"><span class="tag-sim">Sim</span></td><td class="center"><span class="score-mini good">76</span></td></tr>
+<tr class="alvo"><td class="nome-col"><strong>#8 ► Clínica Médica Cor</strong></td><td class="center"><span class="nota-badge good">4.7</span></td><td class="center"><div class="aval-cell"><span>112</span><div class="bar-bg"><div class="bar-fill" style="width:22%"></div></div></div></td><td class="center"><span class="tag-sim">Sim</span></td><td class="center"><span class="score-mini good">73</span></td></tr>
+<tr><td class="nome-col">#9 Centro Médico Pastore - Co</td><td class="center"><span class="nota-badge good">4.7</span></td><td class="center"><div class="aval-cell"><span>350</span><div class="bar-bg"><div class="bar-fill" style="width:70%"></div></div></div></td><td class="center"><span class="tag-sim">Sim</span></td><td class="center"><span class="score-mini good">73</span></td></tr>
+<tr><td class="nome-col">#10 Bronstein Medicina Diagnós</td><td class="center"><span class="nota-badge bad">2.6</span></td><td class="center"><div class="aval-cell"><span>745</span><div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div></div></td><td class="center"><span class="tag-sim">Sim</span></td><td class="center"><span class="score-mini warn">68</span></td></tr>
+<tr><td colspan="5" style="text-align:center;padding:6px;font-size:10px;color:var(--c500)">↓ 30 clínicas abaixo</td></tr>
+</tbody></table></div></div>
+<div class="section"><div class="sh"><div class="sn">4</div><div class="st">Oportunidades Identificadas</div></div></div>
+<div class="janela"><div class="janela-title"><span>⚡</span> Janela de Oportunidade</div><div class="janela-text">Score <strong>73/100</strong> — boa presença digital, mas 12 concorrentes em Rio De Janeiro Mier estão no mesmo nível. A Dra Claudia Reis - Serviços  está no mesmo patamar com 84 pontos. <strong>A diferença entre quem domina e quem fica para trás está nos detalhes</strong>: gaps no perfil Google. Quem resolver isso primeiro consolida a liderança.</div><div class="janela-urg">⏳ Mercado disputado no nível 73: quem parar de evoluir cede terreno para quem não para — cenário de 08/05/2026.</div></div>
+<div class="cta"><div class="cta-title">Identificamos oportunidades reais de crescimento para a Clínica Médica Cor.</div><div class="cta-sub">Podemos apresentar o plano completo em 15 minutos. Sem compromisso.</div></div>
+<div class="proclip"><div class="proclip-title">O que é a PROClip?</div><div class="proclip-text">A PROClip é um programa de 45 dias criado pela Clintia exclusivamente para clínicas populares. O objetivo: <strong>tornar a sua clínica a primeira escolha do paciente quando ele busca atendimento na região.</strong></div><ul class="proclip-items"><li>Sua clínica nas primeiras posições quando o paciente busca no Google</li><li>Fluxo consistente de novos pacientes chegando pelo digital toda semana</li><li>Recepção preparada para transformar contato em consulta agendada</li><li>Pacientes retornando — sem depender exclusivamente de indicação</li></ul><div class="proclip-text" style="margin-top:8px">A Clintia tem <strong>10 anos de mercado</strong> e a PROClip já ajudou <strong>mais de 150 clínicas populares</strong> a construírem crescimento digital sustentável.</div></div>
+<div class="cases"><div class="cases-title">Resultados de clínicas que passaram pela PROClip</div><div class="cases-grid"><div class="case-card"><span class="case-nome">Policlínica Vida Nova</span><span class="case-local">Vitória da Conquista — BA</span><div class="case-metrics"><div class="case-metric"><span class="case-valor verde">-58%</span><span class="case-label">custo por paciente</span></div><div class="case-metric"><span class="case-valor azul">+120</span><span class="case-label">pacientes/mês</span></div></div><p class="case-depo">"Antes dependíamos só de indicação. Hoje o WhatsApp não para."</p></div><div class="case-card"><span class="case-nome">Clínica Popular Saúde+</span><span class="case-local">Caruaru — PE</span><div class="case-metrics"><div class="case-metric"><span class="case-valor verde">3.6→4.7</span><span class="case-label">nota Google 45 dias</span></div><div class="case-metric"><span class="case-valor azul">+340%</span><span class="case-label">buscas orgânicas</span></div></div><p class="case-depo">"Pacientes novos dizem que nos acharam no Google."</p></div><div class="case-card"><span class="case-nome">Centro Médico Esperança</span><span class="case-local">Feira de Santana — BA</span><div class="case-metrics"><div class="case-metric"><span class="case-valor verde">R$12</span><span class="case-label">custo por lead</span></div><div class="case-metric"><span class="case-valor azul">87%</span><span class="case-label">taxa agendamento</span></div></div><p class="case-depo">"A equipe sabe conduzir o paciente desde o primeiro contato."</p></div></div></div>
+<div class="footer"><span>PROClip by Clintia &bull; Crescimento para clínicas populares</span><span>clintia.com.br</span></div>
+</div>
+</body>
+</html>
