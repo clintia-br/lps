@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jefferson Filipim — Fisioterapia Ortopédica & Geriátrica · São Paulo</title>
+<meta name="description" content="Fisioterapia especializada em ortopedia e saúde do idoso em São Paulo. Plano estruturado, acompanhamento contínuo e atendimento individualizado. Crefito-3 nº 371949-F." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,30..100;1,9..144,300..900,30..100&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:        #F1ECE2;     /* cream paper */
+    --bg-soft:   #E8E1D2;     /* soft cream */
+    --bg-dark:   #1E241E;     /* deep forest near-black */
+    --bg-darker: #141914;
+    --ink:       #1A1F1A;     /* text */
+    --ink-soft:  #4A5247;     /* secondary text */
+    --ink-faded: #8A8779;     /* tertiary */
+    --sage:      #3D4A3D;     /* primary brand */
+    --sage-deep: #2A352A;
+    --clay:      #B5704C;     /* accent terracotta */
+    --clay-soft: #C68A6A;
+    --line:      rgba(30, 36, 30, 0.12);
+    --line-strong: rgba(30, 36, 30, 0.25);
+    --line-light: rgba(241, 236, 226, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* ------- TYPE ------- */
+  .serif { font-family: "Fraunces", Georgia, serif; font-feature-settings: "ss01", "ss02"; font-variation-settings: "opsz" 144, "SOFT" 50; }
+  .display {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 350;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+  .eyebrow {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+  .italic { font-style: italic; }
+  em { font-family: "Fraunces", serif; font-style: italic; font-weight: 400; }
+
+  /* ------- LAYOUT ------- */
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  .wrap-narrow { max-width: 980px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 768px) {
+    .wrap, .wrap-narrow { padding: 0 24px; }
+  }
+
+  /* ------- NAVIGATION ------- */
+  nav.top {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 22px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(241, 236, 226, 0.82);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+  }
+  nav.top.scrolled { border-bottom: 1px solid var(--line); }
+  nav.top .brand {
+    font-family: "Fraunces", serif;
+    font-size: 19px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  nav.top .brand .crefito {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--ink-faded);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  nav.top ul {
+    display: flex; gap: 38px; list-style: none;
+    font-size: 14px;
+    font-weight: 450;
+  }
+  nav.top ul a {
+    color: var(--ink); text-decoration: none;
+    transition: opacity 0.2s;
+    position: relative;
+  }
+  nav.top ul a:hover { opacity: 0.55; }
+  nav.top .cta {
+    background: var(--sage);
+    color: var(--bg);
+    padding: 11px 22px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.25s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  nav.top .cta:hover { background: var(--sage-deep); }
+  nav.top .cta::after {
+    content: "→";
+    transition: transform 0.25s;
+  }
+  nav.top .cta:hover::after { transform: translateX(3px); }
+  @media (max-width: 900px) {
+    nav.top ul { display: none; }
+    nav.top { padding: 16px 20px; }
+    nav.top .brand { font-size: 16px; }
+    nav.top .brand .crefito { display: none; }
+    nav.top .cta {
+      padding: 9px 16px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+  }
+  @media (max-width: 380px) {
+    nav.top .cta::after { display: none; }
+    nav.top .cta { padding: 9px 14px; }
+  }
+
+  /* ------- HERO ------- */
+  .hero {
+    padding: 160px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 70px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 48px;
+  }
+  .hero-eyebrow::before {
+    content: ""; width: 40px; height: 1px; background: var(--ink-soft);
+  }
+  .hero h1 {
+    font-size: clamp(38px, 7.4vw, 116px);
+    font-weight: 320;
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    margin-bottom: 36px;
+  }
+  .hero h1 em {
+    font-weight: 350;
+    color: var(--sage);
+  }
+  .hero-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin-bottom: 36px;
+  }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 30px;
+    padding-top: 36px;
+    margin-top: 36px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta .item {
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .hero-meta .item strong {
+    display: block;
+    font-family: "Fraunces", serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
+  .hero-actions {
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--sage);
+    color: var(--bg);
+    padding: 16px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.25s;
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid var(--sage);
+  }
+  .btn-primary:hover {
+    background: var(--sage-deep);
+    transform: translateY(-1px);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    padding: 16px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.25s;
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid var(--line-strong);
+  }
+  .btn-ghost:hover {
+    border-color: var(--ink);
+    background: var(--bg-soft);
+  }
+  @media (max-width: 900px) {
+    .hero { padding: 120px 0 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 50px; }
+    .hero-eyebrow { margin-bottom: 30px; }
+    .hero h1 { font-size: 38px; line-height: 1; margin-bottom: 28px; }
+    .hero-content p { font-size: 16px; margin-bottom: 28px; max-width: 100%; }
+  }
+
+  /* ------- HERO VISUAL ------- */
+  .hero-visual {
+    position: relative;
+  }
+  .hero-visual img {
+    width: 100%;
+    aspect-ratio: 4 / 4.6;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+    border-radius: 500px 500px 16px 16px;
+    filter: saturate(0.85) contrast(1.02);
+    box-shadow: 0 20px 40px rgba(30, 36, 30, 0.08);
+  }
+  .hero-visual .badge {
+    position: absolute;
+    bottom: 40px; left: -24px;
+    background: rgba(241, 236, 226, 0.96);
+    backdrop-filter: blur(10px);
+    padding: 14px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    display: flex; align-items: center; gap: 10px;
+    z-index: 3;
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(30, 36, 30, 0.12);
+  }
+  .hero-visual .badge::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: #4CAF50; box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.18);
+    flex-shrink: 0;
+  }
+  @media (max-width: 768px) {
+    .hero-visual img {
+      aspect-ratio: 1 / 1.1;
+      border-radius: 300px 300px 12px 12px;
+      object-position: center 10%;
+    }
+    .hero-visual .badge {
+      bottom: 24px; left: 16px;
+      padding: 10px 16px;
+      font-size: 12px;
+    }
+  }
+
+  /* ------- TRUST STRIP ------- */
+  .trust {
+    padding: 70px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-soft);
+  }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .trust-grid .cell {
+    padding: 0 30px;
+    border-right: 1px solid var(--line);
+  }
+  .trust-grid .cell:last-child { border-right: none; }
+  .trust-grid .cell:first-child { padding-left: 0; }
+  .trust-grid .num {
+    font-family: "Fraunces", serif;
+    font-size: clamp(34px, 4vw, 56px);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .trust-grid .num em {
+    color: var(--clay);
+    font-weight: 350;
+  }
+  .trust-grid .label {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+  @media (max-width: 768px) {
+    .trust-grid { grid-template-columns: 1fr 1fr; gap: 30px 0; }
+    .trust-grid .cell { padding: 0 16px; border-right: none; }
+    .trust-grid .cell:nth-child(odd) { border-right: 1px solid var(--line); }
+    .trust-grid .cell:first-child { padding-left: 0; }
+    .trust-grid .label { font-size: 12px; }
+  }
+
+  /* ------- SECTION HEADING ------- */
+  .section-head {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 50px;
+    margin-bottom: 80px;
+    align-items: start;
+  }
+  .section-head .num {
+    font-family: "Fraunces", serif;
+    font-size: 14px;
+    color: var(--ink-faded);
+    padding-top: 10px;
+    letter-spacing: 0;
+  }
+  .section-head h2 {
+    font-family: "Fraunces", serif;
+    font-size: clamp(30px, 5vw, 64px);
+    font-weight: 320;
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+  .section-head h2 em { color: var(--sage); }
+  .section-head .sub {
+    margin-top: 24px;
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 600px;
+  }
+  @media (max-width: 768px) {
+    .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 50px; }
+  }
+
+  /* ------- TWO PILLARS ------- */
+  section.pillars {
+    padding: 140px 0 120px;
+  }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--line-strong);
+  }
+  .pillar {
+    padding: 60px 50px 60px 0;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .pillar:last-child { border-right: none; padding-right: 0; padding-left: 50px; }
+  .pillar .label {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 32px;
+  }
+  .pillar .label .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage); }
+  .pillar .label .text {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .pillar h3 {
+    font-family: "Fraunces", serif;
+    font-size: clamp(28px, 3.4vw, 44px);
+    font-weight: 350;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-bottom: 28px;
+  }
+  .pillar p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+    max-width: 460px;
+  }
+  .pillar ul {
+    list-style: none;
+    margin-bottom: 36px;
+  }
+  .pillar ul li {
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    font-size: 15px;
+    display: flex; align-items: center; justify-content: space-between;
+    color: var(--ink);
+  }
+  .pillar ul li:last-child { border-bottom: 1px solid var(--line); }
+  .pillar ul li::after {
+    content: "→";
+    color: var(--ink-faded);
+    font-size: 16px;
+  }
+  .pillar .link {
+    display: inline-flex; align-items: center; gap: 10px;
+    text-decoration: none;
+    color: var(--sage);
+    font-size: 15px;
+    font-weight: 500;
+    transition: gap 0.25s;
+  }
+  .pillar .link:hover { gap: 14px; }
+
+  .pillar-image {
+    margin-top: 48px;
+  }
+  .pillar-image img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+    filter: saturate(0.9);
+  }
+  .pillar-caption {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-top: 12px;
+  }
+
+  @media (max-width: 900px) {
+    .pillars-grid { grid-template-columns: 1fr; }
+    .pillar { padding: 40px 0; border-right: none; border-bottom: 1px solid var(--line); }
+    .pillar:last-child { padding-left: 0; border-bottom: none; }
+  }
+
+  /* ------- METHOD ------- */
+  section.method {
+    padding: 120px 0;
+    background: var(--bg-dark);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  section.method::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(181, 112, 76, 0.07) 0%, transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(61, 74, 61, 0.5) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  section.method .wrap { position: relative; z-index: 1; }
+  section.method .section-head h2 { color: var(--bg); }
+  section.method .section-head h2 em { color: var(--clay-soft); }
+  section.method .section-head .num { color: var(--ink-faded); }
+  section.method .section-head .sub { color: rgba(241, 236, 226, 0.65); }
+
+  .method-flow {
+    margin-top: 90px;
+    border-top: 1px solid var(--line-light);
+  }
+  .method-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 0.65fr;
+    gap: 60px;
+    padding: 64px 0;
+    border-bottom: 1px solid var(--line-light);
+    align-items: start;
+  }
+  .method-row-num {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 140px;
+    font-weight: 280;
+    letter-spacing: -0.05em;
+    line-height: 0.85;
+    color: var(--clay-soft);
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+  .method-row-main h4 {
+    font-family: "Fraunces", serif;
+    font-size: clamp(26px, 2.6vw, 38px);
+    font-weight: 350;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--bg);
+    max-width: 560px;
+  }
+  .method-row-main .lead {
+    font-size: 16px;
+    color: rgba(241, 236, 226, 0.7);
+    line-height: 1.65;
+    max-width: 560px;
+  }
+  .method-row-aside {
+    padding-top: 12px;
+    border-top: 1px solid var(--line-light);
+  }
+  .method-row-aside .aside-label {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(241, 236, 226, 0.45);
+    margin-bottom: 16px;
+    margin-top: 14px;
+  }
+  .method-row-aside ul {
+    list-style: none;
+  }
+  .method-row-aside li {
+    font-size: 14px;
+    color: rgba(241, 236, 226, 0.8);
+    padding: 8px 0;
+    line-height: 1.4;
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  .method-row-aside li::before {
+    content: "+";
+    color: var(--clay-soft);
+    font-family: "Fraunces", serif;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .method-quote {
+    margin-top: 90px;
+    padding: 50px 0 0;
+    border-top: 1px solid var(--line-light);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .method-quote .q-mark {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 80px;
+    line-height: 0.7;
+    color: var(--clay-soft);
+  }
+  .method-quote blockquote {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: clamp(22px, 2.4vw, 32px);
+    font-weight: 350;
+    line-height: 1.35;
+    color: var(--bg);
+    letter-spacing: -0.01em;
+    max-width: 820px;
+    margin-bottom: 26px;
+  }
+  .method-quote .signature {
+    font-size: 12px;
+    color: var(--ink-faded);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    .method-row {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding: 48px 0;
+    }
+    .method-row-num {
+      font-size: 92px;
+    }
+    .method-quote {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .method-quote .q-mark {
+      font-size: 60px;
+    }
+  }
+
+  /* ------- ABOUT ------- */
+  section.about {
+    padding: 140px 0;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 90px;
+    align-items: center;
+  }
+  .about-image {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  .about-image img {
+    width: 100%; height: auto; display: block;
+    filter: saturate(0.85);
+  }
+  .about-image .frame {
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(241, 236, 226, 0.4);
+    pointer-events: none;
+  }
+  .about-image .caption {
+    position: absolute;
+    bottom: 32px; left: 32px;
+    color: var(--bg);
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 18px;
+    max-width: 280px;
+    line-height: 1.3;
+  }
+  .about-content .eyebrow { margin-bottom: 30px; }
+  .about-content h2 {
+    font-family: "Fraunces", serif;
+    font-size: clamp(30px, 4.4vw, 56px);
+    font-weight: 320;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-bottom: 36px;
+  }
+  .about-content h2 em { color: var(--sage); }
+  .about-content p {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .about-content .credentials {
+    margin-top: 44px;
+    padding-top: 36px;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .about-content .credentials .item .label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faded);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .about-content .credentials .item .value {
+    font-family: "Fraunces", serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 50px; }
+    .about-image { min-height: unset; }
+  }
+
+  /* ------- FOR WHOM ------- */
+  section.audience {
+    padding: 140px 0;
+    background: var(--bg-soft);
+  }
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .audience-card {
+    background: var(--bg);
+    padding: 40px 36px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .audience-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--sage);
+  }
+  .audience-card .icon-frame {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--bg-soft);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 26px;
+    color: var(--sage);
+  }
+  .audience-card .icon-frame svg { width: 22px; height: 22px; }
+  .audience-card h4 {
+    font-family: "Fraunces", serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .audience-card p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .audience-card .tag {
+    position: absolute;
+    top: 36px; right: 36px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--ink-faded);
+    text-transform: uppercase;
+  }
+  @media (max-width: 768px) {
+    .audience-grid { grid-template-columns: 1fr; gap: 16px; }
+    .audience-card { padding: 32px 26px; }
+  }
+
+  /* ------- HOME VISIT ------- */
+  section.homecare {
+    padding: 140px 0;
+  }
+  .homecare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .homecare-content .eyebrow { margin-bottom: 24px; }
+  .homecare-content h2 {
+    font-family: "Fraunces", serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 320;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-bottom: 32px;
+  }
+  .homecare-content p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+    line-height: 1.6;
+    max-width: 480px;
+  }
+  .homecare-content .indicators {
+    list-style: none;
+    margin-bottom: 36px;
+  }
+  .homecare-content .indicators li {
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+    display: flex; align-items: center; gap: 18px;
+    font-size: 15px;
+  }
+  .homecare-content .indicators li:last-child { border-bottom: 1px solid var(--line); }
+  .homecare-content .indicators li .num {
+    font-family: "Fraunces", serif;
+    color: var(--clay);
+    font-size: 16px;
+    min-width: 28px;
+  }
+  .homecare-visual {
+    position: relative;
+  }
+  .homecare-visual img {
+    width: 100%; height: auto; display: block;
+    border-radius: 4px;
+    filter: saturate(0.9);
+  }
+  @media (max-width: 900px) {
+    .homecare-grid { grid-template-columns: 1fr; gap: 50px; }
+  }
+
+  /* ------- TESTIMONIALS ------- */
+  section.testimonials {
+    padding: 140px 0;
+    background: var(--bg-dark);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  section.testimonials::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 70% 20%, rgba(181, 112, 76, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  section.testimonials .wrap { position: relative; z-index: 1; }
+  section.testimonials .section-head h2 { color: var(--bg); }
+  section.testimonials .section-head h2 em { color: var(--clay-soft); }
+  section.testimonials .section-head .num { color: var(--ink-faded); }
+  section.testimonials .section-head .sub { color: rgba(241, 236, 226, 0.65); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line-light);
+    border-top: 1px solid var(--line-light);
+    border-bottom: 1px solid var(--line-light);
+  }
+  .testimonial {
+    background: var(--bg-dark);
+    padding: 52px 44px;
+  }
+  .testimonial .quote-mark {
+    font-family: "Fraunces", serif;
+    font-size: 64px;
+    line-height: 0.7;
+    color: var(--clay-soft);
+    margin-bottom: 24px;
+    display: block;
+  }
+  .testimonial blockquote {
+    font-family: "Fraunces", serif;
+    font-weight: 350;
+    font-size: 22px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--bg);
+    margin-bottom: 32px;
+  }
+  .testimonial .attribution {
+    display: flex; align-items: center; gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-light);
+  }
+  .testimonial .avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--sage);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--bg);
+    font-family: "Fraunces", serif;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .testimonial .who {
+    font-size: 14px;
+    color: var(--bg);
+    margin-bottom: 4px;
+  }
+  .testimonial .detail {
+    font-size: 12px;
+    color: rgba(241, 236, 226, 0.55);
+    letter-spacing: 0.05em;
+  }
+  @media (max-width: 768px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial { padding: 40px 24px; }
+    .testimonial blockquote { font-size: 19px; }
+  }
+
+  /* ------- TREATMENT STRUCTURE ------- */
+  section.structure {
+    padding: 140px 0;
+  }
+  .structure-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+  .structure-left h2 {
+    font-family: "Fraunces", serif;
+    font-size: clamp(30px, 4.4vw, 60px);
+    font-weight: 320;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-bottom: 30px;
+  }
+  .structure-left h2 em { color: var(--sage); }
+  .structure-left p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .structure-right {
+    background: var(--bg-soft);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .structure-row {
+    display: grid;
+    grid-template-columns: 50px 1fr auto;
+    gap: 20px;
+    padding: 26px 32px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .structure-row:last-child { border-bottom: none; }
+  .structure-row .label {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--clay);
+  }
+  .structure-row .description {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .structure-row .description small {
+    display: block;
+    color: var(--ink-soft);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  .structure-row .value {
+    font-family: "Fraunces", serif;
+    font-size: 18px;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  @media (max-width: 900px) {
+    .structure-wrap { grid-template-columns: 1fr; gap: 50px; }
+    .structure-row { padding: 22px 22px; grid-template-columns: 32px 1fr auto; gap: 14px; }
+  }
+
+  /* ------- FAQ ------- */
+  section.faq {
+    padding: 140px 0;
+    background: var(--bg-soft);
+  }
+  .faq-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .faq-left h2 {
+    font-family: "Fraunces", serif;
+    font-size: clamp(30px, 4.4vw, 56px);
+    font-weight: 320;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+  .faq-left p {
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  .faq-item {
+    border-top: 1px solid var(--line-strong);
+    padding: 4px 0;
+  }
+  .faq-item:last-child {
+    border-bottom: 1px solid var(--line-strong);
+  }
+  .faq-q {
+    width: 100%;
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding: 26px 0;
+    cursor: pointer;
+    font-family: "Fraunces", serif;
+    font-size: 20px;
+    color: var(--ink);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 24px;
+    line-height: 1.2;
+  }
+  .faq-q::after {
+    content: "+";
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .faq-item.open .faq-a {
+    max-height: 400px;
+    padding: 0 0 28px;
+  }
+  @media (max-width: 900px) {
+    .faq-wrap { grid-template-columns: 1fr; gap: 30px; }
+  }
+
+  /* ------- FINAL CTA ------- */
+  section.final {
+    padding: 160px 0 140px;
+    background: var(--bg-dark);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  section.final::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 50% 100%, rgba(181, 112, 76, 0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .final-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .final-content .eyebrow {
+    color: var(--clay-soft);
+    margin-bottom: 32px;
+    justify-content: center;
+    display: flex;
+  }
+  .final-content h2 {
+    font-family: "Fraunces", serif;
+    font-size: clamp(38px, 6.4vw, 104px);
+    font-weight: 320;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    margin-bottom: 36px;
+    max-width: 1100px;
+    margin-left: auto; margin-right: auto;
+  }
+  .final-content h2 em {
+    font-style: italic;
+    color: var(--clay-soft);
+  }
+  .final-content p {
+    font-size: 19px;
+    color: rgba(241, 236, 226, 0.7);
+    max-width: 580px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+  }
+  .final-content .actions {
+    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  }
+  .final-content .actions .btn-primary {
+    background: var(--clay);
+    border-color: var(--clay);
+    font-size: 16px;
+    padding: 18px 32px;
+  }
+  .final-content .actions .btn-primary:hover { background: var(--clay-soft); border-color: var(--clay-soft); }
+  .final-content .actions .btn-ghost {
+    color: var(--bg);
+    border-color: rgba(241, 236, 226, 0.25);
+    font-size: 16px;
+    padding: 18px 32px;
+  }
+  .final-content .actions .btn-ghost:hover {
+    border-color: var(--bg);
+    background: rgba(241, 236, 226, 0.05);
+  }
+
+  /* ------- FOOTER ------- */
+  footer {
+    background: var(--bg-darker);
+    color: rgba(241, 236, 226, 0.7);
+    padding: 70px 0 36px;
+    font-size: 14px;
+  }
+  footer .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+  footer .brand-block .name {
+    font-family: "Fraunces", serif;
+    font-size: 22px;
+    color: var(--bg);
+    margin-bottom: 10px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  footer .brand-block .crefito {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: rgba(241, 236, 226, 0.5);
+    margin-bottom: 18px;
+  }
+  footer .brand-block p {
+    max-width: 280px;
+    line-height: 1.6;
+    color: rgba(241, 236, 226, 0.6);
+    font-size: 14px;
+  }
+  footer .col h5 {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    color: rgba(241, 236, 226, 0.5);
+    font-weight: 500;
+  }
+  footer .col ul { list-style: none; }
+  footer .col ul li { margin-bottom: 12px; }
+  footer .col a {
+    color: rgba(241, 236, 226, 0.8);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer .col a:hover { color: var(--bg); }
+  footer .bottom {
+    border-top: 1px solid rgba(241, 236, 226, 0.1);
+    padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    font-size: 12px;
+    color: rgba(241, 236, 226, 0.45);
+  }
+  @media (max-width: 900px) {
+    footer .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+  @media (max-width: 600px) {
+    footer .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+
+  /* ------- ANIMATIONS ------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero h1, .hero-eyebrow, .hero-content p, .hero-actions, .hero-meta, .hero-visual {
+    animation: fadeUp 1s ease forwards;
+    opacity: 0;
+  }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero h1 { animation-delay: 0.2s; }
+  .hero-content p { animation-delay: 0.4s; }
+  .hero-actions { animation-delay: 0.5s; }
+  .hero-meta { animation-delay: 0.6s; }
+  .hero-visual { animation-delay: 0.7s; }
+
+  /* ------- GALLERY MARQUEE ------- */
+  section.gallery {
+    padding: 60px 0 100px;
+    background: var(--bg);
+    overflow: hidden;
+    position: relative;
+  }
+  .gallery-head {
+    margin-bottom: 56px;
+  }
+  .gallery-head .label-row {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 24px;
+  }
+  .gallery-head .label-row::before {
+    content: ""; width: 40px; height: 1px; background: var(--ink-soft);
+  }
+  .gallery-head h3 {
+    font-family: "Fraunces", serif;
+    font-size: clamp(28px, 3.6vw, 48px);
+    font-weight: 320;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    max-width: 720px;
+  }
+  .gallery-head h3 em { color: var(--clay); }
+
+  .gallery-note {
+    display: flex; align-items: center; gap: 12px;
+    margin-top: 22px;
+    padding: 14px 20px;
+    background: var(--bg-soft);
+    border-left: 3px solid var(--clay);
+    border-radius: 0 4px 4px 0;
+    max-width: 720px;
+  }
+  .gallery-note .icon {
+    color: var(--clay);
+    flex-shrink: 0;
+  }
+  .gallery-note .text {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .gallery-note .text strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: marquee-scroll 60s linear infinite;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 10px)); }
+  }
+
+  /* All marquee items SAME SIZE for visual consistency */
+  .marquee-item {
+    width: 280px;
+    height: 360px;
+    flex-shrink: 0;
+    background: var(--bg-soft);
+    border: 1px dashed rgba(30, 36, 30, 0.2);
+    border-radius: 4px;
+    display: flex; flex-direction: column;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .marquee-item::before {
+    content: "";
+    position: absolute; inset: 8px;
+    border: 1px solid rgba(30, 36, 30, 0.05);
+    pointer-events: none;
+  }
+  .marquee-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--clay);
+  }
+
+  .marquee-item .m-top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: auto;
+    position: relative; z-index: 1;
+  }
+  .marquee-item .m-num {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  .marquee-item .m-status {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--clay);
+    font-weight: 600;
+    background: rgba(181, 112, 76, 0.1);
+    padding: 4px 8px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .marquee-item .m-center {
+    flex-grow: 1;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .marquee-item .m-center .camera-icon {
+    width: 38px; height: 38px;
+    color: var(--ink-faded);
+    opacity: 0.45;
+  }
+  .marquee-item .m-center .plus-mark {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 22px; height: 22px;
+    background: var(--clay);
+    color: var(--bg);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 500;
+    transform: translate(8px, 4px);
+  }
+
+  .marquee-item .m-bottom {
+    position: relative; z-index: 1;
+    padding-top: 14px;
+    border-top: 1px solid rgba(30, 36, 30, 0.1);
+  }
+  .marquee-item .m-caption {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    margin-bottom: 6px;
+  }
+  .marquee-item .m-sub {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 11px;
+    color: var(--ink-faded);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    section.gallery { padding: 50px 0 70px; }
+    .gallery-head { margin-bottom: 36px; }
+    .gallery-note { padding: 12px 16px; margin-top: 18px; }
+    .gallery-note .text { font-size: 12.5px; }
+    .marquee-track { animation-duration: 50s; gap: 14px; }
+    .marquee-item { width: 220px; height: 290px; padding: 16px; }
+    .marquee-item .m-caption { font-size: 15px; }
+    .marquee-item .m-center .camera-icon { width: 32px; height: 32px; }
+    .marquee-item .m-status { font-size: 8px; padding: 3px 7px; }
+    .marquee-item .m-num { font-size: 13px; }
+  }
+
+  /* ------- IMAGE PLACEHOLDERS ------- */
+  .img-placeholder {
+    width: 100%;
+    height: 100%;
+    background:
+      linear-gradient(135deg, rgba(61, 74, 61, 0.04) 0%, rgba(181, 112, 76, 0.04) 100%),
+      var(--bg-soft);
+    border: 1px dashed rgba(30, 36, 30, 0.18);
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 36px;
+    overflow: hidden;
+  }
+  .img-placeholder::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(30, 36, 30, 0.06);
+    pointer-events: none;
+  }
+  .img-placeholder .ph-inner {
+    text-align: center;
+    max-width: 440px;
+    position: relative;
+    z-index: 1;
+  }
+  .img-placeholder .ph-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faded);
+    margin-bottom: 26px;
+    font-weight: 500;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .img-placeholder .ph-label::before,
+  .img-placeholder .ph-label::after {
+    content: ""; width: 24px; height: 1px;
+    background: var(--ink-faded);
+    opacity: 0.4;
+  }
+  .img-placeholder .ph-icon {
+    margin-bottom: 22px;
+    color: var(--sage);
+    opacity: 0.55;
+    display: flex; justify-content: center;
+  }
+  .img-placeholder .ph-icon svg {
+    width: 36px; height: 36px;
+  }
+  .img-placeholder .ph-title {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .img-placeholder .ph-desc {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+  .img-placeholder .ph-meta {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--ink-faded);
+    text-transform: uppercase;
+    padding-top: 18px;
+    border-top: 1px solid rgba(30, 36, 30, 0.1);
+    display: inline-block;
+  }
+
+  /* Dark variant for placeholders inside dark sections */
+  .img-placeholder.dark {
+    background:
+      linear-gradient(135deg, rgba(181, 112, 76, 0.06) 0%, rgba(241, 236, 226, 0.02) 100%),
+      var(--bg-dark);
+    border-color: rgba(241, 236, 226, 0.18);
+  }
+  .img-placeholder.dark::before { border-color: rgba(241, 236, 226, 0.08); }
+  .img-placeholder.dark .ph-label { color: rgba(241, 236, 226, 0.55); }
+  .img-placeholder.dark .ph-label::before,
+  .img-placeholder.dark .ph-label::after { background: rgba(241, 236, 226, 0.5); }
+  .img-placeholder.dark .ph-icon { color: var(--clay-soft); opacity: 0.65; }
+  .img-placeholder.dark .ph-title { color: var(--bg); }
+  .img-placeholder.dark .ph-desc { color: rgba(241, 236, 226, 0.6); }
+  .img-placeholder.dark .ph-meta {
+    color: rgba(241, 236, 226, 0.45);
+    border-top-color: rgba(241, 236, 226, 0.1);
+  }
+
+  /* ------- GLOBAL MOBILE REFINEMENT ------- */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    section.trust { padding: 50px 0; }
+    section.pillars { padding: 80px 0 70px; }
+    section.method { padding: 80px 0; }
+    section.about { padding: 80px 0; }
+    section.audience { padding: 80px 0; }
+    section.homecare { padding: 80px 0; }
+    section.testimonials { padding: 80px 0; }
+    section.structure { padding: 80px 0; }
+    section.faq { padding: 80px 0; }
+    section.final { padding: 90px 0 80px; }
+    footer { padding: 60px 0 30px; }
+
+    .section-head { margin-bottom: 40px; }
+    .section-head .num { font-size: 12px; padding-top: 6px; }
+    .section-head .sub { font-size: 15px; margin-top: 18px; }
+
+    .hero-eyebrow { font-size: 10px; }
+    .hero-eyebrow::before { width: 28px; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions a { justify-content: center; }
+    .hero-visual { margin-top: 40px; }
+
+    .btn-primary, .btn-ghost { padding: 14px 24px; font-size: 14px; }
+
+    .pillar p { font-size: 15px; margin-bottom: 24px; }
+    .pillar ul li { font-size: 14px; padding: 12px 0; }
+    .pillar .label { margin-bottom: 24px; }
+
+    .method-flow { margin-top: 50px; }
+    .method-row-main .lead { font-size: 15px; }
+    .method-row-aside { padding-top: 8px; margin-top: 4px; }
+    .method-quote blockquote { line-height: 1.4; }
+
+    .about-content p { font-size: 16px; }
+    .about-content .credentials { gap: 22px; margin-top: 32px; padding-top: 28px; }
+    .about-content .credentials .item .value { font-size: 17px; }
+
+    .audience-card { padding: 28px 24px; }
+    .audience-card h4 { font-size: 22px; }
+    .audience-card p { font-size: 14px; }
+    .audience-card .tag { top: 28px; right: 28px; font-size: 10px; }
+    .audience-card .icon-frame { width: 44px; height: 44px; margin-bottom: 20px; }
+
+    .structure-right { font-size: 14px; }
+    .structure-row .description { font-size: 14px; }
+    .structure-row .description small { font-size: 12px; }
+    .structure-row .value { font-size: 15px; }
+    .structure-row .label { font-size: 16px; }
+
+    .testimonial blockquote { font-size: 17px; line-height: 1.45; }
+    .testimonial .quote-mark { font-size: 48px; margin-bottom: 16px; }
+
+    .homecare-content .indicators li { font-size: 14px; padding: 14px 0; }
+
+    .faq-q { font-size: 17px; padding: 22px 0; }
+    .faq-q::after { font-size: 22px; }
+    .faq-a { font-size: 15px; }
+    .faq-item.open .faq-a { padding: 0 0 22px; }
+
+    .final-content p { font-size: 16px; margin-bottom: 36px; }
+    .final-content .actions { flex-direction: column; align-items: stretch; }
+    .final-content .actions a { justify-content: center; }
+
+    /* Image placeholders on mobile */
+    .img-placeholder { padding: 28px 20px; }
+    .img-placeholder .ph-title { font-size: 20px; }
+    .img-placeholder .ph-desc { font-size: 12.5px; }
+    .img-placeholder .ph-icon svg { width: 28px; height: 28px; }
+    .img-placeholder .ph-icon { margin-bottom: 18px; }
+    .img-placeholder .ph-label { margin-bottom: 20px; }
+
+    .whatsapp-float { width: 50px; height: 50px; bottom: 18px; right: 18px; }
+    .whatsapp-float svg { width: 24px; height: 24px; }
+  }
+
+  /* Very small phones */
+  @media (max-width: 380px) {
+    .hero h1 { font-size: 34px; }
+    .section-head h2 { font-size: 26px; }
+    .wrap, .wrap-narrow { padding: 0 20px; }
+    nav.top { padding: 16px 20px; }
+  }
+
+  /* WhatsApp floating */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    width: 56px; height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+    z-index: 50;
+    transition: transform 0.2s;
+  }
+  .whatsapp-float:hover { transform: scale(1.05); }
+  .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+</style>
+</head>
+<body>
+
+<!-- ========= NAV ========= -->
+<nav class="top" id="nav">
+  <a href="#" class="brand">
+    Jefferson Filipim
+    <span class="crefito">CREFITO-3 · 371949-F</span>
+  </a>
+  <ul>
+    <li><a href="#especialidades">Especialidades</a></li>
+    <li><a href="#metodo">Método</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#domiciliar">Domiciliar</a></li>
+    <li><a href="#faq">Dúvidas</a></li>
+  </ul>
+  <a href="https://wa.me/5511917278795?text=Oi%20Jefferson%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." class="cta">Agendar avaliação</a>
+</nav>
+
+<!-- ========= HERO ========= -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div class="hero-content">
+        <div class="hero-eyebrow eyebrow">Fisioterapia ortopédica & geriátrica · São Paulo</div>
+        <h1 class="display">O movimento que <em>volta</em>.<br/>E que <em>permanece</em>.</h1>
+        <p>Reabilitação séria para quem está se recuperando — e cuidado contínuo para quem quer manter independência. Plano estruturado, acompanhamento próximo, atendimento individual. Sem protocolo genérico.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5511917278795?text=Oi%20Jefferson%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." class="btn-primary">Agendar avaliação<span>→</span></a>
+          <a href="#metodo" class="btn-ghost">Entender o método</a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="item"><strong>4 anos</strong>atuando em São Paulo</div>
+          <div class="item"><strong>Pós-graduado</strong>em fisioterapia ortopédica</div>
+          <div class="item"><strong>Atendimento</strong>individual e domiciliar</div>
+          <div class="item"><strong>Crefito-3</strong>nº 371949-F</div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="badge">Atendendo novos pacientes</div>
+        <img src="https://i.imgur.com/eGFIf7W.png" alt="Jefferson Filipim em atendimento" />
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- ========= TRUST STRIP ========= -->
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="cell">
+        <div class="num">4 <em>anos</em></div>
+        <div class="label">Acompanhando minha paciente mais antiga — e dezenas de outras histórias.</div>
+      </div>
+      <div class="cell">
+        <div class="num">2x <em>/semana</em></div>
+        <div class="label">Frequência ideal para consolidar resultado. Ciclos de 12 semanas.</div>
+      </div>
+      <div class="cell">
+        <div class="num">100% <em>individual</em></div>
+        <div class="label">Nunca atendimento em grupo. Cada sessão é planejada para o seu caso.</div>
+      </div>
+      <div class="cell">
+        <div class="num">Sem <em>alta forçada</em></div>
+        <div class="label">Atendimento que continua enquanto fizer sentido para você.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= PILLARS ========= -->
+<section class="pillars" id="especialidades">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="num">01 / Especialidades</div>
+      <div>
+        <h2 class="display">Dois caminhos.<br/>Uma <em>mesma forma</em> de cuidar.</h2>
+        <div class="sub">Trabalho com duas áreas que se conectam: a recuperação ortopédica de quem voltou a se mexer com dor, e a manutenção funcional de quem precisa continuar se movendo bem com o passar dos anos.</div>
+      </div>
+    </div>
+
+    <div class="pillars-grid reveal">
+
+      <div class="pillar">
+        <div class="label">
+          <span class="dot"></span>
+          <span class="text">Pilar 01 · Ortopedia</span>
+        </div>
+        <h3 class="display">Reabilitação pós-cirúrgica e ortopédica</h3>
+        <p>Para quem se operou, sofreu uma lesão ou convive com dor que limita o dia a dia. Conduzo cada fase da recuperação respeitando o tempo do tecido, sem queimar etapas. O objetivo não é só voltar — é voltar bem, com confiança no movimento.</p>
+        <ul>
+          <li>Pós-operatório de joelho, ombro, coluna</li>
+          <li>Lesões esportivas e tendinopatias</li>
+          <li>Dor lombar e cervical crônica</li>
+          <li>Recuperação de fraturas</li>
+        </ul>
+        <a href="https://wa.me/5511917278795?text=Oi%20Jefferson%2C%20quero%20conversar%20sobre%20reabilita%C3%A7%C3%A3o%20ortop%C3%A9dica." class="link">Conversar sobre ortopedia →</a>
+
+        <div class="pillar-image">
+          <img src="https://i.imgur.com/QM7ps6m.jpeg" alt="Atendimento ortopédico com Jefferson Filipim" />
+          <div class="pillar-caption">Acompanhamento próximo para reabilitar movimento e confiança.</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="label">
+          <span class="dot"></span>
+          <span class="text">Pilar 02 · Geriatria</span>
+        </div>
+        <h3 class="display">Fisioterapia para a saúde do idoso</h3>
+        <p>Para quem chegou aos 60, 70, 80 anos e quer continuar fazendo o que ama — ou para a família que está preocupada com a queda, com a perda de força, com a fragilidade do pai, da mãe, da avó. Trabalho longo, próximo, com resultados que se manifestam no cotidiano.</p>
+        <ul>
+          <li>Prevenção de quedas e fraturas</li>
+          <li>Manutenção de força e equilíbrio</li>
+          <li>Recuperação após internação</li>
+          <li>Acompanhamento de doenças crônicas</li>
+        </ul>
+        <a href="https://wa.me/5511917278795?text=Oi%20Jefferson%2C%20quero%20conversar%20sobre%20fisioterapia%20para%20idoso." class="link">Conversar sobre geriatria →</a>
+        
+        <div class="pillar-image">
+          <img src="https://i.imgur.com/2PjTKk8.jpeg" alt="Jefferson palestrando para grupo de idosos" />
+          <div class="pillar-caption">Palestra sobre prevenção de quedas para a terceira idade.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========= METHOD ========= -->
+<section class="method" id="metodo">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="num">02 / O método</div>
+      <div>
+        <h2 class="display">Avaliar, planejar,<br/><em>acompanhar</em>.</h2>
+        <div class="sub">Não é técnica milagrosa. É um processo claro, repetível e individual — feito para você sair da primeira sessão sabendo o que vai acontecer nas próximas 24.</div>
+      </div>
+    </div>
+
+    <div class="method-flow">
+
+      <div class="method-row reveal">
+        <div class="method-row-num">01</div>
+        <div class="method-row-main">
+          <h4>Uma hora dedicada a entender o seu caso a fundo.</h4>
+          <p class="lead">A primeira sessão é só sobre você. Faço anamnese clínica, conduzo testes funcionais específicos, analiso seus exames anteriores. Saio dessa hora com um diagnóstico cinesiológico claro — e você sai com um plano de tratamento por escrito antes de fechar qualquer pacote.</p>
+        </div>
+        <div class="method-row-aside">
+          <div class="aside-label">— O que está incluso</div>
+          <ul>
+            <li>Anamnese clínica completa</li>
+            <li>Testes funcionais específicos</li>
+            <li>Leitura de exames anteriores</li>
+            <li>Plano por escrito</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="method-row reveal">
+        <div class="method-row-num">02</div>
+        <div class="method-row-main">
+          <h4>Um plano estruturado, com começo, meio e reavaliação.</h4>
+          <p class="lead">Trabalho com ciclos de 24 sessões em 12 semanas, duas vezes por semana, com dosagem progressiva. A cada quatro semanas a gente para, mede o que mudou e ajusta o curso. Você sabe exatamente onde está no processo — e onde quer chegar.</p>
+        </div>
+        <div class="method-row-aside">
+          <div class="aside-label">— Como funciona</div>
+          <ul>
+            <li>24 sessões em 12 semanas</li>
+            <li>2 sessões por semana</li>
+            <li>Reavaliação a cada 4 semanas</li>
+            <li>Ajuste contínuo</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="method-row reveal">
+        <div class="method-row-num">03</div>
+        <div class="method-row-main">
+          <h4>Acompanhamento que respeita o tempo do seu corpo.</h4>
+          <p class="lead">Em ortopedia, a alta é consciente — você não vira meu paciente eterno. Em geriatria, é manutenção contínua, porque o corpo que envelhece precisa de presença regular. Em ambos os casos, você tem acesso direto a mim entre as sessões.</p>
+        </div>
+        <div class="method-row-aside">
+          <div class="aside-label">— O que muda depois</div>
+          <ul>
+            <li>Alta consciente em ortopedia</li>
+            <li>Manutenção em geriatria</li>
+            <li>Acesso direto entre sessões</li>
+            <li>Sem cobrança eterna</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="method-quote reveal">
+      <div class="q-mark">“</div>
+      <div>
+        <blockquote>A maior parte dos meus pacientes chega depois de ter tentado outras coisas. Minha proposta é simples: tratar bem, explicar tudo, e ficar enquanto fizer sentido.</blockquote>
+        <div class="signature">— Jefferson Filipim</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========= ABOUT ========= -->
+<section class="about" id="sobre">
+  <div class="wrap">
+    <div class="about-grid">
+
+      <div class="about-image reveal">
+        <img src="https://i.imgur.com/HxhLh25.png" alt="Retrato de Jefferson Filipim" />
+        <div class="frame"></div>
+      </div>
+
+      <div class="about-content reveal">
+        <div class="eyebrow">03 / Sobre o profissional</div>
+        <h2 class="display">Um fisioterapeuta para o <em>tempo todo</em> do tratamento.</h2>
+        <p>Sou Jefferson Filipim, fisioterapeuta com quatro anos de prática clínica em São Paulo, pós-graduado em fisioterapia ortopédica e especializado no atendimento de pacientes idosos.</p>
+        <p>Atendo de forma totalmente individual — sem grupo, sem protocolo de prateleira. Minha paciente mais antiga está comigo desde o início da minha carreira, e isso resume melhor do que qualquer texto a forma como eu trabalho: relação longa, escuta atenta, evolução verificável.</p>
+
+        <div class="credentials">
+          <div class="item">
+            <div class="label">Formação</div>
+            <div class="value">Fisioterapia<br/>+ Pós em Ortopedia</div>
+          </div>
+          <div class="item">
+            <div class="label">Atuação</div>
+            <div class="value">Clínica & domicílio<br/>em São Paulo</div>
+          </div>
+          <div class="item">
+            <div class="label">Registro</div>
+            <div class="value">CREFITO-3<br/>nº 371949-F</div>
+          </div>
+          <div class="item">
+            <div class="label">Foco</div>
+            <div class="value">Ortopedia<br/>+ Saúde do idoso</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========= GALLERY MARQUEE ========= -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="gallery-head reveal">
+      <div class="label-row">
+        <span class="eyebrow">— Bastidores</span>
+      </div>
+      <h3 class="display">O dia a dia<br/>do <em>cuidado</em>.</h3>
+      <div class="gallery-note">
+        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        <div class="text"><strong>Espaços reservados para o ensaio fotográfico.</strong> Cada quadro abaixo indica um momento específico a ser registrado em sessões reais — serão substituídos por fotos de Jefferson com pacientes assim que o ensaio for produzido.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee">
+    <div class="marquee-track">
+
+      <!-- First set of 8 items -->
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">01 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Mobilização de joelho</div>
+          <div class="m-sub">Pós-operatório</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">02 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Avaliação postural</div>
+          <div class="m-sub">Primeira sessão</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">03 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Cuidado com idosa</div>
+          <div class="m-sub">Atendimento humanizado</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">04 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Treino de equilíbrio</div>
+          <div class="m-sub">Prevenção de quedas</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">05 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Manipulação de ombro</div>
+          <div class="m-sub">Técnica manual</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">06 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Atendimento em domicílio</div>
+          <div class="m-sub">Casa do paciente</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">07 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Plano por escrito</div>
+          <div class="m-sub">Transparência clínica</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">08 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Recuperação celebrada</div>
+          <div class="m-sub">Momento de evolução</div>
+        </div>
+      </div>
+
+      <!-- Duplicate set for seamless loop -->
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">01 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Mobilização de joelho</div>
+          <div class="m-sub">Pós-operatório</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">02 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Avaliação postural</div>
+          <div class="m-sub">Primeira sessão</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">03 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Cuidado com idosa</div>
+          <div class="m-sub">Atendimento humanizado</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">04 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Treino de equilíbrio</div>
+          <div class="m-sub">Prevenção de quedas</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">05 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Manipulação de ombro</div>
+          <div class="m-sub">Técnica manual</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">06 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Atendimento em domicílio</div>
+          <div class="m-sub">Casa do paciente</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">07 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Plano por escrito</div>
+          <div class="m-sub">Transparência clínica</div>
+        </div>
+      </div>
+
+      <div class="marquee-item">
+        <div class="m-top">
+          <span class="m-num">08 / 08</span>
+          <span class="m-status">Foto a adicionar</span>
+        </div>
+        <div class="m-center">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="plus-mark">+</span>
+        </div>
+        <div class="m-bottom">
+          <div class="m-caption">Recuperação celebrada</div>
+          <div class="m-sub">Momento de evolução</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========= AUDIENCE ========= -->
+<section class="audience">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="num">04 / Para quem</div>
+      <div>
+        <h2 class="display">Pacientes com quem<br/>eu trabalho <em>bem</em>.</h2>
+        <div class="sub">Algumas situações em que minha forma de atender faz mais diferença. Se você se reconhece em mais de uma, melhor ainda.</div>
+      </div>
+    </div>
+
+    <div class="audience-grid reveal">
+
+      <div class="audience-card">
+        <div class="tag">01</div>
+        <div class="icon-frame">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v8m0 0l-3-3m3 3l3-3M5 14v6h14v-6"/></svg>
+        </div>
+        <h4>Pós-cirúrgico ortopédico</h4>
+        <p>Você acabou de fazer uma cirurgia no joelho, ombro ou coluna. Precisa de alguém que conduza a recuperação respeitando cada fase — sem acelerar demais nem deixar parar.</p>
+      </div>
+
+      <div class="audience-card">
+        <div class="tag">02</div>
+        <div class="icon-frame">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <h4>Idoso ativo que quer manter</h4>
+        <p>Você passou dos 60, está bem, mas quer continuar bem. Trabalho preventivo de força, equilíbrio e mobilidade — para não chegar ao ponto em que precisaria de uma reabilitação.</p>
+      </div>
+
+      <div class="audience-card">
+        <div class="tag">03</div>
+        <div class="icon-frame">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <h4>Família cuidando de um pai/mãe</h4>
+        <p>Você é o filho ou a filha que está preocupado com a perda de autonomia em casa. Atendimento domiciliar, comunicação direta com você, foco em devolveu segurança ao cotidiano.</p>
+      </div>
+
+      <div class="audience-card">
+        <div class="tag">04</div>
+        <div class="icon-frame">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7l4-4h8l4 4v10l-4 4H8l-4-4V7z"/><path d="M12 11v3"/></svg>
+        </div>
+        <h4>Dor crônica que ninguém resolveu</h4>
+        <p>Lombar, cervical, ombro — você já tentou várias coisas, fez 10 sessões em três lugares diferentes e voltou ao ponto inicial. Trabalho focado em causa, não em alívio momentâneo.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ========= STRUCTURE ========= -->
+<section class="structure">
+  <div class="wrap">
+    <div class="structure-wrap">
+
+      <div class="structure-left reveal">
+        <div class="eyebrow" style="margin-bottom: 24px;">05 / Como funciona na prática</div>
+        <h2 class="display">Transparência<br/>na <em>estrutura</em>.</h2>
+        <p>O tratamento sério precisa de previsibilidade — para você e para mim. Por isso trabalho com ciclos claros, com começo, meio e reavaliação. Sem mensalidade eterna, sem letrinha miúda.</p>
+        <p>Os valores e o formato do pacote são apresentados de forma aberta na avaliação inicial, de acordo com o seu caso.</p>
+      </div>
+
+      <div class="structure-right reveal">
+        <div class="structure-row">
+          <div class="label">01</div>
+          <div class="description">
+            Avaliação inicial
+            <small>60 minutos · anamnese, testes funcionais, plano</small>
+          </div>
+          <div class="value">Sessão única</div>
+        </div>
+        <div class="structure-row">
+          <div class="label">02</div>
+          <div class="description">
+            Ciclo de tratamento
+            <small>24 sessões em 12 semanas · 2x por semana</small>
+          </div>
+          <div class="value">Recomendado</div>
+        </div>
+        <div class="structure-row">
+          <div class="label">03</div>
+          <div class="description">
+            Reavaliação
+            <small>A cada 4 semanas dentro do ciclo</small>
+          </div>
+          <div class="value">Incluso</div>
+        </div>
+        <div class="structure-row">
+          <div class="label">04</div>
+          <div class="description">
+            Sessão avulsa
+            <small>Para casos pontuais ou continuidade</small>
+          </div>
+          <div class="value">Sob consulta</div>
+        </div>
+        <div class="structure-row">
+          <div class="label">05</div>
+          <div class="description">
+            Atendimento domiciliar
+            <small>Em São Paulo · sob disponibilidade de agenda</small>
+          </div>
+          <div class="value">Sob consulta</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========= TESTIMONIALS ========= -->
+<section class="testimonials">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="num">06 / Quem já passou por aqui</div>
+      <div>
+        <h2 class="display">Histórias de quem<br/>voltou a se <em>mexer bem</em>.</h2>
+        <div class="sub">Depoimentos de pacientes que aceitaram dividir o processo deles. Nomes preservados a pedido — fotos e detalhes mais completos disponíveis na avaliação.</div>
+      </div>
+    </div>
+
+    <div class="testimonials-grid reveal">
+
+      <div class="testimonial">
+        <span class="quote-mark">“</span>
+        <blockquote>Cheguei mancando depois de uma cirurgia no menisco e três fisioterapias diferentes. Em duas semanas com o Jefferson eu já sentia mudança. Em três meses voltei a correr.</blockquote>
+        <div class="attribution">
+          <div class="avatar">R</div>
+          <div>
+            <div class="who">Rodrigo M.</div>
+            <div class="detail">Pós-cirurgia de joelho · 38 anos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <span class="quote-mark">“</span>
+        <blockquote>Minha mãe tem 84 anos. Depois que começou com o Jefferson, ela voltou a descer a escada de casa sozinha. Parece pouco — mas para a gente da família, mudou tudo.</blockquote>
+        <div class="attribution">
+          <div class="avatar">A</div>
+          <div>
+            <div class="who">Ana C.</div>
+            <div class="detail">Filha de paciente em geriatria</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <span class="quote-mark">“</span>
+        <blockquote>O que me convenceu foi a clareza. Ele me explicou onde eu estava, onde eu chegaria, em quanto tempo e por que cada exercício. Nunca tinha tido um fisio assim.</blockquote>
+        <div class="attribution">
+          <div class="avatar">M</div>
+          <div>
+            <div class="who">Mariana T.</div>
+            <div class="detail">Dor lombar crônica · 51 anos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <span class="quote-mark">“</span>
+        <blockquote>Estou com ele há quatro anos. Comecei depois de uma queda que me deixou com medo de andar. Hoje saio, faço aula, viajo. Ele virou parte da minha rotina.</blockquote>
+        <div class="attribution">
+          <div class="avatar">T</div>
+          <div>
+            <div class="who">Therezinha A.</div>
+            <div class="detail">Paciente em geriatria · 78 anos</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ========= HOME CARE ========= -->
+<section class="homecare" id="domiciliar">
+  <div class="wrap">
+    <div class="homecare-grid">
+
+      <div class="homecare-content reveal">
+        <div class="eyebrow">07 / Atendimento domiciliar</div>
+        <h2 class="display">Quando faz sentido, <em>vou até você</em>.</h2>
+        <p>Para alguns pacientes, o deslocamento até o consultório é parte do problema — não da solução. Nesses casos, atendo em domicílio em São Paulo, com toda a estrutura necessária para uma sessão completa.</p>
+        <ul class="indicators">
+          <li><span class="num">→</span> Pós-operatório recente com mobilidade reduzida</li>
+          <li><span class="num">→</span> Idoso frágil ou com risco alto de queda</li>
+          <li><span class="num">→</span> Recuperação após internação hospitalar</li>
+          <li><span class="num">→</span> Preferência por tratamento no ambiente familiar</li>
+        </ul>
+        <a href="https://wa.me/5511917278795?text=Oi%20Jefferson%2C%20quero%20saber%20sobre%20atendimento%20domiciliar." class="btn-ghost">Consultar disponibilidade<span>→</span></a>
+      </div>
+
+      <div class="homecare-visual reveal">
+        <img src="https://i.imgur.com/E4fFDGi.png" alt="Atendimento fisioterapêutico em domicílio" />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========= FAQ ========= -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="faq-wrap">
+
+      <div class="faq-left">
+        <div class="eyebrow" style="margin-bottom: 24px;">08 / Dúvidas frequentes</div>
+        <h2 class="display">Antes de <em>agendar</em>.</h2>
+        <p>Pergunto, escuto e respondo na avaliação inicial — mas algumas coisas você já pode saber agora.</p>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q">É preciso pedido médico para começar?<span></span></button>
+          <div class="faq-a">Não. A fisioterapia pode ser iniciada diretamente após avaliação. Em casos específicos, atuo em conjunto com o médico responsável pelo seu caso.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Quantas sessões eu vou precisar?<span></span></button>
+          <div class="faq-a">Depende do seu caso. Trabalho com ciclos de 24 sessões em 12 semanas como padrão para tratamentos estruturados, mas a definição final é feita na avaliação inicial, com base nos seus objetivos e na resposta clínica.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">A primeira avaliação tem custo?<span></span></button>
+          <div class="faq-a">A avaliação inicial tem um valor próprio, apresentado no momento do contato. Ela inclui a sessão completa, o plano de tratamento por escrito e a definição de cronograma.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Onde acontecem os atendimentos?<span></span></button>
+          <div class="faq-a">Atendo em São Paulo, em ambiente equipado para fisioterapia ortopédica e geriátrica, e também em domicílio quando o caso justifica. O endereço é informado no agendamento.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Trabalha com convênios?<span></span></button>
+          <div class="faq-a">Atendo de forma particular. Forneço recibo válido para reembolso em planos que possuam essa modalidade — peça antes a comprovação ao seu convênio.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Em quanto tempo aparecem resultados?<span></span></button>
+          <div class="faq-a">A maioria dos pacientes nota mudança nas primeiras 2 a 4 semanas. Resultado consolidado e sustentável costuma vir entre 8 e 12 semanas. O cronograma é ajustado conforme a sua evolução.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Atendimento é sempre individual?<span></span></button>
+          <div class="faq-a">Sim. Não trabalho com sessões em grupo nem com protocolos genéricos. Cada sessão é planejada exclusivamente para o seu caso.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Como faço para começar?<span></span></button>
+          <div class="faq-a">Você me chama no WhatsApp. Conversamos rapidamente sobre o seu caso, agendamos a avaliação inicial e a partir dali traçamos juntos o plano de tratamento.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FINAL CTA ========= -->
+<section class="final">
+  <div class="wrap-narrow">
+    <div class="final-content">
+      <div class="eyebrow">Próximo passo</div>
+      <h2 class="display">Se você chegou<br/>até <em>aqui</em>,<br/>vale uma conversa.</h2>
+      <p>O melhor jeito de saber se faz sentido a gente trabalhar junto é agendar a avaliação inicial. Conversamos, escuto seu caso, te mostro um caminho claro — sem compromisso de continuar.</p>
+      <div class="actions">
+        <a href="https://wa.me/5511917278795?text=Oi%20Jefferson%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." class="btn-primary">Agendar pelo WhatsApp<span>→</span></a>
+        <a href="mailto:contato@fisioterapim.com.br" class="btn-ghost">Enviar e-mail</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <div class="brand-block">
+        <div class="name">Jefferson Filipim</div>
+        <div class="crefito">CREFITO-3 · Nº 371949-F</div>
+        <p>Fisioterapia ortopédica e geriátrica em São Paulo. Atendimento individual, plano estruturado, acompanhamento contínuo.</p>
+      </div>
+
+      <div class="col">
+        <h5>Navegação</h5>
+        <ul>
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#metodo">Método</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#domiciliar">Domiciliar</a></li>
+          <li><a href="#faq">Dúvidas</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h5>Contato</h5>
+        <ul>
+          <li><a href="https://wa.me/5511917278795">WhatsApp · (11) 91727-8795</a></li>
+          <li><a href="mailto:contato@fisioterapim.com.br">contato@fisioterapim.com.br</a></li>
+          <li>São Paulo · SP</li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h5>Especialidades</h5>
+        <ul>
+          <li>Fisioterapia ortopédica</li>
+          <li>Saúde do idoso</li>
+          <li>Pós-cirúrgico</li>
+          <li>Atendimento domiciliar</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="bottom">
+      <div>© 2026 Jefferson Filipim · Todos os direitos reservados</div>
+      <div>Site desenvolvido por ClintIA</div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/5511917278795?text=Oi%20Jefferson%2C%20vim%20pelo%20site." class="whatsapp-float" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 30) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '-40px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
