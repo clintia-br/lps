@@ -416,12 +416,13 @@
   .specialty:hover{background:var(--brand-700);transform:translateY(-4px);box-shadow:var(--shadow-md);}
   
   .specialty-icon{
-    width:40px;height:40px;border-radius:10px;
-    background:var(--paper-2);color:var(--brand-700);
+    width:48px;height:48px;border-radius:50%;
+    background:var(--brand-700);color:var(--white);
     display:flex;align-items:center;justify-content:center;transition:all .4s;
+    flex-shrink:0;
   }
-  .specialty-icon svg{width: 20px; height: 20px;}
-  .specialty:hover .specialty-icon{background:rgba(255,255,255,.2);color:var(--white);}
+  .specialty-icon svg{width: 22px; height: 22px;}
+  .specialty:hover .specialty-icon{background:rgba(255,255,255,.25);color:var(--white);}
   
   .specialty h3{font-family:var(--font-body);font-size:14px;font-weight:700;transition:color .4s;}
   .specialty:hover h3{color:var(--white);}
@@ -442,7 +443,6 @@
   }
   .mri-content h3{color:var(--white); font-size:clamp(20px, 3vw, 28px); margin-bottom:12px; font-weight: 400;}
   
-  /* HIGH-VISIBILITY HIGHLIGHT FOR CAMPO ABERTO */
   .highlight-campo-aberto {
     display: inline-block;
     color: #FFD166;
@@ -738,8 +738,6 @@
           (83) 99314-9477
         </div>
         <a href="https://api.whatsapp.com/send/?phone=5583993149477" target="_blank" rel="noopener" class="btn btn-primary btn-header">Agendar Consulta</a>
-        
-        <!-- Menu Hambúrguer -->
         <button class="menu-toggle" aria-label="Menu" id="menuBtn">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
@@ -748,7 +746,7 @@
   </div>
 </header>
 
-<!-- MOBILE NAV (Drawer / Lateral) -->
+<!-- MOBILE NAV -->
 <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 <div class="mobile-nav" id="mobileNav" aria-hidden="true">
   <div class="mobile-nav-top">
@@ -777,7 +775,6 @@
           <h1>A sua Clínica Popular em Jaguaribe, <em>João Pessoa</em></h1>
           <p class="hero-sub">A clínica médica com o <strong>melhor preço, atendimento mais rápido e menor espera</strong> da região. Consultas em 15+ especialidades e laboratório completo sem filas.</p>
 
-          <!-- BUSCADOR INTELIGENTE (AGRUPADO) -->
           <div class="hero-search">
             <div class="search-input-wrapper">
               <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -786,15 +783,17 @@
             <ul id="searchResults" class="search-results"></ul>
           </div>
 
+          <div class="hero-trust">
+            <div class="trust-item"><strong>30+</strong><span>Especialidades</span></div>
+            <div class="trust-item"><strong>50+</strong><span>Tipos de exames</span></div>
+          </div>
+
           <div class="hero-ctas">
             <a href="#exames" class="btn btn-outline">Ver exames</a>
             <a href="#especialidades" class="btn btn-outline">Ver consultas</a>
           </div>
 
-          <div class="hero-trust">
-            <div class="trust-item"><strong>14+</strong><span>Anos de tradição</span></div>
-            <div class="trust-item"><strong>2</strong><span>Unidades locais</span></div>
-          </div>
+
         </div>
 
         <div class="hero-visual reveal delay-100">
@@ -840,19 +839,16 @@
           <h3>Agendamento 24h</h3>
           <p>Marque suas consultas via WhatsApp a qualquer momento. Resposta humana e rápida.</p>
         </article>
-
         <article class="pillar reveal delay-100">
           <div class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
           <h3>Menor tempo de espera</h3>
           <p>A clínica mais rápida da região. Resultados ágeis, e exames de imagem muitas vezes no mesmo dia.</p>
         </article>
-
         <article class="pillar reveal delay-200">
           <div class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
           <h3>Melhor preço da região</h3>
           <p>Valores acessíveis sem abrir mão de profissionais renomados e tecnologia de ponta.</p>
         </article>
-
         <article class="pillar reveal delay-300">
           <div class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
           <h3>Cuidado humano</h3>
@@ -862,55 +858,225 @@
     </div>
   </section>
 
-  <!-- SPECIALTIES -->
+  <!-- SPECIALTIES — ATUALIZADO CONFORME FOTOS -->
   <section id="especialidades" class="specialties">
     <div class="container">
       <div class="section-head reveal">
         <span class="section-eyebrow">Consultas médicas</span>
-        <h2>Mais de <strong>15 especialidades</strong> num só lugar</h2>
-        <p>Encontre o specialist que você precisa com a facilidade e o preço que você merece.</p>
+        <h2>Mais de <strong>30 especialidades</strong> num só lugar</h2>
+        <p>Encontre o especialista que você precisa com a facilidade e o preço que você merece.</p>
       </div>
 
       <div class="specialties-grid">
-        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar+Cardiologia" class="specialty reveal">
-          <div class="specialty-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-          <h3>Cardiologia</h3>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Neurologista" class="specialty reveal delay-delay-100">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M9 3.5C7.3 3.5 6 4.8 6 6.5c0 .4.1.8.3 1.1C5.2 8.1 4.5 9.2 4.5 10.5c0 1.4.7 2.6 1.8 3.3-.1.3-.1.6-.1.8C6.2 16.5 7.8 18 9.7 18h4.6c1.9 0 3.5-1.5 3.5-3.4 0-.3 0-.6-.1-.8 1.1-.7 1.8-1.9 1.8-3.3 0-1.3-.7-2.4-1.8-3C17.9 7.3 18 6.9 18 6.5c0-1.7-1.3-3-3-3-.5 0-1 .1-1.4.4C13 3.3 12.1 3 11 3S9 3.3 9 3.5z"/>
+<path d="M9.5 9c.4-.4 1-.5 1.5-.3"/>
+<path d="M13.5 9c-.4-.4-1-.5-1.5-.3"/>
+<path d="M9 12.5c1 .5 2 .5 3 .5s2 0 3-.5"/>
+<line x1="12" y1="6.5" x2="12" y2="9.5"/>
+</svg></div>
+          <h3>Neurologista</h3>
         </a>
-        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar+Ginecologia" class="specialty reveal delay-100">
-          <div class="specialty-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M12 13v8m-3-3h6"/></svg></div>
-          <h3>Ginecologia</h3>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Psiquiatra" class="specialty reveal delay-delay-200">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/>
+<path d="M12 13v3M10 21h4"/>
+<path d="M8 21c0-2.2 1.8-4 4-4s4 1.8 4 4"/>
+<path d="M11 6.5l-1.5 2.5h3l-1.5 2.5"/>
+</svg></div>
+          <h3>Psiquiatra</h3>
         </a>
-        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar+Dermatologia" class="specialty reveal delay-200">
-          <div class="specialty-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <h3>Dermatologia</h3>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Dentista" class="specialty reveal delay-delay-300">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M8.5 3h7c.8 0 1.5.7 1.5 1.5v1c0 .8-.3 1.6-.8 2.2L15 9H9l-1.2-1.3C7.3 7.1 7 6.3 7 5.5v-1C7 3.7 7.7 3 8.5 3z"/>
+<path d="M9 9l-1 6c-.1.6.3 1 .9 1h.3c.5 0 .9-.4.9-.9L10.5 12h3l.4 3.1c0 .5.4.9.9.9h.3c.6 0 1-.4.9-1L15 9"/>
+<path d="M9.5 5c.3-1 1.5-1.5 2.5-1.5"/>
+</svg></div>
+          <h3>Dentista</h3>
         </a>
-        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar+Ortopedia" class="specialty reveal delay-300">
-          <div class="specialty-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3>Ortopedia</h3>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Otorrinolaringologista" class="specialty reveal">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 10a6 6 0 0 1 12 0c0 3-2 5-4 5.5V17a2 2 0 0 1-4 0v-.5C8 16 6 14 6 10z"/>
+<path d="M10 10a2 2 0 0 1 4 0"/>
+<path d="M12 16v-2.5"/>
+</svg></div>
+          <h3>Otorrinolaringologista</h3>
         </a>
-        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar+Neurologia" class="specialty reveal">
-          <div class="specialty-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v1.5a4 4 0 0 0-2 7A4 4 0 0 0 8 22h8a4 4 0 0 0 2-7.5A4 4 0 0 0 16 7.5V6a4 4 0 0 0-4-4z"/></svg></div>
-          <h3>Neurologia</h3>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Ortopedista" class="specialty reveal delay-delay-100">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M9 3c0 0 .5 3 .5 5.5C9.5 10 9 11 8 12h8c-1-1-1.5-2-1.5-3.5C14.5 6 15 3 15 3"/>
+<path d="M8 12c-.8 1.2-1 2.5-1 4"/>
+<path d="M16 12c.8 1.2 1 2.5 1 4"/>
+<path d="M7 16h10"/>
+<path d="M9 16c0 1.5-.3 3-.5 5M15 16c0 1.5.3 3 .5 5"/>
+<path d="M8 21h3M13 21h3"/>
+<ellipse cx="12" cy="12" rx="4" ry="2"/>
+<line x1="12" y1="6" x2="12.5" y2="3"/>
+</svg></div>
+          <h3>Ortopedista</h3>
         </a>
-        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar+Oftalmologia" class="specialty reveal delay-100">
-          <div class="specialty-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Reumatologista" class="specialty reveal delay-delay-200">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M9 21v-8a1 1 0 0 1 1-1h.5V9.5a1.5 1.5 0 0 1 3 0V12h.5a1 1 0 0 1 1 1v1.5l.8-1.5a1 1 0 0 1 1.8.9L15.5 18l-.8 2H9.5L8 18V15a1 1 0 0 1 1-1v-2"/>
+<circle cx="7" cy="5" r="1.5" fill="currentColor" stroke="none"/>
+<circle cx="11" cy="4" r="1.5" fill="currentColor" stroke="none"/>
+<circle cx="15.5" cy="5" r="1" fill="currentColor" stroke="none"/>
+</svg></div>
+          <h3>Reumatologista</h3>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Cardiologista" class="specialty reveal delay-delay-300">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 20s-8-5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 6-8 11-8 11z"/>
+<polyline points="2 13 5 13 7 10 9 16 11 13 13 13 14 11 15 13 17 13 19 13 22 13"/>
+</svg></div>
+          <h3>Cardiologista</h3>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Dermatologista" class="specialty reveal">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="10.5" cy="10.5" r="7"/>
+<line x1="21" y1="21" x2="15.8" y2="15.8"/>
+<circle cx="10.5" cy="10.5" r="3"/>
+<line x1="10.5" y1="7.5" x2="10.5" y2="8.5"/>
+<line x1="10.5" y1="12.5" x2="10.5" y2="13.5"/>
+<line x1="7.5" y1="10.5" x2="8.5" y2="10.5"/>
+<line x1="12.5" y1="10.5" x2="13.5" y2="10.5"/>
+</svg></div>
+          <h3>Dermatologista</h3>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Nutricionista" class="specialty reveal delay-delay-100">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 5C9 5 7 7 7 10.5c0 4 2 8.5 5 8.5s5-4.5 5-8.5C17 7 15 5 12 5z"/>
+<path d="M12 5c0-2 1-3 3-3"/>
+<path d="M12 5c-1-1.5-1-3 0-4"/>
+<path d="M12 5c0-2-1-3-3-3"/>
+</svg></div>
+          <h3>Nutricionista</h3>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Ginecologista" class="specialty reveal delay-delay-200">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M9 14c-1.5 0-3-1.5-3-4 0-1.5 1-2.5 2-2.5h8c1 0 2 1 2 2.5 0 2.5-1.5 4-3 4H9z"/>
+<path d="M12 14v4"/>
+<path d="M10 18h4"/>
+<path d="M8.5 9c0-2-1-3.5-3-3.5s-3 1-3 2.5c0 1 .5 2 1.5 2"/>
+<path d="M15.5 9c0-2 1-3.5 3-3.5s3 1 3 2.5c0 1-.5 2-1.5 2"/>
+<circle cx="5.5" cy="5.5" r="1.5"/>
+<circle cx="18.5" cy="5.5" r="1.5"/>
+</svg></div>
+          <h3>Ginecologista</h3>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Obstetra" class="specialty reveal delay-delay-300">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="5" r="2.5"/>
+<path d="M9 9c0 0-1 1-1 3.5C8 14 9 15 9 15l-.5 6h7L15 15s1-1 1-2.5C16 10 15 9 15 9"/>
+<path d="M9.5 12.5c1.5 1 3.5 1 5 0"/>
+<path d="M10 13.5c.5 2 3.5 2 4 0"/>
+</svg></div>
+          <h3>Obstetra</h3>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Gastroenterologista" class="specialty reveal">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M8 4c-2 0-4 1.5-4 4.5 0 5 2 10 5 10h6c3 0 5-5 5-10 0-3-2-4.5-4-4.5-1 0-2 .5-2 1.5 0 .5-.5 1-1 1h-3C9.5 6.5 9 6 9 5.5 9 4.5 9 4 8 4z"/>
+<path d="M8 4c1 0 1.5.5 2 1.5"/>
+<path d="M12 10c0 2-1 4-1 5.5"/>
+</svg></div>
+          <h3>Gastroenterologista</h3>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Neurologista%20Pedi%C3%A1trico" class="specialty reveal delay-delay-100">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="8" r="5"/>
+<path d="M10 16v5M14 16v5M9 21h6"/>
+<path d="M10 6.5c.3-.4.7-.5 1.2-.5h1.6c.5 0 .9.1 1.2.5"/>
+<path d="M10 8.5h4"/>
+<path d="M11 10c.3.4.7.5 1 .5"/>
+</svg></div>
+          <h3>Neurologista Pediátrico</h3>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Psicologia" class="specialty reveal delay-delay-200">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 3a5 5 0 0 1 5 5c0 2-1 3.5-2 4.5V15h-6v-2.5C8 11.5 7 10 7 8a5 5 0 0 1 5-5z"/>
+<path d="M10 15v2M14 15v2M9 17h6"/>
+<path d="M9.5 7c.5-1 1.5-1.5 2.5-1.5s2 .5 2.5 1.5"/>
+<path d="M9 9.5c.8.8 2 1 3 .5 1-.5 2.2-.3 3 .5"/>
+</svg></div>
+          <h3>Psicologia</h3>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Mastologista" class="specialty reveal delay-delay-300">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4 14c0-5 2-9 8-9s8 4 8 9v1H4v-1z"/>
+<line x1="4" y1="15" x2="20" y2="15"/>
+<circle cx="15" cy="8" r="1.5"/>
+<line x1="17.5" y1="10.5" x2="20" y2="13"/>
+</svg></div>
+          <h3>Mastologista</h3>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Geriatria" class="specialty reveal">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="10" cy="5" r="2.5"/>
+<path d="M7 9.5c0 0-1 1.5-1 4.5h8c0-3-1-4.5-1-4.5"/>
+<path d="M6 14l-1.5 7"/>
+<path d="M12 14l.5 3.5"/>
+<path d="M13 17.5l3 3.5"/>
+<line x1="15" y1="12" x2="19" y2="8"/>
+<circle cx="19.5" cy="7.5" r="1"/>
+</svg></div>
+          <h3>Geriatria</h3>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Proctologista" class="specialty reveal delay-delay-100">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 3v7a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V9"/>
+<circle cx="18" cy="9" r="2"/>
+<circle cx="6" cy="9" r="2"/>
+<path d="M18 11v4a4 4 0 0 1-4 4h-1"/>
+<circle cx="13" cy="20" r="1.5"/>
+</svg></div>
+          <h3>Proctologista</h3>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Urologista" class="specialty reveal delay-delay-200">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M8 4C5.5 4 4 6 4 8.5c0 3 1.5 5.5 4 5.5 1 0 1.5-.5 2-1.5.5 1 1 1.5 2 1.5 2.5 0 4-2.5 4-5.5C16 6 14.5 4 12 4c-1 0-1.5.5-2 1.5C9.5 4.5 9 4 8 4z"/>
+<path d="M7.5 11.5C6.5 10.5 6 9.5 6 8.5"/>
+<path d="M10 12.5v7"/>
+<path d="M14 12.5v7"/>
+<path d="M8 19.5h8"/>
+</svg></div>
+          <h3>Urologista</h3>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Oftalmologia" class="specialty reveal delay-delay-300">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/>
+<circle cx="12" cy="12" r="3"/>
+<circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/>
+<line x1="12" y1="9" x2="12" y2="5"/>
+</svg></div>
           <h3>Oftalmologia</h3>
         </a>
-        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar+Urologia" class="specialty reveal delay-200">
-          <div class="specialty-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="4"/></svg></div>
-          <h3>Urologia</h3>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Angiologista" class="specialty reveal">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<line x1="12" y1="3" x2="12" y2="9"/>
+<path d="M12 9l-5 4"/>
+<path d="M12 9l5 4"/>
+<path d="M7 13l-3 5"/>
+<path d="M7 13l2 5"/>
+<path d="M17 13l-2 5"/>
+<path d="M17 13l3 5"/>
+<circle cx="12" cy="3" r="1.5" fill="currentColor" stroke="none"/>
+<circle cx="4" cy="21" r="1.5" fill="currentColor" stroke="none"/>
+<circle cx="9" cy="21" r="1.5" fill="currentColor" stroke="none"/>
+<circle cx="15" cy="21" r="1.5" fill="currentColor" stroke="none"/>
+<circle cx="20" cy="21" r="1.5" fill="currentColor" stroke="none"/>
+</svg></div>
+          <h3>Angiologista</h3>
         </a>
-        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar+Endocrinologia" class="specialty reveal delay-300">
-          <div class="specialty-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l3 6-3 6H8L5 8l3-6z"/><path d="M8 14v8M16 14v8"/></svg></div>
-          <h3>Endocrinologia</h3>
-        </a>
-        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar+Gastroenterologia" class="specialty reveal">
-          <div class="specialty-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M4.93 4.93l2.83 2.83M2 12h4M4.93 19.07l2.83-2.83M12 18v4M16.24 16.24l2.83 2.83M18 12h4M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg></div>
-          <h3>Gastroenterologia</h3>
-        </a>
-        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar+Nutricao" class="specialty reveal delay-100">
-          <div class="specialty-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0C10.36 7.3 12 12 12 12s4.7 1.64 7.39-1.06a5.5 5.5 0 0 0 1.45-6.33z"/><path d="M3.16 19.39a5.5 5.5 0 0 0 7.78 0C13.64 16.7 12 12 12 12s-4.7-1.64-7.39 1.06a5.5 5.5 0 0 0-1.45 6.33z"/></svg></div>
-          <h3>Nutrição</h3>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Agendar%20Endocrinologista" class="specialty reveal delay-delay-100">
+          <div class="specialty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="8" cy="12" rx="4" ry="6"/>
+<ellipse cx="16" cy="12" rx="4" ry="6"/>
+<path d="M10 9c.5-.5 1.5-.5 2 0"/>
+<path d="M10 15c.5.5 1.5.5 2 0"/>
+<line x1="12" y1="6" x2="12" y2="18"/>
+</svg></div>
+          <h3>Endocrinologista</h3>
         </a>
       </div>
     </div>
@@ -925,7 +1091,6 @@
         <p>A maior referência em precisão diagnóstica da região. Agilidade desde o agendamento até a entrega do laudo.</p>
       </div>
 
-      <!-- OPEN MRI BANNER -->
       <div class="mri-banner reveal delay-100">
         <div class="mri-content">
           <span class="mri-badge">Alta Tecnologia</span>
@@ -950,7 +1115,7 @@
           <div class="exam-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Ecocardiograma</div>
           <div class="exam-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Eletroencefalograma</div>
           <div class="exam-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Eletroneuromiografia</div>
-          <div class="exam-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>MAPA 24h & Holter</div>
+          <div class="exam-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>MAPA 24h &amp; Holter</div>
           <div class="exam-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Doppler</div>
           <div class="exam-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Audiometria</div>
           <div class="exam-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Espirometria</div>
@@ -1093,24 +1258,17 @@
       </div>
 
       <div class="blog-grid">
-        <!-- Matéria 01 -->
         <article class="blog-card reveal">
-          <div class="blog-image" aria-label="">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          </div>
+          <div class="blog-image" aria-label=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
           <div class="blog-content">
-            <span class="blog-tag">Tecnologia & Conforto</span>
+            <span class="blog-tag">Tecnologia &amp; Conforto</span>
             <h3 class="blog-title">Ressonância Magnética de Campo Aberto em João Pessoa: A Solução para a Claustrofobia</h3>
             <p class="blog-excerpt">Entenda como funciona a tecnologia de campo aberto e por que é a opção mais confortável e segura para pacientes com medo de espaços fechados ou obesidade.</p>
             <a href="#" class="blog-link">Ler artigo <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </article>
-
-        <!-- Matéria 02 -->
         <article class="blog-card reveal delay-100">
-          <div class="blog-image" aria-label="">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          </div>
+          <div class="blog-image" aria-label=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
           <div class="blog-content">
             <span class="blog-tag">Saúde da Mulher</span>
             <h3 class="blog-title">Mamografia em João Pessoa: Idade Certa, Prevenção e Vantagens do Diagnóstico Digital</h3>
@@ -1118,12 +1276,8 @@
             <a href="#" class="blog-link">Ler artigo <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </article>
-
-        <!-- Matéria 03 -->
         <article class="blog-card reveal delay-200">
-          <div class="blog-image" aria-label="">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          </div>
+          <div class="blog-image" aria-label=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
           <div class="blog-content">
             <span class="blog-tag">Diagnóstico por Imagem</span>
             <h3 class="blog-title">Ultrassonografia com Doppler: O Que É, Para Que Serve e Onde Fazer em Jaguaribe</h3>
@@ -1131,12 +1285,8 @@
             <a href="#" class="blog-link">Ler artigo <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </article>
-
-        <!-- Matéria 04 -->
         <article class="blog-card reveal delay-300">
-          <div class="blog-image" aria-label="">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          </div>
+          <div class="blog-image" aria-label=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
           <div class="blog-content">
             <span class="blog-tag">Saúde Digestiva</span>
             <h3 class="blog-title">Endoscopia Digestiva e Colonoscopia: Diagnóstico Rápido e Seguro na Paraíba</h3>
@@ -1219,322 +1369,37 @@
 </a>
 
 <script>
-  // Ano atual automático no rodapé
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ============================================================
-     BUSCA INTELIGENTE - VERSÃO AGRUPADA
-     Cada item representa um GRUPO de consultas/exames.
-     Os "keywords" ajudam o usuário a encontrar pelo nome popular
-     OU pelo nome técnico do exame específico que ele procura.
-     ============================================================ */
   const grupos = [
-    // ===== CONSULTAS =====
-    {
-      titulo: "Consultas Médicas",
-      tag: "Consultas",
-      descricao: "Cardiologia, Ginecologia, Ortopedia, Dermatologia, Endocrinologia e mais",
-      keywords: "consulta consultas medico médico especialista cardiologia cardiologista ginecologia ginecologista ortopedia ortopedista dermatologia dermatologista endocrinologia endocrinologista neurologia neurologista oftalmologia oftalmologista urologia urologista gastroenterologia gastro nutrição nutricionista nutrologo psiquiatra psiquiatria psicologo psicologia pediatra pediatria pneumologia pneumologista reumatologia reumatologista mastologia mastologista angiologia angiologista cirurgião cirurgia geral otorrino otorrinolaringologia alergologia alergista infectologia infectologia geriatria obstetrícia obstetra hepatologia hepatologista neuropediatra neurocirurgião proctologia proctologista coloproctologia clínico geral medico do trabalho odontologia dentista oftalmologista"
-    },
-
-    // ===== CARDIOLOGIA - EXAMES =====
-    {
-      titulo: "Exames de Cardiologia",
-      tag: "Cardiologia",
-      descricao: "ECG, Ecocardiograma, Holter, MAPA, Teste Ergométrico e Risco Cirúrgico",
-      keywords: "ecg eletrocardiograma eletro ecocardiograma eco holter mapa mapa 24 24h teste ergometrico ergometrico risco cirurgico mrpa cardiologia coração coracao"
-    },
-
-    // ===== ULTRASSONOGRAFIAS =====
-    {
-      titulo: "Ultrassonografias (USG)",
-      tag: "Imagem",
-      descricao: "Abdome, Tireoide, Transvaginal, Obstétrica, Mamas, Próstata, Doppler",
-      keywords: "usg ultrassom ultrassonografia abdome abdomen total superior inferior tireoide transvaginal obstetrica obstetrica morfologica translucencia nucal mama mamas pelvica pelve prostata bolsa escrotal vias urinarias rins inguinal pescoço cervical tireoide axila parede abdominal hernia paredes joelho ombro punho mão pe perna braço antebraço cotovelo quadril tornozelo dedo torax bexiga penis penal escroto coluna lombar dorsal supra renal glandulas salivares suprarenal calcaneo flanco transfontanela panturrilha sub mandibular doppler arterial venoso"
-    },
-
-    // ===== RAIO-X =====
-    {
-      titulo: "Raio-X (Radiografia Digital)",
-      tag: "Imagem",
-      descricao: "Tórax, Coluna, Membros, Bacia, Crânio, Panorâmica Odontológica",
-      keywords: "raio raio-x radiografia rx torax cranio coluna cervical lombar dorsal sacro coccigea toracica lombossacra lombo-sacra panoramica odontologica dentes dentaria mao maos punho pulso braço antebraço ombro escapula clavicula bacia quadril costela esternal coxa femur perna joelho tornozelo pe calcaneo seios face mastoide ouvido cavum sela turcica abdomen articulação periapical interproximal idade ossea"
-    },
-
-    // ===== RESSONÂNCIA MAGNÉTICA =====
-    {
-      titulo: "Ressonância Magnética (incluindo Campo Aberto)",
-      tag: "Imagem",
-      descricao: "Coluna, Joelho, Crânio, Pelve, Próstata e Campo Aberto sem claustrofobia",
-      keywords: "rm rnm ressonancia magnetica campo aberto claustrofobia coluna cervical lombar dorsal toracica lombossacral sacroiliacas sacrocoxigea sacrocoxix joelho ombro punho mao maos pe pes tornozelo cotovelo quadril cranio encefalo cerebro torax abdomen superior inferior total bacia pelve pelvica prostata mamas glandulas salivares hipofise sela turcica orbita face ouvido mastoide brama braço antebraço perna coxa femur sedação contraste angioressonancia enterorressonancia"
-    },
-
-    // ===== TOMOGRAFIA =====
-    {
-      titulo: "Tomografia Computadorizada (TC)",
-      tag: "Imagem",
-      descricao: "Tórax, Crânio, Abdome, Coluna, Vias Urinárias, Ossos e Articulações",
-      keywords: "tc tomografia computadorizada com sem contraste torax cranio encefalo abdomen total superior inferior coluna cervical lombar dorsal toracica lombossacra sacrocoxix vias urinarias rins urotomografia rim pelve pescoço seios face mastoide ouvido joelho ombro punho pe pes mao tornozelo coxa femur perna braço punho clavicula angiotomografia escore calcio"
-    },
-
-    // ===== MAMOGRAFIA & DENSITOMETRIA =====
-    {
-      titulo: "Mamografia & Densitometria Óssea",
-      tag: "Imagem",
-      descricao: "Diagnóstico de mama e avaliação de osteoporose (coluna e fêmur)",
-      keywords: "mamografia mama exame mama densitometria ossea osteoporose coluna lombar colo femur fêmur"
-    },
-
-    // ===== EXAMES NEUROLÓGICOS =====
-    {
-      titulo: "Exames Neurológicos",
-      tag: "Neurologia",
-      descricao: "Eletroencefalograma (EEG), Eletroneuromiografia, Acuidade Visual",
-      keywords: "eletroencefalograma eeg eletroneuromiografia neurologia membro superior inferior face acuidade visual romberg vop vfc sedação"
-    },
-
-    // ===== ENDOSCOPIA & COLONOSCOPIA =====
-    {
-      titulo: "Endoscopia & Colonoscopia",
-      tag: "Procedimento",
-      descricao: "Endoscopia digestiva, colonoscopia, retossigmoidoscopia, polipectomia",
-      keywords: "endoscopia digestiva colonoscopia retossigmoidoscopia polipectomia teste urease biopsia helicobacter pylori"
-    },
-
-    // ===== AUDIOMETRIA & ESPIROMETRIA =====
-    {
-      titulo: "Audiometria & Espirometria",
-      tag: "Funcional",
-      descricao: "Testes de audição e função pulmonar (com ou sem broncodilatador)",
-      keywords: "audiometria espirometria broncodilatador peak flow timpanometria audiologia tonal vocal pulmonar respiratorio asma"
-    },
-
-    // ===== TOXICOLÓGICO =====
-    {
-      titulo: "Exame Toxicológico (CNH e Concursos)",
-      tag: "Toxicológico",
-      descricao: "Toxicológico de larga janela de detecção - CNH, concursos e empresas",
-      keywords: "toxicologico tóxico cnh larga janela detrancuc carteira motorista concurso empresa admissional acido hipurico metil"
-    },
-
-    // ===== LAB - HEMATOLOGIA =====
-    {
-      titulo: "Laboratório · Hematologia",
-      tag: "Laboratório",
-      descricao: "Hemograma, Coagulograma, Ferritina, Ferro, Plaquetas, VHS",
-      keywords: "hemograma sangue hematologia coagulograma plaquetas reticulocitos ferritina ferro transferrina capacidade ligação saturação eletroforese hemoglobina hematocrito tipagem sanguinea fator rh d-dimero ddimero kptt tempo tromboplastina protrombina tap fibrogeno fator von willebrand vhs hemossedimentação coombs"
-    },
-
-    // ===== LAB - BIOQUÍMICA =====
-    {
-      titulo: "Laboratório · Bioquímica Geral",
-      tag: "Laboratório",
-      descricao: "Glicemia, Ureia, Creatinina, TGO, TGP, Ácido Úrico, Eletrólitos",
-      keywords: "glicemia glicose jejum hemoglobina glicada hba1c hba ureia creatinina depuração clearance tgo tgp ast alt fosfatase alcalina amilase lipase gama gt ggt bilirrubina acido urico calcio magnesio fosforo potassio sodio cloreto bicarbonato ionograma na k cpk creatina quinase ldh dhl colinesterase frutosamina"
-    },
-
-    // ===== LAB - PERFIL LIPÍDICO =====
-    {
-      titulo: "Laboratório · Perfil Lipídico",
-      tag: "Laboratório",
-      descricao: "Colesterol Total, HDL, LDL, VLDL, Triglicerídeos, Apolipoproteínas",
-      keywords: "colesterol total hdl ldl vldl triglicerides triglicerideos lipidograma lipidico lipoproteina apolipoproteina apo a apo b homocisteina lipides"
-    },
-
-    // ===== LAB - HORMÔNIOS =====
-    {
-      titulo: "Laboratório · Hormônios",
-      tag: "Laboratório",
-      descricao: "TSH, T3, T4, FSH, LH, Prolactina, Testosterona, Cortisol, Insulina",
-      keywords: "tsh t3 t4 t3l t4l hormonio tireoide tireoestimulante fsh lh prolactina estradiol estrogenos progesterona testosterona livre total dheas dhea cortisol insulina peptideo c hgh hormonio crescimento somatomedina igf1 paratormonio pth calcitonina aldosterona renina anti mulleriano shbg androstenediona inibina b hidroxiprogesterona ocitocina pregnenolona acth adrenocorticotrofico dht hidrotestosterona serotonina"
-    },
-
-    // ===== LAB - SOROLOGIAS =====
-    {
-      titulo: "Laboratório · Sorologias e Infecções",
-      tag: "Laboratório",
-      descricao: "Hepatites A/B/C, HIV, Sífilis, Dengue, Toxoplasmose, COVID, Chagas",
-      keywords: "sorologia hepatite a b c hbsag anti-hbs anti-hbc anti hbe hbeag hcv hiv sifilis vdrl ftaabs dengue chikungunya zika toxoplasmose rubeola citomegalovirus cmv chagas covid coronavirus htlv epstein barr mononucleose herpes labial helicobacter pylori esquistossomose schistossomose esporotricose toxocara streptococcus chlamydia bartonella ihla aquaporina"
-    },
-
-    // ===== LAB - VITAMINAS =====
-    {
-      titulo: "Laboratório · Vitaminas e Minerais",
-      tag: "Laboratório",
-      descricao: "Vitamina D, B12, B1, B6, C, E, Ácido Fólico, Zinco, Selênio",
-      keywords: "vitamina vit d 25 hidroxi b12 b1 b2 b3 b6 c e a acido folico zinco selenio cobre manganes aluminio cromo"
-    },
-
-    // ===== LAB - AUTOIMUNES =====
-    {
-      titulo: "Laboratório · Autoimunes e Reumatológicos",
-      tag: "Laboratório",
-      descricao: "FAN, Anti-DNA, ANCA, Anti-CCP, Complemento C3/C4, Fator Reumatoide",
-      keywords: "fan anti dna nucleo anti-ccp anca anti centromero scl 70 ssa ssb la ro rnp sm waaler rose fator reumatoide latex anticoagulante lupico cardiolipina beta2 glicoproteina hla b27 mthfr proteina c s antitrombina anti tireoglobulina anti tpo trab atpo aldolase calprotectina anti gliadina anti endomisio anti transglutaminase anti musculo liso anti mitocondria anti lkm anti gad anti ilhota anti insulina anti rna polimerase aldolase complemento c3 c4 ch50 imunoglobulina iga igg igm ige imunofixação eletroforese proteinas"
-    },
-
-    // ===== LAB - MARCADORES TUMORAIS =====
-    {
-      titulo: "Laboratório · Marcadores Tumorais",
-      tag: "Laboratório",
-      descricao: "PSA, CA125, CA15-3, CA19-9, CA72-4, CEA, Alfafetoproteína",
-      keywords: "psa total livre cancer ca 125 153 199 19-9 724 72-4 cea antigeno carcinoembrionario alfafetoproteina marcador tumoral oncologia ca50 beta 2 microglobulina haptoglobina"
-    },
-
-    // ===== LAB - URINA E FEZES =====
-    {
-      titulo: "Laboratório · Urina e Fezes",
-      tag: "Laboratório",
-      descricao: "EAS, Urocultura, Parasitológico, Sangue Oculto, Microalbuminúria",
-      keywords: "urina sumario eas urocultura urinaria 24 horas microalbuminuria proteinuria parasitologico fezes coprologica sangue oculto sop calprotectina cultura antibiograma rptcr cistina citrato oxalato indican disbiose"
-    },
-
-    // ===== LAB - GENÉTICOS / ESPECIAIS =====
-    {
-      titulo: "Laboratório · Genéticos e Especiais",
-      tag: "Laboratório",
-      descricao: "Teste de Paternidade, Sexagem Fetal, Teste do Pezinho, HPV",
-      keywords: "teste paternidade pai mae filho dna sexagem fetal sexo bebe pezinho ampliado master plus hpv captura hibrida fator v leiden mthfr"
-    },
-
-    // ===== LAB - ALERGIA =====
-    {
-      titulo: "Laboratório · Alergia (IgE Específica)",
-      tag: "Laboratório",
-      descricao: "Painéis para ácaros, alimentos, fungos, epitélios e Prick Test",
-      keywords: "alergia alergico ige especifica acaros pteronyssinus farinae blomia tropicalis epitelio caspa cao gato fungos baratas alimentos clara ovo gluten caseina alfa lactoalbumina beta lactoglobulina prick test contato hx2 fx5 inalantes"
-    },
-
-    // ===== PROCEDIMENTOS GINECOLÓGICOS =====
-    {
-      titulo: "Procedimentos Ginecológicos",
-      tag: "Ginecologia",
-      descricao: "Colposcopia, Citológico (Papanicolau), Biópsia, DIU, Vulvoscopia",
-      keywords: "colposcopia citologico papanicolau papa biopsia colo utero diu inserção retirada vulvoscopia ginecologia"
-    },
-
-    // ===== PROCEDIMENTOS GERAIS =====
-    {
-      titulo: "Procedimentos & Biópsias",
-      tag: "Procedimentos",
-      descricao: "PAAF Tireoide e Mama, Biópsias, Escleroterapia, Anuscopia",
-      keywords: "paaf puncao agulha fina nodulo tireoide mama biopsia analise histopatologia escleroterapia espuma safena anuscopia retirada cisto retossigmoidoscopia colposcopia core nasofibroscopia videolaringoscopia"
-    },
-
-    // ===== ODONTOLOGIA =====
-    {
-      titulo: "Odontologia",
-      tag: "Odonto",
-      descricao: "Restauração, Limpeza, Canal, Clareamento, Próteses, Aparelho",
-      keywords: "odontologia odonto dentista restauração face limpeza profilaxia raspagem ultrassom canal endodontia clareamento caseiro consultorio prótese protese total parcial removivel coroa metaloceramica resina pino bruxismo placa silicone faceta polimento aparelho ortodontico contenção expansor documentação ortodontica modelo exodontia siso incluso resto radicular periapical interproximal radiografia panoramica odontologica"
-    },
-
-    // ===== EXAMES OFTALMOLÓGICOS =====
-    {
-      titulo: "Exames Oftalmológicos",
-      tag: "Oftalmologia",
-      descricao: "Mapeamento de Retina, Campimetria, Paquimetria, Curva Tensional",
-      keywords: "oftalmologia oftalmo olhinho mapeamento retina campimetria paquimetria curva tensional teste lentes contato adaptação retinografia topografia tonometrica acuidade visual"
-    },
-
-    // ===== EXAMES ADMISSIONAIS / OCUPACIONAIS =====
-    {
-      titulo: "Exames Admissionais e Ocupacionais",
-      tag: "Empresas",
-      descricao: "ASO, Admissional, Demissional, Periódico, Mudança de Função",
-      keywords: "admissional demissional periodico mudança função aso medico trabalho ocupacional empresa funcionario avaliação psicossocial bemais audiometria ocupacional"
-    },
-
-    // ===== CONCURSOS - PCPE =====
-    {
-      titulo: "Concurso · PCPE (Polícia Civil PE)",
-      tag: "Concurso",
-      descricao: "Combo completo de exames para PCPE com laudos aceitos pela banca",
-      keywords: "concurso pcpe policia civil pernambuco mapa exames combo edital"
-    },
-
-    // ===== CONCURSOS - PMPB =====
-    {
-      titulo: "Concurso · PMPB e CBMPB (PM e Bombeiros PB)",
-      tag: "Concurso",
-      descricao: "Combos para Polícia Militar e Corpo de Bombeiros da Paraíba (M e F)",
-      keywords: "concurso pmpb pm policia militar paraiba cbmpb bombeiros corpo combo masculino feminino edital exames laboratorio raio-x ecocardiograma ergometrico eeg toxicologico audiometria psiquiatrico ressonancia"
-    },
-
-    // ===== CONCURSOS - POLÍCIA FEDERAL =====
-    {
-      titulo: "Concurso · Polícia Federal",
-      tag: "Concurso",
-      descricao: "Combo completo para PF (à vista ou parcelado)",
-      keywords: "concurso policia federal pf combo a vista credito parcelado"
-    },
-
-    // ===== CONCURSOS - GCM / GUARDA =====
-    {
-      titulo: "Concurso · GCM (Guarda Municipal)",
-      tag: "Concurso",
-      descricao: "GCM João Pessoa, GCM Santa Rita e demais guardas municipais",
-      keywords: "concurso gcm guarda municipal joão pessoa santa rita scc porte arma laudo combo laboratorio raio-x audiometria toxicologico ecg eeg psiquiatrico ortopedista oftalmo panoramica odontologica"
-    },
-
-    // ===== CONCURSOS - SEMOB =====
-    {
-      titulo: "Concurso · SEMOB (Mobilidade)",
-      tag: "Concurso",
-      descricao: "SEMOB João Pessoa e SEMOB Olinda - exames completos",
-      keywords: "concurso semob mobilidade trafego trânsito joão pessoa olinda combo laboratorio audiometria toxicologico raio-x ecg eeg ergometrico ecocardiograma usg ortopedista psiquiatra"
-    },
-
-    // ===== CONCURSOS - POLÍCIA PENAL =====
-    {
-      titulo: "Concurso · Polícia Penal (CE e GO)",
-      tag: "Concurso",
-      descricao: "Combos para Polícia Penal Ceará e Goiás",
-      keywords: "concurso policia penal pp ceara goias ce go combo laboratorio audiometria toxicologico ecg eco eeg raio-x panoramica laudo ortopedico psiquiatrico oftalmo otorrino cardiologista neurologista pneumologista"
-    },
-
-    // ===== CONCURSOS - POLITEC PE =====
-    {
-      titulo: "Concurso · POLITEC e Prefeituras PE",
-      tag: "Concurso",
-      descricao: "POLITEC PE, Camaragibe, Ibirajuba, Água Branca e demais prefeituras",
-      keywords: "concurso politec pernambuco pe camaragibe ibirajuba água branca prefeitura combo laboratorio toxicologico raio-x audiometria eeg espirometria ergometrico oftalmo otorrino cardiologista pneumologista psiquiatrico neurologista panoramica dentista"
-    },
-
-    // ===== CONCURSOS - PROFESSOR =====
-    {
-      titulo: "Concurso · Professor PB",
-      tag: "Concurso",
-      descricao: "Combos para concurso de Professor da Paraíba",
-      keywords: "concurso professor paraiba pb educação combo laboratorio sem lab"
-    },
-
-    // ===== LAUDOS PARA CONCURSO =====
-    {
-      titulo: "Laudos Médicos para Concurso",
-      tag: "Concurso",
-      descricao: "Psiquiátrico (RQE), Oftalmológico, Cardiológico, Ortopédico, PCD",
-      keywords: "laudo concurso psiquiatra rqe oftalmologico cardiologista neurologista ortopedico pcd portador deficiencia bioimpedancia teste aptidão fisica mental tafe taf"
-    },
-
-    // ===== FISIOTERAPIA =====
-    {
-      titulo: "Fisioterapia",
-      tag: "Reabilitação",
-      descricao: "Sessões de fisioterapia para reabilitação",
-      keywords: "fisioterapia fisio reabilitação sessão"
-    },
-
-    // ===== ESTUDO URODINÂMICO =====
-    {
-      titulo: "Estudo Urodinâmico",
-      tag: "Urologia",
-      descricao: "Avaliação completa do funcionamento da bexiga e uretra",
-      keywords: "estudo urodinamico urologia bexiga uretra incontinencia"
-    }
+    { titulo: "Consultas Médicas", tag: "Consultas", descricao: "Cardiologista, Ginecologista, Ortopedista, Dermatologista, Neurologista e mais", keywords: "consulta consultas medico médico especialista cardiologia cardiologista ginecologia ginecologista ortopedia ortopedista dermatologia dermatologista endocrinologia endocrinologista neurologia neurologista oftalmologia oftalmologista urologia urologista gastroenterologia gastro nutrição nutricionista nutrologo psiquiatra psiquiatria psicologo psicologia pediatra pediatria pneumologia pneumologista reumatologia reumatologista mastologia mastologista angiologia angiologista cirurgião cirurgia geral otorrino otorrinolaringologia alergologia alergista infectologia infectologia geriatria obstetrícia obstetra hepatologia hepatologista neuropediatra neurocirurgião proctologia proctologista coloproctologia clínico geral medico do trabalho odontologia dentista oftalmologista" },
+    { titulo: "Exames de Cardiologia", tag: "Cardiologia", descricao: "ECG, Ecocardiograma, Holter, MAPA, Teste Ergométrico e Risco Cirúrgico", keywords: "ecg eletrocardiograma eletro ecocardiograma eco holter mapa mapa 24 24h teste ergometrico ergometrico risco cirurgico mrpa cardiologia coração coracao" },
+    { titulo: "Ultrassonografias (USG)", tag: "Imagem", descricao: "Abdome, Tireoide, Transvaginal, Obstétrica, Mamas, Próstata, Doppler", keywords: "usg ultrassom ultrassonografia abdome abdomen total superior inferior tireoide transvaginal obstetrica morfologica translucencia nucal mama mamas pelvica pelve prostata doppler arterial venoso" },
+    { titulo: "Raio-X (Radiografia Digital)", tag: "Imagem", descricao: "Tórax, Coluna, Membros, Bacia, Crânio, Panorâmica Odontológica", keywords: "raio raio-x radiografia rx torax cranio coluna cervical lombar dorsal sacro panoramica odontologica dentes dentaria mao maos punho" },
+    { titulo: "Ressonância Magnética (incluindo Campo Aberto)", tag: "Imagem", descricao: "Coluna, Joelho, Crânio, Pelve, Próstata e Campo Aberto sem claustrofobia", keywords: "rm rnm ressonancia magnetica campo aberto claustrofobia coluna cervical lombar dorsal joelho ombro punho cranio encefalo cerebro torax abdomen pelve prostata" },
+    { titulo: "Tomografia Computadorizada (TC)", tag: "Imagem", descricao: "Tórax, Crânio, Abdome, Coluna, Vias Urinárias, Ossos e Articulações", keywords: "tc tomografia computadorizada com sem contraste torax cranio encefalo abdomen total coluna cervical lombar dorsal vias urinarias rins urotomografia pelve" },
+    { titulo: "Mamografia & Densitometria Óssea", tag: "Imagem", descricao: "Diagnóstico de mama e avaliação de osteoporose (coluna e fêmur)", keywords: "mamografia mama densitometria ossea osteoporose coluna lombar colo femur" },
+    { titulo: "Exames Neurológicos", tag: "Neurologia", descricao: "Eletroencefalograma (EEG), Eletroneuromiografia, Acuidade Visual", keywords: "eletroencefalograma eeg eletroneuromiografia neurologia membro superior inferior acuidade visual" },
+    { titulo: "Endoscopia & Colonoscopia", tag: "Procedimento", descricao: "Endoscopia digestiva, colonoscopia, retossigmoidoscopia, polipectomia", keywords: "endoscopia digestiva colonoscopia retossigmoidoscopia polipectomia teste urease biopsia helicobacter pylori" },
+    { titulo: "Audiometria & Espirometria", tag: "Funcional", descricao: "Testes de audição e função pulmonar (com ou sem broncodilatador)", keywords: "audiometria espirometria broncodilatador peak flow timpanometria audiologia tonal vocal pulmonar respiratorio asma" },
+    { titulo: "Exame Toxicológico (CNH e Concursos)", tag: "Toxicológico", descricao: "Toxicológico de larga janela de detecção - CNH, concursos e empresas", keywords: "toxicologico tóxico cnh larga janela detrancuc carteira motorista concurso empresa admissional" },
+    { titulo: "Laboratório · Hematologia", tag: "Laboratório", descricao: "Hemograma, Coagulograma, Ferritina, Ferro, Plaquetas, VHS", keywords: "hemograma sangue hematologia coagulograma plaquetas reticulocitos ferritina ferro transferrina vhs hemossedimentação" },
+    { titulo: "Laboratório · Bioquímica Geral", tag: "Laboratório", descricao: "Glicemia, Ureia, Creatinina, TGO, TGP, Ácido Úrico, Eletrólitos", keywords: "glicemia glicose jejum hemoglobina glicada hba1c ureia creatinina tgo tgp ast alt fosfatase alcalina amilase lipase gama gt bilirrubina acido urico calcio magnesio fosforo potassio sodio" },
+    { titulo: "Laboratório · Perfil Lipídico", tag: "Laboratório", descricao: "Colesterol Total, HDL, LDL, VLDL, Triglicerídeos, Apolipoproteínas", keywords: "colesterol total hdl ldl vldl triglicerides triglicerideos lipidograma lipidico lipoproteina apolipoproteina" },
+    { titulo: "Laboratório · Hormônios", tag: "Laboratório", descricao: "TSH, T3, T4, FSH, LH, Prolactina, Testosterona, Cortisol, Insulina", keywords: "tsh t3 t4 hormonio tireoide fsh lh prolactina estradiol progesterona testosterona cortisol insulina pth paratormonio hormonio crescimento" },
+    { titulo: "Laboratório · Sorologias e Infecções", tag: "Laboratório", descricao: "Hepatites A/B/C, HIV, Sífilis, Dengue, Toxoplasmose, COVID, Chagas", keywords: "sorologia hepatite a b c hbsag hiv sifilis vdrl dengue chikungunya toxoplasmose rubeola citomegalovirus covid coronavirus chagas htlv herpes helicobacter pylori" },
+    { titulo: "Laboratório · Vitaminas e Minerais", tag: "Laboratório", descricao: "Vitamina D, B12, B1, B6, C, E, Ácido Fólico, Zinco, Selênio", keywords: "vitamina vit d 25 hidroxi b12 b1 b2 b3 b6 c e a acido folico zinco selenio cobre manganes" },
+    { titulo: "Laboratório · Autoimunes e Reumatológicos", tag: "Laboratório", descricao: "FAN, Anti-DNA, ANCA, Anti-CCP, Complemento C3/C4, Fator Reumatoide", keywords: "fan anti dna anti-ccp anca fator reumatoide latex waaler rose complemento c3 c4 imunoglobulina iga igg igm" },
+    { titulo: "Laboratório · Marcadores Tumorais", tag: "Laboratório", descricao: "PSA, CA125, CA15-3, CA19-9, CA72-4, CEA, Alfafetoproteína", keywords: "psa total livre cancer ca 125 153 199 19-9 724 cea antigeno carcinoembrionario alfafetoproteina marcador tumoral oncologia" },
+    { titulo: "Laboratório · Urina e Fezes", tag: "Laboratório", descricao: "EAS, Urocultura, Parasitológico, Sangue Oculto, Microalbuminúria", keywords: "urina sumario eas urocultura urinaria 24 horas microalbuminuria proteinuria parasitologico fezes coprologica sangue oculto" },
+    { titulo: "Exame Toxicológico (CNH e Concursos)", tag: "Toxicológico", descricao: "Toxicológico de larga janela de detecção - CNH, concursos e empresas", keywords: "toxicologico toxico cnh larga janela detrancuc carteira motorista concurso empresa admissional" },
+    { titulo: "Concurso · PCPE (Polícia Civil PE)", tag: "Concurso", descricao: "Combo completo de exames para PCPE com laudos aceitos pela banca", keywords: "concurso pcpe policia civil pernambuco mapa exames combo edital" },
+    { titulo: "Concurso · PMPB e CBMPB (PM e Bombeiros PB)", tag: "Concurso", descricao: "Combos para Polícia Militar e Corpo de Bombeiros da Paraíba", keywords: "concurso pmpb pm policia militar paraiba cbmpb bombeiros corpo combo masculino feminino edital" },
+    { titulo: "Concurso · Polícia Federal", tag: "Concurso", descricao: "Combo completo para PF", keywords: "concurso policia federal pf combo" },
+    { titulo: "Concurso · GCM (Guarda Municipal)", tag: "Concurso", descricao: "GCM João Pessoa, GCM Santa Rita e demais guardas municipais", keywords: "concurso gcm guarda municipal joão pessoa santa rita porte arma laudo combo" },
+    { titulo: "Laudos Médicos para Concurso", tag: "Concurso", descricao: "Psiquiátrico (RQE), Oftalmológico, Cardiológico, Ortopédico, PCD", keywords: "laudo concurso psiquiatra rqe oftalmologico cardiologista neurologista ortopedico pcd portador deficiencia" }
   ];
 
-  // Função normalize: remove acentos e deixa lowercase para busca
   function normalize(str) {
     return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
@@ -1546,13 +1411,8 @@
   searchInput.addEventListener('input', function() {
     const val = normalize(this.value.trim());
     searchResults.innerHTML = '';
-    
-    if(val.length < 2) {
-      searchResults.classList.remove('active');
-      return;
-    }
+    if(val.length < 2) { searchResults.classList.remove('active'); return; }
 
-    // Busca no título, descrição e keywords (todos normalizados)
     const matches = grupos.filter(g => {
       const haystack = normalize(g.titulo + ' ' + g.descricao + ' ' + g.keywords);
       return haystack.includes(val);
@@ -1566,50 +1426,32 @@
         const msg = encodeURIComponent(`Olá! Gostaria de informações sobre: ${grupo.titulo}`);
         li.innerHTML = `
           <div class="search-item-text">
-            <div class="search-item-title">
-              ${grupo.titulo}
-              <span class="search-item-tag">${grupo.tag}</span>
-            </div>
+            <div class="search-item-title">${grupo.titulo}<span class="search-item-tag">${grupo.tag}</span></div>
             <div class="search-item-sub">${grupo.descricao}</div>
           </div>
-          <a href="${WHATSAPP_BASE}${msg}" target="_blank" rel="noopener" class="btn-agendar" aria-label="Agendar ${grupo.titulo}">
+          <a href="${WHATSAPP_BASE}${msg}" target="_blank" rel="noopener" class="btn-agendar">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
             Agendar
-          </a>
-        `;
+          </a>`;
         searchResults.appendChild(li);
       });
     } else {
-      // Mensagem amigável quando não acha + atalho pro WhatsApp
       searchResults.classList.add('active');
       const liEmpty = document.createElement('li');
       liEmpty.className = 'search-empty';
       const msgGenerica = encodeURIComponent(`Olá! Gostaria de informações sobre: ${this.value.trim()}`);
-      liEmpty.innerHTML = `
-        Não achamos um grupo exato para "<strong>${this.value.trim()}</strong>".<br>
-        <a href="${WHATSAPP_BASE}${msgGenerica}" target="_blank" rel="noopener">
-          Falar com um atendente no WhatsApp →
-        </a>
-      `;
+      liEmpty.innerHTML = `Não achamos um grupo exato para "<strong>${this.value.trim()}</strong>".<br><a href="${WHATSAPP_BASE}${msgGenerica}" target="_blank" rel="noopener">Falar com um atendente no WhatsApp →</a>`;
       searchResults.appendChild(liEmpty);
     }
   });
 
-  // Fecha busca ao clicar fora
   document.addEventListener('click', (e) => {
-    if(!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-      searchResults.classList.remove('active');
-    }
+    if(!searchInput.contains(e.target) && !searchResults.contains(e.target)) searchResults.classList.remove('active');
   });
-
-  // Reabre busca ao focar (se tiver texto)
   searchInput.addEventListener('focus', () => {
-    if(searchInput.value.trim().length >= 2) {
-      searchInput.dispatchEvent(new Event('input'));
-    }
+    if(searchInput.value.trim().length >= 2) searchInput.dispatchEvent(new Event('input'));
   });
 
-  // Mobile Nav Drawer Toggle
   const menuBtn = document.getElementById('menuBtn');
   const closeBtn = document.getElementById('closeMenuBtn');
   const mobileNav = document.getElementById('mobileNav');
@@ -1627,19 +1469,11 @@
   mobileNavOverlay.addEventListener('click', () => toggleMenu(false));
   mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-  // Scroll Animations
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-  
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Header sticky shadow
   const header = document.querySelector('.header');
   window.addEventListener('scroll', () => {
     header.style.boxShadow = window.scrollY > 10 ? '0 4px 24px rgba(0,0,0,.06)' : 'none';
