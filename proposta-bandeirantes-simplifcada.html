@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bandeirantes Diagnósticos × Clintia</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF9F6;
+  --ink: #0E0E0E;
+  --ink-soft: #2A2A2A;
+  --muted: #6B6B6B;
+  --muted-soft: #9A9A9A;
+  --line: #E5E2DC;
+  --accent: #C44826;
+  --accent-soft: #F4DDD3;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Figtree', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ── DECK ── */
+.deck { width:100%; height:100vh; position:relative; }
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 56px 80px 90px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(20px);
+  transition: opacity .45s ease, transform .45s ease;
+  overflow-y: auto;
+}
+.slide.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(0);
+}
+.slide::-webkit-scrollbar { width: 6px; }
+.slide::-webkit-scrollbar-track { background: transparent; }
+.slide::-webkit-scrollbar-thumb { background: rgba(0,0,0,.1); border-radius: 3px; }
+
+/* ── NAV ── */
+.nav {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 11px 18px;
+  border-radius: 100px;
+  z-index: 100;
+}
+.nav button {
+  background: none;
+  border: none;
+  color: var(--bg);
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  opacity: .7;
+  transition: opacity .2s;
+}
+.nav button:hover { opacity: 1; }
+.dots { display:flex; gap:5px; }
+.dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(250,249,246,.3);
+  transition: all .3s;
+  cursor: pointer;
+}
+.dot.active { background: var(--accent); width: 18px; border-radius: 3px; }
+.counter { font-size: 11px; opacity: .6; font-family: 'Outfit', sans-serif; min-width: 32px; text-align:center; }
+
+/* ── TOP MARK ── */
+.top-mark {
+  position: fixed;
+  top: 32px; left: 80px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  color: var(--ink);
+  z-index: 100;
+}
+.top-right {
+  position: fixed;
+  top: 32px; right: 80px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  color: var(--muted);
+  z-index: 100;
+  text-transform: uppercase;
+}
+
+/* ── TYPOGRAPHY ── */
+.eyebrow {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before {
+  content:'';
+  width: 28px;
+  height: 1px;
+  background: var(--ink);
+}
+
+h1.hero {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(42px, 6.5vw, 72px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -.035em;
+  color: var(--ink);
+}
+
+h1.hero em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+
+h2.title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(28px, 3.8vw, 44px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -.025em;
+  color: var(--ink);
+}
+
+h2.title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+
+p.lead {
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 580px;
+  margin-top: 24px;
+}
+p.lead strong { color: var(--ink); font-weight: 600; }
+
+/* ── HERO STATS ── */
+.hero-stats {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+}
+.hero-stat {
+  padding: 22px 24px;
+  border-right: 1px solid var(--line);
+}
+.hero-stat:last-child { border-right: none; }
+.hero-stat .n {
+  font-family: 'Outfit', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.hero-stat .l { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+/* ── BEFORE / AFTER ── */
+.ba-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  margin-top: 32px;
+  border-top: 1.5px solid var(--ink);
+}
+
+.ba-col {
+  padding: 28px 36px 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ba-col + .ba-col {
+  padding-left: 36px;
+  border-left: 1px solid var(--line);
+}
+
+.ba-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.ba-col.before .ba-label { color: var(--muted); }
+.ba-col.after .ba-label { color: var(--accent); }
+
+.ba-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.25;
+  letter-spacing: -.015em;
+}
+
+.item {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  padding-left: 18px;
+  position: relative;
+}
+.item::before {
+  content:'';
+  position: absolute;
+  left: 0; top: 10px;
+  width: 8px; height: 1.5px;
+  background: var(--ink);
+}
+.ba-col.before .item::before { background: var(--muted-soft); }
+.item strong { font-weight: 700; color: var(--ink); }
+
+.ba-emphasis {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 12px;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--line);
+  font-style: italic;
+  line-height: 1.5;
+}
+.ba-col.before .ba-emphasis { color: var(--muted); }
+.ba-col.after .ba-emphasis { color: var(--accent); }
+
+/* ── ÂNCORA ── */
+.anchor-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  margin-top: 32px;
+  border-top: 1.5px solid var(--ink);
+}
+
+.anchor-left {
+  padding: 32px 36px 32px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.anchor-right {
+  padding: 32px;
+  border-left: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
+}
+
+.math-row {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.math-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+.math-op { font-family: 'Outfit', sans-serif; font-size: 30px; color: var(--muted-soft); font-weight: 300; }
+.math-mini {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  line-height: 1.4;
+}
+
+.math-equals {
+  border-top: 1.5px solid var(--ink);
+  padding-top: 22px;
+}
+.math-equals .label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  letter-spacing: .04em;
+}
+.math-equals .big {
+  font-family: 'Outfit', sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+.math-equals .sub {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-top: 12px;
+  line-height: 1.6;
+}
+.math-equals .sub strong { color: var(--ink); font-weight: 700; }
+
+.anchor-card {
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+}
+.anchor-card .l {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.anchor-card .v {
+  font-family: 'Outfit', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.02em;
+}
+.anchor-card .v.highlight { color: var(--accent); }
+.anchor-card .d {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ── CASES LAYOUT ── */
+.cases-master-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  flex: 1;
+  margin-top: 24px;
+  border-top: 1.5px solid var(--ink);
+  padding-top: 24px;
+}
+.case-v-card {
+  display: flex;
+  flex-direction: column;
+}
+.case-name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 15.5px;
+  margin-bottom: 2px;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.case-loc {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.case-stats { display: flex; gap: 12px; margin-bottom: 16px; }
+.case-stat { flex: 1; }
+.case-stat .v {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 21px;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+.case-stat .l {
+  font-size: 9.5px;
+  color: var(--muted);
+  margin-top: 4px;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.story-container {
+  margin-top: 0;
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+}
+.story-frame {
+  width: 100%;
+  height: auto;
+  max-height: 290px;
+  aspect-ratio: 9/16;
+  background: var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border: 3px solid var(--ink);
+  flex-shrink: 0;
+}
+.story-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  image-rendering: -webkit-optimize-contrast;
+  display: block;
+}
+
+.portfolio-strip {
+  margin-top: 24px;
+  padding: 16px 24px;
+  background: var(--ink);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--bg);
+}
+.portfolio-thumbs {
+  display: flex;
+  gap: 12px;
+}
+.p-thumb {
+  height: 60px;
+  aspect-ratio: 9/16;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.2);
+  overflow: hidden;
+  background: var(--ink-soft);
+}
+.p-thumb img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  object-position: center top; 
+  image-rendering: -webkit-optimize-contrast;
+}
+.cases-footer-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  white-space: nowrap;
+}
+.cases-footer-text {
+  font-size: 11px;
+  color: rgba(250,249,246,0.7);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/* ── PREÇO ── */
+.price-wrap {
+  flex: 1;
+  margin-top: 32px;
+  border-top: 1.5px solid var(--ink);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+}
+.price-main-box {
+  padding: 36px 40px 36px 0;
+}
+.price-side-box {
+  padding: 36px 40px;
+  border-left: 1px solid var(--line);
+  background: var(--ink);
+  color: var(--bg);
+  margin-right: -80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.price-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.price-side-box .price-label { color: rgba(250,249,246,.5); }
+
+.price-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 6px;
+  letter-spacing: -.02em;
+}
+
+.price-amount {
+  font-family: 'Outfit', sans-serif;
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.04em;
+  margin: 24px 0 8px;
+}
+.price-amount .currency { font-size: 30px; font-weight: 600; color: var(--muted); vertical-align: top; }
+.price-side-box .price-amount { font-size: 52px; }
+.price-side-box .price-amount .currency { color: rgba(250,249,246,.5); font-size: 22px; }
+.price-side-box .price-amount .mo { font-size: 22px; font-weight: 600; color: rgba(250,249,246,.5); }
+
+.price-list {
+  list-style: none;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.price-side-box .price-list { border-color: rgba(250,249,246,.15); }
+
+.price-list li {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.55;
+}
+.price-side-box .price-list li { color: rgba(250,249,246,.8); }
+.price-list li::before {
+  content:'';
+  width: 12px;
+  height: 1.5px;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+.price-note {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-style: italic;
+}
+.price-side-box .price-note { border-color: rgba(250,249,246,.15); color: rgba(250,249,246,.5); }
+
+@media print {
+  @page { size: A4 landscape; margin: 0; }
+  body { background: white; overflow: visible; height: auto; }
+  .deck { height: auto; }
+  .slide {
+    position: relative;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: all;
+    page-break-after: always;
+    page-break-inside: avoid;
+    height: auto;
+    min-height: 95vh;
+    padding: 32px 48px 48px;
+    overflow: visible;
+  }
+  .slide:last-child { page-break-after: auto; }
+  .nav, .top-mark, .top-right { display: none !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-mark">CLINTIA</div>
+<div class="top-right">PROClip · Programa de Aceleração para Clínicas Populares</div>
+
+<div class="deck" id="deck">
+
+<!-- ══ S1 CAPA ══ -->
+<div class="slide active" id="s1">
+  <div class="eyebrow">Diagnóstico e Proposta · 2025</div>
+  <h1 class="hero">A rede que<br>todo mundo conhece.<br><em>Quase ninguém encontra.</em></h1>
+  <p class="lead"><strong>36 anos de operação. 7 unidades. Mais de 1.300 avaliações somadas.</strong><br>O problema não é o negócio. É o que está vazando em silêncio em cada unidade, todo dia.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="n">3,4★</div>
+      <div class="l">Nota média da rede<br>no Google (7 unidades)</div>
+    </div>
+    <div class="hero-stat">
+      <div class="n">2 de 7</div>
+      <div class="l">Fichas ainda usando<br>o nome antigo "RX"</div>
+    </div>
+    <div class="hero-stat">
+      <div class="n">8,7s</div>
+      <div class="l">Tempo do site abrir<br>no celular do paciente</div>
+    </div>
+    <div class="hero-stat">
+      <div class="n">3.332</div>
+      <div class="l">Seguidores no Instagram<br>(potencial: 20.000+)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S2 UNIDADES ══ -->
+<div class="slide" id="s2">
+  <div class="eyebrow">Mapeamento · As 7 unidades no Google</div>
+  <h2 class="title">Sete unidades.<br><em>Sete histórias diferentes.</em></h2>
+  <div style="flex:1;margin-top:32px;border-top:1.5px solid var(--ink);padding-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:0;">
+    <div style="padding-right:36px;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="border-bottom:1.5px solid var(--ink);">
+            <th style="text-align:left;padding:10px 4px;font-family:'Outfit',sans-serif;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);">Unidade</th>
+            <th style="text-align:center;padding:10px 4px;font-family:'Outfit',sans-serif;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);">Nota</th>
+            <th style="text-align:right;padding:10px 4px;font-family:'Outfit',sans-serif;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);">Avaliações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--line);">
+            <td style="padding:14px 4px;"><strong>Bangu</strong><br><span style="font-size:11px;color:var(--muted);">R. 12 de Fevereiro, 282</span></td>
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,4★</td>
+            <td style="text-align:right;color:var(--muted);">147</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line);background:var(--accent-soft);">
+            <td style="padding:14px 4px;"><strong>Madureira I</strong> <span style="font-size:10px;color:var(--accent);font-weight:700;background:rgba(196,72,38,.15);padding:2px 6px;border-radius:3px;margin-left:4px;">"RX BANDEIRANTES"</span><br><span style="font-size:11px;color:var(--muted);">Estr. do Portela, 99</span></td>
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,0★</td>
+            <td style="text-align:right;color:var(--muted);">217</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line);">
+            <td style="padding:14px 4px;"><strong>Madureira II</strong><br><span style="font-size:11px;color:var(--muted);">R. Carolina Machado, 560</span></td>
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:var(--accent);">4,4★</td>
+            <td style="text-align:right;color:var(--muted);">48</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line);">
+            <td style="padding:14px 4px;"><strong>Campo Grande</strong><br><span style="font-size:11px;color:var(--muted);">Av. Cesário de Melo, 2839</span></td>
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,7★</td>
+            <td style="text-align:right;color:var(--muted);">546</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line);">
+            <td style="padding:14px 4px;"><strong>Centro</strong><br><span style="font-size:11px;color:var(--muted);">Av. Pres. Vargas, 542</span></td>
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,9★</td>
+            <td style="text-align:right;color:var(--muted);"><strong style="color:var(--accent);">7</strong></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line);">
+            <td style="padding:14px 4px;"><strong>Bonsucesso</strong><br><span style="font-size:11px;color:var(--muted);">R. Cardoso de Morais, 218</span></td>
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:var(--accent);">2,9★</td>
+            <td style="text-align:right;color:var(--muted);">113</td>
+          </tr>
+          <tr style="background:var(--accent-soft);">
+            <td style="padding:14px 4px;"><strong>Taquara</strong> <span style="font-size:10px;color:var(--accent);font-weight:700;background:rgba(196,72,38,.15);padding:2px 6px;border-radius:3px;margin-left:4px;">"RX BANDEIRANTES"</span><br><span style="font-size:11px;color:var(--muted);">Av. Nelson Cardoso, 917</span></td>
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,0★</td>
+            <td style="text-align:right;color:var(--muted);">270</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="padding-left:36px;border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;gap:20px;">
+      <div>
+        <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;">O que esses dados contam</div>
+        <p style="font-size:14px;color:var(--ink-soft);line-height:1.7;margin-bottom:18px;"><strong>Duas das sete fichas no Google ainda usam o nome antigo "Rx Bandeirantes"</strong> — Madureira I e Taquara. O paciente que busca "Bandeirantes Madureira" no Google nem encontra a ficha certa. É a marca trabalhando contra a própria operação.</p>
+        <p style="font-size:14px;color:var(--ink-soft);line-height:1.7;margin-bottom:18px;"><strong>A unidade do Centro tem apenas 7 avaliações.</strong> Av. Presidente Vargas, ponto de altíssima circulação, e o perfil está praticamente abandonado.</p>
+        <p style="font-size:14px;color:var(--ink-soft);line-height:1.7;"><strong>Madureira II tem 4,4★ — prova que dá certo.</strong> A operação consegue ser bem avaliada. Falta sistema para fazer todas as unidades chegarem nesse mesmo patamar.</p>
+      </div>
+      <div style="background:var(--ink);color:var(--bg);padding:18px 22px;border-radius:8px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.5;margin-bottom:8px;">Meta da rede</div>
+        <div style="font-family:'Outfit',sans-serif;font-size:28px;font-weight:900;letter-spacing:-.02em;line-height:1;">4,7★ <span style="font-size:14px;font-weight:600;opacity:.6;">em 90 dias</span></div>
+        <div style="font-size:12px;opacity:.7;margin-top:8px;line-height:1.5;">Sistema automático de avaliações pós-atendimento. Resposta a todas as avaliações existentes. Nome correto em todas as fichas.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S3 COMERCIAL ══ -->
+<div class="slide" id="s3">
+  <div class="eyebrow">Problema 01 · Atendimento Comercial</div>
+  <h2 class="title">Paciente de convênio e particular<br><em>chegando pelo mesmo canal.</em></h2>
+  <div class="ba-grid">
+    <div class="ba-col before">
+      <div class="ba-label">Como está hoje</div>
+      <div class="ba-title">Tudo misturado, todo mundo igual</div>
+      <div class="item">Paciente de convênio — que vai fechar de qualquer jeito — <strong>recebe a mesma atenção</strong> que o particular</div>
+      <div class="item">O particular, que pode <strong>ir embora se demorar</strong>, espera na mesma fila do convênio</div>
+      <div class="item">Quem não agendou na primeira mensagem <strong>desaparece</strong> — ninguém retorna</div>
+      <div class="item">A central recebe centenas de mensagens por dia <strong>sem saber qual paciente está esperando o quê</strong></div>
+      <div class="ba-emphasis">Resultado: o paciente que mais vale é tratado igual ao que já estava garantido.</div>
+    </div>
+    <div class="ba-col after">
+      <div class="ba-label">Como vai ficar</div>
+      <div class="ba-title">Cada paciente no canal certo</div>
+      <div class="item"><strong>Caminho separado</strong> para particular e para convênio — cada um recebe o atendimento certo</div>
+      <div class="item"><strong>Mensagem automática</strong> para quem não agendou na primeira conversa, no dia seguinte</div>
+      <div class="item"><strong>Painel no celular</strong> mostrando quantos contatos chegaram, quantos agendaram e por qual canal</div>
+      <div class="item">A recepção <strong>para de apagar incêndio</strong> e começa a vender com método</div>
+      <div class="ba-emphasis">Resultado: nenhum lead some. Cada contato vira número. Cada número vira decisão.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S4 GOOGLE ══ -->
+<div class="slide" id="s4">
+  <div class="eyebrow">Problema 02 · Aparecer no Google</div>
+  <h2 class="title">36 anos no bairro.<br><em>O concorrente aparece antes.</em></h2>
+  <div class="ba-grid">
+    <div class="ba-col before">
+      <div class="ba-label">Como está hoje</div>
+      <div class="ba-title">Presente fisicamente. Invisível no celular do paciente.</div>
+      <div class="item"><strong>2 das 7 fichas do Google ainda aparecem como "Rx Bandeirantes"</strong> — Madureira I e Taquara, com o nome antigo de antes do rebranding</div>
+      <div class="item">A unidade do <strong>Centro tem apenas 7 avaliações</strong> — perfil praticamente abandonado em ponto de altíssima circulação</div>
+      <div class="item">A nota média da rede é <strong>3,4 estrelas</strong> — para clínicas aparecerem no topo do mapa, o mínimo é 4,5</div>
+      <div class="item">A agência anterior chegou a deixar <strong>o perfil de um concorrente</strong> aparecendo no Google da Bandeirantes</div>
+      <div class="ba-emphasis">O paciente busca "mamografia em Bangu" e clica no concorrente — você nem sabe.</div>
+    </div>
+    <div class="ba-col after">
+      <div class="ba-label">Como vai ficar</div>
+      <div class="ba-title">A clínica do bairro dominando o mapa</div>
+      <div class="item"><strong>As 7 fichas no Google reorganizadas</strong> — nome correto, fotos profissionais, descrição certa e posts semanais</div>
+      <div class="item"><strong>Sistema automático de avaliações</strong>: paciente sai da clínica, recebe mensagem e avalia. Meta: 4,7★ em 90 dias</div>
+      <div class="item"><strong>Uma página dedicada para cada unidade</strong> — quando alguém busca "exame em Bangu", encontra você primeiro</div>
+      <div class="item">Comunicação de <strong>clínica do bairro</strong> — algo que nenhum plano de saúde consegue criar</div>
+      <div class="ba-emphasis">Meta: top 3 no mapa de Bangu, Madureira, Campo Grande e Bonsucesso em 60 dias.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S5 SITE E ANÚNCIOS ══ -->
+<div class="slide" id="s5">
+  <div class="eyebrow">Problema 03 · Site e Investimento em Anúncios</div>
+  <h2 class="title">Você paga pelo clique.<br><em>O site expulsa em 8 segundos.</em></h2>
+  <div class="ba-grid">
+    <div class="ba-col before">
+      <div class="ba-label">Como está hoje</div>
+      <div class="ba-title">Anúncio funcionando. Site destruindo o investimento.</div>
+      <div class="item">O site leva <strong>8,7 segundos para abrir no celular</strong> — o paciente desiste antes de ver alguma coisa</div>
+      <div class="item">O Google <strong>penaliza o site nos rankings</strong> exatamente por essa lentidão — o orgânico nunca vai melhorar</div>
+      <div class="item">Os dados de conversão estão <strong>sendo contados em dobro</strong> por um erro técnico — você não sabe o custo real por paciente</div>
+      <div class="item">Os anúncios mandam todo mundo para a <strong>página inicial genérica</strong> — sem foco em bairro ou exame</div>
+      <div class="ba-emphasis">Você paga pelo clique, o paciente vai embora, e os números que chegam estão errados.</div>
+    </div>
+    <div class="ba-col after">
+      <div class="ba-label">Como vai ficar</div>
+      <div class="ba-title">Site rápido. Cada anúncio no destino certo.</div>
+      <div class="item"><strong>Site novo do zero</strong>, rápido, leve, preparado para ser encontrado pelo Google e recomendado por inteligência artificial</div>
+      <div class="item"><strong>Rastreamento limpo</strong>: cada paciente é contado uma vez. Você vê o custo real por agendamento</div>
+      <div class="item"><strong>Campanhas separadas por unidade</strong> — quem clica em "ultrassom Campo Grande" cai numa página de Campo Grande, não na home</div>
+      <div class="item"><strong>4 matérias estratégicas</strong> sobre os exames principais — atraem paciente todo mês, sem pagar anúncio</div>
+      <div class="ba-emphasis">O mesmo investimento em mídia passa a gerar <strong>2,6× mais agendamentos</strong>.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S6 INSTAGRAM ══ -->
+<div class="slide" id="s6">
+  <div class="eyebrow">Problema 04 · Instagram e Conteúdo</div>
+  <h2 class="title">495 publicações.<br><em>3.332 seguidores.</em></h2>
+  <div class="ba-grid">
+    <div class="ba-col before">
+      <div class="ba-label">Como está hoje</div>
+      <div class="ba-title">Quadro de avisos digital — não canal de captação</div>
+      <div class="item">495 posts publicados para <strong>apenas 3.332 seguidores</strong> — uma rede do porte da Bandeirantes deveria ter entre 15 e 30 mil</div>
+      <div class="item"><strong>Zero Reels.</strong> O Reels é hoje o formato que mais cresce no Instagram. Sem isso, a conta não cresce.</div>
+      <div class="item">Conteúdo genérico, <strong>sem identidade local</strong>, sem linguagem de bairro, sem humanização da equipe</div>
+      <div class="item">A descrição do perfil <strong>não diz ao paciente o que fazer</strong> depois de entrar na conta</div>
+      <div class="ba-emphasis">O Instagram existe mas não trabalha. Não gera agendamento, não gera confiança.</div>
+    </div>
+    <div class="ba-col after">
+      <div class="ba-label">Como vai ficar</div>
+      <div class="ba-title">Vitrine viva da clínica do bairro</div>
+      <div class="item"><strong>20 conteúdos por mês</strong>: 10 Reels e 10 posts ou carrosséis. Calendário completo, planejado.</div>
+      <div class="item"><strong>Linguagem de bairro</strong>: "mamografia em Bangu a partir de R$120", "ultrassom em Madureira sem espera"</div>
+      <div class="item">Conteúdo educativo + humanização da equipe — <strong>pertencimento que plano de saúde nenhum consegue criar</strong></div>
+      <div class="item">Funil de venda do <strong>Clube de Benefícios</strong> integrado ao conteúdo — recorrência automática</div>
+      <div class="ba-emphasis">O Instagram vira o canal que <strong>fecha o paciente que o Google encontrou</strong>.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S7 ÂNCORA ══ -->
+<div class="slide" id="s7">
+  <div class="eyebrow">A matemática do que está escapando</div>
+  <h2 class="title">Quanto vale,<br><em>na conta de vocês,</em> 5 pacientes por dia?</h2>
+  <div class="anchor-grid">
+    <div class="anchor-left">
+      <div class="math-row">
+        <div>
+          <div class="math-num">5</div>
+          <div class="math-mini">pacientes perdidos<br>por unidade · por dia</div>
+        </div>
+        <div class="math-op">×</div>
+        <div>
+          <div class="math-num">7</div>
+          <div class="math-mini">unidades<br>da rede</div>
+        </div>
+        <div class="math-op">×</div>
+        <div>
+          <div class="math-num">R$100</div>
+          <div class="math-mini">ticket médio<br>por exame</div>
+        </div>
+      </div>
+      <div class="math-equals">
+        <div class="label">Em um mês de 22 dias úteis:</div>
+        <div class="big">R$ 77 mil</div>
+        <div class="sub">deixando de entrar todo mês — só por agendamentos que escapam pelo funil.<br><strong>Em 12 meses, são quase R$ 1 milhão.</strong></div>
+      </div>
+    </div>
+    <div class="anchor-right">
+      <div class="anchor-card">
+        <div class="l">Sem estrutura</div>
+        <div class="v">R$ 36</div>
+        <div class="d">custo por paciente agendado</div>
+      </div>
+      <div class="anchor-card">
+        <div class="l">Com a Clintia</div>
+        <div class="v highlight">R$ 14</div>
+        <div class="d">custo por paciente agendado (−60%)</div>
+      </div>
+      <div style="font-size:13px;color:var(--ink-soft);line-height:1.7;padding:14px 4px 0;border-top:1px solid var(--line);">Com o <strong>mesmo investimento em mídia</strong> que vocês já fazem hoje, são <strong>2,6× mais agendamentos por mês</strong>.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S8 RENOVAÇÃO ══ -->
+<div class="slide" id="s8-renov">
+  <div class="eyebrow">A natureza do projeto</div>
+  <h2 class="title">Não é otimização.<br><em>É reconstrução completa.</em></h2>
+  <div style="flex:1;margin-top:32px;border-top:1.5px solid var(--ink);padding-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:48px;">
+    <div>
+      <p style="font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:20px;">A Bandeirantes não precisa de mais um pacote de posts ou de uma agência que entrega clique. <strong>Precisa de uma nova infraestrutura digital construída do zero — pensada para o modelo de rede com 7 unidades e o público que ela atende.</strong></p>
+      <p style="font-size:15px;color:var(--muted);line-height:1.7;">É um projeto único de transição: o que está hoje sai, o novo entra. Após os 45 dias, a clínica passa a operar com sistema próprio — não dependente de fornecedor externo para funcionar.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="border:1px solid var(--line);padding:18px 20px;border-radius:8px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Antes</div>
+        <div style="font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;line-height:1.3;">Agência terceirizada entregando relatório de clique</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:6px;line-height:1.55;">Site lento, fichas Google abandonadas, anúncios sem destino, recepção sem método.</div>
+      </div>
+      <div style="background:var(--ink);color:var(--bg);padding:18px 20px;border-radius:8px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Depois</div>
+        <div style="font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;line-height:1.3;">Sistema próprio operando 24h por 7 unidades</div>
+        <div style="font-size:13px;opacity:.7;margin-top:6px;line-height:1.55;">Infraestrutura nova, métricas reais no celular, processos documentados, equipe treinada.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S9 ENTREGÁVEIS ══ -->
+<div class="slide" id="s9-ent">
+  <div class="eyebrow">O escopo · Implementação em 45 dias</div>
+  <h2 class="title">Tudo que <em>a Bandeirantes recebe</em></h2>
+  <div style="flex:1;margin-top:28px;border-top:1.5px solid var(--ink);overflow-y:auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
+
+      <div style="padding:22px 24px 22px 0;border-bottom:1px solid var(--line);border-right:1px solid var(--line);display:flex;gap:14px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:300;color:var(--accent);line-height:1;flex-shrink:0;width:36px;">01</div>
+        <div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px;">Dossiê de Posicionamento</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;"><strong>A Bíblia do negócio.</strong> Documento estratégico com proposta de valor, públicos, diferenciais e diretrizes de comunicação. Tudo decorre dele.</div>
+        </div>
+      </div>
+
+      <div style="padding:22px 24px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);display:flex;gap:14px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:300;color:var(--accent);line-height:1;flex-shrink:0;width:36px;">02</div>
+        <div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px;">Site institucional novo</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;"><strong>Construído do zero.</strong> Rápido, leve e preparado para ser encontrado pelo Google e recomendado pelo ChatGPT.</div>
+        </div>
+      </div>
+
+      <div style="padding:22px 0 22px 24px;border-bottom:1px solid var(--line);display:flex;gap:14px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:300;color:var(--accent);line-height:1;flex-shrink:0;width:36px;">03</div>
+        <div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px;">7 páginas dedicadas</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;">Uma página por unidade: Bangu, Madureira I e II, Campo Grande, Centro, Bonsucesso e Taquara. <strong>Cada anúncio cai no destino certo.</strong></div>
+        </div>
+      </div>
+
+      <div style="padding:22px 24px 22px 0;border-bottom:1px solid var(--line);border-right:1px solid var(--line);display:flex;gap:14px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:300;color:var(--accent);line-height:1;flex-shrink:0;width:36px;">04</div>
+        <div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px;">7 fichas Google reorganizadas</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;">Correção do nome (sai "RX"), fotos profissionais, descrição local, posts semanais e <strong>coleta automática de avaliações</strong>.</div>
+        </div>
+      </div>
+
+      <div style="padding:22px 24px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);display:flex;gap:14px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:300;color:var(--accent);line-height:1;flex-shrink:0;width:36px;">05</div>
+        <div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px;">Anúncios Google e Meta</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;">Campanhas estruturadas por bairro e por exame. Cada paciente clica no anúncio e cai na <strong>página da unidade certa</strong>.</div>
+        </div>
+      </div>
+
+      <div style="padding:22px 0 22px 24px;border-bottom:1px solid var(--line);display:flex;gap:14px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:300;color:var(--accent);line-height:1;flex-shrink:0;width:36px;">06</div>
+        <div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px;">Sistema de gestão de leads</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;"><strong>Canal separado para particular e convênio.</strong> Follow-up automático, mapa do funil e treinamento completo da equipe.</div>
+        </div>
+      </div>
+
+      <div style="padding:22px 24px 22px 0;border-right:1px solid var(--line);display:flex;gap:14px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:300;color:var(--accent);line-height:1;flex-shrink:0;width:36px;">07</div>
+        <div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px;">Dashboard inteligente</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;"><strong>Dados reais em tempo real no celular.</strong> Custo por paciente por canal, volume por unidade, ROI por campanha. Decisão na palma da mão.</div>
+        </div>
+      </div>
+
+      <div style="padding:22px 24px;border-right:1px solid var(--line);display:flex;gap:14px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:300;color:var(--accent);line-height:1;flex-shrink:0;width:36px;">08</div>
+        <div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px;">4 matérias estratégicas</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;">Artigos sobre mamografia, ultrassom, raio-x e endoscopia. <strong>Atraem paciente todo mês sem pagar anúncio.</strong></div>
+        </div>
+      </div>
+
+      <div style="padding:22px 0 22px 24px;display:flex;gap:14px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:300;color:var(--accent);line-height:1;flex-shrink:0;width:36px;">09</div>
+        <div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px;">Instagram estruturado</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;">Bio reformulada, identidade local, planejamento editorial. <strong>20 conteúdos/mês a partir do 3º mês.</strong></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ S10 EQUIPE ══ -->
+<div class="slide" id="s10-equipe">
+  <div class="eyebrow">Quem executa o projeto</div>
+  <h2 class="title">Não é um generalista.<br><em>É um squad inteiro.</em></h2>
+  <div style="flex:1;margin-top:32px;border-top:1.5px solid var(--ink);padding-top:28px;display:grid;grid-template-columns:1.3fr 1fr;gap:48px;">
+    <div>
+      <p style="font-size:15px;color:var(--ink-soft);line-height:1.7;margin-bottom:24px;">No escopo de acompanhamento da Bandeirantes, você aloca <strong>um grupo de especialistas com foco absoluto em escalar modelos de clínica popular</strong> — não um único profissional tentando dar conta de tudo.</p>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+
+        <div style="display:grid;grid-template-columns:140px 1fr;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line);">
+          <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;color:var(--accent);letter-spacing:-.01em;">Gerente<br>de Projetos</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.6;">Seu contato direto. Analisa e protege as métricas comerciais. Conduz a operação em todas as 7 unidades.</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:140px 1fr;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line);">
+          <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;color:var(--accent);letter-spacing:-.01em;">Gestor<br>de Tráfego</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.6;">Opera os orçamentos diários de Google e Meta. Otimiza o custo por paciente por unidade. Certificações ativas.</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:140px 1fr;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line);">
+          <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;color:var(--accent);letter-spacing:-.01em;">Especialista<br>Social Media</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.6;">Cuida do Instagram da rede. Conteúdo educativo + identidade local. Linguagem de bairro, dentro do CFM.</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:140px 1fr;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line);">
+          <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;color:var(--accent);letter-spacing:-.01em;">Desenvolvedor<br>Web</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.6;">Especialista em performance, segurança e posicionamento em buscadores e inteligência artificial.</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:140px 1fr;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line);">
+          <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;color:var(--accent);letter-spacing:-.01em;">Copywriter<br>de Saúde</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.6;">Especializado em comunicação para clínicas populares. Conhece o CFM, o público e a linguagem que vende.</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:140px 1fr;gap:18px;">
+          <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;color:var(--accent);letter-spacing:-.01em;">Designer<br>de Marca</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.6;">Aplica identidade visual consistente em todos os pontos de contato. Materiais alinhados em toda a rede.</div>
+        </div>
+
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:18px;">
+      <div style="background:var(--ink);color:var(--bg);padding:28px;border-radius:8px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;">Comparação inteligente</div>
+        <div style="font-size:14px;line-height:1.7;opacity:.85;margin-bottom:16px;">Contratar internamente esse mesmo time custaria, em <strong style="color:white;">salários mensais aproximados:</strong></div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;opacity:.85;">
+          <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:6px;"><span>Gestor de tráfego sênior</span><span>R$ 10.000</span></div>
+          <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:6px;"><span>Social media</span><span>R$ 5.500</span></div>
+          <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:6px;"><span>Web developer</span><span>R$ 8.500</span></div>
+          <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:6px;"><span>Designer</span><span>R$ 5.000</span></div>
+          <div style="display:flex;justify-content:space-between;padding-top:4px;color:var(--accent);font-weight:700;"><span>Total mensal mínimo</span><span>R$ 29.000+</span></div>
+        </div>
+        <div style="font-size:13px;line-height:1.65;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.2);">Você não está contratando profissionais. <strong style="color:var(--accent);">Está alugando um squad completo por uma fração desse custo.</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S11 PARCERIAS ══ -->
+<div class="slide" id="s11-parc">
+  <div class="eyebrow">Credenciais e parcerias estratégicas</div>
+  <h2 class="title">Quem está<br><em>do nosso lado.</em></h2>
+  <div style="flex:1;margin-top:32px;border-top:1.5px solid var(--ink);padding-top:32px;display:flex;flex-direction:column;gap:32px;">
+
+    <p style="font-size:15px;color:var(--ink-soft);line-height:1.7;max-width:680px;">A Clintia trabalha com certificações e parcerias diretas nas plataformas que importam — o que garante acesso a recursos, suporte técnico e atualizações antes do mercado geral.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+
+      <div style="padding:28px 24px 28px 0;border-right:1px solid var(--line);">
+        <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:900;letter-spacing:-.025em;margin-bottom:8px;">Meta<br><span style="color:var(--accent);font-weight:700;">Business Partner</span></div>
+        <div style="font-size:11.5px;color:var(--muted);line-height:1.55;">Parceira oficial Meta para gestão de anúncios em Facebook e Instagram. Acesso prioritário a recursos beta.</div>
+      </div>
+
+      <div style="padding:28px 24px;border-right:1px solid var(--line);">
+        <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:900;letter-spacing:-.025em;margin-bottom:8px;">Google<br><span style="color:var(--accent);font-weight:700;">Partner</span></div>
+        <div style="font-size:11.5px;color:var(--muted);line-height:1.55;">Certificação Google Ads ativa. Equipe formada nas atualizações mais recentes da plataforma.</div>
+      </div>
+
+      <div style="padding:28px 24px;border-right:1px solid var(--line);">
+        <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:900;letter-spacing:-.025em;margin-bottom:8px;">RD Station<br><span style="color:var(--accent);font-weight:700;">Partner</span></div>
+        <div style="font-size:11.5px;color:var(--muted);line-height:1.55;">Parceira da maior plataforma brasileira de automação de marketing. Implementação nativa para clínicas.</div>
+      </div>
+
+      <div style="padding:28px 0 28px 24px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:900;letter-spacing:-.025em;margin-bottom:8px;">Anthropic<br><span style="color:var(--accent);font-weight:700;">Claude Partner</span></div>
+        <div style="font-size:11.5px;color:var(--muted);line-height:1.55;">Acesso direto à API do Claude para automações inteligentes de atendimento e análise de dados em tempo real.</div>
+      </div>
+
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+      <div style="padding:18px 20px;background:var(--accent-soft);border-radius:8px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:32px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-.025em;">+100</div>
+        <div style="font-size:12px;color:var(--ink-soft);margin-top:8px;line-height:1.5;">clínicas populares atendidas pelo programa PROClip</div>
+      </div>
+      <div style="padding:18px 20px;background:var(--accent-soft);border-radius:8px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:32px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-.025em;">10 anos</div>
+        <div style="font-size:12px;color:var(--ink-soft);margin-top:8px;line-height:1.5;">de atuação especializada no setor da saúde</div>
+      </div>
+      <div style="padding:18px 20px;background:var(--accent-soft);border-radius:8px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:32px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-.025em;">100%</div>
+        <div style="font-size:12px;color:var(--ink-soft);margin-top:8px;line-height:1.5;">do portfólio dedicado a clínicas populares — não atendemos outros segmentos</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ S12 CASES ══ -->
+<div class="slide" id="s12-cases">
+  <div class="eyebrow">Clínicas que já passaram pela Clintia</div>
+  <h2 class="title">Quem já está<br><em>do outro lado.</em></h2>
+  
+  <div class="cases-master-grid">
+    
+    <!-- Case 1 -->
+    <div class="case-v-card">
+      <div class="case-name">Policlínica Alpha</div>
+      <div class="case-loc">Jaguaribe · Paraíba</div>
+      <div class="case-stats">
+        <div class="case-stat"><div class="v">−58%</div><div class="l">custo / paciente</div></div>
+        <div class="case-stat"><div class="v">+8.200</div><div class="l">seguidores</div></div>
+      </div>
+      <div class="story-container">
+        <div class="story-frame">
+          <img src="https://lp.clintia.com.br/Alpha.jpg" alt="Print Story Alpha">
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 2 -->
+    <div class="case-v-card">
+      <div class="case-name">Susga Diagnóstico</div>
+      <div class="case-loc">São Gonçalo · RJ</div>
+      <div class="case-stats">
+        <div class="case-stat"><div class="v">−42%</div><div class="l">custo / paciente</div></div>
+        <div class="case-stat"><div class="v">+3.100</div><div class="l">seguidores</div></div>
+      </div>
+      <div class="story-container">
+        <div class="story-frame">
+          <img src="https://lp.clintia.com.br/Susga.jpg" alt="Print Story Susga">
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 3 -->
+    <div class="case-v-card">
+      <div class="case-name">C. Popular da Saúde</div>
+      <div class="case-loc">Goiânia · Goiás</div>
+      <div class="case-stats">
+        <div class="case-stat"><div class="v">−35%</div><div class="l">custo / paciente</div></div>
+        <div class="case-stat"><div class="v">+8.900</div><div class="l">seguidores</div></div>
+      </div>
+      <div class="story-container">
+        <div class="story-frame">
+          <img src="https://lp.clintia.com.br/Clinica%20POpular%20da%20Saude.jpg" alt="Print Story C. Popular">
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 4 -->
+    <div class="case-v-card">
+      <div class="case-name">C. Popular Portátil</div>
+      <div class="case-loc">Operação Escalável</div>
+      <div class="case-stats">
+        <div class="case-stat"><div class="v">−45%</div><div class="l">custo / paciente</div></div>
+        <div class="case-stat"><div class="v">+5.400</div><div class="l">seguidores</div></div>
+      </div>
+      <div class="story-container">
+        <div class="story-frame">
+          <img src="https://lp.clintia.com.br/Clinica%20Popular%20Portatil.jpg" alt="Print Story Portátil">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PORTFOLIO OUTRAS CLINICAS -->
+  <div class="portfolio-strip">
+    <div class="portfolio-thumbs">
+      <div class="p-thumb"><img src="https://lp.clintia.com.br/Outra%2001.jpg" alt="Outra 1"></div>
+      <div class="p-thumb"><img src="https://lp.clintia.com.br/Outra%2002.jpg" alt="Outra 2"></div>
+      <div class="p-thumb"><img src="https://lp.clintia.com.br/Outra%2003.jpg" alt="Outra 3"></div>
+      <div class="p-thumb"><img src="https://lp.clintia.com.br/Outra%2004.jpg" alt="Outra 4"></div>
+    </div>
+    <div style="width:1px; height:32px; background:rgba(255,255,255,0.15);"></div>
+    <div class="cases-footer-badge">+100</div>
+    <div class="cases-footer-text">clínicas<br>aceleradas</div>
+    <div style="font-size:11.5px; color:rgba(250,249,246,0.55); margin-left:auto; text-align:right; line-height:1.45;">
+      Portfólio construído exclusivamente com<br><strong style="color:rgba(250,249,246,0.85);font-weight:600;">operações de saúde e clínicas populares.</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S13 PREÇO ══ -->
+<div class="slide" id="s13-preco">
+  <div class="eyebrow">Investimento · Rede completa · 7 unidades</div>
+  <h2 class="title">Começamos<br><em>quando vocês decidirem.</em></h2>
+  <div class="price-wrap">
+    <div class="price-main-box">
+      <div class="price-label">Implementação · Pagamento Facilitado</div>
+      <div class="price-title">Setup completo da rede em 45 dias</div>
+      <div class="price-amount"><span class="currency">R$</span>3.320<span style="font-size:30px;font-weight:600;color:var(--muted);">/mês</span></div>
+      <div style="font-size:14px;color:var(--ink-soft);margin-top:4px;margin-bottom:8px;line-height:1.5;"><strong>12× no cartão de crédito</strong> · sem juros</div>
+      <div style="font-size:13px;color:var(--muted);padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:18px;">ou <strong style="color:var(--ink);font-size:16px;font-family:'Outfit',sans-serif;font-weight:800;">R$ 32.804</strong> à vista</div>
+      <ul class="price-list" style="margin-top:0;padding-top:0;border-top:none;">
+        <li>Dossiê de Posicionamento da rede</li>
+        <li>Site institucional novo + 7 páginas dedicadas</li>
+        <li>7 fichas Google reorganizadas + sistema de avaliações</li>
+        <li>Anúncios Google e Meta segmentados por bairro</li>
+        <li>Sistema de gestão de leads + treinamento da equipe</li>
+        <li>Dashboard inteligente com dados em tempo real</li>
+        <li>4 matérias estratégicas + Instagram estruturado</li>
+        <li><strong>20 posts de estruturação (3 fixados carrossel, 7 carrosséis, 10 reels)</strong></li>
+        <li>Squad de 6 especialistas dedicados</li>
+      </ul>
+      <div class="price-note">Desconto progressivo por unidade já aplicado · tabela detalhada em anexo.</div>
+    </div>
+    <div class="price-side-box">
+      <div class="price-label">Recorrência da Rede</div>
+      <div class="price-title">Operação contínua da rede inteira</div>
+      <div class="price-amount"><span class="currency">R$</span>4.000<span class="mo">/mês</span></div>
+      <div style="font-size:13px;opacity:.7;margin-top:6px;margin-bottom:24px;line-height:1.5;">A partir do 3º mês.<br>Valor único da rede — não por unidade.</div>
+      <ul class="price-list">
+        <li>20 conteúdos no Instagram da rede por mês</li>
+        <li>Gestão de anúncios Google e Meta — todas as unidades</li>
+        <li>Posts semanais nas 7 fichas do Google</li>
+        <li>Relatório mensal com volume e custo por paciente</li>
+        <li>Suporte direto via WhatsApp</li>
+      </ul>
+      <div class="price-note">Sem fidelidade. Cancelamento com 30 dias de aviso. Sem multa.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S14 PRÓXIMOS PASSOS ══ -->
+<div class="slide" id="s14-passos">
+  <div class="eyebrow">Próximos Passos</div>
+  <h2 class="title">O que acontece<br><em>agora?</em></h2>
+  <div style="flex:1;margin-top:32px;border-top:1.5px solid var(--ink);padding-top:48px;display:flex;flex-direction:column;gap:40px;max-width:720px;">
+    
+    <div style="display:flex;gap:24px;align-items:flex-start;">
+      <div style="font-family:'Outfit',sans-serif;font-size:40px;font-weight:900;color:var(--accent);line-height:0.8;letter-spacing:-.04em;">01</div>
+      <div>
+        <div style="font-family:'Outfit',sans-serif;font-size:20px;font-weight:800;margin-bottom:8px;letter-spacing:-.01em;">Agendamento do Onboarding</div>
+        <div style="font-size:15px;color:var(--ink-soft);line-height:1.65;">Definimos a data e horário ideal para a reunião oficial de partida com os responsáveis da Bandeirantes e os líderes do squad da Clintia.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:24px;align-items:flex-start;">
+      <div style="font-family:'Outfit',sans-serif;font-size:40px;font-weight:900;color:var(--accent);line-height:0.8;letter-spacing:-.04em;">02</div>
+      <div>
+        <div style="font-family:'Outfit',sans-serif;font-size:20px;font-weight:800;margin-bottom:8px;letter-spacing:-.01em;">Reunião de Criação do DPV</div>
+        <div style="font-size:15px;color:var(--ink-soft);line-height:1.65;">Realizamos uma imersão profunda com a equipe de produção. O objetivo é extrair todo o DNA da clínica para formular o <strong>Dossiê de Posicionamento de Valor (DPV)</strong> — a base estratégica de toda a comunicação e estrutura.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:24px;align-items:flex-start;">
+      <div style="font-family:'Outfit',sans-serif;font-size:40px;font-weight:900;color:var(--accent);line-height:0.8;letter-spacing:-.04em;">03</div>
+      <div>
+        <div style="font-family:'Outfit',sans-serif;font-size:20px;font-weight:800;margin-bottom:8px;letter-spacing:-.01em;">Start da Implementação</div>
+        <div style="font-size:15px;color:var(--ink-soft);line-height:1.65;">Com o DPV aprovado, começam a contar os 45 dias de setup. O squad inicia o desenvolvimento do site, reestruturação de Google, produção dos 20 posts de estruturação e integração de sistemas simultaneamente.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /deck -->
+
+<!-- NAV -->
+<div class="nav">
+  <button onclick="go(-1)" title="Anterior">←</button>
+  <div class="dots" id="dots"></div>
+  <button onclick="go(1)" title="Próximo">→</button>
+  <span class="counter" id="counter">1/14</span>
+  <span style="width:1px;height:18px;background:rgba(250,249,246,.2);margin:0 4px;"></span>
+  <button onclick="gerarPDF()" title="Baixar PDF" style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:1;">↓ PDF</button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dotsEl = document.getElementById('dots');
+const counterEl = document.getElementById('counter');
+let cur = 0;
+const n = slides.length;
+
+for(let i=0;i<n;i++){
+  const d = document.createElement('div');
+  d.className='dot'+(i===0?' active':'');
+  d.onclick=()=>goTo(i);
+  dotsEl.appendChild(d);
+}
+
+function goTo(idx){
+  slides[cur].classList.remove('active');
+  document.querySelectorAll('.dot')[cur].classList.remove('active');
+  cur=(idx+n)%n;
+  slides[cur].classList.add('active');
+  document.querySelectorAll('.dot')[cur].classList.add('active');
+  counterEl.textContent=(cur+1)+'/'+n;
+}
+function go(d){ goTo(cur+d); }
+
+function gerarPDF(){
+  document.body.classList.add('printing');
+  window.print();
+  setTimeout(()=>document.body.classList.remove('printing'), 1000);
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') { e.preventDefault(); go(1); }
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp') go(-1);
+});
+
+let tx=0;
+document.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>50) go(dx<0?1:-1);
+},{passive:true});
+
+// carousel auto-scroll (removido no novo layout, mas mantido se houver algo rolável)
+const track = document.getElementById('carousel');
+if(track){
+  let pos=0;
+  setInterval(()=>{
+    pos+=0.5;
+    if(pos>=track.scrollWidth-track.clientWidth) pos=0;
+    track.scrollLeft=pos;
+  },28);
+}
+</script>
+</body>
+</html>
