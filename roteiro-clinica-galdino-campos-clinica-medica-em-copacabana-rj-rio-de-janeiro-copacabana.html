@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Roteiro — Clínica Galdino Campos | Clínica Médica em Copacabana RJ</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{--az:#0D1B2A;--am:#1B4F72;--ac:#00B4D8;--vd:#10B981;--vdbg:#ECFDF5;--vm:#EF4444;--vmbg:#FEF2F2;--am2:#F59E0B;--ambg:#FFFBEB;--la:#F97316;--labg:#FFF7ED;--c50:#F9FAFB;--c100:#F3F4F6;--c200:#E5E7EB;--c500:#6B7280;--c700:#374151;--c900:#111827;--p:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,sans-serif;background:#F0F2F5;color:var(--c700);line-height:1.5;font-size:14px}
+.page{max-width:680px;margin:0 auto;background:#fff;min-height:100vh}
+.header{background:var(--az);padding:14px var(--p);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.logo{height:22px;flex-shrink:0;filter:brightness(0) invert(1)}
+.header-right{text-align:right}
+.header-title{color:#fff;font-size:15px;font-weight:800;letter-spacing:1px}
+.header-sub{color:var(--ac);font-size:10px;margin-top:2px}
+.accent-bar{height:3px;background:linear-gradient(90deg,var(--vd),var(--ac))}
+.clinica-bar{padding:12px var(--p);background:var(--c50);border-bottom:1px solid var(--c200);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.clinica-nome{font-size:14px;font-weight:700;color:var(--c900)}
+.badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;white-space:nowrap}
+.badge-warn{background:var(--ambg);color:var(--am2)}
+.badge-bad{background:var(--vmbg);color:var(--vm)}
+.badge-ok{background:var(--vdbg);color:var(--vd)}
+.wpp-box{margin:14px var(--p);padding:12px 14px;background:#e7f8e8;border:1px solid #b7dfb9;border-radius:10px;border-left:4px solid #25D366}
+.wpp-label{font-size:10px;font-weight:700;color:#1a7a1e;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.wpp-msg{font-size:12px;color:#1a3a1b;line-height:1.6;font-style:italic}
+.spin-block{margin:0 var(--p) 10px;border-radius:10px;overflow:hidden;border:1px solid var(--c200)}
+.spin-header{padding:10px 14px;display:flex;align-items:center;gap:10px}
+.spin-s .spin-header{background:#EFF6FF;border-bottom:1px solid #BFDBFE}
+.spin-p .spin-header{background:var(--labg);border-bottom:1px solid #FDE68A}
+.spin-i .spin-header{background:var(--vmbg);border-bottom:1px solid #FECACA}
+.spin-n .spin-header{background:var(--vdbg);border-bottom:1px solid #A7F3D0}
+.spin-tag{font-size:11px;font-weight:800;padding:3px 10px;border-radius:6px;letter-spacing:.5px}
+.spin-s .spin-tag{background:#1D4ED8;color:#fff}
+.spin-p .spin-tag{background:var(--la);color:#fff}
+.spin-i .spin-tag{background:var(--vm);color:#fff}
+.spin-n .spin-tag{background:var(--vd);color:#fff}
+.spin-title{font-size:13px;font-weight:700;color:var(--c900)}
+.spin-time{margin-left:auto;font-size:10px;font-weight:600;color:var(--c500)}
+.spin-body{padding:12px 14px;background:#fff}
+.objetivo{font-size:11px;font-weight:600;color:var(--c500);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px dashed var(--c200)}
+.fala{background:var(--c50);border-left:3px solid var(--ac);border-radius:0 6px 6px 0;padding:10px 12px;margin-bottom:8px;font-size:13px;color:var(--c900);line-height:1.6}
+.fala strong{color:var(--az)}
+.pergunta{background:#fff;border:1px solid var(--c200);border-radius:8px;padding:10px 12px;margin-bottom:6px;font-size:13px;color:var(--c900);line-height:1.6;position:relative;padding-left:32px}
+.pergunta::before{content:"?";position:absolute;left:10px;top:10px;font-weight:800;color:var(--am);font-size:14px}
+.alerta{background:var(--vmbg);border-radius:6px;padding:8px 10px;font-size:12px;color:var(--vm);font-weight:600;margin-bottom:8px;line-height:1.5}
+.dica{background:var(--ambg);border-radius:6px;padding:8px 10px;font-size:12px;color:#92400E;margin-bottom:8px;line-height:1.5}
+.checklist{margin:14px var(--p);padding:14px;background:var(--c50);border:1px solid var(--c200);border-radius:10px}
+.checklist-title{font-size:13px;font-weight:700;color:var(--c900);margin-bottom:10px}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--c200)}
+.check-item:last-child{border-bottom:none}
+.check-box{width:20px;height:20px;border:2px solid var(--c200);border-radius:4px;flex-shrink:0;margin-top:1px}
+.check-text{font-size:13px;color:var(--c900);line-height:1.4}
+.footer{padding:12px var(--p);border-top:1px solid var(--c200);font-size:10px;color:var(--c500);text-align:center}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="header"><img src="https://i.imgur.com/DOYHPYg.png" class="logo" alt="Clintia"><div class="header-right"><div class="header-title">ROTEIRO DE QUALIFICA&Ccedil;&Atilde;O</div><div class="header-sub">SPIN &bull; 5–10 min &bull; 15/05/2026</div></div></div>
+<div class="accent-bar"></div>
+<div class="clinica-bar"><span class="clinica-nome">Clínica Galdino Campos | Clínica Médica em Copacabana RJ</span><span class="badge badge-ok">Score 70/100</span> <span class="badge badge-warn">#3 de 44 em Copacabana</span> <span class="badge badge-bad">nota 4 no Google (abaixo de 4.5)</span></div>
+<div class="wpp-box"><div class="wpp-label">&#128172; Mensagem enviada no WhatsApp</div><div class="wpp-msg">Bom dia, Ronaldo! Dei uma olhada na Clínica Galdino Campos | Clí aqui em Copacabana e notei uns pontos que provavelmente est&atilde;o fazendo perder paciente pra concorr&ecirc;ncia. Posso te mandar o que vi?</div></div>
+<div class="spin-block spin-s"><div class="spin-header"><span class="spin-tag">S</span><span class="spin-title">Situação — Entender o cenário atual</span><span class="spin-time">~1–2 min</span></div><div class="spin-body"><p class="objetivo">Objetivo: se apresentar, confirmar quem decide, mapear como captam pacientes hoje</p><div class="fala">Oi, <strong>Ronaldo</strong>! Aqui é o <strong>Bernardo Carneiro</strong>. Te mandei uma mensagem lá no WhatsApp agora há pouco sobre a <strong>Clínica Galdino Campos | Clí</strong>. Tô ligando porque vi uns dados aqui que me chamaram atenção — consigo falar uns 5 minutinhos contigo agora?</div><div class="pergunta">Me conta um pouco — vocês captam paciente principalmente por onde hoje? Convênio, indicação, Google?</div><div class="pergunta">E quem cuida da parte de marketing e digital aí? Você mesmo ou tem mais alguém envolvido nessa decisão?</div><div class="dica">&#128161; Se mencionar sócio ou gestor: "Faz sentido ele(a) participar de uma conversa rápida também?"</div></div></div>
+<div class="spin-block spin-p"><div class="spin-header"><span class="spin-tag">P</span><span class="spin-title">Problema — Fazer sentir a perda de pacientes</span><span class="spin-time">~2 min</span></div><div class="spin-body"><p class="objetivo">Objetivo: revelar a invisibilidade digital — de forma consultiva, não agressiva</p><div class="fala">Fiz um levantamento aqui e vi que voc&ecirc;s est&atilde;o em <strong>#3 entre 44 cl&iacute;nicas em Copacabana</strong> em presen&ccedil;a digital. Ou seja, quando algu&eacute;m busca cl&iacute;nica em Copacabana no Google, <strong>2 concorrentes aparecem antes de voc&ecirc;s</strong>. Voc&ecirc; tinha noção disso?</div><div class="pergunta">Tem ideia de quantos pacientes est&atilde;o chegando pelo Google hoje, por semana?</div><div class="pergunta">Voc&ecirc;s j&aacute; tentaram fazer alguma coisa no digital antes — anúncio, agência, algo assim?</div></div></div>
+<div class="spin-block spin-i"><div class="spin-header"><span class="spin-tag">I</span><span class="spin-title">Implicação — Ampliar o impacto da dor</span><span class="spin-time">~1–2 min</span></div><div class="spin-body"><p class="objetivo">Objetivo: fazer o cliente sentir que o problema está custando dinheiro agora, todo dia</p><div class="fala">A <strong>Endocopa Centro de Endoscopia </strong>, por exemplo, est&aacute; com score 84 — 14 pontos na frente. Isso significa que todo dia tem paciente buscando atendimento em Copacabana e encontrando a concorr&ecirc;ncia primeiro. Esse paciente n&atilde;o liga pra voc&ecirc;s — ele j&aacute; foi.</div><div class="pergunta">Se a gente estimar que s&oacute; 3 pacientes por semana est&atilde;o indo pra concorr&ecirc;ncia por causa disso — quanto isso representa no m&ecirc;s pra voc&ecirc;?</div><div class="alerta">&#9888;&#65039; N&atilde;o empurre a resposta. Deixe o cliente calcular. O n&uacute;mero que ele falar vai ser o argumento dele, n&atilde;o seu.</div><div class="pergunta">E se em 6 meses a Endocopa Centro de E consolidar ainda mais a posi&ccedil;&atilde;o — fica mais f&aacute;cil ou mais dif&iacute;cil recuperar?</div></div></div>
+<div class="spin-block spin-n"><div class="spin-header"><span class="spin-tag">N</span><span class="spin-title">Need-Payoff — Qualificar e agendar</span><span class="spin-time">~1 min</span></div><div class="spin-body"><p class="objetivo">Objetivo: confirmar decisores, criar urgência, agendar a call de vendas</p><div class="fala">Preparei um diagn&oacute;stico completo com as oportunidades espec&iacute;ficas pra <strong>Clínica Galdino Campos | Clí</strong>. Vale a gente marcar <strong>uns 30 minutinhos no Meet</strong> pra eu apresentar — sem compromisso, sem enrolação.</div><div class="pergunta">Al&eacute;m de voc&ecirc;, tem mais algu&eacute;m que precisa estar nessa conversa? S&oacute;cio, gestor financeiro?</div><div class="dica">&#128161; Se tiver outro decisor: "Perfeito — &eacute; importante que ele(a) esteja junto, porque vou apresentar n&uacute;meros e preciso que quem decide esteja vendo ao vivo."</div><div class="pergunta">Qual o melhor hor&aacute;rio pra voc&ecirc;(s) essa semana ou na pr&oacute;xima? Manh&atilde; ou tarde?</div><div class="fala">Perfeito. Vou te mandar o link do Meet e um material que preparei especificamente sobre a <strong>Clínica Galdino Campos | Clí</strong> para voc&ecirc; dar uma olhada antes da conversa.</div></div></div>
+<div class="checklist"><div class="checklist-title">&#9989; Checklist antes de desligar</div><div class="check-item"><div class="check-box"></div><span class="check-text">Confirmei quem é o(s) decisor(es)</span></div><div class="check-item"><div class="check-box"></div><span class="check-text">Todos os decisores confirmados na call de vendas</span></div><div class="check-item"><div class="check-box"></div><span class="check-text">Data e horário do Meet definidos</span></div><div class="check-item"><div class="check-box"></div><span class="check-text">Enviar relatório Raio-X + link do Meet no WhatsApp após a ligação</span></div></div>
+<div class="footer">PROClip by Clintia &bull; Uso interno &bull; 15/05/2026</div>
+</div>
+</body>
+</html>
