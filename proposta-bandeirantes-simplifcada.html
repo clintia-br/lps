@@ -5,253 +5,74 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Bandeirantes Diagnósticos × Clintia</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #FAF9F6;
-  --ink: #0E0E0E;
-  --ink-soft: #2A2A2A;
-  --muted: #6B6B6B;
-  --muted-soft: #9A9A9A;
-  --line: #E5E2DC;
-  --accent: #C44826;
+:root {  
+  --bg: #FAF9F6;  
+  --ink: #0E0E0E;  
+  --ink-soft: #2A2A2A;  
+  --muted: #6B6B6B;  
+  --muted-soft: #9A9A9A;  
+  --line: #E5E2DC;  
+  --accent: #C44826;  
   --accent-soft: #F4DDD3;
+  /* Variáveis do Carrossel */
+  --bg-elev: #FFFFFF;
+  --ink-muted: #64748B;
+  --line-strong: #D1D5DB;
+  --navy: #0A4580;
 }
-
 * { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'Figtree', sans-serif;
-  height: 100vh;
-  overflow: hidden;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
+body {  background: var(--bg);  color: var(--ink);  font-family: 'Figtree', sans-serif;  height: 100vh;  overflow: hidden;  user-select: none;  -webkit-tap-highlight-color: transparent;}
 /* ── DECK ── */
 .deck { width:100%; height:100vh; position:relative; }
-
-.slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 56px 80px 90px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(20px);
-  transition: opacity .45s ease, transform .45s ease;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-.slide.active {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateX(0);
-}
+.slide {  position: absolute;  inset: 0;  display: flex;  flex-direction: column;  padding: 56px 80px 90px;  opacity: 0;  pointer-events: none;  transform: translateX(20px);  transition: opacity .45s ease, transform .45s ease;  overflow-y: auto;  overflow-x: hidden;}
+.slide.active {  opacity: 1;  pointer-events: all;  transform: translateX(0);}
 .slide::-webkit-scrollbar { width: 6px; }
 .slide::-webkit-scrollbar-track { background: transparent; }
 .slide::-webkit-scrollbar-thumb { background: rgba(0,0,0,.1); border-radius: 3px; }
 
 /* ── NAV ── */
-.nav {
-  position: fixed;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: var(--ink);
-  color: var(--bg);
-  padding: 11px 18px;
-  border-radius: 100px;
-  z-index: 100;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-.nav button {
-  background: none;
-  border: none;
-  color: var(--bg);
-  font-size: 14px;
-  cursor: pointer;
-  font-family: 'Outfit', sans-serif;
-  opacity: .7;
-  transition: opacity .2s;
-  padding: 4px;
-}
+.nav {  position: fixed;  bottom: 28px;  left: 50%;  transform: translateX(-50%);  display: flex;  align-items: center;  gap: 14px;  background: var(--ink);  color: var(--bg);  padding: 11px 18px;  border-radius: 100px;  z-index: 100;  box-shadow: 0 10px 25px rgba(0,0,0,0.1);}
+.nav button {  background: none;  border: none;  color: var(--bg);  font-size: 14px;  cursor: pointer;  font-family: 'Outfit', sans-serif;  opacity: .7;  transition: opacity .2s;  padding: 4px;}
 .nav button:hover { opacity: 1; }
 .dots { display:flex; gap:5px; }
-.dot {
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: rgba(250,249,246,.3);
-  transition: all .3s;
-  cursor: pointer;
-}
+.dot {  width: 5px; height: 5px;  border-radius: 50%;  background: rgba(250,249,246,.3);  transition: all .3s;  cursor: pointer;}
 .dot.active { background: var(--accent); width: 18px; border-radius: 3px; }
 .counter { font-size: 11px; opacity: .6; font-family: 'Outfit', sans-serif; min-width: 32px; text-align:center; }
 
 /* ── TOP MARK ── */
-.top-mark {
-  position: fixed;
-  top: 32px; left: 80px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .14em;
-  color: var(--ink);
-  z-index: 100;
-}
-.top-right {
-  position: fixed;
-  top: 32px; right: 80px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .14em;
-  color: var(--muted);
-  z-index: 100;
-  text-transform: uppercase;
-}
+.top-mark {  position: fixed;  top: 32px; left: 80px;  font-family: 'Outfit', sans-serif;  font-size: 11px;  font-weight: 800;  letter-spacing: .14em;  color: var(--ink);  z-index: 100;}
+.top-right {  position: fixed;  top: 32px; right: 80px;  font-family: 'Outfit', sans-serif;  font-size: 10px;  font-weight: 600;  letter-spacing: .14em;  color: var(--muted);  z-index: 100;  text-transform: uppercase;}
 
 /* ── TYPOGRAPHY ── */
-.eyebrow {
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.eyebrow::before {
-  content:'';
-  width: 28px;
-  height: 1px;
-  background: var(--ink);
-}
-
-h1.hero {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(42px, 6.5vw, 72px);
-  font-weight: 900;
-  line-height: 1.02;
-  letter-spacing: -.035em;
-  color: var(--ink);
-}
-
-h1.hero em, h2.title em {
-  font-style: italic;
-  font-weight: 300;
-  color: var(--accent);
-}
-
-h2.title {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 800;
-  line-height: 1.06;
-  letter-spacing: -.025em;
-  color: var(--ink);
-}
-
-p.lead {
-  font-size: 17px;
-  color: var(--muted);
-  line-height: 1.7;
-  max-width: 580px;
-  margin-top: 24px;
-}
+.eyebrow {  font-size: 10.5px;  font-weight: 700;  letter-spacing: .18em;  text-transform: uppercase;  color: var(--muted);  margin-bottom: 24px;  display: flex;  align-items: center;  gap: 12px;}
+.eyebrow::before {  content:'';  width: 28px;  height: 1px;  background: var(--ink);}
+h1.hero {  font-family: 'Outfit', sans-serif;  font-size: clamp(42px, 6.5vw, 72px);  font-weight: 900;  line-height: 1.02;  letter-spacing: -.035em;  color: var(--ink);}
+h1.hero em, h2.title em {  font-style: italic;  font-weight: 300;  color: var(--accent);}
+h2.title {  font-family: 'Outfit', sans-serif;  font-size: clamp(28px, 4vw, 44px);  font-weight: 800;  line-height: 1.06;  letter-spacing: -.025em;  color: var(--ink);}
+p.lead {  font-size: 17px;  color: var(--muted);  line-height: 1.7;  max-width: 580px;  margin-top: 24px;}
 p.lead strong { color: var(--ink); font-weight: 600; }
 
 /* ── GRIDS & COMPONENTES ── */
-.hero-stats {
-  margin-top: 44px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1.5px solid var(--ink);
-  border-bottom: 1.5px solid var(--ink);
-}
-.hero-stat {
-  padding: 22px 24px;
-  border-right: 1px solid var(--line);
-}
+.hero-stats {  margin-top: 44px;  display: grid;  grid-template-columns: repeat(4, 1fr);  border-top: 1.5px solid var(--ink);  border-bottom: 1.5px solid var(--ink);}
+.hero-stat {  padding: 22px 24px;  border-right: 1px solid var(--line);}
 .hero-stat:last-child { border-right: none; }
-.hero-stat .n {
-  font-family: 'Outfit', sans-serif;
-  font-size: 36px;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -.02em;
-  color: var(--ink);
-  margin-bottom: 6px;
-}
+.hero-stat .n {  font-family: 'Outfit', sans-serif;  font-size: 36px;  font-weight: 900;  line-height: 1;  letter-spacing: -.02em;  color: var(--ink);  margin-bottom: 6px;}
 .hero-stat .l { font-size: 11px; color: var(--muted); line-height: 1.4; }
 
-.ba-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  flex: 1;
-  margin-top: 32px;
-  border-top: 1.5px solid var(--ink);
-}
-.ba-col {
-  padding: 28px 36px 28px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.ba-col + .ba-col {
-  padding-left: 36px;
-  border-left: 1px solid var(--line);
-}
-.ba-label {
-  font-family: 'Outfit', sans-serif;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-}
+.ba-grid {  display: grid;  grid-template-columns: 1fr 1fr;  flex: 1;  margin-top: 32px;  border-top: 1.5px solid var(--ink);}
+.ba-col {  padding: 28px 36px 28px 0;  display: flex;  flex-direction: column;  gap: 12px;}
+.ba-col + .ba-col {  padding-left: 36px;  border-left: 1px solid var(--line);}
+.ba-label {  font-family: 'Outfit', sans-serif;  font-size: 10px;  font-weight: 800;  letter-spacing: .18em;  text-transform: uppercase;}
 .ba-col.before .ba-label { color: var(--muted); }
 .ba-col.after .ba-label { color: var(--accent); }
-.ba-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 19px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  line-height: 1.25;
-  letter-spacing: -.015em;
-}
-.item {
-  font-size: 14px;
-  color: var(--ink-soft);
-  line-height: 1.6;
-  padding-left: 18px;
-  position: relative;
-}
-.item::before {
-  content:'';
-  position: absolute;
-  left: 0; top: 10px;
-  width: 8px; height: 1.5px;
-  background: var(--ink);
-}
+.ba-title {  font-family: 'Outfit', sans-serif;  font-size: 19px;  font-weight: 700;  margin-bottom: 12px;  line-height: 1.25;  letter-spacing: -.015em;}
+.item {  font-size: 14px;  color: var(--ink-soft);  line-height: 1.6;  padding-left: 18px;  position: relative;}
+.item::before {  content:'';  position: absolute;  left: 0; top: 10px;  width: 8px; height: 1.5px;  background: var(--ink);}
 .ba-col.before .item::before { background: var(--muted-soft); }
 .item strong { font-weight: 700; color: var(--ink); }
-.ba-emphasis {
-  font-family: 'Outfit', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  margin-top: 12px;
-  padding: 14px 0 0;
-  border-top: 1px dashed var(--line);
-  font-style: italic;
-  line-height: 1.5;
-}
+.ba-emphasis {  font-family: 'Outfit', sans-serif;  font-size: 13px;  font-weight: 700;  margin-top: 12px;  padding: 14px 0 0;  border-top: 1px dashed var(--line);  font-style: italic;  line-height: 1.5;}
 .ba-col.before .ba-emphasis { color: var(--muted); }
 .ba-col.after .ba-emphasis { color: var(--accent); }
 
@@ -269,11 +90,8 @@ p.lead strong { color: var(--ink); font-weight: 600; }
 
 /* ── ENTREGÁVEIS (S9) ── */
 .scope-wrap { flex:1; margin-top:28px; border-top:1.5px solid var(--ink); overflow-y:auto; overflow-x:hidden; }
-.scope-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
-.scope-item { padding: 22px 24px; border-bottom: 1px solid var(--line); display: flex; gap: 14px; }
-.scope-item.br { border-right: 1px solid var(--line); }
-.scope-item.pl0 { padding-left: 0; }
-.scope-item.pr0 { padding-right: 0; }
+.scope-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 48px; }
+.scope-item { padding: 16px 0; border-bottom: 1px solid var(--line); display: flex; gap: 14px; }
 
 /* ── EQUIPE (S10) ── */
 .team-wrap { flex:1; margin-top:32px; border-top:1.5px solid var(--ink); padding-top:28px; display:grid; grid-template-columns:1.3fr 1fr; gap:48px; }
@@ -288,28 +106,31 @@ p.lead strong { color: var(--ink); font-weight: 600; }
 .cert-item.pr0 { padding-right: 0; }
 .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
 
-/* ── CASES (S12) ── */
-.cases-master-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; flex: 1; margin-top: 24px; border-top: 1.5px solid var(--ink); padding-top: 24px; }
-.case-v-card { display: flex; flex-direction: column; }
-.case-name { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 15.5px; margin-bottom: 2px; letter-spacing: -.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.case-loc { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.case-stats { display: flex; gap: 12px; margin-bottom: 16px; }
-.case-stat { flex: 1; }
-.case-stat .v { font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 21px; color: var(--accent); line-height: 1; letter-spacing: -.03em; }
-.case-stat .l { font-size: 9.5px; color: var(--muted); margin-top: 4px; line-height: 1.35; text-transform: uppercase; letter-spacing: .04em; }
-
-.story-container { margin-top: 0; display: flex; align-items: flex-start; flex: 1; }
-.story-frame { width: 100%; height: auto; aspect-ratio: 9/16; background: var(--line); border-radius: 12px; overflow: hidden; position: relative; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border: 3px solid var(--ink); flex-shrink: 0; }
-.story-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; image-rendering: -webkit-optimize-contrast; display: block; }
-
-/* MARQUEE OUTRAS CLINICAS */
-.portfolio-strip { margin-top: 24px; padding: 16px 24px; background: var(--ink); border-radius: 12px; display: flex; align-items: center; gap: 20px; color: var(--bg); overflow: hidden; position: relative; }
-.marquee-content { display: flex; gap: 12px; animation: scrollLeft 25s linear infinite; }
-@keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-.p-thumb { height: 60px; aspect-ratio: 9/16; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); overflow: hidden; background: var(--ink-soft); flex-shrink: 0; }
-.p-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-.cases-footer-badge { font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 900; color: var(--accent); line-height: 1; white-space: nowrap; flex-shrink: 0; }
-.cases-footer-text { font-size: 11px; color: rgba(250,249,246,0.7); line-height: 1.4; text-transform: uppercase; letter-spacing: .08em; flex-shrink: 0; }
+/* ── CASES CARROSSEL (S12) ── */
+.proclip-component { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; box-sizing: border-box; width: 100%; max-width: 1080px; margin: 0 auto; padding: 20px 0; flex: 1; display: flex; flex-direction: column; }
+.proclip-component *, .proclip-component *::before, .proclip-component *::after { box-sizing: border-box; }
+.hero-meta { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px 32px; font-size: 14px; color: var(--ink-muted); padding-top: 24px; border-top: 1px solid var(--line); margin: 0; }
+.hero-meta strong { color: var(--ink); font-weight: 700; }
+.hero-meta sup { font-size: 0.55em; vertical-align: super; line-height: 0; font-weight: 600; margin-left: 1px; }
+.hero-carousel-wrap { margin: 32px auto 0; width: 100%; flex: 1; display: flex; flex-direction: column; }
+.carousel-label { justify-content: center; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-muted); font-weight: 600; display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.carousel-label::before, .carousel-label::after { content: ''; flex: 0 0 40px; height: 1px; background: var(--line); }
+.carousel-track { display: flex; align-items: stretch; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding: 4px 4px 32px; scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; flex: 1; min-height: 300px;}
+.carousel-track::-webkit-scrollbar { height: 6px; }
+.carousel-track::-webkit-scrollbar-track { background: transparent; }
+.carousel-track::-webkit-scrollbar-thumb { background-color: var(--line-strong); border-radius: 4px; }
+.carousel-slide { flex: 0 0 82%; scroll-snap-align: center; background: var(--bg-elev); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; position: relative; box-shadow: 0 15px 35px -15px rgba(5, 60, 115, 0.12); }
+@media (min-width: 768px) { .carousel-slide { flex: 0 0 62%; } }
+@media (min-width: 1100px) { .carousel-slide { flex: 0 0 48%; } }
+.carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.carousel-controls { display: flex; justify-content: center; align-items: center; margin-top: 10px; gap: 14px; }
+.carousel-controls .dots { display: flex; gap: 8px; margin: 0 8px; }
+.carousel-controls .dot { width: 8px !important; height: 8px !important; min-height: 8px !important; min-width: 8px !important; border-radius: 50% !important; background: var(--line-strong); border: none !important; padding: 0 !important; margin: 0 !important; cursor: pointer; transition: all .2s; }
+.carousel-controls .dot.active { background: var(--navy) !important; width: 28px !important; border-radius: 10px !important; }
+.carousel-arrow { width: 42px !important; height: 42px !important; min-height: 42px !important; min-width: 42px !important; border: 1px solid var(--line-strong) !important; background: var(--bg-elev) !important; border-radius: 50% !important; cursor: pointer; color: var(--navy) !important; display: flex !important; align-items: center !important; justify-content: center !important; transition: all .2s; padding: 0 !important; }
+.carousel-arrow:hover { background: var(--navy) !important; color: #FFF !important; border-color: var(--navy) !important; }
+.carousel-arrow:disabled { opacity: 0.3; cursor: not-allowed; }
+.carousel-arrow svg { width: 16px; height: 16px; }
 
 /* ── PREÇO (S13) ── */
 .price-wrap { flex: 1; margin-top: 32px; border-top: 1.5px solid var(--ink); display: grid; grid-template-columns: 1.4fr 1fr; }
@@ -329,629 +150,659 @@ p.lead strong { color: var(--ink); font-weight: 600; }
 .price-side-box .price-list li { color: rgba(250,249,246,.8); }
 .price-list li::before { content:''; width: 12px; height: 1.5px; background: var(--accent); flex-shrink: 0; margin-top: 9px; }
 
+/* ── PREÇO RECORRENTE (NOVO SLIDE) ── */
+.plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; border-top: 1.5px solid var(--ink); padding-top: 32px; flex: 1; align-items: start; }
+.plan-card { border: 1px solid var(--line); border-radius: 12px; padding: 28px; background: var(--bg); display: flex; flex-direction: column; position: relative; }
+.plan-card.highlight { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+.plan-name { font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: 12px; }
+.plan-card.highlight .plan-name { color: var(--accent); }
+.plan-price { font-family: 'Outfit', sans-serif; font-size: 44px; font-weight: 900; letter-spacing: -.03em; margin-bottom: 24px; line-height: 1; }
+.plan-price span { font-size: 18px; font-weight: 600; color: var(--muted); vertical-align: top; margin-right: 4px; }
+.plan-price .mo { font-size: 18px; font-weight: 600; color: var(--muted); vertical-align: baseline; margin-left: 2px; }
+.plan-card.highlight .plan-price span, .plan-card.highlight .plan-price .mo { color: rgba(250,249,246,0.6); }
+.plan-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.plan-features li { font-size: 12.5px; color: var(--ink-soft); display: flex; align-items: flex-start; gap: 8px; line-height: 1.45; }
+.plan-features li::before { content: '•'; color: var(--accent); font-weight: bold; margin-top: 2px; }
+.plan-card.highlight .plan-features li { color: rgba(250,249,246,0.8); }
+
 /* ══════════ RESPONSIVO MOBILE (MÁGICA ACONTECE AQUI) ══════════ */
-@media (max-width: 900px) {
-  body { font-size: 14px; }
-  .slide { padding: 80px 24px 100px; } /* Evita top-mark e nav */
-  .top-mark { top: 24px; left: 24px; font-size: 13px; }
-  .top-right { display: none; } /* Esconde descrição longa no celular */
-  .nav { bottom: 16px; padding: 10px 14px; gap: 10px; width: 90%; max-width: 340px; justify-content: space-between; }
-  .nav button { padding: 8px; font-size: 16px; }
-  
-  h1.hero { font-size: clamp(34px, 10vw, 52px); }
-  h2.title { font-size: clamp(26px, 8vw, 36px); }
+@media (max-width: 900px) {  
+  body { font-size: 14px; }  
+  .slide { padding: 80px 24px 100px; } /* Evita top-mark e nav */  
+  .top-mark { top: 24px; left: 24px; font-size: 13px; }  
+  .top-right { display: none; } /* Esconde descrição longa no celular */  
+  .nav { bottom: 16px; padding: 10px 14px; gap: 10px; width: 90%; max-width: 340px; justify-content: space-between; }  
+  .nav button { padding: 8px; font-size: 16px; }    
+  h1.hero { font-size: clamp(34px, 10vw, 52px); }  
+  h2.title { font-size: clamp(26px, 8vw, 36px); }  
   p.lead { font-size: 15px; margin-top: 16px; }
 
-  /* COMPONENTES BASE */
-  .hero-stats { grid-template-columns: 1fr 1fr; margin-top: 32px; }
-  .hero-stat { padding: 16px 12px; }
-  .hero-stat:nth-child(2) { border-right: none; }
+  /* COMPONENTES BASE */  
+  .hero-stats { grid-template-columns: 1fr 1fr; margin-top: 32px; }  
+  .hero-stat { padding: 16px 12px; }  
+  .hero-stat:nth-child(2) { border-right: none; }  
   .hero-stat:nth-child(1), .hero-stat:nth-child(2) { border-bottom: 1px solid var(--line); }
 
-  .ba-grid { grid-template-columns: 1fr; margin-top: 24px; }
-  .ba-col { padding: 20px 0 0 0; }
-  .ba-col + .ba-col { border-left: none; padding-left: 0; border-top: 2px dashed var(--line); margin-top: 24px; }
+  .ba-grid { grid-template-columns: 1fr; margin-top: 24px; }  
+  .ba-col { padding: 20px 0 0 0; }  
+  .ba-col + .ba-col { border-left: none; padding-left: 0; border-top: 2px dashed var(--line); margin-top: 24px; }    
   
-  /* S2 - UNIDADES */
-  .s2-wrap { grid-template-columns: 1fr; gap: 24px; }
-  .table-responsive { width: 100%; overflow-x: auto; padding-bottom: 8px; }
+  /* S2 - UNIDADES */  
+  .s2-wrap { grid-template-columns: 1fr; gap: 24px; }  
+  .table-responsive { width: 100%; overflow-x: auto; padding-bottom: 8px; }    
   
-  /* S7 - MATEMÁTICA */
-  .anchor-grid { grid-template-columns: 1fr; margin-top: 24px; }
-  .anchor-left { padding: 20px 0; }
-  .anchor-right { padding: 24px 0 0 0; border-left: none; border-top: 2px dashed var(--line); }
-  .math-num { font-size: 42px; }
+  /* S7 - MATEMÁTICA */  
+  .anchor-grid { grid-template-columns: 1fr; margin-top: 24px; }  
+  .anchor-left { padding: 20px 0; }  
+  .anchor-right { padding: 24px 0 0 0; border-left: none; border-top: 2px dashed var(--line); }  
+  .math-num { font-size: 42px; }  
   .math-equals .big { font-size: 48px; }
 
-  /* S8 - RENOVAÇÃO */
+  /* S8 - RENOVAÇÃO */  
   .s8-wrap { grid-template-columns: 1fr; gap: 32px; margin-top: 24px; padding-top: 24px; }
 
-  /* S9 - ENTREGÁVEIS */
-  .scope-grid { grid-template-columns: 1fr; }
-  .scope-item { padding: 16px 0 !important; }
-  .scope-item.br { border-right: none; }
+  /* S9 - ENTREGÁVEIS */  
+  .scope-grid { grid-template-columns: 1fr; gap: 0; }  
+  .scope-item { padding: 16px 0 !important; }  
 
-  /* S10 - EQUIPE */
-  .team-wrap { grid-template-columns: 1fr; gap: 32px; margin-top: 24px; padding-top: 24px; }
+  /* S10 - EQUIPE */  
+  .team-wrap { grid-template-columns: 1fr; gap: 32px; margin-top: 24px; padding-top: 24px; }  
   .team-row { grid-template-columns: 100px 1fr; gap: 12px; }
 
-  /* S11 - PARCERIAS */
-  .cert-grid { grid-template-columns: 1fr 1fr; }
-  .cert-item { padding: 20px 12px; }
-  .cert-item:nth-child(2) { border-right: none; }
-  .cert-item:nth-child(1), .cert-item:nth-child(2) { border-bottom: 1px solid var(--line); }
-  .cert-item.pr0, .cert-item.pl0 { padding: 20px 12px; }
+  /* S11 - PARCERIAS */  
+  .cert-grid { grid-template-columns: 1fr 1fr; }  
+  .cert-item { padding: 20px 12px; }  
+  .cert-item:nth-child(2) { border-right: none; }  
+  .cert-item:nth-child(1), .cert-item:nth-child(2) { border-bottom: 1px solid var(--line); }  
+  .cert-item.pr0, .cert-item.pl0 { padding: 20px 12px; }  
   .stats-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
 
-  /* S12 - CASES (MUITO IMPORTANTE PARA MOBILE: SCROLL HORIZONTAL) */
-  .cases-master-grid { 
-    display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
-    padding-bottom: 24px; gap: 16px; margin-top: 16px; padding-top: 16px;
-    -webkit-overflow-scrolling: touch;
-  }
-  .cases-master-grid::-webkit-scrollbar { display: none; } /* Esconde a barra para ficar clean */
-  .case-v-card { min-width: 240px; scroll-snap-align: start; }
-  
-  .portfolio-strip { flex-direction: column; align-items: flex-start; gap: 16px; padding: 20px; }
-  .portfolio-strip > div:nth-child(2) { display: none; } /* Esconde o divisor de linha */
-  .cases-footer-text, .cases-footer-badge { align-self: flex-start; }
+  /* S12 - CASES (MOBILE CAROUSEL OVERRIDES) */
+  .hero-meta { gap: 8px 18px; padding-top: 22px; font-size: 13px; }
+  .hero-meta span { white-space: normal; text-align: left; }
+  .hero-carousel-wrap { margin-top: 32px; }
+  .carousel-track { gap: 12px; padding: 4px 4px 22px; }
+  .carousel-arrow { width: 38px !important; height: 38px !important; min-height: 38px !important; min-width: 38px !important; }
+  .carousel-arrow svg { width: 14px; height: 14px; }
 
-  /* S13 - PREÇO */
-  .price-wrap { grid-template-columns: 1fr; border-top: none; margin-top: 16px; }
-  .price-main-box { padding: 24px 0; border-top: 1.5px solid var(--ink); }
-  .price-side-box { margin: 0; padding: 24px; border-left: none; border-radius: 12px; }
-  .price-amount { font-size: 56px; }
+  /* S13 - PREÇO */  
+  .price-wrap { grid-template-columns: 1fr; border-top: none; margin-top: 16px; }  
+  .price-main-box { padding: 24px 0; border-top: 1.5px solid var(--ink); }  
+  .price-side-box { margin: 0; padding: 24px; border-left: none; border-radius: 12px; }  
+  .price-amount { font-size: 56px; }    
+
+  /* S15 - PLANOS RECORRENTES */
+  .plans-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 24px; padding-top: 24px; }
+  .plan-card { padding: 20px; }
   
-  /* S14 - PASSOS */
+  /* S14 - PASSOS */  
   .steps-layout { gap: 32px !important; margin-top: 24px !important; padding-top: 32px !important; }
 }
-
-@media print {
-  @page { size: A4 landscape; margin: 0; }
-  body { background: white; overflow: visible; height: auto; }
-  .deck { height: auto; }
-  .slide { position: relative; opacity: 1 !important; transform: none !important; pointer-events: all; page-break-after: always; page-break-inside: avoid; height: auto; min-height: 95vh; padding: 32px 48px 48px; overflow: visible; }
-  .slide:last-child { page-break-after: auto; }
-  .nav, .top-mark, .top-right { display: none !important; }
-  .cases-master-grid { display: grid !important; overflow: visible !important; } /* Desfaz o scroll para PDF */
+@media print {  
+  @page { size: A4 landscape; margin: 0; }  
+  body { background: white; overflow: visible; height: auto; }  
+  .deck { height: auto; }  
+  .slide { position: relative; opacity: 1 !important; transform: none !important; pointer-events: all; page-break-after: always; page-break-inside: avoid; height: auto; min-height: 95vh; padding: 32px 48px 48px; overflow: visible; }  
+  .slide:last-child { page-break-after: auto; }  
+  .nav, .top-mark, .top-right { display: none !important; }  
+  .carousel-track { overflow: visible !important; display: grid !important; grid-template-columns: 1fr 1fr; }
+  .carousel-controls { display: none !important; }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }
 </style>
 </head>
 <body>
-
-<div class="top-mark">CLINTIA</div>
-<div class="top-right">PROClip · Programa de Aceleração para Clínicas Populares</div>
+<div class="top-mark">CLINTIA</div><div class="top-right">PROClip · Programa de Aceleração para Clínicas Populares</div>
 
 <div class="deck" id="deck">
-
 <!-- ══ S1 CAPA ══ -->
-<div class="slide active" id="s1">
-  <div class="eyebrow">Diagnóstico e Proposta · 2025</div>
-  <h1 class="hero">A rede que<br>todo mundo conhece.<br><em>Quase ninguém encontra.</em></h1>
-  <p class="lead"><strong>36 anos de operação. 7 unidades. Mais de 1.300 avaliações somadas.</strong><br>O problema não é o negócio. É o que está vazando em silêncio em cada unidade, todo dia.</p>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="n">3,4★</div>
-      <div class="l">Nota média da rede<br>no Google (7 unidades)</div>
-    </div>
-    <div class="hero-stat">
-      <div class="n">2 de 7</div>
-      <div class="l">Fichas ainda usando<br>o nome antigo "RX"</div>
-    </div>
-    <div class="hero-stat">
-      <div class="n">8,7s</div>
-      <div class="l">Tempo do site abrir<br>no celular do paciente</div>
-    </div>
-    <div class="hero-stat">
-      <div class="n">3.332</div>
-      <div class="l">Seguidores no Instagram<br>(potencial: 20.000+)</div>
-    </div>
+<div class="slide active" id="s1">  
+  <div class="eyebrow">Diagnóstico e Proposta · 2025</div>  
+  <h1 class="hero">A rede que<br>todo mundo conhece.<br><em>Quase ninguém encontra.</em></h1>  
+  <p class="lead"><strong>36 anos de operação. 7 unidades. Mais de 1.300 avaliações somadas.</strong><br>O problema não é o negócio. É o que está vazando em silêncio em cada unidade, todo dia.</p>  
+  <div class="hero-stats">    
+    <div class="hero-stat">      
+      <div class="n">3,4★</div>      
+      <div class="l">Nota média da rede<br>no Google (7 unidades)</div>    
+    </div>    
+    <div class="hero-stat">      
+      <div class="n">2 de 7</div>      
+      <div class="l">Fichas ainda usando<br>o nome antigo "RX"</div>    
+    </div>    
+    <div class="hero-stat">      
+      <div class="n">8,7s</div>      
+      <div class="l">Tempo do site abrir<br>no celular do paciente</div>    
+    </div>    
+    <div class="hero-stat">      
+      <div class="n">3.332</div>      
+      <div class="l">Seguidores no Instagram<br>(potencial: 20.000+)</div>    
+    </div>  
   </div>
 </div>
 
 <!-- ══ S2 UNIDADES ══ -->
-<div class="slide" id="s2">
-  <div class="eyebrow">Mapeamento · As 7 unidades no Google</div>
-  <h2 class="title">Sete unidades.<br><em>Sete histórias diferentes.</em></h2>
-  <div class="s2-wrap">
-    <div class="table-responsive no-swipe">
-      <table class="s2-table">
-        <thead>
-          <tr>
-            <th>Unidade</th>
-            <th style="text-align:center;">Nota</th>
-            <th style="text-align:right;">Avaliações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Bangu</strong><br><span style="font-size:11px;color:var(--muted);">R. 12 de Fevereiro, 282</span></td>
-            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,4★</td>
-            <td style="text-align:right;color:var(--muted);">147</td>
-          </tr>
-          <tr style="background:var(--accent-soft);">
-            <td><strong>Madureira I</strong> <span style="font-size:10px;color:var(--accent);font-weight:700;background:rgba(196,72,38,.15);padding:2px 6px;border-radius:3px;margin-left:4px;">"RX"</span><br><span style="font-size:11px;color:var(--muted);">Estr. do Portela, 99</span></td>
-            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,0★</td>
-            <td style="text-align:right;color:var(--muted);">217</td>
-          </tr>
-          <tr>
-            <td><strong>Madureira II</strong><br><span style="font-size:11px;color:var(--muted);">R. Carolina Machado, 560</span></td>
-            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:var(--accent);">4,4★</td>
-            <td style="text-align:right;color:var(--muted);">48</td>
-          </tr>
-          <tr>
-            <td><strong>Campo Grande</strong><br><span style="font-size:11px;color:var(--muted);">Av. Cesário de Melo, 2839</span></td>
-            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,7★</td>
-            <td style="text-align:right;color:var(--muted);">546</td>
-          </tr>
-          <tr>
-            <td><strong>Centro</strong><br><span style="font-size:11px;color:var(--muted);">Av. Pres. Vargas, 542</span></td>
-            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,9★</td>
-            <td style="text-align:right;color:var(--muted);"><strong style="color:var(--accent);">7</strong></td>
-          </tr>
-          <tr>
-            <td><strong>Bonsucesso</strong><br><span style="font-size:11px;color:var(--muted);">R. Cardoso de Morais, 218</span></td>
-            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:var(--accent);">2,9★</td>
-            <td style="text-align:right;color:var(--muted);">113</td>
-          </tr>
-          <tr style="background:var(--accent-soft);">
-            <td><strong>Taquara</strong> <span style="font-size:10px;color:var(--accent);font-weight:700;background:rgba(196,72,38,.15);padding:2px 6px;border-radius:3px;margin-left:4px;">"RX"</span><br><span style="font-size:11px;color:var(--muted);">Av. Nelson Cardoso, 917</span></td>
-            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,0★</td>
-            <td style="text-align:right;color:var(--muted);">270</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div style="display:flex;flex-direction:column;justify-content:center;gap:20px;">
-      <div>
-        <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;">O que esses dados contam</div>
-        <p style="font-size:14px;color:var(--ink-soft);line-height:1.7;margin-bottom:18px;"><strong>Duas fichas ainda usam o nome antigo</strong> — O paciente que busca no Google nem encontra a ficha certa.</p>
-        <p style="font-size:14px;color:var(--ink-soft);line-height:1.7;margin-bottom:18px;"><strong>Centro tem apenas 7 avaliações.</strong> Ponto de altíssima circulação, perfil abandonado.</p>
-        <p style="font-size:14px;color:var(--ink-soft);line-height:1.7;"><strong>Madureira II tem 4,4★.</strong> A operação consegue ser bem avaliada, mas falta sistema padronizado.</p>
-      </div>
-      <div style="background:var(--ink);color:var(--bg);padding:18px 22px;border-radius:8px;">
-        <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.5;margin-bottom:8px;">Meta da rede</div>
-        <div style="font-family:'Outfit',sans-serif;font-size:28px;font-weight:900;letter-spacing:-.02em;line-height:1;">4,7★ <span style="font-size:14px;font-weight:600;opacity:.6;">em 90 dias</span></div>
-      </div>
-    </div>
+<div class="slide" id="s2">  
+  <div class="eyebrow">Mapeamento · As 7 unidades no Google</div>  
+  <h2 class="title">Sete unidades.<br><em>Sete histórias diferentes.</em></h2>  
+  <div class="s2-wrap">    
+    <div class="table-responsive no-swipe">      
+      <table class="s2-table">        
+        <thead>          
+          <tr>            
+            <th>Unidade</th>            
+            <th style="text-align:center;">Nota</th>            
+            <th style="text-align:right;">Avaliações</th>          
+          </tr>        
+        </thead>        
+        <tbody>          
+          <tr>            
+            <td><strong>Bangu</strong><br><span style="font-size:11px;color:var(--muted);">R. 12 de Fevereiro, 282</span></td>            
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,4★</td>            
+            <td style="text-align:right;color:var(--muted);">147</td>          
+          </tr>          
+          <tr style="background:var(--accent-soft);">            
+            <td><strong>Madureira I</strong> <span style="font-size:10px;color:var(--accent);font-weight:700;background:rgba(196,72,38,.15);padding:2px 6px;border-radius:3px;margin-left:4px;">"RX"</span><br><span style="font-size:11px;color:var(--muted);">Estr. do Portela, 99</span></td>            
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,0★</td>            
+            <td style="text-align:right;color:var(--muted);">217</td>          
+          </tr>          
+          <tr>            
+            <td><strong>Madureira II</strong><br><span style="font-size:11px;color:var(--muted);">R. Carolina Machado, 560</span></td>            
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:var(--accent);">4,4★</td>            
+            <td style="text-align:right;color:var(--muted);">48</td>          
+          </tr>          
+          <tr>            
+            <td><strong>Campo Grande</strong><br><span style="font-size:11px;color:var(--muted);">Av. Cesário de Melo, 2839</span></td>            
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,7★</td>            
+            <td style="text-align:right;color:var(--muted);">546</td>          
+          </tr>          
+          <tr>            
+            <td><strong>Centro</strong><br><span style="font-size:11px;color:var(--muted);">Av. Pres. Vargas, 542</span></td>            
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,9★</td>            
+            <td style="text-align:right;color:var(--muted);"><strong style="color:var(--accent);">7</strong></td>          
+          </tr>          
+          <tr>            
+            <td><strong>Bonsucesso</strong><br><span style="font-size:11px;color:var(--muted);">R. Cardoso de Morais, 218</span></td>            
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:var(--accent);">2,9★</td>            
+            <td style="text-align:right;color:var(--muted);">113</td>          
+          </tr>          
+          <tr style="background:var(--accent-soft);">            
+            <td><strong>Taquara</strong> <span style="font-size:10px;color:var(--accent);font-weight:700;background:rgba(196,72,38,.15);padding:2px 6px;border-radius:3px;margin-left:4px;">"RX"</span><br><span style="font-size:11px;color:var(--muted);">Av. Nelson Cardoso, 917</span></td>            
+            <td style="text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;">3,0★</td>            
+            <td style="text-align:right;color:var(--muted);">270</td>          
+          </tr>        
+        </tbody>      
+      </table>    
+    </div>    
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:20px;">      
+      <div>        
+        <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;">O que esses dados contam</div>        
+        <p style="font-size:14px;color:var(--ink-soft);line-height:1.7;margin-bottom:18px;"><strong>Duas fichas ainda usam o nome antigo</strong> — O paciente que busca no Google nem encontra a ficha certa.</p>        
+        <p style="font-size:14px;color:var(--ink-soft);line-height:1.7;margin-bottom:18px;"><strong>Centro tem apenas 7 avaliações.</strong> Ponto de altíssima circulação, perfil abandonado.</p>        
+        <p style="font-size:14px;color:var(--ink-soft);line-height:1.7;"><strong>Madureira II tem 4,4★.</strong> A operação consegue ser bem avaliada, mas falta sistema padronizado.</p>      
+      </div>      
+      <div style="background:var(--ink);color:var(--bg);padding:18px 22px;border-radius:8px;">        
+        <div style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.5;margin-bottom:8px;">Meta da rede</div>        
+        <div style="font-family:'Outfit',sans-serif;font-size:28px;font-weight:900;letter-spacing:-.02em;line-height:1;">4,7★ <span style="font-size:14px;font-weight:600;opacity:.6;">em 90 dias</span></div>      
+      </div>    
+    </div>  
   </div>
 </div>
 
 <!-- ══ S3 COMERCIAL ══ -->
-<div class="slide" id="s3">
-  <div class="eyebrow">Problema 01 · Atendimento Comercial</div>
-  <h2 class="title">Paciente de convênio e particular<br><em>chegando pelo mesmo canal.</em></h2>
-  <div class="ba-grid">
-    <div class="ba-col before">
-      <div class="ba-label">Como está hoje</div>
-      <div class="ba-title">Tudo misturado, todo mundo igual</div>
-      <div class="item">Paciente de convênio <strong>recebe a mesma atenção</strong> que o particular</div>
-      <div class="item">O particular <strong>espera na mesma fila</strong> do convênio e vai embora</div>
-      <div class="item">Quem não agendou na 1ª mensagem <strong>desaparece</strong></div>
-      <div class="ba-emphasis">Resultado: o paciente que mais vale é tratado igual ao que já estava garantido.</div>
-    </div>
-    <div class="ba-col after">
-      <div class="ba-label">Como vai ficar</div>
-      <div class="ba-title">Cada paciente no canal certo</div>
-      <div class="item"><strong>Caminho separado</strong> para particular e convênio</div>
-      <div class="item"><strong>Mensagem automática</strong> para quem não agendou no dia seguinte</div>
-      <div class="item">A recepção <strong>para de apagar incêndio</strong> e vende com método</div>
-      <div class="ba-emphasis">Resultado: nenhum lead some. Cada contato vira número e decisão.</div>
-    </div>
+<div class="slide" id="s3">  
+  <div class="eyebrow">Problema 01 · Atendimento Comercial</div>  
+  <h2 class="title">Paciente de convênio e particular<br><em>chegando pelo mesmo canal.</em></h2>  
+  <div class="ba-grid">    
+    <div class="ba-col before">      
+      <div class="ba-label">Como está hoje</div>      
+      <div class="ba-title">Tudo misturado, todo mundo igual</div>      
+      <div class="item">Paciente de convênio <strong>recebe a mesma atenção</strong> que o particular</div>      
+      <div class="item">O particular <strong>espera na mesma fila</strong> do convênio e vai embora</div>      
+      <div class="item">Quem não agendou na 1ª mensagem <strong>desaparece</strong></div>      
+      <div class="ba-emphasis">Resultado: o paciente que mais vale é tratado igual ao que já estava garantido.</div>    
+    </div>    
+    <div class="ba-col after">      
+      <div class="ba-label">Como vai ficar</div>      
+      <div class="ba-title">Cada paciente no canal certo</div>      
+      <div class="item"><strong>Caminho separado</strong> para particular e convênio</div>      
+      <div class="item"><strong>Mensagem automática</strong> para quem não agendou no dia seguinte</div>      
+      <div class="item">A recepção <strong>para de apagar incêndio</strong> e vende com método</div>      
+      <div class="ba-emphasis">Resultado: nenhum lead some. Cada contato vira número e decisão.</div>    
+    </div>  
   </div>
 </div>
 
 <!-- ══ S4 GOOGLE ══ -->
-<div class="slide" id="s4">
-  <div class="eyebrow">Problema 02 · Aparecer no Google</div>
-  <h2 class="title">36 anos no bairro.<br><em>O concorrente aparece antes.</em></h2>
-  <div class="ba-grid">
-    <div class="ba-col before">
-      <div class="ba-label">Como está hoje</div>
-      <div class="ba-title">Presente fisicamente. Invisível no celular.</div>
-      <div class="item"><strong>2 das 7 fichas</strong> ainda com nome antigo "RX"</div>
-      <div class="item">Nota média <strong>3,4 estrelas</strong> (o mínimo para o topo é 4,5)</div>
-      <div class="item">A agência anterior deixou <strong>o perfil do concorrente</strong> na ficha de vocês</div>
-      <div class="ba-emphasis">O paciente busca "mamografia" e clica no concorrente — você nem sabe.</div>
-    </div>
-    <div class="ba-col after">
-      <div class="ba-label">Como vai ficar</div>
-      <div class="ba-title">A clínica do bairro dominando o mapa</div>
-      <div class="item"><strong>As 7 fichas reorganizadas</strong> com fotos, nome e posts semanais</div>
-      <div class="item"><strong>Sistema automático de avaliações</strong>: paciente sai e avalia. Meta 4,7★</div>
-      <div class="item"><strong>Uma página dedicada para cada unidade</strong></div>
-      <div class="ba-emphasis">Meta: top 3 no mapa dos bairros principais em 60 dias.</div>
-    </div>
+<div class="slide" id="s4">  
+  <div class="eyebrow">Problema 02 · Aparecer no Google</div>  
+  <h2 class="title">36 anos no bairro.<br><em>O concorrente aparece antes.</em></h2>  
+  <div class="ba-grid">    
+    <div class="ba-col before">      
+      <div class="ba-label">Como está hoje</div>      
+      <div class="ba-title">Presente fisicamente. Invisível no celular.</div>      
+      <div class="item"><strong>2 das 7 fichas</strong> ainda com nome antigo "RX"</div>      
+      <div class="item">Nota média <strong>3,4 estrelas</strong> (o mínimo para o topo é 4,5)</div>      
+      <div class="item">A agência anterior deixou <strong>o perfil do concorrente</strong> na ficha de vocês</div>      
+      <div class="ba-emphasis">O paciente busca "mamografia" e clica no concorrente — você nem sabe.</div>    
+    </div>    
+    <div class="ba-col after">      
+      <div class="ba-label">Como vai ficar</div>      
+      <div class="ba-title">A clínica do bairro dominando o mapa</div>      
+      <div class="item"><strong>As 7 fichas reorganizadas</strong> com fotos, nome e posts semanais</div>      
+      <div class="item"><strong>Sistema automático de avaliações</strong>: paciente sai e avalia. Meta 4,7★</div>      
+      <div class="item"><strong>Uma página dedicada para cada unidade</strong></div>      
+      <div class="ba-emphasis">Meta: top 3 no mapa dos bairros principais em 60 dias.</div>    
+    </div>  
   </div>
 </div>
 
 <!-- ══ S5 SITE E ANÚNCIOS ══ -->
-<div class="slide" id="s5">
-  <div class="eyebrow">Problema 03 · Site e Anúncios</div>
-  <h2 class="title">Você paga pelo clique.<br><em>O site expulsa em 8 segundos.</em></h2>
-  <div class="ba-grid">
-    <div class="ba-col before">
-      <div class="ba-label">Como está hoje</div>
-      <div class="ba-title">Site destruindo o investimento</div>
-      <div class="item">Site leva <strong>8,7s para abrir</strong> no celular</div>
-      <div class="item">Os dados de conversão são <strong>contados em dobro</strong> por erro técnico</div>
-      <div class="item">Os anúncios mandam todos para a <strong>mesma página inicial</strong></div>
-      <div class="ba-emphasis">Você paga pelo clique, o paciente vai embora, e os números estão errados.</div>
-    </div>
-    <div class="ba-col after">
-      <div class="ba-label">Como vai ficar</div>
-      <div class="ba-title">Site rápido. Anúncio no destino certo.</div>
-      <div class="item"><strong>Site novo do zero</strong>, ultra-rápido para celular</div>
-      <div class="item"><strong>Rastreamento limpo</strong>: custo real por paciente revelado</div>
-      <div class="item"><strong>Campanhas separadas</strong> — clicou em Bangu, cai na página de Bangu</div>
-      <div class="ba-emphasis">O mesmo investimento gera <strong>2,6× mais agendamentos</strong>.</div>
-    </div>
+<div class="slide" id="s5">  
+  <div class="eyebrow">Problema 03 · Site e Anúncios</div>  
+  <h2 class="title">Você paga pelo clique.<br><em>O site expulsa em 8 segundos.</em></h2>  
+  <div class="ba-grid">    
+    <div class="ba-col before">      
+      <div class="ba-label">Como está hoje</div>      
+      <div class="ba-title">Site destruindo o investimento</div>      
+      <div class="item">Site leva <strong>8,7s para abrir</strong> no celular</div>      
+      <div class="item">Os dados de conversão são <strong>contados em dobro</strong> por erro técnico</div>      
+      <div class="item">Os anúncios mandam todos para a <strong>mesma página inicial</strong></div>      
+      <div class="ba-emphasis">Você paga pelo clique, o paciente vai embora, e os números estão errados.</div>    
+    </div>    
+    <div class="ba-col after">      
+      <div class="ba-label">Como vai ficar</div>      
+      <div class="ba-title">Site rápido. Anúncio no destino certo.</div>      
+      <div class="item"><strong>Site novo do zero</strong>, ultra-rápido para celular</div>      
+      <div class="item"><strong>Rastreamento limpo</strong>: custo real por paciente revelado</div>      
+      <div class="item"><strong>Campanhas separadas</strong> — clicou em Bangu, cai na página de Bangu</div>      
+      <div class="ba-emphasis">O mesmo investimento gera <strong>2,6× mais agendamentos</strong>.</div>    
+    </div>  
   </div>
 </div>
 
 <!-- ══ S6 INSTAGRAM ══ -->
-<div class="slide" id="s6">
-  <div class="eyebrow">Problema 04 · Instagram</div>
-  <h2 class="title">495 publicações.<br><em>3.332 seguidores.</em></h2>
-  <div class="ba-grid">
-    <div class="ba-col before">
-      <div class="ba-label">Como está hoje</div>
-      <div class="ba-title">Quadro de avisos digital</div>
-      <div class="item"><strong>Zero Reels.</strong> Sem Reels, o Instagram de clínica não cresce.</div>
-      <div class="item">Conteúdo genérico, <strong>sem identidade do bairro</strong></div>
-      <div class="item">A bio <strong>não diz ao paciente o que fazer</strong></div>
-      <div class="ba-emphasis">O Instagram existe mas não trabalha. Não gera agendamento.</div>
-    </div>
-    <div class="ba-col after">
-      <div class="ba-label">Como vai ficar</div>
-      <div class="ba-title">Vitrine viva da clínica do bairro</div>
-      <div class="item"><strong>20 conteúdos/mês planejados</strong> (Reels e Carrosséis)</div>
-      <div class="item"><strong>Linguagem de bairro</strong>: "mamografia em Bangu sem espera"</div>
-      <div class="item">Funil de venda do <strong>Clube de Benefícios</strong> integrado</div>
-      <div class="ba-emphasis">O Instagram vira o canal que <strong>fecha a venda</strong>.</div>
-    </div>
+<div class="slide" id="s6">  
+  <div class="eyebrow">Problema 04 · Instagram</div>  
+  <h2 class="title">495 publicações.<br><em>3.332 seguidores.</em></h2>  
+  <div class="ba-grid">    
+    <div class="ba-col before">      
+      <div class="ba-label">Como está hoje</div>      
+      <div class="ba-title">Quadro de avisos digital</div>      
+      <div class="item"><strong>Zero Reels.</strong> Sem Reels, o Instagram de clínica não cresce.</div>      
+      <div class="item">Conteúdo genérico, <strong>sem identidade do bairro</strong></div>      
+      <div class="item">A bio <strong>não diz ao paciente o que fazer</strong></div>      
+      <div class="ba-emphasis">O Instagram existe mas não trabalha. Não gera agendamento.</div>    
+    </div>    
+    <div class="ba-col after">      
+      <div class="ba-label">Como vai ficar</div>      
+      <div class="ba-title">Vitrine viva da clínica do bairro</div>      
+      <div class="item"><strong>20 conteúdos/mês planejados</strong> (Reels e Carrosséis)</div>      
+      <div class="item"><strong>Linguagem de bairro</strong>: "mamografia em Bangu sem espera"</div>      
+      <div class="item">Funil de venda do <strong>Clube de Benefícios</strong> integrado</div>      
+      <div class="ba-emphasis">O Instagram vira o canal que <strong>fecha a venda</strong>.</div>    
+    </div>  
+  </div>
+</div>
+
+<!-- ══ COMERCIAL (NOVO E MELHORADO) ══ -->
+<div class="slide" id="s-comercial">  
+  <div class="eyebrow">Problema 05 · Operação de Vendas</div>  
+  <h2 class="title">O marketing atrai o paciente.<br><em>A recepção perde a venda.</em></h2>  
+  <div class="ba-grid">    
+    <div class="ba-col before">      
+      <div class="ba-label">Como está hoje</div>      
+      <div class="ba-title">Processo solto e sem dados</div>      
+      <div class="item"><strong>Falta de organização comercial</strong> e de processos definidos na recepção</div>      
+      <div class="item">O Custo de Aquisição de Pacientes (CAP) é <strong>totalmente invisível</strong></div>      
+      <div class="item">Coleta de dados descentralizada e <strong>sem análise de métricas comerciais</strong></div>
+      <div class="item">A equipe apenas <strong>tira dúvidas</strong> em vez de aplicar técnicas para converter</div>      
+      <div class="ba-emphasis">Resultado: O investimento em mídia escorre pelo ralo no momento do atendimento.</div>    
+    </div>    
+    <div class="ba-col after">      
+      <div class="ba-label">Como vai ficar</div>      
+      <div class="ba-title">Inteligência e alta conversão</div>      
+      <div class="item"><strong>Implementação de CRM</strong> com rastreamento de lead de ponta a ponta</div>      
+      <div class="item"><strong>Captura de CAP</strong>, centralização de dados e criação de inteligência comercial</div>      
+      <div class="item">Adaptação no processo com foco na <strong>melhoria da taxa de conversão</strong></div>
+      <div class="item"><strong>Treinamento de equipe comercial</strong> para transformar atendimento em fechamento</div>      
+      <div class="ba-emphasis">Resultado: Adaptação de processos que aumentam brutalmente a taxa de conversão.</div>    
+    </div>  
   </div>
 </div>
 
 <!-- ══ S7 ÂNCORA ══ -->
-<div class="slide" id="s7">
-  <div class="eyebrow">A matemática do que está escapando</div>
-  <h2 class="title">Quanto vale,<br><em>na conta de vocês,</em> 5 pacientes por dia?</h2>
-  <div class="anchor-grid">
-    <div class="anchor-left">
-      <div class="math-row">
-        <div><div class="math-num">5</div><div class="math-mini">pacientes perdidos<br>por unidade</div></div>
-        <div class="math-op">×</div>
-        <div><div class="math-num">7</div><div class="math-mini">unidades</div></div>
-        <div class="math-op">×</div>
-        <div><div class="math-num">R$100</div><div class="math-mini">ticket médio</div></div>
-      </div>
-      <div class="math-equals">
-        <div class="label">Em um mês de 22 dias úteis:</div>
-        <div class="big">R$ 77 mil</div>
-        <div class="sub">deixando de entrar todo mês. <strong>Em 12 meses, quase R$ 1 milhão.</strong></div>
-      </div>
-    </div>
-    <div class="anchor-right">
-      <div style="background:var(--bg); padding:18px 20px; border:1px solid var(--line); border-radius:8px;">
-        <div style="font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; margin-bottom:6px;">Sem estrutura</div>
-        <div style="font-family:'Outfit', font-size:28px; font-weight:800;">R$ 36</div>
-        <div style="font-size:12px; color:var(--muted);">custo por agendado</div>
-      </div>
-      <div style="background:var(--bg); padding:18px 20px; border:1px solid var(--accent); border-radius:8px;">
-        <div style="font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; margin-bottom:6px;">Com a Clintia</div>
-        <div style="font-family:'Outfit', font-size:28px; font-weight:800; color:var(--accent);">R$ 14</div>
-        <div style="font-size:12px; color:var(--muted);">custo por agendado (−60%)</div>
-      </div>
-    </div>
+<div class="slide" id="s7">  
+  <div class="eyebrow">A matemática do que está escapando</div>  
+  <h2 class="title">Quanto vale,<br><em>na conta de vocês,</em> 5 pacientes por dia?</h2>  
+  <div class="anchor-grid">    
+    <div class="anchor-left">      
+      <div class="math-row" style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">        
+        <div><div class="math-num" style="font-family:'Outfit';font-size:54px;font-weight:900;color:var(--accent);line-height:1;">5</div><div class="math-mini" style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">pacientes perdidos<br>por unidade</div></div>        
+        <div class="math-op" style="font-size:24px;color:var(--muted);font-weight:300;">×</div>        
+        <div><div class="math-num" style="font-family:'Outfit';font-size:54px;font-weight:900;color:var(--accent);line-height:1;">7</div><div class="math-mini" style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">unidades</div></div>        
+        <div class="math-op" style="font-size:24px;color:var(--muted);font-weight:300;">×</div>        
+        <div><div class="math-num" style="font-family:'Outfit';font-size:54px;font-weight:900;color:var(--accent);line-height:1;">R$100</div><div class="math-mini" style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">ticket médio</div></div>      
+      </div>      
+      <div class="math-equals">        
+        <div class="label" style="font-family:'Outfit';font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:8px;">Em um mês de 22 dias úteis:</div>        
+        <div class="big" style="font-family:'Outfit';font-size:64px;font-weight:900;line-height:1;letter-spacing:-.04em;">R$ 77 mil</div>        
+        <div class="sub" style="font-size:15px;color:var(--ink-soft);margin-top:12px;line-height:1.6;">deixando de entrar todo mês. <strong>Em 12 meses, quase R$ 1 milhão.</strong></div>      
+      </div>    
+    </div>    
+    <div class="anchor-right">      
+      <div style="background:var(--bg); padding:18px 20px; border:1px solid var(--line); border-radius:8px;">        
+        <div style="font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; margin-bottom:6px;">Sem estrutura</div>        
+        <div style="font-family:'Outfit'; font-size:28px; font-weight:800;">R$ 36</div>        
+        <div style="font-size:12px; color:var(--muted);">custo por agendado</div>      
+      </div>      
+      <div style="background:var(--bg); padding:18px 20px; border:1px solid var(--accent); border-radius:8px;">        
+        <div style="font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; margin-bottom:6px;">Com a Clintia</div>        
+        <div style="font-family:'Outfit'; font-size:28px; font-weight:800; color:var(--accent);">R$ 14</div>        
+        <div style="font-size:12px; color:var(--muted);">custo por agendado (−60%)</div>      
+      </div>    
+    </div>  
   </div>
 </div>
 
 <!-- ══ S8 RENOVAÇÃO ══ -->
-<div class="slide" id="s8">
-  <div class="eyebrow">A natureza do projeto</div>
-  <h2 class="title">Não é otimização.<br><em>É reconstrução completa.</em></h2>
-  <div class="s8-wrap">
-    <div>
-      <p style="font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:20px;">A Bandeirantes não precisa de um pacote de posts. <strong>Precisa de uma nova infraestrutura digital construída do zero — pensada para o modelo de 7 unidades.</strong></p>
-      <p style="font-size:15px;color:var(--muted);line-height:1.7;">Após os 45 dias, a clínica passa a operar com sistema próprio, robusto e escalável.</p>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:14px;">
-      <div style="border:1px dashed var(--line);padding:18px 20px;border-radius:8px;">
-        <div style="font-family:'Outfit';font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Antes</div>
-        <div style="font-family:'Outfit';font-size:18px;font-weight:700;line-height:1.3;">Agência terceirizada entregando clique</div>
-      </div>
-      <div style="background:var(--ink);color:var(--bg);padding:18px 20px;border-radius:8px;">
-        <div style="font-family:'Outfit';font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Depois</div>
-        <div style="font-family:'Outfit';font-size:18px;font-weight:700;line-height:1.3;">Sistema próprio operando 24h as 7 unidades</div>
-        <div style="font-size:13px;opacity:.7;margin-top:6px;line-height:1.55;">Infraestrutura nova, métricas reais, equipe treinada.</div>
-      </div>
-    </div>
+<div class="slide" id="s8">  
+  <div class="eyebrow">A natureza do projeto</div>  
+  <h2 class="title">Não é otimização.<br><em>É reconstrução completa.</em></h2>  
+  <div class="s8-wrap">    
+    <div>      
+      <p style="font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:20px;">A Bandeirantes não precisa de um pacote de posts. <strong>Precisa de uma nova infraestrutura digital construída do zero — pensada para o modelo de 7 unidades.</strong></p>      
+      <p style="font-size:15px;color:var(--muted);line-height:1.7;">Após os 45 dias, a clínica passa a operar com sistema próprio, robusto e escalável.</p>    
+    </div>    
+    <div style="display:flex;flex-direction:column;gap:14px;">      
+      <div style="border:1px dashed var(--line);padding:18px 20px;border-radius:8px;">        
+        <div style="font-family:'Outfit';font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Antes</div>        
+        <div style="font-family:'Outfit';font-size:18px;font-weight:700;line-height:1.3;">Agência terceirizada entregando clique</div>      
+      </div>      
+      <div style="background:var(--ink);color:var(--bg);padding:18px 20px;border-radius:8px;">        
+        <div style="font-family:'Outfit';font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Depois</div>        
+        <div style="font-family:'Outfit';font-size:18px;font-weight:700;line-height:1.3;">Sistema próprio operando 24h as 7 unidades</div>        
+        <div style="font-size:13px;opacity:.7;margin-top:6px;line-height:1.55;">Infraestrutura nova, métricas reais, equipe treinada.</div>      
+      </div>    
+    </div>  
   </div>
 </div>
 
 <!-- ══ S9 ENTREGÁVEIS ══ -->
-<div class="slide" id="s9">
-  <div class="eyebrow">Escopo · Setup de 45 dias</div>
-  <h2 class="title">Tudo que <em>a Bandeirantes recebe</em></h2>
-  <div class="scope-wrap">
-    <div class="scope-grid">
-      <div class="scope-item br pl0">
-        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">01</div>
-        <div>
-          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Dossiê Estratégico</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.5;">A Bíblia do negócio. Proposta de valor e diretrizes.</div>
-        </div>
-      </div>
-      <div class="scope-item br">
-        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">02</div>
-        <div>
-          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Site Institucional</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Construído do zero. Rápido, leve e seguro.</div>
-        </div>
-      </div>
-      <div class="scope-item pr0">
-        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">03</div>
-        <div>
-          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">7 Páginas Dedicadas</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Uma para cada unidade. Anúncio cai no lugar certo.</div>
-        </div>
-      </div>
-      <div class="scope-item br pl0">
-        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">04</div>
-        <div>
-          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">7 Fichas Google</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Correção de nome e coleta automática de avaliações.</div>
-        </div>
-      </div>
-      <div class="scope-item br">
-        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">05</div>
-        <div>
-          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Anúncios Ads e Meta</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Estruturados por bairro e por tipo de exame.</div>
-        </div>
-      </div>
-      <div class="scope-item pr0">
-        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">06</div>
-        <div>
-          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Gestão de Leads</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Caminho separado para particular e convênio.</div>
-        </div>
-      </div>
-      <div class="scope-item br pl0" style="border-bottom:none;">
-        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">07</div>
-        <div>
-          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Dashboard App</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Dados em tempo real na palma da sua mão.</div>
-        </div>
-      </div>
-      <div class="scope-item br" style="border-bottom:none;">
-        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">08</div>
-        <div>
-          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Matérias SEO</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Atraem pacientes todo mês de forma orgânica.</div>
-        </div>
-      </div>
-      <div class="scope-item pr0" style="border-bottom:none;">
-        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">09</div>
-        <div>
-          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Instagram Premium</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Reestruturação total da bio e estratégia editorial.</div>
-        </div>
-      </div>
-    </div>
+<div class="slide" id="s9">  
+  <div class="eyebrow">Escopo · Setup de 45 dias</div>  
+  <h2 class="title">Tudo que <em>a Bandeirantes recebe</em></h2>  
+  <div class="scope-wrap">    
+    <div class="scope-grid">      
+      <div class="scope-item">        
+        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">01</div>        
+        <div>          
+          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Dossiê Estratégico</div>          
+          <div style="font-size:12px;color:var(--muted);line-height:1.5;">A Bíblia do negócio. Proposta de valor e diretrizes.</div>        
+        </div>      
+      </div>      
+      <div class="scope-item">        
+        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">02</div>        
+        <div>          
+          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Site Institucional</div>          
+          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Construído do zero. Rápido, leve e seguro.</div>        
+        </div>      
+      </div>      
+      <div class="scope-item">        
+        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">03</div>        
+        <div>          
+          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">7 Páginas Dedicadas</div>          
+          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Uma para cada unidade. Anúncio cai no lugar certo.</div>        
+        </div>      
+      </div>      
+      <div class="scope-item">        
+        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">04</div>        
+        <div>          
+          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">7 Fichas Google</div>          
+          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Correção de nome e coleta automática de avaliações.</div>        
+        </div>      
+      </div>      
+      <div class="scope-item">        
+        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">05</div>        
+        <div>          
+          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Anúncios Ads e Meta</div>          
+          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Estruturados por bairro e por tipo de exame.</div>        
+        </div>      
+      </div>      
+      <div class="scope-item">        
+        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">06</div>        
+        <div>          
+          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Dashboard App</div>          
+          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Dados, inteligência comercial e faturamento na palma da mão.</div>        
+        </div>      
+      </div>      
+      <div class="scope-item">        
+        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">07</div>        
+        <div>          
+          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Matérias SEO</div>          
+          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Atraem pacientes todo mês de forma orgânica.</div>        
+        </div>      
+      </div>      
+      <div class="scope-item">        
+        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">08</div>        
+        <div>          
+          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Instagram Premium</div>          
+          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Reestruturação total da bio e estratégia editorial.</div>        
+        </div>      
+      </div>      
+      <div class="scope-item">        
+        <div style="font-family:'Outfit';font-size:24px;font-weight:300;color:var(--accent);width:32px;">09</div>        
+        <div>          
+          <div style="font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:4px;">Gestão e Funil de Benefícios</div>          
+          <div style="font-size:12px;color:var(--muted);line-height:1.5;">Organização da esteira e caminho separado para os contatos.</div>        
+        </div>      
+      </div>      
+      <div class="scope-item">        
+        <div style="font-family:'Outfit';font-size:24px;font-weight:700;color:var(--accent);width:32px;">10</div>        
+        <div>          
+          <div style="font-family:'Outfit';font-weight:800;font-size:14px;margin-bottom:4px;color:var(--ink);">Implementação Comercial</div>          
+          <div style="font-size:12px;color:var(--ink-soft);line-height:1.5;"><strong>A chave da virada:</strong> CRM, rastreamento de lead, captura de CAP e Treinamento de Equipe em Vendas.</div>        
+        </div>      
+      </div>    
+    </div>  
   </div>
 </div>
 
 <!-- ══ S10 EQUIPE ══ -->
-<div class="slide" id="s10">
-  <div class="eyebrow">Quem executa o projeto</div>
-  <h2 class="title">Não é um generalista.<br><em>É um squad inteiro.</em></h2>
-  <div class="team-wrap">
-    <div style="display:flex;flex-direction:column;gap:14px;">
-      <div class="team-row"><div style="font-family:'Outfit';font-size:13px;font-weight:800;color:var(--accent);">Gerente de<br>Projetos</div><div style="font-size:13px;color:var(--muted);line-height:1.5;">Contato direto. Analisa e protege as métricas de todas as 7 unidades.</div></div>
-      <div class="team-row"><div style="font-family:'Outfit';font-size:13px;font-weight:800;color:var(--accent);">Gestor de<br>Tráfego</div><div style="font-size:13px;color:var(--muted);line-height:1.5;">Otimiza o custo por paciente. Certificações Meta e Google ativas.</div></div>
-      <div class="team-row"><div style="font-family:'Outfit';font-size:13px;font-weight:800;color:var(--accent);">Especialista<br>Social Media</div><div style="font-size:13px;color:var(--muted);line-height:1.5;">Cuida do Instagram. Linguagem de bairro, dentro das regras do CFM.</div></div>
-      <div class="team-row"><div style="font-family:'Outfit';font-size:13px;font-weight:800;color:var(--accent);">Dev Web &<br>Copywriter</div><div style="font-size:13px;color:var(--muted);line-height:1.5;">Performance, SEO e textos focados em conversão de saúde.</div></div>
-    </div>
-    <div style="background:var(--ink);color:var(--bg);padding:28px;border-radius:12px;display:flex;flex-direction:column;justify-content:center;">
-      <div style="font-family:'Outfit';font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;">Comparação inteligente</div>
-      <div style="font-size:14px;line-height:1.7;opacity:.85;margin-bottom:16px;">Contratar internamente custaria (salários/mês):</div>
-      <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;opacity:.85;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:12px;margin-bottom:12px;">
-        <div style="display:flex;justify-content:space-between;"><span>Gestor Sênior</span><span>R$ 10.000</span></div>
-        <div style="display:flex;justify-content:space-between;"><span>Social + Dev</span><span>R$ 14.000</span></div>
-        <div style="display:flex;justify-content:space-between;color:var(--accent);font-weight:700;"><span>Total mínimo</span><span>R$ 29.000+</span></div>
-      </div>
-      <div style="font-size:13px;line-height:1.65;">Você não contrata avulso. <strong style="color:var(--accent);">Aluga o squad completo por uma fração desse custo.</strong></div>
-    </div>
+<div class="slide" id="s10">  
+  <div class="eyebrow">Quem executa o projeto</div>  
+  <h2 class="title">Não é um generalista.<br><em>É um squad inteiro.</em></h2>  
+  <div class="team-wrap">    
+    <div style="display:flex;flex-direction:column;gap:14px;">      
+      <div class="team-row"><div style="font-family:'Outfit';font-size:13px;font-weight:800;color:var(--accent);">Gerente de<br>Projetos</div><div style="font-size:13px;color:var(--muted);line-height:1.5;">Contato direto. Analisa e protege as métricas de todas as 7 unidades.</div></div>      
+      <div class="team-row"><div style="font-family:'Outfit';font-size:13px;font-weight:800;color:var(--accent);">Gestor de<br>Tráfego</div><div style="font-size:13px;color:var(--muted);line-height:1.5;">Otimiza o custo por paciente. Certificações Meta e Google ativas.</div></div>      
+      <div class="team-row"><div style="font-family:'Outfit';font-size:13px;font-weight:800;color:var(--accent);">Especialista<br>Social Media</div><div style="font-size:13px;color:var(--muted);line-height:1.5;">Cuida do Instagram. Linguagem de bairro, dentro das regras do CFM.</div></div>      
+      <div class="team-row"><div style="font-family:'Outfit';font-size:13px;font-weight:800;color:var(--accent);">Dev Web &<br>Copywriter</div><div style="font-size:13px;color:var(--muted);line-height:1.5;">Performance, SEO e textos focados em conversão de saúde.</div></div>    
+      <div class="team-row"><div style="font-family:'Outfit';font-size:13px;font-weight:800;color:var(--accent);">Consultor<br>Comercial</div><div style="font-size:13px;color:var(--muted);line-height:1.5;">Treina a recepção, implanta o CRM e analisa a inteligência de vendas.</div></div>    
+    </div>    
+    <div style="background:var(--ink);color:var(--bg);padding:28px;border-radius:12px;display:flex;flex-direction:column;justify-content:center;">      
+      <div style="font-family:'Outfit';font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;">Comparação inteligente</div>      
+      <div style="font-size:14px;line-height:1.7;opacity:.85;margin-bottom:16px;">Contratar internamente custaria (salários/mês):</div>      
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;opacity:.85;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:12px;margin-bottom:12px;">        
+        <div style="display:flex;justify-content:space-between;"><span>CMO / Gestor de Projetos</span><span>R$ 15.000</span></div>        
+        <div style="display:flex;justify-content:space-between;"><span>Gestor de Tráfego Sênior</span><span>R$ 12.000</span></div>        
+        <div style="display:flex;justify-content:space-between;"><span>Consultor Comercial & CRM</span><span>R$ 13.000</span></div>        
+        <div style="display:flex;justify-content:space-between;"><span>Social Media + Dev Web</span><span>R$ 11.000</span></div>        
+        <div style="display:flex;justify-content:space-between;color:var(--accent);font-weight:700;margin-top:4px;"><span>Total mínimo</span><span>R$ 51.000/mês</span></div>      
+      </div>      
+      <div style="font-size:13px;line-height:1.65;">Você não contrata avulso. <strong style="color:var(--accent);">Aluga o squad completo por uma fração desse custo.</strong></div>    
+    </div>  
   </div>
 </div>
 
 <!-- ══ S11 PARCERIAS ══ -->
-<div class="slide" id="s11">
-  <div class="eyebrow">Credenciais</div>
-  <h2 class="title">Quem está<br><em>do nosso lado.</em></h2>
-  <div style="flex:1;margin-top:32px;border-top:1.5px solid var(--ink);padding-top:32px;display:flex;flex-direction:column;gap:32px;">
-    <div class="cert-grid">
-      <div class="cert-item pl0"><div style="font-family:'Outfit';font-size:20px;font-weight:900;margin-bottom:6px;">Meta<br><span style="color:var(--accent);font-weight:700;">Partner</span></div></div>
-      <div class="cert-item"><div style="font-family:'Outfit';font-size:20px;font-weight:900;margin-bottom:6px;">Google<br><span style="color:var(--accent);font-weight:700;">Partner</span></div></div>
-      <div class="cert-item"><div style="font-family:'Outfit';font-size:20px;font-weight:900;margin-bottom:6px;">RD Station<br><span style="color:var(--accent);font-weight:700;">Partner</span></div></div>
-      <div class="cert-item pr0"><div style="font-family:'Outfit';font-size:20px;font-weight:900;margin-bottom:6px;">Anthropic<br><span style="color:var(--accent);font-weight:700;">Partner</span></div></div>
-    </div>
-    <div class="stats-grid">
-      <div style="padding:18px;background:var(--accent-soft);border-radius:8px;"><div style="font-family:'Outfit';font-size:32px;font-weight:900;color:var(--accent);">+100</div><div style="font-size:12px;margin-top:4px;">clínicas populares atendidas</div></div>
-      <div style="padding:18px;background:var(--accent-soft);border-radius:8px;"><div style="font-family:'Outfit';font-size:32px;font-weight:900;color:var(--accent);">10 anos</div><div style="font-size:12px;margin-top:4px;">de especialização em saúde</div></div>
-      <div style="padding:18px;background:var(--accent-soft);border-radius:8px;"><div style="font-family:'Outfit';font-size:32px;font-weight:900;color:var(--accent);">100%</div><div style="font-size:12px;margin-top:4px;">do portfólio dedicado a clínicas</div></div>
-    </div>
+<div class="slide" id="s11">  
+  <div class="eyebrow">Credenciais</div>  
+  <h2 class="title">Quem está<br><em>do nosso lado.</em></h2>  
+  <div style="flex:1;margin-top:32px;border-top:1.5px solid var(--ink);padding-top:32px;display:flex;flex-direction:column;gap:32px;">    
+    <div class="cert-grid">      
+      <div class="cert-item pl0"><div style="font-family:'Outfit';font-size:20px;font-weight:900;margin-bottom:6px;">Meta<br><span style="color:var(--accent);font-weight:700;">Partner</span></div></div>      
+      <div class="cert-item"><div style="font-family:'Outfit';font-size:20px;font-weight:900;margin-bottom:6px;">Google<br><span style="color:var(--accent);font-weight:700;">Partner</span></div></div>      
+      <div class="cert-item"><div style="font-family:'Outfit';font-size:20px;font-weight:900;margin-bottom:6px;">RD Station<br><span style="color:var(--accent);font-weight:700;">Partner</span></div></div>      
+      <div class="cert-item pr0"><div style="font-family:'Outfit';font-size:20px;font-weight:900;margin-bottom:6px;">Anthropic<br><span style="color:var(--accent);font-weight:700;">Partner</span></div></div>    
+    </div>    
+    <div class="stats-grid">      
+      <div style="padding:18px;background:var(--accent-soft);border-radius:8px;"><div style="font-family:'Outfit';font-size:32px;font-weight:900;color:var(--accent);">+100</div><div style="font-size:12px;margin-top:4px;">clínicas populares atendidas</div></div>      
+      <div style="padding:18px;background:var(--accent-soft);border-radius:8px;"><div style="font-family:'Outfit';font-size:32px;font-weight:900;color:var(--accent);">10 anos</div><div style="font-size:12px;margin-top:4px;">de especialização em saúde</div></div>      
+      <div style="padding:18px;background:var(--accent-soft);border-radius:8px;"><div style="font-family:'Outfit';font-size:32px;font-weight:900;color:var(--accent);">100%</div><div style="font-size:12px;margin-top:4px;">do portfólio dedicado a clínicas</div></div>    
+    </div>  
   </div>
 </div>
 
-<!-- ══ S12 CASES ══ -->
-<div class="slide" id="s12">
-  <div class="eyebrow">Clínicas que passaram pela Clintia</div>
-  <h2 class="title">Quem já está<br><em>do outro lado.</em></h2>
+<!-- ══ S12 CASES (CARROSSEL PROCLIP) ══ -->
+<div class="slide" id="s12" style="padding-bottom: 20px;">  
+  <div class="eyebrow">Clínicas aceleradas pelo nosso método</div>  
+  <h2 class="title">Quem já está<br><em>do outro lado.</em></h2>    
   
-  <div class="cases-master-grid no-swipe">
-    <!-- Case 1 -->
-    <div class="case-v-card">
-      <div class="case-name">Policlínica Alpha</div>
-      <div class="case-loc">Jaguaribe · Paraíba</div>
-      <div class="case-stats">
-        <div class="case-stat"><div class="v">−58%</div><div class="l">custo / paciente</div></div>
-        <div class="case-stat"><div class="v">+8.200</div><div class="l">seguidores</div></div>
-      </div>
-      <div class="story-container">
-        <div class="story-frame">
-          <img src="https://lp.clintia.com.br/Alpha.jpg" alt="Print Story Alpha">
-        </div>
-      </div>
+  <div class="proclip-component">
+    <!-- Subtítulos / Meta -->
+    <div class="hero-meta">
+      <span><strong>+100 clínicas</strong> implantadas</span>
+      <span><strong>Cartão benefício</strong> com recorrência</span>
+      <span>Metodologia <strong>CLIP<sup>®</sup></strong> · 4 pilares</span>
     </div>
-    <!-- Case 2 -->
-    <div class="case-v-card">
-      <div class="case-name">Susga Diagnóstico</div>
-      <div class="case-loc">São Gonçalo · RJ</div>
-      <div class="case-stats">
-        <div class="case-stat"><div class="v">−42%</div><div class="l">custo / paciente</div></div>
-        <div class="case-stat"><div class="v">+3.100</div><div class="l">seguidores</div></div>
-      </div>
-      <div class="story-container">
-        <div class="story-frame">
-          <img src="https://lp.clintia.com.br/Susga.jpg" alt="Print Story Susga">
-        </div>
-      </div>
-    </div>
-    <!-- Case 3 -->
-    <div class="case-v-card">
-      <div class="case-name">C. Popular da Saúde</div>
-      <div class="case-loc">Goiânia · Goiás</div>
-      <div class="case-stats">
-        <div class="case-stat"><div class="v">−35%</div><div class="l">custo / paciente</div></div>
-        <div class="case-stat"><div class="v">+8.900</div><div class="l">seguidores</div></div>
-      </div>
-      <div class="story-container">
-        <div class="story-frame">
-          <img src="https://lp.clintia.com.br/Clinica%20POpular%20da%20Saude.jpg" alt="Print Story C. Popular">
-        </div>
-      </div>
-    </div>
-    <!-- Case 4 -->
-    <div class="case-v-card">
-      <div class="case-name">C. Popular Portátil</div>
-      <div class="case-loc">Operação Escalável</div>
-      <div class="case-stats">
-        <div class="case-stat"><div class="v">−45%</div><div class="l">custo / paciente</div></div>
-        <div class="case-stat"><div class="v">+5.400</div><div class="l">seguidores</div></div>
-      </div>
-      <div class="story-container">
-        <div class="story-frame">
-          <img src="https://lp.clintia.com.br/Clinica%20Popular%20Portatil.jpg" alt="Print Story Portátil">
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- PORTFOLIO MARQUEE -->
-  <div class="portfolio-strip">
-    <div class="cases-footer-badge">+100</div>
-    <div style="width:1px; height:32px; background:rgba(255,255,255,0.15);"></div>
-    
-    <div style="flex:1; overflow:hidden; position:relative;">
-      <!-- Duplicado para efeito de loop contínuo -->
-      <div class="marquee-content">
-        <div class="p-thumb"><img src="https://lp.clintia.com.br/Outra%2001.jpg" alt="Outra"></div>
-        <div class="p-thumb"><img src="https://lp.clintia.com.br/Outra%2002.jpg" alt="Outra"></div>
-        <div class="p-thumb"><img src="https://lp.clintia.com.br/Outra%2003.jpg" alt="Outra"></div>
-        <div class="p-thumb"><img src="https://lp.clintia.com.br/Outra%2004.jpg" alt="Outra"></div>
-        <!-- Duplicados -->
-        <div class="p-thumb"><img src="https://lp.clintia.com.br/Outra%2001.jpg" alt="Outra"></div>
-        <div class="p-thumb"><img src="https://lp.clintia.com.br/Outra%2002.jpg" alt="Outra"></div>
-        <div class="p-thumb"><img src="https://lp.clintia.com.br/Outra%2003.jpg" alt="Outra"></div>
-        <div class="p-thumb"><img src="https://lp.clintia.com.br/Outra%2004.jpg" alt="Outra"></div>
+    <!-- Carrossel -->
+    <div class="hero-carousel-wrap">
+      <div class="carousel-label">Clínicas atendidas</div>
+      
+      <div class="carousel-track" id="heroCarouselTrack">
+        <div class="carousel-slide"><img src="https://www.proclip.com.br/1.-Alpha-Policlínica.webp" alt="Alpha Policlínica" loading="lazy"></div>
+        <div class="carousel-slide"><img src="https://www.proclip.com.br/3.-Clínica-Sim.webp" alt="Clínica Sim" loading="lazy"></div>
+        <div class="carousel-slide"><img src="https://www.proclip.com.br/4.-Doutor-Pop.webp" alt="Doutor Pop" loading="lazy"></div>
+        <div class="carousel-slide"><img src="https://www.proclip.com.br/5.-Clínicas-do-Bairro.webp" alt="Clínicas do Bairro" loading="lazy"></div>
+        <div class="carousel-slide"><img src="https://www.proclip.com.br/6.-Medtrata.webp" alt="Medtrata" loading="lazy"></div>
+        <div class="carousel-slide"><img src="https://www.proclip.com.br/7.-Top-Clínica-Popular.webp" alt="Top Clínica Popular" loading="lazy"></div>
+      </div>
+      
+      <div class="carousel-controls">
+        <button class="carousel-arrow" id="heroPrevBtn" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="dots" id="heroDots"></div>
+        <button class="carousel-arrow" id="heroNextBtn" aria-label="Próximo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
     </div>
-    
-    <div style="width:1px; height:32px; background:rgba(255,255,255,0.15);"></div>
-    <div class="cases-footer-text">clínicas aceleradas <br>pelo nosso método</div>
   </div>
 </div>
 
 <!-- ══ S13 PREÇO ══ -->
-<div class="slide" id="s13">
-  <div class="eyebrow">Investimento · Rede 7 unidades</div>
-  <h2 class="title">Começamos<br><em>quando decidirem.</em></h2>
-  <div class="price-wrap">
-    <div class="price-main-box">
-      <div class="price-label">Implementação (45 dias)</div>
-      <div class="price-title">Setup completo da rede</div>
-      <div class="price-amount"><span class="currency">R$</span>3.320<span style="font-size:30px;font-weight:600;color:var(--muted);">/mês</span></div>
-      <div style="font-size:14px;color:var(--ink-soft);margin-top:4px;margin-bottom:8px;"><strong>12× no cartão</strong> · sem juros</div>
-      <div style="font-size:13px;color:var(--muted);padding:10px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);margin-bottom:18px;">ou <strong style="color:var(--ink);font-size:16px;font-family:'Outfit';">R$ 32.804</strong> à vista</div>
-      <ul class="price-list" style="margin-top:0;padding-top:0;border-top:none;">
-        <li>Site novo + 7 páginas dedicadas</li>
-        <li>7 fichas Google organizadas + avaliações</li>
-        <li><strong>20 posts de estruturação (3 fixados em carrossel, 7 carrosséis, 10 reels)</strong></li>
-        <li>Dashboard + Gestão de Leads + Equipe</li>
-        <li>Anúncios configurados e segmentados</li>
+<div class="slide" id="s13">  
+  <div class="eyebrow">Investimento · Rede 7 unidades</div>  
+  <h2 class="title">Começamos<br><em>quando decidirem.</em></h2>  
+  <div class="price-wrap" style="grid-template-columns: 1fr; max-width: 720px;">    
+    <div class="price-main-box" style="padding-right: 0;">      
+      <div class="price-label">Implementação (45 dias)</div>      
+      <div class="price-title">Setup completo da rede</div>      
+      <div class="price-amount"><span class="currency" style="font-size:24px; vertical-align:middle; margin-right:4px;">12× R$</span>3.204</div>      
+      <div style="font-size:14px;color:var(--ink-soft);margin-top:4px;margin-bottom:8px;">no cartão de crédito</div>      
+      <div style="font-size:13px;color:var(--muted);padding:10px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);margin-bottom:18px;">ou <strong style="color:var(--ink);font-size:16px;font-family:'Outfit';">R$ 32.890</strong> à vista no PIX</div>      
+      <ul class="price-list" style="margin-top:0;padding-top:0;border-top:none;">        
+        <li>Site novo + 7 páginas dedicadas</li>        
+        <li>7 fichas Google organizadas + avaliações</li>        
+        <li>20 posts de estruturação (3 fixados em carrossel, 7 carrosséis, 10 reels)</li>        
+        <li>Dashboard analítico e Gestão de Leads</li>        
+        <li style="background: var(--accent-soft); padding: 12px 16px; border-radius: 8px; margin-top: 8px;"><strong style="color:var(--accent);">Implementação Comercial Completa (CRM, CAP, Processos e Treinamento de Equipe)</strong></li>      
+      </ul>    
+    </div>    
+  </div>
+</div>
+
+<!-- ══ S15 RECORRÊNCIA (NOVO) ══ -->
+<div class="slide" id="s-recorrencia">  
+  <div class="eyebrow">A partir do 3º Mês</div>  
+  <h2 class="title">Operação<br><em>Contínua</em></h2>  
+  <div class="plans-grid">
+    <!-- Plano 1 -->
+    <div class="plan-card">
+      <div class="plan-name">Plano 01</div>
+      <div class="plan-price"><span>R$</span>3.000<span class="mo">/mês</span></div>
+      <ul class="plan-features">
+        <li>Instagram/Facebook (20 conteúdos mês)</li>
+        <li>Google Ads e Meta Ads</li>
+        <li>Relatório Fácil</li>
       </ul>
     </div>
-    <div class="price-side-box">
-      <div class="price-label">Recorrência (A partir do 3º mês)</div>
-      <div class="price-title">Operação contínua da rede</div>
-      <div class="price-amount"><span class="currency">R$</span>4.000<span class="mo">/mês</span></div>
-      <div style="font-size:13px;opacity:.7;margin-bottom:20px;">Valor único para todas as 7 unidades.</div>
-      <ul class="price-list">
-        <li>20 conteúdos/mês no Instagram da rede</li>
-        <li>Gestão ativa de mídia (Ads e Meta)</li>
-        <li>Relatórios transparentes</li>
+    
+    <!-- Plano 2 -->
+    <div class="plan-card highlight">
+      <div class="plan-name">Plano 02</div>
+      <div class="plan-price"><span>R$</span>4.000<span class="mo">/mês</span></div>
+      <ul class="plan-features">
+        <li>Instagram/Facebook (20 conteúdos mês)</li>
+        <li>Google Ads e Meta Ads</li>
+        <li>Landing Pages (2 por mês)</li>
+        <li>Matérias de Blog (2 por mês)</li>
+        <li>Atualizações Site</li>
+        <li>Atualização Google Meu Negócio</li>
+        <li>Relatório Fácil</li>
       </ul>
-      <div style="margin-top:20px; font-size:11px; opacity:.6; border-top:1px solid rgba(255,255,255,.1); padding-top:14px;">Sem fidelidade. Cancela com 30 dias de aviso.</div>
     </div>
+    
+    <!-- Plano 3 -->
+    <div class="plan-card">
+      <div class="plan-name">Plano 03</div>
+      <div class="plan-price"><span>R$</span>6.500<span class="mo">/mês</span></div>
+      <ul class="plan-features">
+        <li>Instagram/Facebook (20 conteúdos mês)</li>
+        <li>Google Ads e Meta Ads</li>
+        <li>Landing Pages (2 por mês)</li>
+        <li>Matérias de Blog (2 por mês)</li>
+        <li>Atualizações Site</li>
+        <li>Atualização Google Meu Negócio</li>
+        <li><strong>Equipe Profissional de direção e captação de vídeo e imagem (1x por mês)</strong></li>
+        <li>Relatório Fácil</li>
+      </ul>
+    </div>
+  </div>
+  <div style="font-size:12px; color:var(--muted); text-align:center; margin-top:24px; padding-top:16px; border-top:1px solid var(--line);">
+    Sem fidelidade. Cancela com 30 dias de aviso prévio. Valor fixo para toda a rede.
   </div>
 </div>
 
 <!-- ══ S14 PASSOS ══ -->
-<div class="slide" id="s14">
-  <div class="eyebrow">Próximos Passos</div>
-  <h2 class="title">O que acontece<br><em>agora?</em></h2>
-  <div class="steps-layout" style="display: flex; flex-direction: column; gap: 40px; max-width: 720px; margin-top: 32px; border-top: 1.5px solid var(--ink); padding-top: 48px;">
-    
-    <div style="display:flex;gap:20px;align-items:flex-start;">
-      <div style="font-family:'Outfit',sans-serif;font-size:36px;font-weight:900;color:var(--accent);line-height:0.8;">01</div>
-      <div>
-        <div style="font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px;">Reunião de Onboarding</div>
-        <div style="font-size:14.5px;color:var(--ink-soft);line-height:1.6;">Agendamos a data para a reunião oficial de partida com os responsáveis da Bandeirantes e os líderes do nosso squad.</div>
-      </div>
+<div class="slide" id="s14">  
+  <div class="eyebrow">Próximos Passos</div>  
+  <h2 class="title">O que acontece<br><em>agora?</em></h2>  
+  <div class="steps-layout" style="display: flex; flex-direction: column; gap: 40px; max-width: 720px; margin-top: 32px; border-top: 1.5px solid var(--ink); padding-top: 48px;">        
+    <div style="display:flex;gap:20px;align-items:flex-start;">      
+      <div style="font-family:'Outfit',sans-serif;font-size:36px;font-weight:900;color:var(--accent);line-height:0.8;">01</div>      
+      <div>        
+        <div style="font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px;">Reunião de Onboarding</div>        
+        <div style="font-size:14.5px;color:var(--ink-soft);line-height:1.6;">Agendamos a data para a reunião oficial de partida com os responsáveis da Bandeirantes e os líderes do nosso squad.</div>      
+      </div>    
     </div>
-
-    <div style="display:flex;gap:20px;align-items:flex-start;">
-      <div style="font-family:'Outfit',sans-serif;font-size:36px;font-weight:900;color:var(--accent);line-height:0.8;">02</div>
-      <div>
-        <div style="font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px;">Criação do DPV</div>
-        <div style="font-size:14.5px;color:var(--ink-soft);line-height:1.6;">Imersão com a nossa equipe de produção para extrair o DNA da clínica e formular o <strong>Dossiê de Posicionamento de Valor</strong> (base estratégica).</div>
-      </div>
+    <div style="display:flex;gap:20px;align-items:flex-start;">      
+      <div style="font-family:'Outfit',sans-serif;font-size:36px;font-weight:900;color:var(--accent);line-height:0.8;">02</div>      
+      <div>        
+        <div style="font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px;">Criação do DPV</div>        
+        <div style="font-size:14.5px;color:var(--ink-soft);line-height:1.6;">Imersão com a nossa equipe de produção para extrair o DNA da clínica e formular o <strong>Dossiê de Posicionamento de Valor</strong> (base estratégica).</div>      
+      </div>    
     </div>
-
-    <div style="display:flex;gap:20px;align-items:flex-start;">
-      <div style="font-family:'Outfit',sans-serif;font-size:36px;font-weight:900;color:var(--accent);line-height:0.8;">03</div>
-      <div>
-        <div style="font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px;">Start da Implementação</div>
-        <div style="font-size:14.5px;color:var(--ink-soft);line-height:1.6;">Com o DPV aprovado, começam a contar os 45 dias de setup e o desenvolvimento de toda a infraestrutura paralela.</div>
-      </div>
+    <div style="display:flex;gap:20px;align-items:flex-start;">      
+      <div style="font-family:'Outfit',sans-serif;font-size:36px;font-weight:900;color:var(--accent);line-height:0.8;">03</div>      
+      <div>        
+        <div style="font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px;">Start da Implementação</div>        
+        <div style="font-size:14.5px;color:var(--ink-soft);line-height:1.6;">Com o DPV aprovado, começam a contar os 45 dias de setup e o desenvolvimento de toda a infraestrutura paralela.</div>      
+      </div>    
     </div>
-
   </div>
 </div>
-
 </div><!-- /deck -->
 
 <!-- NAV -->
-<div class="nav">
-  <button onclick="go(-1)" title="Anterior">←</button>
-  <div class="dots" id="dots"></div>
-  <button onclick="go(1)" title="Próximo">→</button>
-  <span style="width:1px;height:18px;background:rgba(250,249,246,.2);margin:0 2px;"></span>
-  <span class="counter" id="counter">1/14</span>
+<div class="nav">  
+  <button onclick="go(-1)" title="Anterior">←</button>  
+  <div class="dots" id="dots"></div>  
+  <button onclick="go(1)" title="Próximo">→</button>  
+  <span style="width:1px;height:18px;background:rgba(250,249,246,.2);margin:0 2px;"></span>  
+  <span class="counter" id="counter">1/16</span>  
   <button onclick="gerarPDF()" title="Baixar PDF" style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-left:4px;">PDF</button>
 </div>
 
@@ -965,56 +816,123 @@ const n = slides.length;
 // Preenche dots baseados em quantas telas cabem bem no mobile (para não explodir a barrinha)
 const showDots = window.innerWidth > 600; 
 
-if(showDots) {
-  for(let i=0;i<n;i++){
-    const d = document.createElement('div');
-    d.className='dot'+(i===0?' active':'');
-    d.onclick=()=>goTo(i);
-    dotsEl.appendChild(d);
+if(showDots) {  
+  for(let i=0;i<n;i++){    
+    const d = document.createElement('div');    
+    d.className='dot'+(i===0?' active':'');    
+    d.onclick=()=>goTo(i);    
+    dotsEl.appendChild(d);  
   }
 }
 
-function goTo(idx){
-  slides[cur].classList.remove('active');
-  if(showDots) document.querySelectorAll('.dot')[cur].classList.remove('active');
-  cur=(idx+n)%n;
-  slides[cur].classList.add('active');
-  if(showDots) document.querySelectorAll('.dot')[cur].classList.add('active');
+function goTo(idx){  
+  slides[cur].classList.remove('active');  
+  if(showDots) document.querySelectorAll('.dot')[cur].classList.remove('active');  
+  cur=(idx+n)%n;  
+  slides[cur].classList.add('active');  
+  if(showDots) document.querySelectorAll('.dot')[cur].classList.add('active');  
   counterEl.textContent=(cur+1)+'/'+n;
 }
 function go(d){ goTo(cur+d); }
 
-function gerarPDF(){
-  document.body.classList.add('printing');
-  window.print();
+function gerarPDF(){  
+  document.body.classList.add('printing');  
+  window.print();  
   setTimeout(()=>document.body.classList.remove('printing'), 1000);
 }
 
-document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') { e.preventDefault(); go(1); }
+document.addEventListener('keydown',e=>{  
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') { e.preventDefault(); go(1); }  
   if(e.key==='ArrowLeft'||e.key==='ArrowUp') go(-1);
 });
 
 // Touch tracking melhorado para não bugar componentes que rolam de lado (Scroll X)
 let tx=0;
 let ty=0;
-document.addEventListener('touchstart',e=>{
-  tx=e.touches[0].clientX;
+document.addEventListener('touchstart',e=>{  
+  tx=e.touches[0].clientX;  
   ty=e.touches[0].clientY;
 },{passive:true});
 
-document.addEventListener('touchend',e=>{
-  // Se o usuário estiver deslizando sobre a tabela ou sobre os cards de portfólio (scroll horizontal nativo), ignora a mudança de slide
-  if(e.target.closest('.no-swipe')) return;
+document.addEventListener('touchend',e=>{  
+  // Se o usuário estiver deslizando sobre a tabela ou sobre os cards de portfólio, ignora a mudança de slide
+  if(e.target.closest('.no-swipe') || e.target.closest('.carousel-track')) return;    
+  const dx=e.changedTouches[0].clientX-tx;  
+  const dy=e.changedTouches[0].clientY-ty;    
   
-  const dx=e.changedTouches[0].clientX-tx;
-  const dy=e.changedTouches[0].clientY-ty;
-  
-  // Confirma se foi um swipe horizontal (maior no eixo X do que no eixo Y)
-  if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
-    go(dx<0?1:-1);
+  // Confirma se foi um swipe horizontal (maior no eixo X do que no eixo Y)  
+  if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {    
+    go(dx<0?1:-1);  
   }
 },{passive:true});
+
+// --- LÓGICA DO CARROSSEL (SLIDE S12) ---
+document.addEventListener("DOMContentLoaded", function() {
+  function initCarousel(trackId, prevId, nextId, dotsId) {
+    const track = document.getElementById(trackId); 
+    if (!track) return;
+    
+    const slidesCarousel = track.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById(prevId);
+    const nextBtn = document.getElementById(nextId);
+    const dotsContainer = document.getElementById(dotsId);
+    let current = 0;
+    
+    function buildDots() {
+      dotsContainer.innerHTML = ''; 
+      slidesCarousel.forEach((_, i) => { 
+        const b = document.createElement('button'); 
+        b.className = 'dot'; 
+        b.setAttribute('type', 'button');
+        b.setAttribute('aria-label', 'Slide ' + (i + 1));
+        b.addEventListener('click', () => goToCarousel(i)); 
+        dotsContainer.appendChild(b); 
+      }); 
+      updateDots();
+    }
+    
+    function updateDots() { 
+      dotsContainer.querySelectorAll('.dot').forEach((b, i) => b.classList.toggle('active', i === current)); 
+    }
+    
+    function goToCarousel(i) { 
+      current = Math.max(0, Math.min(i, slidesCarousel.length - 1)); 
+      track.scrollTo({ 
+        left: slidesCarousel[current].offsetLeft - track.clientWidth / 2 + slidesCarousel[current].clientWidth / 2, 
+        behavior: 'smooth' 
+      }); 
+      updateDots(); 
+      updateButtons(); 
+    }
+    
+    function updateButtons() { 
+      prevBtn.disabled = current === 0; 
+      nextBtn.disabled = current >= slidesCarousel.length - 1; 
+    }
+    
+    prevBtn.addEventListener('click', () => goToCarousel(current - 1)); 
+    nextBtn.addEventListener('click', () => goToCarousel(current + 1));
+    
+    track.addEventListener('scroll', () => { 
+      setTimeout(() => { 
+        let closest = 0, closestDist = Infinity; 
+        const trackCenter = track.scrollLeft + track.clientWidth / 2; 
+        slidesCarousel.forEach((slide, i) => { 
+          const dist = Math.abs((slide.offsetLeft + slide.clientWidth / 2) - trackCenter); 
+          if (dist < closestDist) { closestDist = dist; closest = i; } 
+        }); 
+        current = closest; 
+        updateDots(); 
+        updateButtons(); 
+      }, 100); 
+    });
+    
+    buildDots(); 
+    updateButtons();
+  }
+  
+  initCarousel('heroCarouselTrack', 'heroPrevBtn', 'heroNextBtn', 'heroDots');
+});
 </script>
 </body>
 </html>
