@@ -1,0 +1,750 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO Médicos® — Proposta Comercial ClintIA</title>
+<link rel="stylesheet" href="../assets/colors_and_type.css">
+<style>
+@font-face{font-family:'Red Hat Display';src:url("../assets/fonts/RedHatDisplay-Regular.ttf") format('truetype');font-weight:400;}
+@font-face{font-family:'Red Hat Display';src:url("../assets/fonts/RedHatDisplay-Medium.ttf") format('truetype');font-weight:500;}
+@font-face{font-family:'Red Hat Display';src:url("../assets/fonts/RedHatDisplay-Bold.ttf") format('truetype');font-weight:700;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Red Hat Display',sans-serif;background:#07111f;}
+
+/* ── layout ── */
+.presentation{display:flex;flex-direction:column;align-items:center;gap:20px;padding:40px 24px;}
+.slide-label{width:960px;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#304d66;}
+.slide{width:960px;height:540px;position:relative;overflow:hidden;border-radius:12px;box-shadow:0 16px 64px rgba(5,30,50,.65);flex-shrink:0;}
+.slide--hero  {background:linear-gradient(135deg,#055AAA 0%,#053C73 100%);color:#fff;}
+.slide--dark  {background:#053C73;color:#fff;}
+.slide--oxford{background:#051E32;color:#fff;}
+.slide--light {background:#fff;color:#051E32;}
+.blob{position:absolute;border-radius:50%;background:currentColor;opacity:.06;}
+.logo{position:absolute;top:28px;left:56px;height:30px;width:auto;z-index:5;}
+.pg{position:absolute;bottom:22px;right:56px;font-size:10px;font-weight:500;opacity:.28;z-index:5;}
+.content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:72px 56px 44px;}
+.content--center{align-items:center;text-align:center;}
+.split{position:absolute;inset:0;z-index:2;display:grid;padding-top:66px;}
+.split--50{grid-template-columns:1fr 1fr;}
+.split--45-55{grid-template-columns:9fr 11fr;}
+.col{display:flex;flex-direction:column;justify-content:center;}
+.col--l{padding:16px 32px 32px 56px;}
+.col--r{padding:16px 56px 32px 16px;}
+.col--r-center{padding:16px 56px 32px 16px;align-items:center;justify-content:center;}
+
+/* ── typography ── */
+.overline{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;opacity:.48;margin-bottom:10px;}
+.title{font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:14px;}
+.t-hero{font-size:62px;} .t-xl{font-size:46px;} .t-lg{font-size:38px;} .t-md{font-size:28px;} .t-sm{font-size:22px;}
+em{font-style:normal;color:#0578DC;}
+.slide--light em{color:#055AAA;}
+.body{font-size:14px;font-weight:400;line-height:1.6;opacity:.82;}
+
+/* ── accent color: Dodger Blue for text/icons, Sky Blue only for hero stats ── */
+.acc{color:#0578DC;}
+.acc-sky{color:#05D2FF;}
+
+/* ── icon inline ── */
+svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
+
+/* ── points list ── */
+.points{display:flex;flex-direction:column;gap:11px;margin-top:12px;}
+.pt{display:flex;gap:10px;align-items:flex-start;}
+.pt-ico{flex-shrink:0;margin-top:1px;}
+.pt-title{font-size:13px;font-weight:700;margin-bottom:2px;}
+.pt-text{font-size:12px;opacity:.68;line-height:1.45;}
+
+/* ── CLIP cards (slide 4) ── */
+.clip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px;}
+.clip-card{background:rgba(5,88,170,.07);border:1px solid rgba(5,88,170,.14);border-radius:10px;padding:16px 14px;}
+.clip-letter{font-size:42px;font-weight:700;color:#055AAA;line-height:1;margin-bottom:8px;}
+.clip-t{font-size:12px;font-weight:700;margin-bottom:5px;line-height:1.3;}
+.clip-d{font-size:11px;opacity:.65;line-height:1.45;}
+
+/* ── image placeholder ── */
+.img-ph{border:1.5px dashed rgba(5,120,220,.32);border-radius:10px;background:rgba(5,88,170,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;gap:10px;}
+.slide--light .img-ph{border-color:rgba(5,88,170,.2);background:rgba(5,88,170,.05);}
+.img-ph svg{width:30px;height:30px;opacity:.28;}
+.img-ph p{font-size:11px;opacity:.42;line-height:1.5;max-width:200px;}
+
+/* ── compare ── */
+.compare{width:100%;margin-top:18px;border-radius:10px;overflow:hidden;}
+.compare-row{display:grid;grid-template-columns:2fr 1fr 1fr;}
+.compare-head .compare-cell{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.45;background:rgba(5,120,220,.1);}
+.compare-cell{padding:13px 18px;border-bottom:1px solid rgba(255,255,255,.07);font-size:15px;}
+.compare-hi{font-weight:700;color:#0578DC;}
+.reduction{display:inline-flex;align-items:center;gap:10px;background:rgba(5,120,220,.12);border:1px solid rgba(5,120,220,.28);border-radius:8px;padding:12px 18px;margin-top:14px;}
+.red-n{font-size:28px;font-weight:700;color:#05D2FF;}
+.red-l{font-size:13px;opacity:.78;}
+
+/* ── stat cards ── */
+.stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;}
+.scard{border-radius:10px;padding:16px 18px;}
+.scard--dim{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);}
+.scard--acc{background:rgba(5,120,220,.12);border:1px solid rgba(5,120,220,.28);}
+.scard-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.5;margin-bottom:8px;}
+.scard--acc .scard-label{color:#0578DC;opacity:1;}
+.scard-text{font-size:12px;opacity:.78;line-height:1.5;}
+
+/* ── timeline ── */
+.tl-wrap{position:relative;margin-top:28px;}
+.tl-track{position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(5,120,220,.25);transform:translateY(-50%);}
+.tl-steps{display:flex;justify-content:space-between;position:relative;z-index:2;}
+.tstep{display:flex;flex-direction:column;align-items:center;width:210px;}
+.tstep__above,.tstep__below{min-height:88px;text-align:center;padding:0 6px;}
+.tstep__above{display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:10px;}
+.tstep__below{display:flex;flex-direction:column;justify-content:flex-start;padding-top:10px;}
+.tstep__dot{width:12px;height:12px;border-radius:50%;background:#0578DC;box-shadow:0 0 0 4px rgba(5,120,220,.2);flex-shrink:0;}
+.tstep__time{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0578DC;margin-bottom:3px;}
+.tstep__title{font-size:12px;font-weight:700;line-height:1.3;}
+.tstep__desc{font-size:10px;opacity:.58;line-height:1.4;margin-top:3px;}
+
+/* ── case stats ── */
+.case-stats{display:flex;flex-direction:column;gap:16px;}
+.csn{font-size:34px;font-weight:700;color:#05D2FF;line-height:1;letter-spacing:-.02em;}
+.csl{font-size:13px;opacity:.7;margin-top:2px;}
+
+/* ── value table ── */
+.vtable{width:100%;border-collapse:collapse;}
+.vtable td{padding:9px 0;font-size:13px;border-bottom:1px solid rgba(255,255,255,.07);}
+.vtable td:last-child{text-align:right;font-weight:600;color:#0578DC;}
+.vtable tr.hi td{font-size:14px;font-weight:700;color:#fff;}
+.vtable tr.hi td:last-child{color:#05D2FF;font-size:15px;}
+.vtable tr:last-child td{border-bottom:none;border-top:1.5px solid rgba(5,120,220,.35);padding-top:12px;font-size:15px;font-weight:700;}
+.vtable tr:last-child td:last-child{color:#05D2FF;}
+
+/* ── team ── */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px;}
+.tcard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:16px 14px;display:flex;flex-direction:column;gap:8px;}
+.tcard-icon{width:34px;height:34px;border-radius:8px;background:rgba(5,120,220,.15);display:flex;align-items:center;justify-content:center;}
+.tcard-role{font-size:12px;font-weight:700;color:#0578DC;}
+.tcard-cost{font-size:10px;font-weight:600;opacity:.45;}
+.tcard-desc{font-size:11px;opacity:.58;line-height:1.45;}
+.anchor-box{background:rgba(5,120,220,.1);border:1px solid rgba(5,120,220,.25);border-radius:10px;padding:12px 18px;margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.anchor-box p{font-size:12px;opacity:.8;line-height:1.5;}
+.anchor-box strong{color:#05D2FF;}
+
+/* ── big price ── */
+.big-price{font-size:68px;font-weight:700;color:#05D2FF;letter-spacing:-.03em;line-height:1;}
+
+/* ── badge ── */
+.badge-call{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#05D2FF;color:#051E32;margin-bottom:14px;}
+
+/* ── 3 plans ── */
+.plans-grid{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:12px;margin-top:0;}
+.pcard{border-radius:12px;padding:22px 20px;}
+.pcard--base{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);}
+.pcard--main{background:linear-gradient(145deg,rgba(5,88,170,.22) 0%,rgba(5,60,115,.3) 100%);border:2px solid rgba(5,120,220,.75);box-shadow:0 0 40px rgba(5,88,170,.2);}
+.pcard--prem{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);}
+.pcard-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;}
+.pcard-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0578DC;}
+.pcard-rec{background:#0578DC;color:#fff;font-size:8px;font-weight:700;padding:3px 8px;border-radius:100px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
+.pcard-name{font-size:14px;font-weight:700;margin-bottom:8px;}
+.pcard-price{font-size:22px;font-weight:700;color:#05D2FF;line-height:1;}
+.pcard-price span{font-size:11px;font-weight:400;opacity:.45;}
+.pcard-or{font-size:10px;opacity:.38;margin:3px 0;}
+.pcard-vista{font-size:14px;font-weight:600;margin-bottom:10px;}
+.pcard-list{list-style:none;font-size:11px;display:flex;flex-direction:column;gap:4px;}
+.pcard-list li{opacity:.72;display:flex;gap:5px;align-items:flex-start;line-height:1.4;margin-bottom:2px;}
+.pcard-list li::before{content:'→';color:#0578DC;font-weight:700;flex-shrink:0;}
+.plans-note{font-size:10px;opacity:.35;margin-top:8px;text-align:center;}
+
+/* ── chips (slide 5) ── */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+.chip{display:flex;align-items:center;gap:7px;background:rgba(5,120,220,.12);border:1px solid rgba(5,120,220,.25);border-radius:8px;padding:8px 14px;}
+.chip-label{font-size:12px;font-weight:600;color:#0578DC;}
+
+/* ── contraste: dark e hero têm fundo azul-escuro, Dodger Blue some — usar Sky Blue ── */
+.slide--dark em,.slide--hero em{color:#05D2FF;}
+.slide--dark .acc,.slide--hero .acc{color:#05D2FF;}
+.slide--dark .chip-label{color:#05D2FF;}
+.slide--dark .tcard-role{color:#05D2FF;}
+.slide--dark .tcard-cost{opacity:.72;}
+.slide--dark .scard--acc .scard-label{color:#05D2FF;opacity:1;}
+.slide--hero .tstep__time{color:#05D2FF;}
+.slide--dark .pt-title,.slide--hero .pt-title{opacity:1;}
+.slide--dark .pt-text,.slide--hero .pt-text{opacity:.85;}
+.slide--dark .overline,.slide--hero .overline,.slide--oxford .overline{opacity:.72;}
+.slide--dark .pcard-list li::before,.slide--hero .pcard-list li::before{color:#05D2FF;}
+.slide--dark .compare-hi,.slide--hero .compare-hi{color:#05D2FF;}
+</style>
+</head>
+<body>
+<div class="presentation">
+
+<!-- ══ 01 CAPA ══ -->
+<span class="slide-label">01 — Capa</span>
+<div class="slide slide--hero">
+  <div class="blob" style="width:420px;height:420px;bottom:-130px;right:-90px;"></div>
+  <div class="blob" style="width:160px;height:160px;top:40px;right:200px;"></div>
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="content content--center">
+    <p class="overline" style="margin-bottom:14px;">Programa de Aceleração</p>
+    <h1 class="title t-hero" style="margin-bottom:18px;">PRO <em style="color:#fff;font-style:italic;">Médicos</em><sup style="font-size:18px;opacity:.4;font-weight:400;vertical-align:super;letter-spacing:0;">®</sup></h1>
+    <p class="body" style="max-width:500px;text-align:center;font-size:15px;opacity:.68;">
+      Sistema de Escala Digital para Profissionais de Saúde.
+    </p>
+  </div>
+  <span class="pg">01</span>
+</div>
+
+<!-- ══ 02 DIAGNÓSTICO ══ -->
+<span class="slide-label">02 — O Diagnóstico</span>
+<div class="slide slide--oxford">
+  <div class="blob" style="width:320px;height:320px;bottom:-80px;right:-60px;"></div>
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="content">
+    <p class="overline">O diagnóstico</p>
+    <h2 class="title t-lg">A história que a gente <em>já conhece</em></h2>
+    <div style="display:flex;flex-direction:column;gap:16px;margin-top:4px;">
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <svg style="width:18px;height:18px;flex-shrink:0;margin-top:2px;stroke:#0578DC;fill:none;stroke-width:2;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p class="body" style="font-size:15px;">Agência. Freelancer. Curso. Por conta própria. Cada um prometeu. <strong>Poucos entregaram.</strong></p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <svg style="width:18px;height:18px;flex-shrink:0;margin-top:2px;stroke:#0578DC;fill:none;stroke-width:2;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p class="body" style="font-size:15px;">Investiu em anúncios sem estrutura. Criou conteúdo sem direção. <strong>Perdeu pacientes no caos.</strong></p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;margin-top:4px;">
+        <svg style="width:18px;height:18px;flex-shrink:0;margin-top:2px;stroke:#0578DC;fill:none;stroke-width:2;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <p class="body" style="font-size:16px;font-weight:700;color:#fff;opacity:1;">O problema nunca foi o digital. Foi a falta de um caminho.</p>
+      </div>
+    </div>
+  </div>
+  <span class="pg">02</span>
+</div>
+
+<!-- ══ 03 SOLUÇÃO ══ -->
+<span class="slide-label">03 — A Solução</span>
+<div class="slide slide--hero">
+  <div class="blob" style="width:360px;height:360px;bottom:-100px;right:-60px;"></div>
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="content">
+    <p class="overline">A solução</p>
+    <h2 class="title t-lg">Um caminho com <em>etapas claras</em></h2>
+    <div style="display:flex;flex-direction:column;gap:18px;margin-top:12px;max-width:620px;">
+      <div style="display:flex;gap:16px;align-items:center;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;font-weight:700;">1</div>
+        <p class="body" style="font-size:15px;">Antes de qualquer anúncio, existe um <strong>posicionamento claro</strong>.</p>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;font-weight:700;">2</div>
+        <p class="body" style="font-size:15px;">Antes de qualquer conteúdo, existe uma <strong>linha editorial</strong>.</p>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;font-weight:700;">3</div>
+        <p class="body" style="font-size:15px;">Só então a <strong>estrutura completa</strong> entra em ação — e funciona.</p>
+      </div>
+    </div>
+  </div>
+  <span class="pg">03</span>
+</div>
+
+<!-- ══ 04 CLIP ══ -->
+<span class="slide-label">04 — Metodologia CLIP</span>
+<div class="slide slide--light">
+  <img class="logo" src="../assets/ClintIA-MarcaRGB-Horiz-Cor.png" alt="ClintIA">
+  <div class="content">
+    <p class="overline" style="color:#051E32;">A metodologia</p>
+    <h2 class="title t-md" style="color:#051E32;">A Metodologia <em>CLIP</em></h2>
+    <p class="body" style="font-size:13px;max-width:680px;margin-bottom:0;">Criada para destravar o crescimento de profissionais de saúde que querem ser encontrados, respeitados e escolhidos.</p>
+    <div class="clip-grid">
+      <div class="clip-card"><div class="clip-letter">C</div><div class="clip-t">Conexão com os Pacientes Certos</div><div class="clip-d">Ser encontrado por quem procura exatamente o que você oferece.</div></div>
+      <div class="clip-card"><div class="clip-letter">L</div><div class="clip-t">Liderança na Sua Região</div><div class="clip-d">Ser a escolha óbvia antes mesmo do primeiro contato.</div></div>
+      <div class="clip-card"><div class="clip-letter">I</div><div class="clip-t">Inteligência no Conteúdo</div><div class="clip-d">Uma presença estratégica que comunica, atrai e converte.</div></div>
+      <div class="clip-card"><div class="clip-letter">P</div><div class="clip-t">Previsibilidade e Paz</div><div class="clip-d">Saber o que está funcionando e tomar decisões com segurança.</div></div>
+    </div>
+  </div>
+  <span class="pg" style="color:#051E32;">04</span>
+</div>
+
+<!-- ══ 05 IMERSÃO ══ -->
+<span class="slide-label">05 — Imersão de Partida</span>
+<div class="slide slide--dark">
+  <div class="blob" style="width:280px;height:280px;bottom:-60px;right:-40px;"></div>
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="content">
+    <p class="overline">Onde tudo começa</p>
+    <h2 class="title t-lg">Imersão de <em>Partida</em></h2>
+    <p class="body" style="max-width:580px;font-size:15px;margin-bottom:20px;">Sessão com especialista para entender quem você é, quem é seu paciente e onde você quer chegar.</p>
+    <div class="chips">
+      <div class="chip"><svg style="width:13px;height:13px;stroke:#0578DC;fill:none;stroke-width:2;" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="chip-label">Perfil do profissional</span></div>
+      <div class="chip"><svg style="width:13px;height:13px;stroke:#0578DC;fill:none;stroke-width:2;" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span class="chip-label">Paciente ideal</span></div>
+      <div class="chip"><svg style="width:13px;height:13px;stroke:#0578DC;fill:none;stroke-width:2;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="chip-label">Posicionamento</span></div>
+      <div class="chip"><svg style="width:13px;height:13px;stroke:#0578DC;fill:none;stroke-width:2;" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span class="chip-label">Procedimento com maior potencial</span></div>
+    </div>
+    <p style="margin-top:20px;font-size:13px;font-weight:700;color:#0578DC;">O resultado desta imersão vira o DPV — a base de toda a estrutura.</p>
+  </div>
+  <span class="pg">05</span>
+</div>
+
+<!-- ══ 06 DPV ══ -->
+<span class="slide-label">06 — DPV: O Coração da Metodologia</span>
+<div class="slide slide--oxford">
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="split split--45-55">
+    <div class="col col--l">
+      <p class="overline">O documento mais importante</p>
+      <h2 class="title t-md">DPV — <em>Dossiê de Posicionamento e Visibilidade</em></h2>
+      <p class="body" style="font-size:13px;margin-bottom:14px;">É o DNA da sua presença digital. Nenhuma ação é tomada sem o DPV pronto — ele orienta cada anúncio, cada conteúdo e cada palavra do seu site.</p>
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        <div style="display:flex;gap:9px;align-items:flex-start;"><svg style="width:13px;height:13px;flex-shrink:0;margin-top:2px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:12px;opacity:.82;">Quem você é e como se diferencia</span></div>
+        <div style="display:flex;gap:9px;align-items:flex-start;"><svg style="width:13px;height:13px;flex-shrink:0;margin-top:2px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:12px;opacity:.82;">Quem é o seu paciente ideal e o que ele busca</span></div>
+        <div style="display:flex;gap:9px;align-items:flex-start;"><svg style="width:13px;height:13px;flex-shrink:0;margin-top:2px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:12px;opacity:.82;">O que comunicar, como e para quem</span></div>
+        <div style="display:flex;gap:9px;align-items:flex-start;"><svg style="width:13px;height:13px;flex-shrink:0;margin-top:2px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:12px;opacity:.82;">Qual procedimento tem maior potencial de crescimento</span></div>
+      </div>
+    </div>
+    <div class="col col--r-center">
+      <!-- DPV hub diagram — all elements within 300×300 viewBox -->
+      <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
+        <!-- outer dashed ring at radius 100 -->
+        <circle cx="150" cy="150" r="100" fill="none" stroke="rgba(5,120,220,.2)" stroke-width="1.5" stroke-dasharray="5,5"/>
+        <!-- connector lines: center edge → node edge -->
+        <line x1="150" y1="107" x2="150" y2="76" stroke="rgba(5,120,220,.4)" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <line x1="193" y1="150" x2="224" y2="150" stroke="rgba(5,120,220,.4)" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <line x1="150" y1="193" x2="150" y2="224" stroke="rgba(5,120,220,.4)" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <line x1="107" y1="150" x2="76" y2="150" stroke="rgba(5,120,220,.4)" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <!-- center glow -->
+        <circle cx="150" cy="150" r="56" fill="rgba(5,120,220,.14)"/>
+        <!-- center circle -->
+        <circle cx="150" cy="150" r="43" fill="#0578DC"/>
+        <text x="150" y="146" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="17" font-weight="700" fill="white">DPV</text>
+        <text x="150" y="161" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="7" font-weight="600" fill="white" opacity=".65" letter-spacing="2">DIREÇÃO</text>
+        <!-- C — top (150, 50), radius 24 -->
+        <circle cx="150" cy="50" r="24" fill="#053C73" stroke="#0578DC" stroke-width="1.5"/>
+        <text x="150" y="58" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="20" font-weight="700" fill="#05D2FF">C</text>
+        <text x="150" y="82" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="8" fill="white" opacity=".48" font-weight="600" letter-spacing=".5">CONEXÃO</text>
+        <!-- L — right (250, 150), radius 24 -->
+        <circle cx="250" cy="150" r="24" fill="#053C73" stroke="#0578DC" stroke-width="1.5"/>
+        <text x="250" y="158" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="20" font-weight="700" fill="#05D2FF">L</text>
+        <text x="250" y="183" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="7.5" fill="white" opacity=".48" font-weight="600" letter-spacing=".5">LIDERANÇA</text>
+        <!-- I — bottom (150, 250), radius 24 -->
+        <circle cx="150" cy="250" r="24" fill="#053C73" stroke="#0578DC" stroke-width="1.5"/>
+        <text x="150" y="258" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="20" font-weight="700" fill="#05D2FF">I</text>
+        <text x="150" y="222" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="7.5" fill="white" opacity=".48" font-weight="600" letter-spacing=".5">CONTEÚDO</text>
+        <!-- P — left (50, 150), radius 24 -->
+        <circle cx="50" cy="150" r="24" fill="#053C73" stroke="#0578DC" stroke-width="1.5"/>
+        <text x="50" y="158" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="20" font-weight="700" fill="#05D2FF">P</text>
+        <text x="50" y="183" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="7.5" fill="white" opacity=".48" font-weight="600" letter-spacing=".5">PREVISIBIL.</text>
+      </svg>
+    </div>
+  </div>
+  <span class="pg">06</span>
+</div>
+
+<!-- ══ 07 PILAR C ══ -->
+<span class="slide-label">07 — Pilar C: Conexão</span>
+<div class="slide slide--dark">
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="split split--50">
+    <div class="col col--l">
+      <p class="overline">Pilar C</p>
+      <h3 class="title t-sm">Conexão com os <em>Pacientes Certos</em></h3>
+      <div class="points">
+        <div class="pt"><svg class="pt-ico" style="width:14px;height:14px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><div class="pt-body"><div class="pt-title">Aparecer para quem está procurando você</div><div class="pt-text">Os canais certos para o seu perfil — o paciente certo, no momento certo.</div></div></div>
+        <div class="pt"><svg class="pt-ico" style="width:14px;height:14px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div class="pt-body"><div class="pt-title">Presente no Google e recomendado por IAs</div><div class="pt-text">Seu site é otimizado para aparecer nas buscas e ser indicado por inteligências artificiais como ChatGPT, Gemini e Google AI Overview.</div></div></div>
+        <div class="pt"><svg class="pt-ico" style="width:14px;height:14px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><div class="pt-body"><div class="pt-title">Não perder quem já te conheceu</div><div class="pt-text">Reforçamos sua presença para quem já visitou seu perfil, reduzindo a chance de ir para outro profissional.</div></div></div>
+      </div>
+    </div>
+    <div class="col col--r" style="position:relative;padding:0;">
+      <!-- container posicionado absolutamente dentro da coluna → altura definida por inset, sem overflow -->
+      <div style="position:absolute;top:18px;bottom:24px;left:10px;right:42px;display:grid;grid-template-rows:3fr 2fr;gap:8px;">
+        <!-- linha superior: Instagram (40%) + Google Search (60%) -->
+        <div style="display:grid;grid-template-columns:40% 60%;gap:8px;">
+          <div style="border-radius:9px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.6);">
+            <img src="../input/1.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;">
+          </div>
+          <div style="border-radius:9px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.6);">
+            <img src="../input/2.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;">
+          </div>
+        </div>
+        <!-- linha inferior: AI Overview largura total -->
+        <div style="border-radius:9px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.6);">
+          <img src="../input/3.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="pg">07</span>
+</div>
+
+<!-- ══ 08 PILAR L ══ -->
+<span class="slide-label">08 — Pilar L: Liderança</span>
+<div class="slide slide--hero">
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="split split--50">
+    <div class="col col--l">
+      <p class="overline">Pilar L</p>
+      <h3 class="title t-sm">Liderança na <em>Sua Região</em></h3>
+      <div class="points">
+        <div class="pt"><svg class="pt-ico" style="width:14px;height:14px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><div class="pt-body"><div class="pt-title">A escolha óbvia antes do primeiro contato</div><div class="pt-text">Percepção imediata de autoridade para que o paciente já chegue até você com a decisão tomada.</div></div></div>
+        <div class="pt"><svg class="pt-ico" style="width:14px;height:14px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div class="pt-body"><div class="pt-title">Avaliações que constroem sua autoridade</div><div class="pt-text">Seu Google Meu Negócio concentra avaliações verdadeiras que convencem antes de qualquer conversa.</div></div></div>
+        <div class="pt"><svg class="pt-ico" style="width:14px;height:14px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><div class="pt-body"><div class="pt-title">Uma presença que nunca dorme</div><div class="pt-text">Seu Instagram funciona como uma recepção sempre aberta — apresenta sua especialidade e facilita o contato.</div></div></div>
+      </div>
+    </div>
+    <div class="col col--r" style="justify-content:center;">
+      <div class="img-ph" style="height:360px;"><!-- Cloudinary: substituir pela URL da imagem -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        <p>Google Meu Negócio com avaliações · Perfil profissional no Instagram</p>
+      </div>
+    </div>
+  </div>
+  <span class="pg">08</span>
+</div>
+
+<!-- ══ 09 PILAR I ══ -->
+<span class="slide-label">09 — Pilar I: Inteligência no Conteúdo</span>
+<div class="slide slide--dark">
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="split split--50">
+    <div class="col col--l">
+      <p class="overline">Pilar I</p>
+      <h3 class="title t-sm">Inteligência no <em>Conteúdo</em></h3>
+      <div class="points">
+        <div class="pt"><svg class="pt-ico" style="width:14px;height:14px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><div class="pt-body"><div class="pt-title">20 conteúdos estratégicos prontos</div><div class="pt-text">10 vídeos, 5 carrosséis e 5 estáticos — todos alinhados ao seu posicionamento e paciente ideal.</div></div></div>
+        <div class="pt"><svg class="pt-ico" style="width:14px;height:14px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><div class="pt-body"><div class="pt-title">Destaques fixados estruturados</div><div class="pt-text">A primeira impressão do seu perfil organizada para transmitir autoridade e facilitar o contato.</div></div></div>
+        <div class="pt"><svg class="pt-ico" style="width:14px;height:14px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg><div class="pt-body"><div class="pt-title">Linha editorial completa</div><div class="pt-text">Com quem você vai falar, sobre o que vai falar e por que — a base de toda a comunicação.</div></div></div>
+      </div>
+    </div>
+    <div class="col col--r" style="justify-content:center;">
+      <div class="img-ph" style="height:360px;"><!-- Cloudinary: substituir pela URL da imagem -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        <p>Grade Instagram · Destaques · Exemplos de carrosséis e vídeos</p>
+      </div>
+    </div>
+  </div>
+  <span class="pg">09</span>
+</div>
+
+<!-- ══ 10 PILAR P ══ -->
+<span class="slide-label">10 — Pilar P: Previsibilidade</span>
+<div class="slide slide--hero">
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="split split--50">
+    <div class="col col--l">
+      <p class="overline">Pilar P</p>
+      <h3 class="title t-sm">Previsibilidade e <em>Paz</em></h3>
+      <div class="points">
+        <div class="pt"><svg class="pt-ico" style="width:14px;height:14px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><div class="pt-body"><div class="pt-title">Decisões baseadas em dados reais</div><div class="pt-text">Quantos pacientes chegaram, quanto custou cada um e qual canal traz mais resultado.</div></div></div>
+        <div class="pt"><svg class="pt-ico" style="width:14px;height:14px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><div class="pt-body"><div class="pt-title">Visibilidade sobre o que funciona</div><div class="pt-text">Entenda quais canais estão trazendo pacientes e onde seu investimento gera mais retorno.</div></div></div>
+        <div class="pt"><svg class="pt-ico" style="width:14px;height:14px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><div class="pt-body"><div class="pt-title">Investimento com direção</div><div class="pt-text">Com clareza, você sabe onde vale mais — e onde parar de gastar. Cada real alocado com intenção.</div></div></div>
+      </div>
+    </div>
+    <div class="col col--r" style="justify-content:center;">
+      <div class="img-ph" style="height:360px;"><!-- Cloudinary: substituir pela URL da imagem -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        <p>Dashboard com origem dos pacientes e custo de captação</p>
+      </div>
+    </div>
+  </div>
+  <span class="pg">10</span>
+</div>
+
+<!-- ══ 11 PERCEPÇÃO DE VALOR ══ -->
+<span class="slide-label">11 — Preço vs. Percepção de Valor</span>
+<div class="slide slide--oxford">
+  <div class="blob" style="width:300px;height:300px;bottom:-80px;right:-50px;"></div>
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="content" style="padding:60px 52px 32px;">
+    <p class="overline">O que separa um médico do outro</p>
+    <h2 class="title t-lg" style="margin-bottom:18px;"><em>Preço</em> é o que você cobra. <em>Valor</em> é o que o paciente percebe.</h2>
+
+    <!-- Comparison row -->
+    <div style="display:flex;gap:12px;align-items:stretch;margin-bottom:12px;">
+
+      <!-- Sem posicionamento -->
+      <div style="flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:18px 20px;">
+        <div style="font-size:8px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.3;margin-bottom:10px;">Sem posicionamento</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);flex-shrink:0;"></div>
+          <div>
+            <div style="font-size:11px;font-weight:600;opacity:.4;">Dr. João Silva</div>
+            <div style="font-size:9px;opacity:.25;">Cardiologista</div>
+          </div>
+        </div>
+        <div style="font-size:40px;font-weight:700;color:rgba(255,255,255,.22);letter-spacing:-.02em;line-height:1;margin-bottom:3px;">R$ 150</div>
+        <div style="font-size:9px;opacity:.28;margin-bottom:10px;">a consulta</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="font-size:9px;opacity:.3;display:flex;gap:6px;"><span style="color:rgba(255,100,100,.5);font-weight:700;">×</span>Comunicação genérica</div>
+          <div style="font-size:9px;opacity:.3;display:flex;gap:6px;"><span style="color:rgba(255,100,100,.5);font-weight:700;">×</span>Sem diferencial percebido</div>
+          <div style="font-size:9px;opacity:.3;display:flex;gap:6px;"><span style="color:rgba(255,100,100,.5);font-weight:700;">×</span>Concorre só por preço</div>
+        </div>
+      </div>
+
+      <!-- Central arrow -->
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;flex-shrink:0;width:72px;">
+        <div style="background:rgba(5,120,220,.16);border:1px solid rgba(5,120,220,.4);border-radius:9px;padding:7px 10px;text-align:center;width:100%;">
+          <div style="font-size:15px;font-weight:700;color:#05D2FF;line-height:1;">4×</div>
+          <div style="font-size:7px;opacity:.55;line-height:1.3;margin-top:1px;">mais valor<br>percebido</div>
+        </div>
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="none">
+          <line x1="0" y1="6" x2="13" y2="6" stroke="rgba(5,120,220,.45)" stroke-width="1.5"/>
+          <polyline points="10,2 16,6 10,10" stroke="rgba(5,120,220,.55)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- Com PRO Médicos -->
+      <div style="flex:1;background:rgba(5,120,220,.1);border:2px solid rgba(5,120,220,.4);border-radius:13px;padding:18px 20px;">
+        <div style="font-size:8px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#0578DC;margin-bottom:10px;">Com PRO Médicos®</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:34px;height:34px;border-radius:50%;background:#0578DC;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:#fff;">Dr. João Silva</div>
+            <div style="font-size:9px;color:#0578DC;font-weight:500;">Referência em cardiologia preventiva</div>
+          </div>
+        </div>
+        <div style="font-size:40px;font-weight:700;color:#05D2FF;letter-spacing:-.02em;line-height:1;margin-bottom:3px;">R$ 600</div>
+        <div style="font-size:9px;opacity:.65;margin-bottom:10px;">a consulta · lista de espera: 3 semanas</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="font-size:9px;color:#0578DC;display:flex;gap:6px;"><span style="font-weight:700;">✓</span>Autoridade reconhecida na especialidade</div>
+          <div style="font-size:9px;color:#0578DC;display:flex;gap:6px;"><span style="font-weight:700;">✓</span>Paciente chega convicto — não pechincha</div>
+          <div style="font-size:9px;color:#0578DC;display:flex;gap:6px;"><span style="font-weight:700;">✓</span>Escolhido pelo valor, não pelo menor preço</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3 key cards -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px;">
+      <div style="background:rgba(5,120,220,.08);border:1px solid rgba(5,120,220,.18);border-radius:8px;padding:10px 12px;">
+        <div style="font-size:9px;font-weight:700;color:#0578DC;margin-bottom:3px;">Estudo de público</div>
+        <div style="font-size:8.5px;opacity:.58;line-height:1.4;">Sabemos o que o paciente busca e o que o faz decidir pela consulta.</div>
+      </div>
+      <div style="background:rgba(5,120,220,.08);border:1px solid rgba(5,120,220,.18);border-radius:8px;padding:10px 12px;">
+        <div style="font-size:9px;font-weight:700;color:#0578DC;margin-bottom:3px;">Comunicação estratégica</div>
+        <div style="font-size:8.5px;opacity:.58;line-height:1.4;">Como você se apresenta define quanto o paciente está disposto a pagar.</div>
+      </div>
+      <div style="background:rgba(5,120,220,.08);border:1px solid rgba(5,120,220,.18);border-radius:8px;padding:10px 12px;">
+        <div style="font-size:9px;font-weight:700;color:#0578DC;margin-bottom:3px;">Posicionamento de referência</div>
+        <div style="font-size:8.5px;opacity:.58;line-height:1.4;">Referência cobra mais, espera menos e atrai exatamente quem quer.</div>
+      </div>
+    </div>
+
+  </div>
+  <span class="pg">11</span>
+</div>
+
+<!-- ══ 12 RETORNO ══ -->
+<span class="slide-label">12 — Retorno em 2,5 Meses</span>
+<div class="slide slide--dark">
+  <div class="blob" style="width:300px;height:300px;bottom:-80px;right:-50px;"></div>
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="content">
+    <p class="overline">Retorno sobre o investimento</p>
+    <h2 class="title t-md">Retorno em <em>2,5 Meses</em></h2>
+    <p class="body" style="margin-bottom:16px;max-width:640px;">Menos de 10 pacientes adicionais no ano pagam o investimento completo.</p>
+    <div class="stat3">
+      <div class="scard scard--dim"><div class="scard-label">Aceleração imediata</div><div class="scard-text">Custo por paciente reduzido + estrutura sólida = aumento de agendamentos consistente.</div></div>
+      <div class="scard scard--dim"><div class="scard-label">Resultado a partir do 3º mês</div><div class="scard-text">Cada nova consulta gerada pela estrutura é resultado direto no caixa.</div></div>
+      <div class="scard scard--acc"><div class="scard-label">A matemática da escala</div><div class="scard-text">O programa se paga com velocidade — sem precisar de um grande volume de pacientes novos.</div></div>
+    </div>
+  </div>
+  <span class="pg">12</span>
+</div>
+
+<!-- ══ 13 CRONOGRAMA ══ -->
+<span class="slide-label">13 — Cronograma: 45 Dias</span>
+<div class="slide slide--hero">
+  <div class="blob" style="width:300px;height:300px;bottom:-80px;right:-50px;"></div>
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="content">
+    <p class="overline">A estrutura pronta em</p>
+    <h2 class="title t-md">A Estrutura Pronta em <em>45 Dias</em></h2>
+    <div class="tl-wrap">
+      <div class="tl-track"></div>
+      <div class="tl-steps">
+        <div class="tstep"><div class="tstep__above"><div class="tstep__time">Dias 1–10</div><div class="tstep__title">Imersão + DPV</div><div class="tstep__desc">Diagnóstico e produção do Dossiê de Posicionamento e Visibilidade.</div></div><div class="tstep__dot"></div><div class="tstep__below"></div></div>
+        <div class="tstep"><div class="tstep__above"></div><div class="tstep__dot"></div><div class="tstep__below"><div class="tstep__time">Dias 11–25</div><div class="tstep__title">Fundação Digital</div><div class="tstep__desc">Site otimizado para Google e IA, Google Meu Negócio e conteúdos base publicados.</div></div></div>
+        <div class="tstep"><div class="tstep__above"><div class="tstep__time">Dias 26–35</div><div class="tstep__title">Conteúdo + Automação</div><div class="tstep__desc">20 conteúdos prontos, linha editorial e automação de atendimento.</div></div><div class="tstep__dot"></div><div class="tstep__below"></div></div>
+        <div class="tstep"><div class="tstep__above"></div><div class="tstep__dot"></div><div class="tstep__below"><div class="tstep__time">Dias 36–45</div><div class="tstep__title">Lançamento dos Anúncios</div><div class="tstep__desc">Google Ads e Meta Ads no ar. Estrutura completa e funcionando.</div></div></div>
+      </div>
+    </div>
+  </div>
+  <span class="pg">13</span>
+</div>
+
+<!-- ══ 14–17 CASES ══ -->
+<span class="slide-label">14 — Case: Dr. Alessandro Almeida</span>
+<div class="slide slide--oxford">
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="split split--50">
+    <div class="col col--l" style="justify-content:center;"><div class="img-ph" style="height:370px;"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Antes e depois — @alessandroneuro</p></div></div>
+    <div class="col col--r"><p class="overline">Case de resultado</p><h3 class="title t-sm">Dr. Alessandro Almeida<br><em>Neurocirurgião</em></h3><div class="case-stats" style="margin-top:14px;"><div><div class="csn">+4.200</div><div class="csl">seguidores qualificados da região em 3 meses</div></div><div><div class="csn">-45%</div><div class="csl">no custo de captação de pacientes</div></div><div><div class="csn">8,5×</div><div class="csl">de retorno sobre cada real investido em anúncios</div></div></div></div>
+  </div>
+  <span class="pg">14</span>
+</div>
+
+<span class="slide-label">15 — Case: Dr. Lucas Nunes</span>
+<div class="slide slide--dark">
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="split split--50">
+    <div class="col col--l" style="justify-content:center;"><div class="img-ph" style="height:370px;"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Antes e depois — @dr.lucas.nunes</p></div></div>
+    <div class="col col--r"><p class="overline">Case de resultado</p><h3 class="title t-sm">Dr. Lucas Nunes<br><em>Cirurgião Plástico</em></h3><div class="case-stats" style="margin-top:14px;"><div><div class="csn">+60.000</div><div class="csl">seguidores qualificados em 2 anos</div></div><div><div class="csn">-48%</div><div class="csl">no custo de captação de pacientes</div></div><div><div class="csn">11,5×</div><div class="csl">de retorno sobre cada real investido em anúncios</div></div></div></div>
+  </div>
+  <span class="pg">15</span>
+</div>
+
+<span class="slide-label">16 — Case: Dra. Luciana Gomes</span>
+<div class="slide slide--oxford">
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="split split--50">
+    <div class="col col--l" style="justify-content:center;"><div class="img-ph" style="height:370px;"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Antes e depois — @dralucianag</p></div></div>
+    <div class="col col--r"><p class="overline">Case de resultado</p><h3 class="title t-sm">Dra. Luciana Gomes<br><em>Médica Homeopata</em></h3><div class="case-stats" style="margin-top:14px;"><div><div class="csn">+1.000</div><div class="csl">seguidores qualificados da região em 2 meses</div></div><div><div class="csn">-28%</div><div class="csl">no custo de captação de pacientes</div></div><div><div class="csn">3,8×</div><div class="csl">de retorno sobre cada real investido em anúncios</div></div></div></div>
+  </div>
+  <span class="pg">16</span>
+</div>
+
+<span class="slide-label">17 — Case: Dra. Gabriela Rabello</span>
+<div class="slide slide--dark">
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="split split--50">
+    <div class="col col--l" style="justify-content:center;"><div class="img-ph" style="height:370px;"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Antes e depois — @dra.gabrielarabello</p></div></div>
+    <div class="col col--r"><p class="overline">Case de resultado</p><h3 class="title t-sm">Dra. Gabriela Rabello<br><em>Médica Homeopata</em></h3><div class="case-stats" style="margin-top:14px;"><div><div class="csn">+12.000</div><div class="csl">seguidores qualificados em 2 anos</div></div><div><div class="csn">-25%</div><div class="csl">no custo de captação de pacientes</div></div><div><div class="csn">4,2×</div><div class="csl">de retorno sobre cada real investido em anúncios</div></div></div></div>
+  </div>
+  <span class="pg">17</span>
+</div>
+
+<!-- ══ 18 ANCORAGEM ══ -->
+<span class="slide-label">18 — Ancoragem de Valor</span>
+<div class="slide slide--oxford">
+  <div class="blob" style="width:280px;height:280px;bottom:-60px;right:-40px;"></div>
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="content">
+    <p class="overline">O que cada entrega valeria, se fosse separado</p>
+    <h2 class="title t-md" style="margin-bottom:16px;">Valor da <em>Estrutura Completa</em></h2>
+    <table class="vtable">
+      <tr class="hi"><td>DPV + Linha editorial + Posicionamento completo</td><td>R$ 3.500</td></tr>
+      <tr><td>Criação de site otimizado para Google e IA</td><td>R$ 2.500</td></tr>
+      <tr><td>20 conteúdos estratégicos (vídeos, carrosséis, estáticos)</td><td>R$ 2.000</td></tr>
+      <tr><td>Gestão de anúncios Google Ads + Meta Ads</td><td>R$ 1.800</td></tr>
+      <tr><td>Google Meu Negócio + Identidade visual + Automação</td><td>R$ 1.200</td></tr>
+      <tr><td><strong>Total se fosse separado</strong></td><td><strong>R$ 11.000</strong></td></tr>
+    </table>
+  </div>
+  <span class="pg">18</span>
+</div>
+
+<!-- ══ 19 EQUIPE ══ -->
+<span class="slide-label">19 — Equipe</span>
+<div class="slide slide--dark">
+  <div class="blob" style="width:280px;height:280px;bottom:-70px;right:-50px;"></div>
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="content" style="padding-top:68px;padding-bottom:28px;">
+    <p class="overline">Você não contrata uma agência genérica</p>
+    <h2 class="title t-md" style="font-size:24px;margin-bottom:12px;">Uma equipe com <em>foco exclusivo em saúde</em></h2>
+    <div class="team-grid">
+      <div class="tcard">
+        <div class="tcard-icon"><svg style="width:16px;height:16px;stroke:#0578DC;fill:none;stroke-width:2;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="tcard-role">Gerente de Projetos</div>
+        <div class="tcard-cost">R$ 5.000–8.000/mês no mercado</div>
+        <div class="tcard-desc">Seu contato direto. Garante a entrega no prazo e protege seus resultados.</div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-icon"><svg style="width:16px;height:16px;stroke:#0578DC;fill:none;stroke-width:2;" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <div class="tcard-role">Gestor de Tráfego</div>
+        <div class="tcard-cost">R$ 3.500–5.500/mês no mercado</div>
+        <div class="tcard-desc">Opera Google Ads e Meta Ads reduzindo o custo de captação dia a dia.</div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-icon"><svg style="width:16px;height:16px;stroke:#0578DC;fill:none;stroke-width:2;" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+        <div class="tcard-role">Estrategista de Conteúdo</div>
+        <div class="tcard-cost">R$ 3.000–5.000/mês no mercado</div>
+        <div class="tcard-desc">Produz a linha editorial e os 20 conteúdos estratégicos do seu perfil.</div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-icon"><svg style="width:16px;height:16px;stroke:#0578DC;fill:none;stroke-width:2;" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <div class="tcard-role">Desenvolvedor Web</div>
+        <div class="tcard-cost">R$ 5.000–10.000 por projeto</div>
+        <div class="tcard-desc">Especializado em performance, segurança e posicionamento no Google.</div>
+      </div>
+    </div>
+    <div class="anchor-box">
+      <p>Montar esta equipe por conta própria custaria entre <strong>R$ 16.500 e R$ 28.500 por mês</strong> — só em folha de pagamento. No PRO Médicos®, toda essa estrutura está incluída no investimento.</p>
+    </div>
+  </div>
+  <span class="pg">19</span>
+</div>
+
+<!-- ══ 20 VALOR DE TABELA ══ -->
+<span class="slide-label">20 — Investimento em Implementação</span>
+<div class="slide slide--hero">
+  <div class="blob" style="width:380px;height:380px;bottom:-110px;right:-70px;"></div>
+  <div class="blob" style="width:160px;height:160px;top:40px;right:200px;"></div>
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="content content--center">
+    <p class="overline" style="margin-bottom:10px;">Implementação Completa PRO Médicos®</p>
+    <p style="font-size:13px;opacity:.48;margin-bottom:20px;">Setup completo e no ar em 45 dias. O seu ativo digital passa a ser 100% seu.</p>
+    <div class="big-price">R$ 6.900,00</div>
+    <p style="font-size:11px;opacity:.32;margin-top:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;">Valor de Tabela</p>
+  </div>
+  <span class="pg">20</span>
+</div>
+
+<!-- ══ 21 OS 3 PLANOS ══ -->
+<span class="slide-label">21 — Condição Exclusiva desta Reunião</span>
+<div class="slide slide--oxford">
+  <div class="blob" style="width:320px;height:320px;bottom:-90px;right:-60px;"></div>
+  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <div class="content" style="padding-top:68px;padding-bottom:28px;">
+    <div class="badge-call">
+      <svg style="width:12px;height:12px;stroke:#051E32;fill:none;stroke-width:2.5;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Economize R$ 2.000 — oferta válida exclusivamente para fechamento nesta call
+    </div>
+    <div class="plans-grid">
+      <div class="pcard pcard--base">
+        <div class="pcard-header"><div class="pcard-tag">PRO Médicos® — Básico</div></div>
+        <div class="pcard-name">Fundação Digital</div>
+        <div class="pcard-price">12× R$ 229<span>/mês</span></div>
+        <div class="pcard-or">ou à vista por</div>
+        <div class="pcard-vista">R$ 2.200</div>
+        <ul class="pcard-list">
+          <li>Imersão de Partida + DPV</li>
+          <li>Google Meu Negócio estruturado</li>
+          <li>10 conteúdos prontos (estáticos)</li>
+          <li>Destaques fixados</li>
+          <li>Identidade visual (se não tiver)*</li>
+        </ul>
+      </div>
+      <div class="pcard pcard--main">
+        <div class="pcard-header"><div class="pcard-tag">PRO Médicos® — Intermediário</div><span class="pcard-rec">Recomendado</span></div>
+        <div class="pcard-name">Escala Completa</div>
+        <div class="pcard-price">12× R$ 470<span>/mês</span></div>
+        <div class="pcard-or">ou à vista por</div>
+        <div class="pcard-vista" style="color:#05D2FF;font-size:16px;font-weight:700;">R$ 4.900 *</div>
+        <ul class="pcard-list">
+          <li>Tudo do Plano Básico</li>
+          <li>20 conteúdos (10 vídeos, 5 carrosséis, 5 estáticos)</li>
+          <li>Google Ads + Meta Ads</li>
+          <li>Site otimizado para Google e IA</li>
+          <li>Automação de atendimento</li>
+          <li>Identidade visual (se não tiver)*</li>
+        </ul>
+      </div>
+      <div class="pcard pcard--prem">
+        <div class="pcard-header"><div class="pcard-tag">PRO Médicos® — Avançado</div></div>
+        <div class="pcard-name">Autoridade Total</div>
+        <div class="pcard-price">12× R$ 790<span>/mês</span></div>
+        <div class="pcard-or">ou à vista por</div>
+        <div class="pcard-vista">R$ 7.900</div>
+        <ul class="pcard-list">
+          <li>Tudo do Plano Intermediário</li>
+          <li>Captação de imagem e vídeo profissional</li>
+          <li>Perfil LinkedIn profissional</li>
+          <li>Canal YouTube configurado</li>
+          <li>5 vídeos longos para YouTube</li>
+          <li>Identidade visual completa*</li>
+        </ul>
+      </div>
+    </div>
+    <p class="plans-note">* Identidade visual incluída em todos os planos para quem ainda não possui. &nbsp;|&nbsp; * À vista com desconto adicional em relação ao parcelado.</p>
+  </div>
+  <span class="pg">21</span>
+</div>
+
+</div>
+</body>
+</html>
