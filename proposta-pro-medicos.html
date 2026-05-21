@@ -1,174 +1,628 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PRO Médicos® — Proposta Comercial ClintIA</title>
-<link rel="stylesheet" href="../assets/colors_and_type.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
 <style>
-@font-face{font-family:'Red Hat Display';src:url("../assets/fonts/RedHatDisplay-Regular.ttf") format('truetype');font-weight:400;}
-@font-face{font-family:'Red Hat Display';src:url("../assets/fonts/RedHatDisplay-Medium.ttf") format('truetype');font-weight:500;}
-@font-face{font-family:'Red Hat Display';src:url("../assets/fonts/RedHatDisplay-Bold.ttf") format('truetype');font-weight:700;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Red Hat Display',sans-serif;background:#07111f;}
+*,*::before,*::after {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+body {
+    font-family:'Red Hat Display',sans-serif;
+    background:#07111f;
+}
 
 /* ── layout ── */
-.presentation{display:flex;flex-direction:column;align-items:center;gap:20px;padding:40px 24px;}
-.slide-label{width:960px;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#304d66;}
-.slide{width:960px;height:540px;position:relative;overflow:hidden;border-radius:12px;box-shadow:0 16px 64px rgba(5,30,50,.65);flex-shrink:0;}
+.presentation {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    padding:40px 24px;
+}
+.slide-label {
+    width:960px;
+    font-size:10px;
+    font-weight:500;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#304d66;
+}
+.slide {
+    width:960px;
+    height:540px;
+    position:relative;
+    overflow:hidden;
+    border-radius:12px;
+    box-shadow:0 16px 64px rgba(5,30,50,.65);
+    flex-shrink:0;
+}
+
 .slide--hero  {background:linear-gradient(135deg,#055AAA 0%,#053C73 100%);color:#fff;}
 .slide--dark  {background:#053C73;color:#fff;}
 .slide--oxford{background:#051E32;color:#fff;}
 .slide--light {background:#fff;color:#051E32;}
-.blob{position:absolute;border-radius:50%;background:currentColor;opacity:.06;}
-.logo{position:absolute;top:28px;left:56px;height:30px;width:auto;z-index:5;}
-.pg{position:absolute;bottom:22px;right:56px;font-size:10px;font-weight:500;opacity:.28;z-index:5;}
-.content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:72px 56px 44px;}
-.content--center{align-items:center;text-align:center;}
-.split{position:absolute;inset:0;z-index:2;display:grid;padding-top:66px;}
-.split--50{grid-template-columns:1fr 1fr;}
-.split--45-55{grid-template-columns:9fr 11fr;}
-.col{display:flex;flex-direction:column;justify-content:center;}
-.col--l{padding:16px 32px 32px 56px;}
-.col--r{padding:16px 56px 32px 16px;}
-.col--r-center{padding:16px 56px 32px 16px;align-items:center;justify-content:center;}
+
+.blob {
+    position:absolute;
+    border-radius:50%;
+    background:currentColor;
+    opacity:.06;
+}
+.logo {
+    position:absolute;
+    top:28px;
+    left:56px;
+    height:30px;
+    width:auto;
+    z-index:5;
+}
+.pg {
+    position:absolute;
+    bottom:22px;
+    right:56px;
+    font-size:10px;
+    font-weight:500;
+    opacity:.28;
+    z-index:5;
+}
+
+.content {
+    position:absolute;
+    inset:0;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:72px 56px 44px;
+}
+.content--center {
+    align-items:center;
+    text-align:center;
+}
+.split {
+    position:absolute;
+    inset:0;
+    z-index:2;
+    display:grid;
+    padding-top:66px;
+}
+.split--50 {grid-template-columns:1fr 1fr;}
+.split--45-55 {grid-template-columns:9fr 11fr;}
+.col {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.col--l {padding:16px 32px 32px 56px;}
+.col--r {padding:16px 56px 32px 16px;}
+.col--r-center {
+    padding:16px 56px 32px 16px;
+    align-items:center;
+    justify-content:center;
+}
 
 /* ── typography ── */
-.overline{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;opacity:.48;margin-bottom:10px;}
-.title{font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:14px;}
-.t-hero{font-size:62px;} .t-xl{font-size:46px;} .t-lg{font-size:38px;} .t-md{font-size:28px;} .t-sm{font-size:22px;}
-em{font-style:normal;color:#0578DC;}
-.slide--light em{color:#055AAA;}
-.body{font-size:14px;font-weight:400;line-height:1.6;opacity:.82;}
+.overline {
+    font-size:10px;
+    font-weight:500;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    opacity:.48;
+    margin-bottom:10px;
+}
+.title {
+    font-weight:700;
+    line-height:1.1;
+    letter-spacing:-.02em;
+    margin-bottom:14px;
+}
+.t-hero {font-size:62px;} 
+.t-xl {font-size:46px;} 
+.t-lg {font-size:38px;} 
+.t-md {font-size:28px;} 
+.t-sm {font-size:22px;}
+em {font-style:normal;color:#0578DC;}
+.slide--light em {color:#055AAA;}
+.body {
+    font-size:14px;
+    font-weight:400;
+    line-height:1.6;
+    opacity:.82;
+}
 
-/* ── accent color: Dodger Blue for text/icons, Sky Blue only for hero stats ── */
-.acc{color:#0578DC;}
-.acc-sky{color:#05D2FF;}
+/* ── accent color ── */
+.acc {color:#0578DC;}
+.acc-sky {color:#05D2FF;}
 
 /* ── icon inline ── */
-svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
+svg.ico {
+    display:inline-block;
+    vertical-align:middle;
+    fill:none;
+    stroke-width:2;
+}
 
 /* ── points list ── */
-.points{display:flex;flex-direction:column;gap:11px;margin-top:12px;}
-.pt{display:flex;gap:10px;align-items:flex-start;}
-.pt-ico{flex-shrink:0;margin-top:1px;}
-.pt-title{font-size:13px;font-weight:700;margin-bottom:2px;}
-.pt-text{font-size:12px;opacity:.68;line-height:1.45;}
+.points {
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+    margin-top:12px;
+}
+.pt {
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+}
+.pt-ico {
+    flex-shrink:0;
+    margin-top:1px;
+}
+.pt-title {
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:2px;
+}
+.pt-text {
+    font-size:12px;
+    opacity:.68;
+    line-height:1.45;
+}
 
 /* ── CLIP cards (slide 4) ── */
-.clip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px;}
-.clip-card{background:rgba(5,88,170,.07);border:1px solid rgba(5,88,170,.14);border-radius:10px;padding:16px 14px;}
-.clip-letter{font-size:42px;font-weight:700;color:#055AAA;line-height:1;margin-bottom:8px;}
-.clip-t{font-size:12px;font-weight:700;margin-bottom:5px;line-height:1.3;}
-.clip-d{font-size:11px;opacity:.65;line-height:1.45;}
+.clip-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:18px;
+}
+.clip-card {
+    background:rgba(5,88,170,.07);
+    border:1px solid rgba(5,88,170,.14);
+    border-radius:10px;
+    padding:16px 14px;
+}
+.clip-letter {
+    font-size:42px;
+    font-weight:700;
+    color:#055AAA;
+    line-height:1;
+    margin-bottom:8px;
+}
+.clip-t {
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:5px;
+    line-height:1.3;
+}
+.clip-d {
+    font-size:11px;
+    opacity:.65;
+    line-height:1.45;
+}
 
 /* ── image placeholder ── */
-.img-ph{border:1.5px dashed rgba(5,120,220,.32);border-radius:10px;background:rgba(5,88,170,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;gap:10px;}
-.slide--light .img-ph{border-color:rgba(5,88,170,.2);background:rgba(5,88,170,.05);}
-.img-ph svg{width:30px;height:30px;opacity:.28;}
-.img-ph p{font-size:11px;opacity:.42;line-height:1.5;max-width:200px;}
-
-/* ── compare ── */
-.compare{width:100%;margin-top:18px;border-radius:10px;overflow:hidden;}
-.compare-row{display:grid;grid-template-columns:2fr 1fr 1fr;}
-.compare-head .compare-cell{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.45;background:rgba(5,120,220,.1);}
-.compare-cell{padding:13px 18px;border-bottom:1px solid rgba(255,255,255,.07);font-size:15px;}
-.compare-hi{font-weight:700;color:#0578DC;}
-.reduction{display:inline-flex;align-items:center;gap:10px;background:rgba(5,120,220,.12);border:1px solid rgba(5,120,220,.28);border-radius:8px;padding:12px 18px;margin-top:14px;}
-.red-n{font-size:28px;font-weight:700;color:#05D2FF;}
-.red-l{font-size:13px;opacity:.78;}
+.img-ph {
+    border:1.5px dashed rgba(5,120,220,.32);
+    border-radius:10px;
+    background:rgba(5,88,170,.1);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    gap:10px;
+}
+.slide--light .img-ph {
+    border-color:rgba(5,88,170,.2);
+    background:rgba(5,88,170,.05);
+}
+.img-ph svg {
+    width:30px;
+    height:30px;
+    opacity:.28;
+}
+.img-ph p {
+    font-size:11px;
+    opacity:.42;
+    line-height:1.5;
+    max-width:200px;
+}
 
 /* ── stat cards ── */
-.stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;}
-.scard{border-radius:10px;padding:16px 18px;}
-.scard--dim{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);}
-.scard--acc{background:rgba(5,120,220,.12);border:1px solid rgba(5,120,220,.28);}
-.scard-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.5;margin-bottom:8px;}
-.scard--acc .scard-label{color:#0578DC;opacity:1;}
-.scard-text{font-size:12px;opacity:.78;line-height:1.5;}
+.stat3 {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-top:16px;
+}
+.scard {
+    border-radius:10px;
+    padding:16px 18px;
+}
+.scard--dim {
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.09);
+}
+.scard--acc {
+    background:rgba(5,120,220,.12);
+    border:1px solid rgba(5,120,220,.28);
+}
+.scard-label {
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    opacity:.5;
+    margin-bottom:8px;
+}
+.scard--acc .scard-label {
+    color:#0578DC;
+    opacity:1;
+}
+.scard-text {
+    font-size:12px;
+    opacity:.78;
+    line-height:1.5;
+}
 
 /* ── timeline ── */
-.tl-wrap{position:relative;margin-top:28px;}
-.tl-track{position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(5,120,220,.25);transform:translateY(-50%);}
-.tl-steps{display:flex;justify-content:space-between;position:relative;z-index:2;}
-.tstep{display:flex;flex-direction:column;align-items:center;width:210px;}
-.tstep__above,.tstep__below{min-height:88px;text-align:center;padding:0 6px;}
-.tstep__above{display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:10px;}
-.tstep__below{display:flex;flex-direction:column;justify-content:flex-start;padding-top:10px;}
-.tstep__dot{width:12px;height:12px;border-radius:50%;background:#0578DC;box-shadow:0 0 0 4px rgba(5,120,220,.2);flex-shrink:0;}
-.tstep__time{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0578DC;margin-bottom:3px;}
-.tstep__title{font-size:12px;font-weight:700;line-height:1.3;}
-.tstep__desc{font-size:10px;opacity:.58;line-height:1.4;margin-top:3px;}
+.tl-wrap {
+    position:relative;
+    margin-top:28px;
+}
+.tl-track {
+    position:absolute;
+    left:0;
+    right:0;
+    top:50%;
+    height:2px;
+    background:rgba(5,120,220,.25);
+    transform:translateY(-50%);
+}
+.tl-steps {
+    display:flex;
+    justify-content:space-between;
+    position:relative;
+    z-index:2;
+}
+.tstep {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:210px;
+}
+.tstep__above,.tstep__below {
+    min-height:88px;
+    text-align:center;
+    padding:0 6px;
+}
+.tstep__above {
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding-bottom:10px;
+}
+.tstep__below {
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    padding-top:10px;
+}
+.tstep__dot {
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#0578DC;
+    box-shadow:0 0 0 4px rgba(5,120,220,.2);
+    flex-shrink:0;
+}
+.tstep__time {
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#0578DC;
+    margin-bottom:3px;
+}
+.tstep__title {
+    font-size:12px;
+    font-weight:700;
+    line-height:1.3;
+}
+.tstep__desc {
+    font-size:10px;
+    opacity:.58;
+    line-height:1.4;
+    margin-top:3px;
+}
 
 /* ── case stats ── */
-.case-stats{display:flex;flex-direction:column;gap:16px;}
-.csn{font-size:34px;font-weight:700;color:#05D2FF;line-height:1;letter-spacing:-.02em;}
-.csl{font-size:13px;opacity:.7;margin-top:2px;}
+.case-stats {
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+.csn {
+    font-size:34px;
+    font-weight:700;
+    color:#05D2FF;
+    line-height:1;
+    letter-spacing:-.02em;
+}
+.csl {
+    font-size:13px;
+    opacity:.7;
+    margin-top:2px;
+}
 
 /* ── value table ── */
-.vtable{width:100%;border-collapse:collapse;}
-.vtable td{padding:9px 0;font-size:13px;border-bottom:1px solid rgba(255,255,255,.07);}
-.vtable td:last-child{text-align:right;font-weight:600;color:#0578DC;}
-.vtable tr.hi td{font-size:14px;font-weight:700;color:#fff;}
-.vtable tr.hi td:last-child{color:#05D2FF;font-size:15px;}
-.vtable tr:last-child td{border-bottom:none;border-top:1.5px solid rgba(5,120,220,.35);padding-top:12px;font-size:15px;font-weight:700;}
-.vtable tr:last-child td:last-child{color:#05D2FF;}
+.vtable {
+    width:100%;
+    border-collapse:collapse;
+}
+.vtable td {
+    padding:9px 0;
+    font-size:13px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+.vtable td:last-child {
+    text-align:right;
+    font-weight:600;
+    color:#0578DC;
+}
+.vtable tr.hi td {
+    font-size:14px;
+    font-weight:700;
+    color:#fff;
+}
+.vtable tr.hi td:last-child {
+    color:#05D2FF;
+    font-size:15px;
+}
+.vtable tr:last-child td {
+    border-bottom:none;
+    border-top:1.5px solid rgba(5,120,220,.35);
+    padding-top:12px;
+    font-size:15px;
+    font-weight:700;
+}
+.vtable tr:last-child td:last-child {
+    color:#05D2FF;
+}
 
 /* ── team ── */
-.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px;}
-.tcard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:16px 14px;display:flex;flex-direction:column;gap:8px;}
-.tcard-icon{width:34px;height:34px;border-radius:8px;background:rgba(5,120,220,.15);display:flex;align-items:center;justify-content:center;}
-.tcard-role{font-size:12px;font-weight:700;color:#0578DC;}
-.tcard-cost{font-size:10px;font-weight:600;opacity:.45;}
-.tcard-desc{font-size:11px;opacity:.58;line-height:1.45;}
-.anchor-box{background:rgba(5,120,220,.1);border:1px solid rgba(5,120,220,.25);border-radius:10px;padding:12px 18px;margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.anchor-box p{font-size:12px;opacity:.8;line-height:1.5;}
-.anchor-box strong{color:#05D2FF;}
+.team-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:14px;
+}
+.tcard {
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:12px;
+    padding:16px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+.tcard-icon {
+    width:34px;
+    height:34px;
+    border-radius:8px;
+    background:rgba(5,120,220,.15);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.tcard-role {
+    font-size:12px;
+    font-weight:700;
+    color:#0578DC;
+}
+.tcard-cost {
+    font-size:10px;
+    font-weight:600;
+    opacity:.45;
+}
+.tcard-desc {
+    font-size:11px;
+    opacity:.58;
+    line-height:1.45;
+}
+.anchor-box {
+    background:rgba(5,120,220,.1);
+    border:1px solid rgba(5,120,220,.25);
+    border-radius:10px;
+    padding:12px 18px;
+    margin-top:14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+}
+.anchor-box p {
+    font-size:12px;
+    opacity:.8;
+    line-height:1.5;
+}
+.anchor-box strong {
+    color:#05D2FF;
+}
 
 /* ── big price ── */
-.big-price{font-size:68px;font-weight:700;color:#05D2FF;letter-spacing:-.03em;line-height:1;}
+.big-price {
+    font-size:68px;
+    font-weight:700;
+    color:#05D2FF;
+    letter-spacing:-.03em;
+    line-height:1;
+}
 
 /* ── badge ── */
-.badge-call{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#05D2FF;color:#051E32;margin-bottom:14px;}
+.badge-call {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 16px;
+    border-radius:100px;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    background:#05D2FF;
+    color:#051E32;
+    margin-bottom:14px;
+}
 
 /* ── 3 plans ── */
-.plans-grid{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:12px;margin-top:0;}
-.pcard{border-radius:12px;padding:22px 20px;}
-.pcard--base{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);}
-.pcard--main{background:linear-gradient(145deg,rgba(5,88,170,.22) 0%,rgba(5,60,115,.3) 100%);border:2px solid rgba(5,120,220,.75);box-shadow:0 0 40px rgba(5,88,170,.2);}
-.pcard--prem{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);}
-.pcard-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;}
-.pcard-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0578DC;}
-.pcard-rec{background:#0578DC;color:#fff;font-size:8px;font-weight:700;padding:3px 8px;border-radius:100px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
-.pcard-name{font-size:14px;font-weight:700;margin-bottom:8px;}
-.pcard-price{font-size:22px;font-weight:700;color:#05D2FF;line-height:1;}
-.pcard-price span{font-size:11px;font-weight:400;opacity:.45;}
-.pcard-or{font-size:10px;opacity:.38;margin:3px 0;}
-.pcard-vista{font-size:14px;font-weight:600;margin-bottom:10px;}
-.pcard-list{list-style:none;font-size:11px;display:flex;flex-direction:column;gap:4px;}
-.pcard-list li{opacity:.72;display:flex;gap:5px;align-items:flex-start;line-height:1.4;margin-bottom:2px;}
-.pcard-list li::before{content:'→';color:#0578DC;font-weight:700;flex-shrink:0;}
-.plans-note{font-size:10px;opacity:.35;margin-top:8px;text-align:center;}
+.plans-grid {
+    display:grid;
+    grid-template-columns:1fr 1.1fr 1fr;
+    gap:12px;
+    margin-top:0;
+}
+.pcard {
+    border-radius:12px;
+    padding:22px 20px;
+}
+.pcard--base {
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.1);
+}
+.pcard--main {
+    background:linear-gradient(145deg,rgba(5,88,170,.22) 0%,rgba(5,60,115,.3) 100%);
+    border:2px solid rgba(5,120,220,.75);
+    box-shadow:0 0 40px rgba(5,88,170,.2);
+}
+.pcard--prem {
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.1);
+}
+.pcard-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:6px;
+}
+.pcard-tag {
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#0578DC;
+}
+.pcard-rec {
+    background:#0578DC;
+    color:#fff;
+    font-size:8px;
+    font-weight:700;
+    padding:3px 8px;
+    border-radius:100px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    white-space:nowrap;
+}
+.pcard-name {
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+.pcard-price {
+    font-size:22px;
+    font-weight:700;
+    color:#05D2FF;
+    line-height:1;
+}
+.pcard-price span {
+    font-size:11px;
+    font-weight:400;
+    opacity:.45;
+}
+.pcard-or {
+    font-size:10px;
+    opacity:.38;
+    margin:3px 0;
+}
+.pcard-vista {
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+.pcard-list {
+    list-style:none;
+    font-size:11px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+.pcard-list li {
+    opacity:.72;
+    display:flex;
+    gap:5px;
+    align-items:flex-start;
+    line-height:1.4;
+    margin-bottom:2px;
+}
+.pcard-list li::before {
+    content:'→';
+    color:#0578DC;
+    font-weight:700;
+    flex-shrink:0;
+}
+.plans-note {
+    font-size:10px;
+    opacity:.35;
+    margin-top:8px;
+    text-align:center;
+}
 
 /* ── chips (slide 5) ── */
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
-.chip{display:flex;align-items:center;gap:7px;background:rgba(5,120,220,.12);border:1px solid rgba(5,120,220,.25);border-radius:8px;padding:8px 14px;}
-.chip-label{font-size:12px;font-weight:600;color:#0578DC;}
+.chips {
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+.chip {
+    display:flex;
+    align-items:center;
+    gap:7px;
+    background:rgba(5,120,220,.12);
+    border:1px solid rgba(5,120,220,.25);
+    border-radius:8px;
+    padding:8px 14px;
+}
+.chip-label {
+    font-size:12px;
+    font-weight:600;
+    color:#0578DC;
+}
 
-/* ── contraste: dark e hero têm fundo azul-escuro, Dodger Blue some — usar Sky Blue ── */
-.slide--dark em,.slide--hero em{color:#05D2FF;}
-.slide--dark .acc,.slide--hero .acc{color:#05D2FF;}
-.slide--dark .chip-label{color:#05D2FF;}
-.slide--dark .tcard-role{color:#05D2FF;}
-.slide--dark .tcard-cost{opacity:.72;}
-.slide--dark .scard--acc .scard-label{color:#05D2FF;opacity:1;}
-.slide--hero .tstep__time{color:#05D2FF;}
-.slide--dark .pt-title,.slide--hero .pt-title{opacity:1;}
-.slide--dark .pt-text,.slide--hero .pt-text{opacity:.85;}
-.slide--dark .overline,.slide--hero .overline,.slide--oxford .overline{opacity:.72;}
-.slide--dark .pcard-list li::before,.slide--hero .pcard-list li::before{color:#05D2FF;}
-.slide--dark .compare-hi,.slide--hero .compare-hi{color:#05D2FF;}
+/* ── contraste ── */
+.slide--dark em,.slide--hero em {color:#05D2FF;}
+.slide--dark .acc,.slide--hero .acc {color:#05D2FF;}
+.slide--dark .chip-label {color:#05D2FF;}
+.slide--dark .tcard-role {color:#05D2FF;}
+.slide--dark .tcard-cost {opacity:.72;}
+.slide--dark .scard--acc .scard-label {color:#05D2FF;opacity:1;}
+.slide--hero .tstep__time {color:#05D2FF;}
+.slide--dark .pt-title,.slide--hero .pt-title {opacity:1;}
+.slide--dark .pt-text,.slide--hero .pt-text {opacity:.85;}
+.slide--dark .overline,.slide--hero .overline,.slide--oxford .overline {opacity:.72;}
+.slide--dark .pcard-list li::before,.slide--hero .pcard-list li::before {color:#05D2FF;}
+.slide--dark .compare-hi,.slide--hero .compare-hi {color:#05D2FF;}
 </style>
 </head>
 <body>
@@ -179,7 +633,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <div class="slide slide--hero">
   <div class="blob" style="width:420px;height:420px;bottom:-130px;right:-90px;"></div>
   <div class="blob" style="width:160px;height:160px;top:40px;right:200px;"></div>
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="content content--center">
     <p class="overline" style="margin-bottom:14px;">Programa de Aceleração</p>
     <h1 class="title t-hero" style="margin-bottom:18px;">PRO <em style="color:#fff;font-style:italic;">Médicos</em><sup style="font-size:18px;opacity:.4;font-weight:400;vertical-align:super;letter-spacing:0;">®</sup></h1>
@@ -194,7 +648,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <span class="slide-label">02 — O Diagnóstico</span>
 <div class="slide slide--oxford">
   <div class="blob" style="width:320px;height:320px;bottom:-80px;right:-60px;"></div>
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="content">
     <p class="overline">O diagnóstico</p>
     <h2 class="title t-lg">A história que a gente <em>já conhece</em></h2>
@@ -220,7 +674,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <span class="slide-label">03 — A Solução</span>
 <div class="slide slide--hero">
   <div class="blob" style="width:360px;height:360px;bottom:-100px;right:-60px;"></div>
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="content">
     <p class="overline">A solução</p>
     <h2 class="title t-lg">Um caminho com <em>etapas claras</em></h2>
@@ -245,7 +699,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <!-- ══ 04 CLIP ══ -->
 <span class="slide-label">04 — Metodologia CLIP</span>
 <div class="slide slide--light">
-  <img class="logo" src="../assets/ClintIA-MarcaRGB-Horiz-Cor.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA" style="filter: brightness(0) invert(11%) sepia(26%) saturate(2283%) hue-rotate(176deg) brightness(95%) contrast(98%);">
   <div class="content">
     <p class="overline" style="color:#051E32;">A metodologia</p>
     <h2 class="title t-md" style="color:#051E32;">A Metodologia <em>CLIP</em></h2>
@@ -264,7 +718,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <span class="slide-label">05 — Imersão de Partida</span>
 <div class="slide slide--dark">
   <div class="blob" style="width:280px;height:280px;bottom:-60px;right:-40px;"></div>
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="content">
     <p class="overline">Onde tudo começa</p>
     <h2 class="title t-lg">Imersão de <em>Partida</em></h2>
@@ -283,7 +737,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <!-- ══ 06 DPV ══ -->
 <span class="slide-label">06 — DPV: O Coração da Metodologia</span>
 <div class="slide slide--oxford">
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="split split--45-55">
     <div class="col col--l">
       <p class="overline">O documento mais importante</p>
@@ -297,34 +751,25 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
       </div>
     </div>
     <div class="col col--r-center">
-      <!-- DPV hub diagram — all elements within 300×300 viewBox -->
       <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible;">
-        <!-- outer dashed ring at radius 100 -->
         <circle cx="150" cy="150" r="100" fill="none" stroke="rgba(5,120,220,.2)" stroke-width="1.5" stroke-dasharray="5,5"/>
-        <!-- connector lines: center edge → node edge -->
         <line x1="150" y1="107" x2="150" y2="76" stroke="rgba(5,120,220,.4)" stroke-width="1.5" stroke-dasharray="4,4"/>
         <line x1="193" y1="150" x2="224" y2="150" stroke="rgba(5,120,220,.4)" stroke-width="1.5" stroke-dasharray="4,4"/>
         <line x1="150" y1="193" x2="150" y2="224" stroke="rgba(5,120,220,.4)" stroke-width="1.5" stroke-dasharray="4,4"/>
         <line x1="107" y1="150" x2="76" y2="150" stroke="rgba(5,120,220,.4)" stroke-width="1.5" stroke-dasharray="4,4"/>
-        <!-- center glow -->
         <circle cx="150" cy="150" r="56" fill="rgba(5,120,220,.14)"/>
-        <!-- center circle -->
         <circle cx="150" cy="150" r="43" fill="#0578DC"/>
         <text x="150" y="146" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="17" font-weight="700" fill="white">DPV</text>
         <text x="150" y="161" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="7" font-weight="600" fill="white" opacity=".65" letter-spacing="2">DIREÇÃO</text>
-        <!-- C — top (150, 50), radius 24 -->
         <circle cx="150" cy="50" r="24" fill="#053C73" stroke="#0578DC" stroke-width="1.5"/>
         <text x="150" y="58" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="20" font-weight="700" fill="#05D2FF">C</text>
         <text x="150" y="82" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="8" fill="white" opacity=".48" font-weight="600" letter-spacing=".5">CONEXÃO</text>
-        <!-- L — right (250, 150), radius 24 -->
         <circle cx="250" cy="150" r="24" fill="#053C73" stroke="#0578DC" stroke-width="1.5"/>
         <text x="250" y="158" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="20" font-weight="700" fill="#05D2FF">L</text>
         <text x="250" y="183" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="7.5" fill="white" opacity=".48" font-weight="600" letter-spacing=".5">LIDERANÇA</text>
-        <!-- I — bottom (150, 250), radius 24 -->
         <circle cx="150" cy="250" r="24" fill="#053C73" stroke="#0578DC" stroke-width="1.5"/>
         <text x="150" y="258" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="20" font-weight="700" fill="#05D2FF">I</text>
         <text x="150" y="222" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="7.5" fill="white" opacity=".48" font-weight="600" letter-spacing=".5">CONTEÚDO</text>
-        <!-- P — left (50, 150), radius 24 -->
         <circle cx="50" cy="150" r="24" fill="#053C73" stroke="#0578DC" stroke-width="1.5"/>
         <text x="50" y="158" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="20" font-weight="700" fill="#05D2FF">P</text>
         <text x="50" y="183" text-anchor="middle" font-family="Red Hat Display,sans-serif" font-size="7.5" fill="white" opacity=".48" font-weight="600" letter-spacing=".5">PREVISIBIL.</text>
@@ -337,7 +782,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <!-- ══ 07 PILAR C ══ -->
 <span class="slide-label">07 — Pilar C: Conexão</span>
 <div class="slide slide--dark">
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="split split--50">
     <div class="col col--l">
       <p class="overline">Pilar C</p>
@@ -348,22 +793,9 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
         <div class="pt"><svg class="pt-ico" style="width:14px;height:14px;stroke:#0578DC;fill:none;stroke-width:2.2;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><div class="pt-body"><div class="pt-title">Não perder quem já te conheceu</div><div class="pt-text">Reforçamos sua presença para quem já visitou seu perfil, reduzindo a chance de ir para outro profissional.</div></div></div>
       </div>
     </div>
-    <div class="col col--r" style="position:relative;padding:0;">
-      <!-- container posicionado absolutamente dentro da coluna → altura definida por inset, sem overflow -->
-      <div style="position:absolute;top:18px;bottom:24px;left:10px;right:42px;display:grid;grid-template-rows:3fr 2fr;gap:8px;">
-        <!-- linha superior: Instagram (40%) + Google Search (60%) -->
-        <div style="display:grid;grid-template-columns:40% 60%;gap:8px;">
-          <div style="border-radius:9px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.6);">
-            <img src="../input/1.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;">
-          </div>
-          <div style="border-radius:9px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.6);">
-            <img src="../input/2.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;">
-          </div>
-        </div>
-        <!-- linha inferior: AI Overview largura total -->
-        <div style="border-radius:9px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.6);">
-          <img src="../input/3.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;">
-        </div>
+    <div class="col col--r" style="justify-content:center;">
+      <div style="height:360px; display:flex; align-items:center; justify-content:center;">
+        <img src="https://i.imgur.com/IaKw9fC.png" alt="Exemplo de Conexão" style="max-width:100%; max-height:100%; object-fit:contain; display:block; border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,.4);">
       </div>
     </div>
   </div>
@@ -373,7 +805,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <!-- ══ 08 PILAR L ══ -->
 <span class="slide-label">08 — Pilar L: Liderança</span>
 <div class="slide slide--hero">
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="split split--50">
     <div class="col col--l">
       <p class="overline">Pilar L</p>
@@ -385,9 +817,8 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
       </div>
     </div>
     <div class="col col--r" style="justify-content:center;">
-      <div class="img-ph" style="height:360px;"><!-- Cloudinary: substituir pela URL da imagem -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        <p>Google Meu Negócio com avaliações · Perfil profissional no Instagram</p>
+      <div style="height:360px; display:flex; align-items:center; justify-content:center;">
+        <img src="https://i.imgur.com/t1mKTVO.png" alt="Pilar L" style="max-width:100%; max-height:100%; object-fit:contain; display:block; border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,.4);">
       </div>
     </div>
   </div>
@@ -397,7 +828,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <!-- ══ 09 PILAR I ══ -->
 <span class="slide-label">09 — Pilar I: Inteligência no Conteúdo</span>
 <div class="slide slide--dark">
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="split split--50">
     <div class="col col--l">
       <p class="overline">Pilar I</p>
@@ -409,9 +840,8 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
       </div>
     </div>
     <div class="col col--r" style="justify-content:center;">
-      <div class="img-ph" style="height:360px;"><!-- Cloudinary: substituir pela URL da imagem -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        <p>Grade Instagram · Destaques · Exemplos de carrosséis e vídeos</p>
+      <div style="height:360px; display:flex; align-items:center; justify-content:center;">
+        <img src="https://i.imgur.com/kLb6vEi.png" alt="Pilar I" style="max-width:100%; max-height:100%; object-fit:contain; display:block; border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,.4);">
       </div>
     </div>
   </div>
@@ -421,7 +851,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <!-- ══ 10 PILAR P ══ -->
 <span class="slide-label">10 — Pilar P: Previsibilidade</span>
 <div class="slide slide--hero">
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="split split--50">
     <div class="col col--l">
       <p class="overline">Pilar P</p>
@@ -433,9 +863,8 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
       </div>
     </div>
     <div class="col col--r" style="justify-content:center;">
-      <div class="img-ph" style="height:360px;"><!-- Cloudinary: substituir pela URL da imagem -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        <p>Dashboard com origem dos pacientes e custo de captação</p>
+      <div style="height:360px; display:flex; align-items:center; justify-content:center;">
+        <img src="https://i.imgur.com/d96Dw3R.png" alt="Pilar P" style="max-width:100%; max-height:100%; object-fit:contain; display:block; border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,.4);">
       </div>
     </div>
   </div>
@@ -446,15 +875,11 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <span class="slide-label">11 — Preço vs. Percepção de Valor</span>
 <div class="slide slide--oxford">
   <div class="blob" style="width:300px;height:300px;bottom:-80px;right:-50px;"></div>
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="content" style="padding:60px 52px 32px;">
     <p class="overline">O que separa um médico do outro</p>
     <h2 class="title t-lg" style="margin-bottom:18px;"><em>Preço</em> é o que você cobra. <em>Valor</em> é o que o paciente percebe.</h2>
-
-    <!-- Comparison row -->
     <div style="display:flex;gap:12px;align-items:stretch;margin-bottom:12px;">
-
-      <!-- Sem posicionamento -->
       <div style="flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:18px 20px;">
         <div style="font-size:8px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.3;margin-bottom:10px;">Sem posicionamento</div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
@@ -472,8 +897,6 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
           <div style="font-size:9px;opacity:.3;display:flex;gap:6px;"><span style="color:rgba(255,100,100,.5);font-weight:700;">×</span>Concorre só por preço</div>
         </div>
       </div>
-
-      <!-- Central arrow -->
       <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;flex-shrink:0;width:72px;">
         <div style="background:rgba(5,120,220,.16);border:1px solid rgba(5,120,220,.4);border-radius:9px;padding:7px 10px;text-align:center;width:100%;">
           <div style="font-size:15px;font-weight:700;color:#05D2FF;line-height:1;">4×</div>
@@ -484,8 +907,6 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
           <polyline points="10,2 16,6 10,10" stroke="rgba(5,120,220,.55)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-
-      <!-- Com PRO Médicos -->
       <div style="flex:1;background:rgba(5,120,220,.1);border:2px solid rgba(5,120,220,.4);border-radius:13px;padding:18px 20px;">
         <div style="font-size:8px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#0578DC;margin-bottom:10px;">Com PRO Médicos®</div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
@@ -505,10 +926,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
           <div style="font-size:9px;color:#0578DC;display:flex;gap:6px;"><span style="font-weight:700;">✓</span>Escolhido pelo valor, não pelo menor preço</div>
         </div>
       </div>
-
     </div>
-
-    <!-- 3 key cards -->
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px;">
       <div style="background:rgba(5,120,220,.08);border:1px solid rgba(5,120,220,.18);border-radius:8px;padding:10px 12px;">
         <div style="font-size:9px;font-weight:700;color:#0578DC;margin-bottom:3px;">Estudo de público</div>
@@ -523,7 +941,6 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
         <div style="font-size:8.5px;opacity:.58;line-height:1.4;">Referência cobra mais, espera menos e atrai exatamente quem quer.</div>
       </div>
     </div>
-
   </div>
   <span class="pg">11</span>
 </div>
@@ -532,7 +949,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <span class="slide-label">12 — Retorno em 2,5 Meses</span>
 <div class="slide slide--dark">
   <div class="blob" style="width:300px;height:300px;bottom:-80px;right:-50px;"></div>
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="content">
     <p class="overline">Retorno sobre o investimento</p>
     <h2 class="title t-md">Retorno em <em>2,5 Meses</em></h2>
@@ -550,7 +967,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <span class="slide-label">13 — Cronograma: 45 Dias</span>
 <div class="slide slide--hero">
   <div class="blob" style="width:300px;height:300px;bottom:-80px;right:-50px;"></div>
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="content">
     <p class="overline">A estrutura pronta em</p>
     <h2 class="title t-md">A Estrutura Pronta em <em>45 Dias</em></h2>
@@ -570,9 +987,13 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <!-- ══ 14–17 CASES ══ -->
 <span class="slide-label">14 — Case: Dr. Alessandro Almeida</span>
 <div class="slide slide--oxford">
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="split split--50">
-    <div class="col col--l" style="justify-content:center;"><div class="img-ph" style="height:370px;"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Antes e depois — @alessandroneuro</p></div></div>
+    <div class="col col--l" style="justify-content:center;">
+      <div style="height:370px; display:flex; align-items:center; justify-content:center;">
+        <img src="https://i.imgur.com/sIVJGDr.png" alt="Case" style="max-width:100%; max-height:100%; object-fit:contain; display:block; border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,.4);">
+      </div>
+    </div>
     <div class="col col--r"><p class="overline">Case de resultado</p><h3 class="title t-sm">Dr. Alessandro Almeida<br><em>Neurocirurgião</em></h3><div class="case-stats" style="margin-top:14px;"><div><div class="csn">+4.200</div><div class="csl">seguidores qualificados da região em 3 meses</div></div><div><div class="csn">-45%</div><div class="csl">no custo de captação de pacientes</div></div><div><div class="csn">8,5×</div><div class="csl">de retorno sobre cada real investido em anúncios</div></div></div></div>
   </div>
   <span class="pg">14</span>
@@ -580,9 +1001,13 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 
 <span class="slide-label">15 — Case: Dr. Lucas Nunes</span>
 <div class="slide slide--dark">
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="split split--50">
-    <div class="col col--l" style="justify-content:center;"><div class="img-ph" style="height:370px;"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Antes e depois — @dr.lucas.nunes</p></div></div>
+    <div class="col col--l" style="justify-content:center;">
+      <div style="height:370px; display:flex; align-items:center; justify-content:center;">
+        <img src="https://i.imgur.com/jTDvjlt.png" alt="Case" style="max-width:100%; max-height:100%; object-fit:contain; display:block; border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,.4);">
+      </div>
+    </div>
     <div class="col col--r"><p class="overline">Case de resultado</p><h3 class="title t-sm">Dr. Lucas Nunes<br><em>Cirurgião Plástico</em></h3><div class="case-stats" style="margin-top:14px;"><div><div class="csn">+60.000</div><div class="csl">seguidores qualificados em 2 anos</div></div><div><div class="csn">-48%</div><div class="csl">no custo de captação de pacientes</div></div><div><div class="csn">11,5×</div><div class="csl">de retorno sobre cada real investido em anúncios</div></div></div></div>
   </div>
   <span class="pg">15</span>
@@ -590,9 +1015,13 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 
 <span class="slide-label">16 — Case: Dra. Luciana Gomes</span>
 <div class="slide slide--oxford">
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="split split--50">
-    <div class="col col--l" style="justify-content:center;"><div class="img-ph" style="height:370px;"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Antes e depois — @dralucianag</p></div></div>
+    <div class="col col--l" style="justify-content:center;">
+      <div style="height:370px; display:flex; align-items:center; justify-content:center;">
+        <img src="https://i.imgur.com/E9LgGWi.png" alt="Case" style="max-width:100%; max-height:100%; object-fit:contain; display:block; border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,.4);">
+      </div>
+    </div>
     <div class="col col--r"><p class="overline">Case de resultado</p><h3 class="title t-sm">Dra. Luciana Gomes<br><em>Médica Homeopata</em></h3><div class="case-stats" style="margin-top:14px;"><div><div class="csn">+1.000</div><div class="csl">seguidores qualificados da região em 2 meses</div></div><div><div class="csn">-28%</div><div class="csl">no custo de captação de pacientes</div></div><div><div class="csn">3,8×</div><div class="csl">de retorno sobre cada real investido em anúncios</div></div></div></div>
   </div>
   <span class="pg">16</span>
@@ -600,9 +1029,13 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 
 <span class="slide-label">17 — Case: Dra. Gabriela Rabello</span>
 <div class="slide slide--dark">
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="split split--50">
-    <div class="col col--l" style="justify-content:center;"><div class="img-ph" style="height:370px;"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Antes e depois — @dra.gabrielarabello</p></div></div>
+    <div class="col col--l" style="justify-content:center;">
+      <div style="height:370px; display:flex; align-items:center; justify-content:center;">
+        <img src="https://i.imgur.com/dJTEvXH.png" alt="Case" style="max-width:100%; max-height:100%; object-fit:contain; display:block; border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,.4);">
+      </div>
+    </div>
     <div class="col col--r"><p class="overline">Case de resultado</p><h3 class="title t-sm">Dra. Gabriela Rabello<br><em>Médica Homeopata</em></h3><div class="case-stats" style="margin-top:14px;"><div><div class="csn">+12.000</div><div class="csl">seguidores qualificados em 2 anos</div></div><div><div class="csn">-25%</div><div class="csl">no custo de captação de pacientes</div></div><div><div class="csn">4,2×</div><div class="csl">de retorno sobre cada real investido em anúncios</div></div></div></div>
   </div>
   <span class="pg">17</span>
@@ -612,7 +1045,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <span class="slide-label">18 — Ancoragem de Valor</span>
 <div class="slide slide--oxford">
   <div class="blob" style="width:280px;height:280px;bottom:-60px;right:-40px;"></div>
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="content">
     <p class="overline">O que cada entrega valeria, se fosse separado</p>
     <h2 class="title t-md" style="margin-bottom:16px;">Valor da <em>Estrutura Completa</em></h2>
@@ -632,7 +1065,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <span class="slide-label">19 — Equipe</span>
 <div class="slide slide--dark">
   <div class="blob" style="width:280px;height:280px;bottom:-70px;right:-50px;"></div>
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="content" style="padding-top:68px;padding-bottom:28px;">
     <p class="overline">Você não contrata uma agência genérica</p>
     <h2 class="title t-md" style="font-size:24px;margin-bottom:12px;">Uma equipe com <em>foco exclusivo em saúde</em></h2>
@@ -674,7 +1107,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <div class="slide slide--hero">
   <div class="blob" style="width:380px;height:380px;bottom:-110px;right:-70px;"></div>
   <div class="blob" style="width:160px;height:160px;top:40px;right:200px;"></div>
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="content content--center">
     <p class="overline" style="margin-bottom:10px;">Implementação Completa PRO Médicos®</p>
     <p style="font-size:13px;opacity:.48;margin-bottom:20px;">Setup completo e no ar em 45 dias. O seu ativo digital passa a ser 100% seu.</p>
@@ -688,7 +1121,7 @@ svg.ico{display:inline-block;vertical-align:middle;fill:none;stroke-width:2;}
 <span class="slide-label">21 — Condição Exclusiva desta Reunião</span>
 <div class="slide slide--oxford">
   <div class="blob" style="width:320px;height:320px;bottom:-90px;right:-60px;"></div>
-  <img class="logo" src="../assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+  <img class="logo" src="https://i.imgur.com/DOYHPYg.png" alt="ClintIA">
   <div class="content" style="padding-top:68px;padding-bottom:28px;">
     <div class="badge-call">
       <svg style="width:12px;height:12px;stroke:#051E32;fill:none;stroke-width:2.5;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
