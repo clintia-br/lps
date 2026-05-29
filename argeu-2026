@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visão Estratégica · Argeu Oliveira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF9F6; --ink:#0E0E0E; --ink-soft:#2A2A2A; --muted:#6B6B6B;
+  --muted-soft:#9A9A9A; --line:#E5E2DC; --accent:#C44826; --accent-soft:#F4DDD3;
+  --bg-elev:#FFFFFF; --navy:#0A4580;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg); color:var(--ink); font-family:'Figtree',sans-serif;
+  line-height:1.6; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:560px; margin:0 auto;}
+section{padding:64px 28px; position:relative;}
+.eyebrow{
+  font-family:'Outfit',sans-serif; font-size:10.5px; font-weight:800;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--accent);
+  display:flex; align-items:center; gap:11px; margin-bottom:22px;
+}
+.eyebrow::before{content:''; width:26px; height:1.5px; background:var(--accent);}
+.eyebrow.muted{color:var(--muted);}
+.eyebrow.muted::before{background:var(--ink);}
+h1{
+  font-family:'Outfit',sans-serif; font-weight:900; line-height:1.02;
+  letter-spacing:-.035em; font-size:clamp(40px,12vw,58px);
+}
+h2{
+  font-family:'Outfit',sans-serif; font-weight:800; line-height:1.08;
+  letter-spacing:-.025em; font-size:clamp(26px,7.5vw,36px);
+}
+em{font-style:italic; font-weight:300; color:var(--accent);}
+.lead{font-size:18.5px; color:var(--ink-soft); line-height:1.7; margin-top:20px;}
+.lead strong{color:var(--ink); font-weight:700;}
+
+/* COVER */
+.cover{
+  min-height:100vh; display:flex; flex-direction:column; justify-content:space-between;
+  padding:48px 28px; background:var(--ink); color:var(--bg);
+  background-image:radial-gradient(circle at 80% 10%, rgba(196,72,38,.22), transparent 45%);
+}
+.cover .top{display:flex; justify-content:space-between; align-items:center;
+  font-family:'Outfit',sans-serif; font-size:11px; font-weight:800; letter-spacing:.16em;}
+.cover .top .r{color:var(--muted-soft); font-weight:600;}
+.cover h1{color:var(--bg);}
+.cover h1 em{color:var(--accent);}
+.cover .sub{font-size:16px; color:var(--muted-soft); margin-top:24px; max-width:380px; line-height:1.6;}
+.cover .meta{
+  font-family:'Outfit',sans-serif; font-size:11px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted-soft); padding-top:22px;
+  border-top:1px solid rgba(255,255,255,.14); display:flex; justify-content:space-between;
+}
+.cover .meta b{color:var(--bg); font-weight:700;}
+
+/* STAT STRIP */
+.stats{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line);
+  border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-top:30px;}
+.stat{background:var(--bg-elev); padding:22px 18px;}
+.stat .n{font-family:'Outfit',sans-serif; font-size:30px; font-weight:900;
+  letter-spacing:-.02em; line-height:1; color:var(--ink);}
+.stat .n .u{font-size:15px; color:var(--accent); font-weight:700;}
+.stat .l{font-size:13.5px; color:var(--muted); margin-top:8px; line-height:1.45;}
+
+/* QUOTE BLOCK */
+.quote{
+  background:var(--accent-soft); border-radius:16px; padding:30px 26px; margin-top:8px;
+  position:relative;
+}
+.quote .mark{font-family:'Outfit',sans-serif; font-size:60px; font-weight:900;
+  color:var(--accent); line-height:.6; opacity:.4;}
+.quote p{font-family:'Outfit',sans-serif; font-size:21px; font-weight:600;
+  line-height:1.4; color:var(--ink); letter-spacing:-.01em; margin-top:6px;}
+.quote .who{font-size:13px; color:var(--accent); font-weight:700; margin-top:14px;
+  font-family:'Outfit',sans-serif; letter-spacing:.08em; text-transform:uppercase;}
+
+/* THESIS */
+.thesis{background:var(--ink); color:var(--bg);
+  background-image:radial-gradient(circle at 15% 90%, rgba(196,72,38,.18), transparent 50%);}
+.thesis .eyebrow{color:var(--accent);}
+.thesis h2{color:var(--bg);}
+.thesis h2 em{color:var(--accent);}
+.thesis .lead{color:var(--muted-soft);}
+.thesis .lead strong{color:var(--bg);}
+
+/* PILLARS */
+.pillar{display:flex; gap:16px; padding:20px 0; border-bottom:1px solid var(--line);}
+.pillar:last-child{border-bottom:none;}
+.pillar .num{font-family:'Outfit',sans-serif; font-size:22px; font-weight:300;
+  color:var(--accent); min-width:30px;}
+.pillar .ttl{font-family:'Outfit',sans-serif; font-weight:700; font-size:18px; margin-bottom:5px;}
+.pillar .txt{font-size:15px; color:var(--muted); line-height:1.6;}
+.pillar.gold{background:var(--accent-soft); margin:14px -14px 0; padding:22px 18px;
+  border-radius:14px; border-bottom:none;}
+.pillar.gold .num{color:var(--accent);}
+.pillar.gold .ttl{color:var(--accent);}
+.pillar.gold .txt{color:var(--ink-soft);}
+
+/* BEFORE / AFTER */
+.ba{margin-top:26px; border-radius:16px; overflow:hidden; border:1px solid var(--line);}
+.ba .col{padding:24px 22px;}
+.ba .before{background:var(--bg-elev);}
+.ba .after{background:var(--ink); color:var(--bg);}
+.ba .lbl{font-family:'Outfit',sans-serif; font-size:10px; font-weight:800;
+  letter-spacing:.18em; text-transform:uppercase; margin-bottom:14px;}
+.ba .before .lbl{color:var(--muted-soft);}
+.ba .after .lbl{color:var(--accent);}
+.ba .row{font-size:15.5px; line-height:1.5; padding:9px 0 9px 18px; position:relative;}
+.ba .row::before{content:''; position:absolute; left:0; top:16px; width:8px; height:1.5px;}
+.ba .before .row{color:var(--ink-soft);} .ba .before .row::before{background:var(--muted-soft);}
+.ba .after .row{color:rgba(250,249,246,.85);} .ba .after .row::before{background:var(--accent);}
+.ba .row b{font-weight:700;}
+.ba .before .row b{color:var(--ink);} .ba .after .row b{color:var(--bg);}
+
+/* TERRITORY */
+.terr{display:flex; flex-direction:column; gap:14px; margin-top:24px;}
+.terr-card{border:1px solid var(--line); border-radius:14px; padding:20px; background:var(--bg-elev);}
+.terr-card .h{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;}
+.terr-card .place{font-family:'Outfit',sans-serif; font-weight:700; font-size:17px;}
+.terr-card .tag{font-family:'Outfit',sans-serif; font-size:10px; font-weight:800;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--accent);
+  background:var(--accent-soft); padding:4px 9px; border-radius:20px;}
+.terr-card .d{font-size:14.5px; color:var(--muted); line-height:1.6;}
+
+/* POSITIONING STATEMENT */
+.pos{background:var(--navy); color:#fff; text-align:left;
+  background-image:radial-gradient(circle at 90% 20%, rgba(196,72,38,.28), transparent 50%);}
+.pos .eyebrow{color:rgba(255,255,255,.6);}
+.pos .eyebrow::before{background:var(--accent);}
+.pos h2{color:#fff; font-size:clamp(24px,6.8vw,32px);}
+.pos h2 .hl{color:var(--accent); font-style:normal; font-weight:800;}
+
+/* NEXT */
+.next{background:var(--bg-elev);}
+.step{display:flex; gap:16px; padding:18px 0; border-bottom:1px solid var(--line);}
+.step:last-child{border-bottom:none;}
+.step .n{font-family:'Outfit',sans-serif; font-weight:900; font-size:14px;
+  color:var(--accent); min-width:24px;}
+.step .t{font-size:16px; line-height:1.55;}
+.step .t b{font-family:'Outfit',sans-serif;}
+
+.foot{padding:40px 28px; background:var(--ink); color:var(--muted-soft);
+  text-align:center; font-family:'Outfit',sans-serif;}
+.foot .big{color:var(--bg); font-weight:800; letter-spacing:.04em; font-size:15px; margin-bottom:6px;}
+.foot .sm{font-size:11px; letter-spacing:.1em; text-transform:uppercase;}
+
+/* reveal */
+.rv{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
+.rv.in{opacity:1; transform:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- COVER -->
+  <section class="cover">
+    <div class="top">
+      <span>CLINTIA<span style="color:var(--accent)">.</span></span>
+      <span class="r">PROCLIP · 2026</span>
+    </div>
+    <div>
+      <div class="eyebrow">Visão Estratégica</div>
+      <h1>Argeu<br>Oliveira<em>.</em></h1>
+      <p class="sub">O que 32 anos construíram — e como transformar isso na vantagem que nenhum concorrente pode copiar.</p>
+    </div>
+    <div class="meta">
+      <span>Preparado para <b>Rogério &amp; Kathia</b></span>
+      <span>Confidencial</span>
+    </div>
+  </section>
+
+  <!-- 1. O ATIVO -->
+  <section>
+    <div class="eyebrow muted rv">O ponto de partida</div>
+    <h2 class="rv">Vocês têm uma Ferrari.<br><em>Andando com botijão de gás.</em></h2>
+    <p class="lead rv">Tradição, autoridade técnica e uma história que começou no nome do Dr. Argeu — o farmacêutico que curava quando não havia médico na região. <strong>Esse patrimônio é real. Só não está aparecendo.</strong></p>
+    <div class="stats rv">
+      <div class="stat"><div class="n">32<span class="u"> anos</span></div><div class="l">de operação ininterrupta na região</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">unidades — São Francisco, Campos e Itabapoana</div></div>
+      <div class="stat"><div class="n">20<span class="u"> anos</span></div><div class="l">de Diamante PNCQ — excelência rara entre laboratórios</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">menções desse certificado no digital hoje</div></div>
+    </div>
+  </section>
+
+  <!-- 2. A PERGUNTA -->
+  <section>
+    <div class="quote rv">
+      <div class="mark">"</div>
+      <p>O que faz o paciente preferir a clínica do lado? Como é que eu crio fidelização hoje, se ninguém é mais fiel a nada?</p>
+      <div class="who">— Rogério, na nossa reunião</div>
+    </div>
+    <p class="lead rv">Essa foi a melhor pergunta da conversa. E ela tem resposta. <strong>A fidelização não morreu — ela mudou de lugar.</strong></p>
+    <p class="lead rv">Antigamente ela vinha do boca a boca e do nome do seu avô. Hoje, a primeira impressão não acontece mais na rua nem na mesa do almoço. Acontece na tela do celular — antes de o paciente pisar na clínica.</p>
+  </section>
+
+  <!-- 3. TESE -->
+  <section class="thesis">
+    <div class="eyebrow rv">A tese</div>
+    <h2 class="rv">Você não fabrica fidelidade.<br><em>Você torna visível o que já tem.</em></h2>
+    <p class="lead rv">Os concorrentes novos são médicos da região, com dinheiro e velocidade. Mas há uma coisa que eles não conseguem comprar: <strong>32 anos, o nome Argeu e 20 anos de Diamante PNCQ.</strong></p>
+    <p class="lead rv">O problema não é a concorrência ser forte. É que a geração nova — a que decide pelo celular — <strong>não sabe que essa história existe.</strong> A estratégia inteira nasce daí: pegar o que ninguém pode copiar e colocar no palco onde o paciente de hoje está olhando.</p>
+  </section>
+
+  <!-- 4. O PACIENTE -->
+  <section>
+    <div class="eyebrow muted rv">O paciente do Argeu</div>
+    <h2 class="rv">Três coisas que ele exige.<br><em>E uma que só vocês têm.</em></h2>
+    <p class="lead rv">O público de clínica popular não procura cafézinho na recepção. Ele decide por três fatores — e é onde os novos jogam o jogo:</p>
+    <div style="margin-top:24px;">
+      <div class="pillar rv"><div class="num">01</div><div><div class="ttl">Velocidade</div><div class="txt">Quer ser atendido agora. Se demora pra responder, vai no concorrente a 400 metros.</div></div></div>
+      <div class="pillar rv"><div class="num">02</div><div><div class="ttl">Preço</div><div class="txt">Quer um valor redondo, que cabe no bolso, sem surpresa.</div></div></div>
+      <div class="pillar rv"><div class="num">03</div><div><div class="ttl">Proximidade</div><div class="txt">Quer perto, fácil de achar no mapa, fácil de chegar.</div></div></div>
+      <div class="pillar gold rv"><div class="num">04</div><div><div class="ttl">+ Legado &amp; Confiança</div><div class="txt">Esse é o diferencial do Argeu. Os novos entregam os 3 primeiros. Nenhum deles tem 32 anos e o Diamante PNCQ. Quando o paciente percebe isso, o preço deixa de ser o único critério.</div></div></div>
+    </div>
+  </section>
+
+  <!-- 5. A VIRADA -->
+  <section>
+    <div class="eyebrow muted rv">A virada de chave</div>
+    <h2 class="rv">De tradição invisível<br><em>a autoridade que aparece primeiro.</em></h2>
+    <div class="ba rv">
+      <div class="col before">
+        <div class="lbl">Como o paciente novo vê hoje</div>
+        <div class="row">Busca "laboratório em Campos" e <b>não encontra o Argeu</b></div>
+        <div class="row">Acha o concorrente — <b>sem metade da história</b> — antes</div>
+        <div class="row">Vê fichas com <b>fotos de 4 anos</b> e nota baixa</div>
+        <div class="row">O <b>Diamante PNCQ não aparece em lugar nenhum</b></div>
+        <div class="row">Conclusão dele: "são todos iguais, vou no mais barato"</div>
+      </div>
+      <div class="col after">
+        <div class="lbl">Como vai passar a ver</div>
+        <div class="row">O Argeu <b>aparece primeiro</b> no mapa e na busca</div>
+        <div class="row">O <b>Diamante PNCQ é a primeira coisa</b> que ele vê</div>
+        <div class="row"><b>"32 anos · referência da região"</b> no topo da percepção</div>
+        <div class="row">Avaliações recentes e positivas reforçando confiança</div>
+        <div class="row">Conclusão dele: "esse é <b>o</b> laboratório daqui"</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. TERRITÓRIO -->
+  <section>
+    <div class="eyebrow muted rv">O território</div>
+    <h2 class="rv">Duas frentes,<br><em>duas estratégias.</em></h2>
+    <div class="terr">
+      <div class="terr-card rv">
+        <div class="h"><span class="place">São Francisco</span><span class="tag">Defender o legado</span></div>
+        <div class="d">Onde o nome Argeu nasceu e ainda é forte. Aqui o jogo é não deixar os médicos nativos engolirem a herança — tornar a tradição visível para a nova geração antes que ela escolha outro.</div>
+      </div>
+      <div class="terr-card rv">
+        <div class="h"><span class="place">Campos dos Goytacazes</span><span class="tag">Conquistar</span></div>
+        <div class="d">Aberta desde 1998, mas digitalmente invisível. Mercado maior, paciente que não conhece a história. Aqui o jogo é aparecer — e a nova sala de ultrassonografia precisa de demanda, agora.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. POSICIONAMENTO -->
+  <section class="pos">
+    <div class="eyebrow rv">A frase que organiza tudo</div>
+    <h2 class="rv">O Argeu não é mais antigo.<br>O Argeu é <span class="hl">a referência</span> — e a única que pode provar, todo mês, há 20 anos.</h2>
+    <p class="lead rv" style="color:rgba(255,255,255,.7); margin-top:26px;">Tudo o que for feito daqui pra frente — site, Google, Instagram, recepção — sai dessa frase. É o DNA que o DPV completo vai destrinchar e transformar em máquina.</p>
+  </section>
+
+  <!-- 8. PRÓXIMO PASSO -->
+  <section class="next">
+    <div class="eyebrow muted rv">De onde partimos</div>
+    <h2 class="rv">Esse documento é<br><em>o aperitivo.</em></h2>
+    <p class="lead rv">O que você acabou de ler é a leitura estratégica que fizemos do Argeu a partir da nossa conversa. O passo seguinte aprofunda isso em um plano executável:</p>
+    <div style="margin-top:22px;">
+      <div class="step rv"><div class="n">1</div><div class="t"><b>DPV completo</b> — o Dossiê de Posicionamento de Valor, a "bíblia" do negócio: comunicação, oferta, conteúdo, aquisição, venda e escala.</div></div>
+      <div class="step rv"><div class="n">2</div><div class="t"><b>Implementação dos 45 dias</b> — site, 3 fichas Google, Instagram, anúncios e a operação comercial com CAP rastreado.</div></div>
+      <div class="step rv"><div class="n">3</div><div class="t"><b>Em 60 dias</b> — o Diamante PNCQ vira o primeiro argumento que o paciente de Campos encontra.</div></div>
+    </div>
+    <p class="lead rv" style="margin-top:26px;"><strong>Sem pressa.</strong> Pesquise, converse com a Kathia, e no sábado a gente troca uma ideia com calma. A proposta com valores está no link que enviei.</p>
+  </section>
+
+  <div class="foot">
+    <div class="big">CLINTIA · PROCLIP</div>
+    <div class="sm">Aceleração para Clínicas Populares</div>
+  </div>
+
+</div>
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4*60)+'ms';io.observe(el);});
+</script>
+</body>
+</html>
