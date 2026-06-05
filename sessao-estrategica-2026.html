@@ -527,6 +527,63 @@ footer .brand{color:#FFF;}footer .brand .pro{color:#FFF;}footer .brand .clip{col
   .fade-in{opacity:1;transform:none;}
   .accent-underline::after{transform:scaleX(1);}
 }
+
+/* ============================================================
+   FORM MODAL — agendamento
+   ============================================================ */
+.form-modal{position:fixed;inset:0;z-index:1000;background:rgba(3,42,82,0.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));overflow-y:auto;}
+.form-modal.active{display:flex;}
+@media(min-height:680px){.form-modal.active{align-items:center;}}
+.form-modal-card{background:#FFF;width:100%;max-width:480px;border-radius:20px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,0.55);position:relative;animation:formCardIn .35s var(--ease);margin:auto 0;}
+@keyframes formCardIn{from{opacity:0;transform:translateY(20px) scale(.98);}to{opacity:1;transform:translateY(0) scale(1);}}
+.form-close{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:none;background:rgba(15,23,42,0.06);cursor:pointer;font-size:22px;line-height:1;color:var(--ink-dim);display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s var(--ease);font-family:inherit;}
+.form-close:hover{background:rgba(15,23,42,0.12);}
+.form-progress-track{height:5px;background:var(--bg-elev-2);width:100%;}
+.form-progress-bar{height:100%;background:var(--navy-grad);transition:width .5s var(--ease);}
+.form-content{padding:28px 22px 30px;}
+@media(min-width:481px){.form-content{padding:34px 32px 36px;}}
+.form-step-indicator{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy);background:var(--navy-05);padding:5px 11px;border-radius:6px;margin-bottom:20px;}
+.form-step-indicator.done{color:#065F46;background:#D1FAE5;}
+.form-step{display:none;animation:formStepIn .35s var(--ease);}
+.form-step.active{display:block;}
+@keyframes formStepIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.form-step h2{font-size:clamp(20px,3.5vw,24px);font-weight:800;color:var(--ink);margin-bottom:6px;letter-spacing:-0.02em;line-height:1.2;}
+.form-step .form-sub{font-size:13.5px;color:var(--ink-muted);margin-bottom:22px;line-height:1.5;}
+.form-field{margin-bottom:18px;}
+.form-input{width:100%;font-family:inherit;font-size:16px;background:transparent;border:0;border-bottom:2px solid var(--line);padding:10px 4px;color:var(--ink);outline:none;transition:border-color .25s var(--ease);-webkit-appearance:none;border-radius:0;}
+.form-input::placeholder{color:var(--ink-muted);font-weight:400;}
+.form-input:focus{border-bottom-color:var(--navy);}
+.form-error{font-size:12.5px;color:var(--red);margin-top:12px;display:none;line-height:1.5;}
+.form-error.show{display:block;}
+.form-actions{margin-top:30px;display:flex;justify-content:flex-end;gap:14px;align-items:center;}
+.form-actions.split{justify-content:space-between;}
+.form-actions.start{justify-content:flex-start;}
+.form-btn-primary{background:var(--navy-grad);color:#FFF;border:none;font-family:inherit;font-weight:700;font-size:15px;padding:13px 26px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .2s var(--ease),box-shadow .2s var(--ease);min-height:48px;letter-spacing:-0.005em;}
+.form-btn-primary:hover{transform:translateY(-1px);box-shadow:0 14px 30px -10px rgba(10,69,128,0.45);}
+.form-btn-primary:active{transform:translateY(0);}
+@media(max-width:480px){.form-actions:not(.split):not(.start){flex-direction:column;}.form-actions:not(.split):not(.start) .form-btn-primary{width:100%;}}
+.form-btn-back{background:transparent;border:none;color:var(--ink-muted);font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer;padding:10px 4px;transition:color .2s var(--ease);min-height:44px;display:inline-flex;align-items:center;}
+.form-btn-back:hover{color:var(--ink-dim);}
+.form-option{cursor:pointer;background:var(--bg-elev);border:2px solid var(--line);border-radius:12px;padding:15px 17px;font-size:14.5px;font-weight:600;color:var(--ink-dim);transition:all .2s var(--ease);text-align:left;user-select:none;-webkit-tap-highlight-color:transparent;min-height:54px;display:flex;align-items:center;}
+.form-option:hover{border-color:var(--navy-30);background:var(--navy-03);}
+.form-option.selected{border-color:var(--navy);background:var(--navy-05);color:var(--navy);}
+.form-options-list{display:grid;gap:10px;}
+.form-options-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.form-options-grid .form-option{text-align:center;justify-content:center;font-size:17px;font-weight:700;padding:18px 12px;}
+.form-options-grid .form-option.wide{grid-column:span 2;}
+@media(min-width:481px){.form-options-grid{grid-template-columns:repeat(3,1fr);}.form-options-grid .form-option.wide{grid-column:span 2;}}
+.form-other-box{margin-top:14px;padding:16px;background:var(--bg-elev-2);border:1px solid var(--line);border-radius:10px;display:none;}
+.form-other-box.show{display:block;}
+.form-success{text-align:center;padding:8px 0;}
+.form-success-icon{width:64px;height:64px;border-radius:50%;background:var(--navy-05);border:1px solid var(--navy-10);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+.form-success-icon svg{width:30px;height:30px;stroke:var(--navy);}
+.form-success h2{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:8px;letter-spacing:-0.02em;}
+.form-success p{font-size:14px;color:var(--ink-dim);margin-bottom:24px;line-height:1.55;}
+.form-success-cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--navy-grad);color:#FFF;padding:16px 24px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 14px 30px -10px rgba(10,69,128,0.45);transition:transform .2s var(--ease);min-height:54px;}
+.form-success-cta:hover{transform:translateY(-2px);}
+.form-success-cta svg{width:18px;height:18px;stroke:#FFF;flex-shrink:0;}
+body.modal-open{overflow:hidden;}
+
 </style>
 </head>
 <body>
@@ -1038,7 +1095,7 @@ footer .brand{color:#FFF;}footer .brand .pro{color:#FFF;}footer .brand .clip{col
     <h2 class="fade-in fd2">Sua clínica popular tem o direito de ter a mesma <em>infraestrutura digital e comercial</em> que as maiores redes usam para encher agenda.</h2>
     <p class="fade-in fd3">Clínica popular não cresce com post bonito — cresce com método, agenda previsível e o dado certo na mão de quem decide. Em 50 minutos eu abro com você o diagnóstico da sua operação e o plano dos 45 dias.</p>
     <div class="fade-in fd4">
-      <a href="#" class="btn-primary">
+      <a href="#agendar" class="btn-primary">
         Agendar meu diagnóstico
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
@@ -1046,6 +1103,95 @@ footer .brand{color:#FFF;}footer .brand .pro{color:#FFF;}footer .brand .clip{col
     <div class="small fade-in fd5">Online · 50 minutos · Bernardo Carneiro · Método CLIP®</div>
   </div>
 </section>
+
+
+<!-- FORM MODAL — agendamento -->
+<div class="form-modal" id="formModal" role="dialog" aria-modal="true" aria-label="Agendar diagnóstico">
+  <div class="form-modal-card">
+    <button class="form-close" type="button" aria-label="Fechar" onclick="closeFormModal()">&times;</button>
+    <div class="form-progress-track"><div class="form-progress-bar" id="progressBar" style="width:25%"></div></div>
+    <div class="form-content">
+      <span class="form-step-indicator" id="stepIndicator">Passo 1/4</span>
+      <form id="leadForm" onsubmit="event.preventDefault();">
+
+        <div id="step1" class="form-step active">
+          <h2>Os seus dados</h2>
+          <p class="form-sub">Pra começar, me diz seu nome e WhatsApp.</p>
+          <div class="form-field">
+            <input type="text" id="inputName" class="form-input" placeholder="Qual o seu nome?" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <input type="tel" id="inputPhone" maxlength="15" onkeyup="handlePhone(event)" class="form-input" placeholder="Qual o seu WhatsApp?" autocomplete="tel" required>
+          </div>
+          <p id="error1" class="form-error">Preencha o nome e um WhatsApp válido com DDD.</p>
+          <div class="form-actions">
+            <button type="button" onclick="nextStep(1)" class="form-btn-primary">Continuar</button>
+          </div>
+        </div>
+
+        <div id="step2" class="form-step">
+          <h2>O seu perfil</h2>
+          <p class="form-sub">Qual a sua posição atual na clínica?</p>
+          <input type="hidden" id="inputRole">
+          <div class="form-options-list">
+            <div onclick="selectRole('Dono/Sócio da Clínica', this)" class="form-option">Dono/Sócio da Clínica</div>
+            <div onclick="selectRole('Diretor Marketing/Comercial', this)" class="form-option">Diretor Marketing/Comercial</div>
+            <div onclick="selectRole('Gerente', this)" class="form-option">Gerente</div>
+            <div onclick="selectRole('Outro', this)" class="form-option">Outro</div>
+            <div id="otherRoleContainer" class="form-other-box">
+              <input type="text" id="inputOtherRole" class="form-input" placeholder="Digite o seu cargo...">
+              <button type="button" onclick="confirmOtherRole()" class="form-btn-primary" style="margin-top:14px;width:100%;">Confirmar cargo</button>
+            </div>
+          </div>
+          <div class="form-actions start">
+            <button type="button" onclick="prevStep(2)" class="form-btn-back">&larr; Voltar</button>
+          </div>
+        </div>
+
+        <div id="step3" class="form-step">
+          <h2>Tamanho da operação</h2>
+          <p class="form-sub">Quantas unidades possui atualmente?</p>
+          <input type="hidden" id="inputUnidades">
+          <div class="form-options-grid">
+            <div onclick="selectUnidade('1', this)" class="form-option">1</div>
+            <div onclick="selectUnidade('2', this)" class="form-option">2</div>
+            <div onclick="selectUnidade('3', this)" class="form-option">3</div>
+            <div onclick="selectUnidade('4', this)" class="form-option">4</div>
+            <div onclick="selectUnidade('5+', this)" class="form-option wide">5 ou mais</div>
+          </div>
+          <div class="form-actions start">
+            <button type="button" onclick="prevStep(3)" class="form-btn-back">&larr; Voltar</button>
+          </div>
+        </div>
+
+        <div id="step4" class="form-step">
+          <h2>Presença digital</h2>
+          <p class="form-sub">Qual o @ do seu Instagram ou link do site? <span style="color:var(--ink-muted);font-size:11.5px;">(Opcional)</span></p>
+          <div class="form-field">
+            <input type="text" id="inputSocial" class="form-input" placeholder="@suaclinica ou www.suaclinica.com.br">
+          </div>
+          <div class="form-actions split">
+            <button type="button" onclick="prevStep(4)" class="form-btn-back">&larr; Voltar</button>
+            <button type="button" onclick="nextStep(4)" class="form-btn-primary">Finalizar</button>
+          </div>
+        </div>
+
+        <div id="stepSuccess" class="form-step form-success">
+          <div class="form-success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <h2>Tudo certo, <span id="finalName"></span>!</h2>
+          <p>Pra finalizar, escolha o melhor horário pra falarmos.</p>
+          <a href="https://calendar.app.google/Xgz9ETqKh4PXAR3u6" target="_blank" rel="noopener" class="form-success-cta">
+            Ver horários disponíveis
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
 
 </main>
 
@@ -1118,5 +1264,168 @@ footer .brand{color:#FFF;}footer .brand .pro{color:#FFF;}footer .brand .clip{col
   }
 })();
 </script>
+
+<script>
+/* ============================================================
+   FORM MODAL — agendamento (integração Google Sheets)
+   ============================================================ */
+(function(){
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxDirRyS_b2bfyClupsllkvR1v7qCbYBVuUc6pMkY8khMoOu8PzeD5OjwmXbf2itgSDVA/exec";
+  const totalSteps = 4;
+  let leadID = Date.now().toString();
+
+  function sendDataToSheets(dataObject){
+    const fd = new URLSearchParams();
+    fd.append('id', leadID);
+    for(const k in dataObject){ fd.append(k, dataObject[k]); }
+    fetch(WEB_APP_URL, {
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body: fd.toString()
+    }).catch(err => console.error('Form sheets error:', err));
+  }
+
+  function updateProgress(step){
+    const pct = (step / totalSteps) * 100;
+    document.getElementById('progressBar').style.width = Math.min(pct,100) + '%';
+    const ind = document.getElementById('stepIndicator');
+    if(step <= totalSteps){
+      ind.innerText = 'Passo ' + step + '/' + totalSteps;
+      ind.classList.remove('done');
+    } else {
+      ind.innerText = 'Concluído';
+      ind.classList.add('done');
+    }
+  }
+
+  window.nextStep = function(curr){
+    if(curr === 1){
+      const nome = document.getElementById('inputName').value.trim();
+      const phone = document.getElementById('inputPhone').value.trim();
+      if(!nome || phone.length < 14){
+        document.getElementById('error1').classList.add('show');
+        return;
+      }
+      document.getElementById('error1').classList.remove('show');
+      document.getElementById('finalName').innerText = nome.split(' ')[0];
+      sendDataToSheets({ nome: nome, whatsapp: phone });
+    }
+    if(curr === 4){
+      const social = document.getElementById('inputSocial').value.trim();
+      if(social){ sendDataToSheets({ social: social }); }
+    }
+    document.getElementById('step' + curr).classList.remove('active');
+    const nextId = curr === 4 ? 'stepSuccess' : 'step' + (curr+1);
+    document.getElementById(nextId).classList.add('active');
+    updateProgress(curr + 1);
+  };
+
+  window.prevStep = function(curr){
+    document.getElementById('step' + curr).classList.remove('active');
+    document.getElementById('step' + (curr-1)).classList.add('active');
+    updateProgress(curr - 1);
+  };
+
+  window.selectRole = function(role, el){
+    document.querySelectorAll('#step2 .form-option').forEach(e => e.classList.remove('selected'));
+    el.classList.add('selected');
+    if(role === 'Outro'){
+      document.getElementById('otherRoleContainer').classList.add('show');
+      setTimeout(() => document.getElementById('inputOtherRole').focus(), 100);
+    } else {
+      document.getElementById('otherRoleContainer').classList.remove('show');
+      document.getElementById('inputRole').value = role;
+      sendDataToSheets({ cargo: role });
+      setTimeout(() => window.nextStep(2), 280);
+    }
+  };
+
+  window.confirmOtherRole = function(){
+    const role = document.getElementById('inputOtherRole').value.trim();
+    if(!role) return;
+    document.getElementById('inputRole').value = role;
+    sendDataToSheets({ cargo: role });
+    window.nextStep(2);
+  };
+
+  window.selectUnidade = function(qtd, el){
+    document.querySelectorAll('#step3 .form-option').forEach(e => e.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('inputUnidades').value = qtd;
+    sendDataToSheets({ unidades: qtd });
+    setTimeout(() => window.nextStep(3), 280);
+  };
+
+  window.handlePhone = function(e){
+    const input = e.target;
+    let v = input.value.replace(/\D/g,'');
+    v = v.replace(/(\d{2})(\d)/, '($1) $2');
+    v = v.replace(/(\d)(\d{4})$/, '$1-$2');
+    input.value = v;
+  };
+
+  window.openFormModal = function(){
+    const m = document.getElementById('formModal');
+    if(!m) return;
+    m.classList.add('active');
+    document.body.classList.add('modal-open');
+    document.querySelectorAll('#formModal .form-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step1').classList.add('active');
+    document.querySelectorAll('#formModal .form-option').forEach(s => s.classList.remove('selected'));
+    document.getElementById('otherRoleContainer').classList.remove('show');
+    document.getElementById('error1').classList.remove('show');
+    updateProgress(1);
+    leadID = Date.now().toString();
+    setTimeout(() => {
+      const f = document.getElementById('inputName');
+      if(f) f.focus();
+    }, 280);
+  };
+
+  window.closeFormModal = function(){
+    document.getElementById('formModal').classList.remove('active');
+    document.body.classList.remove('modal-open');
+  };
+
+  // Intercepta qualquer link/botão de agendar
+  document.addEventListener('click', function(e){
+    const a = e.target.closest('a[href="#agendar"]');
+    if(a){
+      e.preventDefault();
+      window.openFormModal();
+    }
+  });
+
+  // Click no backdrop fecha
+  const modal = document.getElementById('formModal');
+  if(modal){
+    modal.addEventListener('click', function(e){
+      if(e.target === this) window.closeFormModal();
+    });
+  }
+
+  // ESC fecha
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal && modal.classList.contains('active')){
+      window.closeFormModal();
+    }
+  });
+
+  // Enter avança
+  document.getElementById('inputName').addEventListener('keypress', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); document.getElementById('inputPhone').focus(); }
+  });
+  document.getElementById('inputPhone').addEventListener('keypress', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); window.nextStep(1); }
+  });
+  document.getElementById('inputSocial').addEventListener('keypress', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); window.nextStep(4); }
+  });
+  document.getElementById('inputOtherRole').addEventListener('keypress', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); window.confirmOtherRole(); }
+  });
+})();
+</script>
+
 </body>
 </html>
