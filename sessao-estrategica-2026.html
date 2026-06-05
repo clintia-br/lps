@@ -201,21 +201,16 @@ h4{font-size:clamp(15px,1.9vw,17px);font-weight:700;letter-spacing:var(--trackin
 .hero-meta-item{display:inline-flex;align-items:center;gap:7px;}
 .hero-meta svg{width:15px;height:15px;color:var(--navy);flex-shrink:0;}
 
-/* CAROUSEL (hero) */
-.carousel-wrap{margin:clamp(44px,6vw,64px) auto 0;max-width:1000px;}
-.h-scroll{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:13px;padding:6px 4px 22px;scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent;-webkit-overflow-scrolling:touch;}
+/* CAROUSEL (hero) — imagens PAISAGEM, altura natural (sem corte) */
+.carousel-wrap{margin:clamp(44px,6vw,64px) auto 0;max-width:1100px;}
+.h-scroll{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:6px 4px 22px;scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent;-webkit-overflow-scrolling:touch;}
 .h-scroll::-webkit-scrollbar{height:5px;}
 .h-scroll::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:6px;border:none;}
-.carousel-slide{flex:0 0 min(212px,58vw);aspect-ratio:9/16;scroll-snap-align:center;background:var(--bg-elev);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
+.carousel-slide{flex:0 0 min(360px,82vw);scroll-snap-align:center;background:var(--bg-elev);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
 .carousel-slide:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);}
-.img-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;padding:16px;text-align:center;background:
-  linear-gradient(45deg,transparent 48%,var(--line) 48%,var(--line) 52%,transparent 52%),
-  linear-gradient(-45deg,transparent 48%,var(--line) 48%,var(--line) 52%,transparent 52%),
-  var(--bg-elev-2);}
-.img-placeholder .ph-badge{width:42px;height:42px;border-radius:50%;background:var(--bg-elev);border:1.5px dashed var(--line-strong);display:flex;align-items:center;justify-content:center;}
-.img-placeholder .ph-badge svg{width:18px;height:18px;stroke:var(--navy);fill:none;stroke-width:1.6;}
-.img-placeholder .ph-title{font-size:10.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);}
-.img-placeholder .ph-desc{font-size:11.5px;color:var(--ink-muted);}
+.carousel-slide img{width:100%;height:auto;display:block;}
+.carousel-cap{padding:11px 15px;border-top:1px solid var(--line);font-size:12.5px;font-weight:700;color:var(--navy);letter-spacing:-0.01em;display:flex;align-items:center;gap:8px;}
+.carousel-cap svg{width:13px;height:13px;stroke:var(--navy);fill:none;stroke-width:2.4;flex-shrink:0;}
 
 /* ============================================================
    SECTION HEAD
@@ -296,17 +291,12 @@ h4{font-size:clamp(15px,1.9vw,17px);font-weight:700;letter-spacing:var(--trackin
 .cta-inline .btn-primary{position:relative;}
 
 /* ============================================================
-   RESULTADOS REAIS
+   RESULTADOS REAIS — prints VERTICAIS, altura natural (sem corte)
    ============================================================ */
 .testimonials-section{background:var(--bg-elev-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;}
-.proof-card{flex:0 0 min(224px,56vw);scroll-snap-align:center;background:var(--bg-elev);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
+.proof-card{flex:0 0 min(260px,68vw);scroll-snap-align:center;background:var(--bg-elev);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--sh-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
 .proof-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);}
-.proof-ph{aspect-ratio:9/16;background:
-  linear-gradient(45deg,transparent 48%,var(--line) 48%,var(--line) 52%,transparent 52%),
-  linear-gradient(-45deg,transparent 48%,var(--line) 48%,var(--line) 52%,transparent 52%),
-  var(--bg-elev-2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;padding:16px;}
-.proof-ph svg{width:28px;height:28px;stroke:var(--line-strong);fill:none;stroke-width:1.4;}
-.proof-ph-label{font-size:10.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-muted);}
+.proof-card img{width:100%;height:auto;display:block;}
 .proof-meta{padding:14px 16px;border-top:1px solid var(--line);}
 .proof-tag{display:inline-flex;align-items:center;gap:6px;background:var(--navy-07);border:1px solid var(--navy-10);border-radius:20px;padding:4px 11px;font-size:11px;font-weight:600;color:var(--navy);}
 .proof-tag svg{width:10px;height:10px;stroke:var(--navy);fill:none;stroke-width:2.5;}
@@ -628,12 +618,13 @@ footer .brand{color:#FFF;}footer .brand .pro{color:#FFF;}footer .brand .clip{col
     <div class="carousel-wrap fade-in">
       <div class="section-label center">Clínicas que já passaram pelo método</div>
       <div class="h-scroll">
-        <div class="carousel-slide"><div class="img-placeholder"><div class="ph-badge"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph-title">Print 01</div><div class="ph-desc">Resultado mês a mês</div></div></div>
-        <div class="carousel-slide"><div class="img-placeholder"><div class="ph-badge"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph-title">Print 02</div><div class="ph-desc">Painel de resultado no celular</div></div></div>
-        <div class="carousel-slide"><div class="img-placeholder"><div class="ph-badge"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph-title">Print 03</div><div class="ph-desc">Cartão benefício</div></div></div>
-        <div class="carousel-slide"><div class="img-placeholder"><div class="ph-badge"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph-title">Print 04</div><div class="ph-desc">Google Meu Negócio</div></div></div>
-        <div class="carousel-slide"><div class="img-placeholder"><div class="ph-badge"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph-title">Print 05</div><div class="ph-desc">Antes e depois</div></div></div>
-        <div class="carousel-slide"><div class="img-placeholder"><div class="ph-badge"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="ph-title">Print 06</div><div class="ph-desc">Agenda previsível</div></div></div>
+        <div class="carousel-slide"><img src="Imagens%20Site%20PROClip/WEBP/Se%C3%A7%C3%A3o%2001%20-%20webp/1.-Alpha-Policl%C3%ADnica.webp" alt="Alpha Policlínica" loading="lazy"><div class="carousel-cap"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Alpha Policlínica</div></div>
+        <div class="carousel-slide"><img src="Imagens%20Site%20PROClip/WEBP/Se%C3%A7%C3%A3o%2001%20-%20webp/2.-Susga.webp" alt="Susga" loading="lazy"><div class="carousel-cap"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Susga</div></div>
+        <div class="carousel-slide"><img src="Imagens%20Site%20PROClip/WEBP/Se%C3%A7%C3%A3o%2001%20-%20webp/3.-Cl%C3%ADnica-Sim.webp" alt="Clínica Sim" loading="lazy"><div class="carousel-cap"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Clínica Sim</div></div>
+        <div class="carousel-slide"><img src="Imagens%20Site%20PROClip/WEBP/Se%C3%A7%C3%A3o%2001%20-%20webp/4.-Doutor-Pop.webp" alt="Doutor Pop" loading="lazy"><div class="carousel-cap"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Doutor Pop</div></div>
+        <div class="carousel-slide"><img src="Imagens%20Site%20PROClip/WEBP/Se%C3%A7%C3%A3o%2001%20-%20webp/5.-Cl%C3%ADnicas-do-Bairro.webp" alt="Clínicas do Bairro" loading="lazy"><div class="carousel-cap"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Clínicas do Bairro</div></div>
+        <div class="carousel-slide"><img src="Imagens%20Site%20PROClip/WEBP/Se%C3%A7%C3%A3o%2001%20-%20webp/6.-Medtrata.webp" alt="Medtrata" loading="lazy"><div class="carousel-cap"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Medtrata</div></div>
+        <div class="carousel-slide"><img src="Imagens%20Site%20PROClip/WEBP/Se%C3%A7%C3%A3o%2001%20-%20webp/7.-Top-Cl%C3%ADnica-Popular.webp" alt="Top Clínica Popular" loading="lazy"><div class="carousel-cap"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Top Clínica Popular</div></div>
       </div>
     </div>
   </div>
@@ -778,46 +769,24 @@ footer .brand{color:#FFF;}footer .brand .pro{color:#FFF;}footer .brand .clip{col
     </div>
     <div class="h-scroll">
       <div class="proof-card fade-in fd1">
-        <div class="proof-ph">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          <div class="proof-ph-label">Print WhatsApp</div>
-        </div>
-        <div class="proof-meta"><span class="proof-tag"><svg viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 110-14h4.5"/><path d="M21 3l-5 5M21 8l-5-5"/></svg>Clínica · CE</span></div>
+        <img src="Imagens%20Site%20PROClip/WEBP/Provas%20Sociais%20Webp/1.webp" alt="Print real de WhatsApp — resultado de clínica popular" loading="lazy">
+        <div class="proof-meta"><span class="proof-tag"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Resultado real · WhatsApp</span></div>
       </div>
       <div class="proof-card fade-in fd2">
-        <div class="proof-ph">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          <div class="proof-ph-label">Print WhatsApp</div>
-        </div>
-        <div class="proof-meta"><span class="proof-tag"><svg viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 110-14h4.5"/><path d="M21 3l-5 5M21 8l-5-5"/></svg>Clínica · AM</span></div>
+        <img src="Imagens%20Site%20PROClip/WEBP/Provas%20Sociais%20Webp/2.webp" alt="Print real de WhatsApp — resultado de clínica popular" loading="lazy">
+        <div class="proof-meta"><span class="proof-tag"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Resultado real · WhatsApp</span></div>
       </div>
       <div class="proof-card fade-in fd3">
-        <div class="proof-ph">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          <div class="proof-ph-label">Print WhatsApp</div>
-        </div>
-        <div class="proof-meta"><span class="proof-tag"><svg viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 110-14h4.5"/><path d="M21 3l-5 5M21 8l-5-5"/></svg>Clínica · MG</span></div>
+        <img src="Imagens%20Site%20PROClip/WEBP/Provas%20Sociais%20Webp/3.webp" alt="Print real de WhatsApp — resultado de clínica popular" loading="lazy">
+        <div class="proof-meta"><span class="proof-tag"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Resultado real · WhatsApp</span></div>
       </div>
       <div class="proof-card fade-in fd1">
-        <div class="proof-ph">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          <div class="proof-ph-label">Print WhatsApp</div>
-        </div>
-        <div class="proof-meta"><span class="proof-tag"><svg viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 110-14h4.5"/><path d="M21 3l-5 5M21 8l-5-5"/></svg>Clínica · MA</span></div>
+        <img src="Imagens%20Site%20PROClip/WEBP/Provas%20Sociais%20Webp/4.webp" alt="Print real de WhatsApp — resultado de clínica popular" loading="lazy">
+        <div class="proof-meta"><span class="proof-tag"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Resultado real · WhatsApp</span></div>
       </div>
       <div class="proof-card fade-in fd2">
-        <div class="proof-ph">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          <div class="proof-ph-label">Print WhatsApp</div>
-        </div>
-        <div class="proof-meta"><span class="proof-tag"><svg viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 110-14h4.5"/><path d="M21 3l-5 5M21 8l-5-5"/></svg>Clínica · PB</span></div>
-      </div>
-      <div class="proof-card fade-in fd3">
-        <div class="proof-ph">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          <div class="proof-ph-label">Print WhatsApp</div>
-        </div>
-        <div class="proof-meta"><span class="proof-tag"><svg viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 110-14h4.5"/><path d="M21 3l-5 5M21 8l-5-5"/></svg>Clínica · RJ</span></div>
+        <img src="Imagens%20Site%20PROClip/WEBP/Provas%20Sociais%20Webp/5.webp" alt="Print real de WhatsApp — resultado de clínica popular" loading="lazy">
+        <div class="proof-meta"><span class="proof-tag"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Resultado real · WhatsApp</span></div>
       </div>
     </div>
   </div>
@@ -915,7 +884,7 @@ footer .brand{color:#FFF;}footer .brand .pro{color:#FFF;}footer .brand .clip{col
   <div class="container">
     <div class="founder-grid">
       <div class="founder-image fade-in">
-        <img src="assets/bernardo.png" alt="Bernardo Carneiro, fundador da PROClip">
+        <img src="Imagens%20Site%20PROClip/WEBP/bernardo-perfil.webp" alt="Bernardo Carneiro, fundador da PROClip">
       </div>
       <div class="fade-in fd1">
         <div class="founder-head">
