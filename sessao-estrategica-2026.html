@@ -5,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PROClip — Diagnóstico Comercial | Infraestrutura digital e comercial para clínica popular</title>
 <meta name="description" content="Em 50 minutos, Bernardo Carneiro abre com você a infraestrutura digital e comercial que as maiores redes de clínica popular usam para encher agenda e reduzir dependência de convênio. Método CLIP®, aplicado em +100 clínicas.">
+<!-- Verificação de domínio do Meta (cole o content quando tiver) -->
+<!-- <meta name="facebook-domain-verification" content="COLE_AQUI"> -->
+<!-- Meta Pixel — dormente até definir META_PIXEL_ID -->
+<script>
+(function(){
+  var META_PIXEL_ID = ""; /* <<< COLE AQUI O ID DO SEU PIXEL DO META >>> */
+  window.META_PIXEL_ID = META_PIXEL_ID;
+  if(!META_PIXEL_ID) return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID);
+  fbq('track', 'PageView');
+})();
+</script>
+<!-- /Meta Pixel -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -1296,7 +1314,7 @@ body.modal-open{overflow:hidden;}
           </div>
           <h2>Tudo certo, <span id="finalName"></span>!</h2>
           <p>Pra finalizar, escolha o melhor horário pra falarmos.</p>
-          <a href="https://calendar.app.google/Xgz9ETqKh4PXAR3u6" target="_blank" rel="noopener" class="form-success-cta">
+          <a href="https://calendar.app.google/Xgz9ETqKh4PXAR3u6" target="_blank" rel="noopener" class="form-success-cta" onclick="window.fbSchedule && window.fbSchedule()">
             Ver horários disponíveis
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
@@ -1389,6 +1407,14 @@ body.modal-open{overflow:hidden;}
   const totalSteps = 4;
   let leadID = Date.now().toString();
 
+  // Dispara evento no Pixel do Meta (so se o pixel estiver ativo).
+  // eventID = leadID + nome do evento -> deduplica com o CAPI na fase 2.
+  function fbTrack(event, params){
+    if(window.fbq && window.META_PIXEL_ID){
+      try{ fbq('track', event, params || {}, {eventID: leadID + '_' + event}); }catch(e){}
+    }
+  }
+
   function sendDataToSheets(dataObject){
     const fd = new URLSearchParams();
     fd.append('id', leadID);
@@ -1425,10 +1451,16 @@ body.modal-open{overflow:hidden;}
       document.getElementById('error1').classList.remove('show');
       document.getElementById('finalName').innerText = nome.split(' ')[0];
       sendDataToSheets({ nome: nome, whatsapp: phone });
+      fbTrack('Lead', {origem: LP_ORIGEM});
     }
     if(curr === 4){
       const social = document.getElementById('inputSocial').value.trim();
       if(social){ sendDataToSheets({ social: social }); }
+      fbTrack('CompleteRegistration', {
+        origem: LP_ORIGEM,
+        cargo: document.getElementById('inputRole').value,
+        unidades: document.getElementById('inputUnidades').value
+      });
     }
     document.getElementById('step' + curr).classList.remove('active');
     const nextId = curr === 4 ? 'stepSuccess' : 'step' + (curr+1);
@@ -1492,6 +1524,7 @@ body.modal-open{overflow:hidden;}
     document.getElementById('error1').classList.remove('show');
     updateProgress(1);
     leadID = Date.now().toString();
+    fbTrack('InitiateCheckout', {origem: LP_ORIGEM});
     setTimeout(() => {
       const f = document.getElementById('inputName');
       if(f) f.focus();
@@ -1501,6 +1534,15 @@ body.modal-open{overflow:hidden;}
   window.closeFormModal = function(){
     document.getElementById('formModal').classList.remove('active');
     document.body.classList.remove('modal-open');
+  };
+
+  // Conversao mais profunda na pagina: clicou pra ver horarios no Google Calendar.
+  window.fbSchedule = function(){
+    fbTrack('Schedule', {
+      origem: LP_ORIGEM,
+      cargo: document.getElementById('inputRole').value,
+      unidades: document.getElementById('inputUnidades').value
+    });
   };
 
   // Intercepta qualquer link/botão de agendar
