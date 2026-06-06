@@ -315,6 +315,10 @@ h4{font-size:clamp(15px,1.9vw,17px);font-weight:700;letter-spacing:var(--trackin
 .case-section-head{text-align:center;max-width:760px;margin:0 auto clamp(22px,3vw,32px);}
 .case-section-title{font-size:clamp(20px,2.6vw,28px);font-weight:800;color:var(--ink);line-height:1.25;letter-spacing:-0.02em;margin-top:8px;}
 .case-scroll{padding-bottom:8px;}
+.swipe-hint{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--navy);margin:0 auto 16px;opacity:0.9;}
+.swipe-hint svg{width:17px;height:17px;stroke:var(--navy);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;animation:swipeNudge 1.5s var(--ease) infinite;}
+@keyframes swipeNudge{0%,100%{transform:translateX(0);opacity:0.6;}50%{transform:translateX(7px);opacity:1;}}
+@media(prefers-reduced-motion:reduce){.swipe-hint svg{animation:none;}}
 .case-history{flex:0 0 min(620px,92vw);scroll-snap-align:center;background:var(--bg-elev);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(26px,3.5vw,38px);box-shadow:var(--sh-md);position:relative;overflow:hidden;display:flex;flex-direction:column;}
 .case-history::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--navy-grad);}
 .case-tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy);background:var(--navy-05);border:1px solid var(--navy-10);padding:5px 12px;border-radius:20px;margin-bottom:18px;}
@@ -536,6 +540,8 @@ footer .brand{color:#FFF;}footer .brand .pro{color:#FFF;}footer .brand .clip{col
   .risk-box{margin-top:28px;}
   .risk-body{gap:18px;}
   .cta-inline{margin-top:36px;padding:26px 22px;}
+  .cta-inline .btn-primary,.scenario-cta .btn-primary{width:100%;white-space:normal;text-align:center;}
+  .btn-primary{white-space:normal;}
   .without-item{padding:16px 18px;gap:14px;}
   .scenario-item{padding:15px 16px;gap:13px;}
   .method-item,.problem-item{grid-template-columns:40px 1fr;gap:14px;padding:18px 18px;}
@@ -949,6 +955,7 @@ body.modal-open{overflow:hidden;}
         <div class="section-label">Cases detalhados</div>
         <h3 class="case-section-title">3 cenários, 3 implantações, 3 resultados <span class="text-navy">com nome, número e contexto</span>.</h3>
       </div>
+      <div class="swipe-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>Arraste para o lado para ver os 3 cases</div>
       <div class="h-scroll case-scroll">
         <article class="case-history">
           <div class="case-tag">Case 01 · Dependência de convênio</div>
