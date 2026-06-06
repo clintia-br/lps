@@ -1385,12 +1385,14 @@ body.modal-open{overflow:hidden;}
    ============================================================ */
 (function(){
   const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxDirRyS_b2bfyClupsllkvR1v7qCbYBVuUc6pMkY8khMoOu8PzeD5OjwmXbf2itgSDVA/exec";
+  const LP_ORIGEM = "google";
   const totalSteps = 4;
   let leadID = Date.now().toString();
 
   function sendDataToSheets(dataObject){
     const fd = new URLSearchParams();
     fd.append('id', leadID);
+    fd.append('origem', LP_ORIGEM);
     for(const k in dataObject){ fd.append(k, dataObject[k]); }
     fetch(WEB_APP_URL, {
       method:'POST', mode:'no-cors',
