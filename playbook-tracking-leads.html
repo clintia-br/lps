@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playbook de Tracking de Leads · ClintIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800&family=Red+Hat+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#05D2FF; --celtic:#055AAA; --dodger:#0578DC; --yale:#053C73; --oxford:#051E32;
+  --n0:#fff; --n50:#f5f8fb; --n100:#eef3f8; --n200:#dde6ef; --n300:#c4d2e0; --n400:#94a8bd;
+  --n600:#5a6b7d; --n700:#3d4b59;
+  --ok:#1aa260; --warn:#e0a90a;
+  --mono:'Red Hat Mono',ui-monospace,monospace; --r:12px; --r-sm:7px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Red Hat Display',system-ui,sans-serif;font-size:14px;line-height:1.6;color:var(--oxford);background:var(--n50)}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px}
+
+header.hero{background:linear-gradient(135deg,var(--oxford),var(--yale) 72%,var(--celtic));color:#fff;padding:44px 0 38px}
+header.hero .wrap{display:flex;flex-direction:column;gap:13px}
+.brandrow{display:flex;align-items:center;gap:10px}
+.brand{font-weight:800;font-size:18px;letter-spacing:-.3px}.brand .ia{color:var(--sky)}
+.chip{font-size:10.5px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;padding:3px 10px;border-radius:99px;background:rgba(5,210,255,.16);color:var(--sky);border:1px solid rgba(5,210,255,.3)}
+header.hero h1{font-size:29px;font-weight:800;letter-spacing:-.6px;line-height:1.15;max-width:720px}
+header.hero p.sub{font-size:14.5px;color:#c4d8ee;max-width:680px}
+
+main{padding:30px 0 70px}
+.intro{background:var(--n0);border:1px solid var(--n200);border-radius:var(--r);padding:22px 24px;margin-bottom:26px}
+.intro h2{font-size:15px;color:var(--yale);margin-bottom:6px;font-weight:700}
+.intro p{font-size:13.5px;color:var(--n600);margin-bottom:8px}
+
+.flow{background:var(--n50);border:1px dashed var(--n300);border-radius:var(--r-sm);padding:18px 14px;margin-top:14px;overflow-x:auto}
+.flow-col{display:flex;flex-direction:column;align-items:center;min-width:560px;margin:0 auto}
+.node{background:#fff;border:1.5px solid var(--n300);border-radius:var(--r-sm);padding:8px 13px;font-size:11.5px;font-weight:600;color:var(--yale);text-align:center;min-width:180px}
+.node.lp{border-color:var(--sky)} .node.hub{border-color:var(--celtic);color:var(--celtic);background:rgba(5,90,170,.05)} .node.meta{border-color:var(--dodger)}
+.arr{width:2px;height:15px;background:var(--n300);position:relative}
+.arr::after{content:'';position:absolute;bottom:0;left:-3px;border-left:4px solid transparent;border-right:4px solid transparent;border-top:6px solid var(--n300)}
+.branch{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}.branch .node{min-width:135px}
+
+.step{background:var(--n0);border:1px solid var(--n200);border-radius:var(--r);margin-bottom:16px;overflow:hidden}
+.step-head{display:flex;align-items:center;gap:14px;padding:17px 22px;border-bottom:1px solid var(--n100)}
+.step-num{flex:none;width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--celtic),var(--dodger));color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.step-head h3{font-size:16.5px;font-weight:700;letter-spacing:-.2px}
+.step-body{padding:18px 22px 20px}
+.lab{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--n400);margin:0 0 5px}
+.lab.do{color:var(--celtic)}
+.step-body p{font-size:13.5px;margin-bottom:13px;color:var(--n700)}
+.step-body .do-text{margin-bottom:14px}
+
+.cmd{background:linear-gradient(180deg,#eef9fe,#e3f3fc);border:1px solid #bfe6f6;border-left:3px solid var(--sky);border-radius:var(--r-sm);padding:12px 15px 13px}
+.cmd .who{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--celtic);margin-bottom:5px}
+.cmd .msg{font-size:13.5px;color:var(--oxford);font-style:italic;line-height:1.55}
+.cmd.manual{background:var(--n50);border-color:var(--n200);border-left-color:var(--n400)}
+.cmd.manual .who{color:var(--n600)}
+
+.note{font-size:12px;color:var(--n600);background:var(--n50);border-left:3px solid var(--warn);padding:9px 13px;border-radius:0 5px 5px 0;margin-top:13px}
+.note b{color:#a9810a}
+code{font-family:var(--mono);font-size:12px;background:var(--n100);color:var(--yale);padding:1px 6px;border-radius:4px}
+
+/* PLATFORMS */
+.tools{background:var(--oxford);color:#cfe8f7;border-radius:var(--r);padding:24px 26px;margin-bottom:16px}
+.tools h2{color:#fff;font-size:17px;margin-bottom:4px;font-weight:700}
+.tools .sub{color:#9fc4e0;font-size:12.5px;margin-bottom:16px}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px 14px}
+.tool{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-top:1px solid rgba(255,255,255,.07)}
+.tool .ic{flex:none;width:26px;height:26px;border-radius:7px;background:rgba(5,210,255,.14);display:flex;align-items:center;justify-content:center;font-size:13px}
+.tool b{color:#fff;font-size:13px;display:block;line-height:1.3}
+.tool span{color:#9fc4e0;font-size:11.5px;line-height:1.4}
+
+.check{background:var(--n0);border:1px solid var(--n200);border-radius:var(--r);padding:22px 24px}
+.check h2{font-size:16px;margin-bottom:4px;font-weight:700;color:var(--oxford)}
+.check .sub{color:var(--n600);font-size:12.5px;margin-bottom:14px}
+.check ol{list-style:none;counter-reset:c}
+.check li{counter-increment:c;font-size:13px;padding:7px 0 7px 34px;position:relative;border-bottom:1px solid var(--n100);color:var(--n700)}
+.check li:last-child{border-bottom:none}
+.check li::before{content:counter(c);position:absolute;left:0;top:6px;width:22px;height:22px;border:1.5px solid var(--n300);border-radius:6px;font-size:11px;font-weight:700;color:var(--celtic);display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.check li b{color:var(--oxford)}
+
+@media(max-width:640px){.tgrid{grid-template-columns:1fr}header.hero h1{font-size:23px}}
+footer{text-align:center;color:var(--n400);font-size:11px;padding:26px 0 40px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brandrow"><span class="brand">Clint<span class="ia">IA</span></span><span class="chip">Playbook interno · replicável</span></div>
+    <h1>Como montamos o tracking de leads de um cliente</h1>
+    <p class="sub">O processo que usamos pra rastrear cada lead do anúncio até o fechamento — pronto pra replicar em qualquer cliente. Em cada etapa: o que é, o que fazer e o comando simples que a gente dá pro Claude.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="intro">
+    <h2>A ideia em uma frase</h2>
+    <p>Pra cada cliente, a gente quer saber <b>de onde vem cada lead</b> e <b>quanto custa cada um</b> — e fazer o Meta entregar gente qualificada, não volume vazio. Pra isso, montamos um caminho onde cada clique deixa rastro, do anúncio até o cliente fechar.</p>
+    <p style="margin-bottom:0">Esse é o desenho geral do fluxo que vamos montar:</p>
+    <div class="flow">
+      <div class="flow-col">
+        <div class="node meta">Anúncio no Meta</div>
+        <div class="arr"></div>
+        <div class="node lp">Landing Page</div>
+        <div class="arr"></div>
+        <div class="node hub">Script "porteiro" (HUB)</div>
+        <div class="arr"></div>
+        <div class="branch">
+          <div class="node">📊 Planilha</div>
+          <div class="node hub">🤝 CRM</div>
+          <div class="node">📲 Aviso no Whats</div>
+        </div>
+        <div class="arr"></div>
+        <div class="node meta">Meta otimiza a campanha + Painel de custo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">1</div><h3>Arrumar a base no Meta</h3></div>
+    <div class="step-body">
+      <p class="lab">O que é</p>
+      <p>Antes de tudo, o Meta precisa de um "ponto de coleta" único (o <b>pixel/dataset</b> do cliente) e confiar no site dele (<b>domínio verificado</b>). É isso que liga o anúncio aos resultados.</p>
+      <p class="lab do">O que fazer</p>
+      <p class="do-text">Usar <b>sempre o mesmo pixel</b> do cliente (nunca criar novos) e verificar o domínio dele no Gerenciador do Meta. Essa parte é na mão, dentro do Meta.</p>
+      <div class="cmd manual">
+        <div class="who">🧭 Se travar, peça ao Claude</div>
+        <div class="msg">"Me explica passo a passo como verificar o domínio do cliente no Meta e onde acho o ID do pixel dele."</div>
+      </div>
+      <div class="note"><b>Regra de ouro:</b> nunca criar pixel novo. Vários pixels fragmentam os dados e quebram a otimização. Um cliente = um pixel, sempre o mesmo.</div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">2</div><h3>Fazer a página "avisar" o Meta a cada ação</h3></div>
+    <div class="step-body">
+      <p class="lab">O que é</p>
+      <p>Toda vez que alguém faz algo importante na página (abre, começa o formulário, vira lead, finaliza, clica pra agendar), a página avisa o Meta. São esses "avisos" (eventos) que o algoritmo usa pra aprender quem é bom cliente.</p>
+      <p class="lab do">O que fazer</p>
+      <p class="do-text">Pedir pro Claude instalar o pixel na landing page e marcar os 5 momentos. Ele escreve o código.</p>
+      <div class="cmd">
+        <div class="who">💬 O comando que a gente dá pro Claude</div>
+        <div class="msg">"Preciso trackear a landing page do cliente. Quero que ela avise o Meta quando a pessoa: abre a página, começa o formulário, preenche nome e WhatsApp, finaliza, e clica pra agendar. Usa o pixel do cliente."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">3</div><h3>Guardar de qual anúncio o lead veio</h3></div>
+    <div class="step-body">
+      <p class="lab">O que é</p>
+      <p>Quando a pessoa clica no anúncio, a URL traz uns códigos (UTMs) que dizem a campanha e o anúncio exatos. A página precisa "segurar" esses códigos e levar junto com o lead até o final — senão a gente perde a origem no meio do caminho.</p>
+      <p class="lab do">O que fazer</p>
+      <p class="do-text">Pedir pro Claude fazer a página capturar e carregar essa origem em todo envio do formulário.</p>
+      <div class="cmd">
+        <div class="who">💬 O comando que a gente dá pro Claude</div>
+        <div class="msg">"Faz a página guardar de qual anúncio a pessoa veio (os UTMs e o fbclid) e mandar isso junto com os dados do lead. E garante que o nome e o WhatsApp não se percam se a pessoa pular um passo."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">4</div><h3>Criar o "porteiro" que recebe e organiza tudo</h3></div>
+    <div class="step-body">
+      <p class="lab">O que é</p>
+      <p>É um script (o HUB) que fica no meio do caminho: o formulário manda os dados pra ele, e ele organiza e distribui. É o coração da máquina — começa gravando cada lead numa planilha.</p>
+      <p class="lab do">O que fazer</p>
+      <p class="do-text">Pedir pro Claude criar esse script e te guiar pra colá-lo no Google (Apps Script) e publicar.</p>
+      <div class="cmd">
+        <div class="who">💬 O comando que a gente dá pro Claude</div>
+        <div class="msg">"Cria um script que recebe o formulário e grava cada lead numa planilha do Google, com todos os dados e de onde ele veio. Me ensina onde colar e como publicar."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">5</div><h3>Jogar o lead direto no CRM</h3></div>
+    <div class="step-body">
+      <p class="lab">O que é</p>
+      <p>Em vez de cadastrar lead na mão, o mesmo porteiro já cria o contato e o negócio no CRM — com a origem anexada. O CRM vira a fonte de verdade do funil.</p>
+      <p class="lab do">O que fazer</p>
+      <p class="do-text">Pedir pro Claude estender o script pra falar com o CRM (ele cria os campos de origem e conecta na API).</p>
+      <div class="cmd">
+        <div class="who">💬 O comando que a gente dá pro Claude</div>
+        <div class="msg">"Faz esse mesmo script criar o lead no CRM automaticamente, já entrando no funil com a origem dele (campanha e anúncio)."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">6</div><h3>Ser avisado na hora que entra um lead</h3></div>
+    <div class="step-body">
+      <p class="lab">O que é</p>
+      <p>O lead esfria em minutos. Então o porteiro também avisa no WhatsApp do responsável assim que alguém preenche — pra responder em menos de 5 minutos, que é o que mais transforma lead em reunião.</p>
+      <p class="lab do">O que fazer</p>
+      <p class="do-text">Pedir pro Claude ligar um aviso automático no WhatsApp do atendimento.</p>
+      <div class="cmd">
+        <div class="who">💬 O comando que a gente dá pro Claude</div>
+        <div class="msg">"Quando entrar um lead novo, manda um aviso na hora no WhatsApp do atendimento com o nome, o telefone e de qual anúncio ele veio."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">7</div><h3>Mandar o anúncio carimbar a origem</h3></div>
+    <div class="step-body">
+      <p class="lab">O que é</p>
+      <p>Pra a origem chegar (etapa 3), o anúncio precisa colocar os dados da campanha na URL automaticamente. É uma linha de configuração que se cola no anúncio.</p>
+      <p class="lab do">O que fazer</p>
+      <p class="do-text">Pedir a linha pro Claude e colar no campo "Parâmetros de URL" de cada anúncio no Meta.</p>
+      <div class="cmd">
+        <div class="who">💬 O comando que a gente dá pro Claude</div>
+        <div class="msg">"Me passa a linha de parâmetros de URL pra colar no anúncio, pra cada lead já vir marcado com a campanha, o conjunto e o anúncio que ele veio."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="step">
+    <div class="step-head"><div class="step-num">8</div><h3>Montar o painel de custo</h3></div>
+    <div class="step-body">
+      <p class="lab">O que é</p>
+      <p>Por fim, juntar duas coisas: os leads que caem na planilha + quanto foi gasto no Meta. Cruzando, dá pra ver <b>quanto custou cada lead</b>, por campanha e por anúncio — e decidir onde colocar mais verba.</p>
+      <p class="lab do">O que fazer</p>
+      <p class="do-text">Criar uma aba "Gastos" na planilha e montar o painel no Looker (de graça). O Claude te guia.</p>
+      <div class="cmd">
+        <div class="who">💬 O comando que a gente dá pro Claude</div>
+        <div class="msg">"Me ajuda a montar um painel no Looker que cruza os leads da planilha com o quanto foi gasto no Meta, pra ver quanto custou cada lead por campanha e por anúncio."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLATAFORMAS -->
+  <div class="tools">
+    <h2>🧰 As plataformas que usamos</h2>
+    <p class="sub">A "caixa de ferramentas" do processo. Quase tudo é grátis ou já contratado.</p>
+    <div class="tgrid">
+      <div class="tool"><div class="ic">📣</div><div><b>Meta Ads</b><span>Rodar os anúncios (Instagram / Facebook).</span></div></div>
+      <div class="tool"><div class="ic">🎯</div><div><b>Meta Pixel / Dataset</b><span>Rastrear as ações na página e otimizar a campanha.</span></div></div>
+      <div class="tool"><div class="ic">🖥️</div><div><b>Landing Page</b><span>A página de conversão (hospedada em Vercel ou GitHub Pages).</span></div></div>
+      <div class="tool"><div class="ic">⚙️</div><div><b>Google Apps Script</b><span>O "porteiro" (HUB) que recebe o formulário e distribui.</span></div></div>
+      <div class="tool"><div class="ic">📊</div><div><b>Google Sheets</b><span>A base onde cada lead é gravado.</span></div></div>
+      <div class="tool"><div class="ic">🤝</div><div><b>CRM (Pipedrive)</b><span>O funil de vendas e a fonte de verdade do lead.</span></div></div>
+      <div class="tool"><div class="ic">📲</div><div><b>CallMeBot</b><span>Aviso de lead novo no WhatsApp, na hora (grátis).</span></div></div>
+      <div class="tool"><div class="ic">📅</div><div><b>Calendly</b><span>Agendamento da reunião, integrado à agenda.</span></div></div>
+      <div class="tool"><div class="ic">📈</div><div><b>Looker Studio</b><span>Painel de custo por lead, por campanha e anúncio (grátis).</span></div></div>
+      <div class="tool"><div class="ic">🤖</div><div><b>Claude (Claude Code)</b><span>Escreve o código de cada etapa a partir dos comandos simples.</span></div></div>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="check">
+    <h2>✅ Checklist de implantação</h2>
+    <p class="sub">A ordem pra montar em um cliente novo — é só seguir e marcar.</p>
+    <ol>
+      <li><b>Base no Meta</b> — pixel único + domínio verificado</li>
+      <li><b>Pixel na página</b> — os 5 eventos instalados</li>
+      <li><b>Captura de origem</b> — UTMs guardados e levados ao final</li>
+      <li><b>Porteiro (HUB)</b> — script gravando na planilha</li>
+      <li><b>CRM</b> — lead criado automaticamente no funil</li>
+      <li><b>Aviso no WhatsApp</b> — alerta de lead na hora</li>
+      <li><b>Origem no anúncio</b> — parâmetros de URL colados</li>
+      <li><b>Painel</b> — Looker cruzando leads × gasto</li>
+    </ol>
+  </div>
+
+  <footer>
+    <b>ClintIA</b> · Playbook interno de Tracking de Leads · uso da equipe
+  </footer>
+
+</main>
+</body>
+</html>
