@@ -139,6 +139,16 @@
   footer .logo-f{height:26px;margin-bottom:16px;opacity:.9}
   footer p{margin:0;max-width:none;line-height:1.7}
 
+  /* ---------- RESOURCES ---------- */
+  .rescat{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:34px 0 2px}
+  .rescard{border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:14px 0;max-width:74ch;background:#fff}
+  .rescard h4{margin:0 0 4px;font-size:17px;color:var(--oxford);font-weight:700}
+  .rescard p{margin:0 0 14px;color:var(--muted);font-size:15px;max-width:none}
+  .reslink{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--dodger);border:1px solid var(--line2);padding:8px 15px;border-radius:30px}
+  .reslink:hover{background:var(--soft);text-decoration:none}
+  .reslink svg{width:14px;height:14px}
+  .respend{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:12.5px;color:var(--muted2);border:1px dashed var(--line2);padding:8px 15px;border-radius:30px;text-transform:uppercase;letter-spacing:.05em}
+
   @media(max-width:720px){
     body{font-size:16px}
     .wrap,.nav .row{padding:0 20px}
@@ -178,6 +188,7 @@
       <button class="tab" data-tab="seguranca">Segurança</button>
       <button class="tab" data-tab="roadmap">Roadmap</button>
       <button class="tab" data-tab="kit">Kit Prático</button>
+      <button class="tab" data-tab="recursos">Recursos</button>
       <button class="tab" data-tab="glossario">Glossário</button>
     </div>
   </div>
@@ -589,6 +600,51 @@ URL recomendada (curta, com a palavra-chave).
     </section>
   </div>
 
+  <!-- ============ RECURSOS ============ -->
+  <div class="page" id="recursos">
+    <section>
+      <p class="eyenum">Recursos</p>
+      <h2>Materiais de apoio</h2>
+      <p class="lead">Para escrever bem, você precisa conhecer profundamente <strong>para quem</strong> escreve e <strong>o que</strong> a empresa vende. Reúna e estude estes materiais antes da Fase 3.</p>
+      <div class="box concept"><span class="t">Lembre-se de quem lê o blog</span>O público deste blog são <strong>donos e gestores de clínica popular</strong> — não pacientes, não médicos em geral. Toda pauta, todo tom e todo exemplo devem falar com essa pessoa: alguém que toca uma clínica popular e quer mais pacientes com previsibilidade.</div>
+
+      <p class="rescat">Quem é o público</p>
+      <div class="rescard">
+        <h4>Perfil do cliente ideal — donos de clínica popular</h4>
+        <p>O ICP detalhado: quem é, o que tira o sono, como fala, o que valoriza. É a base para acertar a linguagem dos artigos. <!-- COLAR LINK DO DRIVE (ICP / persona) --></p>
+        <span class="respend">Link pendente — Bernardo anexa</span>
+      </div>
+
+      <p class="rescat">Sobre o ProClip</p>
+      <div class="rescard">
+        <h4>DPV — Dossiê de Posicionamento e Venda do ProClip</h4>
+        <p>O documento mestre: o que é o ProClip, posicionamento, metodologia CLIP®, a oferta e o perfil de cliente. A melhor porta de entrada para entender o produto e o público.</p>
+        <a class="reslink" href="https://lp.clintia.com.br/dpv-padrao-proclip.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg> Abrir DPV ProClip</a>
+      </div>
+      <div class="rescard">
+        <h4>Estudo de caso ProClip</h4>
+        <p>Resultados reais de clínicas que passaram pelo programa. Útil para tom, números e provas que podem alimentar os artigos (sempre confirmando os dados).</p>
+        <a class="reslink" href="https://lp.clintia.com.br/estudo-de-caso-proclip.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg> Abrir estudo de caso</a>
+      </div>
+
+      <p class="rescat">Matéria-prima — transcrições de venda</p>
+      <div class="rescard">
+        <h4>Pasta de transcrições (anonimizadas)</h4>
+        <p>As gravações/transcrições de reuniões comerciais. É de onde saem as pautas reais. <strong>Antes de usar qualquer uma, anonimize</strong> (ver aba Segurança). <!-- COLAR LINK DA PASTA NO DRIVE --></p>
+        <span class="respend">Link pendente — Bernardo anexa</span>
+      </div>
+
+      <p class="rescat">Identidade visual</p>
+      <div class="rescard">
+        <h4>Essenciais do Design System ClintIA</h4>
+        <p>Cores, fonte (Red Hat Display) e logos para aplicar no blog. Receberá um pacote enxuto — não a pasta inteira. <!-- COLAR LINK DO PACOTE DE MARCA --></p>
+        <span class="respend">Link pendente — Bernardo anexa</span>
+      </div>
+
+      <div class="box tip"><span class="t">Como os links serão preenchidos</span>Os campos "pendentes" acima serão substituídos por links reais (Google Drive) assim que o Bernardo anexar os materiais. Avise se algum recurso que você precisa não estiver listado aqui.</div>
+    </section>
+  </div>
+
   <!-- ============ GLOSSÁRIO ============ -->
   <div class="page" id="glossario">
     <section>
@@ -625,7 +681,7 @@ URL recomendada (curta, com a palavra-chave).
 <footer>
   <div class="wrap">
     <img class="logo-f" src="guia-assets/clintia-branca.png" alt="ClintIA">
-    <p>Guia de Implementação + Kit Prático · Sistema de Geração de Demanda Orgânica<br>Documento interno · versão 2 · uso restrito ao projeto</p>
+    <p>Guia de Implementação + Kit Prático · Sistema de Geração de Demanda Orgânica<br>Documento interno · versão 3 · uso restrito ao projeto</p>
   </div>
 </footer>
 
