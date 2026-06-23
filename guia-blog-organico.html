@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Sistema de Demanda Orgânica — Guia + Kit | ClintIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&family=Red+Hat+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky:#05D2FF;--celtic:#055AAA;--dodger:#0578DC;--yale:#053C73;--oxford:#051E32;
+    --ink:#0c2333;--muted:#5a6b7a;--line:#e2e9f0;--bg:#f4f8fc;--card:#fff;--soft:#eef6fd;
+    --ok:#1f9d6b;--warn:#c9742a;--danger:#c0392b;
+    --radius:16px;--shadow:0 1px 3px rgba(5,30,50,.06),0 8px 28px rgba(5,30,50,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Red Hat Display',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.62;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px}
+
+  /* HERO */
+  header.hero{background:linear-gradient(135deg,var(--oxford) 0%,var(--yale) 55%,var(--celtic) 100%);color:#fff;padding:42px 0 46px;position:relative;overflow:hidden}
+  header.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;background:radial-gradient(circle,rgba(5,210,255,.35),transparent 70%)}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.5px;font-size:15px;opacity:.92}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--sky);box-shadow:0 0 14px var(--sky)}
+  .kicker{display:inline-block;margin:18px 0 12px;font-size:12.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sky);border:1px solid rgba(5,210,255,.4);padding:6px 14px;border-radius:30px;background:rgba(5,210,255,.08)}
+  header.hero h1{font-size:34px;line-height:1.12;margin:0 0 14px;font-weight:900;max-width:720px}
+  header.hero p.sub{font-size:18px;max-width:680px;opacity:.92;margin:0}
+
+  /* TAB BAR */
+  .tabbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);box-shadow:0 2px 12px rgba(5,30,50,.05)}
+  .tabbar .inner{max-width:920px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:8px 12px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+  .tabbar .inner::-webkit-scrollbar{height:5px}
+  .tabbar .inner::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+  .tab{flex:0 0 auto;border:none;background:transparent;font-family:inherit;font-size:14px;font-weight:700;color:var(--muted);padding:9px 15px;border-radius:10px;cursor:pointer;white-space:nowrap;transition:all .15s;letter-spacing:.2px}
+  .tab:hover{background:var(--soft);color:var(--celtic)}
+  .tab.active{background:var(--dodger);color:#fff}
+
+  /* SECTIONS */
+  main{padding:18px 0 80px}
+  .page{display:none;animation:fade .25s ease}
+  .page.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  section{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 34px;margin:22px 0;box-shadow:var(--shadow)}
+  h2{font-size:26px;font-weight:900;margin:0 0 6px;color:var(--oxford);letter-spacing:-.3px}
+  h2 .num{color:var(--dodger)}
+  .lead{color:var(--muted);font-size:16px;margin:0 0 20px}
+  h3{font-size:20px;font-weight:700;margin:28px 0 8px;color:var(--yale)}
+  h4{font-size:16px;font-weight:700;margin:18px 0 4px;color:var(--celtic)}
+  p{margin:10px 0}strong{font-weight:700;color:var(--ink)}
+  ul,ol{margin:10px 0;padding-left:22px}li{margin:7px 0}
+  a{color:var(--dodger);text-decoration:none;font-weight:500}a:hover{text-decoration:underline}
+
+  .box{border-radius:12px;padding:16px 18px;margin:18px 0;font-size:15.5px;border:1px solid}
+  .box .t{font-weight:700;display:block;margin-bottom:4px;font-size:14px;letter-spacing:.3px;text-transform:uppercase}
+  .box.concept{background:#eef6fd;border-color:#cfe6fb}.box.concept .t{color:var(--dodger)}
+  .box.tip{background:#eafaf3;border-color:#c7ecd9}.box.tip .t{color:var(--ok)}
+  .box.warn{background:#fff6ec;border-color:#f6dcba}.box.warn .t{color:var(--warn)}
+  .box.danger{background:#fdecea;border-color:#f5c6c0}.box.danger .t{color:var(--danger)}
+
+  .phase{border:1px solid var(--line);border-left:5px solid var(--dodger);border-radius:12px;padding:22px 24px;margin:18px 0;background:#fff}
+  .phase .ph-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:4px}
+  .phase .tag{background:var(--dodger);color:#fff;font-size:12px;font-weight:700;padding:5px 12px;border-radius:30px;letter-spacing:.5px}
+  .phase h3{margin:0;color:var(--oxford);font-size:21px}
+  .phase .dur{font-size:13px;color:var(--muted);font-weight:500}
+  .deliver{background:var(--soft);border-radius:10px;padding:12px 16px;margin-top:14px;font-size:15px}
+  .deliver strong{color:var(--celtic)}
+
+  .pipe{display:flex;flex-direction:column;gap:0;margin:20px 0}
+  .pipe .step{display:flex;gap:16px;align-items:flex-start}
+  .pipe .ico{flex-shrink:0;width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--dodger),var(--celtic));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px}
+  .pipe .body{padding-bottom:18px}
+  .pipe .body b{display:block;color:var(--oxford);font-size:16px}
+  .pipe .body span{font-size:14.5px;color:var(--muted)}
+  .pipe .conn{width:42px;display:flex;justify-content:center}
+  .pipe .conn::before{content:"";width:2px;height:14px;background:var(--line)}
+
+  .check{list-style:none;padding:0;margin:14px 0}
+  .check li{padding-left:30px;position:relative;margin:9px 0}
+  .check li::before{content:"";position:absolute;left:0;top:4px;width:17px;height:17px;border:2px solid var(--dodger);border-radius:5px}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--oxford);color:#fff;font-size:13px;letter-spacing:.4px;text-transform:uppercase;font-weight:700}
+  th:first-child{border-radius:8px 0 0 0}th:last-child{border-radius:0 8px 0 0}
+  tr:nth-child(even) td{background:#fafcfe}
+
+  .gloss dt{font-weight:700;color:var(--celtic);margin-top:14px}
+  .gloss dd{margin:2px 0 0;color:var(--ink)}
+  .pill{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;background:var(--soft);color:var(--celtic);border:1px solid var(--line);margin:2px 4px 2px 0}
+
+  /* PROMPT */
+  .promptbox{background:var(--oxford);border-radius:14px;padding:6px 0 0;margin:18px 0;overflow:hidden;border:1px solid #0a2c47}
+  .promptbox .barz{display:flex;align-items:center;gap:8px;padding:10px 16px;color:#9fc4e4;font-size:13px;font-weight:700;letter-spacing:.4px;border-bottom:1px solid #0a3553}
+  .promptbox .barz .d{width:11px;height:11px;border-radius:50%;background:var(--sky)}
+  .promptbox pre{margin:0;padding:18px 20px;overflow-x:auto;color:#e6f1fb;font-family:'Red Hat Mono',ui-monospace,monospace;font-size:13.5px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+  .promptbox pre .var{color:var(--sky);font-weight:500}
+  .promptbox pre .cmt{color:#6f93b3;font-style:italic}
+
+  /* MODEL ARTICLE */
+  .article{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin:18px 0}
+  .article .meta{background:var(--soft);padding:10px 22px;font-size:13px;color:var(--muted);border-bottom:1px solid var(--line)}
+  .article .body{padding:8px 26px 26px}
+  .article h1.at{font-size:25px;line-height:1.2;color:var(--oxford);margin:20px 0 6px;font-weight:900}
+  .article h2.at{font-size:19px;color:var(--yale);margin:24px 0 6px}
+  .article h3.at{font-size:16px;color:var(--celtic);margin:16px 0 4px}
+  .article p{font-size:15.5px}
+  .article .faqq{font-weight:700;color:var(--oxford);margin:14px 0 2px}
+  .article .cta{margin-top:22px;background:linear-gradient(135deg,var(--dodger),var(--celtic));color:#fff;border-radius:12px;padding:20px 22px;text-align:center}
+  .article .cta b{display:block;font-size:18px;margin-bottom:4px}
+  .article .cta span{opacity:.9;font-size:14.5px}
+  .anno{border-left:4px solid var(--sky);background:#f0fbff;padding:8px 14px;margin:14px 0;font-size:13.5px;color:var(--celtic)}
+  .anno b{color:var(--yale)}
+
+  footer{background:var(--oxford);color:#cfe0ee;padding:34px 0;font-size:14px;text-align:center}
+  footer .brand{justify-content:center;color:#fff;margin-bottom:10px}
+
+  @media(max-width:680px){
+    body{font-size:16px}
+    header.hero{padding:32px 0 36px}
+    header.hero h1{font-size:26px}
+    header.hero p.sub{font-size:16px}
+    section{padding:22px 18px}
+    h2{font-size:22px}
+    .article .body{padding:8px 16px 20px}
+    .promptbox pre{font-size:12.5px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> ClintIA</div>
+    <span class="kicker">Guia de Implementação · Projeto Interno</span>
+    <h1>Sistema de Geração de Demanda Orgânica via Blog + IA</h1>
+    <p class="sub">Do zero ao primeiro artigo publicado de forma automática. Tudo o que você precisa para construir o sistema — guia, fases e ferramentas prontas — num só lugar. Navegue pelas abas.</p>
+  </div>
+</header>
+
+<nav class="tabbar">
+  <div class="inner" id="tabbar">
+    <button class="tab active" data-tab="inicio">Início</button>
+    <button class="tab" data-tab="fundamentos">Fundamentos</button>
+    <button class="tab" data-tab="seo">SEO &amp; IA</button>
+    <button class="tab" data-tab="blog">Blog</button>
+    <button class="tab" data-tab="automacao">Automação</button>
+    <button class="tab" data-tab="seguranca">Segurança</button>
+    <button class="tab" data-tab="roadmap">Roadmap</button>
+    <button class="tab" data-tab="kit">Kit Prático</button>
+    <button class="tab" data-tab="glossario">Glossário</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ============ INÍCIO ============ -->
+  <div class="page active" id="inicio">
+    <section>
+      <h2>Antes de começar: como usar este material</h2>
+      <p class="lead">Leia este bloco com atenção. Ele define o jogo.</p>
+      <p>Este documento é o seu <strong>mapa completo</strong>. Você vai sair dele sabendo construir, do zero, um sistema que gera procura espontânea de clientes para a ClintIA — usando conteúdo que aparece no Google e nas respostas de IA (ChatGPT, Gemini, Perplexity).</p>
+      <p>Você <strong>não precisa saber nada disso hoje</strong>. O material foi escrito assumindo que você está começando. Cada conceito novo vem explicado em linguagem simples. A regra é uma só:</p>
+      <div class="box tip">
+        <span class="t">Regra de ouro</span>
+        Estude fazendo. Cada fase tem um <strong>entregável prático</strong>. Não pule para a fase seguinte sem ter o entregável da anterior funcionando. Aprender de verdade aqui é construir — não decorar.
+      </div>
+      <h4>O que conta como "pronto"</h4>
+      <p>O sistema está <strong>concluído</strong> quando duas coisas existirem e funcionarem:</p>
+      <ol>
+        <li><strong>A estrutura do blog</strong> montada, no ar, no domínio da empresa, com bom desempenho de leitura no celular.</li>
+        <li><strong>A automação de recorrência</strong>: uma rotina que pega uma transcrição de venda e produz um artigo de blog otimizado, pronto para publicar — funcionando ao menos uma vez de ponta a ponta.</li>
+      </ol>
+      <p>A definição da frequência exata e a parte comercial do funil ficam para uma etapa posterior. <strong>O seu projeto termina na engrenagem funcionando.</strong></p>
+    </section>
+    <section>
+      <h2>Como navegar</h2>
+      <p class="lead">Cada aba no topo é uma parte do caminho. Siga na ordem.</p>
+      <ul>
+        <li><strong>Fundamentos</strong> — por que esse sistema existe e a anatomia dele.</li>
+        <li><strong>SEO &amp; IA</strong> — o que faz um artigo ranquear no Google e nas IAs.</li>
+        <li><strong>Blog</strong> — montar a casa no ar.</li>
+        <li><strong>Automação</strong> — o coração: transcrição vira artigo sozinho. E a recorrência.</li>
+        <li><strong>Segurança</strong> — regras não-negociáveis de dados.</li>
+        <li><strong>Roadmap</strong> — as fases, com entregável e critério de pronto.</li>
+        <li><strong>Kit Prático</strong> — o Prompt Mestre pronto + um artigo-modelo gabarito.</li>
+        <li><strong>Glossário</strong> — toda sigla explicada.</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- ============ FUNDAMENTOS ============ -->
+  <div class="page" id="fundamentos">
+    <section>
+      <h2><span class="num">01.</span> Entendendo o jogo</h2>
+      <p class="lead">Por que esse sistema existe e o que cada palavra significa. <span class="pill">Estudo</span></p>
+      <h3>O que é um "lead" e o que é "geração de demanda"</h3>
+      <p>Um <strong>lead</strong> é uma pessoa que demonstrou interesse no que a empresa vende e deixou um jeito de ser contatada. <strong>Geração de demanda</strong> é o conjunto de ações que faz essas pessoas aparecerem — criar procura, e não esperar por ela.</p>
+      <table>
+        <tr><th>Tráfego pago</th><th>Tráfego orgânico</th></tr>
+        <tr><td>Você paga por anúncio. Para de pagar → para de vir gente. É <strong>aluguel</strong>.</td><td>As pessoas te encontram sozinhas, via busca. O conteúdo continua trazendo gente meses depois. É um <strong>ativo</strong>.</td></tr>
+      </table>
+      <div class="box concept"><span class="t">Conceito-chave</span>Este projeto é <strong>100% orgânico</strong>. A gente não compra cliques. Constrói um acervo de conteúdo que, com o tempo, vira uma máquina que trabalha sozinha.</div>
+      <h3>O que é SEO</h3>
+      <p><strong>SEO</strong> (otimização para mecanismos de busca) é o conjunto de técnicas que faz uma página aparecer mais acima no Google. Três coisas importam mais que tudo:</p>
+      <ul>
+        <li><strong>Relevância:</strong> o conteúdo responde de verdade o que a pessoa procurou?</li>
+        <li><strong>Autoridade:</strong> esse site e esse autor são confiáveis no assunto?</li>
+        <li><strong>Experiência:</strong> a página carrega rápido e é fácil de ler no celular?</li>
+      </ul>
+      <h3>Por que transcrições de venda são ouro</h3>
+      <p>As perguntas reais que clientes fazem nas reuniões <strong>são exatamente o que outras pessoas digitam no Google</strong>. Cada dúvida real é uma <strong>pauta de artigo</strong> com demanda garantida. Em vez de inventar assuntos, a gente colhe as dúvidas verdadeiras e responde melhor que ninguém.</p>
+      <h3>O funil de conteúdo</h3>
+      <div class="pipe">
+        <div class="step"><div class="ico">1</div><div class="body"><b>Atrair</b><span>Pessoa pesquisa uma dúvida → acha nosso artigo no Google ou na IA.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">2</div><div class="body"><b>Educar</b><span>Ela lê, entende o problema e percebe que a ClintIA domina o assunto.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">3</div><div class="body"><b>Converter</b><span>No fim do artigo há um convite (CTA) para falar com a equipe.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">4</div><div class="body"><b>Qualificar</b><span>O lead entra no fluxo comercial. (Etapa futura — fora do seu escopo.)</span></div></div>
+      </div>
+    </section>
+    <section>
+      <h2><span class="num">02.</span> Anatomia do sistema</h2>
+      <p class="lead">A visão de cima: o caminho completo de uma transcrição até um lead. <span class="pill">Arquitetura</span></p>
+      <div class="pipe">
+        <div class="step"><div class="ico">A</div><div class="body"><b>Transcrição de venda</b><span>O ponto de partida: o texto de uma reunião comercial gravada.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico" style="background:linear-gradient(135deg,#1f9d6b,#137a51)">🔒</div><div class="body"><b>Anonimização</b><span>Tira nomes, telefones e e-mails. Só o tema da conversa segue (regra de LGPD — ver aba Segurança).</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">B</div><div class="body"><b>Extração de pautas</b><span>A IA lê a transcrição (já anônima) e identifica as dúvidas/temas que viram artigos.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">C</div><div class="body"><b>Pesquisa de palavra-chave</b><span>Confirmamos como as pessoas realmente buscam aquele tema.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">D</div><div class="body"><b>Redação do artigo</b><span>A IA escreve um artigo denso, profissional, otimizado para SEO e mobile.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">E</div><div class="body"><b>Revisão humana</b><span>Você confere fatos, tom e qualidade. Nada publica sem passar por aqui.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">F</div><div class="body"><b>Publicação no blog</b><span>O artigo entra no ar, formatado, no domínio da empresa.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">G</div><div class="body"><b>Indexação</b><span>Google e as IAs encontram, leem e passam a recomendar o conteúdo.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">H</div><div class="body"><b>Tráfego → CTA → Lead</b><span>Visitantes chegam, leem e clicam no convite. Funil alimentado.</span></div></div>
+      </div>
+      <div class="box concept"><span class="t">O loop de recorrência</span>A mágica não é fazer isso uma vez — é fazer <strong>toda semana, no automático</strong>. É esse loop que mantém o acervo crescendo sozinho.</div>
+    </section>
+  </div>
+
+  <!-- ============ SEO & IA ============ -->
+  <div class="page" id="seo">
+    <section>
+      <h2><span class="num">03.</span> SEO na prática</h2>
+      <p class="lead">O que faz um artigo ranquear de verdade. <span class="pill">Estudo aplicado</span></p>
+      <h3>Intenção de busca</h3>
+      <p>Toda pesquisa tem uma intenção. "O que é clínica popular" (quer aprender) é diferente de "quanto custa marketing pra clínica" (quer comparar) que é diferente de "agência de marketing médico RJ" (quer contratar). <strong>O artigo precisa entregar o que aquela intenção pede.</strong></p>
+      <h3>Pesquisa de palavras-chave</h3>
+      <ul>
+        <li><strong>Google Search Console</strong> (grátis) — termos por onde o site já aparece.</li>
+        <li><strong>Google Keyword Planner</strong> (grátis) — volume de buscas.</li>
+        <li><strong>Sugestões do Google</strong> — autocompletar e "as pessoas também perguntam" são mapas de pautas.</li>
+        <li><strong>Pagas</strong> (Ubersuggest, Semrush, Ahrefs) — opcionais, aprofundam.</li>
+      </ul>
+      <h3>A estrutura de um artigo que ranqueia</h3>
+      <ul>
+        <li><strong>Título (H1):</strong> um só, com a palavra-chave, claro e atraente.</li>
+        <li><strong>Introdução curta:</strong> diz já nas primeiras linhas que responde a dúvida.</li>
+        <li><strong>Subtítulos (H2/H3):</strong> dividem o texto em blocos escaneáveis.</li>
+        <li><strong>Parágrafos curtos:</strong> 2–4 linhas.</li>
+        <li><strong>Listas e tabelas:</strong> facilitam leitura e são "puxadas" pelo Google e pela IA.</li>
+        <li><strong>FAQ no fim:</strong> perguntas e respostas diretas.</li>
+        <li><strong>CTA:</strong> o convite para o próximo passo.</li>
+      </ul>
+      <h3>On-page: ajustes técnicos do artigo</h3>
+      <table>
+        <tr><th>Elemento</th><th>Regra prática</th></tr>
+        <tr><td><strong>Title tag</strong></td><td>O título no resultado do Google. ~60 caracteres, com a palavra-chave.</td></tr>
+        <tr><td><strong>Meta description</strong></td><td>O resumo embaixo. ~150 caracteres, convidativo.</td></tr>
+        <tr><td><strong>URL</strong></td><td>Curta e com a palavra-chave: <em>/blog/marketing-clinica-popular</em>.</td></tr>
+        <tr><td><strong>Links internos</strong></td><td>Cada artigo aponta para outros. Cria teia e segura o leitor.</td></tr>
+        <tr><td><strong>Alt de imagem</strong></td><td>Descreve a imagem para o Google e acessibilidade.</td></tr>
+      </table>
+      <div class="box warn"><span class="t">Atenção: saúde é "YMYL"</span>Saúde é o que o Google chama de <strong>YMYL</strong> ("Your Money or Your Life"). Ele é <strong>muito mais rigoroso</strong> e exige <strong>E-E-A-T</strong>: Experiência, Expertise, Autoridade e Confiança. Conteúdo raso não ranqueia em saúde. Por isso o material precisa ser denso e profissional — não é firula, é requisito.</div>
+      <h3>SEO técnico básico</h3>
+      <ul>
+        <li><strong>Velocidade:</strong> carregar rápido, principalmente no 4G.</li>
+        <li><strong>Mobile-first:</strong> o Google avalia a versão celular primeiro.</li>
+        <li><strong>Sitemap + indexação:</strong> avisa o Google das páginas novas.</li>
+        <li><strong>Dados estruturados (schema):</strong> explicam ao Google "isso é um artigo/FAQ".</li>
+      </ul>
+    </section>
+    <section>
+      <h2><span class="num">04.</span> Otimização para IA — o novo SEO</h2>
+      <p class="lead">Aparecer nas respostas do ChatGPT, Gemini e Perplexity. <span class="pill">Estudo</span></p>
+      <p>Cada vez mais gente pergunta direto para uma IA. Quando alguém pergunta "qual a melhor forma de estruturar o marketing de uma clínica popular?", a IA responde com base em conteúdos que leu. <strong>A gente quer ser uma das fontes que ela cita.</strong></p>
+      <p>Isso tem nome novo — <strong>GEO</strong> (Generative Engine Optimization) — mas <strong>90% se sobrepõe a SEO bem feito</strong>. O que dá empurrão extra para IA:</p>
+      <ul>
+        <li><strong>Respostas diretas</strong> no primeiro parágrafo de cada bloco.</li>
+        <li><strong>Estrutura em perguntas e respostas</strong> (FAQ é o formato que a IA consome).</li>
+        <li><strong>Dados, números e fontes</strong> — conteúdo mais "citável".</li>
+        <li><strong>Linguagem clara, sem encheção.</strong></li>
+        <li><strong>Autoridade declarada</strong> — dizer quem fala e por que tem propriedade.</li>
+      </ul>
+      <div class="box concept"><span class="t">A boa notícia</span>Se você fizer o artigo seguindo a aba SEO, ele já nasce otimizado para o Google <em>e</em> para as IAs. <strong>Não são dois trabalhos — é um só, bem feito.</strong></div>
+    </section>
+  </div>
+
+  <!-- ============ BLOG ============ -->
+  <div class="page" id="blog">
+    <section>
+      <h2><span class="num">05.</span> Montagem do blog</h2>
+      <p class="lead">Colocar a casa no ar, usando a infraestrutura que a ClintIA já tem. <span class="pill">Prática</span></p>
+      <p>A empresa já tem <strong>conta na Vercel</strong> (hospedagem) e <strong>domínio próprio</strong>. A gente aproveita isso — não precisa começar do nada nem pagar ferramenta nova.</p>
+      <h3>Escolha da stack</h3>
+      <table>
+        <tr><th>Opção</th><th>Como é</th><th>Veredito</th></tr>
+        <tr><td><strong>Next.js na Vercel</strong> ✅</td><td>Site rápido e moderno, hospedado de graça na Vercel. Artigos em Markdown.</td><td><strong>Recomendado.</strong> Casa com a infra, rápido (ótimo p/ SEO) e fácil de automatizar.</td></tr>
+        <tr><td>CMS headless</td><td>Painel separado para escrever, conectado ao site.</td><td>Bom se for ter muita gente escrevendo. Mais peças.</td></tr>
+        <tr><td>WordPress</td><td>O clássico do blog.</td><td>Funciona, mas foge da infra e exige cuidado extra de velocidade/segurança.</td></tr>
+      </table>
+      <div class="box tip"><span class="t">Decisão recomendada</span>Comece com um <strong>template de blog Next.js na Vercel</strong>, com artigos em Markdown. É o caminho mais rápido para ter algo no ar, é veloz por natureza e é o formato mais fácil da automação preencher depois.</div>
+      <h3>Passo a passo (alto nível)</h3>
+      <ol>
+        <li>Pegar um <strong>template de blog Next.js</strong> pronto (há vários gratuitos).</li>
+        <li>Aplicar a <strong>identidade visual da ClintIA</strong> (Red Hat Display + paleta de azuis).</li>
+        <li><strong>Conectar à Vercel</strong> e colocar num endereço de teste.</li>
+        <li>Apontar para um <strong>subdomínio</strong> (ex.: <em>blog.[dominio]</em>) — combinar com o Bernardo.</li>
+        <li>Garantir o básico de SEO técnico (mobile, velocidade, sitemap).</li>
+        <li>Conectar o <strong>Google Search Console</strong>.</li>
+      </ol>
+      <h3>Teste de ponta a ponta: o primeiro artigo manual</h3>
+      <p>Antes de automatizar, <strong>publique um artigo escrito à mão</strong> seguindo a aba SEO. Isso valida a esteira de publicação inteira. Só faz sentido automatizar um caminho que você já percorreu manualmente.</p>
+      <div class="box tip"><span class="t">Entregável</span>Blog no ar, no visual da ClintIA, com <strong>1 artigo de teste publicado e legível no celular</strong>, indexável pelo Google.</div>
+    </section>
+  </div>
+
+  <!-- ============ AUTOMAÇÃO ============ -->
+  <div class="page" id="automacao">
+    <section>
+      <h2><span class="num">06.</span> A automação — o coração do sistema</h2>
+      <p class="lead">Transformar "transcrição" em "artigo pronto" no automático. <span class="pill">Prática</span></p>
+      <h3>O fluxo da automação</h3>
+      <div class="pipe">
+        <div class="step"><div class="ico">1</div><div class="body"><b>Entrada</b><span>A transcrição da venda é colocada numa pasta combinada do projeto.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico" style="background:linear-gradient(135deg,#1f9d6b,#137a51)">2</div><div class="body"><b>Anonimização</b><span>Antes de qualquer coisa: remover nomes, telefones e e-mails. Só o tema segue adiante.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">3</div><div class="body"><b>IA extrai a pauta</b><span>Identifica a dúvida central que vira o tema do artigo.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">4</div><div class="body"><b>IA escreve o artigo</b><span>Segue um molde fixo (estrutura SEO) e o tom da ClintIA.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">5</div><div class="body"><b>Rascunho para revisão</b><span>O artigo cai num "rascunho" — nunca publica direto.</span></div></div>
+        <div class="conn"></div>
+        <div class="step"><div class="ico">6</div><div class="body"><b>Você revisa e aprova</b><span>Confere fatos, ajusta e libera. O envio ao repositório dispara a publicação na Vercel.</span></div></div>
+      </div>
+      <h3>Como montar a esteira (a stack da ClintIA)</h3>
+      <p>Boa notícia: você <strong>não precisa de nenhuma ferramenta nova</strong>. A ClintIA já tem tudo, e o próprio <strong>Claude Code é o motor</strong> — ele lê a transcrição, escreve o artigo e ainda publica, sem depender de uma API de IA por fora.</p>
+      <table>
+        <tr><th>Peça</th><th>Papel na esteira</th></tr>
+        <tr><td><strong>Claude Code</strong></td><td>O cérebro: lê a transcrição e escreve o artigo seguindo o Prompt Mestre. É também a IA — sem custo de API avulsa.</td></tr>
+        <tr><td><strong>Repositório (GitHub)</strong></td><td>Onde os artigos em Markdown ficam guardados.</td></tr>
+        <tr><td><strong>Vercel</strong></td><td>Publica o blog automaticamente a cada novo artigo enviado ao repositório.</td></tr>
+        <tr><td><strong>VPS (Hetzner) + rotina</strong></td><td>Roda o Claude Code 24/7 na cadência combinada, sem depender do seu PC ligado.</td></tr>
+      </table>
+      <div class="box concept"><span class="t">E o n8n?</span>Você pode ter ouvido falar de <strong>n8n</strong> ou Make (automação visual). Para <strong>este</strong> sistema são <strong>opcionais e dispensáveis</strong>: como o Claude Code já é o motor e cuida da publicação, o n8n só adicionaria uma peça a mais para manter — e custo de API por fora. Conhecimento de fundo, não requisito.</div>
+      <h3>O segredo: o prompt</h3>
+      <p>A qualidade do artigo depende quase inteira da <strong>instrução que você dá à IA</strong> (o "prompt"). Um bom prompt contém: o <strong>papel</strong> (redator especialista), a <strong>estrutura obrigatória</strong>, o <strong>tom</strong> ClintIA, as <strong>regras de SEO</strong> e a <strong>matéria-prima</strong> (transcrição). Você encontra o Prompt Mestre pronto na aba <strong>Kit Prático</strong>.</p>
+      <div class="box warn"><span class="t">Revisão humana é obrigatória</span>A IA erra fatos e às vezes inventa ("alucina"). Em saúde, publicar erro é grave. <strong>Nenhum artigo vai ao ar sem você ler e aprovar.</strong></div>
+      <div class="box tip"><span class="t">Entregável — marco final do projeto</span>A automação rodando <strong>de ponta a ponta uma vez</strong>: você coloca uma transcrição na entrada e recebe, sem escrever à mão, um artigo de qualidade pronto para revisar.</div>
+    </section>
+    <section>
+      <h2><span class="num">07.</span> Recorrência e medição</h2>
+      <p class="lead">Fazer virar rotina e saber se está dando certo. <span class="pill">Prática</span></p>
+      <h3>A rotina</h3>
+      <p>Com a automação funcionando, defina-a como <strong>recorrente</strong> (cadência a combinar). A esteira "acorda" no dia combinado, processa as transcrições e deixa os rascunhos prontos para sua revisão.</p>
+      <h3>Calendário editorial</h3>
+      <p>Uma planilha simples controla: tema, palavra-chave, status e data. Evita repetir pauta e dá visão do acervo crescendo.</p>
+      <h3>Medição (Google Search Console)</h3>
+      <ul>
+        <li><strong>Impressões:</strong> quantas vezes os artigos apareceram.</li>
+        <li><strong>Cliques:</strong> quantas pessoas entraram.</li>
+        <li><strong>Posição média:</strong> em que lugar aparecemos (menor = melhor).</li>
+        <li><strong>Páginas indexadas:</strong> quantos artigos o Google reconheceu.</li>
+      </ul>
+      <p>SEO orgânico <strong>demora</strong> — resultado real em 2 a 6 meses. A meta de curto prazo é <strong>volume e consistência de publicação</strong>, não tráfego imediato.</p>
+    </section>
+  </div>
+
+  <!-- ============ SEGURANÇA ============ -->
+  <div class="page" id="seguranca">
+    <section>
+      <h2><span class="num">08.</span> Segurança e dados</h2>
+      <p class="lead">Não-negociável. Leia, entenda e siga à risca. <span class="pill">Obrigatório</span></p>
+      <div class="box danger"><span class="t">Por que isso é sério</span>As transcrições e os acessos da empresa são <strong>dados sensíveis</strong>. Vazamento ou vírus pode causar prejuízo real. Esta seção protege a ClintIA <strong>e</strong> você.</div>
+      <h3>Como o acesso à infra vai funcionar</h3>
+      <div class="box concept"><span class="t">O modelo: conta dedicada do projeto</span>Você <strong>não</strong> recebe a senha das contas principais da ClintIA. É criada uma <strong>conta/e-mail exclusivo do projeto</strong> e os recursos (repositório, Drive, etc.) são <strong>compartilhados com essa conta</strong>, com permissão mínima. A empresa mantém o controle e corta o acesso num clique se precisar.</div>
+      <ul class="check">
+        <li><strong>Login pela conta do projeto</strong> — nunca pelo e-mail principal da empresa.</li>
+        <li><strong>Mínimo privilégio:</strong> acesso só ao que o projeto exige. Nada de financeiro, banco ou dados de clientes.</li>
+        <li><strong>Compartilhamento por convite,</strong> não por senha aberta.</li>
+        <li><strong>Autenticação em duas etapas (2FA)</strong> ligada em tudo que permitir.</li>
+        <li><strong>Senhas fortes e únicas</strong>, em gerenciador de senhas.</li>
+        <li><strong>Nunca compartilhar credencial</strong> por WhatsApp ou e-mail em texto aberto.</li>
+      </ul>
+      <h3>Dados das transcrições (atenção: LGPD)</h3>
+      <ul class="check">
+        <li><strong>Anonimizar antes de usar:</strong> tirar nomes, telefones, e-mails e qualquer dado que identifique pessoas. O artigo usa o <em>tema</em>, não os dados de quem falou.</li>
+        <li><strong>Nada de dado de paciente</strong> entra no sistema. Saúde = dado sensível sob a <strong>LGPD</strong>.</li>
+        <li><strong>Transcrições não ficam espalhadas:</strong> só no lugar seguro do projeto, e somem quando não forem mais necessárias.</li>
+      </ul>
+      <h3>Higiene da máquina</h3>
+      <ul class="check">
+        <li><strong>Antivírus ativo e atualizado.</strong></li>
+        <li><strong>Não baixar nem rodar arquivos de origem duvidosa.</strong></li>
+        <li><strong>Sistema e ferramentas sempre atualizados.</strong></li>
+        <li><strong>Instalar pacotes só de fontes oficiais.</strong></li>
+      </ul>
+      <div class="box concept"><span class="t">Combinado de confiança</span>Esses cuidados não são desconfiança — são o padrão de qualquer profissional que mexe com dados de uma empresa. Seguir isso <strong>é parte de provar competência</strong>.</div>
+    </section>
+  </div>
+
+  <!-- ============ ROADMAP ============ -->
+  <div class="page" id="roadmap">
+    <section>
+      <h2><span class="num">09.</span> Roadmap por fases</h2>
+      <p class="lead">O caminho inteiro, com entregável e critério de pronto para cada fase.</p>
+      <div class="phase">
+        <div class="ph-head"><span class="tag">Fase 0</span><h3>Fundamentos</h3><span class="dur">~ estudo</span></div>
+        <p>Ler e entender as abas Fundamentos e SEO &amp; IA. Pesquisar a fundo o que ficar nebuloso. Tirar dúvidas de negócio com o Bernardo.</p>
+        <div class="deliver"><strong>Pronto quando:</strong> você explica, com suas palavras, o que o sistema faz e por que orgânico é um ativo.</div>
+      </div>
+      <div class="phase">
+        <div class="ph-head"><span class="tag">Fase 1</span><h3>SEO + IA (estudo aplicado)</h3><span class="dur">~ estudo + exercício</span></div>
+        <p>Pegar 3 dúvidas reais e rascunhar a estrutura de artigo para cada uma.</p>
+        <div class="deliver"><strong>Pronto quando:</strong> você entrega 3 esqueletos de artigo (título, H2/H3, FAQ, CTA) bem montados.</div>
+      </div>
+      <div class="phase">
+        <div class="ph-head"><span class="tag">Fase 2</span><h3>Montagem do blog (prática)</h3><span class="dur">~ prática</span></div>
+        <p>Blog no ar na Vercel, visual ClintIA, 1 artigo manual publicado, Search Console conectado.</p>
+        <div class="deliver"><strong>Pronto quando:</strong> existe um endereço com o blog funcionando e 1 artigo legível no celular.</div>
+      </div>
+      <div class="phase">
+        <div class="ph-head"><span class="tag">Fase 3</span><h3>A automação (prática)</h3><span class="dur">~ prática · marco final</span></div>
+        <p>Montar a esteira que transforma transcrição (anonimizada) em rascunho de artigo, e rodá-la de ponta a ponta uma vez.</p>
+        <div class="deliver"><strong>Pronto quando:</strong> uma transcrição entra e um artigo de qualidade sai, pronto para revisão, sem ser escrito à mão. <strong>🏁 Aqui o projeto está concluído.</strong></div>
+      </div>
+      <div class="phase">
+        <div class="ph-head"><span class="tag">Fase 4</span><h3>Recorrência (combinar depois)</h3><span class="dur">~ pós-projeto</span></div>
+        <p>Definir cadência fixa e calendário editorial. (Frequência e parte comercial do funil definidas com o Bernardo após o sistema de pé.)</p>
+        <div class="deliver"><strong>Pronto quando:</strong> a rotina roda sozinha na cadência combinada, com calendário editorial em uso.</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ KIT PRÁTICO ============ -->
+  <div class="page" id="kit">
+    <section>
+      <h2><span class="num">10.</span> Kit Prático</h2>
+      <p class="lead">As duas ferramentas da Fase 3: o Prompt Mestre e o artigo-gabarito. <span class="pill">Mão na massa</span></p>
+      <div class="box concept"><span class="t">Importante</span>Prompt não é mágica de primeira. Você roda, compara o resultado com o gabarito, e <strong>refina o prompt</strong> até a saída ficar boa. Isso se chama iterar — e é exatamente o trabalho.</div>
+      <h3>Prompt Mestre</h3>
+      <p>Cole na IA (Claude Code) substituindo os campos entre <span class="pill">[colchetes]</span> pela palavra-chave e a transcrição já anonimizada.</p>
+      <div class="promptbox">
+        <div class="barz"><span class="d"></span> PROMPT — gerador de artigo de blog</div>
+<pre><span class="cmt"># PAPEL</span>
+Você é um redator sênior especialista em marketing para clínicas
+de saúde, escrevendo para o blog da ClintIA. A ClintIA tem 14 anos
+de experiência em marketing médico e já estruturou +250 clínicas.
+Escreva com autoridade real, tom profissional e sério — sem
+promessas milagrosas, sem exageros, sem emoji.
+
+<span class="cmt"># TAREFA</span>
+A partir da TRANSCRIÇÃO de uma reunião de venda abaixo, identifique
+a principal dúvida do cliente e escreva UM artigo de blog completo
+que responda essa dúvida melhor do que qualquer concorrente.
+
+<span class="cmt"># PALAVRA-CHAVE PRINCIPAL</span>
+<span class="var">[ex: quanto custa marketing para clínica popular]</span>
+
+<span class="cmt"># ESTRUTURA OBRIGATÓRIA</span>
+1. Título (H1): claro, com a palavra-chave, atraente.
+2. Introdução de 2-3 frases que já entrega que o texto responde
+   a dúvida (sem enrolar).
+3. Corpo dividido em subtítulos (H2/H3) escaneáveis.
+4. Parágrafos curtos (2-4 linhas). Use listas e tabelas quando ajudar.
+5. Traga dados/números concretos e a experiência real da ClintIA
+   quando fizer sentido (E-E-A-T).
+6. Bloco "Perguntas frequentes" no fim, com 3-4 perguntas e
+   respostas diretas.
+7. Chamada final (CTA) convidando para um diagnóstico com a equipe.
+
+<span class="cmt"># REGRAS DE SEO E IA</span>
+- Use a palavra-chave no título, na introdução e em 1-2 subtítulos
+  (de forma natural, sem repetir à exaustão).
+- Respostas diretas no primeiro parágrafo de cada bloco.
+- Linguagem clara e objetiva (será lido no celular e por IAs).
+- Nunca invente dados, estatísticas ou casos. Se não tiver o dado,
+  escreva de forma geral, sem números falsos.
+
+<span class="cmt"># SAÍDA</span>
+Entregue o artigo formatado em Markdown, pronto para revisão.
+No topo, sugira também: a meta description (~150 caracteres) e a
+URL recomendada (curta, com a palavra-chave).
+
+<span class="cmt"># TRANSCRIÇÃO (já anonimizada — sem nomes/telefones/e-mails)</span>
+<span class="var">[colar aqui a transcrição anonimizada]</span></pre>
+      </div>
+      <div class="box warn"><span class="t">Antes de colar a transcrição</span>Confira que ela está <strong>anonimizada</strong>: sem nomes, telefones, e-mails. A IA precisa só do <em>tema</em>. (Ver aba Segurança.)</div>
+      <div class="box tip"><span class="t">Como evoluir o prompt</span>Resultado raso? Adicione regras: "aprofunde cada tópico com 2+ parágrafos", "inclua um exemplo prático", "cite o contexto de clínica popular". Cada ajuste que melhora a saída, você guarda. O prompt vira seu ativo.</div>
+    </section>
+    <section>
+      <h3>Artigo Modelo (gabarito)</h3>
+      <p class="lead">É <em>neste</em> padrão que a saída da IA precisa chegar. Repare na estrutura, no tom e no FAQ.</p>
+      <div class="anno"><b>Nota:</b> as faixas azuis são <b>comentários para você</b> — não fazem parte do artigo. Apontam o porquê de cada escolha.</div>
+      <div class="article">
+        <div class="meta">URL sugerida: <strong>/blog/quanto-custa-marketing-clinica-popular</strong> &nbsp;·&nbsp; Meta: <em>Descubra quanto custa o marketing de uma clínica popular, o que entra no investimento e como medir o retorno.</em></div>
+        <div class="body">
+          <h1 class="at">Quanto custa o marketing de uma clínica popular? O guia direto e sem enrolação</h1>
+          <p>Se você é dono ou gestor de uma clínica popular, provavelmente já se perguntou quanto precisaria investir em marketing para encher a agenda — e se vale a pena. A resposta curta: depende menos de um valor fixo e mais de quanto custa para você conquistar cada paciente. Neste artigo explicamos o que entra nesse investimento, as faixas reais e como saber se o dinheiro está voltando.</p>
+          <div class="anno"><b>Introdução:</b> responde a dúvida já na 2ª frase e promete o conteúdo. Não enrola.</div>
+          <h2 class="at">Não existe "preço de tabela" — existe custo por paciente</h2>
+          <p>O erro mais comum é procurar um valor mágico de mensalidade. O que importa é o <strong>CAP (Custo de Aquisição de Paciente)</strong>: quanto você gasta, somando tudo, para trazer um paciente novo.</p>
+          <p>Uma clínica que investe R$ 3.000 e traz 100 pacientes tem CAP de R$ 30. Outra que investe R$ 1.000 e traz 10 tem CAP de R$ 100 — e gasta pior, mesmo desembolsando menos. É esse número que decide se o marketing é caro ou barato.</p>
+          <div class="anno"><b>Autoridade (E-E-A-T):</b> traz um conceito próprio (CAP) com exemplo numérico. Domínio sem inventar estatística.</div>
+          <h2 class="at">O que entra no investimento</h2>
+          <h3 class="at">1. Canais de aquisição</h3>
+          <p>A verba que faz o paciente te encontrar: presença no Google, anúncios de intenção e remarketing. Para clínica popular, buscar quem <em>já tem intenção</em> rende mais que gerar desejo do zero.</p>
+          <h3 class="at">2. Infraestrutura comercial</h3>
+          <p>De nada adianta atrair se o atendimento demora. Um bom sistema de resposta rápida no WhatsApp costuma ter mais impacto que aumentar a verba de anúncio.</p>
+          <h3 class="at">3. Conteúdo e reputação local</h3>
+          <p>Avaliações no Google, perfil cuidado e conteúdo que tira dúvidas constroem confiança — e confiança reduz o custo de convencer cada novo paciente.</p>
+          <div class="anno"><b>Estrutura escaneável:</b> H2 + H3 numerados, parágrafos curtos. Fácil no celular e fácil de a IA extrair.</div>
+          <h2 class="at">Como saber se está valendo</h2>
+          <p>Acompanhe três números todo mês: quanto investiu, quantos pacientes novos chegaram e quanto cada um gastou em média. Se cada R$ 1 investido volta como R$ 3+ em faturamento, o marketing funciona — independente do valor absoluto.</p>
+          <h2 class="at">Perguntas frequentes</h2>
+          <p class="faqq">Existe um valor mínimo para começar?</p>
+          <p>Sim, mas varia. O importante não é o tamanho da verba e sim ter um processo que meça o retorno desde o primeiro real. Começar pequeno e medir é melhor que começar grande e no escuro.</p>
+          <p class="faqq">Em quanto tempo vejo resultado?</p>
+          <p>Canais de intenção (busca) trazem contato em semanas. Construir reputação e conteúdo é trabalho de meses, com efeito que se acumula.</p>
+          <p class="faqq">Vale mais anúncio ou conteúdo?</p>
+          <p>Os dois se complementam. O anúncio traz resultado mais rápido; o conteúdo reduz seu custo ao longo do tempo.</p>
+          <div class="anno"><b>FAQ:</b> perguntas reais (saídas de transcrição), respostas diretas. Formato que o Google destaca e a IA cita.</div>
+          <div class="cta"><b>Quer saber o custo certo para a sua clínica?</b><span>Faça um diagnóstico comercial com a equipe ClintIA e descubra seu CAP atual e onde está o desperdício.</span></div>
+          <div class="anno"><b>CTA:</b> conecta o artigo ao funil. Direto ao próximo passo, sem ser apelativo.</div>
+        </div>
+      </div>
+      <div class="box tip"><span class="t">Checklist do gabarito</span>Título com palavra-chave · introdução que responde rápido · H2/H3 organizados · parágrafos curtos · dados/autoridade reais · FAQ · CTA · zero invenção. Se a saída da IA não bater todos, ajuste o prompt e rode de novo.</div>
+    </section>
+  </div>
+
+  <!-- ============ GLOSSÁRIO ============ -->
+  <div class="page" id="glossario">
+    <section>
+      <h2><span class="num">11.</span> Glossário rápido</h2>
+      <p class="lead">Toda vez que travar numa sigla, volte aqui.</p>
+      <dl class="gloss">
+        <dt>Lead</dt><dd>Pessoa interessada que deixou um contato.</dd>
+        <dt>Tráfego orgânico</dt><dd>Visitas que chegam de graça pela busca, sem anúncio pago.</dd>
+        <dt>SEO</dt><dd>Técnicas para aparecer mais acima no Google.</dd>
+        <dt>GEO / AEO</dt><dd>O "SEO das IAs": ser citado nas respostas do ChatGPT, Gemini, Perplexity.</dd>
+        <dt>Palavra-chave</dt><dd>O termo que as pessoas digitam para buscar algo.</dd>
+        <dt>Intenção de busca</dt><dd>O que a pessoa realmente quer ao pesquisar (aprender, comparar, contratar).</dd>
+        <dt>On-page</dt><dd>Ajustes de SEO feitos dentro da própria página (título, URL, etc.).</dd>
+        <dt>E-E-A-T</dt><dd>Experiência, Expertise, Autoridade e Confiança — critérios do Google, críticos em saúde.</dd>
+        <dt>YMYL</dt><dd>"Your Money or Your Life": temas sensíveis (como saúde) avaliados com rigor extra.</dd>
+        <dt>Schema / dados estruturados</dt><dd>Código que explica ao Google o que é cada parte da página.</dd>
+        <dt>CMS</dt><dd>Sistema para escrever e gerenciar o conteúdo do site.</dd>
+        <dt>API</dt><dd>A "tomada" pela qual dois sistemas conversam.</dd>
+        <dt>Prompt</dt><dd>A instrução que você dá para a IA fazer o que você quer.</dd>
+        <dt>Alucinação</dt><dd>Quando a IA inventa uma informação falsa com cara de verdade.</dd>
+        <dt>Markdown</dt><dd>Formato de texto simples para escrever artigos (com #, listas, etc.).</dd>
+        <dt>Vercel</dt><dd>A plataforma onde a empresa hospeda sites (já contratada).</dd>
+        <dt>VPS</dt><dd>Um servidor próprio da empresa, onde dá para rodar automações 24h.</dd>
+        <dt>Repositório (GitHub)</dt><dd>Onde o código/artigos do blog ficam guardados e versionados.</dd>
+        <dt>LGPD</dt><dd>Lei brasileira de proteção de dados pessoais. Saúde = dado sensível.</dd>
+        <dt>Search Console</dt><dd>Ferramenta grátis do Google que mostra o desempenho do site na busca.</dd>
+      </dl>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brand" style="display:inline-flex"><span class="dot"></span> ClintIA</div>
+    <p>Guia de Implementação + Kit Prático · Sistema de Geração de Demanda Orgânica<br>Documento interno — versão 1 · uso restrito ao projeto</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var tabs = document.querySelectorAll('.tab');
+    var pages = document.querySelectorAll('.page');
+    function show(id){
+      pages.forEach(function(p){ p.classList.toggle('active', p.id === id); });
+      tabs.forEach(function(t){ t.classList.toggle('active', t.dataset.tab === id); });
+      window.scrollTo({top:0, behavior:'smooth'});
+      if(history.replaceState){ history.replaceState(null,'','#'+id); }
+    }
+    tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); }); });
+    var initial = (location.hash || '').replace('#','');
+    if(initial && document.getElementById(initial)){ show(initial); }
+  })();
+</script>
+
+</body>
+</html>
