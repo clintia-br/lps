@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bandeirantes · Diagnóstico de Entregas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0F14; --ink-2:#0E141B; --panel:#121A23; --panel-2:#0F161E;
+    --line:rgba(255,255,255,.085); --line-2:rgba(255,255,255,.14);
+    --text:#EAEFF4; --muted:#9AA8B6; --faint:#62717F;
+    --accent:#37D6BE; --accent-deep:#0E8C7C;
+    --c-band:#5B73E6;
+    --cc:#37D6BE;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--ink); color:var(--text);
+    font-family:"Inter",system-ui,sans-serif; font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(1200px 600px at 80% -10%, rgba(55,214,190,.06), transparent 60%);
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px}
+  .mono{font-family:"IBM Plex Mono",monospace}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--accent); font-weight:500;
+  }
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif; font-weight:500; line-height:1.08; margin:0}
+  h1 em,h2 em{font-style:italic; font-weight:400; color:var(--accent)}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:20; backdrop-filter:blur(10px);
+    background:rgba(11,15,20,.72); border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:58px}
+  .brandmark{font-family:"Fraunces",serif; font-size:18px; letter-spacing:.01em}
+  .brandmark span{color:var(--accent)}
+  .topnav{display:flex; gap:22px}
+  .topnav a{font-size:12.5px; color:var(--muted); letter-spacing:.02em; transition:color .2s}
+  .topnav a:hover{color:var(--text)}
+  @media(max-width:820px){.topnav{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:84px 0 48px; border-bottom:1px solid var(--line)}
+  .hero h1{font-size:clamp(40px,7vw,76px); letter-spacing:-.02em; max-width:14ch}
+  .hero .lead{color:var(--muted); font-size:clamp(16px,2vw,19px); max-width:60ch; margin-top:24px}
+  .ledger{
+    margin-top:46px; display:grid; grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--line); border-radius:14px; overflow:hidden;
+  }
+  .ledger .cell{padding:22px 22px; border-right:1px solid var(--line)}
+  .ledger .cell:last-child{border-right:0}
+  .ledger .num{font-family:"Fraunces",serif; font-size:40px; line-height:1; color:var(--text)}
+  .ledger .lbl{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--faint); margin-top:10px}
+  @media(max-width:720px){.ledger{grid-template-columns:repeat(2,1fr)}
+    .ledger .cell:nth-child(2){border-right:0}
+    .ledger .cell:nth-child(1),.ledger .cell:nth-child(2){border-bottom:1px solid var(--line)}}
+
+  /* ---------- generic section ---------- */
+  .sec{padding:64px 0; border-bottom:1px solid var(--line); position:relative}
+  .sec h2{font-size:clamp(28px,4.4vw,46px); letter-spacing:-.015em; margin-top:14px}
+  .sec .tagline{color:var(--muted); max-width:64ch; margin-top:14px; font-size:17px}
+  .accentbar{height:3px; width:54px; background:var(--cc); border-radius:3px; margin-top:18px}
+
+  .chips{display:flex; flex-wrap:wrap; gap:9px; margin-top:26px}
+  .chip{
+    display:inline-flex; align-items:center; gap:8px; font-size:12.5px;
+    font-family:"IBM Plex Mono",monospace; letter-spacing:.03em;
+    border:1px solid var(--line-2); border-radius:999px; padding:7px 13px; color:var(--text);
+    background:var(--panel-2);
+  }
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:var(--cc)}
+
+  .block{margin-top:40px}
+  .block-label{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--faint); display:flex; align-items:center; gap:12px}
+  .block-label::after{content:""; flex:1; height:1px; background:var(--line)}
+
+  /* ---------- deliverable cards ---------- */
+  .cards{margin-top:18px; display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+  @media(max-width:720px){.cards{grid-template-columns:1fr}}
+  .dcard{border:1px solid var(--line); border-radius:14px; padding:20px; background:var(--panel-2);
+    transition:border-color .2s,transform .2s}
+  .dcard:hover{border-color:var(--cc); transform:translateY(-2px)}
+  .dcard .k{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--cc)}
+  .dcard h4{margin:9px 0 0; font-family:"Inter",sans-serif; font-size:16px; font-weight:600}
+  .dcard p{margin:8px 0 0; color:var(--muted); font-size:14px; line-height:1.55}
+  .dcard.soon .k{color:var(--faint)}
+
+  /* trio mini cards */
+  .trio{margin-top:18px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  @media(max-width:720px){.trio{grid-template-columns:1fr}}
+  .mcard{border:1px solid var(--line); border-radius:14px; padding:18px; background:var(--panel-2)}
+  .mcard h4{margin:0; font-family:"Inter",sans-serif; font-size:15px; font-weight:600}
+  .mcard p{margin:8px 0 0; color:var(--muted); font-size:13.5px; line-height:1.55}
+
+  /* ---------- live site card ---------- */
+  .site{
+    margin-top:18px; border:1px solid var(--line); border-radius:16px; overflow:hidden;
+    background:linear-gradient(180deg,var(--panel),var(--panel-2));
+  }
+  .site-top{display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:18px 22px; border-bottom:1px solid var(--line); flex-wrap:wrap}
+  .url{font-family:"IBM Plex Mono",monospace; font-size:14px; color:var(--text); word-break:break-all}
+  .url::before{content:"↳ "; color:var(--cc)}
+  .btn{display:inline-flex; align-items:center; gap:8px; white-space:nowrap;
+    font-family:"IBM Plex Mono",monospace; font-size:12.5px; letter-spacing:.04em;
+    border:1px solid var(--cc); color:var(--text); padding:9px 15px; border-radius:10px;
+    transition:background .2s,transform .2s}
+  .btn:hover{background:color-mix(in srgb,var(--cc) 16%,transparent); transform:translateY(-1px)}
+
+  .browser-bar{display:flex; align-items:center; gap:8px; padding:11px 16px;
+    background:var(--panel-2); border-bottom:1px solid var(--line)}
+  .bdot{width:11px; height:11px; border-radius:50%; background:var(--line-2)}
+  .bdot.r{background:#FF5F57} .bdot.y{background:#FEBC2E} .bdot.g{background:#28C840}
+  .badr{margin-left:10px; font-family:"IBM Plex Mono",monospace; font-size:12px;
+    color:var(--muted); background:var(--ink); border:1px solid var(--line);
+    border-radius:7px; padding:5px 12px; flex:1; word-break:break-all}
+  .live{display:inline-flex; align-items:center; gap:7px; font-family:"IBM Plex Mono",monospace;
+    font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--cc); white-space:nowrap}
+  .live .pulse{width:8px; height:8px; border-radius:50%; background:var(--cc);
+    box-shadow:0 0 0 0 rgba(55,214,190,.6); animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(55,214,190,.55)}70%{box-shadow:0 0 0 9px rgba(55,214,190,0)}100%{box-shadow:0 0 0 0 rgba(55,214,190,0)}}
+  .frame{background:#fff}
+  .frame iframe{display:block; width:100%; height:680px; border:0; background:#fff}
+  @media(max-width:700px){.frame iframe{height:460px}}
+
+  .site-body{padding:20px 22px; border-top:1px solid var(--line)}
+  .feat{display:grid; grid-template-columns:repeat(2,1fr); gap:10px 26px; margin:0; padding:0; list-style:none}
+  .feat li{position:relative; padding-left:22px; color:var(--muted); font-size:14.5px}
+  .feat li::before{content:""; position:absolute; left:0; top:9px; width:8px; height:8px;
+    border:1.5px solid var(--cc); border-radius:2px; transform:rotate(45deg)}
+  @media(max-width:640px){.feat{grid-template-columns:1fr}}
+
+  /* ---------- unit grid ---------- */
+  .units{margin-top:18px; display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+  @media(max-width:720px){.units{grid-template-columns:1fr}}
+  .unit{border:1px solid var(--line); border-radius:14px; padding:18px; background:var(--panel-2);
+    display:flex; flex-direction:column; gap:7px}
+  .unit h4{margin:0; font-family:"Inter",sans-serif; font-size:15.5px; font-weight:600}
+  .unit .addr{color:var(--muted); font-size:13.5px}
+  .unit .hours{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--faint); letter-spacing:.02em}
+  .unit .foot{margin-top:auto; padding-top:6px; display:flex; align-items:center; justify-content:space-between; gap:10px}
+  .status{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--cc); border:1px solid var(--cc); border-radius:999px; padding:3px 9px}
+  .glink{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--text); letter-spacing:.03em;
+    border-bottom:1px solid var(--cc); padding-bottom:1px; transition:opacity .2s}
+  .glink:hover{opacity:.7}
+
+  /* ---------- article list ---------- */
+  .arts{margin-top:18px; display:grid; gap:12px}
+  .art{display:grid; grid-template-columns:1fr auto; gap:14px; align-items:center;
+    border:1px solid var(--line); border-radius:13px; padding:16px 18px; background:var(--panel-2);
+    transition:border-color .2s,transform .2s}
+  .art:hover{border-color:var(--cc); transform:translateX(3px)}
+  .art .cat{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--cc)}
+  .art h4{margin:6px 0 0; font-family:"Inter",sans-serif; font-size:15.5px; font-weight:600; line-height:1.35}
+  .art .read{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--faint); letter-spacing:.05em; white-space:nowrap}
+  .art .arrow{font-family:"IBM Plex Mono",monospace; color:var(--cc); font-size:18px}
+  @media(max-width:520px){.art{grid-template-columns:1fr}.art .arrow{display:none}}
+
+  /* ---------- tag list ---------- */
+  .tags{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px}
+  .tag{font-size:12.5px; color:var(--muted); border:1px solid var(--line); border-radius:8px;
+    padding:5px 11px; background:var(--panel-2)}
+
+  /* ---------- steps ---------- */
+  .steps{margin-top:18px; display:grid; gap:12px}
+  .step{display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:start;
+    border:1px solid var(--line); border-radius:13px; padding:18px 20px; background:var(--panel-2)}
+  .step .n{font-family:"Fraunces",serif; font-size:30px; line-height:1; color:var(--cc)}
+  .step h4{margin:0; font-family:"Inter",sans-serif; font-size:16px; font-weight:600}
+  .step p{margin:7px 0 0; color:var(--muted); font-size:14px; line-height:1.55}
+
+  /* ---------- footer ---------- */
+  footer{padding:54px 0 70px}
+  .foot-grid{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; flex-wrap:wrap}
+  footer .big{font-family:"Fraunces",serif; font-size:clamp(24px,4vw,34px); max-width:18ch; letter-spacing:-.01em}
+  footer .meta{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--faint); text-align:right; line-height:2}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1; transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brandmark">Bandeirantes · <span>Entregas</span></div>
+    <nav class="topnav">
+      <a href="#entregas">Entregas</a>
+      <a href="#site">Site ao vivo</a>
+      <a href="#gmn">Google Meu Negócio</a>
+      <a href="#blog">Blog</a>
+      <a href="#proximos">Próximos passos</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap reveal">
+    <p class="eyebrow">Diagnóstico de Entregas · Bandeirantes</p>
+    <h1 style="margin-top:22px">Tudo que já está <em>no ar.</em></h1>
+    <p class="lead">Inventário dos ativos digitais entregues para a Bandeirantes Diagnósticos — site institucional em Astro, fichas de Google Meu Negócio, conteúdo de blog, tráfego pago e CRM. Cada item abaixo está publicado e pode ser aberto agora, ao vivo.</p>
+    <div class="ledger">
+      <div class="cell"><div class="num">+35</div><div class="lbl">Anos de mercado</div></div>
+      <div class="cell"><div class="num">7</div><div class="lbl">Unidades no Rio</div></div>
+      <div class="cell"><div class="num">21</div><div class="lbl">Exames catalogados</div></div>
+      <div class="cell"><div class="num">15+</div><div class="lbl">Convênios ativos</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ENTREGAS REALIZADAS -->
+<section class="sec" id="entregas">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Concluído</p>
+      <h2>Oito entregas <em>realizadas.</em></h2>
+      <div class="accentbar"></div>
+      <p class="tagline">O que já está no ar trabalhando pela Bandeirantes — da base estratégica (DPV) até as campanhas pagas rodando no Google e no Meta.</p>
+      <div class="chips">
+        <span class="chip"><span class="dot"></span>Site no ar</span>
+        <span class="chip"><span class="dot"></span>Google Meu Negócio · 5 fichas</span>
+        <span class="chip"><span class="dot"></span>Blog · 4 artigos</span>
+        <span class="chip"><span class="dot"></span>Google + Meta Ads</span>
+        <span class="chip"><span class="dot"></span>Landing page dedicada</span>
+      </div>
+    </div>
+
+    <div class="block reveal">
+      <div class="block-label">Entregas concluídas</div>
+      <div class="cards">
+        <div class="dcard">
+          <div class="k">Estratégia</div>
+          <h4>Dossiê de Posicionamento e Vendas (DPV)</h4>
+          <p>Documento estratégico que orienta toda a comunicação: posicionamento, persona, jornada de compra e narrativa de marca. Base de tudo que veio depois.</p>
+        </div>
+        <div class="dcard">
+          <div class="k">Site</div>
+          <h4>Site Institucional em Astro</h4>
+          <p>Site completo, rápido e otimizado para SEO. Home, página por exame, blog editorial, clube de benefícios, convênios, entrega de resultados, FAQ e trabalhe conosco.</p>
+        </div>
+        <div class="dcard">
+          <div class="k">SEO Local</div>
+          <h4>7 Páginas Dedicadas por Unidade</h4>
+          <p>Uma página por unidade com endereço, horário, telefone, WhatsApp, exames disponíveis e schema LocalBusiness — pronta para capturar busca local.</p>
+        </div>
+        <div class="dcard">
+          <div class="k">Conteúdo</div>
+          <h4>4 Artigos de SEO</h4>
+          <p>Conteúdo publicado no blog para captar busca orgânica de cauda longa: ressonância vs tomografia, contraste, densitometria e exames na terceira idade.</p>
+        </div>
+        <div class="dcard">
+          <div class="k">Presença Local</div>
+          <h4>Google Meu Negócio</h4>
+          <p>Fichas otimizadas com categorias, descrição com palavras-chave locais, horários, fotos e serviços. Links clicáveis abaixo na seção de unidades.</p>
+        </div>
+        <div class="dcard">
+          <div class="k">Tráfego Pago</div>
+          <h4>Google Ads + Meta Ads</h4>
+          <p>Campanhas ativas no Google Ads (Search) e Meta Ads, segmentadas por exame e por unidade, com foco em CPL e conversão em agendamento.</p>
+        </div>
+        <div class="dcard">
+          <div class="k">Conversão</div>
+          <h4>Landing Page · Ressonância Campo Grande</h4>
+          <p>LP dedicada para captura de demanda específica da unidade Campo Grande, integrada às campanhas de tráfego pago.</p>
+        </div>
+        <div class="dcard">
+          <div class="k">Institucional</div>
+          <h4>LinkedIn Institucional</h4>
+          <p>Página da Bandeirantes criada e conteúdo institucional preparado (em ritmo dependente da liberação do Bruno).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block reveal">
+      <div class="block-label">Em andamento</div>
+      <div class="cards">
+        <div class="dcard soon">
+          <div class="k">Em produção</div>
+          <h4>Conteúdo Orgânico · Instagram</h4>
+          <p>Calendário de 20 peças sendo produzidas para o feed da Bandeirantes: educativo, prova social, conteúdo de unidade e campanhas sazonais.</p>
+        </div>
+        <div class="dcard soon">
+          <div class="k">Em produção</div>
+          <h4>Comercial + CRM Kommo + Painel</h4>
+          <p>Estruturação do pipeline comercial no Kommo, integração com WhatsApp e painel de gestão para acompanhamento de leads, conversão e ROI.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SITE AO VIVO -->
+<section class="sec" id="site">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Detalhe · Site Institucional</p>
+      <h2>21 exames. 7 unidades.<br><em>Rodando ao vivo.</em></h2>
+      <div class="accentbar"></div>
+      <p class="tagline">O site foi estruturado em Astro — stack que gera HTML estático e favorece o ranqueamento no Google. Abaixo, o site de produção rodando ao vivo dentro desta página.</p>
+    </div>
+
+    <div class="block reveal">
+      <div class="block-label">Site institucional · ao vivo</div>
+      <div class="site">
+        <div class="site-top">
+          <span class="url">bandeirantes-institucional.vercel.app</span>
+          <a class="btn" href="https://bandeirantes-institucional.vercel.app/" target="_blank" rel="noopener">Abrir em nova aba →</a>
+        </div>
+        <div class="browser-bar">
+          <span class="bdot r"></span><span class="bdot y"></span><span class="bdot g"></span>
+          <span class="badr">https://bandeirantes-institucional.vercel.app/</span>
+          <span class="live"><span class="pulse"></span>Ao vivo</span>
+        </div>
+        <div class="frame">
+          <iframe src="https://bandeirantes-institucional.vercel.app/" loading="lazy" title="Site Bandeirantes em produção"></iframe>
+        </div>
+        <div class="site-body">
+          <ul class="feat">
+            <li>10 páginas institucionais (home, exames, unidades…)</li>
+            <li>21 páginas de exame, uma por exame</li>
+            <li>7 páginas de unidade com schema LocalBusiness</li>
+            <li>Blog editorial e clube de benefícios</li>
+            <li>Convênios (15+), entrega de resultado e FAQ</li>
+            <li>LP dedicada · Ressonância Magnética Campo Grande</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block reveal">
+      <div class="block-label">Estrutura do site</div>
+      <div class="trio">
+        <div class="mcard">
+          <h4>10 páginas institucionais</h4>
+          <p>Home · Exames · Unidades · Artigos · Clube de Benefícios · Entrega de Resultado · FAQ · Trabalhe Conosco · Privacidade · Termos.</p>
+        </div>
+        <div class="mcard">
+          <h4>21 páginas de exame</h4>
+          <p>Páginas individuais com visão geral, indicações, preparo, resultado e FAQ — cada uma otimizada para a busca pelo nome do exame.</p>
+        </div>
+        <div class="mcard">
+          <h4>7 unidades + 4 artigos</h4>
+          <p>Uma página por unidade com endereço, horário, WhatsApp e schema LocalBusiness. Mais o blog editorial.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block reveal">
+      <div class="block-label">Exames com página própria</div>
+      <div class="tags">
+        <span class="tag">Mamografia</span><span class="tag">Ultrassonografia</span><span class="tag">Raio-X</span><span class="tag">Tomografia</span><span class="tag">Densitometria Óssea</span><span class="tag">Ecocardiograma</span><span class="tag">Eletrocardiograma</span><span class="tag">Holter 24h</span><span class="tag">MAPA 24h</span><span class="tag">Teste Ergométrico</span><span class="tag">Eletroencefalograma</span><span class="tag">Eletroneuromiografia</span><span class="tag">Potencial Evocado</span><span class="tag">Endoscopia Digestiva Alta</span><span class="tag">Biópsia Mamária</span><span class="tag">Biópsia de Tireoide · PAAF</span><span class="tag">Punção Mamária</span><span class="tag">Esofagografia</span><span class="tag">Histerossalpingografia</span><span class="tag">Uretrocistografia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOGLE MEU NEGOCIO -->
+<section class="sec" id="gmn">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Detalhe · Google Meu Negócio</p>
+      <h2>Fichas <em>otimizadas.</em></h2>
+      <div class="accentbar"></div>
+      <p class="tagline">Cada unidade tem ficha individual no Google Meu Negócio com categoria, descrição, horários, serviços e fotos otimizadas — para aparecer nas buscas locais ("clínica de imagem perto de mim", "ressonância em Campo Grande" etc.). Clique em <strong>Ver no Google</strong> para abrir a ficha.</p>
+    </div>
+
+    <div class="block reveal">
+      <div class="block-label">Fichas no Google Meu Negócio</div>
+      <div class="units">
+        <div class="unit"><h4>Bandeirantes Centro</h4><div class="addr">Av. Presidente Vargas, 542, sala 404 — Centro</div><div class="hours">Seg–Sex 07h–19h · Sáb 07h–13h</div><div class="foot"><span class="status">Otimizado</span><a class="glink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bandeirantes+Diagn%C3%B3stico+Centro+Av+Presidente+Vargas+542+Rio+de+Janeiro">Ver no Google →</a></div></div>
+        <div class="unit"><h4>Bandeirantes Bangu</h4><div class="addr">Rua 12 de Fevereiro, 282 — Bangu</div><div class="hours">Seg–Sex 07h–19h · Sáb 07h–13h</div><div class="foot"><span class="status">Otimizado</span><a class="glink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bandeirantes+Diagn%C3%B3stico+Bangu+Rua+12+de+Fevereiro+282">Ver no Google →</a></div></div>
+        <div class="unit"><h4>Bandeirantes Bonsucesso</h4><div class="addr">Rua Cardoso de Morais, 218, Loja C — Bonsucesso</div><div class="hours">Seg–Sex 07h–19h · Sáb 07h–13h</div><div class="foot"><span class="status">Otimizado</span><a class="glink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bandeirantes+Diagn%C3%B3stico+Bonsucesso+Rua+Cardoso+de+Morais+218">Ver no Google →</a></div></div>
+        <div class="unit"><h4>Bandeirantes Campo Grande</h4><div class="addr">Av. Cesário de Melo, 2839 — Campo Grande</div><div class="hours">Seg–Sex 07h–19h · Sáb 07h–13h</div><div class="foot"><span class="status">Otimizado</span><a class="glink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bandeirantes+Diagn%C3%B3stico+Campo+Grande+Av+Ces%C3%A1rio+de+Melo+2839">Ver no Google →</a></div></div>
+        <div class="unit"><h4>Bandeirantes Taquara</h4><div class="addr">Av. Nelson Cardoso, 917 — Taquara</div><div class="hours">Seg–Sex 07h–19h · Sáb 07h–13h</div><div class="foot"><span class="status">Otimizado</span><a class="glink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bandeirantes+Diagn%C3%B3stico+Taquara+Av+Nelson+Cardoso+917">Ver no Google →</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONVENIOS -->
+<section class="sec" id="convenios">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Detalhe · Convênios</p>
+      <h2>15+ convênios <em>no site.</em></h2>
+      <div class="accentbar"></div>
+      <p class="tagline">A página de convênios é uma das três mais visitadas. Logos em carrossel e busca por nome — o paciente confirma cobertura sem precisar ligar.</p>
+      <div class="tags" style="margin-top:24px">
+        <span class="tag">APPAI</span><span class="tag">Notre Dame</span><span class="tag">Memorial</span><span class="tag">Assist Card</span><span class="tag">GEAP</span><span class="tag">Portal</span><span class="tag">Porto Seguro</span><span class="tag">Oplan</span><span class="tag">Mediservice</span><span class="tag">Caberj</span><span class="tag">+ outros</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="sec" id="blog">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Detalhe · Conteúdo Editorial</p>
+      <h2>Quatro artigos <em>na esteira de SEO.</em></h2>
+      <div class="accentbar"></div>
+      <p class="tagline">Conteúdo escrito para responder dúvidas reais de paciente e capturar buscas de cauda longa que levam ao agendamento. Clique para abrir o artigo no site.</p>
+    </div>
+
+    <div class="block reveal">
+      <div class="block-label">Artigos publicados</div>
+      <div class="arts">
+        <a class="art" target="_blank" rel="noopener" href="https://bandeirantes-institucional.vercel.app/artigos/diferenca-tomografia-ressonancia-magnetica">
+          <div><div class="cat">Exames de Imagem</div><h4>Tomografia e Ressonância Magnética no Rio de Janeiro: qual exame o médico pede e por quê</h4><div class="read">Esteira de SEO</div></div><span class="arrow">↗</span></a>
+        <a class="art" target="_blank" rel="noopener" href="https://bandeirantes-institucional.vercel.app/artigos/densitometria-ossea-quando-fazer">
+          <div><div class="cat">Saúde Óssea</div><h4>Densitometria óssea no Rio de Janeiro: o que é, quem deve fazer e a partir de que idade</h4><div class="read">Esteira de SEO</div></div><span class="arrow">↗</span></a>
+        <a class="art" target="_blank" rel="noopener" href="https://bandeirantes-institucional.vercel.app/artigos/ressonancia-com-contraste-seguranca">
+          <div><div class="cat">Ressonância Magnética</div><h4>Ressonância magnética com contraste em Campo Grande, RJ: quando é necessário e como funciona</h4><div class="read">Esteira de SEO</div></div><span class="arrow">↗</span></a>
+        <a class="art" target="_blank" rel="noopener" href="https://bandeirantes-institucional.vercel.app/artigos/exames-imagem-idoso-rotina">
+          <div><div class="cat">Saúde do Idoso</div><h4>Exames de imagem na terceira idade: o que fazer todo ano no Rio de Janeiro</h4><div class="read">Esteira de SEO</div></div><span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROXIMOS PASSOS -->
+<section class="sec" id="proximos">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Próximos passos</p>
+      <h2>O que entra <em>depois.</em></h2>
+      <div class="accentbar"></div>
+      <p class="tagline">Com a base digital, o tráfego pago e o CRM rodando, a próxima fase é escalar o que está funcionando, aumentar o volume de conteúdo e medir resultado.</p>
+    </div>
+
+    <div class="block reveal">
+      <div class="steps">
+        <div class="step">
+          <div class="n">01</div>
+          <div>
+            <h4>Treinamento do time comercial</h4>
+            <p>Scripts de atendimento, playbook do SDR e cadência de follow-up integrados ao CRM Kommo — do lead ao paciente agendado.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="n">02</div>
+          <div>
+            <h4>Calendário editorial contínuo</h4>
+            <p>Publicação recorrente de artigos e peças sociais para sustentar o ranqueamento orgânico e alimentar as redes.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="n">03</div>
+          <div>
+            <h4>Painel de gestão · ROI por canal</h4>
+            <p>Dashboard consolidando origem do lead, conversão por unidade, ticket médio e CAC — base para decidir onde investir mais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap reveal">
+    <div class="foot-grid">
+      <div class="big">A base digital está pronta — e no ar.</div>
+      <div class="meta">
+        clintIA · Marketing Médico Estratégico<br>
+        Diagnóstico de Entregas · Bandeirantes<br>
+        Apresentação interna
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('in'); io.unobserve(en.target);} });
+  },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
