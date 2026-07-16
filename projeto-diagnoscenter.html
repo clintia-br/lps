@@ -84,7 +84,7 @@ h3{font-size:clamp(19px,1.9vw,25px);font-weight:800;letter-spacing:-.01em}
 .vnode .ic svg{width:36px;height:36px;stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .vnode.pat .ic{background:linear-gradient(135deg,var(--sky),var(--teal))}
 .vnode.plat .ic{background:linear-gradient(135deg,var(--teal),var(--teal-d));box-shadow:0 0 0 5px rgba(22,184,166,.16),0 20px 50px -18px rgba(22,184,166,.6)}
-.vnode.lab .ic{background:linear-gradient(135deg,var(--mint),var(--teal))}
+.vnode.vlab .ic{background:linear-gradient(135deg,var(--mint),var(--teal))}
 .vnode.plat{border-color:rgba(94,234,212,.4);background:rgba(22,184,166,.10)}
 .vnode h3{font-size:clamp(16px,1.55vw,21px)}
 .vnode.plat h3{color:var(--mint)}
@@ -233,6 +233,34 @@ h3{font-size:clamp(19px,1.9vw,25px);font-weight:800;letter-spacing:-.01em}
 .step h3{font-size:18px;margin-bottom:6px;color:var(--ink)}
 .step p{font-size:14.5px;color:#5c7772;line-height:1.45}
 
+/* potencial — conta visual */
+.calcflow{display:flex;align-items:center;justify-content:center;gap:clamp(6px,1.1vw,16px);flex-wrap:wrap;margin:38px 0 30px}
+.cstep{text-align:center;background:rgba(255,255,255,.05);border:1px solid var(--d-line);border-radius:16px;padding:18px 20px;min-width:110px}
+.cstep .cv{font-size:clamp(20px,2.4vw,32px);font-weight:900;color:#fff;letter-spacing:-.02em}
+.cstep .cl{font-size:12px;color:var(--d-mut);margin-top:6px;line-height:1.3}
+.cstep.final{background:linear-gradient(160deg,rgba(22,184,166,.30),rgba(94,234,212,.08));border-color:rgba(94,234,212,.55)}
+.cstep.final .cv{color:var(--mint);font-size:clamp(24px,3vw,42px)}
+.cop{font-size:22px;color:var(--teal);font-weight:800;flex:none}
+.presult{display:flex;gap:clamp(24px,5vw,72px);flex-wrap:wrap}
+.presult .pr-v{font-size:clamp(28px,3.6vw,48px);font-weight:900;color:var(--mint);letter-spacing:-.03em;line-height:1}
+.presult .pr-l{font-size:14px;color:var(--d-mut);margin-top:6px}
+/* calculadora interativa */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,60px);margin-top:34px;align-items:center}
+.calc-inputs{display:flex;flex-direction:column;gap:24px}
+.cfield label{display:flex;justify-content:space-between;align-items:baseline;font-size:14.5px;font-weight:700;color:var(--d-soft);margin-bottom:10px}
+.cfield label b{color:var(--mint);font-size:18px;font-weight:900}
+.cfield input[type=range]{width:100%;height:6px;border-radius:3px;background:rgba(255,255,255,.14);outline:none;-webkit-appearance:none;appearance:none;cursor:pointer}
+.cfield input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--mint);box-shadow:0 4px 12px rgba(94,234,212,.5)}
+.cfield input[type=range]::-moz-range-thumb{width:22px;height:22px;border:none;border-radius:50%;background:var(--mint)}
+.calc-out{background:linear-gradient(160deg,rgba(22,184,166,.18),rgba(94,234,212,.05));border:1px solid rgba(94,234,212,.42);border-radius:22px;padding:clamp(24px,2.8vw,38px)}
+.calc-out .vol{font-size:14px;color:var(--d-soft);padding-bottom:15px;margin-bottom:8px;border-bottom:1px solid var(--d-line)}
+.calc-out .vol b{color:#fff;font-size:17px}
+.cout-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0}
+.cout-row .col{font-size:15px;color:var(--d-soft)}
+.cout-row .cov{font-size:clamp(20px,2.4vw,30px);font-weight:900;color:var(--mint);letter-spacing:-.02em}
+.cout-row.big{border-bottom:1px solid var(--d-line);padding-bottom:14px;margin-bottom:6px}
+.cout-row.big .cov{font-size:clamp(26px,3.4vw,42px)}
+
 /* nav */
 .nav{position:fixed;bottom:22px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:18px;z-index:50}
 .dots{display:flex;gap:9px;align-items:center}
@@ -257,7 +285,7 @@ h3{font-size:clamp(19px,1.9vw,25px);font-weight:800;letter-spacing:-.01em}
 </head>
 <body>
 <div class="progress" id="prog"></div>
-<div class="counter"><span id="cur">01</span> / <span id="tot">15</span></div>
+<div class="counter"><span id="cur">01</span> / <span id="tot">17</span></div>
 <div class="deck" id="deck">
 
   <!-- 1 · CAPA -->
@@ -342,7 +370,7 @@ h3{font-size:clamp(19px,1.9vw,25px);font-weight:800;letter-spacing:-.01em}
           <h3>Exames Aqui</h3><p>a plataforma que conecta e cobra</p>
         </div>
         <div class="vlink">←</div>
-        <div class="vnode lab">
+        <div class="vnode vlab">
           <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v5L5 17a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 17l-5-9V3"/><path d="M8 14h8"/></svg></div>
           <h3>Laboratório</h3><p>oferta e enche a agenda</p>
         </div>
@@ -393,6 +421,66 @@ h3{font-size:clamp(19px,1.9vw,25px);font-weight:800;letter-spacing:-.01em}
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 6b · O POTENCIAL (retorno antes do custo) -->
+  <section class="slide dark">
+    <div class="inner">
+      <div class="eyebrow up d1">O potencial</div>
+      <h2 class="up d2">Antes do custo, <span class="hl">o retorno.</span></h2>
+      <p class="lead up d3" style="margin-top:18px">O Rio tem <b style="color:var(--mint)">586 laboratórios</b> de análises clínicas. A plataforma fica com uma comissão sobre cada exame agendado. Veja a conta com uma fatia pequena desse mercado:</p>
+      <div class="calcflow up d4">
+        <div class="cstep"><div class="cv">15</div><div class="cl">laboratórios<br>parceiros</div></div>
+        <div class="cop">×</div>
+        <div class="cstep"><div class="cv">40</div><div class="cl">exames/lab<br>por mês</div></div>
+        <div class="cop">×</div>
+        <div class="cstep"><div class="cv">R$ 70</div><div class="cl">ticket médio<br>do exame</div></div>
+        <div class="cop">×</div>
+        <div class="cstep"><div class="cv">12%</div><div class="cl">comissão da<br>plataforma</div></div>
+        <div class="cop">=</div>
+        <div class="cstep final"><div class="cv">R$ 5.040</div><div class="cl">por mês para a<br>Diagnocenter</div></div>
+      </div>
+      <div class="presult up d5">
+        <div><div class="pr-v">R$ 30 mil</div><div class="pr-l">em 6 meses</div></div>
+        <div><div class="pr-v">R$ 60 mil</div><div class="pr-l">em 12 meses</div></div>
+        <div><div class="pr-v">2,5%</div><div class="pr-l">é só a fatia usada nesta conta</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6c · CALCULADORA (interativa) -->
+  <section class="slide deep">
+    <div class="inner">
+      <div class="eyebrow up d1">Calculadora ao vivo</div>
+      <h2 class="up d2">Não concorda com um número?<br><span class="hl">Vamos ajustar juntos.</span></h2>
+      <div class="calc up d3">
+        <div class="calc-inputs">
+          <div class="cfield">
+            <label>Laboratórios parceiros <b id="v-labs">15</b></label>
+            <input type="range" id="c-labs" min="1" max="80" value="15">
+          </div>
+          <div class="cfield">
+            <label>Exames por laboratório / mês <b id="v-ex">40</b></label>
+            <input type="range" id="c-ex" min="10" max="300" step="5" value="40">
+          </div>
+          <div class="cfield">
+            <label>Ticket médio do exame <b id="v-tk">R$ 70</b></label>
+            <input type="range" id="c-tk" min="30" max="300" step="5" value="70">
+          </div>
+          <div class="cfield">
+            <label>Comissão da plataforma <b id="v-cm">12%</b></label>
+            <input type="range" id="c-cm" min="5" max="25" value="12">
+          </div>
+        </div>
+        <div class="calc-out">
+          <div class="vol">Movimentado na plataforma: <b id="o-vol">R$ 42.000</b> / mês</div>
+          <div class="cout-row big"><div class="col">Receita da Diagnocenter / mês</div><div class="cov" id="o-mes">R$ 5.040</div></div>
+          <div class="cout-row"><div class="col">Em 6 meses</div><div class="cov" id="o-6m">R$ 30.240</div></div>
+          <div class="cout-row"><div class="col">Em 12 meses</div><div class="cov" id="o-ano">R$ 60.480</div></div>
+        </div>
+      </div>
+      <p class="up d4" style="margin-top:18px;font-size:13.5px;color:var(--d-mut)">Arraste os controles conforme a realidade da Diagnocenter — a conta atualiza na hora. Comissão típica de marketplace: 10% a 20%.</p>
     </div>
   </section>
 
@@ -658,6 +746,24 @@ h3{font-size:clamp(19px,1.9vw,25px);font-weight:800;letter-spacing:-.01em}
     else if(e.key==='f'||e.key==='F'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
     else if(e.key==='Home')go(0); else if(e.key==='End')go(slides.length-1);
   });
+  // Calculadora de retorno
+  const fmt=n=>'R$ '+Math.round(n).toLocaleString('pt-BR');
+  const cEl={labs:document.getElementById('c-labs'),ex:document.getElementById('c-ex'),tk:document.getElementById('c-tk'),cm:document.getElementById('c-cm')};
+  function calc(){
+    const labs=+cEl.labs.value,ex=+cEl.ex.value,tk=+cEl.tk.value,cm=+cEl.cm.value;
+    document.getElementById('v-labs').textContent=labs;
+    document.getElementById('v-ex').textContent=ex;
+    document.getElementById('v-tk').textContent='R$ '+tk;
+    document.getElementById('v-cm').textContent=cm+'%';
+    const vol=labs*ex*tk, mes=vol*cm/100;
+    document.getElementById('o-vol').textContent=fmt(vol);
+    document.getElementById('o-mes').textContent=fmt(mes);
+    document.getElementById('o-6m').textContent=fmt(mes*6);
+    document.getElementById('o-ano').textContent=fmt(mes*12);
+  }
+  Object.values(cEl).forEach(el=>el&&el.addEventListener('input',calc));
+  if(cEl.labs)calc();
+
   let x0=null;
   document.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
   document.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50){dx<0?next():prev();}x0=null;},{passive:true});
