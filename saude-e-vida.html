@@ -178,6 +178,56 @@
     .pcol h3{min-height:0}
   }
 </style>
+<style id="mobile-total">
+.mob-flow{display:none}
+@media(max-width:760px){
+  /* trocar diagramas largos pela versao empilhada */
+  .svg-desk{display:none!important}
+  .mob-flow{display:block!important;margin-top:16px}
+  /* grids inline de 3 colunas colapsam */
+  [style*="repeat(3,1fr)"]{grid-template-columns:1fr!important;gap:12px!important}
+  [style*="repeat(4,1fr)"]{grid-template-columns:1fr 1fr!important}
+  /* bloco de preco dos slides de fase alinha a esquerda */
+  [style*="text-align:right"]{text-align:left!important}
+  /* respiro e tipografia */
+  .slide{padding:54px 18px 64px!important}
+  .kick{font-size:13px!important;letter-spacing:.16em!important;margin-bottom:12px!important}
+  h1{font-size:clamp(30px,8.4vw,40px)!important;letter-spacing:-1px!important}
+  h2{font-size:clamp(23px,6.8vw,30px)!important;letter-spacing:-.6px!important}
+  h3{font-size:17px!important}
+  p,.lead{font-size:16px!important;line-height:1.55!important}
+  .lead{font-size:17px!important}
+  ul.clean li{font-size:15.5px!important;grid-template-columns:20px 1fr!important}
+  .card{padding:20px 18px!important}
+  .stat{font-size:38px!important}
+  .stat small{font-size:14px!important}
+  .quoteline{font-size:16px!important;padding-left:14px!important}
+  .cover .meta{gap:18px!important;margin-top:24px!important}
+  .cover .meta b{font-size:14.5px!important}
+  .closing{font-size:25px!important;max-width:100%!important}
+  .author img{width:74px!important;height:74px!important}
+  .mesa{padding:18px 18px!important}
+  /* video da comunidade ocupa a largura */
+  video{width:100%!important;height:auto!important}
+
+  /* listas mobile: garantir legibilidade */
+  .mob-flow div[style*="font-size:15.5px"]{font-size:16.5px!important;line-height:1.25!important}
+  .mob-flow div[style*="font-size:13.5px"]{font-size:14.5px!important;line-height:1.35!important}
+  .mob-flow span[style*="font-size:13.5px"]{font-size:14px!important}
+  .mob-flow span[style*="font-size:14.5px"]{font-size:15px!important}
+  .mob-flow > div{padding:15px 16px!important;margin-bottom:10px!important}
+  /* nenhum badge abaixo de 12.5px */
+  [style*="font-size:11.5px"]{font-size:12.5px!important}
+  [style*="font-size:11px"]{font-size:12.5px!important}
+  [style*="font-size:12px"]{font-size:12.5px!important}
+  /* botao tela cheia atrapalha no celular */
+  #fsBtn{display:none!important}
+}
+@media(max-width:420px){
+  [style*="repeat(4,1fr)"]{grid-template-columns:1fr!important}
+  .slide{padding:48px 15px 58px!important}
+}
+</style>
 </head>
 <body>
 <div class="progress" id="progress"></div>
@@ -285,7 +335,7 @@
       <div class="kick">A tese</div>
       <h2 style="color:#fff;max-width:22ch">Franquia de cartão não se vende com anúncio solto. Se vende com <span style="color:var(--sky)">esteira</span>.</h2>
       <p class="lead" style="margin:14px 0 30px">Pra uma clínica popular aderir e performar, ela precisa passar por um caminho. Cada elo solto é parceiro que esfria ou franqueado que não performa.</p>
-      <svg class="diagram" viewBox="0 0 1120 150" role="img" aria-label="A esteira de aderência do parceiro" style="margin-bottom:10px">
+      <svg class="svg-desk" class="diagram" viewBox="0 0 1120 150" role="img" aria-label="A esteira de aderência do parceiro" style="margin-bottom:10px">
         <defs><linearGradient id="ge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#05D2FF"/><stop offset="1" stop-color="#0578DC"/></linearGradient></defs>
         <line x1="60" y1="52" x2="1060" y2="52" stroke="rgba(255,255,255,.16)" stroke-width="3"/>
         <line x1="60" y1="52" x2="1060" y2="52" stroke="url(#ge)" stroke-width="3" stroke-dasharray="6 10" stroke-linecap="round"/>
@@ -297,7 +347,7 @@
           <g><circle cx="860" cy="52" r="15" fill="#07253f" stroke="#05D2FF" stroke-width="2.5"/><text x="860" y="57" font-size="13" font-weight="800" fill="#fff">5</text><text x="860" y="92" font-size="14" font-weight="700" fill="#eaf6ff">Vende</text><text x="860" y="112" font-size="11.5" fill="#8fb0c8">na ponta</text></g>
           <g><circle cx="1060" cy="52" r="16" fill="#05D2FF"/><text x="1060" y="57" font-size="13" font-weight="800" fill="#03202f">6</text><text x="1060" y="92" font-size="14" font-weight="700" fill="#fff">Vê o número</text><text x="1060" y="112" font-size="11.5" fill="#8fb0c8">todo mês</text></g>
         </g>
-      </svg>
+      </svg><div class="mob-flow"><div style="display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:13px 15px;margin-bottom:9px"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#05D2FF,#0578DC);color:#03202f;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center">1</span><div><div style="font-weight:800;font-size:15.5px;color:#eaf6ff;line-height:1.2">Entende</div><div style="font-size:13.5px;color:#9db9cf;margin-top:1px">a oferta</div></div></div><div style="display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:13px 15px;margin-bottom:9px"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#05D2FF,#0578DC);color:#03202f;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center">2</span><div><div style="font-weight:800;font-size:15.5px;color:#eaf6ff;line-height:1.2">Confia</div><div style="font-size:13.5px;color:#9db9cf;margin-top:1px">no modelo</div></div></div><div style="display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:13px 15px;margin-bottom:9px"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#05D2FF,#0578DC);color:#03202f;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center">3</span><div><div style="font-weight:800;font-size:15.5px;color:#eaf6ff;line-height:1.2">Assina</div><div style="font-size:13.5px;color:#9db9cf;margin-top:1px">o contrato</div></div></div><div style="display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:13px 15px;margin-bottom:9px"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#05D2FF,#0578DC);color:#03202f;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center">4</span><div><div style="font-weight:800;font-size:15.5px;color:#eaf6ff;line-height:1.2">&Eacute; treinada</div><div style="font-size:13.5px;color:#9db9cf;margin-top:1px">no m&eacute;todo</div></div></div><div style="display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:13px 15px;margin-bottom:9px"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#05D2FF,#0578DC);color:#03202f;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center">5</span><div><div style="font-weight:800;font-size:15.5px;color:#eaf6ff;line-height:1.2">Vende</div><div style="font-size:13.5px;color:#9db9cf;margin-top:1px">na ponta</div></div></div><div style="display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:13px 15px;margin-bottom:9px"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#05D2FF,#0578DC);color:#03202f;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center">6</span><div><div style="font-weight:800;font-size:15.5px;color:#eaf6ff;line-height:1.2">V&ecirc; o n&uacute;mero</div><div style="font-size:13.5px;color:#9db9cf;margin-top:1px">todo m&ecirc;s</div></div></div></div>
       <p style="color:#8fb0c8;font-size:14.5px;text-align:center;margin-top:8px">A ClintIA constrói e opera essa esteira inteira — não vende só a peça de entrada.</p>
     </div>
   </section>
@@ -462,7 +512,7 @@
     <div class="stage">
       <div class="kick">Como acontece</div>
       <h2>Do kickoff à máquina rodando — dia a dia.</h2>
-      <svg class="diagram" viewBox="0 0 1120 300" role="img" aria-label="Cronograma de 45 dias" style="margin-top:22px">
+      <svg class="svg-desk" class="diagram" viewBox="0 0 1120 300" role="img" aria-label="Cronograma de 45 dias" style="margin-top:22px">
         <g font-family="Red Hat Display">
           <line x1="60" y1="40" x2="1060" y2="40" stroke="#d6e4f0" stroke-width="2"/>
           <text x="60" y="28" font-size="12" font-weight="700" fill="#5d7387">Dia 1</text>
@@ -474,7 +524,7 @@
           <rect x="600" y="226" width="330" height="34" rx="8" fill="#0578DC"/><text x="612" y="248" font-size="12.5" font-weight="800" fill="#fff">23–38 · Funil B2B + treinamento</text>
           <rect x="880" y="268" width="180" height="34" rx="8" fill="#053C73"/><text x="892" y="290" font-size="12.5" font-weight="800" fill="#fff">39–45 · Máquina rodando</text>
         </g>
-      </svg>
+      </svg><div class="mob-flow"><div style="display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-left:4px solid #05D2FF;border-radius:11px;padding:12px 14px;margin-bottom:8px"><span style="flex:none;font-family:'Red Hat Display';font-weight:900;font-size:13.5px;color:#05D2FF;min-width:62px">Dias 1&ndash;3</span><span style="font-weight:700;font-size:14.5px;color:var(--oxford);line-height:1.25">Kickoff</span></div><div style="display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-left:4px solid #05D2FF;border-radius:11px;padding:12px 14px;margin-bottom:8px"><span style="flex:none;font-family:'Red Hat Display';font-weight:900;font-size:13.5px;color:#05D2FF;min-width:62px">4&ndash;10</span><span style="font-weight:700;font-size:14.5px;color:var(--oxford);line-height:1.25">DPV da franquia</span></div><div style="display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-left:4px solid #05D2FF;border-radius:11px;padding:12px 14px;margin-bottom:8px"><span style="flex:none;font-family:'Red Hat Display';font-weight:900;font-size:13.5px;color:#05D2FF;min-width:62px">11&ndash;22</span><span style="font-weight:700;font-size:14.5px;color:var(--oxford);line-height:1.25">Arsenal, LP, Instagram</span></div><div style="display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-left:4px solid #05D2FF;border-radius:11px;padding:12px 14px;margin-bottom:8px"><span style="flex:none;font-family:'Red Hat Display';font-weight:900;font-size:13.5px;color:#05D2FF;min-width:62px">15&ndash;30</span><span style="font-weight:700;font-size:14.5px;color:var(--oxford);line-height:1.25">Piloto de reativa&ccedil;&atilde;o no ar</span></div><div style="display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-left:4px solid #05D2FF;border-radius:11px;padding:12px 14px;margin-bottom:8px"><span style="flex:none;font-family:'Red Hat Display';font-weight:900;font-size:13.5px;color:#05D2FF;min-width:62px">23&ndash;38</span><span style="font-weight:700;font-size:14.5px;color:var(--oxford);line-height:1.25">Funil B2B + treinamento</span></div><div style="display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-left:4px solid #05D2FF;border-radius:11px;padding:12px 14px;margin-bottom:8px"><span style="flex:none;font-family:'Red Hat Display';font-weight:900;font-size:13.5px;color:#05D2FF;min-width:62px">39&ndash;45</span><span style="font-weight:700;font-size:14.5px;color:var(--oxford);line-height:1.25">M&aacute;quina rodando</span></div></div>
       <p style="text-align:center;color:#5d7387;font-size:14.5px;margin-top:18px">Você acompanha entregas toda semana, com <strong>gerente de projeto dedicada</strong>. A primeira receita entra por volta do dia 30.</p>
     </div>
   </section>
