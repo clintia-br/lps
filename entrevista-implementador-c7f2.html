@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta name="robots" content="noindex, nofollow">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contratação · Implementador de Estrutura Comercial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky:#05D2FF;--celtic:#055AAA;--dodger:#0578DC;--yale:#053C73;--oxford:#051E32;
+    --ink:#13242f;--muted:#5f7486;--line:#e6edf3;--line2:#eef3f7;--bg:#f6f9fb;--card:#fff;
+    --ok:#0a7d57;--okbg:#e9f8f1;--red:#b8330f;--redbg:#fdecea;--amber:#a9760a;--amberbg:#fff6e6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Red Hat Display',-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);font-size:12.5px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{background:radial-gradient(130% 150% at 88% 0%,var(--celtic),var(--oxford) 72%);color:#fff;padding:22px 0 20px;}
+  header .kk{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--sky);}
+  header h1{font-size:21px;font-weight:900;letter-spacing:-.015em;margin-top:5px;}
+  header p{font-size:12.5px;color:#cfe3f3;margin-top:6px;max-width:640px;}
+
+  main{padding:18px 0 40px;}
+  .sh{display:flex;align-items:center;gap:9px;margin:24px 0 10px;}
+  .sh .ic{width:20px;height:20px;border-radius:6px;background:var(--dodger);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .sh h2{font-size:14px;font-weight:800;color:var(--oxford);letter-spacing:-.01em;}
+  .sh .n{margin-left:auto;font-size:10.5px;color:var(--muted);}
+
+  .box{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:13px 15px;}
+  .box+.box{margin-top:8px;}
+
+  /* perfil */
+  .skills{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .sk{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 13px;border-left:3px solid var(--dodger);}
+  .sk h4{font-size:12.5px;font-weight:800;color:var(--oxford);}
+  .sk p{font-size:11px;color:var(--muted);margin-top:2px;}
+
+  /* blocos de entrevista */
+  .blk{background:var(--card);border:1px solid var(--line);border-radius:11px;margin-bottom:8px;overflow:hidden;}
+  .blk .bh{display:flex;align-items:center;gap:9px;padding:10px 14px;background:#f8fbfd;border-bottom:1px solid var(--line2);}
+  .blk .bh .t{font-size:12.5px;font-weight:800;color:var(--oxford);}
+  .blk .bh .min{margin-left:auto;font-size:10px;font-weight:700;color:var(--celtic);background:#e8f4fd;border-radius:20px;padding:2px 9px;}
+  .blk .bh .star{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;background:var(--amberbg);color:var(--amber);padding:2px 7px;border-radius:20px;}
+  .blk ul{list-style:none;padding:8px 14px 6px;}
+  .blk li{font-size:12px;padding:4px 0 4px 16px;position:relative;}
+  .blk li::before{content:"›";position:absolute;left:2px;color:var(--dodger);font-weight:900;}
+  .blk li i{color:var(--ink);font-style:italic;}
+  .blk .look{font-size:11px;color:var(--ok);background:var(--okbg);padding:7px 14px;border-top:1px solid var(--line2);}
+  .blk .look b{font-weight:700;}
+
+  /* flags */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+  .fl{border-radius:11px;padding:12px 14px;}
+  .fl.good{background:var(--okbg);border:1px solid #c7ecdb;}
+  .fl.bad{background:var(--redbg);border:1px solid #f6d5cf;}
+  .fl h4{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;}
+  .fl.good h4{color:var(--ok);}.fl.bad h4{color:var(--red);}
+  .fl ul{list-style:none;}
+  .fl li{font-size:11.5px;padding:3px 0 3px 15px;position:relative;}
+  .fl.good li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:900;}
+  .fl.bad li::before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:900;}
+
+  /* etapas trilha */
+  .et{background:var(--card);border:1px solid var(--line);border-radius:11px;margin-bottom:8px;display:flex;gap:12px;padding:13px 15px;}
+  .et .num{width:26px;height:26px;border-radius:8px;background:var(--oxford);color:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .et .bd{flex:1;}
+  .et h4{font-size:13px;font-weight:800;color:var(--oxford);}
+  .et .obj{font-size:11px;color:var(--celtic);font-weight:600;margin:1px 0 5px;}
+  .et ul{list-style:none;}
+  .et li{font-size:11.5px;color:var(--ink);padding:2px 0 2px 14px;position:relative;}
+  .et li::before{content:"•";position:absolute;left:2px;color:var(--muted);}
+  .et .done{margin-top:6px;font-size:11px;background:var(--okbg);color:var(--ok);border-radius:7px;padding:5px 9px;}
+  .et .done b{font-weight:700;}
+  .et .when{font-size:10px;font-weight:700;color:var(--muted);background:var(--bg);border-radius:20px;padding:2px 8px;flex:0 0 auto;height:fit-content;}
+
+  /* regras */
+  .rules{background:linear-gradient(135deg,var(--yale),var(--oxford));color:#fff;border-radius:12px;padding:14px 17px;}
+  .rules h3{font-size:11.5px;font-weight:800;color:var(--sky);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
+  .rules ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;}
+  .rules li{font-size:11.5px;padding-left:15px;position:relative;color:#dceaf6;}
+  .rules li::before{content:"!";position:absolute;left:0;color:var(--sky);font-weight:900;}
+  .rules li b{color:#fff;font-weight:600;}
+
+  .norte{background:#eaf4ff;border:1px solid #cfe4fa;border-left:3px solid var(--dodger);border-radius:10px;padding:12px 15px;}
+  .norte h4{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--celtic);margin-bottom:4px;}
+  .norte p{font-size:13px;color:var(--ink);font-weight:500;}
+
+  footer{text-align:center;padding:16px 0;font-size:10.5px;color:var(--muted);}
+  @media(max-width:680px){ .skills,.two,.rules ul{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kk">ClintIA · Contratação</div>
+    <h1>Implementador de Estrutura Comercial</h1>
+    <p>Roteiro da entrevista + a trilha de trabalho do candidato. Projetos: Clínica Mais Med e Bandeirantes Diagnósticos.</p>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <!-- NORTE -->
+  <div class="sh"><span class="ic">0</span><h2>O norte — explique isso pra ele em 2 minutos</h2></div>
+  <div class="norte">
+    <h4>O que a ClintIA faz (na prática)</h4>
+    <p>"A gente instala a <b>infraestrutura comercial</b> de clínicas populares. O dono da clínica hoje não sabe de onde vem cada paciente nem quanto custa cada um — ele investe no escuro. A gente monta o sistema que <b>mede isso</b> e para de perder gente no meio do caminho. O CRM é a ferramenta; o resultado é o dono decidir com número, não com achismo."</p>
+  </div>
+
+  <!-- PERFIL -->
+  <div class="sh"><span class="ic">1</span><h2>O que ele precisa ter (e o que NÃO precisa)</h2><span class="n">não precisa ser sênior</span></div>
+  <div class="skills">
+    <div class="sk"><h4>Aprende ferramenta rápido e sozinho</h4><p>Mais importante que qualquer conhecimento prévio. Ele vai aprender Kommo, Meta, Google do zero.</p></div>
+    <div class="sk"><h4>Usa IA com senso crítico</h4><p>Não é copiar e colar — é usar como ferramenta e saber checar se está certo.</p></div>
+    <div class="sk"><h4>Pensa em processo e etapas</h4><p>Funil é lógica: se X então Y. Perfil de TI ajuda muito aqui.</p></div>
+    <div class="sk"><h4>Organizado e cuidadoso</h4><p>Vai mexer em conta de cliente com dado de paciente. LGPD é sério.</p></div>
+    <div class="sk"><h4>Explica simples</h4><p>Vai treinar recepcionista que nunca usou CRM. Sem jargão.</p></div>
+    <div class="sk" style="border-left-color:var(--muted);"><h4 style="color:var(--muted)">NÃO precisa: ser sênior, programar, conhecer Kommo</h4><p>Sênior seria caro e subaproveitado pra esse escopo.</p></div>
+  </div>
+
+  <!-- ENTREVISTA -->
+  <div class="sh"><span class="ic">2</span><h2>Roteiro da entrevista</h2><span class="n">~50 min</span></div>
+
+  <div class="blk">
+    <div class="bh"><span class="t">Abertura — contexto</span><span class="min">5 min</span></div>
+    <ul>
+      <li>Explica o negócio (o texto do "norte" acima) e a vaga</li>
+      <li>Deixa claro: <i>"não é vaga de programador — é de implementar e operar sistema pra cliente real"</i></li>
+    </ul>
+  </div>
+
+  <div class="blk">
+    <div class="bh"><span class="t">Bloco 1 — Capacidade de aprender</span><span class="star">o mais importante</span><span class="min">10 min</span></div>
+    <ul>
+      <li><i>"Me conta uma ferramenta ou tecnologia que você aprendeu sozinho. Como foi o processo?"</i></li>
+      <li><i>"Quanto tempo levou pra você ficar produtivo nela?"</i></li>
+      <li><i>"O que você faz quando trava em algo que não sabe e não tem ninguém pra perguntar?"</i></li>
+    </ul>
+    <div class="look"><b>Procure:</b> método próprio, exemplo concreto, não desiste no primeiro obstáculo. <b>Desconfie de:</b> resposta genérica sem exemplo real.</div>
+  </div>
+
+  <div class="blk">
+    <div class="bh"><span class="t">Bloco 2 — Fluência em IA</span><span class="star">diferencial</span><span class="min">10 min</span></div>
+    <ul>
+      <li><i>"Você usa IA no dia a dia? Pra quê?"</i></li>
+      <li><i>"Me dá um exemplo concreto de um problema que você resolveu usando IA."</i></li>
+      <li><i>"Como você sabe se a resposta que a IA te deu está certa?"</i> ← a pergunta que separa</li>
+    </ul>
+    <div class="look"><b>Procure:</b> usa como ferramenta de trabalho e <b>confere</b> o resultado. <b>Red flag:</b> confia cegamente / nunca testou nada.</div>
+  </div>
+
+  <div class="blk">
+    <div class="bh"><span class="t">Bloco 3 — Raciocínio lógico (mini-caso)</span><span class="min">10 min</span></div>
+    <ul>
+      <li><i>"Uma clínica recebe 50 mensagens por dia no WhatsApp. A maioria marca consulta, mas 1 em cada 4 não aparece no dia. Como você faria pra descobrir o motivo e reduzir isso?"</i></li>
+    </ul>
+    <div class="look"><b>Procure:</b> ele quer <b>medir antes de agir</b>, pensa em etapas, faz perguntas antes de responder. <b>Não importa</b> se acertou a solução — importa o raciocínio.</div>
+  </div>
+
+  <div class="blk">
+    <div class="bh"><span class="t">Bloco 4 — Responsabilidade e organização</span><span class="min">8 min</span></div>
+    <ul>
+      <li><i>"Você vai mexer na conta de um cliente real, com dados de pacientes. Como garante que não vai quebrar nada?"</i></li>
+      <li><i>"Como você organiza suas tarefas e anotações hoje?"</i></li>
+    </ul>
+    <div class="look"><b>Procure:</b> noção de risco, hábito de registrar/documentar, respeito a dado sensível.</div>
+  </div>
+
+  <div class="blk">
+    <div class="bh"><span class="t">Bloco 5 — Comunicação com leigo</span><span class="min">7 min</span></div>
+    <ul>
+      <li><i>"Me explica o que é um CRM como se eu fosse uma recepcionista de 50 anos que nunca usou um."</i></li>
+    </ul>
+    <div class="look"><b>Procure:</b> didática, paciência, zero jargão. Ele <b>vai</b> treinar a recepção dos clientes — se não consegue explicar, não serve.</div>
+  </div>
+
+  <div class="blk">
+    <div class="bh"><span class="t">Fechamento</span><span class="min">5 min</span></div>
+    <ul>
+      <li><i>"O que você quer estar sabendo daqui a 6 meses?"</i></li>
+      <li>Deixa ele perguntar — <b>se não perguntar nada, é sinal ruim</b></li>
+      <li>Alinha: rotina, carga horária, remuneração, formato (presencial/remoto)</li>
+    </ul>
+  </div>
+
+  <!-- FLAGS -->
+  <div class="sh"><span class="ic">3</span><h2>Decisão rápida</h2></div>
+  <div class="two">
+    <div class="fl good">
+      <h4>Contrata se</h4>
+      <ul>
+        <li>Deu exemplo real de coisa que aprendeu sozinho</li>
+        <li>Usa IA e <b>confere</b> o que ela responde</li>
+        <li>No mini-caso, quis medir antes de agir</li>
+        <li>Explicou o CRM sem jargão</li>
+        <li>Fez perguntas boas sobre o trabalho</li>
+      </ul>
+    </div>
+    <div class="fl bad">
+      <h4>Pense duas vezes se</h4>
+      <ul>
+        <li>Só quer programar / não quer falar com cliente</li>
+        <li>Não fez nenhuma pergunta</li>
+        <li>Nenhum exemplo concreto — só teoria</li>
+        <li>Usa IA sem nunca checar a resposta</li>
+        <li>Some quando trava (espera mandarem)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TRILHA -->
+  <div class="sh"><span class="ic">4</span><h2>A trilha dele — depois de contratado</h2><span class="n">etapa só começa quando a anterior fecha</span></div>
+
+  <div class="et">
+    <span class="num">0</span>
+    <div class="bd">
+      <h4>Entender o jogo</h4>
+      <div class="obj">Objetivo: saber POR QUE o trabalho existe, antes de tocar em ferramenta</div>
+      <ul>
+        <li>Ler os arquivos <b>00-CONTEXTO</b> dos 2 clientes (Mais Med e Bandeirantes)</li>
+        <li>Ler as transcrições das reuniões com os donos das clínicas</li>
+        <li>Entender o modelo: clínica popular, alto volume, ticket baixo</li>
+      </ul>
+      <div class="done"><b>Fecha quando:</b> ele explica o objetivo do projeto em 3 frases, sem jargão.</div>
+    </div>
+    <span class="when">2-3 dias</span>
+  </div>
+
+  <div class="et">
+    <span class="num">1</span>
+    <div class="bd">
+      <h4>Dominar a ferramenta</h4>
+      <div class="obj">Objetivo: virar o cara do Kommo</div>
+      <ul>
+        <li>Fazer a <b>Kommo Academy</b> (curso oficial da plataforma)</li>
+        <li>Montar um funil de teste <b>do zero</b>, numa conta de sandbox</li>
+        <li>Entender: funil, campos, motivos de perda, automação (Salesbot), integrações</li>
+      </ul>
+      <div class="done"><b>Fecha quando:</b> monta um funil completo sozinho e explica pra que serve cada etapa.</div>
+    </div>
+    <span class="when">1 semana</span>
+  </div>
+
+  <div class="et">
+    <span class="num">2</span>
+    <div class="bd">
+      <h4>Executar com supervisão</h4>
+      <div class="obj">Objetivo: fazer de verdade, com rede de proteção</div>
+      <ul>
+        <li>Tarefas concretas: conectar WhatsApp, importar base, montar automação</li>
+        <li>Regra: <b>checklist antes</b> de mexer, <b>registro depois</b> do que fez</li>
+        <li>Você revisa cada entrega antes de considerar pronta</li>
+      </ul>
+      <div class="done"><b>Fecha quando:</b> entrega 3 tarefas seguidas sem precisar refazer.</div>
+    </div>
+    <span class="when">2-3 semanas</span>
+  </div>
+
+  <div class="et">
+    <span class="num">3</span>
+    <div class="bd">
+      <h4>Assumir um cliente</h4>
+      <div class="obj">Objetivo: ser dono de um projeto, não só executor de tarefa</div>
+      <ul>
+        <li>Assume um cliente ponta a ponta (sugiro começar pelo <b>Mais Med</b> — é menor)</li>
+        <li>Treina a recepção do cliente a usar o CRM</li>
+        <li>Participa das reuniões com o dono da clínica</li>
+      </ul>
+      <div class="done"><b>Fecha quando:</b> o cliente fala direto com ele e ele resolve sem te acionar.</div>
+    </div>
+    <span class="when">mês 2</span>
+  </div>
+
+  <div class="et">
+    <span class="num">4</span>
+    <div class="bd">
+      <h4>Operar e medir</h4>
+      <div class="obj">Objetivo: sustentar a operação e propor melhoria</div>
+      <ul>
+        <li>Relatório mensal por cliente: origem dos pacientes, conversão, faltas, custo por paciente</li>
+        <li>Propõe ajustes com base no número (não no achismo)</li>
+      </ul>
+      <div class="done"><b>Fecha quando:</b> você não precisa perguntar o status — ele reporta antes.</div>
+    </div>
+    <span class="when">mês 3+</span>
+  </div>
+
+  <!-- REGRAS -->
+  <div class="sh"><span class="ic">5</span><h2>As regras inegociáveis</h2><span class="n">passe isso no primeiro dia</span></div>
+  <div class="rules">
+    <h3>O que nunca pode</h3>
+    <ul>
+      <li><b>Não mexe</b> em conta de cliente sem avisar antes</li>
+      <li><b>Sempre registra</b> o que fez (e onde)</li>
+      <li><b>Dado de paciente é sigiloso</b> — LGPD, sem exceção</li>
+      <li><b>Não promete prazo</b> pro cliente sem falar com você</li>
+      <li><b>Travou 30 min?</b> Pede ajuda — não some</li>
+      <li><b>Testa antes</b> de aplicar em conta real</li>
+    </ul>
+  </div>
+
+</div>
+</main>
+
+<footer>ClintIA · Documento interno de contratação · use na entrevista e no onboarding</footer>
+
+</body>
+</html>
