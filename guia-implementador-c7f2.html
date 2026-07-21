@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta name="robots" content="noindex, nofollow">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Onboarding · Implementador ClintIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky:#05D2FF;--celtic:#055AAA;--dodger:#0578DC;--yale:#053C73;--oxford:#051E32;
+    --ink:#13242f;--muted:#5f7486;--line:#e6edf3;--line2:#eef3f7;--bg:#f6f9fb;--card:#fff;
+    --ok:#0a7d57;--okbg:#e9f8f1;--red:#b8330f;--redbg:#fdecea;--amber:#a9760a;--amberbg:#fff6e6;--pur:#5b3ea6;--purbg:#f0ebff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Red Hat Display',-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);font-size:12.5px;line-height:1.52;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+  a{color:var(--celtic);}
+
+  header{background:radial-gradient(130% 150% at 88% 0%,var(--celtic),var(--oxford) 72%);color:#fff;padding:26px 0 24px;}
+  header .kk{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--sky);}
+  header h1{font-size:24px;font-weight:900;letter-spacing:-.015em;margin-top:6px;}
+  header p{font-size:13px;color:#cfe3f3;margin-top:8px;max-width:660px;}
+  header .meta{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;}
+  header .meta span{font-size:11px;color:#dceaf6;border:1px solid rgba(5,210,255,.35);border-radius:20px;padding:3px 11px;}
+
+  main{padding:20px 0 44px;}
+  .sh{display:flex;align-items:center;gap:9px;margin:26px 0 11px;}
+  .sh .ic{width:21px;height:21px;border-radius:6px;background:var(--dodger);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .sh h2{font-size:14.5px;font-weight:800;color:var(--oxford);letter-spacing:-.01em;}
+  .sh .n{margin-left:auto;font-size:10.5px;color:var(--muted);}
+
+  .norte{background:linear-gradient(135deg,var(--yale),var(--oxford));color:#fff;border-radius:12px;padding:16px 19px;}
+  .norte .l{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--sky);}
+  .norte p{font-size:15px;font-weight:500;margin-top:7px;line-height:1.45;}
+  .norte b{color:var(--sky);font-weight:700;}
+
+  .prob{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:9px;}
+  .pb{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 13px;border-top:3px solid var(--red);}
+  .pb h4{font-size:12px;font-weight:800;color:var(--oxford);}
+  .pb p{font-size:11px;color:var(--muted);margin-top:3px;}
+
+  .box{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:13px 16px;}
+  .box p+p{margin-top:7px;}
+  .box b{font-weight:700;}
+
+  /* clientes */
+  .cli{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+  .cl{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:13px 15px;}
+  .cl .tg{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:20px;background:#eaf4ff;color:var(--celtic);}
+  .cl h4{font-size:14px;font-weight:800;color:var(--oxford);margin:7px 0 3px;}
+  .cl .sub{font-size:11px;color:var(--muted);}
+  .cl ul{list-style:none;margin-top:8px;}
+  .cl li{font-size:11.5px;padding:2px 0 2px 13px;position:relative;}
+  .cl li::before{content:"•";position:absolute;left:2px;color:var(--dodger);}
+  .cl .st{margin-top:8px;font-size:11px;background:var(--amberbg);color:var(--amber);border-radius:7px;padding:6px 9px;font-weight:600;}
+
+  /* contatos */
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:11px;overflow:hidden;font-size:11.5px;}
+  th{background:var(--oxford);color:#fff;text-align:left;padding:8px 12px;font-size:10.5px;font-weight:700;}
+  td{padding:8px 12px;border-top:1px solid var(--line2);vertical-align:top;}
+  tr:nth-child(even) td{background:#fafcfe;}
+  td b{color:var(--yale);}
+
+  /* semanas */
+  .wk{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:9px;overflow:hidden;}
+  .wk .wh{display:flex;align-items:center;gap:10px;padding:11px 15px;background:#f7fbfd;border-bottom:1px solid var(--line2);}
+  .wk .wn{background:var(--dodger);color:#fff;font-size:10px;font-weight:800;border-radius:20px;padding:3px 11px;}
+  .wk .wt{font-size:13.5px;font-weight:800;color:var(--oxford);}
+  .wk .wo{margin-left:auto;font-size:10.5px;color:var(--celtic);font-weight:600;}
+  .wk .body{padding:11px 15px;}
+  .wk .day{margin-bottom:9px;}
+  .wk .day:last-child{margin-bottom:0;}
+  .wk .day h5{font-size:11.5px;font-weight:800;color:var(--yale);margin-bottom:3px;}
+  .wk .day ul{list-style:none;}
+  .wk .day li{font-size:11.5px;padding:2px 0 2px 15px;position:relative;}
+  .wk .day li::before{content:"›";position:absolute;left:2px;color:var(--dodger);font-weight:900;}
+  .wk .goal{background:var(--okbg);color:var(--ok);border-radius:8px;padding:7px 11px;font-size:11.5px;margin-top:9px;}
+  .wk .goal b{font-weight:800;}
+
+  /* recursos */
+  .res{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .rs{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 13px;}
+  .rs .ty{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:20px;display:inline-block;margin-bottom:5px;}
+  .ty.vid{background:var(--redbg);color:var(--red);}
+  .ty.doc{background:#eaf4ff;color:var(--celtic);}
+  .rs a{font-size:12px;font-weight:600;text-decoration:none;display:block;line-height:1.3;}
+  .rs a:hover{text-decoration:underline;}
+  .rs p{font-size:10.5px;color:var(--muted);margin-top:3px;}
+
+  /* ajuda */
+  .esc{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
+  .es{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-align:center;}
+  .es .o{width:22px;height:22px;border-radius:50%;background:var(--purbg);color:var(--pur);font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;}
+  .es h5{font-size:11.5px;font-weight:800;color:var(--oxford);}
+  .es p{font-size:10.5px;color:var(--muted);margin-top:2px;}
+
+  .rules{background:linear-gradient(135deg,#5a1a0a,#2b0d05);color:#fff;border-radius:12px;padding:15px 18px;}
+  .rules h3{font-size:11.5px;font-weight:800;color:#ffb59b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:9px;}
+  .rules ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:5px 20px;}
+  .rules li{font-size:12px;padding-left:16px;position:relative;color:#f6ddd5;}
+  .rules li::before{content:"✕";position:absolute;left:0;color:#ff8f6b;font-weight:900;font-size:10px;top:3px;}
+  .rules li b{color:#fff;font-weight:700;}
+
+  .tip{background:var(--purbg);border:1px solid #ddd2f7;border-left:3px solid var(--pur);border-radius:10px;padding:11px 14px;}
+  .tip h4{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--pur);margin-bottom:4px;}
+  .tip p{font-size:12px;}
+
+  footer{text-align:center;padding:18px 0;font-size:10.5px;color:var(--muted);}
+  @media(max-width:700px){ .cli,.res,.rules ul,.prob{grid-template-columns:1fr;} .esc{grid-template-columns:1fr 1fr;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kk">ClintIA · Guia de Onboarding</div>
+    <h1>Implementador de Estrutura Comercial</h1>
+    <p>Este é o seu mapa. Aqui está o que a gente faz, por que faz, o que você vai construir, em qual ordem e onde buscar ajuda. Leia inteiro antes de começar.</p>
+    <div class="meta">
+      <span>Início: <b>13/07/2026</b></span>
+      <span>Dedicação: full-time</span>
+      <span>Clientes: Mais Med + Bandeirantes</span>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <!-- NORTE -->
+  <div class="sh"><span class="ic">1</span><h2>O objetivo — leia isso todo dia</h2></div>
+  <div class="norte">
+    <div class="l">O que o seu trabalho existe pra resolver</div>
+    <p>O dono de uma clínica popular <b>não sabe de onde vêm os pacientes dele</b> nem quanto custa cada um. Ele investe no escuro e perde gente no meio do caminho sem perceber. Seu trabalho é <b>instalar o sistema que mede isso</b> — e transformar achismo em número.</p>
+  </div>
+  <div class="prob">
+    <div class="pb"><h4>1. Origem invisível</h4><p>Ninguém registra por onde o paciente chegou. Sem isso, não dá pra saber o que funciona.</p></div>
+    <div class="pb"><h4>2. Faltas (no-show)</h4><p>1 em cada 4 marca e não aparece. É agenda e dinheiro perdidos todo dia.</p></div>
+    <div class="pb"><h4>3. Base parada</h4><p>Milhares de pacientes já atendidos que nunca mais voltaram — e ninguém chama.</p></div>
+  </div>
+
+  <!-- O NEGÓCIO -->
+  <div class="sh"><span class="ic">2</span><h2>O negócio, em 1 minuto</h2></div>
+  <div class="box">
+    <p><b>ClintIA</b> é uma agência de marketing e tecnologia focada em <b>clínicas populares</b>. Nosso produto se chama <b>PROClip</b>: uma implantação em ~45 dias, dividida em duas fases.</p>
+    <p><b>Fase 1 — Marketing:</b> site, Google Meu Negócio, conteúdo, tráfego pago. Faz a clínica ser encontrada. <i>(essa fase é da equipe de marketing — Luizianna e Leandro)</i></p>
+    <p><b>Fase 2 — Comercial:</b> CRM, rastreamento de origem, automação, reativação de base. Faz a clínica <b>medir e não perder paciente</b>. <b>← é aqui que você entra</b></p>
+    <p><b>Clínica popular</b> = alto volume, ticket baixo, atendimento particular (sem convênio), e o WhatsApp é onde tudo acontece (9 de cada 10 contatos).</p>
+  </div>
+
+  <!-- CLIENTES -->
+  <div class="sh"><span class="ic">3</span><h2>Seus 2 clientes</h2><span class="n">comece pelo Mais Med</span></div>
+  <div class="cli">
+    <div class="cl">
+      <span class="tg">Comece por aqui</span>
+      <h4>Clínica Mais Med</h4>
+      <div class="sub">Ipiaú · Bahia · Dr. Cauê Araujo Braz</div>
+      <ul>
+        <li>1 unidade, ~18 especialidades</li>
+        <li>~700 atendimentos/mês</li>
+        <li>Base de ~10 mil pacientes</li>
+        <li>100% particular (sem convênio)</li>
+        <li>Prontuário: WSaúde</li>
+      </ul>
+      <div class="st">Status: CRM (Kommo) já estruturado — funil, campos e motivos de perda montados. Falta conectar o WhatsApp, importar a base e treinar a recepção.</div>
+    </div>
+    <div class="cl">
+      <span class="tg">Fase 2 · depois</span>
+      <h4>Bandeirantes Diagnósticos</h4>
+      <div class="sub">Rio de Janeiro · rede de 7 unidades</div>
+      <ul>
+        <li>7 unidades + central de atendimento</li>
+        <li>Muito maior e mais complexo</li>
+        <li>Usa Kommo + sistema interno (Smart X)</li>
+        <li>Meta: crescer o paciente particular</li>
+      </ul>
+      <div class="st">Status: Fase 2 iniciando. Você assume depois de dominar o Mais Med — erro aqui custa mais caro.</div>
+    </div>
+  </div>
+
+  <!-- COM QUEM FALAR -->
+  <div class="sh"><span class="ic">4</span><h2>Com quem falar</h2><span class="n">regra: cliente só depois de alinhar com o Bernardo</span></div>
+  <table>
+    <tr><th style="width:22%">Quem</th><th style="width:26%">Papel</th><th>Procure para</th></tr>
+    <tr><td><b>Bernardo Carneiro</b></td><td>Fundador · seu gestor direto</td><td>Qualquer decisão, prazo com cliente, dúvida que você travou +30min, e <b>antes de falar com qualquer cliente</b></td></tr>
+    <tr><td><b>Luizianna Faria</b></td><td>Gerente de Operações</td><td>Tudo de marketing (site, Google, conteúdo, campanhas) e status de entregas da Fase 1</td></tr>
+    <tr><td><b>Leandro Amaral</b></td><td>Equipe de marketing</td><td>Apoio operacional em materiais e execução de marketing</td></tr>
+    <tr><td><b>Dr. Cauê</b></td><td>Cliente — dono da Mais Med</td><td>Só quando o Bernardo autorizar. Ele decide tudo na clínica dele.</td></tr>
+    <tr><td><b>Jude · André · Andreia</b></td><td>Recepção da Mais Med</td><td>São quem vai <b>usar o CRM todo dia</b>. Você vai treinar elas. Trate com paciência — não são técnicas.</td></tr>
+  </table>
+
+  <!-- TRILHA -->
+  <div class="sh"><span class="ic">5</span><h2>A trilha — semana a semana</h2><span class="n">só avance quando o objetivo da semana fechar</span></div>
+
+  <div class="wk">
+    <div class="wh"><span class="wn">Semana 1</span><span class="wt">Entender e dominar a ferramenta</span><span class="wo">13 a 17/07</span></div>
+    <div class="body">
+      <div class="day">
+        <h5>Dias 1–2 · Contexto (não toque em ferramenta ainda)</h5>
+        <ul>
+          <li>Leia o arquivo <b>00-CONTEXTO-MAIS-MED.md</b> inteiro</li>
+          <li>Leia as transcrições das reuniões com o Dr. Cauê (pasta "Reuniões")</li>
+          <li>Abra o <b>STATUS-PROJETO.html</b> — é o mapa visual de onde o projeto está</li>
+          <li>Anote suas dúvidas numa lista (não pergunte uma a uma — junte e leve pro Bernardo)</li>
+        </ul>
+      </div>
+      <div class="day">
+        <h5>Dias 3–5 · Kommo do zero</h5>
+        <ul>
+          <li>Faça a <b>Kommo Academy</b> (curso oficial gratuito da plataforma)</li>
+          <li>Assista aos vídeos da seção 6 deste guia — comece pelo "Por Dentro"</li>
+          <li>Crie uma <b>conta de teste</b> e monte um funil completo do zero, sozinho</li>
+          <li>Pratique: criar campos personalizados, motivos de perda, mover cards</li>
+        </ul>
+      </div>
+      <div class="goal"><b>Fecha a semana quando:</b> você monta um funil completo do zero sem consultar nada, e consegue explicar o objetivo do projeto em 3 frases sem jargão.</div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="wh"><span class="wn">Semana 2</span><span class="wt">Executar no cliente real (com supervisão)</span><span class="wo">20 a 24/07</span></div>
+    <div class="body">
+      <div class="day">
+        <h5>Tarefas na conta da Mais Med</h5>
+        <ul>
+          <li>Renomear as 2 etapas finais do funil (Pago / Perdido) — tarefa simples pra pegar confiança</li>
+          <li><b>Conectar o WhatsApp</b> da clínica ao Kommo (a tarefa mais importante — sem ela nada roda)</li>
+          <li>Criar os usuários da recepção (Jude, André, Andreia)</li>
+          <li>Importar a base de pacientes (quando o export do WSaúde chegar)</li>
+        </ul>
+      </div>
+      <div class="day">
+        <h5>Regra de ouro desta semana</h5>
+        <ul>
+          <li><b>Antes</b> de mexer: escreva o que vai fazer e mostre ao Bernardo</li>
+          <li><b>Depois</b> de mexer: registre o que fez e o resultado</li>
+        </ul>
+      </div>
+      <div class="goal"><b>Fecha a semana quando:</b> o WhatsApp está conectado e recebendo mensagens dentro do Kommo, e você entregou 3 tarefas sem precisar refazer.</div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="wh"><span class="wn">Semana 3</span><span class="wt">Automação — atacar os vazamentos</span><span class="wo">27 a 31/07</span></div>
+    <div class="body">
+      <div class="day">
+        <h5>Montar no Salesbot (Kommo)</h5>
+        <ul>
+          <li><b>Resgate de no-show:</b> quem faltou recebe "sentimos sua falta, quer remarcar?"</li>
+          <li><b>Follow-up de preço:</b> quem perguntou valor e sumiu recebe uma retomada</li>
+          <li><b>Pedido de avaliação:</b> quem foi atendido recebe o link do Google</li>
+        </ul>
+      </div>
+      <div class="day">
+        <h5>Atenção técnica</h5>
+        <ul>
+          <li>Mensagem que <b>inicia</b> conversa (fora de 24h) exige <b>template aprovado</b> pela Meta — leva 1-2 dias pra aprovar, peça cedo</li>
+          <li><b>Sempre teste no seu próprio número</b> antes de ativar pro cliente</li>
+        </ul>
+      </div>
+      <div class="goal"><b>Fecha a semana quando:</b> as 3 automações estão ativas e testadas, sem mandar mensagem errada.</div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="wh"><span class="wn">Semana 4</span><span class="wt">Treinar a recepção (a parte que decide tudo)</span><span class="wo">03 a 07/08</span></div>
+    <div class="body">
+      <div class="day">
+        <h5>O treino</h5>
+        <ul>
+          <li>Prepare um roteiro simples: o que elas veem, o que precisam clicar, e <b>por quê</b></li>
+          <li>Treine ao vivo (vídeo-chamada), com a tela delas — não só a sua</li>
+          <li>Foque no essencial: registrar a <b>origem</b> e mover o card quando o paciente avança</li>
+          <li>Acompanhe de perto os 3 primeiros dias e corrija na hora</li>
+        </ul>
+      </div>
+      <div class="day">
+        <h5>Por que essa é a semana mais importante</h5>
+        <ul>
+          <li>Um CRM que a recepção não usa é um CRM morto. <b>Aqui o projeto vive ou vira enfeite.</b></li>
+          <li>Elas são ocupadas e não são técnicas. Simplifique ao máximo — cada clique a menos importa.</li>
+        </ul>
+      </div>
+      <div class="goal"><b>Fecha a semana quando:</b> a recepção está registrando os pacientes sozinha, sem você mandar lembrete.</div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="wh"><span class="wn">Mês 2</span><span class="wt">Medir, melhorar e assumir a Bandeirantes</span><span class="wo">a partir de 10/08</span></div>
+    <div class="body">
+      <div class="day">
+        <h5>Operação</h5>
+        <ul>
+          <li>Relatório mensal por cliente: origem dos pacientes, taxa de conversão, faltas, custo por paciente</li>
+          <li>Propor melhorias <b>com base no número</b>, não em achismo</li>
+          <li>Rodar a campanha de reativação da base (os 10 mil)</li>
+          <li>Começar a replicar tudo na Bandeirantes</li>
+        </ul>
+      </div>
+      <div class="goal"><b>Você chegou lá quando:</b> o Bernardo não precisa perguntar o status — você reporta antes de ele lembrar.</div>
+    </div>
+  </div>
+
+  <!-- RECURSOS -->
+  <div class="sh"><span class="ic">6</span><h2>Biblioteca — travou? consulte aqui antes de perguntar</h2></div>
+  <div class="res">
+    <div class="rs"><span class="ty vid">Vídeo · comece aqui</span><a href="https://www.youtube.com/watch?v=ynvppzIwzuE" target="_blank">Kommo CRM Por Dentro: Funil, Chat, IA, Automação e Relatórios</a><p>Visão geral completa da plataforma — o melhor primeiro vídeo.</p></div>
+    <div class="rs"><span class="ty vid">Vídeo</span><a href="https://www.youtube.com/watch?v=lPfCKAYvB-c" target="_blank">Kommo CRM: Etapas e funis, como configurar (Aula 02)</a><p>Exatamente o que você vai fazer nas semanas 1 e 2.</p></div>
+    <div class="rs"><span class="ty vid">Vídeo</span><a href="https://www.youtube.com/watch?v=HM8eK_BXZuU" target="_blank">Como criar e editar um funil de vendas no Kommo</a><p>Passo a passo prático de funil.</p></div>
+    <div class="rs"><span class="ty vid">Vídeo</span><a href="https://www.youtube.com/watch?v=RGE-TZLHpz8" target="_blank">Kommo CRM baseado em mensagens: como funciona</a><p>Entenda a lógica de CRM por WhatsApp — o coração do nosso caso.</p></div>
+    <div class="rs"><span class="ty doc">Doc oficial</span><a href="https://support.kommo.com/docs/pt-br/salesbot-overview" target="_blank">Salesbot: visão geral (em português)</a><p>Leitura obrigatória antes da semana 3 (automações).</p></div>
+    <div class="rs"><span class="ty doc">Doc oficial</span><a href="https://www.kommo.com/support/crm/setting-up-a-pipeline/" target="_blank">Configurando um funil (pipeline)</a><p>Referência oficial de configuração.</p></div>
+    <div class="rs"><span class="ty doc">Doc oficial</span><a href="https://www.kommo.com/blog/sales-automation-in-kommo/" target="_blank">Automação de vendas na Kommo: passo a passo</a><p>Guia completo de automação.</p></div>
+    <div class="rs"><span class="ty doc">Doc oficial</span><a href="https://www.kommo.com/blog/whatsapp-integration/" target="_blank">Guia de integração do WhatsApp Business API</a><p>Leia antes de conectar o WhatsApp (semana 2).</p></div>
+  </div>
+
+  <!-- COMO PEDIR AJUDA -->
+  <div class="sh"><span class="ic">7</span><h2>Como se virar sozinho (e quando chamar)</h2></div>
+  <div class="esc">
+    <div class="es"><div class="o">1</div><h5>Tente 15 min</h5><p>Leia o erro com calma. Muita coisa se resolve relendo.</p></div>
+    <div class="es"><div class="o">2</div><h5>Pergunte à IA</h5><p>Descreva o que tentou e o que aconteceu. Sempre confira a resposta.</p></div>
+    <div class="es"><div class="o">3</div><h5>Doc / vídeo</h5><p>Consulte a biblioteca acima — quase tudo está lá.</p></div>
+    <div class="es"><div class="o">4</div><h5>Chame o Bernardo</h5><p>Travou 30 min? Chame. Não suma — travar calado é pior.</p></div>
+  </div>
+  <div class="tip" style="margin-top:9px;">
+    <h4>Como fazer uma boa pergunta</h4>
+    <p>Sempre com 3 partes: <b>(1)</b> o que eu queria fazer · <b>(2)</b> o que eu tentei · <b>(3)</b> o que aconteceu (print do erro). Pergunta assim se responde em 1 minuto. Pergunta vaga trava os dois.</p>
+  </div>
+
+  <!-- REGRAS -->
+  <div class="sh"><span class="ic">8</span><h2>Regras inegociáveis</h2><span class="n">quebrar qualquer uma é problema sério</span></div>
+  <div class="rules">
+    <h3>O que nunca pode</h3>
+    <ul>
+      <li><b>Nunca</b> mexa em conta de cliente sem avisar antes</li>
+      <li><b>Nunca</b> prometa prazo ao cliente sem falar com o Bernardo</li>
+      <li><b>Nunca</b> compartilhe dado de paciente — é sigiloso (LGPD)</li>
+      <li><b>Nunca</b> ative automação sem testar no seu número antes</li>
+      <li><b>Nunca</b> apague nada sem ter certeza — na dúvida, pergunte</li>
+      <li><b>Nunca</b> suma quando travar — avise que travou</li>
+    </ul>
+  </div>
+
+</div>
+</main>
+
+<footer>ClintIA · Guia de Onboarding do Implementador · dúvidas: Bernardo Carneiro</footer>
+
+</body>
+</html>
