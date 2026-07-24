@@ -261,6 +261,15 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
   .org-fan .org-row .org-node{margin-top:10px}
 }
 
+/* mockup de navegador com vídeo */
+.browser{border-radius:12px;overflow:hidden;border:1px solid #d8e5f0;box-shadow:0 22px 50px -24px rgba(5,30,50,.5);margin:6px 0 12px;background:#0a1622}
+.browser-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#eef3f8;border-bottom:1px solid #e0e9f1}
+.browser-bar i{width:10px;height:10px;border-radius:50%;background:#cdd8e2;display:block}
+.browser-bar i:nth-child(1){background:#f0a9a0}.browser-bar i:nth-child(2){background:#f2d19a}.browser-bar i:nth-child(3){background:#a9dcb4}
+.browser-bar .addr{margin-left:8px;flex:1;background:#fff;border:1px solid #e0e9f1;border-radius:20px;font-size:11px;color:#6a8199;padding:4px 12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.browser video{display:block;width:100%;height:auto}
+.vidcap{font-size:12px;color:var(--soft);text-align:center;margin:-4px 0 12px}
+
 /* ---------- CONTROLES ---------- */
 .nav{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;
   border:1px solid rgba(255,255,255,.2);background:#0e2438;
@@ -414,7 +423,7 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
       <h2 class="co-title">De onde a gente vem</h2>
       <p class="co-sub">A história que explica por que esta empresa é do jeito que é — e por que você talvez se reconheça nela.</p>
     </div>
-    <div class="co-shot"><img src="/assets/guia/bernardo.jpg" alt="Bernardo Carneiro" style="object-position:center 20%"></div>
+    <div class="co-shot"><img src="/assets/guia/rio.jpg" alt="Rio de Janeiro" style="object-position:center 40%"></div>
     <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Capítulo 02 · De onde a gente vem</span><span class="pf-n" data-pn></span></div>
   </div>
 </section>
@@ -455,7 +464,7 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
       <h2 class="co-title">Quem é o nosso público</h2>
       <p class="co-sub">O dono de clínica popular: como ele pensa, o que ele sofre e o que você nunca deve dizer pra ele.</p>
     </div>
-    <div class="co-shot"><img src="/assets/guia/clinica.jpg" alt=""></div>
+    <div class="co-shot"><img src="/assets/guia/publico.jpg" alt=""></div>
     <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Capítulo 03 · Quem é o nosso público</span><span class="pf-n" data-pn></span></div>
   </div>
 </section>
@@ -465,10 +474,9 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
   <div class="paper light">
     <div class="phead light"><span class="ph-ch">Capítulo 03</span></div>
     <div class="rbody">
-      <h2 class="rt">O médico que virou<br>empreendedor sem manual</h2>
-      <p>O nosso cliente é o <strong>dono de clínica popular</strong> — quase sempre o próprio médico. Ele faz de 80 a 200 agendamentos por semana, com ticket entre R$60 e R$150. É ocupado, decide rápido e não tem paciência com complexidade.</p>
-      <div class="pull">"Fiz tudo certo na medicina. Não fiz faculdade de administração."<cite>frase real, dita em reunião</cite></div>
-      <p>Ele não é desorganizado por preguiça — <strong>ele nunca teve as ferramentas.</strong> E quase sempre já se queimou: <em>"contratei agência por 6 meses, gastei R$18.000, o Instagram ficou bonito e a agenda continuou igual"</em>. É por isso que a gente fala de sistema e número, nunca de marketing.</p>
+      <h2 class="rt">Nem sempre médico.<br>Sempre empreendedor.</h2>
+      <p>O nosso cliente é o <strong>dono de clínica popular</strong>. Muitas vezes é o próprio médico — mas <strong>nem sempre</strong>: boa parte são empreendedores puros, que montaram a clínica como negócio e nunca vestiram jaleco. Todos fazem alto volume (80 a 200 agendamentos por semana, ticket de R$60 a R$150), são ocupados e decidem rápido.</p>
+      <p>O que quase todos têm em comum: são bons no que fazem e <strong>nunca aprenderam gestão nem o digital</strong>. Rastreamento de origem, métrica comercial, coleta de dado — esse mundo passou longe deles. E muitos já se queimaram: <em>"gastei R$18.000 numa agência, o Instagram ficou bonito e a agenda continuou igual."</em> É por isso que a gente fala de sistema e número, nunca de marketing.</p>
       <p><strong>As dores dele vêm em três camadas:</strong></p>
       <ul class="datacard">
         <li><strong>Ele fala em voz alta:</strong> as faltas. De 16% a 30% dos pacientes não aparecem — disso ele reclama sem constrangimento.</li>
@@ -495,7 +503,7 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
           <ul><li>Marketing digital</li><li>Presença online</li><li>Engajamento e branding</li><li>Conteúdo de valor</li><li>Número de cliques</li><li><b>Prometer resultado</b> (CFM)</li></ul>
         </div>
       </div>
-      <p><strong>E uma coisa que você vai perceber rápido:</strong> quem sente a dor raramente é quem assina. O dono mais velho conhece a operação de cor mas delega a decisão ao filho; a pessoa de marketing interna já diagnosticou tudo e só precisa de execução. <strong>Entender quem sente a dor, quem influencia e quem assina é metade do trabalho.</strong> Na aba Arquétipos da plataforma tem o mapa completo.</p>
+      <p><strong>E tem variedade de perfil.</strong> Dois se destacam: o dono <strong>mais novo</strong>, uns 35 anos, que pensa comercial e é o mais fácil de mostrar valor — <strong>o nosso favorito</strong>; e a gestora <strong>mais experiente</strong>, uns 60, que costuma tocar <strong>várias unidades</strong>. Quem sente a dor também raramente é quem assina — o dono delega ao filho, a pessoa de marketing interna já diagnosticou tudo e só precisa de execução. <strong>Saber com quem você está falando é metade do trabalho.</strong> Na aba Arquétipos da plataforma tem o mapa completo.</p>
     </div>
     <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 03 · Quem é o nosso público</span><span class="pf-n" data-pn></span></div>
   </div>
@@ -509,7 +517,7 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
       <h2 class="co-title">No que a gente acredita</h2>
       <p class="co-sub">O propósito, os valores e os 10 mandamentos — o critério com que as decisões são tomadas aqui dentro.</p>
     </div>
-    <div class="co-shot"><img src="/assets/guia/time.jpg" alt=""></div>
+    <div class="co-shot"><img src="/assets/guia/time-clintia.jpg" alt=""></div>
     <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Capítulo 04 · No que a gente acredita</span><span class="pf-n" data-pn></span></div>
   </div>
 </section>
@@ -606,7 +614,7 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
       <h2 class="co-title">Seus primeiros passos</h2>
       <p class="co-sub">Quatro passos, na ordem: e-mail, plataforma, treinamento da sua vaga e o produto visto de fora.</p>
     </div>
-    <div class="co-shot"><img src="/assets/guia/capa-bg.jpg" alt="" style="object-position:center 30%"></div>
+    <div class="co-shot"><img src="/assets/guia/passos.jpg" alt=""></div>
     <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Capítulo 05 · Seus primeiros passos</span><span class="pf-n" data-pn></span></div>
   </div>
 </section>
@@ -679,7 +687,12 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
     <div class="rbody">
       <h2 class="rt">O produto por fora —<br>e a nossa comunidade</h2>
       <p>Agora veja o que o dono de clínica vê: navegue <strong>proclip.com.br</strong> como se você fosse um dono decidindo se assina. <strong>É a promessa que a gente faz em público — e que o seu trabalho cumpre em privado.</strong></p>
-      <p>Depois, conheça <strong>membros.proclip.com.br</strong> — a nossa comunidade de donos e gestores de clínica popular, que nasceu do produto de entrada <strong>"O Manual da Clínica Popular"</strong>. Todo colaborador tem acesso: peça o seu à Luizianna.</p>
+      <p>Depois, conheça <strong>membros.proclip.com.br</strong> — a nossa comunidade de donos e gestores de clínica popular, que nasceu do produto de entrada <strong>"O Manual da Clínica Popular"</strong>. Todo colaborador tem acesso: peça o seu à Luizianna. Uma espiada de como é por dentro:</p>
+      <div class="browser">
+        <div class="browser-bar"><i></i><i></i><i></i><span class="addr">membros.proclip.com.br</span></div>
+        <video src="/assets/guia/portal-tour.mp4" poster="/assets/guia/portal-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="vidcap">A área de membros por dentro — jornada em vídeo, ebook e materiais.</div>
       <ul class="datacard">
         <li><strong>A Jornada</strong> — curso em vídeo com o método completo.</li>
         <li><strong>Ebook e materiais</strong> — a apostila e os bônus práticos.</li>
