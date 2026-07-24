@@ -195,6 +195,49 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
 .bc-fine{margin-top:auto;font-size:10.5px;line-height:1.5;color:#6f8ba1;
   border-top:1px solid rgba(255,255,255,.12);padding-top:14px}
 
+/* história - foto flutuante */
+.histfig{float:right;width:152px;height:198px;border-radius:12px;overflow:hidden;margin:2px 0 12px 18px;
+  box-shadow:0 18px 42px -18px rgba(5,30,50,.5)}
+.histfig img{width:100%;height:100%;object-fit:cover;object-position:center 12%}
+
+/* fluxo de infraestrutura */
+.flow{display:flex;align-items:stretch;gap:8px;margin:8px 0 14px}
+.flownode{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:11px;
+  padding:12px 8px;text-align:center}
+.flownode .fi{font-size:20px;margin-bottom:5px}
+.flownode b{display:block;font-size:12px;color:#fff;font-weight:800;line-height:1.2}
+.flownode span{display:block;font-size:10px;color:#8fb0c8;margin-top:3px;line-height:1.3}
+.flowarrow{align-self:center;color:var(--sky);font-size:17px;font-weight:900;flex:none}
+.ccard{display:flex;align-items:center;gap:13px;background:rgba(217,119,87,.11);
+  border:1px solid rgba(217,119,87,.36);border-radius:12px;padding:13px 15px;margin:4px 0}
+.ccard svg{flex:none}
+.ccard b{color:#fff;font-size:14px;display:block}
+.ccard p{font-size:12px!important;color:#c8b3a8!important;margin:2px 0 0!important;line-height:1.5}
+
+/* organograma */
+.org{margin:8px 0 14px}
+.org-node{background:#fff;border:1.5px solid #dcebf7;border-radius:11px;padding:10px 14px;text-align:center}
+.org-node.top{background:linear-gradient(135deg,#053c73,#051e32);border:none}
+.on-n{font-size:14.5px;font-weight:800;color:var(--oxford);line-height:1.15}
+.org-node.top .on-n{color:#fff}
+.on-r{font-size:11px;color:var(--celtic);font-weight:700;margin-top:2px}
+.org-node.top .on-r{color:var(--sky)}
+.org-stem{width:2px;height:15px;background:#cadcec;margin:0 auto}
+.org-l2{display:flex;justify-content:center}
+.org-l2 .org-node{min-width:230px}
+.org-fan{position:relative;padding-top:15px;margin-top:0}
+.org-fan:before{content:"";position:absolute;top:0;left:calc(25% - 1px);width:50%;height:2px;background:#cadcec}
+.org-fan:after{content:"";position:absolute;top:-15px;left:50%;width:2px;height:15px;background:#cadcec;transform:translateX(-50%)}
+.org-row{display:flex;gap:12px}
+.org-row .org-node{flex:1;position:relative}
+.org-row .org-node:before{content:"";position:absolute;top:-15px;left:50%;width:2px;height:15px;background:#cadcec;transform:translateX(-50%)}
+@media(max-width:640px){
+  .org-fan:before,.org-fan:after,.org-row .org-node:before{display:none}
+  .org-row{flex-direction:column;gap:10px}
+  .org-fan{padding-top:0}
+  .org-fan .org-row .org-node{margin-top:10px}
+}
+
 /* ---------- CONTROLES ---------- */
 .nav{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;
   border:1px solid rgba(255,255,255,.2);background:#0e2438;
@@ -280,8 +323,8 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
         <li data-goto="5"><span class="toc-n">02</span><span class="toc-t">De onde a gente vem</span></li>
         <li data-goto="8"><span class="toc-n">03</span><span class="toc-t">Quem é o nosso público</span></li>
         <li data-goto="11"><span class="toc-n">04</span><span class="toc-t">No que a gente acredita</span></li>
-        <li data-goto="15"><span class="toc-n">05</span><span class="toc-t">Seus primeiros passos</span></li>
-        <li data-goto="20"><span class="toc-n">06</span><span class="toc-t">Pronto pra começar</span></li>
+        <li data-goto="16"><span class="toc-n">05</span><span class="toc-t">Seus primeiros passos</span></li>
+        <li data-goto="21"><span class="toc-n">06</span><span class="toc-t">Pronto pra começar</span></li>
       </ul>
       <div class="toc-note"><span>Como ler</span>Na ordem, do começo ao fim — leva menos de meia hora. Cada capítulo prepara o próximo, e no final tem um checklist pra você marcar o que já fez.</div>
     </div>
@@ -358,10 +401,12 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
   <div class="paper light">
     <div class="phead light"><span class="ph-ch">Capítulo 02</span></div>
     <div class="rbody">
+      <figure class="histfig"><img src="/assets/guia/bernardo-retrato.jpg" alt="Bernardo Carneiro"></figure>
       <h2 class="rt">Curiosidade — desde<br>o primeiro computador</h2>
       <p>A ClintIA nasceu de uma curiosidade antiga. O Bernardo, fundador, nasceu em 1994 — e a primeira coisa que mexeu de verdade com ele foi o computador que o pai trouxe pra casa: monitor enorme, teclado amarelado, o pai digitando rápido o dia inteiro. Ele sentou pra entender como aquilo funcionava e o tempo simplesmente passava. Foi ali que descobriu o que move ele até hoje — e o que a gente procura em quem entra no time: <strong>curiosidade</strong>.</p>
-      <p>Cresceu andando na rua, morando na Pereira da Silva, perto de uma comunidade — se aproximou de gente de lá, se envolveu com projetos como o Projeto Morrinho. Trabalhou em loja de roupa por um bom tempo antes de qualquer coisa de tecnologia. <strong>Sempre gostou de gente antes de gostar de sistema</strong> — e é por isso que, aqui dentro, técnica sem olhar pra pessoa nunca foi o suficiente.</p>
-      <p>Entrou na <strong>MarketMED — a primeira agência de marketing médico do Brasil</strong> — junto com um amigo, numa microempresa ligada à UFF. Na faculdade, o caminho não foi reto: Matemática, depois Estatística, depois Finance, até a faculdade de Empreendedorismo. <strong>Faculdade pública, caminho não-linear, sempre mais curioso que estudioso.</strong> Se você reconheceu um pouco de si nisso, não é coincidência: boa parte do time chegou aqui de um jeito parecido.</p>
+      <p>Cresceu andando na rua, morando na Pereira da Silva, perto de uma comunidade — se aproximou de gente de lá, se envolveu com projetos como o Projeto Morrinho. Trabalhou em loja de roupa de shopping antes de qualquer coisa de tecnologia. <strong>Sempre gostou de gente antes de gostar de sistema</strong> — e é por isso que, aqui dentro, técnica sem olhar pra pessoa nunca foi o suficiente.</p>
+      <p>Na faculdade, o caminho não foi reto: entrou na <strong>UFF</strong> em Matemática, passou por Estatística, achou um curso de Finance e terminou em Empreendedorismo — sempre pública, sempre mais curioso que estudioso. E foi ali que veio a virada: numa microempresa da própria universidade, a <strong>UFFinance</strong>, ele estruturou marketing pela primeira vez. Gostou — e aquilo virou a ponte pro passo seguinte.</p>
+      <p>Esse passo foi a <strong>MarketMED</strong>, empresa familiar fundada pelo pai dele em 2001 — a primeira agência de marketing médico do Brasil. Foi lá que ele entrou de cabeça no setor de saúde, estruturou e liderou equipe, e passou anos aprendendo o mercado que é a base da ClintIA hoje. <strong>Se você reconheceu um pouco de si nessa trajetória torta, não é coincidência: boa parte do time chegou aqui de um jeito parecido.</strong></p>
       <p>E aprendeu do jeito que boa parte dessa geração aprende: não pelos livros, mas na prática — <strong>fazer, olhar, corrigir</strong>, nessa ordem. É o mesmo método que este guia usa com você.</p>
     </div>
     <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 02 · De onde a gente vem</span><span class="pf-n" data-pn></span></div>
@@ -505,6 +550,32 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
   </div>
 </section>
 
+<!-- 15b · COMO A GENTE TRABALHA POR DENTRO -->
+<section class="page dark">
+  <div class="paper dark">
+    <div class="phead"><span class="ph-ch" style="color:var(--sky)">Como a gente trabalha por dentro</span></div>
+    <div class="rbody">
+      <h2 class="rt">A máquina por trás<br>da operação</h2>
+      <p>Tem uma coisa que faz a ClintIA render como uma empresa muito maior do que é: <strong>a gente roda em cima de inteligência artificial de verdade</strong> — não como enfeite, mas como infraestrutura. E o combustível dela é uma prática simples e obrigatória.</p>
+      <div class="flow">
+        <div class="flownode"><div class="fi">🎙️</div><b>Reunião</b><span>com cliente, com o time</span></div>
+        <div class="flowarrow">→</div>
+        <div class="flownode"><div class="fi">📝</div><b>Transcrição</b><span>o material bruto</span></div>
+        <div class="flowarrow">→</div>
+        <div class="flownode"><div class="fi">🧠</div><b>Nossa IA</b><span>entende e organiza</span></div>
+        <div class="flowarrow">→</div>
+        <div class="flownode"><div class="fi">⚡</div><b>Ação</b><span>decisão, material, tarefa</span></div>
+      </div>
+      <p><strong>Toda reunião é transcrita. Sempre.</strong> A transcrição é a nossa fonte de verdade: é dela que a gente tira contexto, resposta e histórico. Reunião sem transcrição é conhecimento que evaporou — e por isso isso não é opcional, é regra.</p>
+      <div class="ccard">
+        <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="#D97757" stroke-width="2.4" stroke-linecap="round"><line x1="20" y1="5" x2="20" y2="14.5"/><line x1="20" y1="25.5" x2="20" y2="35"/><line x1="5" y1="20" x2="14.5" y2="20"/><line x1="25.5" y1="20" x2="35" y2="20"/><line x1="9.4" y1="9.4" x2="16.2" y2="16.2"/><line x1="23.8" y1="23.8" x2="30.6" y2="30.6"/><line x1="30.6" y1="9.4" x2="23.8" y2="16.2"/><line x1="16.2" y1="23.8" x2="9.4" y2="30.6"/></g></svg>
+        <div><b>A base é o Claude Code</b><p>É a nossa infraestrutura principal — conectada ao Drive, ao CRM, às planilhas e às ferramentas da empresa. É com ela que a gente lê as transcrições, monta material, cruza dados e resolve o dia a dia. Aqui, saber orquestrar IA não é diferencial — é o trabalho.</p></div>
+      </div>
+    </div>
+    <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Como a gente trabalha por dentro</span><span class="pf-n" data-pn></span></div>
+  </div>
+</section>
+
 <!-- 16 · CAP 05 ABERTURA -->
 <section class="page chapter">
   <div class="paper dark">
@@ -572,7 +643,8 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
       </ol>
       <p><strong>Regra simples:</strong> Boas-vindas + a trilha da sua vaga. Nada além disso por enquanto. Se a sua vaga ainda não tiver trilha própria, a Luizianna te indica o material equivalente.</p>
       <p><strong>Como assistir:</strong> com o bloco de notas aberto. Anote toda dúvida — inclusive as que parecem bobas, porque quase nunca são. Junte tudo numa lista e mande de uma vez pra Luizianna, em vez de pingar uma pergunta por hora no grupo.</p>
-      <p><strong>Feito quando:</strong> Boas-vindas completo, trilha da vaga concluída e lista de dúvidas enviada.</p>
+      <p><strong>E tem mais um treino:</strong> a Luizianna vai te apresentar o <strong>ClickUp</strong> — a nossa ferramenta operacional. É por ali que os trabalhos (os "jobs") são organizados e repassados pra você, e é onde você acompanha o que é seu e o andamento de cada entrega. Ninguém precisa decorar sozinho: ela te guia no começo.</p>
+      <p><strong>Feito quando:</strong> Boas-vindas completo, trilha da vaga concluída, treino do ClickUp com a Luizianna feito e lista de dúvidas enviada.</p>
     </div>
     <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 05 · Passo 3</span><span class="pf-n" data-pn></span></div>
   </div>
@@ -604,7 +676,7 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
     <div class="phead light"><span class="ph-ch">Capítulo 06 · Pronto pra começar</span></div>
     <div class="rbody">
       <h2 class="rt">O que você precisa<br>saber responder</h2>
-      <p>Não tem prova nem redação. Mas estas perguntas <strong>vão aparecer na sua frente</strong> — numa reunião, numa conversa, num pedido de cliente. Quando aparecerem, espera-se que você responda sem gaguejar. O que não souber, volte ao capítulo e feche a lacuna agora, enquanto é barato:</p>
+      <p>Não tem prova nem redação. Mas estas perguntas <strong>vão aparecer na sua frente</strong> — numa reunião, numa conversa, num pedido de cliente. Travou em alguma? É o sinal de que vale reler o capítulo antes de seguir.</p>
       <ul class="datacard">
         <li>O que a ClintIA vende, em uma frase? <strong>(sem usar "marketing" nem "post")</strong></li>
         <li>O que é uma clínica popular e como ela ganha dinheiro?</li>
@@ -627,17 +699,21 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
   <div class="paper light">
     <div class="phead light"><span class="ph-ch">Capítulo 06</span></div>
     <div class="rbody">
-      <h2 class="rt">Quem é quem —<br>e a ordem certa</h2>
-      <p><strong>A regra da casa: a Luizianna centraliza a operação.</strong> Dúvida de processo, acesso, entrega, ferramenta — vai nela primeiro. O Bernardo entra em decisão estratégica, prazo com cliente e no que ela encaminhar.</p>
-      <ul class="datacard">
-        <li><strong>Luizianna Faria</strong> · Head de Operações — seu primeiro contato pra quase tudo.</li>
-        <li><strong>Bernardo Carneiro</strong> · Fundador e CEO — decisões estratégicas, negociação, prazos com cliente.</li>
-        <li><strong>Leandro Amaral</strong> · Produção digital — sites, landing pages e materiais.</li>
-        <li><strong>Clientes</strong> — falar com cliente faz parte do trabalho; <strong>o que não pode é combinar prazo, escopo ou valor por conta própria.</strong> Isso alinha antes.</li>
-      </ul>
-      <p><strong>Quando travar:</strong> tente 15 minutos sozinho. Até 30, consulte a documentação e a IA (e confira a resposta). Passou de 30 — chame a Luizianna. <strong>Travar não é problema. Sumir é.</strong></p>
-      <p><strong>Boa pergunta tem 3 partes:</strong> o que eu queria fazer · o que eu tentei · o que aconteceu, com print. Pergunta assim se responde em um minuto.</p>
-      <p>E ficou com dúvida sobre algo <strong>deste próprio guia</strong>? Joga na IA e pergunta. Aqui isso não é "colar" — é o que a gente espera de você. Só não pare na primeira resposta.</p>
+      <h2 class="rt">Quem é quem</h2>
+      <div class="org">
+        <div class="org-node top"><div class="on-n">Bernardo Carneiro</div><div class="on-r">Fundador · CEO · Comercial</div></div>
+        <div class="org-stem"></div>
+        <div class="org-l2"><div class="org-node"><div class="on-n">Luizianna Faria</div><div class="on-r">Líder de Operações</div></div></div>
+        <div class="org-fan">
+          <div class="org-row">
+            <div class="org-node"><div class="on-n">Leandro Amaral</div><div class="on-r">Produção digital · sites e LPs</div></div>
+            <div class="org-node"><div class="on-n">Equipe externa</div><div class="on-r">~5 pessoas · social, design, identidade visual</div></div>
+          </div>
+        </div>
+      </div>
+      <p>Além da equipe interna, a gente conta com uma <strong>equipe externa de cerca de 5 pessoas</strong> — social media, design, identidade visual — que entra e sai conforme os projetos, também sob a liderança da Luizianna.</p>
+      <p><strong>A ordem certa no dia a dia:</strong> a Luizianna centraliza a operação. Dúvida de processo, acesso, entrega ou ferramenta vai nela primeiro. O Bernardo entra em decisão estratégica, negociação e prazo com cliente. Sobre <strong>cliente:</strong> falar faz parte do trabalho — o que não pode é combinar prazo, escopo ou valor por conta própria; isso alinha antes.</p>
+      <p><strong>Quando travar:</strong> 15 minutos sozinho, depois documentação e IA (conferindo a resposta), e passando de 30 minutos chame a Luizianna. <strong>Travar não é problema; sumir é.</strong> Dúvida sobre algo <strong>deste próprio guia</strong>? Joga na IA — aqui isso não é "colar", é o esperado. Só não pare na primeira resposta.</p>
     </div>
     <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 06 · Pronto pra começar</span><span class="pf-n" data-pn></span></div>
   </div>
@@ -651,12 +727,12 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
       <h2 class="rt">Regras inegociáveis</h2>
       <ul class="rules-list">
         <li><b>Nunca</b> minta sobre o andamento de um projeto ou sobre uma data</li>
+        <li><b>Nunca</b> deixe uma reunião sem transcrição — é a nossa fonte</li>
         <li><b>Nunca</b> mexa em conta de cliente sem avisar antes</li>
         <li><b>Nunca</b> prometa prazo a cliente sem alinhar internamente</li>
         <li><b>Nunca</b> compartilhe dado de paciente — é sigiloso por lei</li>
         <li><b>Nunca</b> cole dado de cliente ou paciente em ferramenta de IA</li>
         <li><b>Nunca</b> ative automação sem testar no seu próprio número</li>
-        <li><b>Nunca</b> apague nada sem certeza — na dúvida, pergunte</li>
         <li><b>Nunca</b> desapareça quando travar — avise que travou</li>
       </ul>
       <p style="margin-top:16px;font-size:13.5px;color:#9dbdd4;line-height:1.6">A primeira é a mais séria. <strong style="color:#fff">Todo o resto tem conserto</strong> — atraso se recombina, erro se corrige, cliente insatisfeito se recupera. Status maquiado, não.</p>
@@ -681,6 +757,7 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
       <li><span class="chk"></span><span>Login na plataforma funcionando · dados conferidos</span></li>
       <li><span class="chk"></span><span><strong>Treinamento de Boas-vindas concluído</strong></span></li>
       <li><span class="chk"></span><span><strong>Treinamento da sua vaga concluído</strong></span></li>
+      <li><span class="chk"></span><span>Treino do ClickUp com a Luizianna feito</span></li>
       <li><span class="chk"></span><span>Lista de dúvidas enviada à Luizianna</span></li>
       <li><span class="chk"></span><span>Site do PROClip navegado de ponta a ponta</span></li>
       <li><span class="chk"></span><span>Acesso à área de membros pedido — e uma volta lá dentro</span></li>
@@ -724,9 +801,10 @@ body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--i
       <li data-goto="5"><span class="ov-n">02</span><span class="ov-t">De onde a gente vem</span></li>
       <li data-goto="8"><span class="ov-n">03</span><span class="ov-t">Quem é o nosso público</span></li>
       <li data-goto="11"><span class="ov-n">04</span><span class="ov-t">No que a gente acredita</span></li>
-      <li data-goto="15"><span class="ov-n">05</span><span class="ov-t">Seus primeiros passos</span></li>
-      <li data-goto="20"><span class="ov-n">06</span><span class="ov-t">Pronto pra começar</span></li>
-      <li data-goto="23"><span class="ov-n">✓</span><span class="ov-t">Checklist</span></li>
+      <li data-goto="15"><span class="ov-n">★</span><span class="ov-t">Como a gente trabalha</span></li>
+      <li data-goto="16"><span class="ov-n">05</span><span class="ov-t">Seus primeiros passos</span></li>
+      <li data-goto="21"><span class="ov-n">06</span><span class="ov-t">Pronto pra começar</span></li>
+      <li data-goto="24"><span class="ov-n">✓</span><span class="ov-t">Checklist</span></li>
     </ul>
   </div>
 </div>
