@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta name="robots" content="noindex, nofollow">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing — Mais Med Fase 2 · Paulo Vitor</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:Calibri,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:#fff;color:#000;font-size:15px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:860px;margin:0 auto;padding:44px 54px 80px;}
+
+  .doc-head{border:2px solid #000;padding:16px 20px;margin-bottom:26px;}
+  .doc-head .cls{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid #000;padding-bottom:7px;margin-bottom:10px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .doc-head h1{font-size:22px;font-weight:700;letter-spacing:-.01em;line-height:1.25;}
+  .doc-head .sub{font-size:14px;color:#333;margin-top:5px;}
+  .doc-head dl{margin-top:12px;padding-top:10px;border-top:1px solid #999;display:grid;grid-template-columns:auto 1fr;gap:2px 14px;font-size:13px;}
+  .doc-head dt{font-weight:700;white-space:nowrap;}
+  .doc-head dd{color:#222;}
+
+  h2{font-size:17px;font-weight:700;margin:38px 0 4px;padding:6px 0;border-top:2px solid #000;border-bottom:1px solid #000;text-transform:uppercase;letter-spacing:.02em;}
+  h3{font-size:15.5px;font-weight:700;margin:22px 0 5px;}
+  h4{font-size:14.5px;font-weight:700;margin:15px 0 3px;}
+
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0 8px 24px;}
+  li{margin:5px 0;}
+  li>ul,li>ol{margin:4px 0 4px 20px;}
+  a{color:#000;}
+  code{font-family:Consolas,"Courier New",monospace;background:#eee;padding:1px 5px;font-size:13px;}
+
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;}
+  th{border:1px solid #000;background:#000;color:#fff;text-align:left;padding:7px 10px;font-size:12.5px;font-weight:700;}
+  td{border:1px solid #999;padding:7px 10px;vertical-align:top;}
+  td.n{white-space:nowrap;font-weight:700;}
+
+  .box{border:1px solid #000;padding:12px 16px;margin:14px 0;}
+  .box>.t{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
+  .box p{font-size:14px;}
+
+  .crit{border:2px solid #000;background:#f2f2f2;padding:13px 17px;margin:16px 0;}
+  .crit>.t{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;margin-bottom:6px;border-bottom:1px solid #000;padding-bottom:5px;}
+  .crit p{font-size:14.5px;}
+
+  .rule{border-left:5px solid #000;background:#f7f7f7;padding:10px 16px;margin:12px 0;font-size:14px;}
+
+  .mis{border:1px solid #000;margin:16px 0;}
+  .mis>.hd{background:#000;color:#fff;padding:8px 14px;font-size:14px;font-weight:700;display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .mis>.hd .pz{font-size:12px;font-weight:400;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;}
+  .mis>.bd{padding:12px 16px;}
+  .mis .lbl{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin:11px 0 2px;}
+  .mis .lbl:first-child{margin-top:0;}
+  .mis p,.mis li{font-size:14px;}
+  .mis .ok{border:1px dashed #000;padding:8px 12px;margin-top:11px;font-size:13.5px;}
+  .mis .ok b{text-transform:uppercase;font-size:11.5px;letter-spacing:.07em;display:block;margin-bottom:3px;}
+
+  ul.ck{list-style:none;margin:9px 0 9px 2px;}
+  ul.ck li{padding:4px 0 4px 26px;position:relative;font-size:14px;}
+  ul.ck li::before{content:"";position:absolute;left:0;top:8px;width:12px;height:12px;border:1.5px solid #000;}
+
+  .fim{margin-top:44px;padding-top:14px;border-top:2px solid #000;font-size:12.5px;color:#444;}
+
+  @media print{ .page{padding:0;} body{font-size:11.5pt;} h2{page-break-after:avoid;} .mis{page-break-inside:avoid;} }
+  @media(max-width:640px){
+    .page{padding:24px 18px 56px;}
+    table{font-size:12px;} th,td{padding:6px 7px;}
+    .doc-head dl{grid-template-columns:1fr;}
+    .doc-head dt{margin-top:6px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="doc-head">
+  <div class="cls"><span>ClintIA · Documento interno</span><span>Uso restrito à equipe</span></div>
+  <h1>Briefing de Operação — Clínica Mais Med</h1>
+  <div class="sub">Fase 2 · Infraestrutura Comercial</div>
+  <dl>
+    <dt>Destinatário</dt><dd>Paulo Vitor — Automação e CRM</dd>
+    <dt>Emitido por</dt><dd>Bernardo Carneiro — ClintIA</dd>
+    <dt>Data</dt><dd>23 de julho de 2026</dd>
+    <dt>Cliente</dt><dd>Clínica Mais Med — Ipiaú, Bahia · Dr. Cauê Araujo Braz</dd>
+  </dl>
+</div>
+
+<p><b>Vitor,</b> este documento segue o formato de ordem de operações — situação, missão, execução, apoio e comando. Você conhece a estrutura. Leia inteiro antes de executar qualquer coisa, inclusive as partes que parecem só contexto: é o contexto que te permite decidir certo quando eu não estiver disponível.</p>
+
+<p><b>Este é um cliente real, pagante, com contrato assinado e prazo já estourado.</b> Não é exercício.</p>
+
+<!-- ==================== 1 ==================== -->
+<h2>1. Situação</h2>
+
+<h3>1.1 O terreno</h3>
+<p>Clínica <b>Mais Med</b>, em <b>Ipiaú, interior da Bahia</b>. Três anos de operação. Dona e decisão em uma pessoa só: <b>Dr. Cauê Araujo Braz</b>, pediatra.</p>
+<p>É uma <b>clínica popular</b>: consulta acessível, volume alto, várias especialidades no mesmo espaço, exames no local. Cerca de <b>500 a 700 atendimentos por mês</b>. Base acumulada de <b>~10 mil pacientes</b> desde a abertura.</p>
+<p>Contrato: Implementação PROClip, assinado em 23/04/2026.</p>
+
+<h3>1.2 O modelo econômico — leia com atenção</h3>
+<p>Se você entender só esta seção, já acerta a maioria das decisões.</p>
+<p>A Mais Med é <b>100% particular</b>. Não atende convênio. O paciente paga do bolso, à vista, Pix ou cartão em 3×. Isso é diferente da maioria das clínicas e muda tudo: <b>não existe glosa, não existe espera de 90 dias, o dinheiro entra na hora.</b></p>
+<p>Números da operação:</p>
+<table>
+  <tr><th style="width:34%">Indicador</th><th>Valor</th></tr>
+  <tr><td class="n">Receita bruta</td><td>~R$ 50 mil/mês no pico · ~R$ 40 mil no mês corrente</td></tr>
+  <tr><td class="n">Despesa</td><td>~R$ 20 mil/mês</td></tr>
+  <tr><td class="n">Ticket — consulta</td><td>R$ 250</td></tr>
+  <tr><td class="n">Ticket — exame</td><td>R$ 150</td></tr>
+  <tr><td class="n">Ticket — endoscopia</td><td>R$ 350</td></tr>
+  <tr><td class="n">Ticket — eletro</td><td>R$ 60</td></tr>
+  <tr><td class="n">Pediatria</td><td>~50% da receita — é o carro-chefe (é a especialidade do próprio Cauê)</td></tr>
+</table>
+
+<div class="crit">
+  <div class="t">A dor real não é a que ele declarou</div>
+  <p>O Cauê pediu <b>+40% de receita em 45 dias</b>. Mas no onboarding ele revelou o problema de verdade: <b>quando a demanda cresce, o custo cresce junto e o resultado fica "zero a zero"</b>.</p>
+  <p>Ou seja: o problema não é <b>volume</b>, é <b>margem</b>. Trazer mais paciente para um serviço de margem baixa não resolve nada — só dá mais trabalho pelo mesmo lucro.</p>
+  <p>Por isso a estratégia é <b>direcionar a demanda para os serviços de maior margem</b>: pediatria, endoscopia, ultrassom e eletro/mapa/holter (que têm custo fixo, então cada exame a mais é lucro quase inteiro).</p>
+  <p><b>Consequência prática para você:</b> o CRM precisa registrar <b>qual especialidade</b> cada lead procurou. Sem esse dado não dá para saber se estamos crescendo margem ou só crescendo trabalho.</p>
+</div>
+
+<h3>1.3 Forças amigas</h3>
+<h4>No cliente</h4>
+<table>
+  <tr><th style="width:22%">Pessoa</th><th style="width:24%">Papel</th><th>O que você precisa saber</th></tr>
+  <tr><td class="n">Dr. Cauê</td><td>Dono e decisor único</td><td>Não há comitê, não há sócio. Ele decide sozinho e rápido. É pediatra e atende — então tem pouco tempo.</td></tr>
+  <tr><td class="n">Jude</td><td>Recepção / técnica de enfermagem</td><td><b>É quem mais fica no WhatsApp.</b> Na prática é a usuária-chave do CRM. Se ela não adotar, o projeto não existe. Trate-a como a pessoa mais importante da operação.</td></tr>
+  <tr><td class="n">André</td><td>Recepção</td><td>Atendimento.</td></tr>
+  <tr><td class="n">Andreia</td><td>Recepção</td><td>Ajuda no WhatsApp. Participou do onboarding.</td></tr>
+</table>
+<p><b>Atenção:</b> a transcrição do onboarding embola os nomes da recepção (Jude / Júlio / Andreia). Confirmar os nomes corretos é uma das suas primeiras tarefas — chamar alguém pelo nome errado num treinamento queima confiança logo de entrada.</p>
+
+<h4>Na ClintIA</h4>
+<table>
+  <tr><th style="width:22%">Pessoa</th><th>Papel em relação a você</th></tr>
+  <tr><td class="n">Bernardo</td><td>Comando. Estratégia, contato com cliente e aprovação de qualquer coisa que o cliente vá ver.</td></tr>
+  <tr><td class="n">Luizianna</td><td>Gerente de operações. Sua referência no dia a dia.</td></tr>
+  <tr><td class="n">Leandro</td><td>Produção digital. Vocês vão se cruzar.</td></tr>
+</table>
+
+<h3>1.4 Como a operação funciona hoje</h3>
+<ul>
+  <li><b>~50 contatos por dia.</b></li>
+  <li><b>9 em cada 10 chegam pelo WhatsApp.</b> Instagram e Facebook não atendem — eles empurram o paciente para o WhatsApp.</li>
+  <li>A recepção atende <b>na mão</b>. Não existe robô. Quem responde é gente.</li>
+  <li><b>80 a 90% dos contatos viram agendamento.</b> A taxa é alta — a recepção converte bem.</li>
+  <li>O agendamento é lançado no <b>prontuário eletrônico</b>.</li>
+  <li><b>Quem não agenda não é registrado em lugar nenhum.</b> Some.</li>
+</ul>
+<p>Note a diferença em relação a outros clientes: aqui <b>a conversão não é o problema</b>. O problema é que ninguém sabe de onde veio o paciente, e ninguém volta a falar com quem não fechou.</p>
+
+<h3>1.5 Os vazamentos</h3>
+<table>
+  <tr><th style="width:5%">#</th><th style="width:28%">Vazamento</th><th>Descrição</th></tr>
+  <tr><td class="n">V1</td><td>Lead não-agendado é invisível</td><td>Quem não fecha não fica registrado. Não há como retornar. <b>É o vazamento central — é o que justifica o CRM existir.</b></td></tr>
+  <tr><td class="n">V2</td><td>Origem desconhecida</td><td>Ninguém sabe se o paciente veio do rádio, do Google, do Instagram ou da indicação. Sem isso não dá para saber onde investir.</td></tr>
+  <tr><td class="n">V3</td><td>Preço-shopper sem retorno</td><td>Pergunta o valor e some. Nunca recebe follow-up. O Cauê já orienta a recepção a <b>não dar só o preço</b> — porque o concorrente cobra R$ 230 e o paciente vai embora. Mas isso é orientação verbal, não é processo.</td></tr>
+  <tr><td class="n">V4</td><td>No-show</td><td><b>20 a 25%</b> em geral, chegando a <b>50–60%</b> em algumas especialidades (otorrino, por exemplo). Cada falta é uma vaga perdida que ninguém reocupou.</td></tr>
+  <tr><td class="n">V5</td><td>Base de 10 mil parada</td><td>O Cauê já dispara reativação <b>na mão</b>, pelo WhatsApp Business, para quem está 200–320 dias sem vir. Funciona, mas não é sistema — depende dele lembrar e fazer.</td></tr>
+  <tr><td class="n">V6</td><td>Sem medição de margem por origem</td><td>Não dá para saber se o investimento está trazendo pediatria (alta margem) ou só consulta genérica.</td></tr>
+</table>
+
+<h3>1.6 Onde o projeto está</h3>
+<p><b>Fase 1 (marketing): entregue.</b> Posicionamento, site, Google Meu Negócio, tráfego e conteúdo. Falta apenas o go-live da campanha de pediatria.</p>
+<p><b>Fase 2 (comercial): estrutura montada, operação não iniciada.</b></p>
+<p>O CRM escolhido é o <b>Kommo</b> e a estrutura já foi construída via API:</p>
+<ul>
+  <li><b>Funil comercial:</b> Contato → Qualificado → Negociação/gerando valor → Agendado → Confirmado → Compareceu → Pago / Perdido</li>
+  <li><b>Segundo funil, de reativação:</b> Base a contatar → Disparo enviado → Respondeu/interessado → Reagendou</li>
+  <li><b>Campos de lead:</b> Origem (9 opções), Especialidade (19 opções), Profissional, Tipo de atendimento, Primeira vez ou retorno</li>
+  <li><b>Campos de contato:</b> Última visita, Bairro/Cidade, Cartão-fidelidade, Data de nascimento</li>
+  <li><b>Obrigatoriedade configurada:</b> não dá para mover um lead para "Qualificado" sem informar a <b>Origem</b>, nem para "Agendado" sem informar a <b>Especialidade</b>. Isso é proposital — é o que força a disciplina de dado que hoje não existe</li>
+  <li><b>Motivos de perda:</b> Não compareceu (no-show) · Só perguntou preço e sumiu · Escolheu concorrente · Sem retorno/desistiu</li>
+  <li><b>Campos de UTM nativos</b> já existem — quando as campanhas conectarem, a origem paga é capturada sozinha</li>
+</ul>
+
+<div class="crit">
+  <div class="t">O estado real, sem maquiagem</div>
+  <p>O CRM está montado mas <b>vazio e desconectado</b>. É uma casa construída, com as divisões certas, e ninguém morando dentro.</p>
+  <p>O prazo da primeira versão era <b>05/07</b>. Foi retomado em 10/07 e <b>está parado desde então</b>.</p>
+  <p><b>Sua missão é fazer essa casa receber gente.</b></p>
+</div>
+
+<h4>O que falta, especificamente</h4>
+<ol>
+  <li>Renomear as <b>4 etapas finais</b> (Pago e Perdido, nos dois funis) — a API do Kommo recusa, tem que ser na mão pela interface</li>
+  <li><b>Conectar o WhatsApp</b> ao Kommo — este é o gargalo, ver item 3.1</li>
+  <li><b>Importar a base</b> de ~10 mil pacientes</li>
+  <li>Montar a <b>automação de confirmação e resgate de no-show</b></li>
+  <li><b>Treinar a recepção</b> para operar</li>
+</ol>
+
+<h4>Pendências que estão com o cliente</h4>
+<ul>
+  <li>Planilha de volume por especialidade</li>
+  <li>Confirmar se o prontuário tem API</li>
+  <li>Fotos novas para o Google</li>
+</ul>
+
+<!-- ==================== 2 ==================== -->
+<h2>2. Missão</h2>
+
+<div class="crit">
+  <p><b>Colocar o CRM Kommo em operação real na Mais Med</b> — WhatsApp conectado, base de pacientes importada, automação de no-show rodando e recepção treinada — <b>sem duplicar mensagem com o prontuário e sem interromper o atendimento da clínica.</b></p>
+</div>
+
+<h3>Intenção do comando</h3>
+<p>Leia com atenção: é isto que te autoriza a decidir sozinho quando aparecer algo que este documento não previu.</p>
+<p>A clínica converte bem — 80 a 90% de quem fala vira agendamento. O problema não é vender. <b>O problema é que tudo que não fecha na hora evapora, e ninguém sabe de onde veio quem fechou.</b></p>
+<p>O CRM existe para duas coisas, nesta ordem de importância:</p>
+<ol>
+  <li><b>Registrar o que hoje some</b> — o lead que não agendou, o que perguntou preço, o que faltou.</li>
+  <li><b>Identificar a origem</b> — para o Cauê saber onde o dinheiro dele está rendendo.</li>
+</ol>
+<p>Diante de qualquer dúvida, o critério é:</p>
+<ul>
+  <li>Entre <b>registrar</b> e <b>automatizar</b> — registrar primeiro. Automação em cima de dado ruim só erra mais rápido.</li>
+  <li>Entre o <b>que a recepção consegue usar</b> e o <b>que é tecnicamente elegante</b> — o que a recepção usa. Um CRM que a Jude não opera é um CRM morto.</li>
+  <li>Se uma ação sua pode <b>atrapalhar o atendimento</b> ou <b>mandar mensagem errada para paciente</b>, ela não é sua. É do Bernardo.</li>
+</ul>
+<p><b>Estado final desejado:</b> todo contato que chega no WhatsApp da Mais Med aparece no Kommo com a origem identificada; quem não fecha entra em follow-up; quem falta recebe resgate; e o Cauê consegue ver quais especialidades estão crescendo. Nada disso existe hoje.</p>
+
+<!-- ==================== 3 ==================== -->
+<h2>3. Execução</h2>
+
+<h3>3.1 O ponto decisivo</h3>
+<div class="crit">
+  <div class="t">Dois sistemas querendo falar com o mesmo paciente</div>
+  <p>O prontuário eletrônico da clínica <b>começou a automatizar mensagens de WhatsApp</b> (confirmação, lembrete) a partir de 01/07, cobrado por crédito.</p>
+  <p>O Kommo também vai mandar mensagem.</p>
+  <p>Se os dois dispararem, <b>o paciente recebe mensagem duplicada</b> — e o WhatsApp da clínica, que é o canal de 9 em cada 10 contatos, perde credibilidade. Uma vez que o paciente começa a ignorar, não tem volta.</p>
+  <p>Some-se o problema técnico: <b>um número de WhatsApp só conecta a uma plataforma de API por vez.</b> A clínica usa hoje o WhatsApp Business comum.</p>
+  <p><b>Resolver esta divisão é sua prioridade número um.</b> Nada mais avança antes.</p>
+</div>
+
+<p>A divisão que faz sentido — e que você precisa <b>validar tecnicamente</b>, não assumir como dada:</p>
+<table>
+  <tr><th style="width:30%">Sistema</th><th>Responsabilidade</th><th style="width:32%">Por quê</th></tr>
+  <tr><td class="n">Prontuário</td><td>Tudo que depende da <b>agenda</b>: confirmação de consulta, lembrete, orientação de preparo de exame</td><td>Ele é o dono da agenda. Sabe a hora exata, sabe se remarcou, sabe se cancelou.</td></tr>
+  <tr><td class="n">Kommo</td><td>Tudo que é <b>comercial</b>: resgate de quem faltou, follow-up de quem perguntou preço, reativação da base parada, captação de origem</td><td>É o dono do relacionamento antes e depois da consulta — justamente onde o prontuário não enxerga.</td></tr>
+</table>
+<p>Escolha pelo que <b>não gera mensagem duplicada</b> e ainda assim registra o lead. Não escolha por preferência técnica.</p>
+
+<h3>3.2 As missões</h3>
+<p>São seis, em sequência. <b>Cada uma só começa quando a anterior entrega.</b> Se travar, reporte — não pule, porque a ordem existe por dependência técnica.</p>
+
+<div class="mis">
+  <div class="hd"><span>Missão 1 — Reconhecimento</span><span class="pz">2 a 3 dias · não toca em nada</span></div>
+  <div class="bd">
+    <div class="lbl">Objetivo</div>
+    <p>Conhecer o terreno antes de pisar nele. Aqui você <b>não configura, não altera e não acessa conta de cliente</b>. Só lê e mapeia.</p>
+    <div class="lbl">Tarefas</div>
+    <ol>
+      <li>Ler este briefing inteiro, duas vezes.</li>
+      <li>Ler o <code>00-CONTEXTO-MAIS-MED.md</code> da pasta do projeto.</li>
+      <li>Ler a transcrição do <b>Onboarding Comercial de 26/06</b> — é a base de toda a Fase 2.</li>
+      <li>Ler o deck oficial <code>plano-de-trabalho-mais-med.html</code> — é o que o cliente viu e aprovou. <b>Você não pode prometer nada além do que está ali.</b></li>
+      <li>Desenhar o <b>fluxo atual</b> do paciente: da mensagem no WhatsApp até o comparecimento, marcando onde o dado é gravado e onde ele se perde.</li>
+      <li>Confirmar os nomes corretos da equipe de recepção.</li>
+    </ol>
+    <div class="ok">
+      <b>Entregável</b>
+      Documento com: (a) diagrama do fluxo atual; (b) vazamentos V1 a V6 marcados no ponto exato onde ocorrem; (c) lista numerada de dúvidas.
+    </div>
+    <div class="ok" style="margin-top:8px;">
+      <b>Critério de sucesso</b>
+      Você explica, sem consultar nada, o caminho de um paciente da Mais Med e onde ele deixa de ser rastreável.
+    </div>
+  </div>
+</div>
+
+<div class="mis">
+  <div class="hd"><span>Missão 2 — Inventário técnico e arquitetura</span><span class="pz">3 a 4 dias · leitura apenas</span></div>
+  <div class="bd">
+    <div class="lbl">Objetivo</div>
+    <p>Entender o que já existe e resolver o ponto decisivo do item 3.1.</p>
+    <div class="lbl">Tarefas</div>
+    <ol>
+      <li>Entrar no <b>Kommo em modo leitura</b>. A estrutura já está montada — sua tarefa é <b>entender por que ela está assim</b>, não redesenhar. Percorra os dois funis, todos os campos e as regras de obrigatoriedade.</li>
+      <li>Documentar a estrutura atual antes de qualquer alteração futura.</li>
+      <li>Entrar no <b>prontuário eletrônico</b>. Mapear: o que ele guarda, quais relatórios oferece, o que exporta e em que formato. <b>Descobrir se a base de 10 mil sai em CSV ou Excel</b> — disso depende a Missão 4.</li>
+      <li>Descobrir <b>o que exatamente o prontuário dispara hoje</b> por WhatsApp: quais mensagens, em que momento, para quem.</li>
+      <li>Responder objetivamente: <b>o prontuário tem API?</b> É uma das pendências abertas com o cliente.</li>
+      <li>Levantar como conectar o WhatsApp ao Kommo, e o que acontece com o WhatsApp Business atual da clínica nesse processo.</li>
+      <li>Formular <b>as opções de arquitetura</b>, com prós, contras e risco de cada uma.</li>
+    </ol>
+    <div class="ok">
+      <b>Entregável</b>
+      Relatório técnico com: inventário do Kommo, inventário do prontuário, o que ele já dispara, resposta sobre API, e as opções de arquitetura com sua recomendação fundamentada.
+    </div>
+    <div class="ok" style="margin-top:8px;">
+      <b>Critério de sucesso</b>
+      O Bernardo decide a arquitetura lendo só o seu relatório, sem precisar investigar nada.
+    </div>
+  </div>
+</div>
+
+<div class="mis">
+  <div class="hd"><span>Missão 3 — Fechar o CRM e conectar o canal</span><span class="pz">5 a 7 dias · o gargalo</span></div>
+  <div class="bd">
+    <div class="lbl">Objetivo</div>
+    <p>Tirar o CRM do papel. É aqui que o projeto sai da inércia.</p>
+    <div class="lbl">Tarefas</div>
+    <ol>
+      <li><b>Renomear as 4 etapas finais</b> dos dois funis para "Pago" e "Perdido". Só pela interface — a API rejeita, porque são status globais do sistema. É tarefa pequena, mas enquanto não for feita o funil fica com nome em inglês na cara do cliente.</li>
+      <li><b>Conectar o WhatsApp</b> ao Kommo conforme a arquitetura aprovada.</li>
+      <li>Testar com <b>contato de teste</b>. Nunca com paciente real.</li>
+      <li>Validar que o atendimento da recepção <b>não foi afetado</b> — antes, durante e depois.</li>
+      <li>Confirmar que a mensagem do prontuário e a do Kommo <b>não se sobrepõem</b>.</li>
+      <li>Documentar e escrever o <b>plano de reversão</b>: se der errado, qual é o passo exato para voltar.</li>
+    </ol>
+    <div class="ok">
+      <b>Entregável</b>
+      WhatsApp conectado, funil com nomes corretos, evidência de teste, documentação e plano de reversão.
+    </div>
+    <div class="ok" style="margin-top:8px;">
+      <b>Critério de sucesso</b>
+      Um paciente manda mensagem e o lead aparece sozinho no Kommo, sem a recepção fazer nada — e ela não percebe diferença no jeito de trabalhar.
+    </div>
+    <div class="lbl">Regra inegociável</div>
+    <p><b>Nada entra em produção sem autorização expressa do Bernardo.</b> Preparar e testar é livre. Ligar é decisão dele.</p>
+  </div>
+</div>
+
+<div class="mis">
+  <div class="hd"><span>Missão 4 — Importar a base</span><span class="pz">3 a 5 dias · atenção máxima</span></div>
+  <div class="bd">
+    <div class="lbl">Objetivo</div>
+    <p>Trazer os ~10 mil pacientes para o Kommo, prontos para reativação segmentada.</p>
+    <div class="lbl">Tarefas</div>
+    <ol>
+      <li>Obter o export do prontuário. Depende de pendência do cliente — <b>se travar, reporte no mesmo dia</b>.</li>
+      <li>Limpar e padronizar: telefone em formato único, datas consistentes, duplicados removidos.</li>
+      <li>Mapear os campos do export para os campos do Kommo (Última visita, Bairro/Cidade, Data de nascimento).</li>
+      <li><b>Importar um lote pequeno primeiro</b> — 20 a 50 registros. Conferir. Só depois subir o resto.</li>
+      <li>Segmentar por tempo sem vir, para alimentar o funil de reativação.</li>
+    </ol>
+    <div class="ok">
+      <b>Entregável</b>
+      Base importada, limpa, segmentada, com relatório do que entrou e do que foi descartado e por quê.
+    </div>
+    <div class="lbl">Regra de proteção de dados</div>
+    <p>Você vai manipular <b>dez mil registros de pacientes</b>. Isso é dado de saúde, categoria especial na LGPD, e a responsabilidade legal é da empresa.</p>
+    <ul>
+      <li>O arquivo <b>não vai para o seu computador pessoal</b> nem para pen drive.</li>
+      <li>Não sobe em ferramenta de terceiro, não cola em chat de IA, não manda por WhatsApp.</li>
+      <li>Terminou a importação, <b>apague as cópias de trabalho</b>.</li>
+      <li>Na dúvida sobre onde um arquivo pode ficar — <b>pergunte antes</b>.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="mis">
+  <div class="hd"><span>Missão 5 — Automação</span><span class="pz">5 a 7 dias</span></div>
+  <div class="bd">
+    <div class="lbl">Objetivo</div>
+    <p>Fechar os vazamentos V3, V4 e V5 — com automação que não pisa no que o prontuário já faz.</p>
+    <div class="lbl">Tarefas</div>
+    <ol>
+      <li><b>Resgate de no-show (V4):</b> quem foi marcado como "não compareceu" entra em fluxo de remarcação. É o de maior retorno imediato — 20 a 25% da agenda hoje simplesmente não aparece.</li>
+      <li><b>Follow-up de preço (V3):</b> quem parou em "Negociação / gerando valor" recebe retorno. O Cauê já orienta a recepção a gerar valor em vez de dar só o número — <b>transforme essa orientação verbal em mensagem escrita e padronizada</b>.</li>
+      <li><b>Reativação (V5):</b> estruturar no segundo funil o que o Cauê hoje faz na mão.</li>
+      <li><b>Aniversário:</b> o campo já existe e dispara sozinho. Baixo esforço, boa percepção.</li>
+      <li>Toda mensagem passa por <b>aprovação do Bernardo</b> antes de ir ao ar.</li>
+    </ol>
+    <div class="ok">
+      <b>Entregável</b>
+      Automações montadas, testadas com contato de teste e documentadas. Nenhuma ativa sem autorização.
+    </div>
+    <div class="ok" style="margin-top:8px;">
+      <b>Critério de sucesso</b>
+      Um paciente que falta recebe contato de remarcação sem ninguém lembrar de fazer isso.
+    </div>
+  </div>
+</div>
+
+<div class="mis">
+  <div class="hd"><span>Missão 6 — Treinar e medir</span><span class="pz">1 semana + contínuo</span></div>
+  <div class="bd">
+    <div class="lbl">Objetivo</div>
+    <p>Fazer a recepção usar de verdade, e transformar o dado em decisão.</p>
+    <div class="lbl">Tarefas</div>
+    <ol>
+      <li>Montar material de treinamento <b>curto e prático</b>. Elas atendem 50 contatos por dia — não vão ler apostila.</li>
+      <li>Treinar Jude, André e Andreia. O foco não é "onde clicar": é <b>o que perguntar</b> para preencher a Origem, e <b>o que falar</b> quando pedem preço.</li>
+      <li>Acompanhar a primeira semana de perto e corrigir o que travar.</li>
+      <li>Montar o acompanhamento: leads por origem, conversão por etapa, no-show, e <b>receita por especialidade</b> — que é o que responde a pergunta da margem.</li>
+    </ol>
+    <div class="ok">
+      <b>Entregável</b>
+      Equipe treinada, CRM em uso real, painel com número real.
+    </div>
+    <div class="ok" style="margin-top:8px;">
+      <b>Critério de sucesso</b>
+      Uma semana depois do treinamento, os leads continuam entrando com a origem preenchida <b>sem ninguém cobrar</b>. Se parar quando você parar de olhar, o treinamento não pegou.
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 4 ==================== -->
+<h2>4. Apoio e logística</h2>
+
+<h3>4.1 Acessos</h3>
+<p><b>Você não recebe credencial de cliente antes de o contrato estar assinado.</b> Não é desconfiança: os acessos deste projeto incluem <b>prontuário eletrônico com dado de paciente</b>, protegido por lei. Enquanto isso, a Missão 1 não exige acesso a nada.</p>
+<table>
+  <tr><th style="width:26%">Acesso</th><th style="width:20%">Quando</th><th>Observação</th></tr>
+  <tr><td class="n">Pasta do projeto</td><td>Imediato</td><td>Leitura. É onde está tudo.</td></tr>
+  <tr><td class="n">E-mail ClintIA</td><td>Após contrato</td><td>Depende de licença nova.</td></tr>
+  <tr><td class="n">Kommo</td><td>Após contrato</td><td><b>Modo leitura</b> até a Missão 3.</td></tr>
+  <tr><td class="n">Prontuário eletrônico</td><td>Após contrato</td><td>Contém dado de paciente. Acesso restrito, uso registrado.</td></tr>
+  <tr><td class="n">Ferramenta de IA</td><td>Após contrato</td><td>Assento pago pela ClintIA.</td></tr>
+</table>
+
+<h3>4.2 Material de estudo</h3>
+<ul>
+  <li><b>Documentação da Kommo</b>: funis e etapas, campos personalizados, <b>Salesbot</b> (é o motor das automações da Missão 5), webhooks, importação de contatos e a API v4.</li>
+  <li><b>WhatsApp Business API</b>: diferença entre o app comum e a API oficial, janela de 24 horas, templates aprovados. Isso explica <i>por que</i> a Missão 3 é o gargalo.</li>
+  <li><b>Webhook</b> — conceito base de tudo que você vai construir.</li>
+  <li><b>LGPD aplicada a dado de saúde</b> — leitura obrigatória <b>antes</b> da Missão 4.</li>
+</ul>
+
+<!-- ==================== 5 ==================== -->
+<h2>5. Comando e comunicação</h2>
+
+<h3>5.1 Cadeia</h3>
+<ul>
+  <li><b>Estratégia, escopo e prazo:</b> Bernardo.</li>
+  <li><b>Dúvida do dia a dia e prioridade da semana:</b> Luizianna.</li>
+  <li><b>Contato com o cliente:</b> só Bernardo. <b>Você não fala com o Cauê nem com a recepção</b> sem autorização caso a caso — exceto no treinamento da Missão 6, que é combinado antes.</li>
+</ul>
+
+<h3>5.2 Relatório de situação</h3>
+<div class="box">
+  <div class="t">Todo fim de dia, três linhas</div>
+  <p><b>1. Feito hoje</b> — o que você concluiu, não o que tentou.<br>
+  <b>2. Travado em</b> — o que te impede, e o que precisa de quem.<br>
+  <b>3. Amanhã</b> — o que vai atacar.</p>
+</div>
+<p>Travou por <b>mais de duas horas</b>? Reporte. O prazo já está estourado — tempo perdido em silêncio é o único erro sem conserto aqui.</p>
+
+<h3>5.3 Regras de engajamento</h3>
+<ol>
+  <li><b>Não atrapalhe o atendimento.</b> O WhatsApp é 9 em cada 10 contatos da clínica. Se sua ação pode derrubá-lo, ela não é sua.</li>
+  <li><b>Nada em produção sem autorização expressa.</b></li>
+  <li><b>Nenhuma mensagem sai para paciente</b> sem o Bernardo aprovar o texto.</li>
+  <li><b>Dado de paciente não sai do sistema.</b> Nem para computador pessoal, nem para pen drive, nem para chat de IA, nem por WhatsApp.</li>
+  <li><b>Credencial não circula.</b></li>
+  <li><b>Endoscopia:</b> o serviço <b>não está totalmente regularizado</b>. Nunca escreva, anuncie ou destaque endoscopia em mensagem, campanha ou material. Pode existir como campo interno no CRM; não pode aparecer em comunicação. <b>Sem exceção — isto é risco sanitário e de conselho profissional, não preferência de marketing.</b></li>
+  <li>Todo conteúdo de saúde segue as regras do <b>CFM</b>. Nada de promessa de resultado, nada de "antes e depois", nada de preço em destaque.</li>
+  <li><b>Documente antes de alterar.</b> Se não registrou como estava, não sabe voltar.</li>
+  <li><b>Na dúvida, pergunte.</b> Cinco minutos de pergunta contra um cliente perdido.</li>
+</ol>
+
+<!-- ==================== 6 ==================== -->
+<h2>6. Glossário</h2>
+<table>
+  <tr><th style="width:24%">Termo</th><th>Significado</th></tr>
+  <tr><td class="n">Clínica popular</td><td>Modelo de consulta acessível, volume alto, várias especialidades no mesmo lugar. É o cliente-alvo da ClintIA.</td></tr>
+  <tr><td class="n">Particular</td><td>Paciente que paga do próprio bolso. Na Mais Med é 100% do faturamento.</td></tr>
+  <tr><td class="n">Convênio</td><td>Plano de saúde. <b>A Mais Med não atende</b> — mas você vai ouvir o termo em outros projetos.</td></tr>
+  <tr><td class="n">Margem</td><td>O que sobra depois do custo. <b>É o verdadeiro objetivo deste projeto</b>, não a receita.</td></tr>
+  <tr><td class="n">CAP</td><td>Custo de Aquisição de Paciente. Quanto se gasta em mídia por paciente conquistado.</td></tr>
+  <tr><td class="n">No-show</td><td>Paciente que agenda e não aparece. Aqui: 20–25%, chegando a 50–60% em algumas especialidades.</td></tr>
+  <tr><td class="n">Lead</td><td>Pessoa que demonstrou interesse mas não fechou.</td></tr>
+  <tr><td class="n">Funil</td><td>As etapas que o lead percorre até virar paciente.</td></tr>
+  <tr><td class="n">Reativação</td><td>Voltar a falar com paciente antigo que parou de vir. Aqui: base de 10 mil.</td></tr>
+  <tr><td class="n">Salesbot</td><td>Motor de automação do Kommo. É com ele que você monta a Missão 5.</td></tr>
+  <tr><td class="n">Webhook</td><td>Aviso automático que um sistema dispara para outro quando algo acontece.</td></tr>
+  <tr><td class="n">UTM</td><td>Parâmetros no link do anúncio que revelam a origem do lead. Os campos já existem no Kommo.</td></tr>
+</table>
+
+<!-- ==================== 7 ==================== -->
+<h2>7. Suas primeiras 48 horas</h2>
+<ul class="ck">
+  <li>Ler este documento inteiro, duas vezes</li>
+  <li>Ler o <code>00-CONTEXTO-MAIS-MED.md</code></li>
+  <li>Ler a transcrição do Onboarding Comercial de 26/06</li>
+  <li>Ler o deck oficial <code>plano-de-trabalho-mais-med.html</code></li>
+  <li>Desenhar o fluxo atual do paciente</li>
+  <li>Marcar os vazamentos V1 a V6 no diagrama</li>
+  <li>Confirmar os nomes corretos da recepção</li>
+  <li>Montar a lista numerada de dúvidas</li>
+  <li>Enviar o entregável da Missão 1</li>
+  <li>Enviar o primeiro relatório de situação</li>
+</ul>
+
+<div class="box">
+  <div class="t">Uma palavra final</div>
+  <p>Você foi contratado por três coisas que apareceram juntas na entrevista e raramente aparecem: sabe usar IA com senso crítico, entende o que é um CRM de verdade — você mesmo perguntou se o nosso era analítico, operacional ou colaborativo — e, no teste de lógica, investigou a causa antes de propor solução.</p>
+  <p>É exatamente isso que este projeto exige. A estrutura está pronta e parada. <b>Quem vai colocar ela para funcionar é você.</b></p>
+  <p>Comece pela Missão 1. Não pule etapa. Reporte todo dia.</p>
+</div>
+
+<div class="fim">
+  ClintIA · Clínica Mais Med — Fase 2, Infraestrutura Comercial<br>
+  Briefing operacional emitido em 23/07/2026 · Documento interno, de uso restrito à equipe · Não compartilhar com terceiros nem com o cliente.
+</div>
+
+</div>
+</body>
+</html>
