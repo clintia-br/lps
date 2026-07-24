@@ -72,6 +72,13 @@
 
   .grid3{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px;}
   @media(min-width:700px){.grid3{grid-template-columns:repeat(3,1fr);}}
+  .grid2{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px;}
+  @media(min-width:700px){.grid2{grid-template-columns:1fr 1fr;}}
+  .card.use{border-top-color:var(--ok);} .card.use .ic{background:var(--okbg);color:var(--ok);}
+  .card.avoid{border-top-color:var(--err);} .card.avoid .ic{background:#FEECEC;color:var(--err);}
+  .card ul{list-style:none;margin-top:9px;}
+  .card ul li{font-size:13px;color:var(--dim);padding:3px 0 3px 14px;position:relative;line-height:1.5;}
+  .card ul li::before{content:"·";position:absolute;left:3px;color:var(--muted);font-weight:800;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 19px;box-shadow:0 1px 3px rgba(10,69,128,.05);}
   .card h4{font-size:15px;font-weight:800;letter-spacing:-.01em;color:var(--ink);}
   .card p{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.55;}
@@ -227,6 +234,60 @@
     </div>
   </div>
 
+  <!-- QUEM É O NOSSO PÚBLICO -->
+  <div class="sec">
+    <div class="sechead">
+      <div class="p">Com quem a gente fala</div>
+      <h2>Quem é o nosso público</h2>
+      <div class="aside">Você vai conviver com esse perfil todo dia. Vale conhecer bem.</div>
+    </div>
+
+    <div class="box">
+      <p>O nosso cliente é o <b>dono de clínica popular</b> — quase sempre o próprio médico. Ele faz de 80 a 200 agendamentos por semana, com ticket entre R$60 e R$150, e boa parte da receita dele ainda vem de convênio. Ele é ocupado, decide rápido e não tem paciência com complexidade.</p>
+      <p>O ponto mais importante pra entender ele: <b>ele é excelente na medicina e nunca estudou gestão.</b> Uma frase que aparece direto nas nossas reuniões: <i>"Fiz tudo certo na medicina. Não fiz faculdade de administração."</i> Ele não é desorganizado por preguiça — ele nunca teve as ferramentas.</p>
+      <p>E quase sempre ele já se queimou antes. Outra frase real: <i>"Contratei agência por 6 meses, gastei R$18.000, o Instagram ficou bonito e a agenda continuou igual."</i> <b>É por isso que a gente entra falando de sistema e de número, não de marketing.</b> Ele já ouviu a conversa de marketing — e ela não funcionou pra ele.</p>
+    </div>
+
+    <div class="lab">As dores dele vêm em três camadas</div>
+    <div class="grid3">
+      <div class="card"><div class="ic">1</div><h4>Ele fala em voz alta</h4><p>As faltas. De 16% a 30% dos pacientes não aparecem, e isso ele reclama sem constrangimento nenhum.</p></div>
+      <div class="card"><div class="ic">2</div><h4>Ele admite com hesitação</h4><p>O medo de errar com o CFM e sofrer processo. Por isso a gente nunca promete resultado em material de saúde.</p></div>
+      <div class="card"><div class="ic">3</div><h4>Ele nunca verbaliza</h4><p>Que decide no escuro. Investe sem saber o que funciona — e admitir isso é admitir que não domina o próprio negócio.</p></div>
+    </div>
+
+    <div class="lab">O vocabulário importa mais do que parece</div>
+    <div class="grid2">
+      <div class="card use">
+        <div class="ic">✓</div><h4>Fale assim</h4>
+        <ul>
+          <li>Custo por paciente que <b>pagou</b></li>
+          <li>Previsibilidade de agenda</li>
+          <li>Infraestrutura comercial</li>
+          <li>Dashboard no celular</li>
+          <li>Reativação de base</li>
+          <li>Médico-empreendedor</li>
+        </ul>
+      </div>
+      <div class="card avoid">
+        <div class="ic">✕</div><h4>Evite isso</h4>
+        <ul>
+          <li>Marketing digital</li>
+          <li>Presença online</li>
+          <li>Engajamento e branding</li>
+          <li>Conteúdo de valor</li>
+          <li>Número de cliques</li>
+          <li><b>Nunca prometer resultado</b> (CFM)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="nota">
+      <span class="l">Uma coisa que você vai perceber rápido</span>
+      <p>Na maioria das clínicas, <b>quem sente a dor não é quem assina</b>. É comum o dono mais velho conhecer a operação de cor mas delegar a decisão digital ao filho ou genro — ou a clínica ter uma pessoa de marketing interna que já diagnosticou tudo sozinha e só precisa de execução.</p>
+      <p>Por isso, aqui a gente nunca trata "o cliente" como uma pessoa só. <b>Entender quem sente a dor, quem influencia e quem assina</b> é metade do trabalho. Na aba <b>Arquétipos</b> da plataforma tem o mapa completo desses perfis.</p>
+    </div>
+  </div>
+
   <!-- DE ONDE A GENTE VEM -->
   <div class="sec">
     <div class="sechead">
@@ -239,7 +300,13 @@
       <p>Cresceu andando na rua, morando na Pereira da Silva, perto de uma comunidade — se aproximou de gente de lá, chegou a se envolver com projetos como o Projeto Morrinho. Trabalhou em loja de roupa por um bom tempo antes de qualquer coisa de tecnologia. <b>Sempre gostou de gente antes de gostar de sistema</b> — e é por isso que, aqui dentro, técnica sem olhar pra pessoa nunca foi o suficiente.</p>
       <p>Entrou na <b>MarketMED — a primeira agência de marketing médico do Brasil</b> — junto com um amigo, numa microempresa ligada à UFF, e foi alocado pra estruturar a parte de marketing. Na faculdade, o caminho não foi reto: começou em Matemática, passou por Estatística, até achar um curso de Finance — onde tinha curiosidade e via como fazer dinheiro — e depois se transferiu pra faculdade de Empreendedorismo, também na UFF. <b>Faculdade pública, caminho não-linear, sempre mais curioso que estudioso.</b> Se você reconheceu um pouco de si nisso, não é coincidência: boa parte do time chegou aqui de um jeito parecido.</p>
       <p>Aprendeu do jeito que boa parte dessa geração aprende: não pelos livros, mas <b>na prática, vendo e testando</b> — <b>fazer, olhar, corrigir</b>, nessa ordem. É o mesmo método que este guia usa com você.</p>
-      <p>Foram anos dentro do setor de saúde estruturando marketing de clínica de todo tamanho — e dali veio uma percepção: a clínica popular, que atende quem mais precisa, era o segmento mais mal servido de tecnologia e gestão comercial. A ClintIA existe pra fechar esse buraco, e hoje está praticamente sozinha nesse nicho. A visão não para aí: o conhecimento que a gente acumula em clínica popular pode um dia servir ao setor público também.</p>
+      <p>Foram anos dentro do setor de saúde estruturando marketing de clínica de todo tamanho — e dali veio uma percepção: a clínica popular, que atende quem mais precisa, era o segmento mais mal servido de tecnologia e gestão comercial. A ClintIA existe pra fechar esse buraco.</p>
+    </div>
+
+    <div class="norte" style="margin-top:12px;">
+      <div class="l">Onde a gente está</div>
+      <p>Vale você entender o tamanho disso: <b>a ClintIA é pioneira</b>. Praticamente não existe concorrente fazendo o que a gente faz especificamente pra clínica popular — a maioria das agências atende consultório de alto padrão, onde tem mais dinheiro e menos trabalho. <b>A gente está num mar aberto</b>, e num setor que atende justamente o público mais carente.</p>
+      <p style="font-size:14px;margin-top:12px;">Isso significa duas coisas pra você. Uma: <b>o que a gente aprende aqui, quase ninguém sabe</b> — e vai virar padrão de mercado. Outra: <b>não existe manual pronto pra copiar</b>. Boa parte do que a gente faz está sendo inventado agora, e você vai participar disso. A visão não para na clínica particular: o conhecimento que a gente acumula pode um dia servir ao setor público também.</p>
     </div>
   </div>
 
@@ -280,15 +347,15 @@
 
       <ol>
         <li><b>Seja curioso.</b><span>A curiosidade é o que move esta empresa desde o primeiro dia. Pergunte "como isso funciona?", fuce a ferramenta, teste o caminho novo. Quem só executa o que mandaram fica pra trás — aqui e em qualquer lugar.</span></li>
+        <li><b>Verdade sempre — principalmente quando dói.</b><span>Nunca minta sobre o andamento de um projeto ou sobre uma data. Nunca. Atraso tem solução, erro tem conserto, problema tem saída — mentira não tem. No segundo em que você maquia um status, todo mundo passa a decidir com informação falsa, e o estrago vira dez vezes maior que o problema original.</span></li>
+        <li><b>Comunicação acima de tudo.</b><span>Fale. Do trabalho e de você. Avise o que avançou, o que travou, o que mudou — e avise também quando não estiver bem, quando estiver sobrecarregado, quando algo fora do trabalho estiver pesando. <b>Travar não é falha; sumir é.</b> Aqui ninguém adivinha, e ninguém deveria precisar adivinhar.</span></li>
+        <li><b>A gente se ajuda. Sempre.</b><span>Ninguém aqui é ilha nem dono de um assunto só. Todo mundo entende um pouco de cada área, todo mundo se comunica, e quem terminou o próprio trabalho olha se alguém está afogado. Pedir ajuda não é fraqueza — é como esse time anda rápido.</span></li>
         <li><b>O número acima do achismo.</b><span>Opinião abre a conversa; número encerra. É o que vendemos ao cliente e é como decidimos por dentro. O que não dá pra medir, não dá pra melhorar.</span></li>
         <li><b>Resultado, não aparência.</b><span>Post bonito, site moderno, logo nova — nada disso é o produto. O produto é agenda cheia e faturamento previsível pro cliente. Tudo que não leva a isso é enfeite.</span></li>
         <li><b>Orquestre a IA — não compita com ela.</b><span>Informação virou commodity: quem ganha é quem sabe perguntar certo. Use IA pra tudo que acelera seu trabalho, acompanhe as novidades, e confira sempre o resultado antes de aplicar. A ferramenta é ela; o critério é seu.</span></li>
-        <li><b>Processo com olhar humano.</b><span>Pense em processo como um engenheiro, mas olhe pra pessoa como um colega. Um sistema tecnicamente perfeito que a recepção não usa está errado — e uma pessoa do time passando por algo difícil importa mais que o prazo do dia.</span></li>
-        <li><b>Entenda antes de executar.</b><span>Quem entende o cliente acerta na primeira. Quem não entende faz bonito e inútil — e refaz caro depois. Os primeiros dias deste guia existem exatamente por isso.</span></li>
-        <li><b>Dado de paciente é sagrado.</b><span>Não sai do ambiente autorizado. Não vai pra grupo, pra IA, pra lugar nenhum. A confiança de um cliente se perde uma única vez.</span></li>
-        <li><b>Teste antes de ativar.</b><span>A mensagem errada pro paciente errado não tem botão de desfazer. Primeiro no seu número, depois em pequena escala, só então no mundo real.</span></li>
-        <li><b>Combinou, entregue — com constância.</b><span>Prazo dado é compromisso. Se vai estourar, avise antes de estourar, nunca depois. E prefira o ritmo certo todo dia à correria heroica de véspera: pressão até funciona, mas custa caro e não se repete.</span></li>
-        <li><b>Travar não é falha. Sumir é.</b><span>Ninguém espera que você saiba tudo. Espera-se que você avise quando não sabe — dizendo o que queria fazer, o que tentou e o que aconteceu. E quando resolver, registre: o que você aprende vira padrão da empresa.</span></li>
+        <li><b>Entenda antes de executar — e olhe pra pessoa.</b><span>Quem entende o cliente acerta na primeira; quem não entende faz bonito e inútil, e refaz caro depois. E lembre: um sistema tecnicamente perfeito que a recepção não usa está errado. Processo de engenheiro, olhar de colega.</span></li>
+        <li><b>Combinou, entregue — com constância.</b><span>Prazo dado é compromisso. Prefira o ritmo certo todo dia à correria heroica de véspera: trabalhar sob pressão até funciona, mas custa caro e não se repete.</span></li>
+        <li><b>Cuidado redobrado com o que não tem volta.</b><span>Dado de paciente não sai do ambiente autorizado — nem pra grupo, nem pra IA, nem pra lugar nenhum. Automação só entra no ar depois de testada no seu próprio número. A mensagem errada pro paciente errado não tem botão de desfazer, e confiança perdida não volta.</span></li>
       </ol>
 
       <div class="mfoot">Guarde esta página. Você vai voltar nela mais vezes do que imagina.</div>
@@ -299,19 +366,26 @@
   <div class="sec">
     <div class="sechead"><div class="p">Passo 1</div><h2>Seu e-mail corporativo</h2></div>
     <div class="passo">
-      <div class="ph"><span class="num">1</span><span class="tt">Receber e proteger o acesso</span><span class="tempo">15 min</span></div>
+      <div class="ph"><span class="num">1</span><span class="tt">Entrar na sua conta</span><span class="tempo">15 min</span></div>
       <div class="pbody">
-        <p>Você recebe, no privado, um endereço <b>@clintia.com.br</b> com uma senha provisória. <b>Esse e-mail é a chave de tudo</b> — plataforma, ferramentas, documentos. Não existe segundo caminho de acesso.</p>
+        <p><b>Junto com este material, seu gestor te envia os dados de acesso da sua conta no nosso domínio</b> — o endereço <b>@clintia.com.br</b>, a senha e as instruções de como entrar. Se você recebeu este guia e ainda não recebeu os dados, cobre: eles vêm no mesmo pacote.</p>
+        <p><b>É por esse e-mail que tudo funciona daqui pra frente.</b> Ele é a sua identidade dentro da empresa: plataforma, ferramentas e documentos usam ele pra te reconhecer. A partir do momento em que você entra, os seus acessos começam a ser liberados.</p>
 
-        <div class="lab" style="margin-top:14px;">O que fazer</div>
+        <div class="lab">O que fazer</div>
         <ol class="acao">
-          <li><b>Entrar com a senha provisória</b><span class="q">Pelo Gmail, no navegador ou no celular.</span></li>
-          <li><b>Trocar a senha imediatamente</b><span class="q">Escolha uma senha que você não use em nenhum outro lugar.</span></li>
-          <li><b>Ativar a verificação em duas etapas</b><span class="q">Obrigatório, não opcional. Nossos sistemas tocam em dado de paciente — uma conta invadida é um problema sério para a empresa e para o cliente.</span></li>
+          <li><b>Entrar com os dados que o gestor te mandou</b><span class="q">Pelo Gmail, no navegador ou no celular — as instruções vêm junto.</span></li>
+          <li><b>Trocar a senha, se quiser</b><span class="q">Você recebe uma senha padrão. Pode manter ou trocar por uma sua — fica a seu critério.</span></li>
+          <li><b>Ativar a verificação em duas etapas</b><span class="q">Vale muito a pena: nossos sistemas tocam em dado de paciente, e uma conta invadida vira problema sério pra empresa e pro cliente.</span></li>
           <li><b>Configurar no celular também</b><span class="q">Boa parte da comunicação acontece fora da mesa.</span></li>
         </ol>
 
-        <div class="entrega"><span class="l">Feito quando</span><p>Senha trocada e verificação em duas etapas ativa. Confirme no grupo da equipe.</p></div>
+        <div class="nota">
+          <span class="l">E o resto dos acessos?</span>
+          <p>Além do e-mail, você vai precisar de <b>Drive, plataforma e as ferramentas do dia a dia</b>. Seu gestor te manda tudo isso <b>num material separado</b> — com os links, o que você acessa em cada uma e como entrar.</p>
+          <p>Não saia caçando acesso por conta própria nem peça login emprestado a colega. <b>Se faltar alguma coisa, é só pedir à Luizianna.</b></p>
+        </div>
+
+        <div class="entrega"><span class="l">Feito quando</span><p>Você consegue entrar na sua conta e recebeu o material com os demais acessos. Confirme no grupo da equipe.</p></div>
       </div>
     </div>
   </div>
@@ -378,12 +452,30 @@
 
   <!-- PASSO 4 -->
   <div class="sec">
-    <div class="sechead"><div class="p">Passo 4</div><h2>Ver o produto por fora</h2></div>
+    <div class="sechead"><div class="p">Passo 4</div><h2>Ver o produto e a comunidade</h2></div>
     <div class="passo">
-      <div class="ph"><span class="num">4</span><span class="tt">Enxergar o que o cliente enxerga</span><span class="tempo">30 min</span></div>
+      <div class="ph"><span class="num">4</span><span class="tt">Enxergar o que o cliente enxerga</span><span class="tempo">45 min</span></div>
       <div class="pbody">
-        <p>Você já viu como a empresa funciona por dentro. Agora veja o que o dono de clínica vê antes de contratar a gente: navegue o site <span class="url">proclip.com.br</span> como se você fosse um dono de clínica decidindo se assina.</p>
+        <p>Você já viu como a empresa funciona por dentro. Agora veja o que o dono de clínica vê: navegue o site <span class="url">proclip.com.br</span> como se você fosse um dono de clínica decidindo se assina.</p>
         <p><b>É a promessa que a gente faz em público — e que o seu trabalho vai ter que cumprir em privado.</b> Depois, volte à plataforma e repare como as abas deixam de ser telas soltas e viram um sistema.</p>
+
+        <div class="lab">Depois disso, conheça a nossa comunidade</div>
+        <p>Em <span class="url">membros.proclip.com.br</span> fica a <b>nossa comunidade de donos e gestores de clínica popular</b>. Ela nasceu do nosso produto de entrada, <b>"O Manual da Clínica Popular"</b> — um material de baixo custo que traz o dono pra dentro do nosso mundo antes de ele contratar o PROClip.</p>
+        <p><b>Todo colaborador da ClintIA tem acesso</b> — peça o seu à Luizianna e entre pra conhecer.</p>
+
+        <div class="lab">O que tem lá dentro</div>
+        <ol class="acao">
+          <li><b>A Jornada</b><span class="q">Um curso em vídeo com o método completo, dividido em fases — do "cadê o paciente?" até a clínica que não depende do dono.</span></li>
+          <li><b>Ebook e materiais</b><span class="q">A apostila e os bônus práticos: planilha de custo por paciente, scripts de WhatsApp, checklist do Google Meu Negócio, painel do dono.</span></li>
+          <li><b>Cursos, parceiros e consultoria</b><span class="q">Trilhas em produção, parcerias e a possibilidade de sessão direta com o Bernardo.</span></li>
+          <li><b>Aplicativo</b><span class="q">Em desenvolvimento — a ideia é levar a comunidade pro bolso do dono de clínica.</span></li>
+        </ol>
+
+        <div class="nota">
+          <span class="l">Por que isso importa pro seu trabalho</span>
+          <p>Essa comunidade não é um produto solto. Ela é <b>o começo do funil</b>: traz o dono de clínica pra perto, qualifica quem realmente tem perfil, nutre quem ainda não está pronto e gera parceria — tudo isso antes de qualquer conversa de venda.</p>
+          <p>E ela cresce todo dia. <b>Quanto mais gente lá dentro, mais a gente entende esse mercado</b> — e mais forte fica tudo o que a gente entrega. Se você tiver ideia de como melhorá-la, fale: aqui isso é bem-vindo, venha de qual área vier.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -404,6 +496,7 @@
     <ol class="perg">
       <li>O que a ClintIA vende, em uma frase?<span class="q">Dica: a resposta não tem a palavra "marketing" nem "post".</span></li>
       <li>O que é uma clínica popular e como ela ganha dinheiro?<span class="q">Volume, ticket, particular vs. convênio — o modelo econômico.</span></li>
+      <li>Como é o dono de clínica popular — e o que você nunca deve dizer pra ele?<span class="q">Pense nas três camadas de dor e no vocabulário que a gente evita.</span></li>
       <li>Quais são os três vazamentos que atacamos em todo cliente?<span class="q">E qual dos três a sua função ataca diretamente.</span></li>
       <li>O que é o PROClip e o que acontece em cada uma das duas fases?</li>
       <li>Por que a ClintIA não é "só mais uma agência de marketing"?<span class="q">Pista: a resposta tem a palavra "sistema" e a palavra "conectado".</span></li>
@@ -427,9 +520,9 @@
     <table>
       <tr><th style="width:34%">Quem</th><th>Procure para</th></tr>
       <tr><td><b>Luizianna Faria</b><span class="lk">Head de Operações</span></td><td><b>Seu primeiro contato para quase tudo.</b> Processos, acessos, entregas, dúvidas do dia a dia e o encaminhamento do que precisar subir.</td></tr>
-      <tr><td><b>Bernardo Carneiro</b><span class="lk">Fundador e CEO</span></td><td>Decisões estratégicas, prazos com cliente e o que a Luizianna encaminhar. E <b>sempre antes de qualquer contato com cliente</b>.</td></tr>
+      <tr><td><b>Bernardo Carneiro</b><span class="lk">Fundador e CEO</span></td><td>Decisões estratégicas, negociação, prazos com cliente e o que a Luizianna encaminhar.</td></tr>
       <tr><td><b>Leandro Amaral</b><span class="lk">Produção digital</span></td><td>Sites, landing pages e materiais — tudo que é produção digital dos projetos.</td></tr>
-      <tr><td><b>Clientes</b><span class="lk">Donos de clínica</span></td><td><b>Somente com autorização do Bernardo.</b> No começo, todo contato com cliente passa por ele — sem exceção.</td></tr>
+      <tr><td><b>Clientes</b><span class="lk">Donos de clínica</span></td><td>Falar com cliente faz parte do trabalho — <b>o que não pode é combinar prazo, escopo ou valor por conta própria.</b> Isso sempre alinha antes com a Luizianna ou o Bernardo. E se você não souber uma resposta, diga que vai verificar: melhor do que inventar.</td></tr>
     </table>
     </div>
   </div>
@@ -449,6 +542,12 @@
     <div class="box">
       <p><b>Como fazer uma boa pergunta —</b> sempre em três partes: <b>(1)</b> o que eu queria fazer · <b>(2)</b> o que eu tentei · <b>(3)</b> o que aconteceu, com print. Pergunta assim se responde em um minuto. Pergunta vaga trava os dois lados e gasta o dobro do tempo.</p>
     </div>
+
+    <div class="nota">
+      <span class="l">Vale pra este guia também</span>
+      <p>Ficou com dúvida sobre alguma coisa <b>deste próprio material</b> — um termo que você não conhece, uma sigla, um conceito que passou rápido? <b>Joga na IA e pergunta.</b> Sério: cole o trecho e peça pra explicar de outro jeito.</p>
+      <p>Aqui isso não é "colar" — é exatamente o que a gente espera de você. <b>Só não pare na primeira resposta:</b> confira, questione, e traga pra pessoa certa o que continuar sem fazer sentido.</p>
+    </div>
   </div>
 
   <!-- REGRAS -->
@@ -457,15 +556,16 @@
     <div class="rules">
       <div class="l">O que nunca pode</div>
       <ul>
+        <li><b>Nunca</b> minta sobre o andamento de um projeto ou sobre uma data</li>
         <li><b>Nunca</b> mexa em conta de cliente sem avisar antes</li>
-        <li><b>Nunca</b> fale com cliente sem autorização do Bernardo</li>
-        <li><b>Nunca</b> prometa prazo a cliente por conta própria</li>
+        <li><b>Nunca</b> prometa prazo a cliente sem alinhar internamente</li>
         <li><b>Nunca</b> compartilhe dado de paciente — é sigiloso por lei</li>
         <li><b>Nunca</b> cole dado de cliente ou paciente em ferramenta de IA</li>
         <li><b>Nunca</b> ative automação sem testar antes no seu próprio número</li>
         <li><b>Nunca</b> apague nada sem certeza. Na dúvida, pergunte</li>
         <li><b>Nunca</b> desapareça quando travar. Avise que travou</li>
       </ul>
+      <p style="font-size:13px;color:#94A3B8;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.09);line-height:1.6;">A primeira da lista é a mais séria. <b style="color:#fff;">Todo o resto tem conserto</b> — atraso se recombina, erro técnico se corrige, cliente insatisfeito se recupera. Status maquiado, não.</p>
     </div>
   </div>
 
@@ -482,17 +582,19 @@
   <div class="sec">
     <div class="sechead"><div class="p">Controle</div><h2>Checklist da entrada</h2><div class="aside">Vá marcando.</div></div>
     <ul class="ck">
-      <li><span class="d">P1</span>E-mail corporativo acessado e senha trocada</li>
+      <li><span class="d">P1</span>Conta <b>@clintia.com.br</b> acessada</li>
       <li><span class="d">P1</span>Verificação em duas etapas ativada</li>
       <li><span class="d">P1</span>E-mail configurado também no celular</li>
+      <li><span class="d">P1</span>Material com os demais acessos recebido (Drive, ferramentas)</li>
       <li><span class="d">P2</span>Login na plataforma funcionando</li>
       <li><span class="d">P2</span>Dados conferidos em Configurações</li>
       <li><span class="d">P3</span><b>Treinamento de Boas-vindas concluído</b></li>
       <li><span class="d">P3</span><b>Treinamento da sua vaga concluído</b></li>
       <li><span class="d">P3</span>Lista de dúvidas enviada à Luizianna</li>
       <li><span class="d">P4</span>Site do PROClip navegado de ponta a ponta</li>
-      <li><span class="d">P5</span>As 10 perguntas da régua — todas respondidas sem gaguejar</li>
-      <li><span class="d">P5</span>"De onde a gente vem" e "No que a gente acredita" lidos</li>
+      <li><span class="d">P4</span>Acesso à área de membros pedido — e uma volta lá dentro</li>
+      <li><span class="d">P5</span>As 11 perguntas da régua — todas respondidas sem gaguejar</li>
+      <li><span class="d">P5</span>"De onde a gente vem", "No que a gente acredita" e "Quem é o nosso público" lidos</li>
       <li><span class="d">P5</span>Os 10 Mandamentos lidos (e relidos)</li>
     </ul>
   </div>
