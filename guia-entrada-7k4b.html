@@ -1,618 +1,802 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0A4580">
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Guia de Entrada · ClintIA</title>
+<meta name="theme-color" content="#051E32">
+<title>Guia de Entrada — ClintIA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800;900&display=swap">
 <style>
-  :root{
-    --bg:#F9FAFB;--card:#FFFFFF;--elev:#F3F4F6;
-    --ink:#0F172A;--dim:#334155;--muted:#64748B;
-    --navy:#0A4580;--navy-light:#1A5FA3;--navy-deep:#053C73;--blue-soft:#7FB3E6;
-    --line:#E5E7EB;--line2:#EEF1F4;
-    --ok:#10b981;--okbg:#ecfdf5;--okline:#bbe9d6;--okink:#065f46;
-    --warnbg:#FFF8EB;--warnline:#F0DFB8;--warnink:#7a5a08;--warn:#b98908;
-    --err:#ef4444;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;}
-  .wrap{max-width:880px;margin:0 auto;padding:0 20px;}
-  a{color:var(--navy);}
-  .url{font-weight:700;color:var(--navy);}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sky:#05D2FF; --dodger:#0578DC; --celtic:#055AAA; --yale:#053C73; --oxford:#051E32;
+  --ink:#16283a; --soft:#5f7183; --line:#e6eef5; --paperbg:#ffffff;
+  --ok:#0a7d57; --okbg:#eef9f4;
+}
+html,body{height:100%}
+body{font-family:"Red Hat Display","Segoe UI",system-ui,sans-serif;color:var(--ink);
+  background:#0a1622;-webkit-font-smoothing:antialiased}
 
-  /* ---------- NAV ---------- */
-  .nav{position:sticky;top:0;z-index:50;background:rgba(249,250,251,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
-  .nav .wrap{display:flex;align-items:center;gap:12px;height:60px;}
-  .nav img{height:26px;display:block;}
-  .nav .tag{margin-left:auto;font-size:11px;font-weight:600;color:var(--navy);background:#EAF2FB;border:1px solid #D3E4F5;border-radius:32px;padding:5px 14px;white-space:nowrap;}
+/* ---------- MOLDURA / LEITOR ---------- */
+.viewer{position:fixed;inset:0;display:flex;flex-direction:column;
+  background:radial-gradient(120% 90% at 50% -10%,#123049,#0a1622 60%)}
+.reader{flex:1;position:relative;overflow:hidden}
+.page{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:26px 20px 56px;opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .4s ease,transform .4s ease}
+.page.active{opacity:1;visibility:visible;pointer-events:auto;transform:none;z-index:2}
+.page.leaving{opacity:0;visibility:visible;z-index:1;pointer-events:none}
 
-  /* ---------- HERO ---------- */
-  .hero{padding:52px 0 40px;background:var(--bg);}
-  .eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:#EAF2FB;border:1px solid #D3E4F5;border-radius:32px;padding:6px 16px;}
-  .hero h1{font-size:clamp(30px,6.5vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.08;margin-top:16px;}
-  .hero .sub{font-size:clamp(14.5px,2.4vw,16.5px);color:var(--dim);margin-top:14px;max-width:600px;line-height:1.6;}
+.paper{position:relative;width:min(760px,100%);height:min(940px,100%);
+  border-radius:18px;overflow:hidden;display:flex;flex-direction:column;
+  padding:44px 54px 26px;box-shadow:0 40px 90px -30px rgba(0,0,0,.7)}
+.paper.light{background:var(--paperbg);color:var(--ink)}
+.paper.dark{background:
+  radial-gradient(80% 55% at 82% -8%,rgba(5,210,255,.22),transparent 58%),
+  linear-gradient(158deg,#08243c,#04121f);color:#eaf6ff}
+.paper.accent{background:linear-gradient(160deg,#f4fdff,#eef8ff);color:var(--ink);border:1px solid #dcefff}
 
-  /* stepper */
-  .stepper{display:grid;grid-template-columns:1fr;gap:8px;margin-top:28px;}
-  .stp{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;}
-  .stp .n{width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
-  .stp .t{font-size:13.5px;font-weight:700;color:var(--ink);}
-  .stp .d{font-size:12px;color:var(--muted);margin-left:auto;text-align:right;}
-  @media(min-width:760px){
-    .stepper{grid-template-columns:repeat(5,1fr);}
-    .stp{flex-direction:column;align-items:flex-start;gap:8px;padding:14px;}
-    .stp .d{margin-left:0;text-align:left;}
-  }
+.phead{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.phead .ph-ch{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--celtic)}
+.phead.light{border-bottom:1px solid var(--line);padding-bottom:12px}
+.pfoot{margin-top:14px;padding-top:11px;display:flex;align-items:center;
+  gap:12px;font-size:10.5px;letter-spacing:.02em;border-top:1px solid rgba(6,40,70,.08)}
+.pfoot img{height:15px;opacity:.9}
+.pfoot .pf-ch{color:var(--soft);flex:1;text-align:center;font-weight:600;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pfoot .pf-n{font-weight:700;color:var(--celtic)}
+.pfoot.dark{color:#8fb0c8;border-top-color:rgba(255,255,255,.12)}
+.pfoot.dark .pf-ch{color:#7fa0b8}
+.pfoot.dark .pf-n{color:var(--sky)}
 
-  main{padding:8px 0 56px;}
+/* ---------- LEITURA ---------- */
+.rbody{flex:1;min-height:0;overflow:auto;scrollbar-width:none}
+.rbody::-webkit-scrollbar{display:none}
+.rbody p{font-size:15.5px;line-height:1.62;color:#2a3f52;margin-bottom:12px}
+.rbody p strong{color:var(--oxford);font-weight:800}
+.rt{font-size:28px;font-weight:900;letter-spacing:-.6px;color:var(--oxford);line-height:1.06;margin-bottom:16px}
+.rh{font-size:14px;font-weight:800;color:var(--celtic);text-transform:uppercase;
+  letter-spacing:.12em;margin:2px 0 13px;padding-bottom:9px;border-bottom:2px solid #eaf3fb}
+.datacard{list-style:none;background:#f4fafe;border:1px solid #e3f0fa;border-radius:12px;
+  padding:15px 17px;margin:6px 0 14px}
+.datacard li{position:relative;padding-left:20px;font-size:14.5px;line-height:1.55;
+  color:#294056;margin-bottom:8px}
+.datacard li:last-child{margin-bottom:0}
+.datacard li:before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;
+  border-radius:50%;background:var(--sky)}
+.datacard li strong{color:var(--oxford)}
+.datacard.red{background:#fdf3f0;border-color:#f6ddd5}
+.datacard.red li:before{background:#e0603c}
+.datacard.green{background:var(--okbg);border-color:#d3eee1}
+.datacard.green li:before{background:var(--ok)}
+.rbody .pull{margin:18px 0;padding:2px 0 2px 20px;border-left:4px solid var(--sky);
+  font-size:18.5px;line-height:1.36;font-weight:800;color:var(--oxford);letter-spacing:-.3px}
+.rbody .pull cite{display:block;margin-top:7px;font-size:12.5px;font-weight:600;font-style:normal;
+  color:var(--celtic);letter-spacing:.02em}
+.rbody .pull cite:before{content:"— "}
 
-  /* ---------- SEÇÕES ---------- */
-  .sec{margin-top:44px;}
-  .sechead{margin-bottom:14px;}
-  .sechead .p{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--navy);}
-  .sechead h2{font-size:clamp(20px,4vw,25px);font-weight:800;letter-spacing:-.025em;color:var(--ink);margin-top:4px;}
-  .sechead .aside{font-size:12.5px;color:var(--muted);margin-top:3px;}
+/* passos numerados */
+.steps{list-style:none;margin:6px 0 14px}
+.steps li{display:flex;gap:13px;padding:9px 0;border-bottom:1px solid #eef4f9;
+  font-size:14.5px;line-height:1.5;color:#28405a}
+.steps li:last-child{border-bottom:none}
+.steps li b{color:var(--oxford)}
+.steps li em{display:block;font-style:normal;font-size:13px;color:#5f7183;margin-top:2px}
+.sn{flex:none;width:24px;height:24px;border-radius:50%;background:#eaf4fd;color:var(--celtic);
+  font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
 
-  .box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px;margin-top:12px;box-shadow:0 1px 3px rgba(10,69,128,.05);}
-  .box p+p{margin-top:10px;}
-  .box p{font-size:14.5px;color:var(--dim);}
-  .box p b{color:var(--ink);}
+/* mandamentos */
+.mlist{list-style:none;counter-reset:m;margin-top:4px}
+.mlist li{counter-increment:m;position:relative;padding:13px 0 13px 52px;border-bottom:1px solid rgba(255,255,255,.09)}
+.mlist li:before{content:counter(m,upper-roman);position:absolute;left:0;top:13px;width:40px;
+  font-size:14px;font-weight:900;color:var(--sky);letter-spacing:.03em}
+.mlist li b{display:block;font-size:15.5px;font-weight:800;color:#fff;letter-spacing:-.2px}
+.mlist li span{display:block;font-size:13px;line-height:1.55;color:#9dbdd4;margin-top:3px}
+.mlist.cont{counter-reset:m 5}
 
-  /* destaque navy chapado */
-  .norte{background:var(--navy);color:#fff;border-radius:18px;padding:24px 26px;margin-top:12px;}
-  .norte .l{font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--blue-soft);text-transform:uppercase;}
-  .norte p{font-size:clamp(15px,2.6vw,17px);font-weight:500;margin-top:10px;line-height:1.6;}
-  .norte b{color:#fff;font-weight:700;border-bottom:2px solid var(--blue-soft);}
+/* capa */
+.cover .paper{padding:60px 56px 40px}
+.cover .paper:before{content:"";position:absolute;inset:0;
+  background:image-set(url("/assets/guia/capa-bg.jpg") 1x);background-size:cover;background-position:center;
+  opacity:.5;pointer-events:none}
+.cover .paper>*{position:relative}
+.cv-top{margin-bottom:auto}
+.cv-logo{height:30px}
+.cv-kick{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--sky);font-weight:700}
+.cv-title{font-size:66px;font-weight:900;line-height:.94;letter-spacing:-2.2px;color:#fff;margin:14px 0 20px}
+.cv-sub{font-size:16.5px;line-height:1.6;color:#a9c4d8;max-width:32ch}
+.cv-foot{margin-top:auto;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);
+  display:flex;justify-content:space-between;align-items:flex-end;font-size:12.5px;color:#9fbace}
+.cv-foot b{color:#fff;font-size:14px}
+.cv-foot span{color:#84a2b8;font-size:11.5px}
+.cv-foot-r{text-align:right;color:#84a2b8}
 
-  .grid3{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px;}
-  @media(min-width:700px){.grid3{grid-template-columns:repeat(3,1fr);}}
-  .grid2{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px;}
-  @media(min-width:700px){.grid2{grid-template-columns:1fr 1fr;}}
-  .card.use{border-top-color:var(--ok);} .card.use .ic{background:var(--okbg);color:var(--ok);}
-  .card.avoid{border-top-color:var(--err);} .card.avoid .ic{background:#FEECEC;color:var(--err);}
-  .card ul{list-style:none;margin-top:9px;}
-  .card ul li{font-size:13px;color:var(--dim);padding:3px 0 3px 14px;position:relative;line-height:1.5;}
-  .card ul li::before{content:"·";position:absolute;left:3px;color:var(--muted);font-weight:800;}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 19px;box-shadow:0 1px 3px rgba(10,69,128,.05);}
-  .card h4{font-size:15px;font-weight:800;letter-spacing:-.01em;color:var(--ink);}
-  .card p{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.55;}
-  .card .ic{width:34px;height:34px;border-radius:10px;background:#EAF2FB;color:var(--navy);font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:11px;}
+/* sumário */
+.toc-h{font-size:28px;font-weight:900;letter-spacing:-.8px;color:var(--oxford);line-height:1.04;margin-bottom:16px}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:1px}
+.toc-list li{display:flex;align-items:baseline;gap:13px;padding:8px 0;border-bottom:1px solid #f0f5fa;
+  cursor:pointer;transition:padding .15s}
+.toc-list li:hover{padding-left:6px}
+.toc-n{font-size:13.5px;font-weight:800;color:var(--sky);min-width:25px}
+.toc-t{font-size:15px;font-weight:600;color:#28405a}
+.toc-note{margin-top:14px;background:linear-gradient(120deg,#052a4a,#053c73);color:#dcefff;
+  border-radius:12px;padding:13px 16px;font-size:12.5px;line-height:1.5}
+.toc-note span{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--sky);font-weight:700;margin-bottom:5px}
 
-  /* ---------- MANDAMENTOS (escuro chapado) ---------- */
-  .mand{background:var(--ink);color:#fff;border-radius:22px;padding:34px 26px 26px;margin-top:14px;}
-  .mand .ml{text-align:center;font-size:10.5px;font-weight:700;letter-spacing:.22em;color:var(--blue-soft);text-transform:uppercase;}
-  .mand h3{text-align:center;font-size:clamp(22px,4.5vw,28px);font-weight:800;letter-spacing:-.025em;margin-top:8px;}
-  .mand .msub{text-align:center;font-size:13.5px;color:#94A3B8;margin-top:9px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6;}
-  .mand ol{list-style:none;margin-top:26px;counter-reset:m;}
-  .mand li{counter-increment:m;padding:16px 0 16px 58px;position:relative;border-top:1px solid rgba(255,255,255,.09);}
-  .mand li::before{content:counter(m,upper-roman);position:absolute;left:2px;top:16px;width:44px;text-align:left;font-size:15px;font-weight:800;color:var(--blue-soft);letter-spacing:.03em;}
-  .mand li b{display:block;font-size:15.5px;font-weight:700;letter-spacing:-.015em;color:#fff;}
-  .mand li span{display:block;font-size:13.5px;color:#94A3B8;margin-top:4px;line-height:1.6;}
-  .mand .mfoot{text-align:center;font-size:12.5px;color:#64748B;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.09);font-style:italic;}
-  @media(min-width:760px){.mand{padding:40px 44px 30px;}}
+/* abertura de capítulo */
+.chapter .paper{padding:48px 52px 26px}
+.co-kick{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--sky);font-weight:700}
+.co-num{font-size:130px;font-weight:900;line-height:.82;color:transparent;
+  -webkit-text-stroke:2px rgba(90,160,205,.55);letter-spacing:-5px;display:block;margin-top:4px}
+.co-title{font-size:34px;font-weight:900;line-height:1.05;letter-spacing:-1px;color:#fff;margin:8px 0 0;max-width:16ch}
+.co-sub{font-size:15px;line-height:1.6;color:#a9c4d8;margin-top:12px;max-width:40ch}
+.co-shot{margin-top:auto;height:225px;border-radius:14px;overflow:hidden;
+  box-shadow:0 22px 55px -22px rgba(0,0,0,.7)}
+.co-shot img{width:100%;height:100%;object-fit:cover;display:block}
 
-  /* ---------- PASSOS ---------- */
-  .passo{background:var(--card);border:1px solid var(--line);border-radius:20px;margin-top:12px;overflow:hidden;box-shadow:0 1px 3px rgba(10,69,128,.05);}
-  .ph{display:flex;align-items:center;gap:13px;padding:16px 20px;border-bottom:1px solid var(--line2);flex-wrap:wrap;}
-  .ph .num{width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-size:13.5px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
-  .ph .tt{font-size:clamp(15.5px,3vw,17.5px);font-weight:800;letter-spacing:-.02em;color:var(--ink);}
-  .ph .tempo{margin-left:auto;font-size:11px;font-weight:600;color:var(--navy);background:#EAF2FB;border-radius:32px;padding:4px 13px;white-space:nowrap;}
-  .pbody{padding:18px 20px 20px;}
-  .pbody > p{font-size:14.5px;color:var(--dim);}
-  .pbody > p b{color:var(--ink);}
-  .pbody > p+p{margin-top:9px;}
+/* bridge */
+.bridge .paper{justify-content:center}
+.br-wrap{flex:1;display:flex;flex-direction:column;justify-content:center}
+.br-line{width:44px;height:4px;border-radius:2px;background:var(--sky);margin-bottom:24px}
+.br-text{font-size:19px;line-height:1.62;color:#c4dcec;font-weight:500;max-width:34ch}
+.br-text strong{color:#fff;font-weight:800}
 
-  .lab{font-size:10.5px;font-weight:700;letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:18px 0 8px;}
-  .lab:first-child{margin-top:0;}
+/* autor / história */
+.author{flex:1;min-height:0;display:flex;gap:24px;align-items:center;overflow:auto;scrollbar-width:none}
+.author::-webkit-scrollbar{display:none}
+.au-photo{flex:none;width:230px;height:300px;border-radius:16px;overflow:hidden;
+  box-shadow:0 24px 55px -20px rgba(5,30,50,.55)}
+.au-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.au-txt{flex:1}
+.au-name{font-size:26px;font-weight:900;letter-spacing:-.6px;color:var(--oxford);line-height:1.05}
+.au-role{font-size:12px;font-weight:700;color:var(--celtic);text-transform:uppercase;letter-spacing:.05em;margin:6px 0 14px}
+.author p{font-size:14.5px;line-height:1.6;color:#2a3f52;margin-bottom:11px}
+.author p strong{color:var(--oxford);font-weight:800}
 
-  ol.acao{list-style:none;counter-reset:a;}
-  ol.acao li{counter-increment:a;font-size:14.5px;padding:11px 0 11px 36px;position:relative;border-bottom:1px solid var(--line2);}
-  ol.acao li:last-child{border-bottom:none;padding-bottom:4px;}
-  ol.acao li::before{content:counter(a);position:absolute;left:0;top:11px;width:24px;height:24px;border-radius:50%;background:#EAF2FB;color:var(--navy);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}
-  ol.acao li b{font-weight:700;color:var(--ink);}
-  ol.acao li .q{display:block;color:var(--muted);font-size:13px;margin-top:3px;line-height:1.55;}
+/* checklist */
+.act-list{list-style:none;flex:1;min-height:0;overflow:auto;scrollbar-width:none}
+.act-list::-webkit-scrollbar{display:none}
+.act-list li{display:flex;gap:13px;align-items:flex-start;padding:9.5px 0;
+  border-bottom:1px solid #e6f2fb;font-size:14.5px;line-height:1.45;color:#28405a}
+.act-list li strong{color:var(--oxford)}
+.chk{flex:none;width:19px;height:19px;border-radius:6px;border:2px solid var(--sky);margin-top:1px;position:relative}
+.chk:after{content:"";position:absolute;left:4.5px;top:1px;width:6px;height:10px;
+  border:solid var(--sky);border-width:0 2.5px 2.5px 0;transform:rotate(42deg);opacity:.32}
 
-  .entrega{margin-top:16px;background:var(--okbg);border:1px solid var(--okline);border-radius:14px;padding:13px 17px;}
-  .entrega .l{font-size:10px;font-weight:800;letter-spacing:.13em;color:var(--ok);text-transform:uppercase;display:block;margin-bottom:4px;}
-  .entrega p{font-size:13.5px;color:var(--okink);}
+/* regras dark */
+.rules-list{list-style:none;margin-top:6px}
+.rules-list li{position:relative;padding:10px 0 10px 26px;border-bottom:1px solid rgba(255,255,255,.09);
+  font-size:14.5px;line-height:1.5;color:#e8d9d3}
+.rules-list li:before{content:"×";position:absolute;left:2px;top:8px;color:#ff8355;font-weight:900;font-size:16px}
+.rules-list li b{color:#fff}
+.dark .rbody p{color:#b7d0e2}
+.dark .rbody p strong{color:#fff}
+.dark .rt{color:#fff}
+.dark .rh{color:var(--sky);border-bottom-color:rgba(255,255,255,.14)}
 
-  .nota{margin-top:12px;background:var(--warnbg);border:1px solid var(--warnline);border-radius:14px;padding:13px 17px;}
-  .nota .l{font-size:10px;font-weight:800;letter-spacing:.13em;color:var(--warn);text-transform:uppercase;display:block;margin-bottom:4px;}
-  .nota p{font-size:13.5px;color:var(--warnink);line-height:1.6;}
-  .nota p+p{margin-top:6px;}
+/* duas colunas de vocabulário */
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 14px}
+.vcol{border-radius:12px;padding:14px 16px;font-size:13.5px}
+.vcol h5{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;margin-bottom:9px}
+.vcol ul{list-style:none}
+.vcol li{padding:3.5px 0;line-height:1.45}
+.vcol.use{background:var(--okbg);border:1px solid #d3eee1;color:#1d5c46}
+.vcol.use h5{color:var(--ok)}
+.vcol.avoid{background:#fdf3f0;border:1px solid #f6ddd5;color:#7d3a26}
+.vcol.avoid h5{color:#c04c28}
 
-  /* tabelas */
-  .tblwrap{overflow-x:auto;margin-top:12px;border-radius:16px;border:1px solid var(--line);}
-  table{width:100%;border-collapse:collapse;background:var(--card);font-size:13.5px;min-width:420px;}
-  th{background:var(--ink);color:#fff;text-align:left;padding:11px 16px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;}
-  td{padding:12px 16px;border-top:1px solid var(--line2);vertical-align:top;color:var(--dim);}
-  td b{color:var(--navy-deep);}
-  td .lk{color:var(--muted);font-size:12px;display:block;margin-top:1px;}
+/* contracapa */
+.bc-wrap{flex:1;display:flex;flex-direction:column;justify-content:center}
+.bc-logo{height:26px;align-self:flex-start;margin-bottom:26px}
+.bc-kick{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--sky);font-weight:700;margin-bottom:14px}
+.bc-lead{font-size:16px;line-height:1.62;color:#bcd6e8;margin-bottom:14px;max-width:40ch}
+.bc-lead strong{color:#fff}
+.bc-fine{margin-top:auto;font-size:10.5px;line-height:1.5;color:#6f8ba1;
+  border-top:1px solid rgba(255,255,255,.12);padding-top:14px}
 
-  /* perguntas */
-  ol.perg{list-style:none;counter-reset:pg;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:8px 20px;margin-top:12px;box-shadow:0 1px 3px rgba(10,69,128,.05);}
-  ol.perg li{counter-increment:pg;font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink);padding:14px 0 14px 44px;position:relative;border-bottom:1px solid var(--line2);}
-  ol.perg li:last-child{border-bottom:none;}
-  ol.perg li::before{content:counter(pg,decimal-leading-zero);position:absolute;left:0;top:14px;font-size:12px;font-weight:800;color:var(--navy);background:#EAF2FB;border-radius:8px;padding:3px 8px;}
-  ol.perg li .q{display:block;font-size:13px;font-weight:400;color:var(--muted);margin-top:3px;line-height:1.55;}
+/* ---------- CONTROLES ---------- */
+.nav{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.2);background:#0e2438;
+  color:#eaf6ff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  z-index:20;transition:background .2s,border-color .2s;user-select:none}
+.nav:hover{background:var(--celtic);border-color:var(--celtic)}
+.nav.prev{left:18px}.nav.next{right:18px}
+.nav[disabled]{opacity:.25;pointer-events:none}
+.bottom{position:fixed;left:0;right:0;bottom:0;height:44px;display:flex;align-items:center;
+  gap:16px;padding:0 20px;z-index:20}
+.progress{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.13);overflow:hidden;cursor:pointer}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sky),var(--dodger));transition:width .25s}
+.counter{font-size:12px;font-weight:700;color:#9fbace;letter-spacing:.04em;min-width:56px;text-align:right}
+.hint{position:fixed;bottom:52px;left:50%;transform:translateX(-50%);font-size:11px;color:#7c9bb2;
+  letter-spacing:.06em;z-index:20;transition:opacity .5s;pointer-events:none;white-space:nowrap}
+.menu{position:fixed;top:16px;right:16px;width:44px;height:44px;border-radius:12px;
+  border:1px solid rgba(255,255,255,.2);background:#0e2438;cursor:pointer;z-index:30;
+  display:flex;flex-direction:column;gap:4px;align-items:center;justify-content:center;transition:background .2s}
+.menu:hover{background:var(--celtic)}
+.menu span{width:18px;height:2px;background:#cfe6f5;border-radius:2px}
+.ovl{position:fixed;inset:0;background:rgba(4,14,24,.72);z-index:40;display:none;
+  align-items:center;justify-content:center;padding:24px}
+.ovl.open{display:flex}
+.ovl-card{width:min(440px,100%);max-height:82vh;background:#fff;border-radius:18px;overflow:hidden;
+  display:flex;flex-direction:column;box-shadow:0 40px 90px -20px rgba(0,0,0,.6)}
+.ovl-head{display:flex;align-items:center;justify-content:space-between;padding:17px 22px;border-bottom:1px solid var(--line)}
+.ovl-head span{font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:800;color:var(--celtic)}
+.ovl-x{border:0;background:none;font-size:26px;line-height:1;color:var(--soft);cursor:pointer}
+.ovl-list{list-style:none;overflow:auto;padding:6px 0}
+.ovl-list li{display:flex;align-items:center;gap:14px;padding:12px 22px;cursor:pointer;transition:background .15s}
+.ovl-list li:hover{background:#f2fafe}
+.ov-n{font-size:14px;font-weight:800;color:var(--sky);min-width:26px}
+.ov-t{font-size:15px;font-weight:600;color:var(--oxford)}
 
-  /* regras (escuro chapado) */
-  .rules{background:var(--ink);color:#fff;border-radius:20px;padding:24px 24px 20px;margin-top:12px;}
-  .rules .l{font-size:10.5px;font-weight:700;letter-spacing:.16em;color:#FCA5A5;text-transform:uppercase;}
-  .rules ul{list-style:none;margin-top:14px;display:grid;grid-template-columns:1fr;gap:9px;}
-  @media(min-width:700px){.rules ul{grid-template-columns:1fr 1fr;gap:9px 26px;}}
-  .rules li{font-size:13.5px;padding-left:21px;position:relative;color:#CBD5E1;line-height:1.55;}
-  .rules li::before{content:"×";position:absolute;left:0;top:-2px;color:var(--err);font-weight:800;font-size:16px;}
-  .rules li b{color:#fff;font-weight:700;}
-
-  /* checklist */
-  ul.ck{list-style:none;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:8px 20px;margin-top:12px;box-shadow:0 1px 3px rgba(10,69,128,.05);}
-  ul.ck li{font-size:14px;color:var(--dim);padding:11px 0 11px 32px;position:relative;border-bottom:1px solid var(--line2);}
-  ul.ck li:last-child{border-bottom:none;}
-  ul.ck li::before{content:"";position:absolute;left:0;top:13px;width:15px;height:15px;border:2px solid var(--navy);border-radius:5px;}
-  ul.ck li b{color:var(--ink);font-weight:700;}
-  ul.ck li .d{color:var(--navy);font-size:11px;font-weight:700;margin-right:8px;}
-
-  /* fecho */
-  .fim{background:var(--navy);color:#fff;border-radius:20px;padding:26px 26px;margin-top:40px;}
-  .fim p{font-size:clamp(14.5px,2.6vw,16px);line-height:1.65;color:#DBEAFB;}
-  .fim p b{color:#fff;}
-  .fim p+p{margin-top:10px;}
-
-  footer{background:var(--ink);margin-top:56px;padding:30px 0;}
-  footer .wrap{display:flex;flex-direction:column;align-items:center;gap:12px;}
-  footer img{height:24px;display:block;}
-  footer p{font-size:11.5px;color:#64748B;text-align:center;}
-</style>
-</head>
+/* ---------- MOBILE ---------- */
+@media(max-width:640px){
+  .page{padding:12px 10px 52px}
+  .paper{padding:26px 22px 18px;border-radius:14px;height:100%}
+  .cover .paper{padding:34px 26px 24px}
+  .cv-title{font-size:44px;letter-spacing:-1.4px}
+  .chapter .paper{padding:30px 24px 18px}
+  .co-num{font-size:92px;-webkit-text-stroke-width:1.5px}
+  .co-title{font-size:27px}
+  .co-shot{height:170px}
+  .rt{font-size:23px}
+  .author{flex-direction:column;align-items:flex-start;gap:16px}
+  .au-photo{width:150px;height:190px}
+  .vgrid{grid-template-columns:1fr}
+  .nav{width:42px;height:42px;font-size:18px}
+  .nav.prev{left:8px}.nav.next{right:8px}
+}
+</style></head>
 <body>
+<div class="viewer">
+<div class="reader" id="reader">
 
-<nav class="nav">
-  <div class="wrap">
-    <img src="/assets/logo-clintia-cor.png" alt="ClintIA">
-    <span class="tag">Guia de Entrada</span>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap">
-    <span class="eyebrow">Novos colaboradores</span>
-    <h1>Bem-vindo ao time.</h1>
-    <p class="sub">Este é o seu roteiro de entrada. Ele vale para todo mundo que entra na ClintIA, independente da área. Faça na ordem — no fim dele, você começa a trabalhar de verdade.</p>
-
-    <div class="stepper">
-      <div class="stp"><span class="n">1</span><span class="t">Seu e-mail</span><span class="d">a chave de tudo</span></div>
-      <div class="stp"><span class="n">2</span><span class="t">A plataforma</span><span class="d">seu ambiente</span></div>
-      <div class="stp"><span class="n">3</span><span class="t">Treinamento</span><span class="d">o da sua vaga</span></div>
-      <div class="stp"><span class="n">4</span><span class="t">O produto</span><span class="d">ver como cliente</span></div>
-      <div class="stp"><span class="n">5</span><span class="t">Pronto</span><span class="d">mão na massa</span></div>
+<!-- 1 · CAPA -->
+<section class="page cover">
+  <div class="paper dark">
+    <div class="cv-top">
+      <img class="cv-logo" src="/assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+    </div>
+    <div>
+      <div class="cv-kick">Guia de Entrada · Novos Colaboradores</div>
+      <h1 class="cv-title">Bem-vindo<br>ao time.</h1>
+      <p class="cv-sub">Quem a gente é, no que a gente acredita e o passo a passo dos seus primeiros dias — tudo num lugar só.</p>
+    </div>
+    <div class="cv-foot">
+      <div><b>ClintIA</b><br><span>Tecnologia e crescimento para clínicas populares</span></div>
+      <div class="cv-foot-r">Documento interno<br>Edição 2026</div>
     </div>
   </div>
-</header>
+</section>
 
-<main>
-<div class="wrap">
-
-  <!-- A EMPRESA -->
-  <div class="sec">
-    <div class="sechead">
-      <div class="p">Antes de começar</div>
-      <h2>A ClintIA em um minuto</h2>
+<!-- 2 · SUMÁRIO -->
+<section class="page">
+  <div class="paper light">
+    <div class="phead light"><span class="ph-ch">Guia de Entrada</span><span class="ph-hint" style="margin-left:auto;font-size:10.5px;color:#9cb3c6;font-weight:600">toque num capítulo pra ir direto</span></div>
+    <div class="rbody">
+      <h2 class="toc-h">O que tem<br>neste guia</h2>
+      <ul class="toc-list">
+        <li data-goto="2"><span class="toc-n">01</span><span class="toc-t">O que a gente faz</span></li>
+        <li data-goto="5"><span class="toc-n">02</span><span class="toc-t">De onde a gente vem</span></li>
+        <li data-goto="8"><span class="toc-n">03</span><span class="toc-t">Quem é o nosso público</span></li>
+        <li data-goto="11"><span class="toc-n">04</span><span class="toc-t">No que a gente acredita</span></li>
+        <li data-goto="15"><span class="toc-n">05</span><span class="toc-t">Seus primeiros passos</span></li>
+        <li data-goto="20"><span class="toc-n">06</span><span class="toc-t">Pronto pra começar</span></li>
+      </ul>
+      <div class="toc-note"><span>Como ler</span>Na ordem, do começo ao fim — leva menos de meia hora. Cada capítulo prepara o próximo, e no final tem um checklist pra você marcar o que já fez.</div>
     </div>
-
-    <div class="norte">
-      <div class="l">O problema que a gente resolve</div>
-      <p>O dono de uma clínica popular <b>não sabe de onde vêm os pacientes dele</b> nem quanto custa cada um. Ele investe no escuro e perde gente no caminho sem perceber. Nosso trabalho é <b>instalar o sistema que mede isso</b> — e transformar achismo em número.</p>
-    </div>
-
-    <div class="box">
-      <p><b>O que vendemos:</b> um programa chamado <b>PROClip</b> — a implantação da estrutura comercial de uma clínica, em cerca de 45 dias. Ele se divide em duas fases:</p>
-      <p><b>Fase 1 · Marketing —</b> site, Google Meu Negócio, conteúdo e tráfego pago. Faz a clínica ser encontrada.</p>
-      <p><b>Fase 2 · Comercial —</b> CRM, rastreamento de origem, automação e reativação de base. Faz a clínica medir e parar de perder paciente.</p>
-      <p><b>Quem é o cliente:</b> a clínica popular — alto volume, ticket baixo, atendimento particular sem convênio. O <b>WhatsApp é onde tudo acontece</b>: 9 de cada 10 contatos. O dono normalmente é o próprio médico, ocupado, que decide rápido e não tem paciência para complexidade.</p>
-    </div>
-
-    <div class="grid3">
-      <div class="card"><div class="ic">1</div><h4>Origem invisível</h4><p>Ninguém registra por onde o paciente chegou. Sem isso, não dá para saber o que funciona e o que é desperdício.</p></div>
-      <div class="card"><div class="ic">2</div><h4>Faltas</h4><p>Cerca de 1 em cada 4 marca consulta e não aparece. Agenda e receita perdidas todo dia.</p></div>
-      <div class="card"><div class="ic">3</div><h4>Base parada</h4><p>Milhares de pacientes já atendidos que nunca mais voltaram — e ninguém chama de volta.</p></div>
-    </div>
-    <div class="box" style="margin-top:10px;">
-      <p style="font-size:13.5px;">Estes são <b>os três vazamentos que a gente ataca em todo cliente</b>. Você vai ouvi-los em toda reunião, documento e projeto daqui pra frente — eles são o negócio inteiro.</p>
-    </div>
-
-    <div class="nota" style="margin-top:14px;">
-      <span class="l">O diferencial — leia com atenção</span>
-      <p>Aqui vai a parte que separa a ClintIA de qualquer agência de marketing comum, e que você precisa entender de cor: <b>a gente não vende só saber quanto custa um paciente. A gente entrega um sistema.</b></p>
-      <p>Uma frase que o Bernardo usa direto em reunião de venda: <i>"Eu não tô te oferecendo uma solução de marketing, ou de Instagram, ou de conteúdo. Eu tô te oferecendo um sistema completo."</i> Aquisição, presença local, CRM, automação e dashboard — tudo conectado, entregue rodando, em 45 dias. Não é uma campanha avulsa nem uma ferramenta que a recepção esquece de usar depois de uma semana. <b>É infraestrutura que fica na clínica.</b> É isso que faz o cliente continuar com a gente.</p>
-    </div>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Guia de Entrada</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <!-- QUEM É O NOSSO PÚBLICO -->
-  <div class="sec">
-    <div class="sechead">
-      <div class="p">Com quem a gente fala</div>
-      <h2>Quem é o nosso público</h2>
-      <div class="aside">Você vai conviver com esse perfil todo dia. Vale conhecer bem.</div>
+<!-- 3 · CAP 01 ABERTURA -->
+<section class="page chapter">
+  <div class="paper dark">
+    <div><span class="co-kick">Capítulo 01</span>
+      <span class="co-num">01</span>
+      <h2 class="co-title">O que a gente faz</h2>
+      <p class="co-sub">O problema que a ClintIA resolve, o produto que ela vende e o diferencial que separa a gente de qualquer agência.</p>
     </div>
+    <div class="co-shot"><img src="/assets/guia/sistema.jpg" alt=""></div>
+    <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Capítulo 01 · O que a gente faz</span><span class="pf-n" data-pn></span></div>
+  </div>
+</section>
 
-    <div class="box">
-      <p>O nosso cliente é o <b>dono de clínica popular</b> — quase sempre o próprio médico. Ele faz de 80 a 200 agendamentos por semana, com ticket entre R$60 e R$150, e boa parte da receita dele ainda vem de convênio. Ele é ocupado, decide rápido e não tem paciência com complexidade.</p>
-      <p>O ponto mais importante pra entender ele: <b>ele é excelente na medicina e nunca estudou gestão.</b> Uma frase que aparece direto nas nossas reuniões: <i>"Fiz tudo certo na medicina. Não fiz faculdade de administração."</i> Ele não é desorganizado por preguiça — ele nunca teve as ferramentas.</p>
-      <p>E quase sempre ele já se queimou antes. Outra frase real: <i>"Contratei agência por 6 meses, gastei R$18.000, o Instagram ficou bonito e a agenda continuou igual."</i> <b>É por isso que a gente entra falando de sistema e de número, não de marketing.</b> Ele já ouviu a conversa de marketing — e ela não funcionou pra ele.</p>
+<!-- 4 · O PROBLEMA E O SISTEMA -->
+<section class="page">
+  <div class="paper light">
+    <div class="phead light"><span class="ph-ch">Capítulo 01</span></div>
+    <div class="rbody">
+      <h2 class="rt">Um sistema completo —<br>não uma agência</h2>
+      <p>O dono de uma clínica popular <strong>não sabe de onde vêm os pacientes dele</strong> nem quanto custa cada um. Ele investe no escuro e perde gente no caminho sem perceber. Nosso trabalho é <strong>instalar o sistema que mede isso</strong> — e transformar achismo em número.</p>
+      <div class="pull">"Eu não tô te oferecendo uma solução de marketing, ou de Instagram, ou de conteúdo. Eu tô te oferecendo um sistema completo."<cite>Bernardo, em reunião real de venda</cite></div>
+      <p>Esse é o diferencial que você precisa entender de cor: aquisição, presença local, CRM, automação e dashboard — <strong>tudo conectado, entregue rodando, em cerca de 45 dias</strong>. Não é campanha avulsa nem ferramenta que a recepção esquece de usar. <strong>É infraestrutura que fica na clínica.</strong></p>
+      <p>O produto se chama <strong>PROClip</strong> e se divide em duas fases:</p>
+      <ul class="datacard">
+        <li><strong>Fase 1 · Marketing</strong> — site, Google Meu Negócio, conteúdo e tráfego pago. Faz a clínica ser encontrada.</li>
+        <li><strong>Fase 2 · Comercial</strong> — CRM, rastreamento de origem, automação e reativação de base. Faz a clínica medir e parar de perder paciente.</li>
+      </ul>
     </div>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 01 · O que a gente faz</span><span class="pf-n" data-pn></span></div>
+  </div>
+</section>
 
-    <div class="lab">As dores dele vêm em três camadas</div>
-    <div class="grid3">
-      <div class="card"><div class="ic">1</div><h4>Ele fala em voz alta</h4><p>As faltas. De 16% a 30% dos pacientes não aparecem, e isso ele reclama sem constrangimento nenhum.</p></div>
-      <div class="card"><div class="ic">2</div><h4>Ele admite com hesitação</h4><p>O medo de errar com o CFM e sofrer processo. Por isso a gente nunca promete resultado em material de saúde.</p></div>
-      <div class="card"><div class="ic">3</div><h4>Ele nunca verbaliza</h4><p>Que decide no escuro. Investe sem saber o que funciona — e admitir isso é admitir que não domina o próprio negócio.</p></div>
+<!-- 5 · OS TRÊS VAZAMENTOS -->
+<section class="page">
+  <div class="paper light">
+    <div class="phead light"><span class="ph-ch">Capítulo 01</span></div>
+    <div class="rbody">
+      <h2 class="rt">Os três vazamentos</h2>
+      <p>Em toda clínica que a gente atende, o dinheiro vaza pelos mesmos três lugares. Você vai ouvir isso em toda reunião, documento e projeto daqui pra frente — <strong>eles são o negócio inteiro:</strong></p>
+      <ul class="datacard red">
+        <li><strong>Origem invisível.</strong> Ninguém registra por onde o paciente chegou. Sem isso, não dá pra saber o que funciona e o que é desperdício.</li>
+        <li><strong>Faltas.</strong> Cerca de 1 em cada 4 pacientes marca consulta e não aparece. Agenda e receita perdidas todo dia.</li>
+        <li><strong>Base parada.</strong> Milhares de pacientes já atendidos que nunca mais voltaram — e ninguém chama de volta.</li>
+      </ul>
+      <p>O nosso sistema existe pra fechar esses três buracos: registrar a origem de cada paciente, recuperar quem falta e reativar a base que está parada.</p>
+      <p><strong>E onde você entra?</strong> Não importa a sua vaga — comercial, tráfego, automação, produção — o seu trabalho ataca pelo menos um desses vazamentos. Descobrir qual é uma das perguntas que você vai responder no fim deste guia.</p>
     </div>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 01 · O que a gente faz</span><span class="pf-n" data-pn></span></div>
+  </div>
+</section>
 
-    <div class="lab">O vocabulário importa mais do que parece</div>
-    <div class="grid2">
-      <div class="card use">
-        <div class="ic">✓</div><h4>Fale assim</h4>
-        <ul>
-          <li>Custo por paciente que <b>pagou</b></li>
-          <li>Previsibilidade de agenda</li>
-          <li>Infraestrutura comercial</li>
-          <li>Dashboard no celular</li>
-          <li>Reativação de base</li>
-          <li>Médico-empreendedor</li>
-        </ul>
+<!-- 6 · CAP 02 ABERTURA -->
+<section class="page chapter">
+  <div class="paper dark">
+    <div><span class="co-kick">Capítulo 02</span>
+      <span class="co-num">02</span>
+      <h2 class="co-title">De onde a gente vem</h2>
+      <p class="co-sub">A história que explica por que esta empresa é do jeito que é — e por que você talvez se reconheça nela.</p>
+    </div>
+    <div class="co-shot"><img src="/assets/guia/bernardo.jpg" alt="Bernardo Carneiro" style="object-position:center 20%"></div>
+    <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Capítulo 02 · De onde a gente vem</span><span class="pf-n" data-pn></span></div>
+  </div>
+</section>
+
+<!-- 7 · A HISTÓRIA -->
+<section class="page">
+  <div class="paper light">
+    <div class="phead light"><span class="ph-ch">Capítulo 02</span></div>
+    <div class="rbody">
+      <h2 class="rt">Curiosidade — desde<br>o primeiro computador</h2>
+      <p>A ClintIA nasceu de uma curiosidade antiga. O Bernardo, fundador, nasceu em 1994 — e a primeira coisa que mexeu de verdade com ele foi o computador que o pai trouxe pra casa: monitor enorme, teclado amarelado, o pai digitando rápido o dia inteiro. Ele sentou pra entender como aquilo funcionava e o tempo simplesmente passava. Foi ali que descobriu o que move ele até hoje — e o que a gente procura em quem entra no time: <strong>curiosidade</strong>.</p>
+      <p>Cresceu andando na rua, morando na Pereira da Silva, perto de uma comunidade — se aproximou de gente de lá, se envolveu com projetos como o Projeto Morrinho. Trabalhou em loja de roupa por um bom tempo antes de qualquer coisa de tecnologia. <strong>Sempre gostou de gente antes de gostar de sistema</strong> — e é por isso que, aqui dentro, técnica sem olhar pra pessoa nunca foi o suficiente.</p>
+      <p>Entrou na <strong>MarketMED — a primeira agência de marketing médico do Brasil</strong> — junto com um amigo, numa microempresa ligada à UFF. Na faculdade, o caminho não foi reto: Matemática, depois Estatística, depois Finance, até a faculdade de Empreendedorismo. <strong>Faculdade pública, caminho não-linear, sempre mais curioso que estudioso.</strong> Se você reconheceu um pouco de si nisso, não é coincidência: boa parte do time chegou aqui de um jeito parecido.</p>
+      <p>E aprendeu do jeito que boa parte dessa geração aprende: não pelos livros, mas na prática — <strong>fazer, olhar, corrigir</strong>, nessa ordem. É o mesmo método que este guia usa com você.</p>
+    </div>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 02 · De onde a gente vem</span><span class="pf-n" data-pn></span></div>
+  </div>
+</section>
+
+<!-- 8 · BRIDGE PIONEIROS -->
+<section class="page bridge">
+  <div class="paper dark">
+    <div class="br-wrap">
+      <div class="br-line"></div>
+      <p class="br-text">Foram anos no setor de saúde até enxergar o óbvio que ninguém via: <strong>a clínica popular, que atende quem mais precisa, era o segmento mais mal servido de tecnologia e gestão.</strong></p>
+      <p class="br-text" style="margin-top:18px">A ClintIA existe pra fechar esse buraco. <strong>Somos pioneiros — praticamente sozinhos nesse mercado.</strong> O que a gente aprende aqui, quase ninguém sabe. Não existe manual pronto pra copiar: boa parte está sendo inventada agora, <strong>e você vai participar disso.</strong></p>
+    </div>
+    <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Capítulo 02 · De onde a gente vem</span><span class="pf-n" data-pn></span></div>
+  </div>
+</section>
+
+<!-- 9 · CAP 03 ABERTURA -->
+<section class="page chapter">
+  <div class="paper dark">
+    <div><span class="co-kick">Capítulo 03</span>
+      <span class="co-num">03</span>
+      <h2 class="co-title">Quem é o nosso público</h2>
+      <p class="co-sub">O dono de clínica popular: como ele pensa, o que ele sofre e o que você nunca deve dizer pra ele.</p>
+    </div>
+    <div class="co-shot"><img src="/assets/guia/clinica.jpg" alt=""></div>
+    <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Capítulo 03 · Quem é o nosso público</span><span class="pf-n" data-pn></span></div>
+  </div>
+</section>
+
+<!-- 10 · O RETRATO -->
+<section class="page">
+  <div class="paper light">
+    <div class="phead light"><span class="ph-ch">Capítulo 03</span></div>
+    <div class="rbody">
+      <h2 class="rt">O médico que virou<br>empreendedor sem manual</h2>
+      <p>O nosso cliente é o <strong>dono de clínica popular</strong> — quase sempre o próprio médico. Ele faz de 80 a 200 agendamentos por semana, com ticket entre R$60 e R$150. É ocupado, decide rápido e não tem paciência com complexidade.</p>
+      <div class="pull">"Fiz tudo certo na medicina. Não fiz faculdade de administração."<cite>frase real, dita em reunião</cite></div>
+      <p>Ele não é desorganizado por preguiça — <strong>ele nunca teve as ferramentas.</strong> E quase sempre já se queimou: <em>"contratei agência por 6 meses, gastei R$18.000, o Instagram ficou bonito e a agenda continuou igual"</em>. É por isso que a gente fala de sistema e número, nunca de marketing.</p>
+      <p><strong>As dores dele vêm em três camadas:</strong></p>
+      <ul class="datacard">
+        <li><strong>Ele fala em voz alta:</strong> as faltas. De 16% a 30% dos pacientes não aparecem — disso ele reclama sem constrangimento.</li>
+        <li><strong>Ele admite com hesitação:</strong> o medo de errar com o CFM e sofrer processo. Por isso a gente nunca promete resultado.</li>
+        <li><strong>Ele nunca verbaliza:</strong> que decide no escuro. Admitir isso é admitir que não domina o próprio negócio.</li>
+      </ul>
+    </div>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 03 · Quem é o nosso público</span><span class="pf-n" data-pn></span></div>
+  </div>
+</section>
+
+<!-- 11 · VOCABULÁRIO -->
+<section class="page">
+  <div class="paper light">
+    <div class="phead light"><span class="ph-ch">Capítulo 03</span></div>
+    <div class="rbody">
+      <h2 class="rt">O vocabulário importa<br>mais do que parece</h2>
+      <p>Ele já ouviu a conversa de marketing — e ela não funcionou pra ele. As palavras que você usa dizem de que lado você está:</p>
+      <div class="vgrid">
+        <div class="vcol use"><h5>✓ Fale assim</h5>
+          <ul><li>Custo por paciente que <b>pagou</b></li><li>Previsibilidade de agenda</li><li>Infraestrutura comercial</li><li>Dashboard no celular</li><li>Reativação de base</li><li>Médico-empreendedor</li></ul>
+        </div>
+        <div class="vcol avoid"><h5>✕ Evite isso</h5>
+          <ul><li>Marketing digital</li><li>Presença online</li><li>Engajamento e branding</li><li>Conteúdo de valor</li><li>Número de cliques</li><li><b>Prometer resultado</b> (CFM)</li></ul>
+        </div>
       </div>
-      <div class="card avoid">
-        <div class="ic">✕</div><h4>Evite isso</h4>
-        <ul>
-          <li>Marketing digital</li>
-          <li>Presença online</li>
-          <li>Engajamento e branding</li>
-          <li>Conteúdo de valor</li>
-          <li>Número de cliques</li>
-          <li><b>Nunca prometer resultado</b> (CFM)</li>
-        </ul>
-      </div>
+      <p><strong>E uma coisa que você vai perceber rápido:</strong> quem sente a dor raramente é quem assina. O dono mais velho conhece a operação de cor mas delega a decisão ao filho; a pessoa de marketing interna já diagnosticou tudo e só precisa de execução. <strong>Entender quem sente a dor, quem influencia e quem assina é metade do trabalho.</strong> Na aba Arquétipos da plataforma tem o mapa completo.</p>
     </div>
-
-    <div class="nota">
-      <span class="l">Uma coisa que você vai perceber rápido</span>
-      <p>Na maioria das clínicas, <b>quem sente a dor não é quem assina</b>. É comum o dono mais velho conhecer a operação de cor mas delegar a decisão digital ao filho ou genro — ou a clínica ter uma pessoa de marketing interna que já diagnosticou tudo sozinha e só precisa de execução.</p>
-      <p>Por isso, aqui a gente nunca trata "o cliente" como uma pessoa só. <b>Entender quem sente a dor, quem influencia e quem assina</b> é metade do trabalho. Na aba <b>Arquétipos</b> da plataforma tem o mapa completo desses perfis.</p>
-    </div>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 03 · Quem é o nosso público</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <!-- DE ONDE A GENTE VEM -->
-  <div class="sec">
-    <div class="sechead">
-      <div class="p">A parte humana</div>
-      <h2>De onde a gente vem</h2>
+<!-- 12 · CAP 04 ABERTURA -->
+<section class="page chapter">
+  <div class="paper dark">
+    <div><span class="co-kick">Capítulo 04</span>
+      <span class="co-num">04</span>
+      <h2 class="co-title">No que a gente acredita</h2>
+      <p class="co-sub">O propósito, os valores e os 10 mandamentos — o critério com que as decisões são tomadas aqui dentro.</p>
     </div>
-
-    <div class="box">
-      <p>A ClintIA nasceu de uma curiosidade antiga. O Bernardo, fundador, nasceu em 1994 — e a primeira coisa que mexeu de verdade com ele foi o computador que o pai trouxe pra casa: monitor enorme, teclado amarelado, o pai digitando rápido o dia inteiro naquela máquina. Ele sentou pra entender como aquilo funcionava e o tempo simplesmente passava. Foi ali que descobriu o que move ele até hoje — e o que a gente procura em quem entra no time: <b>curiosidade</b>.</p>
-      <p>Cresceu andando na rua, morando na Pereira da Silva, perto de uma comunidade — se aproximou de gente de lá, chegou a se envolver com projetos como o Projeto Morrinho. Trabalhou em loja de roupa por um bom tempo antes de qualquer coisa de tecnologia. <b>Sempre gostou de gente antes de gostar de sistema</b> — e é por isso que, aqui dentro, técnica sem olhar pra pessoa nunca foi o suficiente.</p>
-      <p>Entrou na <b>MarketMED — a primeira agência de marketing médico do Brasil</b> — junto com um amigo, numa microempresa ligada à UFF, e foi alocado pra estruturar a parte de marketing. Na faculdade, o caminho não foi reto: começou em Matemática, passou por Estatística, até achar um curso de Finance — onde tinha curiosidade e via como fazer dinheiro — e depois se transferiu pra faculdade de Empreendedorismo, também na UFF. <b>Faculdade pública, caminho não-linear, sempre mais curioso que estudioso.</b> Se você reconheceu um pouco de si nisso, não é coincidência: boa parte do time chegou aqui de um jeito parecido.</p>
-      <p>Aprendeu do jeito que boa parte dessa geração aprende: não pelos livros, mas <b>na prática, vendo e testando</b> — <b>fazer, olhar, corrigir</b>, nessa ordem. É o mesmo método que este guia usa com você.</p>
-      <p>Foram anos dentro do setor de saúde estruturando marketing de clínica de todo tamanho — e dali veio uma percepção: a clínica popular, que atende quem mais precisa, era o segmento mais mal servido de tecnologia e gestão comercial. A ClintIA existe pra fechar esse buraco.</p>
-    </div>
-
-    <div class="norte" style="margin-top:12px;">
-      <div class="l">Onde a gente está</div>
-      <p>Vale você entender o tamanho disso: <b>a ClintIA é pioneira</b>. Praticamente não existe concorrente fazendo o que a gente faz especificamente pra clínica popular — a maioria das agências atende consultório de alto padrão, onde tem mais dinheiro e menos trabalho. <b>A gente está num mar aberto</b>, e num setor que atende justamente o público mais carente.</p>
-      <p style="font-size:14px;margin-top:12px;">Isso significa duas coisas pra você. Uma: <b>o que a gente aprende aqui, quase ninguém sabe</b> — e vai virar padrão de mercado. Outra: <b>não existe manual pronto pra copiar</b>. Boa parte do que a gente faz está sendo inventado agora, e você vai participar disso. A visão não para na clínica particular: o conhecimento que a gente acumula pode um dia servir ao setor público também.</p>
-    </div>
+    <div class="co-shot"><img src="/assets/guia/time.jpg" alt=""></div>
+    <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Capítulo 04 · No que a gente acredita</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <!-- NO QUE A GENTE ACREDITA -->
-  <div class="sec">
-    <div class="sechead">
-      <div class="p">Propósito e valores</div>
-      <h2>No que a gente acredita</h2>
+<!-- 13 · PROPÓSITO E VALORES -->
+<section class="page">
+  <div class="paper light">
+    <div class="phead light"><span class="ph-ch">Capítulo 04</span></div>
+    <div class="rbody">
+      <h2 class="rt">O dinheiro é o caminho,<br>não o destino</h2>
+      <p>A gente não está criando só uma forma de ganhar dinheiro — <strong>está criando uma comunidade</strong>. O dinheiro é excelente e todo mundo vai ganhar junto, mas ele é o caminho. <strong>Cada pessoa aqui tem um sonho próprio, e a empresa é a oportunidade pra chegar nele.</strong> Você usa a sua capacidade pra fazer isso aqui crescer; isso aqui crescendo te leva onde você quer ir.</p>
+      <p><strong>Os valores que sustentam isso:</strong></p>
+      <ul class="datacard">
+        <li><strong>Curiosidade</strong> — o valor que move tudo. Quem pergunta "como funciona?" enxerga oportunidade onde os outros veem rotina.</li>
+        <li><strong>Gente de verdade</strong> — verdade, esforço, envolvimento e sem tempo ruim. Pensar em processo, mas olhar pra pessoa do lado.</li>
+        <li><strong>Orquestrar a IA</strong> — informação virou commodity; quem ganha é quem sabe perguntar certo. A IA é a ferramenta, você é quem rege.</li>
+        <li><strong>Cabeça de dono</strong> — empreender por dentro: enxergar produto novo, propor solução, andar com as próprias pernas.</li>
+        <li><strong>Constância</strong> — rotina organizada vence correria heroica. Pressão até funciona, mas custa caro e não se sustenta.</li>
+        <li><strong>Comunidade aberta</strong> — sem estereótipo. Importa o que você entrega, como trata as pessoas e a vontade de crescer junto.</li>
+      </ul>
     </div>
-
-    <div class="norte">
-      <div class="l">O propósito</div>
-      <p>A gente não está criando só uma forma de ganhar dinheiro — <b>está criando uma comunidade</b>. O dinheiro é excelente e todo mundo vai ganhar junto, mas ele é o caminho, não o destino. <b>Cada pessoa aqui tem um sonho próprio, e a empresa é a oportunidade pra chegar nele.</b> Você usa a sua capacidade pra fazer isso aqui crescer; isso aqui crescendo te leva onde você quer ir.</p>
-    </div>
-
-    <div class="grid3">
-      <div class="card"><div class="ic">✦</div><h4>Curiosidade</h4><p>É o valor que move tudo. Quem pergunta "como isso funciona?" aprende mais rápido, resolve melhor e enxerga oportunidade onde os outros só veem rotina.</p></div>
-      <div class="card"><div class="ic">✦</div><h4>Gente de verdade</h4><p>Verdade, esforço, envolvimento e sem tempo ruim. Saber pensar em processo — mas também saber olhar pra pessoa do lado e perceber como ela está.</p></div>
-      <div class="card"><div class="ic">✦</div><h4>Orquestrar a IA</h4><p>Informação virou commodity. Quem ganha o jogo hoje é quem sabe perguntar certo. A IA é a ferramenta; você é quem rege — com técnica, experiência e critério.</p></div>
-      <div class="card"><div class="ic">✦</div><h4>Cabeça de dono</h4><p>Empreender por dentro: enxergar produto novo, propor solução, andar com as próprias pernas. Não fixar só no que já existe — criar o que ainda não existe.</p></div>
-      <div class="card"><div class="ic">✦</div><h4>Constância</h4><p>Rotina organizada vence correria heroica. Trabalhar sob pressão até funciona — mas custa caro e não se sustenta. Aqui a gente prefere o ritmo certo todo dia.</p></div>
-      <div class="card"><div class="ic">✦</div><h4>Comunidade aberta</h4><p>Sem estereótipo. Não importa de onde você veio nem com o que você parece — importa o que você entrega, como trata as pessoas e a vontade de crescer junto.</p></div>
-    </div>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 04 · No que a gente acredita</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <!-- MANDAMENTOS -->
-  <div class="sec">
-    <div class="sechead">
-      <div class="p">A essência</div>
-      <h2>Os 10 Mandamentos da ClintIA</h2>
-      <div class="aside">Leia antes de tudo — e releia de vez em quando.</div>
-    </div>
-
-    <div class="mand">
-      <div class="ml">ClintIA</div>
-      <h3>Os 10 Mandamentos</h3>
-      <div class="msub">Não é decoração de parede: é o critério que a gente usa pra decidir as coisas aqui dentro. Quando bater dúvida sobre o que fazer numa situação, volte a esta lista — quase sempre um destes dez responde.</div>
-
-      <ol>
-        <li><b>Seja curioso.</b><span>A curiosidade é o que move esta empresa desde o primeiro dia. Pergunte "como isso funciona?", fuce a ferramenta, teste o caminho novo. Quem só executa o que mandaram fica pra trás — aqui e em qualquer lugar.</span></li>
-        <li><b>Verdade sempre — principalmente quando dói.</b><span>Nunca minta sobre o andamento de um projeto ou sobre uma data. Nunca. Atraso tem solução, erro tem conserto, problema tem saída — mentira não tem. No segundo em que você maquia um status, todo mundo passa a decidir com informação falsa, e o estrago vira dez vezes maior que o problema original.</span></li>
-        <li><b>Comunicação acima de tudo.</b><span>Fale. Do trabalho e de você. Avise o que avançou, o que travou, o que mudou — e avise também quando não estiver bem, quando estiver sobrecarregado, quando algo fora do trabalho estiver pesando. <b>Travar não é falha; sumir é.</b> Aqui ninguém adivinha, e ninguém deveria precisar adivinhar.</span></li>
-        <li><b>A gente se ajuda. Sempre.</b><span>Ninguém aqui é ilha nem dono de um assunto só. Todo mundo entende um pouco de cada área, todo mundo se comunica, e quem terminou o próprio trabalho olha se alguém está afogado. Pedir ajuda não é fraqueza — é como esse time anda rápido.</span></li>
-        <li><b>O número acima do achismo.</b><span>Opinião abre a conversa; número encerra. É o que vendemos ao cliente e é como decidimos por dentro. O que não dá pra medir, não dá pra melhorar.</span></li>
-        <li><b>Resultado, não aparência.</b><span>Post bonito, site moderno, logo nova — nada disso é o produto. O produto é agenda cheia e faturamento previsível pro cliente. Tudo que não leva a isso é enfeite.</span></li>
-        <li><b>Orquestre a IA — não compita com ela.</b><span>Informação virou commodity: quem ganha é quem sabe perguntar certo. Use IA pra tudo que acelera seu trabalho, acompanhe as novidades, e confira sempre o resultado antes de aplicar. A ferramenta é ela; o critério é seu.</span></li>
-        <li><b>Entenda antes de executar — e olhe pra pessoa.</b><span>Quem entende o cliente acerta na primeira; quem não entende faz bonito e inútil, e refaz caro depois. E lembre: um sistema tecnicamente perfeito que a recepção não usa está errado. Processo de engenheiro, olhar de colega.</span></li>
-        <li><b>Combinou, entregue — com constância.</b><span>Prazo dado é compromisso. Prefira o ritmo certo todo dia à correria heroica de véspera: trabalhar sob pressão até funciona, mas custa caro e não se repete.</span></li>
-        <li><b>Cuidado redobrado com o que não tem volta.</b><span>Dado de paciente não sai do ambiente autorizado — nem pra grupo, nem pra IA, nem pra lugar nenhum. Automação só entra no ar depois de testada no seu próprio número. A mensagem errada pro paciente errado não tem botão de desfazer, e confiança perdida não volta.</span></li>
+<!-- 14 · MANDAMENTOS I–V -->
+<section class="page dark">
+  <div class="paper dark">
+    <div class="phead"><span class="ph-ch" style="color:var(--sky)">Os 10 Mandamentos · Parte 1</span></div>
+    <div class="rbody">
+      <h2 class="rt">Os 10 Mandamentos</h2>
+      <p>Não é decoração de parede: é o critério que a gente usa pra decidir. Quando bater dúvida numa situação, volte a esta lista — quase sempre um destes dez responde.</p>
+      <ol class="mlist">
+        <li><b>Seja curioso.</b><span>A curiosidade move esta empresa desde o primeiro dia. Pergunte, fuce, teste o caminho novo. Quem só executa o que mandaram fica pra trás — aqui e em qualquer lugar.</span></li>
+        <li><b>Verdade sempre — principalmente quando dói.</b><span>Nunca minta sobre o andamento de um projeto ou sobre uma data. Atraso tem solução, erro tem conserto — mentira não tem. Status maquiado faz todo mundo decidir com informação falsa.</span></li>
+        <li><b>Comunicação acima de tudo.</b><span>Fale. Do trabalho e de você. O que avançou, o que travou — e também quando você não estiver bem. Travar não é falha; sumir é. Aqui ninguém precisa adivinhar.</span></li>
+        <li><b>A gente se ajuda. Sempre.</b><span>Ninguém é ilha nem dono de assunto. Todo mundo entende um pouco de cada área, e quem terminou o próprio trabalho olha se alguém está afogado.</span></li>
+        <li><b>O número acima do achismo.</b><span>Opinião abre a conversa; número encerra. É o que vendemos ao cliente e é como decidimos por dentro.</span></li>
       </ol>
-
-      <div class="mfoot">Guarde esta página. Você vai voltar nela mais vezes do que imagina.</div>
     </div>
+    <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Capítulo 04 · Os 10 Mandamentos</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <!-- PASSO 1 -->
-  <div class="sec">
-    <div class="sechead"><div class="p">Passo 1</div><h2>Seu e-mail corporativo</h2></div>
-    <div class="passo">
-      <div class="ph"><span class="num">1</span><span class="tt">Entrar na sua conta</span><span class="tempo">15 min</span></div>
-      <div class="pbody">
-        <p><b>Junto com este material, seu gestor te envia os dados de acesso da sua conta no nosso domínio</b> — o endereço <b>@clintia.com.br</b>, a senha e as instruções de como entrar. Se você recebeu este guia e ainda não recebeu os dados, cobre: eles vêm no mesmo pacote.</p>
-        <p><b>É por esse e-mail que tudo funciona daqui pra frente.</b> Ele é a sua identidade dentro da empresa: plataforma, ferramentas e documentos usam ele pra te reconhecer. A partir do momento em que você entra, os seus acessos começam a ser liberados.</p>
-
-        <div class="lab">O que fazer</div>
-        <ol class="acao">
-          <li><b>Entrar com os dados que o gestor te mandou</b><span class="q">Pelo Gmail, no navegador ou no celular — as instruções vêm junto.</span></li>
-          <li><b>Trocar a senha, se quiser</b><span class="q">Você recebe uma senha padrão. Pode manter ou trocar por uma sua — fica a seu critério.</span></li>
-          <li><b>Ativar a verificação em duas etapas</b><span class="q">Vale muito a pena: nossos sistemas tocam em dado de paciente, e uma conta invadida vira problema sério pra empresa e pro cliente.</span></li>
-          <li><b>Configurar no celular também</b><span class="q">Boa parte da comunicação acontece fora da mesa.</span></li>
-        </ol>
-
-        <div class="nota">
-          <span class="l">E o resto dos acessos?</span>
-          <p>Além do e-mail, você vai precisar de <b>Drive, plataforma e as ferramentas do dia a dia</b>. Seu gestor te manda tudo isso <b>num material separado</b> — com os links, o que você acessa em cada uma e como entrar.</p>
-          <p>Não saia caçando acesso por conta própria nem peça login emprestado a colega. <b>Se faltar alguma coisa, é só pedir à Luizianna.</b></p>
-        </div>
-
-        <div class="entrega"><span class="l">Feito quando</span><p>Você consegue entrar na sua conta e recebeu o material com os demais acessos. Confirme no grupo da equipe.</p></div>
-      </div>
+<!-- 15 · MANDAMENTOS VI–X -->
+<section class="page dark">
+  <div class="paper dark">
+    <div class="phead"><span class="ph-ch" style="color:var(--sky)">Os 10 Mandamentos · Parte 2</span></div>
+    <div class="rbody">
+      <ol class="mlist cont" style="margin-top:8px">
+        <li><b>Resultado, não aparência.</b><span>Post bonito, site moderno, logo nova — nada disso é o produto. O produto é agenda cheia e faturamento previsível. Tudo que não leva a isso é enfeite.</span></li>
+        <li><b>Orquestre a IA — não compita com ela.</b><span>Quem ganha é quem sabe perguntar certo. Use IA pra tudo que acelera, acompanhe as novidades, e confira sempre o resultado. A ferramenta é ela; o critério é seu.</span></li>
+        <li><b>Entenda antes de executar — e olhe pra pessoa.</b><span>Quem entende o cliente acerta na primeira. E um sistema perfeito que a recepção não usa está errado. Processo de engenheiro, olhar de colega.</span></li>
+        <li><b>Combinou, entregue — com constância.</b><span>Prazo dado é compromisso. Prefira o ritmo certo todo dia à correria heroica de véspera: pressão até funciona, mas custa caro e não se repete.</span></li>
+        <li><b>Cuidado redobrado com o que não tem volta.</b><span>Dado de paciente não sai do ambiente autorizado — nunca. Automação só entra no ar testada no seu próprio número. Mensagem errada não tem desfazer, e confiança perdida não volta.</span></li>
+      </ol>
+      <p style="margin-top:16px;font-size:13px;color:#7fa0b8;font-style:italic">Guarde estas duas páginas. Você vai voltar nelas mais vezes do que imagina.</p>
     </div>
+    <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Capítulo 04 · Os 10 Mandamentos</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <!-- PASSO 2 -->
-  <div class="sec">
-    <div class="sechead"><div class="p">Passo 2</div><h2>A plataforma ClintIA</h2></div>
-    <div class="passo">
-      <div class="ph"><span class="num">2</span><span class="tt">Entrar e reconhecer o terreno</span><span class="tempo">30 min</span></div>
-      <div class="pbody">
-        <p>Todo o dia a dia da empresa passa por um lugar só: <span class="url">painel.proclip.com.br</span>. É onde ficam os dados vivos da operação — comercial, marketing, financeiro, clientes e os treinamentos.</p>
-        <p>Entre com <b>o mesmo e-mail corporativo</b> do Passo 1. Não há cadastro separado.</p>
-
-        <div class="lab">O que existe lá dentro</div>
-        <div class="tblwrap">
-        <table>
-          <tr><th style="width:36%">Aba</th><th>Para que serve</th></tr>
-          <tr><td><b>Visão geral</b></td><td>A tela de abertura. O resumo do estado da empresa hoje.</td></tr>
-          <tr><td><b>Comercial · CRM · Leads</b></td><td>O funil de vendas da ClintIA: negociações, oportunidades e quem chegou até a gente.</td></tr>
-          <tr><td><b>Treinamento</b></td><td><b>É aqui que você vai passar o Passo 3.</b> A trilha de boas-vindas e o treinamento de cada vaga.</td></tr>
-          <tr><td><b>Sugestões · Arquétipos · Campanhas</b></td><td>A rotina do dia, os perfis de cliente que atendemos e o investimento em mídia.</td></tr>
-          <tr><td><b>Financeiro · Jurídico · RH · Operacional</b></td><td>A gestão da empresa: números, contratos, time e entregas.</td></tr>
-          <tr><td><b>Configurações</b></td><td>Sua conta, sua senha, seus dados.</td></tr>
-        </table>
-        </div>
-
-        <div class="nota">
-          <span class="l">Sobre os cadeados</span>
-          <p>Algumas abas vão aparecer para você <b>com um cadeado</b>. Isso não é erro nem falta de confiança: cada pessoa enxerga o que a função dela exige, e áreas como financeiro e margem são restritas por padrão.</p>
-          <p>Se em algum momento o seu trabalho precisar de uma aba fechada, <b>peça à Luizianna</b> — não tente contornar.</p>
-        </div>
-
-        <div class="entrega"><span class="l">Feito quando</span><p>Login funcionando e seus dados corretos em Configurações. Se algo estiver errado, avise.</p></div>
-      </div>
+<!-- 16 · CAP 05 ABERTURA -->
+<section class="page chapter">
+  <div class="paper dark">
+    <div><span class="co-kick">Capítulo 05</span>
+      <span class="co-num">05</span>
+      <h2 class="co-title">Seus primeiros passos</h2>
+      <p class="co-sub">Quatro passos, na ordem: e-mail, plataforma, treinamento da sua vaga e o produto visto de fora.</p>
     </div>
+    <div class="co-shot"><img src="/assets/guia/capa-bg.jpg" alt="" style="object-position:center 30%"></div>
+    <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Capítulo 05 · Seus primeiros passos</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <!-- PASSO 3 -->
-  <div class="sec">
-    <div class="sechead"><div class="p">Passo 3</div><h2>O treinamento da sua vaga</h2><div class="aside">O coração da entrada.</div></div>
-    <div class="passo">
-      <div class="ph"><span class="num">3</span><span class="tt">Boas-vindas primeiro, depois a sua trilha</span><span class="tempo">no ritmo da vaga</span></div>
-      <div class="pbody">
-        <p>Na plataforma, abra a aba <b>Treinamento</b>. Ela é organizada assim:</p>
-
-        <div class="lab">A estrutura</div>
-        <ol class="acao">
-          <li><b>Boas-vindas</b><span class="q"><b>Todo mundo começa aqui</b>, independente da vaga. É a introdução à empresa: o mercado da clínica popular, quem é o nosso comprador e o que é o PROClip. É curto — assista tudo.</span></li>
-          <li><b>O treinamento da sua vaga</b><span class="q">Depois das boas-vindas, procure na lista o treinamento <b>correspondente à vaga para a qual você foi contratado</b> — Comercial, Gestor de Tráfego, Automação, e assim por diante. <b>Esse é o seu. Faça ele inteiro.</b></span></li>
-        </ol>
-
-        <div class="nota">
-          <span class="l">Regra simples</span>
-          <p><b>Boas-vindas + a trilha da sua vaga. Nada além disso por enquanto.</b> Os treinamentos das outras vagas existem e você pode explorá-los mais tarde — mas na entrada, foco total no que é seu. Se a sua vaga ainda não tiver trilha própria na plataforma, a Luizianna te indica o material equivalente.</p>
-        </div>
-
-        <div class="lab">Como assistir</div>
-        <p style="font-size:13.5px;">Com o bloco de notas aberto. <b>Anote toda dúvida que aparecer</b> — inclusive as que parecerem bobas, porque elas quase nunca são. Junte tudo numa lista e mande de uma vez pra Luizianna, em vez de pingar uma pergunta por hora no grupo. Respeita o seu tempo e o de quem responde.</p>
-
-        <div class="entrega"><span class="l">Feito quando</span><p>Boas-vindas completo + a trilha da sua vaga concluída na plataforma, e a sua lista de dúvidas enviada.</p></div>
-      </div>
+<!-- 17 · PASSO 1 -->
+<section class="page">
+  <div class="paper light">
+    <div class="phead light"><span class="ph-ch">Passo 1 de 4</span></div>
+    <div class="rbody">
+      <h2 class="rt">Sua conta ClintIA</h2>
+      <p><strong>Junto com este guia, seu gestor te envia os dados de acesso da sua conta no nosso domínio</strong> — o endereço @clintia.com.br, a senha e as instruções de como entrar. Se você recebeu o guia e não recebeu os dados, cobre: vem tudo no mesmo pacote.</p>
+      <p><strong>É por esse e-mail que tudo funciona.</strong> Ele é a sua identidade na empresa — plataforma, ferramentas e documentos usam ele pra te reconhecer. A partir daí seus acessos começam a ser liberados.</p>
+      <ol class="steps">
+        <li><span class="sn">1</span><div><b>Entre com os dados que o gestor mandou</b><em>Pelo Gmail, no navegador ou no celular.</em></div></li>
+        <li><span class="sn">2</span><div><b>Troque a senha, se quiser</b><em>Você recebe uma senha padrão — manter ou trocar fica a seu critério.</em></div></li>
+        <li><span class="sn">3</span><div><b>Ative a verificação em duas etapas</b><em>Vale muito a pena: nossos sistemas tocam em dado de paciente.</em></div></li>
+        <li><span class="sn">4</span><div><b>Configure no celular também</b><em>Boa parte da comunicação acontece fora da mesa.</em></div></li>
+      </ol>
+      <p><strong>E o resto dos acessos?</strong> Drive, plataforma e ferramentas vêm num material separado do gestor, com links e instruções. Não saia caçando acesso nem peça login emprestado — se faltar algo, peça à Luizianna.</p>
     </div>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 05 · Passo 1</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <!-- PASSO 4 -->
-  <div class="sec">
-    <div class="sechead"><div class="p">Passo 4</div><h2>Ver o produto e a comunidade</h2></div>
-    <div class="passo">
-      <div class="ph"><span class="num">4</span><span class="tt">Enxergar o que o cliente enxerga</span><span class="tempo">45 min</span></div>
-      <div class="pbody">
-        <p>Você já viu como a empresa funciona por dentro. Agora veja o que o dono de clínica vê: navegue o site <span class="url">proclip.com.br</span> como se você fosse um dono de clínica decidindo se assina.</p>
-        <p><b>É a promessa que a gente faz em público — e que o seu trabalho vai ter que cumprir em privado.</b> Depois, volte à plataforma e repare como as abas deixam de ser telas soltas e viram um sistema.</p>
-
-        <div class="lab">Depois disso, conheça a nossa comunidade</div>
-        <p>Em <span class="url">membros.proclip.com.br</span> fica a <b>nossa comunidade de donos e gestores de clínica popular</b>. Ela nasceu do nosso produto de entrada, <b>"O Manual da Clínica Popular"</b> — um material de baixo custo que traz o dono pra dentro do nosso mundo antes de ele contratar o PROClip.</p>
-        <p><b>Todo colaborador da ClintIA tem acesso</b> — peça o seu à Luizianna e entre pra conhecer.</p>
-
-        <div class="lab">O que tem lá dentro</div>
-        <ol class="acao">
-          <li><b>A Jornada</b><span class="q">Um curso em vídeo com o método completo, dividido em fases — do "cadê o paciente?" até a clínica que não depende do dono.</span></li>
-          <li><b>Ebook e materiais</b><span class="q">A apostila e os bônus práticos: planilha de custo por paciente, scripts de WhatsApp, checklist do Google Meu Negócio, painel do dono.</span></li>
-          <li><b>Cursos, parceiros e consultoria</b><span class="q">Trilhas em produção, parcerias e a possibilidade de sessão direta com o Bernardo.</span></li>
-          <li><b>Aplicativo</b><span class="q">Em desenvolvimento — a ideia é levar a comunidade pro bolso do dono de clínica.</span></li>
-        </ol>
-
-        <div class="nota">
-          <span class="l">Por que isso importa pro seu trabalho</span>
-          <p>Essa comunidade não é um produto solto. Ela é <b>o começo do funil</b>: traz o dono de clínica pra perto, qualifica quem realmente tem perfil, nutre quem ainda não está pronto e gera parceria — tudo isso antes de qualquer conversa de venda.</p>
-          <p>E ela cresce todo dia. <b>Quanto mais gente lá dentro, mais a gente entende esse mercado</b> — e mais forte fica tudo o que a gente entrega. Se você tiver ideia de como melhorá-la, fale: aqui isso é bem-vindo, venha de qual área vier.</p>
-        </div>
-      </div>
+<!-- 18 · PASSO 2 -->
+<section class="page">
+  <div class="paper light">
+    <div class="phead light"><span class="ph-ch">Passo 2 de 4</span></div>
+    <div class="rbody">
+      <h2 class="rt">A plataforma</h2>
+      <p>Todo o dia a dia da empresa passa por um lugar só: <strong>painel.proclip.com.br</strong>. É onde ficam os dados vivos da operação — comercial, marketing, financeiro, clientes e os treinamentos. Entre com o mesmo e-mail corporativo do Passo 1; não há cadastro separado.</p>
+      <ul class="datacard">
+        <li><strong>Visão geral</strong> — o resumo do estado da empresa hoje.</li>
+        <li><strong>Comercial · CRM · Leads</strong> — o funil de vendas da ClintIA.</li>
+        <li><strong>Treinamento</strong> — onde você vai passar o Passo 3.</li>
+        <li><strong>Sugestões · Arquétipos · Campanhas</strong> — a rotina, os perfis de cliente e a mídia.</li>
+        <li><strong>Financeiro · Jurídico · RH · Operacional</strong> — a gestão da empresa.</li>
+      </ul>
+      <p><strong>Sobre os cadeados:</strong> algumas abas aparecem trancadas pra você. Não é erro nem falta de confiança — cada pessoa enxerga o que a função exige. Se o seu trabalho precisar de uma aba fechada, peça à Luizianna. Não tente contornar.</p>
+      <p><strong>Feito quando:</strong> login funcionando e seus dados corretos em Configurações.</p>
     </div>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 05 · Passo 2</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <!-- O QUE VOCÊ PRECISA SABER RESPONDER -->
-  <div class="sec">
-    <div class="sechead">
-      <div class="p">A régua</div>
-      <h2>O que você precisa saber responder</h2>
-      <div class="aside">Sem prova. Mas com cobrança.</div>
+<!-- 19 · PASSO 3 -->
+<section class="page">
+  <div class="paper light">
+    <div class="phead light"><span class="ph-ch">Passo 3 de 4</span></div>
+    <div class="rbody">
+      <h2 class="rt">O treinamento<br>da sua vaga</h2>
+      <p>Na plataforma, abra a aba <strong>Treinamento</strong>. Ela é organizada assim:</p>
+      <ol class="steps">
+        <li><span class="sn">1</span><div><b>Boas-vindas</b><em>Todo mundo começa aqui, independente da vaga. A introdução à empresa, ao mercado e ao PROClip. É curto — assista tudo.</em></div></li>
+        <li><span class="sn">2</span><div><b>O treinamento da sua vaga</b><em>Depois, procure na lista o treinamento correspondente à vaga pra qual você foi contratado — Comercial, Gestor de Tráfego, Automação... Esse é o seu. Faça inteiro.</em></div></li>
+      </ol>
+      <p><strong>Regra simples:</strong> Boas-vindas + a trilha da sua vaga. Nada além disso por enquanto. Se a sua vaga ainda não tiver trilha própria, a Luizianna te indica o material equivalente.</p>
+      <p><strong>Como assistir:</strong> com o bloco de notas aberto. Anote toda dúvida — inclusive as que parecem bobas, porque quase nunca são. Junte tudo numa lista e mande de uma vez pra Luizianna, em vez de pingar uma pergunta por hora no grupo.</p>
+      <p><strong>Feito quando:</strong> Boas-vindas completo, trilha da vaga concluída e lista de dúvidas enviada.</p>
     </div>
-
-    <div class="box">
-      <p>Não tem prova nem redação. Mas tem uma coisa que você precisa saber: <b>estas perguntas vão aparecer na sua frente</b> — numa reunião, numa conversa com o Bernardo, num pedido de cliente. E quando aparecerem, espera-se que você responda sem gaguejar.</p>
-      <p>Leia a lista. O que você não souber responder com segurança, <b>volte ao treinamento e feche a lacuna agora</b> — enquanto é barato.</p>
-    </div>
-
-    <ol class="perg">
-      <li>O que a ClintIA vende, em uma frase?<span class="q">Dica: a resposta não tem a palavra "marketing" nem "post".</span></li>
-      <li>O que é uma clínica popular e como ela ganha dinheiro?<span class="q">Volume, ticket, particular vs. convênio — o modelo econômico.</span></li>
-      <li>Como é o dono de clínica popular — e o que você nunca deve dizer pra ele?<span class="q">Pense nas três camadas de dor e no vocabulário que a gente evita.</span></li>
-      <li>Quais são os três vazamentos que atacamos em todo cliente?<span class="q">E qual dos três a sua função ataca diretamente.</span></li>
-      <li>O que é o PROClip e o que acontece em cada uma das duas fases?</li>
-      <li>Por que a ClintIA não é "só mais uma agência de marketing"?<span class="q">Pista: a resposta tem a palavra "sistema" e a palavra "conectado".</span></li>
-      <li>O que é CAP e por que é o número que manda?<span class="q">Se você souber explicar isso pro seu vizinho, entendeu.</span></li>
-      <li>Por que o WhatsApp é o centro de tudo no nosso cliente?</li>
-      <li>O que a SUA vaga resolve dentro desse quadro?<span class="q">Não o que você faz — o que o seu trabalho resolve.</span></li>
-      <li>Além do dinheiro, qual é o propósito disso aqui?<span class="q">A resposta está em "No que a gente acredita". Se você só lembrar do dinheiro, releia.</span></li>
-      <li>Quem você procura para cada tipo de assunto?<span class="q">A resposta está na seção logo abaixo.</span></li>
-    </ol>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 05 · Passo 3</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <!-- QUEM É QUEM -->
-  <div class="sec">
-    <div class="sechead"><div class="p">Apoio</div><h2>Quem é quem — e a ordem certa</h2></div>
-
-    <div class="box">
-      <p><b>A regra da casa: a Luizianna centraliza a operação.</b> Dúvida de processo, acesso, entrega, ferramenta, rotina — vai nela primeiro. O Bernardo entra em decisão estratégica, prazo com cliente e no que a Luizianna encaminhar. Pular essa ordem não acelera nada — só faz a mesma pergunta passar por duas pessoas.</p>
+<!-- 20 · PASSO 4 -->
+<section class="page">
+  <div class="paper light">
+    <div class="phead light"><span class="ph-ch">Passo 4 de 4</span></div>
+    <div class="rbody">
+      <h2 class="rt">O produto por fora —<br>e a nossa comunidade</h2>
+      <p>Agora veja o que o dono de clínica vê: navegue <strong>proclip.com.br</strong> como se você fosse um dono decidindo se assina. <strong>É a promessa que a gente faz em público — e que o seu trabalho cumpre em privado.</strong></p>
+      <p>Depois, conheça <strong>membros.proclip.com.br</strong> — a nossa comunidade de donos e gestores de clínica popular, que nasceu do produto de entrada <strong>"O Manual da Clínica Popular"</strong>. Todo colaborador tem acesso: peça o seu à Luizianna.</p>
+      <ul class="datacard">
+        <li><strong>A Jornada</strong> — curso em vídeo com o método completo.</li>
+        <li><strong>Ebook e materiais</strong> — a apostila e os bônus práticos.</li>
+        <li><strong>Cursos, parceiros e consultoria</strong> — trilhas e parcerias em expansão.</li>
+        <li><strong>Aplicativo</strong> — em desenvolvimento: a comunidade no bolso.</li>
+      </ul>
+      <p><strong>Por que isso importa:</strong> essa comunidade é o começo do funil. Traz o dono pra perto, qualifica, nutre e gera parceria — antes de qualquer venda. Ela cresce todo dia, e quanto mais gente lá dentro, mais a gente entende esse mercado. Tem ideia de como melhorá-la? Fala. Aqui isso é bem-vindo, venha de qual área vier.</p>
     </div>
-
-    <div class="tblwrap">
-    <table>
-      <tr><th style="width:34%">Quem</th><th>Procure para</th></tr>
-      <tr><td><b>Luizianna Faria</b><span class="lk">Head de Operações</span></td><td><b>Seu primeiro contato para quase tudo.</b> Processos, acessos, entregas, dúvidas do dia a dia e o encaminhamento do que precisar subir.</td></tr>
-      <tr><td><b>Bernardo Carneiro</b><span class="lk">Fundador e CEO</span></td><td>Decisões estratégicas, negociação, prazos com cliente e o que a Luizianna encaminhar.</td></tr>
-      <tr><td><b>Leandro Amaral</b><span class="lk">Produção digital</span></td><td>Sites, landing pages e materiais — tudo que é produção digital dos projetos.</td></tr>
-      <tr><td><b>Clientes</b><span class="lk">Donos de clínica</span></td><td>Falar com cliente faz parte do trabalho — <b>o que não pode é combinar prazo, escopo ou valor por conta própria.</b> Isso sempre alinha antes com a Luizianna ou o Bernardo. E se você não souber uma resposta, diga que vai verificar: melhor do que inventar.</td></tr>
-    </table>
-    </div>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 05 · Passo 4</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <!-- AJUDA -->
-  <div class="sec">
-    <div class="sechead"><div class="p">Método</div><h2>Como se virar sozinho</h2><div class="aside">E quando chamar.</div></div>
-    <div class="tblwrap">
-    <table>
-      <tr><th style="width:28%">Tempo travado</th><th>O que fazer</th></tr>
-      <tr><td><b>0 a 15 min</b></td><td>Tente sozinho. Leia a mensagem de erro com calma — boa parte se resolve relendo.</td></tr>
-      <tr><td><b>15 a 30 min</b></td><td>Consulte a documentação oficial e a IA. Descreva o que tentou e o que aconteceu. <b>Sempre confira o que a IA responder</b> antes de aplicar.</td></tr>
-      <tr><td><b>Passou de 30 min</b></td><td>Chame a Luizianna. <b>Travar não é problema. Sumir é.</b></td></tr>
-    </table>
+<!-- 21 · CAP 06 / RÉGUA -->
+<section class="page">
+  <div class="paper accent">
+    <div class="phead light"><span class="ph-ch">Capítulo 06 · Pronto pra começar</span></div>
+    <div class="rbody">
+      <h2 class="rt">O que você precisa<br>saber responder</h2>
+      <p>Não tem prova nem redação. Mas estas perguntas <strong>vão aparecer na sua frente</strong> — numa reunião, numa conversa, num pedido de cliente. Quando aparecerem, espera-se que você responda sem gaguejar. O que não souber, volte ao capítulo e feche a lacuna agora, enquanto é barato:</p>
+      <ul class="datacard">
+        <li>O que a ClintIA vende, em uma frase? <strong>(sem usar "marketing" nem "post")</strong></li>
+        <li>O que é uma clínica popular e como ela ganha dinheiro?</li>
+        <li>Como é o dono de clínica popular — e o que você nunca deve dizer pra ele?</li>
+        <li>Quais são os três vazamentos — e qual deles a SUA vaga ataca?</li>
+        <li>O que é o PROClip e o que acontece em cada fase?</li>
+        <li>Por que a ClintIA não é "só mais uma agência"? <strong>(a resposta tem "sistema" e "conectado")</strong></li>
+        <li>O que é CAP e por que é o número que manda?</li>
+        <li>Por que o WhatsApp é o centro de tudo no nosso cliente?</li>
+        <li>Além do dinheiro, qual é o propósito disso aqui?</li>
+        <li>Quem você procura pra cada tipo de assunto?</li>
+      </ul>
     </div>
-
-    <div class="box">
-      <p><b>Como fazer uma boa pergunta —</b> sempre em três partes: <b>(1)</b> o que eu queria fazer · <b>(2)</b> o que eu tentei · <b>(3)</b> o que aconteceu, com print. Pergunta assim se responde em um minuto. Pergunta vaga trava os dois lados e gasta o dobro do tempo.</p>
-    </div>
-
-    <div class="nota">
-      <span class="l">Vale pra este guia também</span>
-      <p>Ficou com dúvida sobre alguma coisa <b>deste próprio material</b> — um termo que você não conhece, uma sigla, um conceito que passou rápido? <b>Joga na IA e pergunta.</b> Sério: cole o trecho e peça pra explicar de outro jeito.</p>
-      <p>Aqui isso não é "colar" — é exatamente o que a gente espera de você. <b>Só não pare na primeira resposta:</b> confira, questione, e traga pra pessoa certa o que continuar sem fazer sentido.</p>
-    </div>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 06 · Pronto pra começar</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <!-- REGRAS -->
-  <div class="sec">
-    <div class="sechead"><div class="p">Limites</div><h2>Regras inegociáveis</h2><div class="aside">Valem desde o dia 1.</div></div>
-    <div class="rules">
-      <div class="l">O que nunca pode</div>
-      <ul>
+<!-- 22 · QUEM É QUEM -->
+<section class="page">
+  <div class="paper light">
+    <div class="phead light"><span class="ph-ch">Capítulo 06</span></div>
+    <div class="rbody">
+      <h2 class="rt">Quem é quem —<br>e a ordem certa</h2>
+      <p><strong>A regra da casa: a Luizianna centraliza a operação.</strong> Dúvida de processo, acesso, entrega, ferramenta — vai nela primeiro. O Bernardo entra em decisão estratégica, prazo com cliente e no que ela encaminhar.</p>
+      <ul class="datacard">
+        <li><strong>Luizianna Faria</strong> · Head de Operações — seu primeiro contato pra quase tudo.</li>
+        <li><strong>Bernardo Carneiro</strong> · Fundador e CEO — decisões estratégicas, negociação, prazos com cliente.</li>
+        <li><strong>Leandro Amaral</strong> · Produção digital — sites, landing pages e materiais.</li>
+        <li><strong>Clientes</strong> — falar com cliente faz parte do trabalho; <strong>o que não pode é combinar prazo, escopo ou valor por conta própria.</strong> Isso alinha antes.</li>
+      </ul>
+      <p><strong>Quando travar:</strong> tente 15 minutos sozinho. Até 30, consulte a documentação e a IA (e confira a resposta). Passou de 30 — chame a Luizianna. <strong>Travar não é problema. Sumir é.</strong></p>
+      <p><strong>Boa pergunta tem 3 partes:</strong> o que eu queria fazer · o que eu tentei · o que aconteceu, com print. Pergunta assim se responde em um minuto.</p>
+      <p>E ficou com dúvida sobre algo <strong>deste próprio guia</strong>? Joga na IA e pergunta. Aqui isso não é "colar" — é o que a gente espera de você. Só não pare na primeira resposta.</p>
+    </div>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 06 · Pronto pra começar</span><span class="pf-n" data-pn></span></div>
+  </div>
+</section>
+
+<!-- 23 · REGRAS -->
+<section class="page dark">
+  <div class="paper dark">
+    <div class="phead"><span class="ph-ch" style="color:#ff9d78">Limites · valem desde o dia 1</span></div>
+    <div class="rbody">
+      <h2 class="rt">Regras inegociáveis</h2>
+      <ul class="rules-list">
         <li><b>Nunca</b> minta sobre o andamento de um projeto ou sobre uma data</li>
         <li><b>Nunca</b> mexa em conta de cliente sem avisar antes</li>
         <li><b>Nunca</b> prometa prazo a cliente sem alinhar internamente</li>
         <li><b>Nunca</b> compartilhe dado de paciente — é sigiloso por lei</li>
         <li><b>Nunca</b> cole dado de cliente ou paciente em ferramenta de IA</li>
-        <li><b>Nunca</b> ative automação sem testar antes no seu próprio número</li>
-        <li><b>Nunca</b> apague nada sem certeza. Na dúvida, pergunte</li>
-        <li><b>Nunca</b> desapareça quando travar. Avise que travou</li>
+        <li><b>Nunca</b> ative automação sem testar no seu próprio número</li>
+        <li><b>Nunca</b> apague nada sem certeza — na dúvida, pergunte</li>
+        <li><b>Nunca</b> desapareça quando travar — avise que travou</li>
       </ul>
-      <p style="font-size:13px;color:#94A3B8;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.09);line-height:1.6;">A primeira da lista é a mais séria. <b style="color:#fff;">Todo o resto tem conserto</b> — atraso se recombina, erro técnico se corrige, cliente insatisfeito se recupera. Status maquiado, não.</p>
+      <p style="margin-top:16px;font-size:13.5px;color:#9dbdd4;line-height:1.6">A primeira é a mais séria. <strong style="color:#fff">Todo o resto tem conserto</strong> — atraso se recombina, erro se corrige, cliente insatisfeito se recupera. Status maquiado, não.</p>
     </div>
+    <div class="pfoot dark"><img src="/assets/logo-clintia-branca-horizontal.png" alt=""><span class="pf-ch">Capítulo 06 · Regras inegociáveis</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <!-- DEPOIS -->
-  <div class="sec">
-    <div class="sechead"><div class="p">E depois</div><h2>Mão na massa</h2></div>
-    <div class="box">
-      <p>Fechado o treinamento da sua vaga, você recebe o <b>plano do seu primeiro projeto</b> — com o cliente, as fases, os prazos e o que se espera de você em cada etapa. Cada projeto na ClintIA tem um documento próprio assim, e ele é sempre o seu ponto de partida.</p>
-      <p>A regra vale para todos: <b>cada cliente tem uma pasta com um arquivo de contexto. Comece sempre por ele.</b> É lá que estão a história do cliente, o que já foi feito e o que está em aberto.</p>
+<!-- 24 · CHECKLIST -->
+<section class="page">
+  <div class="paper light">
+    <div class="phead light"><span class="ph-ch">Capítulo 06 · Checklist</span></div>
+    <div style="margin-bottom:14px">
+      <h2 class="rt" style="margin-bottom:4px">Checklist da entrada</h2>
+      <p style="font-size:13.5px;color:#5f7183">Vá marcando conforme avança. Fechou tudo? Você está pronto.</p>
     </div>
-  </div>
-
-  <!-- CHECKLIST -->
-  <div class="sec">
-    <div class="sechead"><div class="p">Controle</div><h2>Checklist da entrada</h2><div class="aside">Vá marcando.</div></div>
-    <ul class="ck">
-      <li><span class="d">P1</span>Conta <b>@clintia.com.br</b> acessada</li>
-      <li><span class="d">P1</span>Verificação em duas etapas ativada</li>
-      <li><span class="d">P1</span>E-mail configurado também no celular</li>
-      <li><span class="d">P1</span>Material com os demais acessos recebido (Drive, ferramentas)</li>
-      <li><span class="d">P2</span>Login na plataforma funcionando</li>
-      <li><span class="d">P2</span>Dados conferidos em Configurações</li>
-      <li><span class="d">P3</span><b>Treinamento de Boas-vindas concluído</b></li>
-      <li><span class="d">P3</span><b>Treinamento da sua vaga concluído</b></li>
-      <li><span class="d">P3</span>Lista de dúvidas enviada à Luizianna</li>
-      <li><span class="d">P4</span>Site do PROClip navegado de ponta a ponta</li>
-      <li><span class="d">P4</span>Acesso à área de membros pedido — e uma volta lá dentro</li>
-      <li><span class="d">P5</span>As 11 perguntas da régua — todas respondidas sem gaguejar</li>
-      <li><span class="d">P5</span>"De onde a gente vem", "No que a gente acredita" e "Quem é o nosso público" lidos</li>
-      <li><span class="d">P5</span>Os 10 Mandamentos lidos (e relidos)</li>
+    <ul class="act-list">
+      <li><span class="chk"></span><span>Conta <strong>@clintia.com.br</strong> acessada</span></li>
+      <li><span class="chk"></span><span>Verificação em duas etapas ativada</span></li>
+      <li><span class="chk"></span><span>E-mail configurado também no celular</span></li>
+      <li><span class="chk"></span><span>Material com os demais acessos recebido (Drive, ferramentas)</span></li>
+      <li><span class="chk"></span><span>Login na plataforma funcionando · dados conferidos</span></li>
+      <li><span class="chk"></span><span><strong>Treinamento de Boas-vindas concluído</strong></span></li>
+      <li><span class="chk"></span><span><strong>Treinamento da sua vaga concluído</strong></span></li>
+      <li><span class="chk"></span><span>Lista de dúvidas enviada à Luizianna</span></li>
+      <li><span class="chk"></span><span>Site do PROClip navegado de ponta a ponta</span></li>
+      <li><span class="chk"></span><span>Acesso à área de membros pedido — e uma volta lá dentro</span></li>
+      <li><span class="chk"></span><span>As 10 perguntas da régua — respondidas sem gaguejar</span></li>
+      <li><span class="chk"></span><span>Os 10 Mandamentos lidos (e relidos)</span></li>
     </ul>
+    <div class="pfoot"><img src="/assets/logo-clintia-cor.png" alt=""><span class="pf-ch">Capítulo 06 · Checklist</span><span class="pf-n" data-pn></span></div>
   </div>
+</section>
 
-  <div class="fim">
-    <p><b>Uma última coisa.</b> Ninguém aqui espera que você saiba tudo no primeiro dia — nem no primeiro mês. O que a gente espera é outra coisa: que você aprenda rápido, pergunte com clareza e entregue o que combinou.</p>
-    <p>Feche este roteiro, e bem-vindo de verdade: <b>o seu primeiro projeto está te esperando.</b></p>
+<!-- 25 · CONTRACAPA -->
+<section class="page">
+  <div class="paper dark">
+    <div class="bc-wrap">
+      <img class="bc-logo" src="/assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
+      <div class="bc-kick">Uma última coisa</div>
+      <p class="bc-lead">Ninguém aqui espera que você saiba tudo no primeiro dia — nem no primeiro mês. O que a gente espera é outra coisa: <strong>que você aprenda rápido, pergunte com clareza e entregue o que combinou.</strong></p>
+      <p class="bc-lead">Feche este guia, e bem-vindo de verdade: <strong>o seu primeiro projeto está te esperando.</strong></p>
+    </div>
+    <div class="bc-fine">ClintIA · Guia de Entrada para Novos Colaboradores · documento interno · Edição 2026</div>
   </div>
+</section>
 
 </div>
-</main>
 
-<footer>
-  <div class="wrap">
-    <img src="/assets/logo-clintia-branca-horizontal.png" alt="ClintIA">
-    <p>Guia de Entrada para Novos Colaboradores · documento interno</p>
+<button class="nav prev" id="prev" aria-label="Página anterior">‹</button>
+<button class="nav next" id="next" aria-label="Próxima página">›</button>
+<div class="bottom">
+  <div class="progress" id="progress"><i id="bar"></i></div>
+  <div class="counter" id="counter"></div>
+</div>
+<div class="hint" id="hint">deslize ou use as setas pra virar a página</div>
+
+<button class="menu" id="menu" aria-label="Índice"><span></span><span></span><span></span></button>
+<div class="ovl" id="ovl">
+  <div class="ovl-card">
+    <div class="ovl-head"><span>Índice</span><button class="ovl-x" id="ovlx">×</button></div>
+    <ul class="ovl-list">
+      <li data-goto="0"><span class="ov-n">—</span><span class="ov-t">Capa</span></li>
+      <li data-goto="2"><span class="ov-n">01</span><span class="ov-t">O que a gente faz</span></li>
+      <li data-goto="5"><span class="ov-n">02</span><span class="ov-t">De onde a gente vem</span></li>
+      <li data-goto="8"><span class="ov-n">03</span><span class="ov-t">Quem é o nosso público</span></li>
+      <li data-goto="11"><span class="ov-n">04</span><span class="ov-t">No que a gente acredita</span></li>
+      <li data-goto="15"><span class="ov-n">05</span><span class="ov-t">Seus primeiros passos</span></li>
+      <li data-goto="20"><span class="ov-n">06</span><span class="ov-t">Pronto pra começar</span></li>
+      <li data-goto="23"><span class="ov-n">✓</span><span class="ov-t">Checklist</span></li>
+    </ul>
   </div>
-</footer>
+</div>
+</div>
 
-</body>
-</html>
+<script>
+(function(){
+  var reader=document.getElementById('reader');
+  var pages=[].slice.call(reader.querySelectorAll('.page'));
+  var prev=document.getElementById('prev'), next=document.getElementById('next');
+  var bar=document.getElementById('bar'), counter=document.getElementById('counter'), hint=document.getElementById('hint');
+  var total=pages.length, cur=0, animating=false;
+  pages.forEach(function(p,i){ var el=p.querySelector('[data-pn]'); if(el) el.textContent=(i+1); });
+  function clamp(i){return Math.max(0,Math.min(total-1,i));}
+  function chrome(){
+    counter.textContent=(cur+1)+' / '+total;
+    bar.style.width=(cur/(total-1)*100)+'%';
+    prev.disabled=(cur<=0); next.disabled=(cur>=total-1);
+  }
+  function goto(i,dir){
+    i=clamp(i); if(i===cur||animating) return;
+    dir = dir || (i>cur?1:-1);
+    animating=true;
+    var out=pages[cur], inp=pages[i];
+    inp.style.transition='none';
+    inp.style.transform='translateX('+(dir*60)+'px)';
+    inp.classList.add('active');
+    void inp.offsetWidth;
+    inp.style.transition='';
+    inp.style.transform='';
+    out.style.transform='translateX('+(-dir*60)+'px)';
+    out.classList.remove('active');
+    out.classList.add('leaving');
+    setTimeout(function(){ out.classList.remove('leaving'); out.style.transform=''; animating=false; },420);
+    cur=i; chrome();
+    var rb=inp.querySelector('.rbody,.act-list'); if(rb) rb.scrollTop=0;
+  }
+  prev.addEventListener('click',function(){goto(cur-1,-1);});
+  next.addEventListener('click',function(){goto(cur+1,1);});
+  var ovl=document.getElementById('ovl'), menu=document.getElementById('menu'), ovlx=document.getElementById('ovlx');
+  function closeOvl(){ if(ovl) ovl.classList.remove('open'); }
+  if(menu) menu.addEventListener('click',function(){ ovl.classList.toggle('open'); });
+  if(ovlx) ovlx.addEventListener('click',closeOvl);
+  if(ovl) ovl.addEventListener('click',function(e){ if(e.target===ovl) closeOvl(); });
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-goto]'); if(!t) return;
+    var i=parseInt(t.getAttribute('data-goto'),10);
+    if(!isNaN(i)){ closeOvl(); goto(i); }
+  });
+  var prog=document.getElementById('progress');
+  if(prog) prog.addEventListener('click',function(e){
+    var r=prog.getBoundingClientRect(); var p=(e.clientX-r.left)/r.width;
+    goto(Math.round(p*(total-1)));
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeOvl();return;}
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();goto(cur+1,1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();goto(cur-1,-1);}
+    else if(e.key==='Home'){goto(0,-1);} else if(e.key==='End'){goto(total-1,1);}
+  });
+  var x0=null,y0=null;
+  reader.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+  reader.addEventListener('touchend',function(e){
+    if(x0===null)return; var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+    if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){ goto(cur+(dx<0?1:-1), dx<0?1:-1); }
+    x0=null;y0=null;
+  },{passive:true});
+  pages[0].classList.add('active');
+  setTimeout(function(){hint.style.opacity='0';},4600);
+  chrome();
+})();
+</script>
+</body></html>
