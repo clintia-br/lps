@@ -69,15 +69,24 @@ select:focus{outline:none;border-color:var(--accent);}
 .qtip:hover::after{opacity:1;}
 .qtip.rt::after{left:auto;right:-6px;transform:none;}
 
-/* as duas reguas — faixa fina, uma linha */
-.reguas{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted);
-  border-left:2px solid var(--accent);padding:2px 0 2px 16px;margin-bottom:30px;line-height:1.6;}
-.reguas b{color:var(--text);font-weight:700;}
-.reguas .tagm{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
-  padding:4px 9px;border-radius:5px;margin-right:2px;}
-.reguas .tagm.vol{background:var(--accent-soft);color:var(--accent);border:1px solid rgba(34,184,230,.3);}
-.reguas .tagm.rec{background:rgba(62,207,142,.12);color:var(--pos);border:1px solid rgba(62,207,142,.3);}
-.reguas .sep{color:var(--line);}
+/* equacao visual do particular: quantidade x ticket = dinheiro */
+.eq{display:grid;grid-template-columns:1fr 54px 1fr 54px 1fr;align-items:stretch;gap:0;}
+.eqc{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;text-align:center;}
+.eqc.vol{border-color:rgba(34,184,230,.3);}
+.eqc.rec{border-color:rgba(62,207,142,.3);}
+.eqc .et{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;
+  border-radius:5px;display:inline-block;margin-bottom:12px;}
+.eqc.vol .et{background:var(--accent-soft);color:var(--accent);border:1px solid rgba(34,184,230,.3);}
+.eqc.rec .et{background:rgba(62,207,142,.12);color:var(--pos);border:1px solid rgba(62,207,142,.3);}
+.eqc.mid .et{background:var(--panel-2);color:var(--muted);border:1px solid var(--line);}
+.eqc .ev{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1;}
+.eqc.vol .ev{color:var(--accent);} .eqc.rec .ev{color:var(--pos);} .eqc.mid .ev{color:var(--text);}
+.eqc .el{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.5;font-weight:500;}
+.eqc .el b{color:var(--text);font-weight:700;}
+.eqop{display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:var(--dim);}
+.eqnote{font-size:12.5px;color:var(--muted);margin-top:16px;font-weight:500;padding-left:14px;
+  border-left:2px solid var(--line);line-height:1.65;}
+.eqnote b{color:var(--text);font-weight:700;}
 
 /* blocos */
 .sec{margin-bottom:34px;}
@@ -97,15 +106,6 @@ select:focus{outline:none;border-color:var(--accent);}
 .k .n em{font-style:normal;font-size:15px;color:var(--muted);font-weight:700;}
 .k .d{font-size:11.5px;margin-top:10px;font-weight:600;color:var(--dim);}
 .k .d.up{color:var(--pos);} .k .d.dn{color:var(--neg);}
-
-/* faixa do particular */
-.fixrow{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;}
-.fx{background:var(--panel);border:1px solid rgba(34,184,230,.22);border-radius:var(--r);padding:19px 21px;}
-.fx .fv{font-size:25px;font-weight:800;letter-spacing:-.03em;color:var(--accent);line-height:1;}
-.fx .fl2{font-size:12.5px;color:var(--muted);line-height:1.5;font-weight:500;margin-top:10px;}
-.fx .fl2 b{color:var(--text);font-weight:700;}
-.fixnote{font-size:12px;color:var(--dim);margin-top:14px;font-weight:500;line-height:1.5;}
-.fixnote b{color:var(--muted);}
 
 /* grafico empilhado */
 .stk{display:flex;align-items:flex-end;gap:14px;height:236px;margin-top:8px;}
@@ -175,8 +175,8 @@ footer.wrap{padding:26px 26px 14px;font-size:11.5px;color:var(--dim);border-top:
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-weight:500;}
 
 @media(max-width:1000px){
-  .kpis{grid-template-columns:repeat(2,1fr);} .fixrow{grid-template-columns:1fr;}
-  .reguas{grid-template-columns:1fr;} .rgwhy{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:14px;max-width:none;}
+  .kpis{grid-template-columns:repeat(2,1fr);}
+  .eq{grid-template-columns:1fr;} .eqop{padding:8px 0;}
   .simflow{flex-direction:column;align-items:stretch;gap:10px;}
   .sarr{transform:rotate(90deg);padding:0;text-align:center;}
   .clr{margin-left:0;} .qtip::after{width:200px;} .tblwrap{overflow-x:auto;}
@@ -222,28 +222,18 @@ footer.wrap{padding:26px 26px 14px;font-size:11.5px;color:var(--dim);border-top:
 
 <div class="wrap">
 
-  <!-- AS DUAS REGUAS -->
-  <div class="reguas">
-    <span><span class="tagm vol">% dos exames</span> quantos de cada 100 exames são particulares</span>
-    <span class="sep">|</span>
-    <span><span class="tagm rec">% da receita</span> quanto de cada R$ 100 vem do particular</span>
-    <span class="sep">|</span>
-    <span>não batem entre si porque o particular custa <b>R$ 125</b> e o convênio <b>R$ 76</b>
-      <span class="qtip" data-q="Em julho o particular foi 9,8% dos exames mas 15,5% da receita. Como cada exame particular rende mais, ele pesa mais no dinheiro do que na quantidade. Cada gráfico abaixo traz a etiqueta da régua que usa."></span></span>
-  </div>
-
   <!-- KPIs -->
   <div class="sec">
     <div class="sech"><h2>Volume e receita</h2><span class="sd" id="kpiSub"></span></div>
     <div class="kpis" id="kpis"></div>
   </div>
 
-  <!-- faixa do particular -->
+  <!-- equacao do particular -->
   <div class="sec">
-    <div class="sech"><h2>O particular neste recorte<span class="qtip" data-q="Esta faixa é sempre sobre o particular. Trocar o Pagador ali em cima muda os quatro cards anteriores, não estes três."></span></h2>
-      <span class="sd">não muda com o filtro de pagador</span></div>
-    <div class="fixrow" id="fixrow"></div>
-    <div class="fixnote" id="fixnote"></div>
+    <div class="sech"><h2>O particular neste recorte<span class="qtip" data-q="Esta seção é sempre sobre o particular — trocar o Pagador ali em cima muda os quatro cards anteriores, não estes."></span></h2>
+      <span class="sd">por que a fatia dos exames e a da receita são diferentes</span></div>
+    <div class="eq" id="eq"></div>
+    <div class="eqnote" id="eqnote"></div>
   </div>
 
   <!-- composicao -->
@@ -382,12 +372,25 @@ function render(){
    <div class="k"><div class="lb">Ticket médio<span class="qtip" data-q="Receita dividida pela quantidade de exames — quanto rende, em média, cada exame realizado."></span></div><div class="n">R$ ${tk.toFixed(0)}</div><div class="d">${rec==='total'?'média de todos os pagadores':'só '+recTxt}</div></div>
    <div class="k"><div class="lb">Participação na receita</div><div class="n">${D(S.v/T.v*100)}<em>%</em></div><div class="d">${rec==='total'?'o recorte inteiro':'do faturamento do período'}</div></div>`;
 
-  // === faixa do particular — as duas reguas lado a lado ===
-  fixrow.innerHTML=`
-   <div class="fx"><div class="fv">${D(pctVol)}%</div><div class="fl2"><b>dos exames</b> são particulares<br>${N(P.q)} de ${N(T.q)} realizados</div></div>
-   <div class="fx"><div class="fv">${D(pctRec)}%</div><div class="fl2"><b>da receita</b> vem do particular<br>${RK(P.v)} de ${RK(T.v)}</div></div>
-   <div class="fx"><div class="fv">${D(tkP/tkC)}×</div><div class="fl2">é o que o particular paga <b>a mais</b><br>R$ ${tkP.toFixed(0)} contra R$ ${tkC.toFixed(0)} do ${uni?'restante':'convênio'}</div></div>`;
-  fixnote.innerHTML=`É exatamente esse <b>${D(tkP/tkC)}×</b> que explica a diferença entre os dois primeiros números: o particular é ${D(pctVol)}% da <b>quantidade</b> mas ${D(pctRec)}% do <b>dinheiro</b>. Período: ${perLow}, ${uniTxt}.`;
+  // === equacao: fatia dos exames × (ticket particular / ticket medio) = fatia da receita ===
+  // o multiplicador e sobre o ticket MEDIO GERAL — so assim a conta fecha exatamente.
+  const tkGeral=T.v/T.q, mult=tkP/tkGeral;
+  eq.innerHTML=`
+   <div class="eqc vol"><span class="et">% dos exames</span>
+     <div class="ev">${D(pctVol)}%</div>
+     <div class="el">dos exames feitos<br>foram particulares<br><b>${N(P.q)}</b> de ${N(T.q)}</div></div>
+   <div class="eqop">×</div>
+   <div class="eqc mid"><span class="et">rende a mais</span>
+     <div class="ev">${mult.toFixed(2).replace('.',',')}×</div>
+     <div class="el">é quanto o exame particular<br>rende acima da média<br><b>R$ ${tkP.toFixed(0)}</b> contra R$ ${tkGeral.toFixed(0)} de média</div></div>
+   <div class="eqop">=</div>
+   <div class="eqc rec"><span class="et">% da receita</span>
+     <div class="ev">${D(pctRec)}%</div>
+     <div class="el">do faturamento<br>veio do particular<br><b>${RK(P.v)}</b> de ${RK(T.v)}</div></div>`;
+  eqnote.innerHTML=`<b>É por isso que os dois percentuais são diferentes.</b> O particular é ${D(pctVol)}% da <b>quantidade</b> de exames,
+    mas como cada um rende ${mult.toFixed(2).replace('.',',')}× a média, vira ${D(pctRec)}% do <b>dinheiro</b>.
+    Comparado direto com o ${uni?'restante':'convênio'}, a vantagem é ainda maior: <b>R$ ${tkP.toFixed(0)} contra R$ ${tkC.toFixed(0)}</b>, ou ${D(tkP/tkC)}×.
+    Os gráficos abaixo trazem uma etiqueta indicando qual das duas medidas usam. <span style="color:var(--dim)">Período: ${perLow} · ${uniTxt}.</span>`;
 
   // === empilhado ===
   stkSub.textContent=`${uniTxt} · ${perTxt.toLowerCase()==='ano todo'?'todos os meses':perTxt.toLowerCase()+' em destaque'}`;
