@@ -403,10 +403,12 @@ section.tight{padding-top:calc(var(--pad-section) * .6)}
 .pain-grid{display:grid;gap:clamp(2rem,4vw,3.5rem);align-items:start}
 @media (min-width:940px){.pain-grid{grid-template-columns:minmax(0,52fr) minmax(0,48fr)}}
 .pain-list{display:grid;gap:0;border-top:1px solid var(--hair)}
-.pain-list li{padding:1.15rem 0;border-bottom:1px solid var(--hair);display:flex;gap:1rem;align-items:baseline;font-size:.965rem}
+/* marcador por posicionamento, nunca flex: com flex, qualquer <b> no meio
+   do texto vira item separado e o parágrafo quebra em colunas */
+.pain-list li{padding:1.15rem 0 1.15rem 2.4rem;border-bottom:1px solid var(--hair);position:relative;font-size:.965rem}
 .pain-list li i{
   font-style:normal;font-family:var(--serif);color:var(--musgo);font-size:.85rem;
-  flex:0 0 auto;letter-spacing:.04em;
+  position:absolute;left:0;top:1.3rem;letter-spacing:.04em;
 }
 .turn{
   background:rgba(63,87,65,.055);border:1px solid var(--hair);
@@ -527,8 +529,8 @@ section.tight{padding-top:calc(var(--pad-section) * .6)}
 .svc-cols{display:grid;gap:1.6rem 3rem}
 @media (min-width:860px){.svc-cols{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 .svc ul.inc{border-top:1px solid var(--hair)}
-.svc ul.inc li{padding:.72rem 0;border-bottom:1px solid var(--hair);font-size:.95rem;display:flex;gap:.85rem;align-items:baseline}
-.svc ul.inc li::before{content:"—";color:var(--terra);flex:0 0 auto;font-size:.85rem}
+.svc ul.inc li{padding:.72rem 0 .72rem 1.5rem;border-bottom:1px solid var(--hair);font-size:.95rem;position:relative}
+.svc ul.inc li::before{content:"—";color:var(--terra);position:absolute;left:0;top:.72rem;font-size:.85rem}
 .price-table{width:100%;border-collapse:collapse;font-size:.95rem}
 .price-table caption{text-align:left;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--terra-texto);padding-bottom:.7rem}
 .price-table th,.price-table td{text-align:left;padding:.72rem 0;border-bottom:1px solid var(--hair)}
@@ -552,8 +554,8 @@ section.tight{padding-top:calc(var(--pad-section) * .6)}
 .fit{border-top:2px solid var(--musgo);padding-top:1.6rem}
 .fit.no{border-top-color:var(--terra)}
 .fit h3{font-size:var(--fs-h3);margin-bottom:1.2rem}
-.fit li{padding:.85rem 0;border-bottom:1px solid var(--hair);font-size:.965rem;display:flex;gap:.9rem;align-items:baseline}
-.fit li::before{content:"—";color:var(--musgo);flex:0 0 auto}
+.fit li{padding:.85rem 0 .85rem 1.6rem;border-bottom:1px solid var(--hair);font-size:.965rem;position:relative}
+.fit li::before{content:"—";color:var(--musgo);position:absolute;left:0;top:.85rem}
 .fit.no li::before{color:var(--terra)}
 .fit .note{margin-top:1.1rem;font-size:var(--fs-small);color:var(--ink-60)}
 
@@ -850,7 +852,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
     <div class="hero-copy">
       <p class="eyebrow">Medicina veterinária domiciliar · cães e gatos</p>
       <h1>Veterinário em casa, na <em>Zona Sul</em> do Rio de Janeiro</h1>
-      <p class="hero-sign">O veterinário que explica.</p>
+      <p class="hero-sign">O veterinário da sua família.</p>
       <p class="sub">Seu cachorro ou seu gato <b>faz parte da família</b>. E família a gente cuida sempre, não só quando aparece um problema. Por isso eu atendo em casa, <b>com calma</b>, vendo o seu animal no dia a dia dele, do jeito que ele é de verdade. E depois da visita você sabe <b>com quem contar</b> quando bater uma dúvida.</p>
       <div class="hero-ctas">
         <!-- TODO: nº WhatsApp comercial do João -->
@@ -885,25 +887,25 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
   <div class="wrap">
     <div class="sec-head sec-head--split rv">
       <div>
-        <span class="sec-num">01 · Os sinais</span>
-        <h2>Quem convive, percebe primeiro</h2>
+        <span class="sec-num">01 · Desde o começo</span>
+        <h2>Ele chega e muda a casa inteira</h2>
       </div>
-      <p class="lead">Você conhece o seu animal melhor do que ninguém. É você quem nota quando ele bebe mais água ou passa a dormir em outro canto. São mudanças pequenas, fáceis de deixar pra depois na correria da semana. Meu trabalho é olhar pra elas com você, com calma.</p>
+      <p class="lead">Primeiro mudam os horários. Depois muda o jeito de voltar pra casa, sabendo que tem alguém esperando. Quando você percebe, já não lembra direito como era a vida antes dele.</p>
     </div>
     <div class="pain-grid">
       <div class="prose rv">
-        <p>Todo tutor conhece a cena: a coleira sai do gancho e ele já entende que vai sair de casa. Fora do território dele, o animal fica em alerta, e isso muda o que o exame consegue mostrar. Na sua casa eu vejo o real: o jeito de andar, o canto onde ele dorme, como ele é no lugar onde se sente seguro.</p>
-        <p>Também sei como é sair de uma consulta com a receita na mão e perguntas que não deu tempo de fazer. Isso não é falta de bom profissional. Falta é tempo, e foi o tempo que eu resolvi proteger no meu jeito de atender: <b>você vai entender o porquê de cada escolha</b>, e quando a explicação faz sentido, seguir o combinado fica fácil.</p>
-        <p>E de noite aparece aquela pergunta: será que ele tá bem? Você joga no Google, encontra mil respostas diferentes e dorme mais preocupado do que antes. O que falta ali é <b>alguém de confiança</b> pra quem mandar uma mensagem e perguntar.</p>
-        <p>Eu dou plantão numa clínica de respiratório e vejo muito animal chegar quando o quadro já está avançado. Quase sempre penso a mesma coisa: se alguém tivesse olhado isso uns meses antes, a história podia ser outra. É por isso que eu insisto tanto na rotina. <b>Cuidar antes costuma ser mais simples, mais barato e muito mais tranquilo</b> pra todo mundo.</p>
+        <p>Todo tutor lembra do começo: os primeiros dias em casa, o nome ainda em teste, a rotina inteira se ajeitando pra ele. É nessa fase que muita coisa importante se decide: a alimentação, as primeiras vacinas, os hábitos que ele vai levar pra vida toda.</p>
+        <p>E é também a melhor hora pra ter um veterinário por perto. Não pra resolver problema, porque não tem problema nenhum: pra <b>começar certo</b>. Um filhote bem acompanhado no primeiro ano costuma dar bem menos susto nos anos seguintes.</p>
+        <p>O mesmo vale pra quem chegou depois, adulto ou já grisalho. Cuidar não é só agir quando algo aperta. É <b>acompanhar</b>: conhecer o seu animal saudável, pra perceber cedo qualquer mudança e ajustar a rotina antes de virar preocupação.</p>
+        <p>É esse lugar que eu quero ocupar na vida da sua família: o veterinário que conhece a história do seu animal e que você sabe que <b>pode chamar</b>. Pra vacina do filhote, pro check-up anual, ou pra aquela dúvida que aparece de noite e não precisa mais terminar no Google.</p>
       </div>
       <div class="turn rv">
         <span class="turn-kicker">O que muda quando eu atendo na sua casa</span>
         <ul class="pain-list">
           <li><i>01</i>Eu examino o seu animal no lugar onde ele fica à vontade, sem o estresse do transporte.</li>
           <li><i>02</i>Você participa da consulta inteira e pergunta o que quiser, na hora.</li>
-          <li><i>03</i>No fim, fica um plano por escrito, explicado com palavras que fazem sentido.</li>
-          <li><i>04</i>E o meu contato fica com você, pra dúvida que aparecer no dia a dia.</li>
+          <li><i>03</i>Tudo que a gente decidir fica anotado, explicado com palavras que fazem sentido.</li>
+          <li><i>04</i>E eu sigo por perto: meu contato fica com você pra dúvida que aparecer no dia a dia.</li>
         </ul>
         <!-- TODO: nº WhatsApp comercial do João -->
         <a class="btn turn-cta" href="https://wa.me/5521000000000?text=Ol%C3%A1%2C%20Jo%C3%A3o.%20Notei%20uma%20mudan%C3%A7a%20no%20meu%20animal%20e%20quero%20agendar%20uma%20visita.">
@@ -955,8 +957,8 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
         </figure>
         <div class="step-body">
           <span class="step-kicker"><i>03</i> Depois da visita</span>
-          <h3>Você fica com o plano na mão</h3>
-          <p>Eu escrevo o plano do seu animal, explico cada parte dele com calma, e conversamos também sobre o custo, sem surpresa depois. Você fica com o meu contato e sabe o que fazer se algo mudar antes do próximo retorno.</p>
+          <h3>O cuidado continua</h3>
+          <p>A visita termina, o acompanhamento não. Eu explico o que encontrei, deixo tudo anotado pra você consultar quando quiser, e sigo por perto: respondo dúvida pelo WhatsApp, quero saber como ele reagiu, aviso quando chegar a hora do reforço ou do retorno. Seu animal ganha um veterinário cuidando dele, não uma consulta avulsa.</p>
         </div>
       </article>
     </div>
@@ -980,7 +982,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
             <blockquote class="car-slide"><p>Não existe receita de bolo. O cachorro que mora em Laranjeiras não segue o protocolo do que mora em São Gonçalo. <em>A área é outra, as doenças em volta são outras, a rotina é outra.</em></p></blockquote>
             <blockquote class="car-slide"><p>Sou do menos é mais. Antes do remédio, a base: alimentação, rotina, movimento. <em>Até dipirona tem efeito adverso,</em> e quem processa cada dose é o fígado e o rim do seu animal.</p></blockquote>
             <blockquote class="car-slide"><p>Não adianta nada eu fazer a consulta e não te fazer entender. <em>Quem entende o porquê, cumpre o plano.</em> E quem cumpre o plano cuida melhor.</p></blockquote>
-            <blockquote class="car-slide"><p>Quando um caso pedir outro profissional, eu encaminho, sem vaidade. <em>O que importa é o seu animal viver bem</em> — comigo ou com quem cuidar melhor dele naquele momento.</p></blockquote>
+            <blockquote class="car-slide"><p>Quando um caso pedir outro profissional, eu encaminho, sem vaidade. <em>O que importa é o seu animal viver bem</em>, comigo ou com quem cuidar melhor dele naquele momento.</p></blockquote>
           </div>
           <div class="car-foot">
             <div class="car-dots" data-car-dots></div>
@@ -1018,19 +1020,19 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
           </div>
           <div class="svc-price">R$ 250<small>a visita, sem pressa</small></div>
         </div>
-        <p class="desc">Uma consulta completa, na sua casa, sem pressa. É pra quem se pergunta "será que ele está bem?" antes de qualquer sintoma aparecer — ou pra quem notou algo diferente e não quer esperar virar problema.</p>
+        <p class="desc">Uma consulta completa, na sua casa, sem pressa. É pra quem se pergunta "será que ele está bem?" antes de qualquer sintoma aparecer, ou pra quem notou algo diferente e não quer esperar virar problema.</p>
         <div class="svc-cols">
           <ul class="inc">
-            <li>Você tem toda a minha atenção: <b>nada de consulta emendada</b> logo em seguida</li>
-            <li>Converso com você e examino o animal com calma, no espaço onde ele vive</li>
-            <li>Olho a alimentação, a rotina, os passeios — o dia a dia dele</li>
-            <li>Um plano só dele, <b>escrito</b>, explicado com calma</li>
+            <li>Chego com calma e deixo ele se aproximar no tempo dele, sem forçar nada</li>
+            <li>Examino com cuidado e vou te contando o que estou vendo, em português claro</li>
+            <li>Olho também o dia a dia: a alimentação, a rotina, os passeios, o espaço dele</li>
+            <li>Gato arisco ou cão medroso? Me avisa antes, que eu mudo o jeito de chegar</li>
           </ul>
           <ul class="inc">
-            <li>A gente decide junto — inclusive sobre valores, sem surpresa depois</li>
-            <li>Se precisar de exame de sangue, já coleto ali, e aviso o valor antes</li>
-            <li>Depois da visita, você continua com o meu contato</li>
-            <li>Se o caso pedir outra estrutura, eu digo com honestidade e te ajudo a achar o caminho certo</li>
+            <li>Você ouve a verdade: se não precisar de remédio, é isso que eu vou te dizer</li>
+            <li>As decisões a gente toma junto, inclusive sobre custo, conversado antes</li>
+            <li>Precisou de exame de sangue? Coleto ali mesmo, com o valor avisado antes</li>
+            <li>E se o caso pedir mais estrutura, eu te digo na hora e ajudo a achar o caminho certo</li>
           </ul>
         </div>
         <div class="svc-cta">
@@ -1103,7 +1105,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
             <div class="pack">
               <span class="pack-price">R$ 680</span>
               <b>Primeiro Ano Completo</b>
-              <p>Pra filhote ou animal que acabou de chegar na família: todas as vacinas do primeiro ano organizadas num calendário só — 1 antirrábica, 3 doses de V10 e 2 de gripe — com cada uma explicada antes de aplicar.</p>
+              <p>Pra filhote ou animal que acabou de chegar na família: todas as vacinas do primeiro ano organizadas num calendário só (1 antirrábica, 3 doses de V10 e 2 de gripe), com cada uma explicada antes de aplicar.</p>
             </div>
             <div class="svc-cta">
               <!-- TODO: nº WhatsApp comercial do João -->
@@ -1115,7 +1117,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
       </article>
     </div>
 
-    <p class="fine">Valores de referência para a área de atendimento, válidos na data de publicação desta página. Exames e procedimentos que dependem de avaliação individual têm valor definido caso a caso, sempre informado antes — e nada é cobrado sem você confirmar antes.</p>
+    <p class="fine">Valores de referência para a área de atendimento, válidos na data de publicação desta página. Exames e procedimentos que dependem de avaliação individual têm valor definido caso a caso, sempre informado antes. E nada é cobrado sem você confirmar antes.</p>
   </div>
 </section>
 
@@ -1142,7 +1144,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
         <h3>Talvez eu não seja o veterinário certo, se</h3>
         <ul>
           <li>Você precisa de atendimento de emergência agora. Nesse caso, não me espere: procure imediatamente uma clínica veterinária de plantão</li>
-          <li>Você já decidiu o diagnóstico sozinho e só quer alguém confirmando — eu prefiro conversar e investigar com você, mesmo que a resposta seja a mesma</li>
+          <li>Você já decidiu o diagnóstico sozinho e só quer alguém confirmando. Eu prefiro conversar e investigar com você, mesmo que a resposta seja a mesma</li>
           <li>Você precisa de resposta a qualquer hora da madrugada. Eu deixo meu contato e a gente combina um horário em que posso responder; pra emergência, existe um caminho mais rápido, que eu explico na visita</li>
           <li>Seu endereço está fora da Zona Sul do Rio, por enquanto</li>
         </ul>
@@ -1197,7 +1199,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
         <p>Eu quis ser veterinário desde criança. E fui adiando, por medo. Não da profissão: de não corresponder ao tamanho da responsabilidade, porque errar na medicina pesa. Fiz o desvio clássico de quem tem medo: fui estudar biologia, que parecia perto o bastante, tranquei o curso, trabalhei em loja. Ganhava meu dinheiro sem me encontrar em nada daquilo.</p>
         <p>Até que a conta parou de fechar por dentro. Eu não ia conseguir viver comigo mesmo sem ao menos tentar. Estudei, passei para medicina veterinária na UFRRJ e entrei em 2020, junto com a pandemia. Foram seis anos de curso, boa parte deles morando em Seropédica, longe da família, dos amigos e dos meus cachorros. Entreguei o TCC e me formei em julho de 2025.</p>
         <p>Hoje, além do atendimento domiciliar, dou plantões de 12 horas numa clínica especializada em respiratório. É lá que eu vejo, toda semana, o outro lado da medicina: o animal que chega quando já não há muito o que fazer, o tutor que descobre tarde uma condição que dava para ter sido encontrada cedo. Essa rotina me convenceu de vez de que eu quero chegar antes. Montei o atendimento domiciliar para encontrar cedo o que, no plantão, eu só vejo quando já é tarde.</p>
-        <p>Estudei bastante e sigo estudando, mas não vou te dizer que sei tudo. Nenhum profissional sério diz. Quando um caso pedir outra estrutura ou outro colega, eu encaminho, e te explico por quê. O compromisso que eu posso assumir é o que dá nome a esta página: nenhuma decisão sobre o seu animal sem você entender o porquê.</p>
+        <p>Estudei bastante e sigo estudando, mas não vou te dizer que sei tudo. Nenhum profissional sério diz. Quando um caso pedir outra estrutura ou outro colega, eu encaminho, e te explico por quê. O compromisso que eu posso assumir é simples: nenhuma decisão sobre o seu animal sem você entender o porquê.</p>
         <p>No fundo, é simples. Ele está nas fotos da família e no pedaço do sofá que virou dele. São dez, quinze anos andando do seu lado, pedindo quase nada em troca. Cuidar da saúde dele com constância, e não só quando alguma coisa aperta, é o jeito mais concreto de retribuir. Amor por um animal, pra mim, se mede na rotina.</p>
         <div class="about-sign">
           <b>João Caetano</b>
@@ -1283,21 +1285,21 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
       <details>
         <summary>Vacinar em casa é seguro?<span class="m">+</span></summary>
         <div class="a">
-          <p>É, desde que feito por médico-veterinário, com a vacina guardada e transportada do jeito certo — exatamente como numa clínica. O que muda é o animal: sem caixa de transporte, sem sala de espera, sem o estresse de sair de casa. E vacinar bem começa antes da agulha: é escolher a vacina certa pro seu animal, e eu explico essa escolha ali, na sua frente.</p>
+          <p>É, desde que feito por médico-veterinário, com a vacina guardada e transportada do jeito certo, exatamente como numa clínica. O que muda é o animal: sem caixa de transporte, sem sala de espera, sem o estresse de sair de casa. E vacinar bem começa antes da agulha: é escolher a vacina certa pro seu animal, e eu explico essa escolha ali, na sua frente.</p>
         </div>
       </details>
 
       <details>
         <summary>Quais vacinas o cachorro precisa tomar todo ano?<span class="m">+</span></summary>
         <div class="a">
-          <p>As essenciais são a antirrábica, obrigatória por lei, e a múltipla (V8 ou V10), com reforço todo ano. A vacina de gripe entra no protocolo de cães que passeiam bastante e convivem com outros cães. Qual múltipla usar, e se a gripe entra ou não, depende de onde o seu animal vive e da rotina dele — uma decisão que eu tomo junto com você, sempre explicando o porquê.</p>
+          <p>As essenciais são a antirrábica, obrigatória por lei, e a múltipla (V8 ou V10), com reforço todo ano. A vacina de gripe entra no protocolo de cães que passeiam bastante e convivem com outros cães. Qual múltipla usar, e se a gripe entra ou não, depende de onde o seu animal vive e da rotina dele. É uma decisão que eu tomo junto com você, sempre explicando o porquê.</p>
         </div>
       </details>
 
       <details>
         <summary>Veterinário em casa também atende gato?<span class="m">+</span></summary>
         <div class="a">
-          <p>Sim, e pra gato o atendimento em casa costuma fazer bastante diferença: a maioria detesta a caixa de transporte e chega alterado na clínica, o que atrapalha até o exame. Em casa, ele é examinado no território dele, bem mais tranquilo. Se o seu animal tem histórico difícil com veterinário, me conta no agendamento — isso muda como eu me aproximo dele.</p>
+          <p>Sim, e pra gato o atendimento em casa costuma fazer bastante diferença: a maioria detesta a caixa de transporte e chega alterado na clínica, o que atrapalha até o exame. Em casa, ele é examinado no território dele, bem mais tranquilo. Se o seu animal tem histórico difícil com veterinário, me conta no agendamento: isso muda como eu me aproximo dele.</p>
         </div>
       </details>
 
@@ -1311,7 +1313,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
       <details>
         <summary>O que dá para fazer em um atendimento em casa?<span class="m">+</span></summary>
         <div class="a">
-          <p>Consulta completa com exame físico, aplicação de qualquer vacina do calendário, medicação injetável e coleta de sangue para exames. O que precisa de imagem, internação ou centro cirúrgico eu não faço em casa — e quando o caso pedir isso, eu digo com clareza e te encaminho pro lugar certo. Conhecer esse limite também é parte de cuidar bem do seu animal.</p>
+          <p>Consulta completa com exame físico, aplicação de qualquer vacina do calendário, medicação injetável e coleta de sangue para exames. O que precisa de imagem, internação ou centro cirúrgico eu não faço em casa. Quando o caso pedir isso, eu digo com clareza e te encaminho pro lugar certo. Conhecer esse limite também é parte de cuidar bem do seu animal.</p>
         </div>
       </details>
 
@@ -1346,7 +1348,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
       <details>
         <summary>Posso falar com você depois da consulta?<span class="m">+</span></summary>
         <div class="a">
-          <p>Pode, e isso faz parte do atendimento. Você fica com o meu contato direto, e a gente combina um horário em que posso responder. Dúvida sobre o plano, sobre uma dose, uma reação, um sinal novo: pode me chamar. Só peço uma troca honesta dos dois lados — eu não sou uma máquina e não respondo de madrugada, e pra emergência a gente já deixa combinado, na visita, qual é o caminho mais rápido.</p>
+          <p>Pode, e isso faz parte do atendimento. Você fica com o meu contato direto, e a gente combina um horário em que posso responder. Dúvida sobre o plano, sobre uma dose, uma reação, um sinal novo: pode me chamar. Só peço uma troca honesta dos dois lados: eu não sou uma máquina e não respondo de madrugada, e pra emergência a gente já deixa combinado, na visita, qual é o caminho mais rápido.</p>
         </div>
       </details>
 
