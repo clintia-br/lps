@@ -19,7 +19,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
 <!--
   ============================================================
@@ -100,16 +100,17 @@
   --hair-dark:rgba(244,241,234,.18);
   --off-70:rgba(244,241,234,.72);
   --serif:"Fraunces","Iowan Old Style",Georgia,"Times New Roman",serif;
-  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --sans:"Libre Franklin","Helvetica Neue",Helvetica,Arial,sans-serif;
   --fs-hero:clamp(2.6rem,6.2vw + .9rem,4.6rem);
-  --fs-h2:clamp(1.85rem,3.4vw + .7rem,3rem);
-  --fs-h3:clamp(1.25rem,1.4vw + .8rem,1.6rem);
+  --fs-h2:clamp(1.7rem,2.6vw + .7rem,2.5rem);
+  --fs-h3:clamp(1.2rem,1.1vw + .8rem,1.45rem);
   --fs-manifesto:clamp(1.3rem,2.4vw + .7rem,2.15rem);
-  --fs-body:clamp(1rem,.25vw + .95rem,1.115rem);
+  --fs-body:clamp(1rem,.22vw + .95rem,1.07rem);
   --fs-small:.845rem;
-  --pad-section:clamp(4.5rem,10vw,8.5rem);
+  --pad-section:clamp(4.5rem,10vw,8rem);
   --wrap:1120px;
   --header-h:64px;
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px)}
@@ -120,12 +121,20 @@ html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px)}
 body{
   font-family:var(--sans);
   font-size:var(--fs-body);
-  line-height:1.7;
+  line-height:1.68;
   color:var(--ink);
   background:var(--off);
   overflow-x:clip;
   -webkit-font-smoothing:antialiased;
+  position:relative;
 }
+/* Grão de papel: tira o aspecto "chapado de gerador" das superfícies planas */
+body::before{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.4;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+body > *{position:relative;z-index:2}
 ::selection{background:var(--musgo);color:var(--off)}
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -136,30 +145,41 @@ ul{list-style:none}
 .prose p + p{margin-top:1.25em}
 
 /* ============ Tipografia utilitária ============ */
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;letter-spacing:-.01em}
+h1,h2,h3{
+  font-family:var(--serif);font-weight:500;line-height:1.14;letter-spacing:-.012em;
+  font-variation-settings:"SOFT" 0,"WONK" 0;
+  text-wrap:balance;
+}
+p{text-wrap:pretty}
 .eyebrow{
-  font-family:var(--sans);font-size:.78rem;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--terra-texto);
-  display:flex;align-items:center;gap:.9rem;margin-bottom:1.4rem;
+  font-family:var(--sans);font-size:.73rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--terra-texto);
+  display:flex;align-items:center;gap:.9rem;margin-bottom:1.3rem;
 }
 .eyebrow::after{content:"";flex:0 0 44px;height:1px;background:var(--terra);opacity:.55}
 .sec-num{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-  font-size:.95rem;color:var(--terra-texto);letter-spacing:.02em;
+  font-family:var(--sans);font-weight:600;font-size:.7rem;letter-spacing:.18em;
+  color:var(--terra-texto);display:block;margin-bottom:.9rem;
 }
-.sec-head{margin-bottom:clamp(2.2rem,5vw,3.6rem)}
-.sec-head h2{font-size:var(--fs-h2);max-width:22ch}
-.sec-head .lead{margin-top:1.1rem;color:var(--ink-60);max-width:60ch}
+.sec-head{margin-bottom:clamp(2.2rem,5vw,3.4rem);max-width:var(--wrap)}
+.sec-head h2{font-size:var(--fs-h2);max-width:20ch}
+.sec-head .lead{margin-top:1rem;color:var(--ink-60);max-width:58ch}
+.sec-head--split{display:grid;gap:1rem clamp(2rem,5vw,4rem)}
+@media (min-width:940px){
+  .sec-head--split{grid-template-columns:minmax(0,48fr) minmax(0,52fr);align-items:end}
+  .sec-head--split .lead{margin-top:0;padding-bottom:.35em}
+}
 
 /* ============ Botões ============ */
 .btn{
-  display:inline-flex;align-items:center;gap:.65rem;
-  font-family:var(--sans);font-size:.92rem;font-weight:600;letter-spacing:.02em;
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  font-family:var(--sans);font-size:.9rem;font-weight:600;letter-spacing:.01em;
   text-decoration:none;padding:.95rem 1.7rem;border:1px solid var(--musgo);
-  background:var(--musgo);color:var(--off);
-  transition:background .22s ease,border-color .22s ease,transform .22s ease;
+  background:var(--musgo);color:var(--off);line-height:1;
+  transition:background .22s var(--ease),border-color .22s var(--ease),transform .22s var(--ease),box-shadow .22s var(--ease);
 }
-.btn:hover{background:var(--musgo-escuro);border-color:var(--musgo-escuro);transform:translateY(-1px)}
+.btn,.btn:link,.btn:visited{color:var(--off)}
+.btn:hover{background:var(--musgo-escuro);border-color:var(--musgo-escuro);transform:translateY(-1px);box-shadow:0 10px 24px -14px rgba(44,62,46,.9)}
 .btn .wa{width:17px;height:17px;flex:0 0 auto}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--hair)}
 .btn-ghost:hover{background:transparent;border-color:var(--ink);transform:translateY(-1px)}
@@ -184,15 +204,18 @@ header{
 .brand b{font-family:var(--serif);font-weight:500;font-size:1.06rem;letter-spacing:.01em}
 .brand span{font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-60)}
 nav.main{display:flex;align-items:center;gap:1.6rem}
-nav.main a{font-size:.88rem;font-weight:500;text-decoration:none;color:var(--ink-60);position:relative;padding:.25rem 0;transition:color .2s}
+nav.main a{font-size:.87rem;font-weight:500;text-decoration:none;color:var(--ink-60);position:relative;padding:.25rem 0;transition:color .2s}
 nav.main a:hover{color:var(--ink)}
-nav.main a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--terra);transition:width .25s ease}
-nav.main a:hover::after{width:100%}
+nav.main a:not(.header-cta)::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--terra);transition:width .25s ease}
+nav.main a:not(.header-cta):hover::after{width:100%}
+/* o CTA é botão: precisa vencer a cor herdada de nav.main a */
+nav.main a.header-cta,nav.main a.header-cta:hover{color:var(--off)}
 .header-cta{
-  padding:.62rem 1.25rem;font-size:.85rem;border-radius:999px;
-  box-shadow:0 1px 0 rgba(34,38,31,.08);
+  padding:.6rem 1.15rem .6rem 1rem;font-size:.82rem;font-weight:600;
+  border-radius:2px;letter-spacing:.02em;
 }
-.header-cta .wa{width:16px;height:16px}
+.header-cta .wa{width:15px;height:15px;opacity:.9}
+.header-cta span{white-space:nowrap}
 .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:.55rem;margin-right:-.55rem}
 .menu-btn span{display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .25s,opacity .25s}
 .menu-btn span + span{margin-top:6px}
@@ -216,7 +239,15 @@ body.menu-open .menu-btn span:last-child{transform:translateY(-3.75px) rotate(-4
 }
 
 /* ============ Slots de foto com fallback ============ */
-.slot{position:relative;overflow:hidden;background:var(--musgo-escuro)}
+.slot{
+  position:relative;overflow:hidden;background:var(--musgo-escuro);
+  box-shadow:0 18px 40px -30px rgba(31,45,61,.75);
+}
+/* moldura interna: dá acabamento e separa a foto do fundo */
+.slot::after{
+  content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(244,241,234,.14);
+}
 .slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ph{
   position:absolute;inset:0;display:grid;place-items:center;
@@ -287,12 +318,25 @@ section.tight{padding-top:calc(var(--pad-section) * .6)}
 .dark .sec-head .lead,.dark-navy .sec-head .lead{color:var(--off-70)}
 .dark .sec-num,.dark-navy .sec-num{color:rgba(244,241,234,.55)}
 
-/* Dor */
-.pain-grid{display:grid;gap:clamp(2rem,4vw,4rem)}
-@media (min-width:940px){.pain-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+/* Dor + virada */
+.pain-grid{display:grid;gap:clamp(2rem,4vw,3.5rem);align-items:start}
+@media (min-width:940px){.pain-grid{grid-template-columns:minmax(0,52fr) minmax(0,48fr)}}
 .pain-list{display:grid;gap:0;border-top:1px solid var(--hair)}
-.pain-list li{padding:1.35rem 0;border-bottom:1px solid var(--hair);display:flex;gap:1.1rem;align-items:baseline}
-.pain-list li i{font-style:italic;font-family:var(--serif);color:var(--terra);font-size:.95rem;flex:0 0 2ch}
+.pain-list li{padding:1.15rem 0;border-bottom:1px solid var(--hair);display:flex;gap:1rem;align-items:baseline;font-size:.965rem}
+.pain-list li i{
+  font-style:normal;font-family:var(--serif);color:var(--musgo);font-size:.85rem;
+  flex:0 0 auto;letter-spacing:.04em;
+}
+.turn{
+  background:rgba(63,87,65,.055);border:1px solid var(--hair);
+  border-left:2px solid var(--musgo);padding:clamp(1.5rem,3.2vw,2.2rem);
+}
+.turn-kicker{
+  display:block;font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--musgo);margin-bottom:1.1rem;
+}
+.turn .pain-list li:last-child{border-bottom:none}
+.turn-cta{margin-top:1.6rem;width:100%}
 
 /* Método */
 .steps{display:grid;gap:clamp(1.5rem,3vw,2rem)}
@@ -301,9 +345,20 @@ section.tight{padding-top:calc(var(--pad-section) * .6)}
 .step:hover{transform:translateY(-3px);box-shadow:0 14px 34px -18px rgba(34,38,31,.35)}
 .step .slot{aspect-ratio:1/1}
 .step-body{padding:1.6rem 1.5rem 1.9rem;flex:1}
-.step-kicker{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--terra-texto);display:block;margin-bottom:.7rem}
+.step-kicker{
+  font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--terra-texto);display:flex;align-items:center;gap:.6rem;margin-bottom:.75rem;
+}
+.step-kicker i{
+  font-style:normal;font-family:var(--serif);font-size:.95rem;letter-spacing:0;
+  color:var(--musgo);border-bottom:1px solid var(--terra);padding-bottom:1px;
+}
 .step h3{font-size:var(--fs-h3);margin-bottom:.75rem}
-.step p{font-size:.965rem;color:var(--ink-60)}
+.step p{font-size:.95rem;color:var(--ink-60)}
+.method-note{
+  margin-top:clamp(1.8rem,3vw,2.6rem);padding-top:1.3rem;border-top:1px solid var(--hair);
+  font-size:.92rem;color:var(--ink-60);max-width:62ch;
+}
 
 /* Manifesto (carrossel com foto) */
 .manifesto{padding:clamp(4.5rem,10vw,8rem) 0}
@@ -315,33 +370,52 @@ section.tight{padding-top:calc(var(--pad-section) * .6)}
 @media (max-width:899px){.mani-slot{aspect-ratio:4/3;max-width:none}}
 .manifesto .kicker{font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,241,234,.55);margin-bottom:1.8rem;display:flex;align-items:center;gap:.9rem}
 .manifesto .kicker::after{content:"";flex:0 0 44px;height:1px;background:rgba(244,241,234,.4)}
+/* ---- Carrossel (componente genérico) ---- */
 .car-track{
   display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
-  scrollbar-width:none;-ms-overflow-style:none;
-  gap:2.5rem;
+  scrollbar-width:none;-ms-overflow-style:none;gap:2.5rem;
 }
 .car-track::-webkit-scrollbar{display:none}
-.car-track:focus-visible{outline:1px solid rgba(244,241,234,.5);outline-offset:8px}
-.car-slide{
-  flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;
-  font-family:var(--serif);font-weight:400;
-  font-size:clamp(1.15rem,1.5vw + .75rem,1.65rem);
-  line-height:1.55;letter-spacing:-.005em;max-width:34ch;
-}
-.car-slide em{font-style:italic;color:#C9BFA8}
+.car-track:focus-visible{outline:1px solid var(--terra);outline-offset:8px}
+.car-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;min-width:0}
 .car-foot{margin-top:2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
 .car-dots{display:flex;gap:.55rem}
 .car-dots button{
   width:26px;height:2px;border:none;cursor:pointer;padding:0;
-  background:rgba(244,241,234,.25);transition:background .25s;
+  background:rgba(34,38,31,.2);transition:background .25s,transform .25s;
 }
-.car-dots button.on{background:#C9BFA8}
+.car-dots button.on{background:var(--musgo);transform:scaleY(2)}
 .car-nav{display:flex;gap:.6rem}
 .car-nav button{
-  width:42px;height:42px;border:1px solid var(--hair-dark);background:transparent;
-  color:var(--off);font-size:1rem;cursor:pointer;transition:border-color .2s,background .2s;
+  width:44px;height:44px;border:1px solid var(--hair);background:transparent;
+  color:var(--ink);font-size:1rem;cursor:pointer;
+  transition:border-color .2s,background .2s,transform .2s var(--ease);
 }
-.car-nav button:hover{border-color:var(--off-70);background:rgba(244,241,234,.06)}
+.car-nav button:hover{border-color:var(--ink);background:rgba(34,38,31,.04)}
+.car-nav button:active{transform:scale(.94)}
+.car-nav button[disabled]{opacity:.3;cursor:default}
+.car-hint{font-size:var(--fs-small);color:var(--ink-60);display:flex;align-items:center;gap:.5rem}
+
+/* variante em fundo escuro */
+.dark .car-dots button,.dark-navy .car-dots button{background:rgba(244,241,234,.25)}
+.dark .car-dots button.on,.dark-navy .car-dots button.on{background:#C9BFA8}
+.dark .car-nav button,.dark-navy .car-nav button{border-color:var(--hair-dark);color:var(--off)}
+.dark .car-nav button:hover,.dark-navy .car-nav button:hover{border-color:var(--off-70);background:rgba(244,241,234,.06)}
+.dark .car-hint,.dark-navy .car-hint{color:var(--off-70)}
+
+/* manifesto: tipografia da citação */
+.manifesto .car-slide{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(1.15rem,1.5vw + .75rem,1.6rem);
+  line-height:1.55;letter-spacing:-.005em;max-width:34ch;
+}
+.manifesto .car-slide em{font-style:italic;color:#C9BFA8}
+
+/* carrossel de serviços: cada slide é um card */
+.car--cards .car-track{gap:clamp(1.2rem,3vw,2rem)}
+@media (min-width:1040px){
+  .car--cards .car-slide{flex:0 0 calc(100% - 4.5rem)}
+}
 .mani-sign{margin-top:1.6rem;font-size:.85rem;color:rgba(244,241,234,.6);display:flex;align-items:center;gap:.9rem}
 .mani-sign::before{content:"";flex:0 0 34px;height:1px;background:rgba(244,241,234,.35)}
 
@@ -404,20 +478,51 @@ section.tight{padding-top:calc(var(--pad-section) * .6)}
 .about-sign{margin-top:2rem;padding-top:1.4rem;border-top:1px solid var(--hair)}
 .about-sign b{font-family:var(--serif);font-weight:500;font-size:1.12rem;display:block}
 .about-sign span{font-size:var(--fs-small);color:var(--ink-60)}
-.gallery{margin-top:clamp(2.5rem,5vw,4rem);display:grid;gap:clamp(.8rem,1.5vw,1.2rem);grid-template-columns:repeat(2,1fr)}
+.creds{margin-top:1.8rem;display:grid;gap:0;border-top:1px solid var(--hair)}
+@media (min-width:620px){.creds{grid-template-columns:repeat(3,1fr);gap:0 1.5rem}}
+.creds li{padding:1.1rem 0;border-bottom:1px solid var(--hair)}
+@media (min-width:620px){.creds li{border-bottom:none}}
+.creds i{
+  font-style:normal;display:block;font-size:.65rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--terra-texto);margin-bottom:.45rem;
+}
+.creds b{display:block;font-family:var(--serif);font-weight:500;font-size:1.02rem;letter-spacing:.01em}
+.creds span{display:block;font-size:.8rem;color:var(--ink-60);margin-top:.15rem;line-height:1.45}
+.creds-note{margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid var(--hair);font-size:.8rem;color:var(--ink-60);max-width:60ch}
+.gallery{margin-top:clamp(3rem,6vw,5rem);display:grid;gap:clamp(1.1rem,2.2vw,2rem);grid-template-columns:repeat(2,1fr)}
 @media (min-width:700px){.gallery{grid-template-columns:repeat(3,1fr)}}
 .gallery .slot{aspect-ratio:1/1}
+.gallery-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:1.5rem;
+  margin-top:clamp(3rem,6vw,5rem);padding-bottom:1rem;border-bottom:1px solid var(--hair);
+}
+.gallery-head h3{font-size:var(--fs-h3)}
+.gallery-head span{font-size:var(--fs-small);color:var(--ink-60)}
+.gallery-head + .gallery{margin-top:clamp(1.2rem,2.2vw,2rem)}
 
-/* Área */
-.area-grid{display:grid;gap:clamp(2rem,4vw,3.5rem)}
-@media (min-width:860px){.area-grid{grid-template-columns:minmax(0,42fr) minmax(0,58fr);align-items:start}}
-.chips{display:flex;flex-wrap:wrap;gap:.6rem}
+/* Área + mapa */
+.area-grid{display:grid;gap:clamp(2.2rem,4.5vw,4rem)}
+@media (min-width:900px){.area-grid{grid-template-columns:minmax(0,47fr) minmax(0,53fr);align-items:center}}
+.area-title{font-size:var(--fs-h2);max-width:14ch}
+.area-lead{margin-top:1.1rem;color:var(--off-70);max-width:52ch}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
 .chips li{
   border:1px solid var(--hair-dark);padding:.55rem 1.05rem;font-size:.88rem;
   color:var(--off);letter-spacing:.01em;transition:border-color .2s;
 }
 .chips li:hover{border-color:var(--off-70)}
-.area-note{margin-top:1.6rem;font-size:var(--fs-small);color:var(--off-70);max-width:52ch}
+.area-note{margin-top:1.3rem;font-size:var(--fs-small);color:var(--off-70);max-width:52ch}
+.map{position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--hair-dark);background:var(--marinho)}
+@media (max-width:899px){.map{aspect-ratio:5/4}}
+.map iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:0;
+  filter:grayscale(1) contrast(.92) brightness(.82) sepia(.35) hue-rotate(58deg) saturate(1.35);
+}
+.map figcaption{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;pointer-events:none;
+  padding:1.6rem 1.3rem .9rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--off);background:linear-gradient(to top,rgba(31,45,61,.85),transparent);
+}
 
 /* FAQ */
 .faq{border-top:1px solid var(--hair)}
@@ -469,10 +574,36 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
 .gallery .slot:nth-child(4){--d:.24s}.gallery .slot:nth-child(5){--d:.32s}.gallery .slot:nth-child(6){--d:.4s}
 
 /* Tratamento padrão das fotos */
-.slot img{filter:saturate(.96) contrast(1.02)}
 .slot{isolation:isolate}
-.slot img{transition:transform .6s ease}
-.gallery .slot:hover img,.step:hover .slot img{transform:scale(1.035)}
+.slot img{filter:saturate(.96) contrast(1.02);transition:transform .9s var(--ease)}
+.gallery .slot:hover img,.step:hover .slot img,.about-slot:hover img{transform:scale(1.04)}
+
+/* Revelação de imagem: cortina que sobe (mais orgânico que fade puro) */
+.slot.rv-img{opacity:1;transform:none}
+.slot.rv-img img,.slot.rv-img .ph{
+  clip-path:inset(0 0 100% 0);transform:scale(1.06);
+  transition:clip-path 1.05s var(--ease),transform 1.2s var(--ease);
+}
+.slot.rv-img.in img,.slot.rv-img.in .ph{clip-path:inset(0 0 0 0);transform:none}
+
+/* Linha que se desenha sob os títulos de seção */
+.sec-num{position:relative;padding-bottom:.55rem}
+.sec-num::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--terra);
+  transition:width .9s var(--ease) .15s;
+}
+.rv.in .sec-num::after,.sec-head.in .sec-num::after{width:52px}
+
+/* Barra de progresso de leitura */
+.progress{
+  position:fixed;top:0;left:0;height:2px;width:0;z-index:60;
+  background:linear-gradient(90deg,var(--terra),var(--musgo));
+  transition:width .12s linear;
+}
+@media (prefers-reduced-motion:reduce){
+  .slot.rv-img img,.slot.rv-img .ph{clip-path:none !important;transform:none !important}
+  .progress{display:none}
+}
 
 /* Barra fixa de WhatsApp no mobile */
 .wa-bar{display:none}
@@ -537,14 +668,14 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
       <p class="eyebrow">Medicina veterinária domiciliar · cães e gatos</p>
       <h1>Veterinário em casa, na <em>Zona Sul</em> do Rio de Janeiro</h1>
       <p class="hero-sign">O veterinário que explica.</p>
-      <p class="sub">Consulta com duas horas reservadas, no ambiente onde o seu animal vive. Exame feito com calma, escuta de verdade e um plano por escrito, com o porquê de cada decisão. Do primeiro contato ao acompanhamento, o objetivo é um só: você seguro sobre a saúde de quem mora com você.</p>
+      <p class="sub">Seu animal não fala. Ele mostra: no apetite, no sono, no jeito de andar pela casa. Ver isso exige tempo e exige estar onde ele vive. Eu atendo em domicílio com <b>duas horas reservadas</b> por visita, examino com calma, leio a rotina real dele e deixo um plano por escrito, com o porquê de cada decisão. Você para de adivinhar e passa a entender.</p>
       <div class="hero-ctas">
         <!-- TODO: nº WhatsApp comercial do João -->
         <a class="btn" href="https://wa.me/5521000000000?text=Ol%C3%A1%2C%20Jo%C3%A3o.%20Vi%20seu%20site%20e%20quero%20agendar%20um%20atendimento%20em%20casa.">
           <svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5c0-.1-.5-1.4-.7-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"/></svg>
           Agendar pelo WhatsApp
         </a>
-        <span class="hero-note">Consulta e vacinas em casa · Zona Sul do Rio</span>
+        <span class="hero-note">Consulta e vacinas em casa · Zona Sul do Rio<br><b>Cada visita reserva duas horas: são poucas por semana.</b></span>
       </div>
     </div>
     <figure class="slot hero-slot">
@@ -569,23 +700,34 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
 <!-- ============ 01 · A DOR ============ -->
 <section id="dor">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="sec-num">01</span>
-      <h2>Você conhece essa consulta</h2>
+    <div class="sec-head sec-head--split rv">
+      <div>
+        <span class="sec-num">01 · O problema</span>
+        <h2>O seu animal já está avisando</h2>
+      </div>
+      <p class="lead">Ele bebe mais água do que bebia. Dorme em outro canto. Come devagar. Nada disso é dramático o bastante para virar emergência, e é justamente por isso que passa em branco por meses.</p>
     </div>
     <div class="pain-grid">
       <div class="prose rv">
-        <p>O transporte estressa o animal antes mesmo de a consulta começar. A sala de espera tem cheiro de outros bichos e de produto de limpeza. E, no fim, você volta para casa com uma sacola de remédios que não sabe bem para que servem e com a pergunta que não teve espaço: <em>mas por quê?</em></p>
-        <p>À noite, quem responde é o Google. E o Google não conhece o seu animal.</p>
-        <p>Isso não é culpa de ninguém. Em muitos formatos de atendimento, o tempo é curto e o ambiente onde o animal vive fica fora da avaliação. E boa parte do que explica a saúde de um animal está exatamente aí, no dia a dia dentro de casa.</p>
-        <p>Eu montei meu atendimento para começar pelo que costuma faltar: tempo, contexto e explicação.</p>
+        <p>Aí você marca uma consulta. O transporte já estressa o animal antes de começar; a sala de espera tem cheiro de outros bichos; e o veterinário examina, em poucos minutos, um bicho alterado que não é o mesmo que vive na sua casa.</p>
+        <p>Você volta com uma sacola de remédios, sem saber direito para que serve cada um, e com a pergunta que não coube no horário: <em>mas por quê?</em></p>
+        <p>À noite, quem responde é o Google. E o Google não conhece o seu animal: não sabe o que ele come, por onde anda, quanto dorme, nem em que bairro mora.</p>
+        <p>Não é falta de bom profissional. É que <b>tempo e contexto não cabem em qualquer formato de atendimento</b>. E é exatamente deles que a medicina preventiva depende.</p>
       </div>
-      <ul class="pain-list rv">
-        <li><i>a</i>A consulta acaba antes das suas perguntas começarem.</li>
-        <li><i>b</i>O animal chega ao consultório alterado pelo transporte, e o exame lê um animal que não é o do dia a dia.</li>
-        <li><i>c</i>Você sai com a receita, mas sem entender o que foi decidido nem por quê.</li>
-        <li><i>d</i>O ambiente onde o animal vive, que explica boa parte do quadro, fica fora da avaliação.</li>
-      </ul>
+      <div class="turn rv">
+        <span class="turn-kicker">O que muda quando eu atendo na sua casa</span>
+        <ul class="pain-list">
+          <li><i>01</i>Duas horas reservadas: dá tempo de examinar, perguntar e você perguntar de volta.</li>
+          <li><i>02</i>O animal é examinado calmo, no território dele, sem o susto do transporte.</li>
+          <li><i>03</i>A ração, a rotina e o espaço entram no diagnóstico, porque eu vejo tudo com os meus olhos.</li>
+          <li><i>04</i>Você sai com um plano escrito e o porquê de cada decisão, não com uma dúvida.</li>
+        </ul>
+        <!-- TODO: nº WhatsApp comercial do João -->
+        <a class="btn turn-cta" href="https://wa.me/5521000000000?text=Ol%C3%A1%2C%20Jo%C3%A3o.%20Notei%20uma%20mudan%C3%A7a%20no%20meu%20animal%20e%20quero%20agendar%20uma%20visita.">
+          <svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5c0-.1-.5-1.4-.7-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"/></svg>
+          Me contar o que mudou no meu animal
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -593,46 +735,49 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
 <!-- ============ 02 · MÉTODO ============ -->
 <section id="metodo" class="tight">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="sec-num">02</span>
-      <h2>Como eu atendo</h2>
-      <p class="lead">Três momentos, sempre na mesma ordem. O atendimento começa antes de eu tocar a campainha e termina bem depois de eu ir embora.</p>
+    <div class="sec-head sec-head--split rv">
+      <div>
+        <span class="sec-num">02 · O método</span>
+        <h2>Toda visita segue os mesmos três tempos</h2>
+      </div>
+      <p class="lead">Método não é jargão: é a garantia de que nada importante fica de fora porque o dia estava corrido. Antes de tocar a campainha eu já estudei o caso; durante a visita eu examino o animal e a vida dele; depois você fica com o plano na mão e comigo do outro lado do WhatsApp.</p>
     </div>
     <div class="steps">
       <article class="step rv">
         <figure class="slot">
           <div class="ph t-musgo"><div class="ph-mono ph-mono--sm"><b>JC</b></div></div>
-          <img src="fotos-joao/atendimento-1.jpg" alt="Conversa inicial com o tutor sobre o histórico do animal" loading="lazy" onerror="this.remove()">
+          <img src="fotos-joao/metodo-1.jpg" alt="Celular, caderneta de vacinação e caderno sobre a mesa: preparação da consulta" loading="lazy" onerror="this.remove()">
         </figure>
         <div class="step-body">
-          <span class="step-kicker">Antes</span>
-          <h3>Conversa e histórico</h3>
-          <p>Tudo começa no WhatsApp. Eu pergunto sobre o histórico do animal, a caderneta de vacinação, o que mudou no comportamento e o que fez você me chamar. Chego na sua casa sabendo quem vou examinar.</p>
+          <span class="step-kicker"><i>01</i> Antes da visita</span>
+          <h3>Eu estudo o caso antes de chegar</h3>
+          <p>No WhatsApp, eu pergunto o histórico, a caderneta de vacinação, o que mudou no comportamento e o que fez você me chamar. Ninguém precisa lembrar de tudo com o veterinário parado na sala: quando eu chego, já sei quem vou examinar e o que preciso investigar.</p>
         </div>
       </article>
       <article class="step rv">
         <figure class="slot">
           <div class="ph t-terra"><div class="ph-mono ph-mono--sm"><b>JC</b></div></div>
-          <img src="fotos-joao/atendimento-2.jpg" alt="Exame clínico do animal no ambiente onde ele vive" loading="lazy" onerror="this.remove()">
+          <img src="fotos-joao/metodo-2.jpg" alt="Estetoscópio e maleta veterinária sobre o tapete da sala, ao lado da caminha do cachorro" loading="lazy" onerror="this.remove()">
         </figure>
         <div class="step-body">
-          <span class="step-kicker">Durante</span>
-          <h3>Exame no ambiente real</h3>
-          <p>Além do exame físico e da anamnese completa, eu olho o que nenhum consultório vê: a ração, a rotina, o espaço, o comportamento do animal no território dele. A agenda reserva duas horas para você. A consulta dura o que precisar durar.</p>
+          <span class="step-kicker"><i>02</i> Durante a visita</span>
+          <h3>Examino o animal e a rotina dele</h3>
+          <p>Anamnese completa e exame físico, com duas horas reservadas na agenda. E o que só existe dentro de casa: a ração no pote, o lugar onde ele dorme, quanto ele anda, como se comporta no território dele. Boa parte do que explica a saúde de um animal está aí, e não entra na caixa de transporte com ele.</p>
         </div>
       </article>
       <article class="step rv">
         <figure class="slot">
           <div class="ph t-marinho"><div class="ph-mono ph-mono--sm"><b>JC</b></div></div>
-          <img src="fotos-joao/atendimento-3.jpg" alt="Entrega e explicação do plano por escrito ao tutor" loading="lazy" onerror="this.remove()">
+          <img src="fotos-joao/metodo-3.jpg" alt="Plano de cuidado impresso sobre a mesa, com caneta, óculos e pote de ração" loading="lazy" onerror="this.remove()">
         </figure>
         <div class="step-body">
-          <span class="step-kicker">Depois</span>
-          <h3>Plano por escrito e canal aberto</h3>
-          <p>Você recebe o plano do seu animal por escrito, explicado item por item, inclusive o custo de cada decisão. E fica com o meu contato, com regra clara de horário. Emergência tem outro caminho, e você vai saber exatamente qual é.</p>
+          <span class="step-kicker"><i>03</i> Depois da visita</span>
+          <h3>Você fica com o plano na mão</h3>
+          <p>O plano do seu animal sai por escrito, explicado item por item, com o custo de cada decisão na mesa. Você fica com o meu contato e uma regra clara de horário, e sabe exatamente o que fazer se algo mudar antes do próximo retorno.</p>
         </div>
       </article>
     </div>
+    <p class="method-note rv">Os três tempos valem para consulta e para vacinação. O que muda é a duração da visita, nunca o cuidado com a decisão.</p>
   </div>
 </section>
 
@@ -646,8 +791,8 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
       </figure>
       <div class="mani-copy rv">
         <div class="kicker">Por que eu trabalho assim</div>
-        <div class="car" id="carManifesto">
-          <div class="car-track" id="carTrack" tabindex="0" aria-label="Manifesto do João, em cinco partes. Use as setas para navegar.">
+        <div class="car" data-carousel>
+          <div class="car-track" data-car-track tabindex="0" aria-label="Manifesto do João, em cinco partes. Use as setas para navegar.">
             <blockquote class="car-slide"><p>O que eu gosto na medicina não é chegar no momento crítico. É chegar no animal que parece saudável, fazer uma anamnese boa e acender um alerta a tempo: <em>isso que você acha normal é comum, mas não é normal.</em></p></blockquote>
             <blockquote class="car-slide"><p>Não existe receita de bolo. O cachorro que mora em Laranjeiras não segue o protocolo do que mora em São Gonçalo. <em>A área é outra, as doenças em volta são outras, a rotina é outra.</em></p></blockquote>
             <blockquote class="car-slide"><p>Sou do menos é mais. Antes do remédio, a base: alimentação, rotina, movimento. <em>Até dipirona tem efeito adverso,</em> e quem processa cada dose é o fígado e o rim do seu animal.</p></blockquote>
@@ -655,10 +800,10 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
             <blockquote class="car-slide"><p>Quando um caso pedir outro profissional, eu encaminho, sem vaidade. <em>O que importa é o seu animal viver bem</em> — comigo ou com quem cuidar melhor dele naquele momento.</p></blockquote>
           </div>
           <div class="car-foot">
-            <div class="car-dots" id="carDots" role="tablist" aria-label="Partes do manifesto"></div>
+            <div class="car-dots" data-car-dots></div>
             <div class="car-nav">
-              <button type="button" id="carPrev" aria-label="Parte anterior">&#8592;</button>
-              <button type="button" id="carNext" aria-label="Próxima parte">&#8594;</button>
+              <button type="button" data-car-prev aria-label="Parte anterior">&#8592;</button>
+              <button type="button" data-car-next aria-label="Próxima parte">&#8594;</button>
             </div>
           </div>
         </div>
@@ -671,16 +816,19 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
 <!-- ============ 03 · CONSULTA ============ -->
 <section id="consulta">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="sec-num">03</span>
-      <h2>Consulta veterinária domiciliar</h2>
-      <p class="lead">Uma consulta feita com o tempo que a medicina pede: exame com calma, escuta do que você tem a contar e decisões explicadas até fazerem sentido.</p>
+    <div class="sec-head sec-head--split rv">
+      <div>
+        <span class="sec-num">03 · Consulta</span>
+        <h2>Consulta veterinária domiciliar</h2>
+      </div>
+      <p class="lead">Duas formas de me ter por perto: a visita única, quando você quer entender o estado do seu animal agora; e o acompanhamento do ano inteiro, quando você quer parar de decidir sozinho a cada susto.</p>
     </div>
 
-    <div class="svc-stack">
+    <div class="car car--cards rv" data-carousel>
+      <div class="car-track" data-car-track tabindex="0" aria-label="Duas formas de atendimento. Use as setas para ver a próxima.">
 
       <!-- Consulta Inteira -->
-      <article class="svc svc-hero rv">
+      <article class="svc svc-hero car-slide">
         <div class="svc-top">
           <div>
             <span class="svc-step">O atendimento principal</span>
@@ -711,7 +859,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
       </article>
 
       <!-- Veterinário da Casa -->
-      <article class="svc rv">
+      <article class="svc car-slide">
         <div class="svc-top">
           <div>
             <span class="svc-step">Acompanhamento anual</span>
@@ -738,6 +886,14 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
         </div>
       </article>
 
+      </div>
+      <div class="car-foot">
+        <div class="car-dots" data-car-dots></div>
+        <div class="car-nav">
+          <button type="button" data-car-prev aria-label="Atendimento anterior">&#8592;</button>
+          <button type="button" data-car-next aria-label="Próximo atendimento">&#8594;</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -746,7 +902,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
 <section id="vacinas" class="tight">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="sec-num">04</span>
+      <span class="sec-num">04 · Vacinas</span>
       <h2>Vacinas em casa, com a escolha explicada</h2>
       <p class="lead">Vacinar bem não é só aplicar: é decidir a vacina certa para o seu animal, no calendário certo. Tudo na sua casa, sem o estresse do transporte.</p>
     </div>
@@ -793,7 +949,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
 <section id="filtro" class="tight">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="sec-num">05</span>
+      <span class="sec-num">05 · Encaixe</span>
       <h2>Para quem esse atendimento foi feito</h2>
       <p class="lead">Duas horas de consulta pedem o tutor certo do outro lado. Melhor ser honesto sobre isso desde já.</p>
     </div>
@@ -826,7 +982,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
 <section id="aprenda">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="sec-num">06</span>
+      <span class="sec-num">06 · Antes de me chamar</span>
       <h2>Quatro coisas que eu explicaria na sua sala</h2>
       <p class="lead">Uma amostra do que "o veterinário que explica" significa na prática. Leia antes de me chamar; você vai chegar na conversa sabendo mais sobre o seu animal.</p>
     </div>
@@ -859,7 +1015,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
 <section id="sobre" class="tight">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="sec-num">07</span>
+      <span class="sec-num">07 · Quem atende</span>
       <h2>Quem toca a campainha</h2>
     </div>
     <div class="about-grid">
@@ -870,9 +1026,15 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
         <p>Estudei bastante e sigo estudando, mas não vou te dizer que sei tudo. Nenhum profissional sério diz. Quando um caso pedir outra estrutura ou outro colega, eu encaminho, e te explico por quê. O compromisso que eu posso assumir é o que dá nome a esta página: nenhuma decisão sobre o seu animal sem você entender o porquê.</p>
         <div class="about-sign">
           <b>João Caetano</b>
-          <!-- TODO: substituir CRMV-RJ 00000 pelo registro real -->
-          <span>Médico-Veterinário · CRMV-RJ 00000 · Formado pela UFRRJ (2025)</span>
+          <span>Médico-Veterinário</span>
         </div>
+        <ul class="creds">
+          <!-- TODO: substituir CRMV-RJ 00000 pelo registro real -->
+          <li><i>Registro profissional</i><b>CRMV-RJ 00000</b><span>Conselho Regional de Medicina Veterinária</span></li>
+          <li><i>Formação</i><b>UFRRJ, 2025</b><span>Medicina Veterinária</span></li>
+          <li><i>Prática atual</i><b>Plantões semanais</b><span>Clínica de referência em respiratório</span></li>
+        </ul>
+        <p class="creds-note">Atendimento regido pelo Código de Ética do Médico-Veterinário. O registro no CRMV pode ser conferido por qualquer tutor no site do conselho.</p>
       </div>
       <figure class="slot about-slot rv">
         <div class="ph t-terra"><div class="ph-mono"><b>JC</b><i>João Caetano</i></div></div>
@@ -880,6 +1042,10 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
       </figure>
     </div>
 
+    <div class="gallery-head rv">
+      <h3>No dia a dia</h3>
+      <span>Pacientes e rotina de trabalho</span>
+    </div>
     <div class="gallery rv">
       <figure class="slot"><div class="ph t-musgo"><div class="ph-mono ph-mono--sm"><b>JC</b></div></div><img src="fotos-joao/galeria-1.jpg" alt="Registro de atendimento veterinário domiciliar" loading="lazy" onerror="this.remove()"></figure>
       <figure class="slot"><div class="ph t-marinho"><div class="ph-mono ph-mono--sm"><b>JC</b></div></div><img src="fotos-joao/galeria-2.jpg" alt="Registro de atendimento veterinário domiciliar" loading="lazy" onerror="this.remove()"></figure>
@@ -895,18 +1061,23 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
 <section id="area" class="dark">
   <div class="wrap">
     <div class="area-grid">
-      <div class="sec-head rv" style="margin-bottom:0">
-        <span class="sec-num">08</span>
-        <h2>Onde eu atendo</h2>
-        <p class="lead">A área é concentrada de propósito: bairros vizinhos, deslocamento curto, horário cumprido. Eu prefiro atender bem uma região a atender mal a cidade inteira.</p>
-      </div>
       <div class="rv">
+        <span class="sec-num">08 · Área de atendimento</span>
+        <h2 class="area-title">Zona Sul do Rio, e só</h2>
+        <p class="area-lead">A área é concentrada de propósito. Bairros vizinhos significam deslocamento curto, horário cumprido e a chance de eu passar de novo na semana seguinte, se o seu animal precisar. Atender a cidade inteira é o jeito mais rápido de chegar atrasado em todo lugar.</p>
         <ul class="chips">
-          <!-- TODO: reintroduzir os bairros aqui SÓ depois que o João validar o raio, bairro a bairro -->
+          <!-- TODO: reintroduzir a lista bairro a bairro SÓ depois que o João validar o raio -->
           <li>Zona Sul do Rio de Janeiro</li>
         </ul>
         <p class="area-note">O raio exato de bairros está sendo fechado. Me chame no WhatsApp e eu confirmo o seu endereço no primeiro contato.</p>
       </div>
+      <figure class="map rv">
+        <iframe
+          src="https://maps.google.com/maps?q=Zona%20Sul%2C%20Rio%20de%20Janeiro%2C%20RJ&amp;z=12&amp;output=embed"
+          title="Mapa da Zona Sul do Rio de Janeiro, área de atendimento"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <figcaption>Zona Sul · Rio de Janeiro, RJ</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -915,7 +1086,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
 <section id="faq">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="sec-num">09</span>
+      <span class="sec-num">09 · Dúvidas</span>
       <h2>Perguntas frequentes sobre atendimento veterinário em casa</h2>
     </div>
     <div class="faq rv">
@@ -1094,27 +1265,41 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
     if (body.classList.contains("menu-open") && !e.target.closest("nav.main") && !e.target.closest("#menuBtn")) closeMenu();
   });
 
-  /* Carrossel do manifesto */
-  var track = document.getElementById("carTrack");
-  if (track){
+  /* Carrossel genérico: qualquer [data-carousel] da página */
+  document.querySelectorAll("[data-carousel]").forEach(function(root){
+    var track = root.querySelector("[data-car-track]");
     var slides = track.querySelectorAll(".car-slide");
-    var dotsBox = document.getElementById("carDots");
+    var dotsBox = root.querySelector("[data-car-dots]");
+    var prev = root.querySelector("[data-car-prev]");
+    var next = root.querySelector("[data-car-next]");
+    if (!track || slides.length < 2) return;
     var dots = [];
+
+    function passo(){
+      if (slides.length < 2) return track.clientWidth;
+      return slides[1].offsetLeft - slides[0].offsetLeft;
+    }
+    function cur(){ return Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / passo()))); }
+    function goTo(i){
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: i * passo(), behavior: "smooth" });
+    }
+    function paint(){
+      var c = cur();
+      dots.forEach(function(d, i){ d.classList.toggle("on", i === c); });
+      if (prev) prev.disabled = c === 0;
+      if (next) next.disabled = c === slides.length - 1;
+    }
+
     slides.forEach(function(_, i){
       var d = document.createElement("button");
       d.type = "button";
-      d.setAttribute("aria-label", "Ir para a parte " + (i + 1));
+      d.setAttribute("aria-label", "Ir para o item " + (i + 1) + " de " + slides.length);
       d.addEventListener("click", function(){ goTo(i); });
       dotsBox.appendChild(d); dots.push(d);
     });
-    function cur(){ return Math.round(track.scrollLeft / track.clientWidth); }
-    function paint(){ var c = cur(); dots.forEach(function(d, i){ d.classList.toggle("on", i === c); }); }
-    function goTo(i){
-      i = Math.max(0, Math.min(slides.length - 1, i));
-      track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" });
-    }
-    document.getElementById("carPrev").addEventListener("click", function(){ goTo(cur() - 1); });
-    document.getElementById("carNext").addEventListener("click", function(){ goTo(cur() + 1); });
+    if (prev) prev.addEventListener("click", function(){ goTo(cur() - 1); });
+    if (next) next.addEventListener("click", function(){ goTo(cur() + 1); });
     track.addEventListener("scroll", function(){ window.requestAnimationFrame(paint); }, { passive: true });
     track.addEventListener("keydown", function(e){
       if (e.key === "ArrowRight"){ e.preventDefault(); goTo(cur() + 1); }
@@ -1122,7 +1307,22 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
     });
     window.addEventListener("resize", function(){ goTo(cur()); });
     paint();
-  }
+  });
+
+  /* Barra de progresso de leitura */
+  var bar = document.createElement("div");
+  bar.className = "progress";
+  document.body.appendChild(bar);
+  var ticking = false;
+  window.addEventListener("scroll", function(){
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function(){
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+      ticking = false;
+    });
+  }, { passive: true });
 
   /* Barra fixa de WhatsApp no mobile: aparece depois do hero */
   var waBar = document.getElementById("waBar");
@@ -1134,6 +1334,12 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
       waBar.setAttribute("aria-hidden", fora ? "false" : "true");
     }, { threshold: 0 }).observe(hero);
   }
+
+  /* Fotos revelam em cortina (menos o hero, que tem entrada própria) */
+  document.querySelectorAll(".slot").forEach(function(s){
+    if (s.classList.contains("hero-slot") || s.closest(".gallery")) return;
+    s.classList.add("rv-img", "rv");
+  });
 
   /* Reveal ao rolar (sutil, respeita reduced motion) */
   var els = document.querySelectorAll(".rv");
