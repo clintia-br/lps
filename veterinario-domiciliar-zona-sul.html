@@ -293,6 +293,10 @@ body.menu-open .menu-btn span:last-child{transform:translateY(-3.75px) rotate(-4
   box-shadow:inset 0 0 0 1px rgba(244,241,234,.14);
 }
 .slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* fotos verticais (1200x1500) espremidas num box paisagem no celular:
+   sem isso, o corte central invade o rosto. Ancora no rosto, não no meio. */
+.hero-slot img{object-position:50% 15%}
+.about-slot img{object-position:50% 65%}
 .ph{
   position:absolute;inset:0;display:grid;place-items:center;
   background-image:repeating-linear-gradient(135deg,transparent 0 26px,rgba(244,241,234,.045) 26px 27px);
@@ -1017,13 +1021,13 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
         <div class="svc-cols">
           <ul class="inc">
             <li>Chego com calma e deixo ele se aproximar no tempo dele, sem forçar nada</li>
-            <li>Examino com cuidado e vou te contando o que estou vendo, em português claro</li>
+            <li>Examino com cuidado e vou te contando o que estou vendo, passo a passo</li>
             <li>Olho também o dia a dia: a alimentação, a rotina, os passeios, o espaço dele</li>
-            <li>Gato arisco ou cão medroso? Me avisa antes, que eu mudo o jeito de chegar</li>
+            <li>Se ele é arisco ou tem medo de gente nova, eu chego devagar, no ritmo dele</li>
           </ul>
           <ul class="inc">
             <li>Você ouve a verdade: se não precisar de remédio, é isso que eu vou te dizer</li>
-            <li>As decisões a gente toma junto, inclusive sobre custo, conversado antes</li>
+            <li>As decisões a gente toma junto, incluindo o que vai custar, sempre combinado antes</li>
             <li>Precisou de exame de sangue? Coleto ali mesmo, com o valor avisado antes</li>
             <li>E se o caso pedir mais estrutura, eu te digo na hora e ajudo a achar o caminho certo</li>
           </ul>
@@ -1232,7 +1236,7 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
       <div class="rv">
         <span class="sec-num">08 · Área de atendimento</span>
         <h2 class="area-title">Atendo perto de você, na Zona Sul</h2>
-        <p class="area-lead">Escolhi atender só a Zona Sul de propósito. Assim eu chego rápido, cumpro o horário combinado, e, se o seu animal precisar, <b>tenho como voltar na semana seguinte</b>. Atender a cidade inteira seria o jeito mais rápido de chegar atrasado em todo lugar.</p>
+        <p class="area-lead">Escolhi atender só a Zona Sul de propósito. Assim eu chego rápido, cumpro o horário combinado, e, se o seu animal precisar, <b>tenho como voltar na semana seguinte</b>. Prefiro atender bem uma região a atender mal a cidade inteira.</p>
         <ul class="chips">
           <!-- TODO: reintroduzir a lista bairro a bairro SÓ depois que o João validar o raio -->
           <li>Zona Sul do Rio de Janeiro</li>
