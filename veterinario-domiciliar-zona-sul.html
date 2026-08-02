@@ -296,6 +296,8 @@ body.menu-open .menu-btn span:last-child{transform:translateY(-3.75px) rotate(-4
 /* fotos verticais (1200x1500) espremidas num box paisagem no celular:
    sem isso, o corte central invade o rosto. Ancora no rosto, não no meio. */
 .hero-slot img{object-position:50% 15%}
+/* no celular a fonte ja e um recorte 16:11 pronto: centraliza normal */
+@media (max-width:939px){.hero-slot img{object-position:50% 50%}}
 .about-slot img{object-position:50% 65%}
 .ph{
   position:absolute;inset:0;display:grid;place-items:center;
@@ -862,7 +864,12 @@ footer{background:var(--marinho);color:var(--off);border-top:1px solid var(--hai
     </div>
     <figure class="slot hero-slot">
       <div class="ph"><div class="ph-mono"><b>JC</b><i>Médico-Veterinário</i></div></div>
-      <img src="fotos-joao/hero.jpg" alt="João Caetano, médico-veterinário, durante atendimento domiciliar" onerror="this.remove()">
+      <picture>
+        <!-- celular recebe um recorte HORIZONTAL proprio, feito do original em 12MP:
+             antes uma foto vertical era espremida no box paisagem e cortava a cabeca -->
+        <source media="(max-width:939px)" srcset="fotos-joao/hero-mobile.jpg">
+        <img src="fotos-joao/hero.jpg" alt="João Caetano, médico-veterinário, com um cão no colo" onerror="this.remove()">
+      </picture>
     </figure>
   </div>
 </section>
