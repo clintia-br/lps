@@ -344,14 +344,46 @@ body.menu-open .menu-btn span:last-child{transform:translateY(-3.75px) rotate(-4
 .hero-note{font-size:var(--fs-small);color:var(--ink-60)}
 .hero-slot{aspect-ratio:4/5;max-height:640px}
 @media (max-width:939px){.hero-slot{aspect-ratio:16/11}}
-/* assimetria: a foto desce e escapa do alinhamento, com moldura deslocada atrás */
+/* A foto não é um card colado ao lado do texto: ela mora dentro de um campo
+   tonal que sangra até a borda da tela. O campo é que costura foto e bloco. */
+.hero{position:relative;overflow:hidden}
+.hero > .wrap{position:relative;z-index:1}
+
 @media (min-width:940px){
   .hero-grid{align-items:start}
   .hero-copy{padding-top:1.5rem}
   .hero-slot{transform:translateY(3.25rem);max-height:none;aspect-ratio:4/5.25}
-  .hero-slot::before{
-    content:"";position:absolute;inset:-14px -14px 14px 14px;z-index:-1;
-    border:1px solid var(--terra);opacity:.32;pointer-events:none;
+
+  /* campo: começa antes da foto e vai até a borda direita da viewport */
+  .hero::after{
+    content:"";position:absolute;z-index:0;pointer-events:none;
+    left:calc(50% + 46px);right:0;top:0;bottom:0;
+    background:
+      linear-gradient(180deg, rgba(63,87,65,.13) 0%, rgba(31,45,61,.07) 62%, rgba(244,241,234,0) 100%);
+    border-left:1px solid rgba(140,106,79,.28);
+  }
+  /* a foto sangra até a borda direita da tela: distância = metade da folga do
+     container + o padding interno. max() evita valor negativo entre 940-1120px.
+     overflow:hidden no .hero segura qualquer sobra de arredondamento. */
+  .hero-slot{
+    margin-right:calc(-1 * (max(0px, (100vw - var(--wrap)) / 2) + clamp(1.25rem,4.5vw,2.5rem)));
+    box-shadow:0 30px 60px -34px rgba(31,45,61,.5);
+  }
+}
+
+/* Celular: a foto vai de ponta a ponta da tela. Retângulo com margem dos dois
+   lados é o que dava aparência de figura colada. */
+@media (max-width:939px){
+  .hero-slot{
+    margin-left:calc(-1 * clamp(1.25rem,4.5vw,2.5rem));
+    margin-right:calc(-1 * clamp(1.25rem,4.5vw,2.5rem));
+    border-top:1px solid rgba(140,106,79,.3);
+    border-bottom:1px solid rgba(140,106,79,.3);
+  }
+  .hero::after{
+    content:"";position:absolute;z-index:0;left:0;right:0;bottom:0;
+    height:46%;pointer-events:none;
+    background:linear-gradient(180deg, rgba(63,87,65,0) 0%, rgba(63,87,65,.10) 100%);
   }
 }
 
