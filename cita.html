@@ -2446,8 +2446,8 @@ body.theme-dark .deck::before{background:var(--s-bg);}
 @media (max-width:700px){.banho-ia .bgrid{grid-template-columns:1fr 1fr;}}
 .img-slot-d{border:2px dashed var(--s-line-strong);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--s-muted);font-family:'Outfit';font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;min-height:120px;background:rgba(255,255,255,.02);}
 /* slide 4 · identidade própria (ciano) */
-#s-banho{--s-accent:#05D2FF;--s-accent-soft:rgba(5,210,255,.13);--s-accent-glow:rgba(5,210,255,.30);position:relative;overflow:hidden;background:linear-gradient(160deg,#0A0F1C 0%,#062131 130%);}
-#s-banho::after{content:'';position:absolute;left:-10%;bottom:-25%;width:60%;height:120%;background:radial-gradient(circle,rgba(5,210,255,.10) 0%,transparent 68%);pointer-events:none;z-index:0;}
+#s-banho{--s-accent:#05D2FF;--s-accent-soft:rgba(5,210,255,.13);--s-accent-glow:rgba(5,210,255,.30);background:linear-gradient(160deg,#0A0F1C 0%,#062131 130%);}
+#s-banho::after{content:'';position:absolute;left:0;bottom:0;width:58%;height:100%;background:radial-gradient(circle at 20% 80%,rgba(5,210,255,.11) 0%,transparent 62%);pointer-events:none;z-index:0;}
 #s-banho > *{position:relative;z-index:1;}
 #s-banho .eyebrow{color:#05D2FF;}
 .etapa{display:flex;gap:14px;align-items:flex-start;background:var(--s-surface);border:1px solid var(--s-line);border-left:3px solid var(--et);border-radius:12px;padding:14px 18px;}
@@ -2639,10 +2639,10 @@ body.theme-dark .deck::before{background:var(--s-bg);}
 
 <!-- ══ S-ACERVO · O ACERVO CIENTÍFICO (slide-âncora · dourado) ══ -->
 <style>
-#s-acervo{--s-accent:#E3A93C;--s-accent-soft:rgba(227,169,60,.13);--s-accent-glow:rgba(227,169,60,.34);position:relative;overflow:hidden;background:linear-gradient(160deg,#0A0F1C 0%,#1A1408 130%);}
+#s-acervo{--s-accent:#E3A93C;--s-accent-soft:rgba(227,169,60,.13);--s-accent-glow:rgba(227,169,60,.34);background:linear-gradient(160deg,#0A0F1C 0%,#1A1408 130%);}
 #s-acervo::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(227,169,60,.055) 0px,rgba(227,169,60,.055) 1px,transparent 1px,transparent 36px);pointer-events:none;z-index:0;}
-#s-acervo::after{content:'';position:absolute;right:-8%;top:-12%;width:56%;height:130%;background:radial-gradient(circle,rgba(227,169,60,.13) 0%,transparent 68%);pointer-events:none;z-index:0;}
-#s-acervo .acervo-watermark{position:absolute;right:clamp(-40px,2vw,20px);bottom:clamp(-30px,-2vw,10px);width:clamp(220px,26vw,340px);height:auto;color:rgba(227,169,60,.09);z-index:0;pointer-events:none;}
+#s-acervo::after{content:'';position:absolute;right:0;top:0;width:52%;height:100%;background:radial-gradient(circle at 80% 25%,rgba(227,169,60,.14) 0%,transparent 62%);pointer-events:none;z-index:0;}
+#s-acervo .acervo-watermark{position:absolute;right:0;bottom:0;width:clamp(200px,24vw,320px);height:auto;color:rgba(227,169,60,.085);z-index:0;pointer-events:none;}
 #s-acervo > *{position:relative;z-index:1;}
 #s-acervo .eyebrow{color:#E3A93C;}
 </style>
