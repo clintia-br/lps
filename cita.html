@@ -129,6 +129,42 @@ ul.chk li::before{background:var(--good)}
 .step h4{margin:0 0 4px;font-size:14.8px;font-weight:800;color:var(--tx)}
 .step p{font-size:14px;margin-bottom:0}
 
+/* ---- banho de IA ---- */
+.banho{position:relative;border:1px solid var(--line);border-radius:16px;padding:26px 24px;
+  background:var(--card);overflow:hidden;margin:24px 0}
+.banho-cap{position:relative;z-index:3;font-size:11px;font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--tx3);margin-bottom:16px;text-align:center}
+.banho-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;position:relative;z-index:3}
+.bt{border:1px solid var(--line2);border-radius:11px;padding:16px 10px;text-align:center;
+  background:rgba(255,255,255,.02);animation:acende 6.5s cubic-bezier(.4,0,.2,1) infinite}
+.bt-n{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--tx3);
+  animation:acendeTx 6.5s cubic-bezier(.4,0,.2,1) infinite}
+.bt:nth-child(1),.bt:nth-child(1) .bt-n{animation-delay:0s}
+.bt:nth-child(2),.bt:nth-child(2) .bt-n{animation-delay:.16s}
+.bt:nth-child(3),.bt:nth-child(3) .bt-n{animation-delay:.32s}
+.bt:nth-child(4),.bt:nth-child(4) .bt-n{animation-delay:.48s}
+.bt:nth-child(5),.bt:nth-child(5) .bt-n{animation-delay:.64s}
+.bt:nth-child(6),.bt:nth-child(6) .bt-n{animation-delay:.8s}
+@keyframes acende{
+  0%,14%{border-color:var(--line2);background:rgba(255,255,255,.02);box-shadow:none}
+  26%,86%{border-color:rgba(5,210,255,.42);background:rgba(5,210,255,.06);
+    box-shadow:0 0 24px rgba(5,210,255,.10)}
+  100%{border-color:var(--line2);background:rgba(255,255,255,.02);box-shadow:none}
+}
+@keyframes acendeTx{
+  0%,14%{color:var(--tx3)} 26%,86%{color:var(--tx)} 100%{color:var(--tx3)}
+}
+.onda{position:absolute;inset:-20% -10%;z-index:2;pointer-events:none;
+  background:linear-gradient(102deg,transparent 0%,rgba(5,210,255,.14) 42%,
+    rgba(5,120,220,.09) 56%,transparent 100%);
+  transform:translateX(-125%);animation:varre 6.5s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes varre{0%{transform:translateX(-125%)}42%{transform:translateX(125%)}100%{transform:translateX(125%)}}
+@media (prefers-reduced-motion:reduce){
+  .bt,.bt-n,.onda{animation:none}
+  .bt{border-color:rgba(5,210,255,.42);background:rgba(5,210,255,.06)}
+  .bt-n{color:var(--tx)}
+}
+
 .sign{display:flex;align-items:center;gap:14px;margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
 .sign-n{font-weight:800;font-size:15px;color:var(--tx)}
 .sign-r{font-size:13px;color:var(--tx3)}
@@ -247,9 +283,42 @@ footer{padding:36px 0 60px;color:var(--tx3);font-size:12px}
  </div>
 </section>
 
+<!-- ============ 3B · BANHO DE IA ============ -->
+<section>
+ <div class="sec-n">04 — O CONCEITO</div>
+ <h2>Um <em>banho de IA</em> no que já existe</h2>
+ <p class="lead">O termo nasceu numa conversa com um cliente e acabou ficando, porque descreve bem
+ o que acontece na prática.</p>
+
+ <p>A clínica já tem os ativos: site, ficha do Google, anos de avaliações, conteúdo publicado,
+ vídeos gravados, perfis dos profissionais. <strong>Nada disso precisa ser refeito do zero.</strong>
+ O que falta é passar tudo por uma camada que torne esse material legível, extraível e citável por
+ inteligência artificial.</p>
+
+ <div class="banho">
+  <div class="onda"></div>
+  <div class="banho-cap">o que você já tem · ativado para IA</div>
+  <div class="banho-grid">
+   <div class="bt"><div class="bt-n">Site</div></div>
+   <div class="bt"><div class="bt-n">Ficha Google</div></div>
+   <div class="bt"><div class="bt-n">Avaliações</div></div>
+   <div class="bt"><div class="bt-n">Conteúdo</div></div>
+   <div class="bt"><div class="bt-n">Vídeo</div></div>
+   <div class="bt"><div class="bt-n">Perfis</div></div>
+  </div>
+ </div>
+
+ <div class="close">
+  <p><strong>É uma intervenção, não uma reconstrução.</strong> Não se troca o site, não se recomeça
+  a comunicação e não se descarta o que já foi feito. Passa-se o banho — e o que estava invisível
+  para a máquina passa a ser lido, entendido e citado.</p>
+  <p>Os quatro pilares abaixo são a mecânica desse banho.</p>
+ </div>
+</section>
+
 <!-- ============ 4 · O MÉTODO ============ -->
 <section>
- <div class="sec-n">04 — O MÉTODO</div>
+ <div class="sec-n">05 — O MÉTODO</div>
  <h2>CITA® — quatro pilares</h2>
  <p class="lead">O nome descreve o mecanismo: <strong>a IA não ranqueia, ela cita.</strong>
  O objetivo do programa é transformar a clínica em fonte citável.</p>
@@ -291,7 +360,7 @@ footer{padding:36px 0 60px;color:var(--tx3);font-size:12px}
 
 <!-- ============ 5 · ESCOPO ============ -->
 <section>
- <div class="sec-n">05 — ESCOPO</div>
+ <div class="sec-n">06 — ESCOPO</div>
  <h2>O que é instalado</h2>
  <p class="lead">Entregas concretas por pilar.</p>
 
@@ -328,7 +397,7 @@ footer{padding:36px 0 60px;color:var(--tx3);font-size:12px}
 
 <!-- ============ 6 · PRAZO ============ -->
 <section>
- <div class="sec-n">06 — O PRAZO</div>
+ <div class="sec-n">07 — O PRAZO</div>
  <h2>Da primeira medição à máquina rodando</h2>
  <div class="steps">
   <div class="step"><h4>Dias 1 a 7 · Consulta</h4>
@@ -365,7 +434,7 @@ footer{padding:36px 0 60px;color:var(--tx3);font-size:12px}
 
 <!-- ============ 8 · ÂNCORA ============ -->
 <section>
- <div class="sec-n">07 — A CONTA SEPARADA</div>
+ <div class="sec-n">08 — A CONTA SEPARADA</div>
  <h2>Cada peça, contratada à parte, no mercado</h2>
  <div class="tw">
  <table>
@@ -388,7 +457,7 @@ footer{padding:36px 0 60px;color:var(--tx3);font-size:12px}
 
 <!-- ============ 9 · INVESTIMENTO ============ -->
 <section>
- <div class="sec-n">08 — INVESTIMENTO</div>
+ <div class="sec-n">09 — INVESTIMENTO</div>
  <h2>Implantação</h2>
  <p class="lead">Duas configurações. A escolha depende do volume de ativos que a clínica já tem
  para trabalhar.</p>
@@ -428,7 +497,7 @@ footer{padding:36px 0 60px;color:var(--tx3);font-size:12px}
 
 <!-- ============ 10 · RECORRENTE ============ -->
 <section>
- <div class="sec-n">09 — OPERAÇÃO MENSAL</div>
+ <div class="sec-n">10 — OPERAÇÃO MENSAL</div>
  <h2>Manter e medir</h2>
  <p class="lead">Opcional, contratada junto com a implantação. Sem fidelidade — cancelamento com
  30 dias de aviso.</p>
@@ -462,7 +531,7 @@ footer{padding:36px 0 60px;color:var(--tx3);font-size:12px}
 
 <!-- ============ 11 · PRÓXIMOS PASSOS ============ -->
 <section>
- <div class="sec-n">10 — PRÓXIMOS PASSOS</div>
+ <div class="sec-n">11 — PRÓXIMOS PASSOS</div>
  <h2>Como começa</h2>
  <div class="steps">
   <div class="step"><h4>Decisão e kickoff</h4>
