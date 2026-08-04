@@ -110,6 +110,22 @@
   .chk li::before{ content:""; position:absolute; left:0; top:12px; width:14px; height:14px; border:2px solid var(--dodger); border-radius:4px; }
   .chk li.pri::before{ background:var(--dodger); }
 
+  /* checklist interativa (onboarding) */
+  .tick{ list-style:none; margin-left:0; }
+  .tick li{ display:flex; align-items:flex-start; gap:12px; padding:11px 4px; border-bottom:1px dashed var(--line); font-size:14.5px; line-height:1.5; }
+  .tick li:last-child{ border-bottom:none; }
+  .tick input[type="checkbox"]{ flex:none; width:19px; height:19px; margin-top:1px; accent-color:var(--dodger); cursor:pointer; }
+  .tick label{ cursor:pointer; }
+  .tick li.done label{ color:var(--faint); text-decoration:line-through; }
+  .tick .sub-note{ display:block; font-size:12px; color:var(--sub); margin-top:2px; text-decoration:none !important; }
+  .tick li.done .sub-note{ color:var(--faint); }
+
+  .promptbox{ position:relative; background:var(--oxford); color:#dfeaf3; border-radius:10px; padding:20px 22px; margin-top:14px; font-size:13.3px; line-height:1.65; white-space:pre-wrap; font-family:'Red Hat Display',monospace; max-height:520px; overflow-y:auto; }
+  .promptbox b{ color:var(--sky); }
+  .copybtn{ position:sticky; float:right; top:0; margin:-4px -4px 8px 8px; background:var(--dodger); color:#fff; border:none; border-radius:7px; padding:8px 14px; font-family:'Red Hat Display'; font-size:12.5px; font-weight:700; cursor:pointer; }
+  .copybtn:hover{ background:var(--celtic); }
+  .copybtn.copied{ background:var(--ok-ink); }
+
   .foot{text-align:center; font-size:11.5px; color:var(--faint); padding:22px 0 0;}
 
   @media(max-width:720px){
@@ -151,6 +167,7 @@
     <button data-p="p6"><span class="idx">06</span>Lista de trabalho</button>
     <button data-p="p7"><span class="idx">07</span>Metas e trilha</button>
     <button data-p="p8"><span class="idx">08</span>Pendências</button>
+    <button data-p="p9"><span class="idx">09</span>Onboarding Gabriela</button>
   </div>
 </nav>
 
@@ -221,11 +238,11 @@
 <!-- 02 · O PRODUTO -->
 <section class="panel" id="p2">
   <div class="card dark">
-    <h2>Três sistemas, não nove entregas</h2>
+    <h2>Uma operação, não nove entregas</h2>
     <p>O produto era uma lista de nove itens técnicos — e por isso era difícil de explicar. Agora o cliente compra três coisas, cada uma com um resultado que faz sentido sozinho.</p>
     <div class="fala" style="margin-top:14px;">
       <div class="ft">A frase que resume tudo</div>
-      <i>"Eu instalo três sistemas na sua clínica: um que traz o paciente certo, um que impede ele de se perder, e um que te mostra o número real."</i>
+      <i>"Eu instalo uma operação comercial na sua clínica — um que traz o paciente certo, um que impede ele de se perder, e um que te mostra o número real."</i>
     </div>
   </div>
 
@@ -250,7 +267,7 @@
         <tr class="hl"><td><s>Setup</s></td><td><b>Implantação</b></td><td>"Setup" nunca foi definido — gerou cinco perguntas seguidas numa reunião</td></tr>
         <tr class="hl"><td><s>DPV</s></td><td><b>Pesquisa de Mercado</b></td><td>Sigla interna não vende. "Pesquisa de mercado da sua região" é valor que o dono entende na hora</td></tr>
         <tr><td><s>CRM Clintia</s></td><td><b>CRM da clínica</b></td><td>Não existe CRM próprio — é o Kommo, e a licença é paga pelo cliente</td></tr>
-        <tr><td>Planos 01/02/03</td><td><b>Essencial · Crescimento · Aceleração</b></td><td>Número não comunica diferença</td></tr>
+        <tr><td>Planos 01/02/03</td><td><b>Essencial · Crescimento · Completo</b></td><td>Número não comunica diferença</td></tr>
       </tbody>
     </table>
   </div>
@@ -430,7 +447,7 @@
       <tbody>
         <tr><td><b>Essencial</b></td><td class="num">R$ 3.500</td><td class="num"><b>R$ 2.500/mês</b></td></tr>
         <tr class="hl"><td><b>Crescimento</b> · recomendado</td><td class="num">R$ 4.500</td><td class="num"><b>R$ 3.500/mês</b></td></tr>
-        <tr><td><b>Aceleração</b></td><td class="num">R$ 6.500</td><td class="num"><b>R$ 4.500/mês</b></td></tr>
+        <tr><td><b>Completo</b></td><td class="num">R$ 6.500</td><td class="num"><b>R$ 4.500/mês</b></td></tr>
       </tbody>
     </table>
   </div>
@@ -651,6 +668,68 @@
   </div>
 </section>
 
+<!-- 09 · ONBOARDING GABRIELA -->
+<section class="panel" id="p9">
+  <div class="card dark">
+    <h2>O que falta pra ela rodar sozinha</h2>
+    <p>Saiu da reunião de 03/08 com um bloqueio direto: ela ainda não tinha recebido nem o painel de leads. O checklist abaixo é o que precisa ser entregue — marca conforme for fazendo, fica salvo neste navegador.</p>
+  </div>
+
+  <div class="card">
+    <h2>Checklist de acesso e material</h2>
+    <ul class="tick" id="onb-tick">
+      <li data-k="onb-email"><input type="checkbox" id="onb-email"><label for="onb-email">E-mail @clintia.com.br criado para ela<span class="sub-note">Ela pediu — "gera autoridade" na frente do cliente</span></label></li>
+      <li data-k="onb-contrato"><input type="checkbox" id="onb-contrato"><label for="onb-contrato">Contrato assinado</label></li>
+      <li data-k="onb-painel"><input type="checkbox" id="onb-painel"><label for="onb-painel">Acesso ao painel liberado — Leads, classificação Ouro/Prata/Bronze, aba de Alunos<span class="sub-note">Bloqueio mais direto: ela saiu da reunião sem isso</span></label></li>
+      <li data-k="onb-pipe"><input type="checkbox" id="onb-pipe"><label for="onb-pipe">Acesso dela no Pipedrive confirmado e testado</label></li>
+      <li data-k="onb-tactiq"><input type="checkbox" id="onb-tactiq"><label for="onb-tactiq">Plugin Tactiq enviado e instalado<span class="sub-note">Dois gatilhos de gravação, pra nunca perder transcrição</span></label></li>
+      <li data-k="onb-prompt"><input type="checkbox" id="onb-prompt"><label for="onb-prompt">Chat de diagnóstico pré-reunião entregue<span class="sub-note">O prompt pronto está no card abaixo — só colar num chat novo do Claude e mandar pra ela</span></label></li>
+      <li data-k="onb-manual"><input type="checkbox" id="onb-manual"><label for="onb-manual">Manual de entrada (dados e processo) enviado</label></li>
+      <li data-k="onb-reuniao"><input type="checkbox" id="onb-reuniao"><label for="onb-reuniao">Reunião de apresentação dela com a equipe marcada<span class="sub-note">Inclusive mostrar como o time usa o Claude no dia a dia</span></label></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Decisões que travam ela até você resolver</h2>
+    <table>
+      <tbody>
+        <tr class="hl"><td style="width:230px;"><b>ICP e anti-ICP</b></td><td>Ela não tem isso definido com base nos clientes atuais — é o filtro que usaria pra priorizar os 46+ leads antes de ligar.</td></tr>
+        <tr><td><b>Leads da Edutech no CRM?</b></td><td>"Eu posso botar, aí cabe a você" — sem essa decisão ela não sabe se trabalha os ~60 alunos por dentro do CRM ou por fora.</td></tr>
+        <tr class="hl"><td><b>Tempo mínimo de clínica</b></td><td>Hoje o critério é ≥1 ano; você mesmo cogitou 2–3 anos. Não fechado.</td></tr>
+        <tr><td><b>Orçamento mínimo de mídia</b></td><td>Você falou R$ 800, ela falou R$ 1.200 como piso. Os dois números convivem sem decisão — muda a conta que ela apresenta pro cliente.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Prompt de diagnóstico pré-reunião</h2>
+    <p class="lead">Pronto pra colar num chat novo do Claude e entregar a ela. Ela cola os dados do lead (nome da clínica, cidade, unidades, faturamento, tempo de operação, % convênio, investimento em tráfego, dor declarada) e recebe o diagnóstico de hipóteses antes de cada reunião — sem cravar conclusão, só o que testar ao vivo.</p>
+    <div class="promptbox" id="onb-promptbox"><button class="copybtn" id="onb-copybtn" type="button">Copiar</button><span id="onb-prompttext">Você é o parceiro de diagnóstico pré-reunião da Gabriela, closer da ClintIA (agência de estruturação comercial para clínicas populares — o produto é o PROClip). Antes de cada reunião de venda, ela vai colar aqui os dados de um lead. Sua função é montar um dossiê rápido de HIPÓTESES — nunca diagnóstico cravado — pra ela usar como apoio na call, no mesmo espírito de quem chega pra perguntar, não pra impor.
+
+DADOS QUE ELA VAI COLAR (pode vir incompleto — trabalhe com o que tiver):
+nome da clínica · cidade/UF · papel de quem vai atender (dono, sócio, gestor) · tempo de operação · nº de unidades · faturamento médio mensal · % do faturamento vindo de convênio · se já investe em tráfego e quanto · maior desafio declarado pra encher a agenda · qualquer nota solta de conversa anterior
+
+MONTE A RESPOSTA NESTE FORMATO, SEMPRE EM PT-BR:
+
+1. <b>Quem é (resumo de 3 linhas)</b> — o que dá pra afirmar com o que foi passado.
+
+2. <b>A conta de padaria já rascunhada</b> — escolha a variante certa:
+   · PERDA (clínica já rodando, com cadeira vazia): estime de forma conservadora quantos pacientes a mais cabem por dia, multiplique pelo ticket médio da categoria (ou peça a ela confirmar o ticket com o cliente ao vivo — nunca inventar), projete em 22 dias úteis e depois 3/6/12 meses.
+   · VIABILIDADE (clínica nova ou com meta declarada): a mesma lógica, mas emoldurada como "isso te leva à sua meta em X meses".
+   Regra de ouro: números por DIA, sempre conservadores, e um aviso pra ela repetir essa conta na mesma respiração em que falar o preço — nunca deixar mais de 2 minutos de intervalo entre a dor e o valor.
+
+3. <b>As 3 hipóteses mais prováveis de dor</b> — cruzando o perfil com os quatro padrões recorrentes: dependência de convênio · falta de processo/números · processo comercial fraco (recepção/WhatsApp) · pouca demanda chegando. Para cada hipótese, a pergunta exata que testa ela ao vivo (nunca afirmar, sempre perguntar).
+
+4. <b>Gancho de abertura sugerido</b> — uma pergunta no estilo "hoje tem algum ponto específico que precisa ser melhorado, ou que é a grande erva daninha?" adaptada ao perfil dela.
+
+5. <b>Objeção mais provável</b> baseada no perfil (ticket baixo → preço; concorrente forte → diferenciação; já se queimou com agência → honestidade radical) e a linha de resposta pronta.
+
+6. <b>O que NÃO fazer com esse perfil</b> — um alerta curto e específico.
+
+Seja direto, sem enrolação, sem elogio gratuito. Se faltar dado crítico (ticket médio, por exemplo), diga explicitamente "confirmar na reunião" em vez de inventar. O objetivo é ela chegar preparada pra ouvir, não com um roteiro decorado pra recitar.</span></div>
+  </div>
+</section>
+
   <div class="foot">ClintIA · Central Comercial · uso interno · 03/08/2026</div>
 </div>
 
@@ -673,6 +752,40 @@
     if(e.key==='ArrowRight' && cur<tabs.length-1) go(tabs[cur+1].dataset.p);
     if(e.key==='ArrowLeft' && cur>0) go(tabs[cur-1].dataset.p);
   });
+})();
+
+(function(){
+  var KEY = 'hub-onboarding-check';
+  var state = {}; try{ state = JSON.parse(localStorage.getItem(KEY) || '{}'); }catch(e){}
+  document.querySelectorAll('#onb-tick input[type="checkbox"]').forEach(function(cb){
+    var li = cb.closest('li');
+    if(state[cb.id]){ cb.checked = true; li.classList.add('done'); }
+    cb.addEventListener('change', function(){
+      li.classList.toggle('done', cb.checked);
+      state[cb.id] = cb.checked;
+      try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+    });
+  });
+
+  var btn = document.getElementById('onb-copybtn');
+  if(btn){
+    btn.addEventListener('click', function(){
+      var txt = document.getElementById('onb-prompttext').innerText;
+      var done = function(){
+        btn.textContent = 'Copiado!'; btn.classList.add('copied');
+        setTimeout(function(){ btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 1800);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(done).catch(function(){
+          var ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta);
+          ta.select(); document.execCommand('copy'); document.body.removeChild(ta); done();
+        });
+      } else {
+        var ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta);
+        ta.select(); document.execCommand('copy'); document.body.removeChild(ta); done();
+      }
+    });
+  }
 })();
 </script>
 </body>
