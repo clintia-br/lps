@@ -2461,6 +2461,57 @@ body.theme-dark .deck::before{background:var(--s-bg);}
   </div>
 </div>
 
+<!-- ══ S-CONEXAO · TUDO SE LIGA PRA DENTRO DA INTELIGÊNCIA ══ -->
+<style>
+.conex-svg .cnode{fill:var(--s-surface);stroke:rgba(255,255,255,.16);stroke-width:1.2;}
+.conex-svg .clabel{font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:800;letter-spacing:.04em;fill:#D1D5DB;text-transform:uppercase;text-anchor:middle;}
+.conex-svg .cflow{stroke:var(--s-accent);stroke-width:1.8;fill:none;stroke-dasharray:5 9;animation:cflowdash 1.6s linear infinite;opacity:.75;}
+.conex-svg .cflow.f2{animation-delay:.3s}.conex-svg .cflow.f3{animation-delay:.6s}.conex-svg .cflow.f4{animation-delay:.9s}
+.conex-svg .cflow.f5{animation-delay:.2s}.conex-svg .cflow.f6{animation-delay:.5s}.conex-svg .cflow.f7{animation-delay:.8s}
+@keyframes cflowdash{to{stroke-dashoffset:-28;}}
+.conex-svg .chub{fill:rgba(16,185,129,.12);stroke:var(--s-accent);stroke-width:2;animation:chubpulse 2.6s ease-in-out infinite;}
+@keyframes chubpulse{0%,100%{stroke-width:2}50%{stroke-width:4}}
+.conex-svg .cout{stroke:#fff;stroke-width:2.2;fill:none;stroke-dasharray:6 8;animation:cflowdash 1.2s linear infinite;}
+@media (prefers-reduced-motion:reduce){.conex-svg .cflow,.conex-svg .chub,.conex-svg .cout{animation:none}}
+</style>
+<div class="slide dark" id="s-conexao" data-part="2">
+  <div class="eyebrow">A mecânica · Onde a mágica acontece</div>
+  <h2 class="title">Tudo que você tem, <em>ligado pra dentro da inteligência.</em></h2>
+  <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(18px,3.4vw,38px);align-items:center;margin-top:clamp(12px,2.2vw,20px);">
+    <div>
+      <p class="lead" style="max-width:100%;">Hoje os seus canais existem <strong>soltos</strong> — cada um fala sozinho, e a IA não consegue montar o quebra-cabeça.</p>
+      <p style="font-size:15px;color:var(--s-ink-soft);line-height:1.6;margin-top:12px;">O que a gente faz é a <strong style="color:var(--s-ink);">ligação</strong>: site, ficha, avaliações, YouTube, Acervo, perfis e Wikipédia passam a se referenciar entre si e a apontar pro mesmo lugar — descritos na língua que a máquina lê.</p>
+      <div style="margin-top:16px;border-left:3px solid var(--s-accent);background:var(--s-accent-soft);border-radius:0 12px 12px 0;padding:14px 18px;font-size:14.5px;color:var(--s-ink);line-height:1.6;">Quando tudo se conecta, a IA finalmente <strong>decifra</strong> quem você é — e é aí que a citação acontece.</div>
+    </div>
+    <div class="no-swipe">
+      <svg class="conex-svg" viewBox="0 0 560 400" style="width:100%;height:auto;display:block;">
+        <!-- linhas dos nós pro hub -->
+        <path class="cflow"    d="M95 62 L252 186"/>
+        <path class="cflow f2" d="M280 46 L280 168"/>
+        <path class="cflow f3" d="M465 62 L308 186"/>
+        <path class="cflow f4" d="M62 200 L232 200"/>
+        <path class="cflow f5" d="M498 200 L328 200"/>
+        <path class="cflow f6" d="M95 338 L252 214"/>
+        <path class="cflow f7" d="M465 338 L308 214"/>
+        <!-- nós -->
+        <g><rect class="cnode" x="40" y="40" width="110" height="34" rx="10"/><text class="clabel" x="95" y="62">Site</text></g>
+        <g><rect class="cnode" x="225" y="18" width="110" height="34" rx="10"/><text class="clabel" x="280" y="40">Ficha Google</text></g>
+        <g><rect class="cnode" x="410" y="40" width="110" height="34" rx="10"/><text class="clabel" x="465" y="62">Avaliações</text></g>
+        <g><rect class="cnode" x="8"  y="183" width="110" height="34" rx="10"/><text class="clabel" x="63" y="205">YouTube</text></g>
+        <g><rect class="cnode" x="442" y="183" width="110" height="34" rx="10"/><text class="clabel" x="497" y="205">Perfis</text></g>
+        <g><rect class="cnode" x="40" y="326" width="110" height="34" rx="10"/><text class="clabel" x="95" y="348">Acervo</text></g>
+        <g><rect class="cnode" x="410" y="326" width="110" height="34" rx="10"/><text class="clabel" x="465" y="348">Wikipédia</text></g>
+        <!-- hub -->
+        <circle class="chub" cx="280" cy="200" r="34"/>
+        <text x="280" y="207" text-anchor="middle" font-family="Outfit,sans-serif" font-size="20" font-weight="900" fill="#10B981">IA</text>
+        <!-- saída: citação -->
+        <path class="cout" d="M280 234 L280 300"/>
+        <g><rect x="170" y="300" width="220" height="40" rx="12" fill="rgba(16,185,129,.12)" stroke="#10B981" stroke-width="1.5"/><text x="280" y="325" text-anchor="middle" font-family="Outfit,sans-serif" font-size="14.5" font-weight="800" fill="#F5F7FA">A RESPOSTA CITA VOCÊ</text></g>
+      </svg>
+    </div>
+  </div>
+</div>
+
 <!-- ══ S-METODO · CITA 4 PILARES · O QUE FAZEMOS EM CADA ══ -->
 <div class="slide dark" id="s-metodo" data-part="2">
   <div class="eyebrow">O método CITA®</div>
@@ -2487,14 +2538,14 @@ body.theme-dark .deck::before{background:var(--s-bg);}
       <div style="display:flex;align-items:center;gap:10px;"><div style="font-family:'Outfit';font-weight:900;font-size:26px;color:var(--s-accent);width:44px;height:44px;border:2px solid var(--s-accent);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">T</div><div><div style="font-family:'Outfit';font-size:16px;font-weight:800;color:var(--s-ink);line-height:1.1;">Território</div><div style="font-family:'Outfit';font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--s-accent);">Dias 15–45</div></div></div>
       <div style="font-size:13.5px;color:var(--s-ink-soft);line-height:1.55;">
         <div style="margin-bottom:6px;">→ <strong style="color:var(--s-ink);">Ficha do Google</strong> completa + resposta às avaliações acumuladas</div>
-        <div style="margin-bottom:6px;">→ <strong style="color:var(--s-ink);">YouTube reativado</strong> com os vídeos que você já tem</div>
+        <div style="margin-bottom:6px;">→ <strong style="color:var(--s-ink);">YouTube estratégico</strong> + redes entrelaçadas</div>
         <div>→ Perfis, <strong style="color:var(--s-ink);">Wikipédia</strong> e fontes que a IA lê</div>
       </div>
     </div>
     <div style="background:var(--s-surface);border:1px solid var(--s-line);border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;gap:9px;">
       <div style="display:flex;align-items:center;gap:10px;"><div style="font-family:'Outfit';font-weight:900;font-size:26px;color:var(--s-accent);width:44px;height:44px;border:2px solid var(--s-accent);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">A</div><div><div style="font-family:'Outfit';font-size:16px;font-weight:800;color:var(--s-ink);line-height:1.1;">Alimentação</div><div style="font-family:'Outfit';font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--s-accent);">Dias 25–55</div></div></div>
       <div style="font-size:13.5px;color:var(--s-ink-soft);line-height:1.55;">
-        <div style="margin-bottom:6px;">→ <strong style="color:var(--s-ink);">Portal editorial</strong> no ar com 5 artigos fundadores</div>
+        <div style="margin-bottom:6px;">→ <strong style="color:var(--s-ink);">Acervo Científico</strong> no ar com 5 artigos fundadores</div>
         <div style="margin-bottom:6px;">→ Formato citável: resposta direta + dado + fonte</div>
         <div>→ <strong style="color:var(--s-ink);">Playbook</strong> entregue pra sua equipe manter</div>
       </div>
@@ -2518,18 +2569,19 @@ body.theme-dark .deck::before{background:var(--s-bg);}
         <div>✓ Diagnóstico nas 4 plataformas de IA</div>
         <div>✓ Toda a implantação técnica do site</div>
         <div>✓ Ficha do Google + respostas às avaliações</div>
-        <div>✓ Reorganização e otimização do canal de YouTube</div>
-        <div>✓ Redação dos 5 artigos do portal <span style="color:var(--s-muted);">(com validação médica sua)</span></div>
-        <div>✓ Perfis, fontes externas e candidatura Wikipédia</div>
+        <div>✓ Estratégia e estrutura dos 5 conteúdos de YouTube + integração das redes</div>
+        <div>✓ Redação dos 5 artigos do Acervo <span style="color:var(--s-muted);">(com validação médica sua)</span></div>
+        <div>✓ Perfis, fontes externas e estratégia Wikipédia</div>
         <div>✓ Reteste final + relatório comparativo</div>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px;">
       <div style="background:var(--s-surface);border:1px solid var(--s-line);border-radius:16px;padding:24px;">
-        <div style="font-family:'Outfit';font-size:14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s-ink);margin-bottom:14px;">Do seu lado · ~3 horas em 60 dias</div>
+        <div style="font-family:'Outfit';font-size:14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s-ink);margin-bottom:14px;">Do seu lado · ~4 horas em 60 dias</div>
         <div style="display:flex;flex-direction:column;gap:12px;">
           <div style="display:flex;gap:12px;align-items:flex-start;"><div style="font-family:'Outfit';font-weight:900;font-size:16px;color:var(--s-accent);">1h</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.5;"><strong style="color:var(--s-ink);">Reunião de kickoff</strong> — contexto da clínica e acessos</div></div>
           <div style="display:flex;gap:12px;align-items:flex-start;"><div style="font-family:'Outfit';font-weight:900;font-size:16px;color:var(--s-accent);">1h</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.5;"><strong style="color:var(--s-ink);">Validação médica dos artigos</strong> — você revisa, não escreve</div></div>
+          <div style="display:flex;gap:12px;align-items:flex-start;"><div style="font-family:'Outfit';font-weight:900;font-size:16px;color:var(--s-accent);">~1h</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.5;"><strong style="color:var(--s-ink);">Gravação dos vídeos</strong> — com roteiro pronto nosso; equipe de gravação sua ou orçada com a gente</div></div>
           <div style="display:flex;gap:12px;align-items:flex-start;"><div style="font-family:'Outfit';font-weight:900;font-size:16px;color:var(--s-accent);">1h</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.5;"><strong style="color:var(--s-ink);">Reunião de encerramento</strong> — reteste apresentado, playbook entregue</div></div>
         </div>
       </div>
@@ -2538,25 +2590,25 @@ body.theme-dark .deck::before{background:var(--s-bg);}
   </div>
 </div>
 
-<!-- ══ S-PORTAL · O PORTAL EDITORIAL ══ -->
-<div class="slide dark" id="s-portal" data-part="2">
+<!-- ══ S-ACERVO · O ACERVO CIENTÍFICO ══ -->
+<div class="slide dark" id="s-acervo" data-part="2">
   <div class="eyebrow">A peça central · O que ninguém no seu mercado faz</div>
-  <h2 class="title">Um portal de estudos.<br><em>Sem cunho comercial.</em></h2>
+  <h2 class="title">Um Acervo Científico.<br><em>Sem cunho comercial.</em></h2>
   <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(18px,3.4vw,38px);align-items:start;margin-top:clamp(12px,2.2vw,20px);">
     <div>
-      <p class="lead" style="max-width:100%;">A IA não cita página de venda — cita <strong>fonte de estudo</strong>. Por isso construímos um portal editorial da clínica: matérias de referência sobre a especialidade, <strong>sem botão de agendamento, sem oferta.</strong></p>
+      <p class="lead" style="max-width:100%;">A IA não cita página de venda — cita <strong>fonte de estudo</strong>. Por isso construímos o Acervo Científico da clínica: matérias de referência sobre a especialidade, <strong>sem botão de agendamento, sem oferta.</strong></p>
       <div style="display:flex;flex-direction:column;gap:11px;margin-top:16px;">
         <div style="display:flex;gap:13px;align-items:flex-start;"><div style="font-family:'Outfit';font-size:18px;font-weight:900;color:var(--s-accent);line-height:1.2;">01</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.55;"><strong style="color:var(--s-ink);">5 artigos fundadores</strong> — os temas de maior busca e relevância da especialidade na região, com dado verificável e autoria médica.</div></div>
         <div style="display:flex;gap:13px;align-items:flex-start;"><div style="font-family:'Outfit';font-size:18px;font-weight:900;color:var(--s-accent);line-height:1.2;">02</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.55;"><strong style="color:var(--s-ink);">Formato citável</strong> — resposta direta no primeiro parágrafo, trecho que a IA extrai sem perder o sentido.</div></div>
         <div style="display:flex;gap:13px;align-items:flex-start;"><div style="font-family:'Outfit';font-size:18px;font-weight:900;color:var(--s-accent);line-height:1.2;">03</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.55;"><strong style="color:var(--s-ink);">Padrão de acervo acadêmico</strong> — artigos assinados pelo médico com CRM e RQE, bibliografia própria no rodapé, zero gatilho comercial. É o único formato que fontes neutras como a Wikipédia aceitam referenciar.</div></div>
-        <div style="display:flex;gap:13px;align-items:flex-start;"><div style="font-family:'Outfit';font-size:18px;font-weight:900;color:var(--s-accent);line-height:1.2;">04</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.55;"><strong style="color:var(--s-ink);">Ponte com a Wikipédia</strong> — quando o corpo clínico tem publicação científica, fazemos a <strong style="color:var(--s-ink);">inserção técnica em verbetes médicos existentes</strong>, com o estudo como referência — seguindo as regras de edição da plataforma. É o caminho que a moderação aceita.</div></div>
+        <div style="display:flex;gap:13px;align-items:flex-start;"><div style="font-family:'Outfit';font-size:18px;font-weight:900;color:var(--s-accent);line-height:1.2;">04</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.55;"><strong style="color:var(--s-ink);">Ponte com a Wikipédia</strong> — quando o corpo clínico tem publicação científica, fazemos a <strong style="color:var(--s-ink);">inserção técnica em verbetes médicos existentes</strong>, com o estudo como referência e o Acervo como leitura complementar no rodapé — seguindo as regras de edição da plataforma. É o caminho que a moderação aceita.</div></div>
       </div>
       <div style="margin-top:16px;border-left:3px solid var(--s-accent);background:var(--s-accent-soft);border-radius:0 12px 12px 0;padding:13px 18px;font-size:14.5px;color:var(--s-ink);line-height:1.6;">Enquanto o concorrente posta promoção no Instagram, a sua clínica publica <strong>o material que a IA usa pra responder.</strong></div>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px;">
       <div class="img-slot-d" style="min-height:210px;">
         <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        <span>Mockup do portal · imagem a produzir</span>
+        <span>Mockup do Acervo · imagem a produzir</span>
       </div>
       <div style="background:var(--s-surface);border:1px solid var(--s-line);border-radius:16px;padding:20px 22px;">
         <div style="font-family:'Outfit';font-size:13.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s-ink);margin-bottom:8px;">Por que sem comercial?</div>
@@ -2578,11 +2630,11 @@ body.theme-dark .deck::before{background:var(--s-bg);}
       <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>Dados estruturados completos</strong> — organização médica, profissionais, serviços, avaliações</span><span style="font-family:'Outfit';font-weight:700;color:var(--p-accent);white-space:nowrap;">I</span></div>
       <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>Otimização técnica para IA</strong> — legibilidade por robôs, velocidade, imagens, sitemap</span><span style="font-family:'Outfit';font-weight:700;color:var(--p-accent);white-space:nowrap;">I</span></div>
       <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>Ficha do Google completa</strong> — categoria, fotos otimizadas e resposta estratégica ao histórico de avaliações</span><span style="font-family:'Outfit';font-weight:700;color:var(--p-accent);white-space:nowrap;">T</span></div>
-      <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>YouTube reativado</strong> — canal organizado, vídeos existentes republicados com títulos e descrições no padrão de busca, playlists por tema e vínculo canal ↔ site ↔ portal</span><span style="font-family:'Outfit';font-weight:700;color:var(--p-accent);white-space:nowrap;">T</span></div>
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>YouTube estratégico</strong> — 5 conteúdos estruturados por nós (pauta, roteiro e formato prontos; você grava — equipe sua ou orçada com a gente), canal organizado, playlists e vínculo canal ↔ site ↔ Acervo</span><span style="font-family:'Outfit';font-weight:700;color:var(--p-accent);white-space:nowrap;">T</span></div>
     </div>
     <div style="border:1px solid var(--p-line);border-radius:14px;overflow:hidden;">
-      <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>Portal editorial no ar</strong> — 5 artigos fundadores produzidos por nós, com validação médica sua</span><span style="font-family:'Outfit';font-weight:700;color:var(--p-accent);white-space:nowrap;">A</span></div>
-      <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>Perfis + fontes externas</strong> — presença padronizada nos lugares que os modelos leem</span><span style="font-family:'Outfit';font-weight:700;color:var(--p-accent);white-space:nowrap;">T</span></div>
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>Redes entrelaçadas</strong> — site, ficha, YouTube, Acervo e perfis se referenciando entre si, apontando pro mesmo lugar</span><span style="font-family:'Outfit';font-weight:700;color:var(--p-accent);white-space:nowrap;">T</span></div>
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>Acervo Científico no ar</strong> — 5 artigos fundadores produzidos por nós, com validação médica sua</span><span style="font-family:'Outfit';font-weight:700;color:var(--p-accent);white-space:nowrap;">A</span></div>
       <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>Estratégia Wikipédia</strong> — inserção técnica em verbetes médicos existentes, com publicação científica do corpo clínico como referência, dentro das regras da plataforma · verbete próprio só quando há base de notoriedade, sem garantia</span><span style="font-family:'Outfit';font-weight:700;color:var(--p-accent);white-space:nowrap;">T</span></div>
       <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>Playbook da equipe</strong> — o padrão citável documentado + treinamento pra manter sem depender de agência</span><span style="font-family:'Outfit';font-weight:700;color:var(--p-accent);white-space:nowrap;">A</span></div>
       <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>Reteste + remedição de cortesia</strong> — comparativo no dia 60 e nova medição aos 90 dias, sem custo</span><span style="font-family:'Outfit';font-weight:700;color:var(--p-accent);white-space:nowrap;">C</span></div>
@@ -2602,8 +2654,8 @@ body.theme-dark .deck::before{background:var(--s-bg);}
       <div style="text-align:center;"><div style="width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid #0E0E0E;margin:0 auto 18px;position:relative;z-index:2;"></div><div style="background:#fff;border:1px solid var(--p-line);border-top:3px solid #0E0E0E;border-radius:13px;padding:16px 14px;min-height:118px;box-shadow:0 10px 26px -20px rgba(5,60,115,.45);"><div style="font-family:'Outfit';font-weight:800;font-size:16px;color:#0E0E0E;letter-spacing:.03em;">Dias 1–7</div><div style="font-family:'Outfit';font-weight:800;font-size:16.5px;color:var(--p-ink);margin:5px 0 4px;line-height:1.2;">Diagnóstico</div><div style="font-size:15.5px;color:var(--p-ink-soft);line-height:1.4;">Relatório de Citação nas 4 plataformas.</div></div></div>
       <div style="text-align:center;"><div style="width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid #C44826;margin:0 auto 18px;position:relative;z-index:2;"></div><div style="background:#fff;border:1px solid var(--p-line);border-top:3px solid #C44826;border-radius:13px;padding:16px 14px;min-height:118px;box-shadow:0 10px 26px -20px rgba(5,60,115,.45);"><div style="font-family:'Outfit';font-weight:800;font-size:16px;color:#C44826;letter-spacing:.03em;">Dias 8–20</div><div style="font-family:'Outfit';font-weight:800;font-size:16.5px;color:var(--p-ink);margin:5px 0 4px;line-height:1.2;">Infraestrutura</div><div style="font-size:15.5px;color:var(--p-ink-soft);line-height:1.4;">Camada técnica implantada e validada.</div></div></div>
       <div style="text-align:center;"><div style="width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid #C44826;margin:0 auto 18px;position:relative;z-index:2;"></div><div style="background:#fff;border:1px solid var(--p-line);border-top:3px solid #C44826;border-radius:13px;padding:16px 14px;min-height:118px;box-shadow:0 10px 26px -20px rgba(5,60,115,.45);"><div style="font-family:'Outfit';font-weight:800;font-size:16px;color:#C44826;letter-spacing:.03em;">Dias 15–30</div><div style="font-family:'Outfit';font-weight:800;font-size:16.5px;color:var(--p-ink);margin:5px 0 4px;line-height:1.2;">Território</div><div style="font-size:15.5px;color:var(--p-ink-soft);line-height:1.4;">Ficha do Google, avaliações e perfis.</div></div></div>
-      <div style="text-align:center;"><div style="width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid #0578DC;margin:0 auto 18px;position:relative;z-index:2;"></div><div style="background:#fff;border:1px solid var(--p-line);border-top:3px solid #0578DC;border-radius:13px;padding:16px 14px;min-height:118px;box-shadow:0 10px 26px -20px rgba(5,60,115,.45);"><div style="font-family:'Outfit';font-weight:800;font-size:16px;color:#0578DC;letter-spacing:.03em;">Dias 25–45</div><div style="font-family:'Outfit';font-weight:800;font-size:16.5px;color:var(--p-ink);margin:5px 0 4px;line-height:1.2;">Portal no ar</div><div style="font-size:15.5px;color:var(--p-ink-soft);line-height:1.4;">5 artigos fundadores publicados.</div></div></div>
-      <div style="text-align:center;"><div style="width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid #0578DC;margin:0 auto 18px;position:relative;z-index:2;"></div><div style="background:#fff;border:1px solid var(--p-line);border-top:3px solid #0578DC;border-radius:13px;padding:16px 14px;min-height:118px;box-shadow:0 10px 26px -20px rgba(5,60,115,.45);"><div style="font-family:'Outfit';font-weight:800;font-size:16px;color:#0578DC;letter-spacing:.03em;">Dias 40–55</div><div style="font-family:'Outfit';font-weight:800;font-size:16.5px;color:var(--p-ink);margin:5px 0 4px;line-height:1.2;">Fontes externas</div><div style="font-size:15.5px;color:var(--p-ink-soft);line-height:1.4;">YouTube, perfis e candidatura Wikipédia.</div></div></div>
+      <div style="text-align:center;"><div style="width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid #0578DC;margin:0 auto 18px;position:relative;z-index:2;"></div><div style="background:#fff;border:1px solid var(--p-line);border-top:3px solid #0578DC;border-radius:13px;padding:16px 14px;min-height:118px;box-shadow:0 10px 26px -20px rgba(5,60,115,.45);"><div style="font-family:'Outfit';font-weight:800;font-size:16px;color:#0578DC;letter-spacing:.03em;">Dias 25–45</div><div style="font-family:'Outfit';font-weight:800;font-size:16.5px;color:var(--p-ink);margin:5px 0 4px;line-height:1.2;">Acervo no ar</div><div style="font-size:15.5px;color:var(--p-ink-soft);line-height:1.4;">5 artigos fundadores publicados.</div></div></div>
+      <div style="text-align:center;"><div style="width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid #0578DC;margin:0 auto 18px;position:relative;z-index:2;"></div><div style="background:#fff;border:1px solid var(--p-line);border-top:3px solid #0578DC;border-radius:13px;padding:16px 14px;min-height:118px;box-shadow:0 10px 26px -20px rgba(5,60,115,.45);"><div style="font-family:'Outfit';font-weight:800;font-size:16px;color:#0578DC;letter-spacing:.03em;">Dias 40–55</div><div style="font-family:'Outfit';font-weight:800;font-size:16.5px;color:var(--p-ink);margin:5px 0 4px;line-height:1.2;">Fontes externas</div><div style="font-size:15.5px;color:var(--p-ink-soft);line-height:1.4;">YouTube, redes entrelaçadas e Wikipédia.</div></div></div>
       <div style="text-align:center;"><div style="width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid #0578DC;margin:0 auto 18px;position:relative;z-index:2;"></div><div style="background:#fff;border:1px solid var(--p-line);border-top:3px solid #0578DC;border-radius:13px;padding:16px 14px;min-height:118px;box-shadow:0 10px 26px -20px rgba(5,60,115,.45);"><div style="font-family:'Outfit';font-weight:800;font-size:16px;color:#0578DC;letter-spacing:.03em;">Dias 56–60</div><div style="font-family:'Outfit';font-weight:800;font-size:16.5px;color:var(--p-ink);margin:5px 0 4px;line-height:1.2;">Reteste</div><div style="font-size:15.5px;color:var(--p-ink-soft);line-height:1.4;">Antes e depois + playbook entregue.</div></div></div>
     </div>
   </div>
@@ -2616,8 +2668,8 @@ body.theme-dark .deck::before{background:var(--s-bg);}
   <h2 class="title">Até aqui,<br><em>faz sentido pra você?</em></h2>
   <div style="max-width:680px;margin:clamp(26px,4vw,42px) 0;display:flex;flex-direction:column;gap:18px;">
     <div style="display:flex;align-items:flex-start;gap:14px;"><div style="font-family:'Outfit';font-size:22px;font-weight:900;color:var(--p-accent);line-height:1.1;">✓</div><div style="font-size:16px;color:var(--p-ink-soft);line-height:1.6;">O <strong>teste ao vivo</strong> mostrou onde a sua clínica está hoje na resposta da IA</div></div>
-    <div style="display:flex;align-items:flex-start;gap:14px;"><div style="font-family:'Outfit';font-size:22px;font-weight:900;color:var(--p-accent);line-height:1.1;">✓</div><div style="font-size:16px;color:var(--p-ink-soft);line-height:1.6;">Faz sentido que <strong>autoridade</strong> pese mais que ajuste técnico — e que o portal editorial seja o caminho</div></div>
-    <div style="display:flex;align-items:flex-start;gap:14px;"><div style="font-family:'Outfit';font-size:22px;font-weight:900;color:var(--p-accent);line-height:1.1;">✓</div><div style="font-size:16px;color:var(--p-ink-soft);line-height:1.6;">A execução é <strong>toda nossa</strong> — o seu envolvimento são ~3 horas em 60 dias</div></div>
+    <div style="display:flex;align-items:flex-start;gap:14px;"><div style="font-family:'Outfit';font-size:22px;font-weight:900;color:var(--p-accent);line-height:1.1;">✓</div><div style="font-size:16px;color:var(--p-ink-soft);line-height:1.6;">Faz sentido que <strong>autoridade</strong> pese mais que ajuste técnico — e que o Acervo Científico seja o caminho</div></div>
+    <div style="display:flex;align-items:flex-start;gap:14px;"><div style="font-family:'Outfit';font-size:22px;font-weight:900;color:var(--p-accent);line-height:1.1;">✓</div><div style="font-size:16px;color:var(--p-ink-soft);line-height:1.6;">A execução é <strong>toda nossa</strong> — o seu envolvimento são ~4 horas em 60 dias</div></div>
     <div style="display:flex;align-items:flex-start;gap:14px;"><div style="font-family:'Outfit';font-size:22px;font-weight:900;color:var(--p-accent);line-height:1.1;">✓</div><div style="font-size:16px;color:var(--p-ink-soft);line-height:1.6;">O <strong>reteste</strong> responde a pergunta do retorno com dado, não com opinião</div></div>
   </div>
   <p class="lead" style="max-width:620px;">Se até aqui faz sentido, agora vem a parte que importa: <strong>quanto custa e o que está incluso.</strong></p>
@@ -2634,9 +2686,9 @@ body.theme-dark .deck::before{background:var(--s-bg);}
       <div class="ancora-row"><span style="color:var(--p-ink-soft);">Dados estruturados + marcação médica completa</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;">R$ 3.000</span></div>
       <div class="ancora-row"><span style="color:var(--p-ink-soft);">Otimização técnica do site para leitura por IA</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;">R$ 2.500</span></div>
       <div class="ancora-row"><span style="color:var(--p-ink-soft);">Ficha do Google + estratégia de avaliações</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;">R$ 2.500</span></div>
-      <div class="ancora-row"><span style="color:var(--p-ink-soft);">Portal editorial + 5 artigos fundadores</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;">R$ 5.000</span></div>
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);">Acervo Científico + 5 artigos fundadores</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;">R$ 5.000</span></div>
       <div class="ancora-row"><span style="color:var(--p-ink-soft);">Estratégia Wikipédia — inserção científica + candidatura</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;">R$ 6.000</span></div>
-      <div class="ancora-row"><span style="color:var(--p-ink-soft);">Reativação e otimização de canal de YouTube</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;">R$ 3.000</span></div>
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);">YouTube estratégico + integração das redes</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;">R$ 3.000</span></div>
       <div class="ancora-row"><span style="color:var(--p-ink-soft);">Treinamento da equipe + playbook documentado</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;">R$ 2.000</span></div>
     </div>
     <div style="text-align:center;">
@@ -2648,34 +2700,34 @@ body.theme-dark .deck::before{background:var(--s-bg);}
   <p class="lead" style="max-width:760px;margin-top:clamp(16px,2.5vw,24px);">Sem contar o custo de <strong>coordenar cinco fornecedores</strong> e garantir que as peças conversem — que é onde esse tipo de projeto costuma se perder.</p>
 </div>
 
-<!-- ══ S-INVEST-CITA · INVESTIMENTO ══ -->
+<!-- ══ S-INVEST-CITA · INVESTIMENTO · TURMA DE FUNDAÇÃO ══ -->
 <div class="slide" id="s22" data-part="3">
   <div class="eyebrow">Investimento · Implantação única · sem mensalidade</div>
-  <h2 class="title">Duas configurações.<br><em>Uma decisão.</em></h2>
+  <h2 class="title">Três vagas.<br><em>Um preço de fundação.</em></h2>
   <div class="invest-v2-wrap">
     <div class="invest-v2-hero">
-      <div class="invest-v2-label">Clique na configuração · <strong>valor de fechamento nesta reunião</strong></div>
-      <div class="price-grid" style="grid-template-columns:repeat(2,1fr);max-width:640px;">
-        <div class="price-card"><div class="pc-units">Essencial · 45 dias</div><div class="pc-x">12×</div><div class="pc-val">R$ 867</div><div class="pc-cap">no cartão de crédito</div><div class="pc-div"></div><div class="pc-avista">à vista <strong>R$ 8.900</strong></div><div class="pc-de">após a reunião: R$ 10.200</div><div class="pc-badge">−13% · condição desta proposta</div></div>
-        <div class="price-card selected"><div class="pc-units">Completo · 60 dias</div><div class="pc-x">12×</div><div class="pc-val">R$ 1.450</div><div class="pc-cap">no cartão de crédito</div><div class="pc-div"></div><div class="pc-avista">à vista <strong>R$ 14.900</strong></div><div class="pc-de">após a reunião: R$ 17.100</div><div class="pc-badge">−13% · condição desta proposta</div></div>
+      <div class="invest-v2-label">Turma de fundação · <strong>início em agosto</strong></div>
+      <div class="price-grid" style="grid-template-columns:1fr;max-width:380px;">
+        <div class="price-card selected"><div class="pc-units">Programa completo · 60 dias</div><div class="pc-x">12×</div><div class="pc-val">R$ 867</div><div class="pc-cap">no cartão de crédito</div><div class="pc-div"></div><div class="pc-avista">à vista <strong>R$ 8.900</strong></div><div class="pc-de">valor após a fundação: R$ 14.900</div><div class="pc-badge">−40% · vaga de fundação</div></div>
       </div>
-      <div style="text-align:center;background:rgba(196,72,38,0.07);border:1.5px solid var(--p-accent);border-radius:12px;padding:16px 20px;margin-top:4px;"><div style="font-family:'Outfit';font-size:14.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--p-accent);">Pagamento único · estrutura sua pra sempre</div><div style="font-size:15.5px;color:var(--p-ink-soft);line-height:1.6;margin-top:6px;">Sem mensalidade e sem contrato de agência. Valores válidos <strong>dentro do prazo desta negociação</strong>; depois, volta ao valor cheio. À vista via Pix ou 12× no cartão.</div></div>
+      <div style="text-align:center;background:rgba(196,72,38,0.07);border:1.5px solid var(--p-accent);border-radius:12px;padding:16px 20px;margin-top:4px;"><div style="font-family:'Outfit';font-size:14.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--p-accent);">Por que três vagas?</div><div style="font-size:15.5px;color:var(--p-ink-soft);line-height:1.6;margin-top:6px;">As três primeiras clínicas viram os <strong>casos de fundação do método</strong> — reteste documentado, antes e depois público. Em troca, entram pelo preço de fundação. <strong>Concluída a turma, o programa passa a R$ 14.900.</strong> Pagamento à vista via Pix ou 12× no cartão.</div></div>
     </div>
     <div class="invest-v2-scope">
-      <div class="invest-v2-scope-label">Essencial</div>
+      <div class="invest-v2-scope-label">Tudo incluso</div>
       <ul class="invest-v2-scope-list">
-        <li><strong>Diagnóstico</strong> de citação completo</li>
+        <li><strong>Diagnóstico</strong> de citação nas 4 IAs</li>
         <li><strong>Infraestrutura técnica</strong> inteira</li>
         <li><strong>Ficha do Google</strong> + avaliações</li>
-        <li><strong>Arquitetura do portal</strong> + playbook (produção com a sua equipe)</li>
-        <li><strong>Reteste</strong> no dia 60</li>
+        <li><strong>YouTube estratégico</strong> + redes entrelaçadas</li>
+        <li><strong>Acervo Científico</strong> — 5 artigos produzidos por nós</li>
+        <li><strong>Estratégia Wikipédia</strong> — inserção científica</li>
+        <li><strong>Playbook</strong> + treinamento da equipe</li>
       </ul>
-      <div class="invest-v2-scope-label" style="margin-top:20px;">Completo · soma</div>
+      <div class="invest-v2-scope-label" style="margin-top:20px;">A segurança</div>
       <ul class="invest-v2-scope-list">
-        <li><strong>Portal no ar</strong> — 5 artigos produzidos por nós</li>
-        <li><strong>YouTube reativado</strong> + fontes externas</li>
-        <li><strong>Estratégia Wikipédia</strong> — inserção científica em verbetes</li>
+        <li><strong>Reteste no dia 60</strong> — antes e depois, lado a lado</li>
         <li><strong>Remedição de cortesia</strong> aos 90 dias</li>
+        <li><strong>Sem mensalidade</strong> — a estrutura fica sua</li>
       </ul>
     </div>
   </div>
@@ -2689,8 +2741,8 @@ body.theme-dark .deck::before{background:var(--s-bg);}
     <div class="step-row">
       <div class="step-num">01</div>
       <div>
-        <div class="step-title">Decisão e kickoff</div>
-        <div class="step-desc">Reunião de partida com <strong>você</strong> e o time responsável. Em até 5 dias úteis após a decisão — e é a primeira das suas ~3 horas de envolvimento.</div>
+        <div class="step-title">Reserva da vaga e kickoff</div>
+        <div class="step-desc">A turma de fundação começa <strong>em agosto</strong>. Reunião de partida com você e o time responsável em até 5 dias úteis — a primeira das suas ~4 horas de envolvimento.</div>
       </div>
     </div>
     <div class="step-row">
@@ -2704,7 +2756,7 @@ body.theme-dark .deck::before{background:var(--s-bg);}
       <div class="step-num">03</div>
       <div>
         <div class="step-title">Implantação, reteste e playbook</div>
-        <div class="step-desc">Infraestrutura, território e portal construídos em paralelo — pela nossa equipe. Ao final, o <strong>antes e depois lado a lado</strong>, o playbook entregue e a remedição de cortesia agendada pros 90 dias.</div>
+        <div class="step-desc">Infraestrutura, território e Acervo construídos em paralelo — pela nossa equipe. Ao final, o <strong>antes e depois lado a lado</strong>, o playbook entregue e a remedição de cortesia agendada pros 90 dias.</div>
       </div>
     </div>
   </div>
