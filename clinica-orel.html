@@ -2694,7 +2694,7 @@ body.theme-dark .deck::before{background:var(--s-bg);}
     <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>Redes entrelaçadas</strong> — site, ficha, YouTube, LinkedIn, Acervo e perfis se referenciando entre si</span><span class="pil">T</span></div>
     <div class="ancora-row" style="background:rgba(227,169,60,.07);"><span style="color:var(--p-ink-soft);"><strong>Portal do Acervo Científico no ar</strong> — construímos e publicamos o portal no domínio da clínica, com 5 artigos fundadores assinados pelo médico</span><span class="pil" style="border-color:#E3A93C;color:#C9922E;">A</span></div>
     <div class="ancora-row" style="background:rgba(227,169,60,.07);"><span style="color:var(--p-ink-soft);"><strong>Candidatura à Wikipédia</strong> — preparamos e submetemos o material pra tentar registrar o nome do médico/clínica lá, ancorado na publicação científica do corpo clínico e nas regras de edição da plataforma · aprovação é da moderação, fora do nosso controle</span><span class="pil" style="border-color:#E3A93C;color:#C9922E;">A</span></div>
-    <div class="ancora-row" style="background:rgba(5,120,220,.08);"><span style="color:var(--p-ink-soft);"><strong>Treinamento Essencial de Conversão</strong> — auditoria de 10 atendimentos, Kit de Scripts da Orel, treinamento ao vivo de 90 min (gravado) e reforço no dia 30 <em style="color:#0578DC;font-style:normal;font-weight:700;">· módulo adicional</em></span><span class="pil" style="border-color:#0578DC;color:#0578DC;">+</span></div>
+    <div class="ancora-row" style="background:rgba(5,120,220,.08);"><span style="color:var(--p-ink-soft);"><strong>Treinamento de SDR</strong> — formação completa, Manual do SDR da Orel, scripts, rotina, CRM em uso e encontro de acompanhamento no dia 30 <em style="color:#0578DC;font-style:normal;font-weight:700;">· módulo adicional</em></span><span class="pil" style="border-color:#0578DC;color:#0578DC;">+</span></div>
     <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>Playbook da equipe</strong> — o padrão citável documentado + treinamento pra manter sem depender de agência</span><span class="pil">A</span></div>
     <div class="ancora-row"><span style="color:var(--p-ink-soft);"><strong>Reteste + remedição de cortesia</strong> — comparativo no dia 60 e nova medição aos 90 dias, sem custo</span><span class="pil">C</span></div>
   </div>
@@ -2702,56 +2702,98 @@ body.theme-dark .deck::before{background:var(--s-bg);}
 </div>
 
 
-<!-- ══ S-TREINO · MODULO ADICIONAL (identidade azul) ══ -->
+<!-- ══ MODULO SDR · 2 slides (identidade azul) ══ -->
 <style>
 @keyframes modIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
-#s-treino{--m:#0578DC;--m-soft:rgba(5,120,220,.13);--m-glow:rgba(5,120,220,.30);position:relative;overflow:hidden;background:linear-gradient(160deg,#0A0F1C 0%,#071A2E 130%);}
-#s-treino::after{content:'';position:absolute;right:-12%;top:-20%;width:55%;height:120%;background:radial-gradient(circle,rgba(5,120,220,.13) 0%,transparent 68%);pointer-events:none;z-index:0;}
-#s-treino > *{position:relative;z-index:1;}
-#s-treino .eyebrow{color:var(--m);}
-.mod-pill{display:inline-flex;align-items:center;gap:8px;background:var(--m-soft);border:1.5px solid var(--m);border-radius:999px;padding:6px 15px;font-family:'Outfit';font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#7FC4FF;margin-bottom:12px;}
+#s-sdr,#s-treino{--m:#0578DC;--m2:#7FC4FF;--m-soft:rgba(5,120,220,.13);--m-glow:rgba(5,120,220,.30);position:relative;overflow:hidden;background:linear-gradient(160deg,#0A0F1C 0%,#071A2E 130%);}
+#s-sdr::after,#s-treino::after{content:'';position:absolute;right:-12%;top:-20%;width:55%;height:120%;background:radial-gradient(circle,rgba(5,120,220,.13) 0%,transparent 68%);pointer-events:none;z-index:0;}
+#s-sdr > *,#s-treino > *{position:relative;z-index:1;}
+.mod-pill{display:inline-flex;align-items:center;gap:8px;background:var(--m-soft);border:1.5px solid var(--m);border-radius:999px;padding:6px 15px;font-family:'Outfit';font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--m2);margin-bottom:10px;}
 .mod-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--m);box-shadow:0 0 10px var(--m-glow);}
-.ent-row{opacity:0;animation:modIn .5s ease forwards;display:flex;gap:13px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid var(--s-line);border-left:3px solid var(--m);border-radius:11px;padding:12px 16px;}
-.ent-row:nth-child(1){animation-delay:.1s}.ent-row:nth-child(2){animation-delay:.2s}.ent-row:nth-child(3){animation-delay:.3s}
-.ent-row:nth-child(4){animation-delay:.4s}.ent-row:nth-child(5){animation-delay:.5s}
-.ent-row .en{font-family:'Outfit';font-size:16px;font-weight:900;color:var(--m);flex-shrink:0;line-height:1.3;}
-.ent-row b{color:var(--s-ink);}
-.pass-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
-.pass-c{background:rgba(255,255,255,.03);border:1px solid var(--s-line);border-top:2.5px solid var(--m);border-radius:11px;padding:12px 14px;}
-.pass-c .pd{font-family:'Outfit';font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--m);margin-bottom:4px;}
-.pass-c .pt{font-family:'Outfit';font-size:14.5px;font-weight:800;color:var(--s-ink);line-height:1.25;margin-bottom:3px;}
-.pass-c .ps{font-size:12.5px;color:var(--s-ink-soft);line-height:1.45;}
-@media (prefers-reduced-motion:reduce){.ent-row{animation:none;opacity:1;}}
-@media (max-width:900px){#s-treino .tgrid{grid-template-columns:1fr !important;}.pass-strip{grid-template-columns:1fr 1fr;}}
+/* transformacao */
+.tr-wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:stretch;margin-top:clamp(12px,2vw,18px);}
+.tr-col{border:1px solid var(--s-line);border-radius:14px;padding:16px 18px;background:rgba(255,255,255,.02);}
+.tr-col.dep{border-color:var(--m);background:var(--m-soft);}
+.tr-h{font-family:'Outfit';font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;}
+.tr-col .tr-h{color:var(--s-muted);}
+.tr-col.dep .tr-h{color:var(--m2);}
+.tr-i{display:flex;gap:9px;align-items:flex-start;font-size:14px;color:var(--s-ink-soft);line-height:1.5;margin-bottom:8px;}
+.tr-i:last-child{margin-bottom:0;}
+.tr-i .mk{flex-shrink:0;font-weight:800;line-height:1.45;}
+.tr-col .mk{color:var(--s-muted);}
+.tr-col.dep .mk{color:var(--m);}
+.tr-arrow{display:flex;align-items:center;justify-content:center;font-family:'Outfit';font-size:26px;font-weight:900;color:var(--m);}
+/* etapas */
+.et-row{opacity:0;animation:modIn .5s ease forwards;display:flex;gap:13px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid var(--s-line);border-left:3px solid var(--m);border-radius:11px;padding:11px 15px;}
+.et-row:nth-child(1){animation-delay:.08s}.et-row:nth-child(2){animation-delay:.18s}.et-row:nth-child(3){animation-delay:.28s}
+.et-row:nth-child(4){animation-delay:.38s}.et-row:nth-child(5){animation-delay:.48s}
+.et-row .en{font-family:'Outfit';font-size:15px;font-weight:900;color:var(--m);flex-shrink:0;line-height:1.35;}
+.et-row b{color:var(--s-ink);}
+.rec-box{background:rgba(255,255,255,.03);border:1px solid var(--s-line);border-radius:13px;padding:14px 17px;}
+.rec-box .rh{font-family:'Outfit';font-size:12.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--m2);margin-bottom:9px;}
+.rec-i{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:var(--s-ink-soft);line-height:1.5;margin-bottom:7px;}
+.rec-i:last-child{margin-bottom:0;}
+.rec-i .ck{color:var(--m);font-weight:800;flex-shrink:0;}
+.rec-i b{color:var(--s-ink);}
+@media (prefers-reduced-motion:reduce){.et-row{animation:none;opacity:1;}}
+@media (max-width:900px){.tr-wrap{grid-template-columns:1fr !important;}.tr-arrow{transform:rotate(90deg);}#s-treino .tgrid{grid-template-columns:1fr !important;}}
 </style>
-<div class="slide dark" id="s-treino" data-part="3">
+
+<!-- ── SDR · o papel e a transformação ── -->
+<div class="slide dark" id="s-sdr" data-part="3">
   <div class="mod-pill"><span class="dot"></span>Módulo adicional · exclusivo Orel</div>
-  <h2 class="title" style="margin-top:0;">A IA traz o paciente.<br><em style="color:#7FC4FF;">Quem converte é o atendimento.</em></h2>
-  <div class="tgrid" style="display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(18px,3vw,34px);align-items:start;margin-top:clamp(12px,2vw,18px);">
-    <div>
-      <p class="lead" style="max-width:100%;font-size:16px;">Hoje o paciente chega, pergunta o valor e some. <strong>Aparecer na IA aumenta o volume que chega</strong> — e volume que chega num atendimento sem método só aumenta a perda.</p>
-      <div style="margin-top:14px;border-left:3px solid var(--m);background:var(--m-soft);border-radius:0 12px 12px 0;padding:14px 18px;">
-        <div style="font-family:'Outfit';font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#7FC4FF;margin-bottom:6px;">O ponto exato da perda</div>
-        <div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.6;">O paciente não desiste do preço — desiste de um preço que chegou <strong style="color:var(--s-ink);">antes do valor</strong>. Uma consulta de R$ 1.000 dita sem contexto vira número solto. Dita depois da razão certa, vira critério de escolha.</div>
-      </div>
-      <div style="margin-top:14px;background:rgba(255,255,255,.03);border:1px solid var(--s-line);border-radius:14px;padding:16px 18px;">
-        <div style="font-family:'Outfit';font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s-ink);margin-bottom:7px;">Esforço da sua equipe</div>
-        <div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.6;"><strong style="color:var(--s-ink);">2 horas no total</strong> — 90 min de treinamento + 30 min de reforço. A coleta, a auditoria e os scripts são feitos por nós. Você não prepara nada.</div>
-      </div>
+  <h2 class="title" style="margin-top:0;">Treinamento de SDR.<br><em style="color:#7FC4FF;">Uma pessoa dedicada ao paciente que chega.</em></h2>
+  <p class="lead" style="max-width:900px;font-size:16px;margin-top:10px;">SDR é quem faz a ponte entre o interesse e a consulta marcada. <strong>Ele não vende</strong> — ele qualifica, conduz e garante que o paciente chegue. Hoje esse trabalho não é de ninguém; ele acontece entre um atendimento e outro.</p>
+  <div class="tr-wrap">
+    <div class="tr-col">
+      <div class="tr-h">Onde está hoje</div>
+      <div class="tr-i"><span class="mk">—</span><span>O lead é respondido no intervalo entre pacientes, por quem estiver livre.</span></div>
+      <div class="tr-i"><span class="mk">—</span><span>O preço aparece antes da razão de ele existir.</span></div>
+      <div class="tr-i"><span class="mk">—</span><span>Quem não responde na hora é esquecido.</span></div>
+      <div class="tr-i"><span class="mk">—</span><span>Ninguém procura paciente: espera-se que ele apareça.</span></div>
+      <div class="tr-i"><span class="mk">—</span><span>O que foi conversado não fica registrado em lugar nenhum.</span></div>
+      <div class="tr-i"><span class="mk">—</span><span>Quem marca nem sempre comparece.</span></div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:9px;">
-      <div class="ent-row"><div class="en">01</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.55;"><b>Escuta de 10 atendimentos reais</b> — auditamos as conversas de WhatsApp e devolvemos uma página com os três pontos onde o paciente desiste.</div></div>
-      <div class="ent-row"><div class="en">02</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.55;"><b>Kit de Scripts da Orel</b> — abertura, qualificação, ancoragem de valor antes do preço, a resposta ao "quanto custa?" e o follow-up de 24h, 72h e 7 dias.</div></div>
-      <div class="ent-row"><div class="en">03</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.55;"><b>Treinamento ao vivo · 90 minutos</b> — online, com a equipe de atendimento, conduzido pela nossa especialista em conversão, com simulação dos casos reais da clínica.</div></div>
-      <div class="ent-row"><div class="en">04</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.55;"><b>Gravação + material entregues</b> — quem entrar na equipe depois treina sozinho, sem nova contratação.</div></div>
-      <div class="ent-row"><div class="en">05</div><div style="font-size:14.5px;color:var(--s-ink-soft);line-height:1.55;"><b>Sessão de reforço no dia 30</b> — 30 minutos sobre o que pegou, o que não pegou e o ajuste fino do script.</div></div>
+    <div class="tr-arrow">→</div>
+    <div class="tr-col dep">
+      <div class="tr-h">Onde fica com o SDR</div>
+      <div class="tr-i"><span class="mk">✓</span><span>Uma pessoa responsável do primeiro contato até a consulta.</span></div>
+      <div class="tr-i"><span class="mk">✓</span><span>Valor construído antes do preço, com o roteiro certo.</span></div>
+      <div class="tr-i"><span class="mk">✓</span><span>Follow-up estruturado até haver resposta.</span></div>
+      <div class="tr-i"><span class="mk">✓</span><span>Prospecção ativa diária no Instagram, com meta definida.</span></div>
+      <div class="tr-i"><span class="mk">✓</span><span>Cada contato registrado no CRM, com histórico.</span></div>
+      <div class="tr-i"><span class="mk">✓</span><span>Confirmação conduzida para reduzir o não comparecimento.</span></div>
     </div>
   </div>
-  <div class="pass-strip">
-    <div class="pass-c"><div class="pd">Dias 1–5</div><div class="pt">Coleta</div><div class="ps">Puxamos as conversas do CRM e do WhatsApp. Você não faz nada.</div></div>
-    <div class="pass-c"><div class="pd">Dias 6–10</div><div class="pt">Auditoria + scripts</div><div class="ps">Os três pontos de perda mapeados e os scripts escritos pro ticket da Orel.</div></div>
-    <div class="pass-c"><div class="pd">Dia 12</div><div class="pt">Treinamento ao vivo</div><div class="ps">90 minutos com a equipe, gravado e entregue.</div></div>
-    <div class="pass-c"><div class="pd">Dia 30</div><div class="pt">Reforço</div><div class="ps">30 minutos de ajuste fino, com base no que aconteceu.</div></div>
+</div>
+
+<!-- ── SDR · a formação ── -->
+<div class="slide dark" id="s-treino" data-part="3">
+  <div class="mod-pill"><span class="dot"></span>Módulo adicional · a formação</div>
+  <h2 class="title" style="margin-top:0;">Como o SDR <em style="color:#7FC4FF;">é formado.</em></h2>
+  <div class="tgrid" style="display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(16px,2.8vw,30px);align-items:start;margin-top:clamp(10px,1.8vw,16px);">
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div class="et-row"><div class="en">01</div><div style="font-size:14px;color:var(--s-ink-soft);line-height:1.5;"><b>A empresa</b> — sessão com a <b>Cida</b>: a história da Orel, a cultura da casa e o que faz um paciente escolher vocês. Sem isso, o resto vira roteiro decorado.</div></div>
+      <div class="et-row"><div class="en">02</div><div style="font-size:14px;color:var(--s-ink-soft);line-height:1.5;"><b>O papel</b> — o que um SDR faz, o que não faz e qual é o único resultado que mede o trabalho dele: <b>consulta marcada e comparecida</b>.</div></div>
+      <div class="et-row"><div class="en">03</div><div style="font-size:14px;color:var(--s-ink-soft);line-height:1.5;"><b>A rotina</b> — o dia dele hora a hora: o que é feito dentro do Instagram, o que é feito fora dele, e em que ordem.</div></div>
+      <div class="et-row"><div class="en">04</div><div style="font-size:14px;color:var(--s-ink-soft);line-height:1.5;"><b>As duas frentes</b> — <b>ativa</b>: social selling no Instagram, quantas abordagens por dia e para quem (novos seguidores, quem interage, quem salva). <b>Passiva</b>: quem chega pelo tráfego pago e pela busca.</div></div>
+      <div class="et-row"><div class="en">05</div><div style="font-size:14px;color:var(--s-ink-soft);line-height:1.5;"><b>Script e CRM</b> — o que qualificar, como abordar, como conduzir até a consulta sem perder o paciente no caminho — e como registrar tudo no CRM.</div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:11px;">
+      <div class="rec-box">
+        <div class="rh">O que fica com a clínica</div>
+        <div class="rec-i"><span class="ck">✓</span><span><b>Manual do SDR da Orel</b> — material completo com a identidade visual da clínica, cobrindo os cinco capítulos acima. Serve para formar o próximo sem nova contratação.</span></div>
+        <div class="rec-i"><span class="ck">✓</span><span><b>Scripts prontos</b> — abordagem no Instagram, primeiro contato, qualificação, resposta ao "quanto custa?", confirmação de consulta e follow-up de 24h, 72h e 7 dias.</span></div>
+        <div class="rec-i"><span class="ck">✓</span><span><b>Rotina documentada</b> — a agenda-padrão do SDR, com metas diárias de abordagem e de retorno.</span></div>
+        <div class="rec-i"><span class="ck">✓</span><span><b>CRM em uso</b> — configurado e explicado, com o funil e as etapas que o SDR vai movimentar.</span></div>
+        <div class="rec-i"><span class="ck">✓</span><span><b>Gravação dos encontros</b> — o treinamento inteiro registrado.</span></div>
+      </div>
+      <div class="rec-box" style="border-color:var(--m);background:var(--m-soft);">
+        <div class="rh">Os encontros</div>
+        <div class="rec-i"><span class="ck">1</span><span><b>Formação</b> — encontro ao vivo com a nossa especialista comercial, no início do projeto.</span></div>
+        <div class="rec-i"><span class="ck">2</span><span><b>Acompanhamento</b> — no dia 30, sobre o que funcionou, o que não funcionou e o ajuste fino do script, já com os números reais.</span></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -2839,7 +2881,7 @@ body.theme-dark .deck::before{background:var(--s-bg);}
         <div class="price-card pc-futuro"><div class="pc-units">A partir de setembro</div><div class="pc-x">12×</div><div class="pc-val">R$ 1.250</div><div class="pc-cap">no cartão de crédito</div><div class="pc-div"></div><div class="pc-avista">à vista <strong>R$ 12.900</strong></div><div class="pc-de">mesmo escopo · outro preço</div><div class="pc-badge">turma seguinte</div></div>
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:rgba(5,120,220,.07);border:1.5px solid #0578DC;border-radius:12px;padding:13px 20px;max-width:620px;margin:10px auto 0;">
-        <div style="text-align:left;"><div style="font-family:'Outfit';font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#0578DC;">Módulo adicional</div><div style="font-family:'Outfit';font-size:16px;font-weight:800;color:var(--p-ink);line-height:1.25;">Treinamento Essencial de Conversão</div></div>
+        <div style="text-align:left;"><div style="font-family:'Outfit';font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#0578DC;">Módulo adicional</div><div style="font-family:'Outfit';font-size:16px;font-weight:800;color:var(--p-ink);line-height:1.25;">Treinamento de SDR</div></div>
         <div style="text-align:right;"><div style="font-family:'Outfit';font-size:22px;font-weight:900;color:var(--p-ink);line-height:1;">R$ 1.500</div><div style="font-size:12px;color:var(--p-muted);">pagamento único</div></div>
       </div>
       <div style="text-align:center;max-width:620px;margin:8px auto 0;font-family:'Outfit';font-size:15px;font-weight:800;color:var(--p-ink);">Total à vista: <span style="color:var(--p-accent);">R$ 10.400</span> <span style="font-weight:600;color:var(--p-muted);font-size:13.5px;">· ou 12× R$ 1.012</span></div>
@@ -2856,7 +2898,7 @@ body.theme-dark .deck::before{background:var(--s-bg);}
         <li><strong>Acervo Científico</strong> — 5 artigos produzidos por nós</li>
         <li><strong>Estratégia Wikipédia</strong> — inserção científica</li>
         <li><strong>Playbook</strong> + treinamento da equipe</li>
-        <li style="color:#0578DC;"><strong>Treinamento Essencial de Conversão</strong> · módulo adicional</li>
+        <li style="color:#0578DC;"><strong>Treinamento de SDR</strong> · módulo adicional</li>
       </ul>
       <div class="invest-v2-scope-label" style="margin-top:20px;">A segurança</div>
       <ul class="invest-v2-scope-list">
