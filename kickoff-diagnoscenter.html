@@ -86,6 +86,18 @@ h3{font-size:clamp(17px,1.7vw,22px);font-weight:800;letter-spacing:-.01em}
 .need.pri .nt{color:var(--amber)}
 .needfoot{margin-top:24px;font-size:clamp(14px,1.35vw,16.5px);color:var(--d-soft);display:flex;gap:11px;align-items:flex-start}
 .needfoot b{color:var(--amber)}
+/* explicador do modelo de pagamento */
+.payx{margin-top:20px;border:1px solid var(--d-line);border-radius:16px;padding:16px 20px;background:rgba(255,255,255,.03)}
+.payx .pxh{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--d-mut);margin-bottom:12px}
+.payx-cols{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch}
+.payx-c{border-radius:12px;padding:13px 15px}
+.payx-c.a{background:rgba(22,184,166,.10);border:1px solid rgba(94,234,212,.32)}
+.payx-c.b{background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.28)}
+.payx-c .pxt{font-weight:800;font-size:14px;margin-bottom:5px}
+.payx-c.a .pxt{color:var(--mint)}.payx-c.b .pxt{color:var(--sky)}
+.payx-c p{font-size:12.5px;color:var(--d-soft);line-height:1.4}
+.payx-vs{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--d-mut);text-transform:uppercase}
+.needfoot b{color:var(--amber)}
 
 /* CRONOGRAMA */
 .timeline{margin-top:38px;position:relative;padding-left:8px}
@@ -167,6 +179,8 @@ h3{font-size:clamp(17px,1.7vw,22px);font-weight:800;letter-spacing:-.01em}
 
 @media(max-width:900px){
   .status,.needs,.mini,.resp,.steps4{grid-template-columns:1fr}
+  .payx-cols{grid-template-columns:1fr}
+  .payx-vs{padding:2px 0}
   .tools{display:none}
 }
 </style>
@@ -239,7 +253,7 @@ h3{font-size:clamp(17px,1.7vw,22px);font-weight:800;letter-spacing:-.01em}
           <h3>Construção</h3>
           <ul>
             <li>Configurar a plataforma com os dados de vocês</li>
-            <li>Aplicar identidade e conteúdo</li>
+            <li>Aplicar marca e conteúdo na plataforma</li>
             <li>Testes e validação com a equipe</li>
             <li>Publicação — plataforma no ar</li>
           </ul>
@@ -292,6 +306,22 @@ h3{font-size:clamp(17px,1.7vw,22px);font-weight:800;letter-spacing:-.01em}
           <div><div class="nt">Domínio e acessos</div><div class="nd">Domínio registrado e quem terá login de administrador</div></div>
         </div>
       </div>
+
+      <div class="payx up d5">
+        <div class="pxh">O que significa "decidir o modelo de pagamento" (item 5)</div>
+        <div class="payx-cols">
+          <div class="payx-c a">
+            <div class="pxt">A · Pagamento dentro da plataforma</div>
+            <p>Paciente paga na hora de agendar (Pix/cartão). O valor cai numa conta central e é repassado ao laboratório, já descontada a comissão — como um iFood.</p>
+          </div>
+          <div class="payx-vs">ou</div>
+          <div class="payx-c b">
+            <div class="pxt">B · Pagamento fora da plataforma</div>
+            <p>Paciente só agenda pela plataforma; paga no laboratório, como já é feito hoje. Nesse modelo, a Diagnocenter cobra uma mensalidade fixa dos parceiros, em vez de comissão por exame.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="needfoot up d6"><span style="color:var(--amber);font-size:18px">▲</span> <span>O prazo de <b>45 dias</b> começa a contar a partir do recebimento completo desses dados — não da data desta reunião.</span></div>
     </div>
   </section>
