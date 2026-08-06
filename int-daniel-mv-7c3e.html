@@ -86,6 +86,47 @@ td.num{font-family:'Outfit';font-weight:700;white-space:nowrap}
   .card,.stat,table{break-inside:avoid}
   h2{break-after:avoid}
 }
+
+/* ── celular ── */
+@media(max-width:640px){
+  body{line-height:1.55}
+  .wrap{padding:18px 14px 56px}
+  .top{margin-bottom:24px;padding-bottom:14px}
+  h1{font-size:26px;line-height:1.15}
+  .sub{font-size:15px}
+  .tag{font-size:11px;padding:4px 10px}
+  h2{font-size:20px;margin:34px 0 4px;gap:8px}
+  h2 .n{font-size:12px}
+  h3{font-size:15.5px}
+  .card{padding:15px 16px;border-radius:12px;margin:12px 0}
+  .grid{gap:10px}
+  .stat{padding:13px 14px}
+  .stat .v{font-size:22px}
+  .stat .l{font-size:12px}
+  ul{padding-left:18px}
+  li{margin-bottom:8px;font-size:14.5px}
+  .q{font-size:14.5px;padding-left:13px}
+  .src{font-size:11px}
+  /* tabela vira lista — nada de scroll horizontal no celular */
+  .tw table,.tw thead,.tw tbody,.tw th,.tw td,.tw tr{display:block;width:100%}
+  .tw thead{display:none}
+  .tw tr{border:1px solid var(--line);border-radius:12px;margin-bottom:10px;padding:4px 0;background:var(--surface)}
+  .tw td{border-bottom:1px solid var(--line);padding:9px 14px}
+  .tw tr td:last-child{border-bottom:none}
+  .tw td::before{content:attr(data-l);display:block;font-family:'Outfit';font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+  .tw td.num{white-space:normal}
+  .tl{padding-left:20px}
+  .tl .ev::before{left:-19px}
+  .tl .t{font-size:14px}
+  .ask{padding:13px 14px}
+  .ask .p{font-size:14.5px}
+  .ask .w{font-size:13px}
+}
+@media(max-width:400px){
+  .wrap{padding:16px 12px 48px}
+  h1{font-size:23px}
+  .stat .v{font-size:20px}
+}
 </style>
 </head>
 <body>
@@ -217,24 +258,24 @@ td.num{font-family:'Outfit';font-weight:700;white-space:nowrap}
   <thead><tr><th>Frente</th><th>Situação hoje</th><th>Tamanho</th></tr></thead>
   <tbody>
     <tr>
-      <td><strong>Perda no processo comercial</strong></td>
-      <td>Ele mesmo estimou <strong>~20 pacientes/dia</strong> perdidos por falha de processo</td>
-      <td class="num">20 × R$ 110 × 22 dias =<br><strong>~R$ 48 mil/mês</strong> por unidade</td>
+      <td data-l="Frente"><strong>Perda no processo comercial</strong></td>
+      <td data-l="Situação hoje">Ele mesmo estimou <strong>~20 pacientes/dia</strong> perdidos por falha de processo</td>
+      <td class="num" data-l="Tamanho">20 × R$ 110 × 22 dias =<br><strong>~R$ 48 mil/mês</strong> por unidade</td>
     </tr>
     <tr>
-      <td><strong>Base parada</strong></td>
-      <td>30–40 mil contatos, nunca trabalhados</td>
-      <td class="num">5% de 30 mil =<br><strong>1.500 novos associados</strong></td>
+      <td data-l="Frente"><strong>Base parada</strong></td>
+      <td data-l="Situação hoje">30–40 mil contatos, nunca trabalhados</td>
+      <td class="num" data-l="Tamanho">5% de 30 mil =<br><strong>1.500 novos associados</strong></td>
     </tr>
     <tr>
-      <td><strong>CAP sem controle</strong></td>
-      <td>Não mede. Padrão do setor: R$ 30–40 por paciente</td>
-      <td class="num">−60% (R$ 36 → R$ 14):<br>com R$ 1.500 de mídia,<br><strong>41 → 107 agendamentos</strong></td>
+      <td data-l="Frente"><strong>CAP sem controle</strong></td>
+      <td data-l="Situação hoje">Não mede. Padrão do setor: R$ 30–40 por paciente</td>
+      <td class="num" data-l="Tamanho">−60% (R$ 36 → R$ 14):<br>com R$ 1.500 de mídia,<br><strong>41 → 107 agendamentos</strong></td>
     </tr>
     <tr>
-      <td><strong>Unidades 2 e 3</strong></td>
-      <td>Abrem sem CRM, sem processo, sem CAP</td>
-      <td class="num">Ou nascem certas,<br>ou <strong>replicam o gargalo ×3</strong></td>
+      <td data-l="Frente"><strong>Unidades 2 e 3</strong></td>
+      <td data-l="Situação hoje">Abrem sem CRM, sem processo, sem CAP</td>
+      <td class="num" data-l="Tamanho">Ou nascem certas,<br>ou <strong>replicam o gargalo ×3</strong></td>
     </tr>
   </tbody>
 </table>
@@ -290,15 +331,7 @@ td.num{font-family:'Outfit';font-weight:700;white-space:nowrap}
   </ul>
 </div>
 
-<h2><span class="n">09</span> Pendência que precisa ser resolvida hoje</h2>
-<div class="card red">
-  <h3>As referências prometidas não foram enviadas</h3>
-  <p style="margin:0 0 8px">Em 30/07, junto com a proposta, o Bernardo escreveu: <em>"Até lá separo alguns clientes p te mandar por aqui como referência."</em> O Daniel tinha pedido explicitamente:</p>
-  <p class="q" style="margin:0 0 8px">"Se você tiver possibilidade de me dar algumas referências… referência de cliente é muito importante para mim. Eu sempre faço isso. Só se você tiver aí dois, três clientes."<span class="src">Reunião 30/07</span></p>
-  <p style="margin:0"><strong>Passou uma semana e não foi enviado.</strong> Ele vai entrar na reunião com dois sócios que não conhecem a ClintIA — é justamente onde referência pesa. Mandar <strong>antes das 17h</strong>, ou levar os nomes prontos para citar ao vivo.</p>
-</div>
-
-<h2><span class="n">10</span> O que ainda não sabemos</h2>
+<h2><span class="n">09</span> O que ainda não sabemos</h2>
 <p class="lede">Perguntas para abrir a reunião — cada uma muda o desenho do projeto.</p>
 
 <div class="ask"><div class="k">Define o tamanho da proposta</div><div class="p">Em que pé está a terceira clínica de verdade?</div><div class="w">É uma obra parada que ele vai assumir — assinou, está negociando, ou é intenção? Sem isso não dá para saber se a proposta é de 2 ou 3 unidades.</div></div>
@@ -313,7 +346,7 @@ td.num{font-family:'Outfit';font-weight:700;white-space:nowrap}
 
 <div class="ask"><div class="k">Ponta solta técnica</div><div class="p">O ERP dele já está rodando?</div><div class="w">A única objeção que ele levantou em 30/07 foi integração com o sistema próprio. Foi resolvida com "o CRM tem API", e ele mesmo disse que não é impeditivo — mas os sócios podem levantar de novo.</div></div>
 
-<h2><span class="n">11</span> Riscos</h2>
+<h2><span class="n">10</span> Riscos</h2>
 <div class="grid g2">
   <div class="card">
     <h3>Ele está no meio de uma obra</h3>
