@@ -2356,6 +2356,15 @@ body.theme-dark .deck::before{background:var(--s-bg);}
 <!-- ═══════════════ PARTE 02 · MÉTODO (escuro · esmeralda) ═══════════════ -->
 
 <!-- ══ S-MERCADO-IA · A MUDANÇA NA BUSCA ══ -->
+<style>
+/* VEU DE PRECO - revelado na reuniao */
+.veil-wrap{position:relative;display:inline-block;}
+.veil-wrap.veil-block{display:block;}
+.veil-txt{filter:blur(7px);-webkit-filter:blur(7px);user-select:none;-webkit-user-select:none;}
+.veil-tag{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:5px;pointer-events:none;font-family:'Outfit';font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--p-accent);white-space:nowrap;background:rgba(255,255,255,.55);border-radius:8px;}
+.veil-tag .lock{font-size:11px;}
+.veil-note{display:inline-flex;align-items:center;gap:6px;font-family:'Outfit';font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--p-accent);background:rgba(196,72,38,.08);border:1px solid rgba(196,72,38,.3);border-radius:999px;padding:5px 12px;margin-left:10px;vertical-align:middle;}
+</style>
 <div class="slide dark" id="s-mercado-ia" data-part="2">
   <div class="eyebrow">O mercado · A busca mudou de dono</div>
   <h2 class="title">A mudança já aconteceu.<br><em>A fila ainda não chegou.</em></h2>
@@ -2752,7 +2761,7 @@ body.theme-dark .deck::before{background:var(--s-bg);}
     </div>
     <div style="text-align:center;">
       <div style="font-size:15px;color:var(--p-muted);text-transform:uppercase;letter-spacing:.07em;font-family:'Outfit';font-weight:800;line-height:1.5;">Montar tudo isso separado,<br>com 5 fornecedores, no mercado:</div>
-      <div class="veil-wrap block" style="font-family:'Outfit';font-size:clamp(46px,8vw,72px);font-weight:900;color:var(--p-muted);line-height:1.05;margin:12px 0 8px;text-decoration:line-through;text-decoration-thickness:3px;"><span class="veil-txt">R$ 28.500</span><span class="veil-tag"><span class="lock">&#128274;</span>&nbsp;revelado na reunião</span></div>
+      <div class="veil-wrap veil-block" style="font-family:'Outfit';font-size:clamp(46px,8vw,72px);font-weight:900;color:var(--p-muted);line-height:1.05;margin:12px 0 8px;text-decoration:line-through;text-decoration-thickness:3px;"><span class="veil-txt">R$ 28.500</span><span class="veil-tag"><span class="lock">&#128274;</span>&nbsp;revelado na reunião</span></div>
       <div style="font-size:16px;color:var(--p-ink-soft);line-height:1.6;">E no CITA® — tudo implantado, medido e documentado em até 60 dias?<br><strong style="color:var(--p-accent);">Vire o slide. &rarr;</strong></div>
     </div>
   </div>
@@ -2775,8 +2784,8 @@ body.theme-dark .deck::before{background:var(--s-bg);}
     <div class="invest-v2-hero">
       <div class="invest-v2-label">Turma de fundação · <strong>início em agosto</strong></div>
       <div class="price-grid" style="grid-template-columns:repeat(2,1fr);max-width:620px;">
-        <div class="price-card selected"><div class="pc-units">Vaga de fundação · agora</div><div class="veil-wrap block"><div class="pc-x veil-txt">12×</div><div class="pc-val veil-txt">R$ 1.451</div><div class="pc-cap veil-txt">no cartão de crédito</div><div class="pc-div"></div><div class="pc-avista veil-txt">à vista <strong>R$ 14.900</strong></div><div class="pc-de veil-txt">valor cheio: R$ 19.900</div><div class="veil-tag" style="position:absolute;inset:0;flex-direction:column;gap:6px;"><span style="font-size:20px;">&#128274;</span><span>Revelado na<br>reunião</span></div></div><div class="pc-badge">−25% · 3 vagas</div></div>
-        <div class="price-card pc-futuro"><div class="pc-units">A partir de setembro</div><div class="veil-wrap block"><div class="pc-x veil-txt">12×</div><div class="pc-val veil-txt">R$ 1.938</div><div class="pc-cap veil-txt">no cartão de crédito</div><div class="pc-div"></div><div class="pc-avista veil-txt">à vista <strong>R$ 19.900</strong></div><div class="pc-de veil-txt">mesmo escopo · outro preço</div></div><div class="pc-badge">turma seguinte</div></div>
+        <div class="price-card selected"><div class="pc-units">Vaga de fundação · agora</div><div class="veil-wrap veil-block"><div class="pc-x veil-txt">12×</div><div class="pc-val veil-txt">R$ 1.451</div><div class="pc-cap veil-txt">no cartão de crédito</div><div class="pc-div"></div><div class="pc-avista veil-txt">à vista <strong>R$ 14.900</strong></div><div class="pc-de veil-txt">valor cheio: R$ 19.900</div><div class="veil-tag" style="position:absolute;inset:0;flex-direction:column;gap:6px;"><span style="font-size:20px;">&#128274;</span><span>Revelado na<br>reunião</span></div></div><div class="pc-badge">−25% · 3 vagas</div></div>
+        <div class="price-card pc-futuro"><div class="pc-units">A partir de setembro</div><div class="veil-wrap veil-block"><div class="pc-x veil-txt">12×</div><div class="pc-val veil-txt">R$ 1.938</div><div class="pc-cap veil-txt">no cartão de crédito</div><div class="pc-div"></div><div class="pc-avista veil-txt">à vista <strong>R$ 19.900</strong></div><div class="pc-de veil-txt">mesmo escopo · outro preço</div></div><div class="pc-badge">turma seguinte</div></div>
       </div>
       <div style="text-align:center;background:rgba(196,72,38,0.07);border:1.5px solid var(--p-accent);border-radius:12px;padding:13px 18px;margin-top:2px;"><div style="font-family:'Outfit';font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--p-accent);">Por que três vagas?</div><div style="font-size:14.5px;color:var(--p-ink-soft);line-height:1.6;margin-top:6px;">As três primeiras clínicas viram os <strong>casos de fundação do método</strong> — reteste documentado, antes e depois público. Em troca, entram pelo preço de fundação. A partir de setembro o programa passa a outro patamar, e depois vai ao valor cheio. <strong>O escopo é exatamente o mesmo</strong> — o que muda é quando você entra. Pagamento à vista via Pix ou 12× no cartão.</div></div>
     </div>
