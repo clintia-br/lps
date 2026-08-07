@@ -2387,6 +2387,14 @@ body.theme-dark .deck::before{background:var(--s-bg);}
 </div>
 
 <!-- ══ S-PRINCIPIO · 80/20 + O QUE A IA OLHA ══ -->
+
+/* ══ VÉU DE PREÇO — revelado na reunião ══ */
+.veil-wrap{position:relative;display:inline-block;}
+.veil-wrap.block{display:block;}
+.veil-txt{filter:blur(7px);-webkit-filter:blur(7px);user-select:none;-webkit-user-select:none;color:transparent;text-shadow:0 0 12px rgba(0,0,0,.35);}
+.veil-tag{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:5px;pointer-events:none;font-family:'Outfit';font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--p-accent);white-space:nowrap;}
+.veil-tag .lock{font-size:11px;}
+.veil-note{display:inline-flex;align-items:center;gap:6px;font-family:'Outfit';font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--p-accent);background:rgba(196,72,38,.08);border:1px solid rgba(196,72,38,.3);border-radius:999px;padding:5px 12px;margin-left:10px;vertical-align:middle;}
 <style>
 @keyframes olhaIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
 .olha-chip{opacity:0;animation:olhaIn .55s ease forwards;background:rgba(255,255,255,.03);border:1px solid var(--s-line);border-radius:12px;padding:13px 15px;display:flex;gap:11px;align-items:flex-start;}
@@ -2721,7 +2729,7 @@ body.theme-dark .deck::before{background:var(--s-bg);}
 
 <!-- ══ S-CHECK-CITA · RESPIRO ══ -->
 <div class="slide" id="s-check-cita" data-part="3">
-  <div class="eyebrow">Um respiro</div>
+  <div class="eyebrow">Um respiro antes dos números</div>
   <h2 class="title">Até aqui,<br><em>faz sentido pra você?</em></h2>
   <div style="max-width:680px;margin:clamp(26px,4vw,42px) 0;display:flex;flex-direction:column;gap:18px;">
     <div style="display:flex;align-items:flex-start;gap:14px;"><div style="font-family:'Outfit';font-size:22px;font-weight:900;color:var(--p-accent);line-height:1.1;">✓</div><div style="font-size:16px;color:var(--p-ink-soft);line-height:1.6;">O <strong>teste ao vivo</strong> mostrou onde a sua clínica está hoje na resposta da IA</div></div>
@@ -2730,8 +2738,33 @@ body.theme-dark .deck::before{background:var(--s-bg);}
     <div style="display:flex;align-items:flex-start;gap:14px;"><div style="font-family:'Outfit';font-size:22px;font-weight:900;color:var(--p-accent);line-height:1.1;">✓</div><div style="font-size:16px;color:var(--p-ink-soft);line-height:1.6;">O <strong>reteste</strong> responde a pergunta do retorno com dado, não com opinião</div></div>
     <div style="display:flex;align-items:flex-start;gap:14px;"><div style="font-family:'Outfit';font-size:22px;font-weight:900;color:var(--p-accent);line-height:1.1;">✓</div><div style="font-size:16px;color:var(--p-ink-soft);line-height:1.6;">É <strong>patrimônio, não aluguel de mídia</strong> — a autoridade fica registrada no nome da clínica</div></div>
   </div>
-  <p class="lead" style="max-width:660px;">Se até aqui faz sentido, o próximo passo é ver <strong>tudo que está incluso</strong> — e como a turma de fundação funciona.</p>
-  <div style="margin-top:18px;font-family:'Outfit';font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--p-accent);">Vamos ao escopo &rarr;</div>
+  <p class="lead" style="max-width:620px;">Se até aqui faz sentido, agora vem a parte que importa: <strong>quanto custa e o que está incluso.</strong></p>
+  <div style="margin-top:18px;font-family:'Outfit';font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--p-accent);">Vamos aos números &rarr;</div>
+</div>
+
+<!-- ══ S-ANCORA-CITA · A CONTA SEPARADA ══ -->
+<div class="slide" id="s-ancora-cita" data-part="3">
+  <div class="eyebrow">A conta que ninguém te mostra <span class="veil-note"><span class="lock">&#128274;</span> valores na reunião</span></div>
+  <h2 class="title">Cada peça, separada,<br><em>quanto custaria no mercado.</em></h2>
+  <div class="ancora-grid">
+    <div style="border:1px solid var(--p-line);border-radius:14px;overflow:hidden;">
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);">Auditoria de presença em IA (4 plataformas)</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;"><span class="veil-wrap"><span class="veil-txt">R$ 2.500</span><span class="veil-tag"><span class="lock">&#128274;</span></span></span></span></div>
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);">Dados estruturados + marcação médica completa</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;"><span class="veil-wrap"><span class="veil-txt">R$ 3.000</span><span class="veil-tag"><span class="lock">&#128274;</span></span></span></span></div>
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);">Otimização técnica do site para leitura por IA</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;"><span class="veil-wrap"><span class="veil-txt">R$ 2.500</span><span class="veil-tag"><span class="lock">&#128274;</span></span></span></span></div>
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);">Ficha do Google + estratégia de avaliações</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;"><span class="veil-wrap"><span class="veil-txt">R$ 2.500</span><span class="veil-tag"><span class="lock">&#128274;</span></span></span></span></div>
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);">Acervo Científico + 5 artigos fundadores</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;"><span class="veil-wrap"><span class="veil-txt">R$ 5.000</span><span class="veil-tag"><span class="lock">&#128274;</span></span></span></span></div>
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);">Estratégia Wikipédia — inserção científica + candidatura</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;"><span class="veil-wrap"><span class="veil-txt">R$ 6.000</span><span class="veil-tag"><span class="lock">&#128274;</span></span></span></span></div>
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);">YouTube estratégico + integração das redes</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;"><span class="veil-wrap"><span class="veil-txt">R$ 3.000</span><span class="veil-tag"><span class="lock">&#128274;</span></span></span></span></div>
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);">LinkedIn — perfil profissional + página da clínica</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;"><span class="veil-wrap"><span class="veil-txt">R$ 2.000</span><span class="veil-tag"><span class="lock">&#128274;</span></span></span></span></div>
+      <div class="ancora-row"><span style="color:var(--p-ink-soft);">Treinamento da equipe + playbook documentado</span><span style="font-family:'Outfit';font-weight:700;white-space:nowrap;"><span class="veil-wrap"><span class="veil-txt">R$ 2.000</span><span class="veil-tag"><span class="lock">&#128274;</span></span></span></span></div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:15px;color:var(--p-muted);text-transform:uppercase;letter-spacing:.07em;font-family:'Outfit';font-weight:800;line-height:1.5;">Montar tudo isso separado,<br>com 5 fornecedores, no mercado:</div>
+      <div class="veil-wrap block" style="font-family:'Outfit';font-size:clamp(46px,8vw,72px);font-weight:900;color:var(--p-muted);line-height:1.05;margin:12px 0 8px;text-decoration:line-through;text-decoration-thickness:3px;"><span class="veil-txt">R$ 28.500</span><span class="veil-tag"><span class="lock">&#128274;</span>&nbsp;revelado na reunião</span></div>
+      <div style="font-size:16px;color:var(--p-ink-soft);line-height:1.6;">E no CITA® — tudo implantado, medido e documentado em até 60 dias?<br><strong style="color:var(--p-accent);">Vire o slide. &rarr;</strong></div>
+    </div>
+  </div>
+  <p class="lead" style="max-width:760px;margin-top:clamp(16px,2.5vw,24px);">Sem contar o custo de <strong>coordenar cinco fornecedores</strong> e garantir que as peças conversem — que é onde esse tipo de projeto costuma se perder.</p>
 </div>
 
 <!-- ══ S-INVEST-CITA · INVESTIMENTO · TURMA DE FUNDAÇÃO ══ -->
@@ -2739,18 +2772,21 @@ body.theme-dark .deck::before{background:var(--s-bg);}
 #s22 .invest-v2-wrap{padding-top:22px;gap:36px;}
 #s22 .invest-v2-scope-list{gap:8px;}
 #s22 .invest-v2-scope-list li{font-size:14.5px;line-height:1.4;}
+#s22 .price-card{padding:26px 18px 22px;}
+#s22 .price-card.pc-futuro{filter:grayscale(.9);opacity:.5;pointer-events:none;border-style:dashed;}
 </style>
 <div class="slide" id="s22" data-part="3">
-  <div class="eyebrow">O programa · Implantação única, sem mensalidade</div>
-  <h2 class="title">Três vagas.<br><em>Tudo que está incluso.</em></h2>
+  <div class="eyebrow">Investimento · Implantação única · sem mensalidade</div>
+  <h2 class="title">Três vagas.<br><em>Um preço de fundação.</em></h2>
+  <div style="margin-top:-4px;"><span class="veil-note"><span class="lock">&#128274;</span> valor apresentado na reunião</span></div>
   <div class="invest-v2-wrap">
     <div class="invest-v2-hero">
       <div class="invest-v2-label">Turma de fundação · <strong>início em agosto</strong></div>
-      <div style="background:rgba(196,72,38,0.06);border:1.5px solid var(--p-accent);border-radius:16px;padding:clamp(20px,3vw,30px);max-width:620px;">
-        <div style="font-family:'Outfit';font-size:14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--p-accent);">Por que só três vagas?</div>
-        <div style="font-size:16px;color:var(--p-ink-soft);line-height:1.65;margin-top:10px;">As três primeiras clínicas viram os <strong>casos de fundação do método</strong> — com reteste documentado e o antes e depois público. Por isso a turma é pequena: cada projeto é acompanhado de perto e vira referência.</div>
-        <div style="border-top:1px solid rgba(196,72,38,.25);margin-top:16px;padding-top:14px;font-size:15.5px;color:var(--p-ink-soft);line-height:1.6;">O <strong>escopo é sempre o mesmo</strong>, entre em qual turma entrar. Condições e formas de pagamento são apresentadas na conversa.</div>
+      <div class="price-grid" style="grid-template-columns:repeat(2,1fr);max-width:620px;">
+        <div class="price-card selected"><div class="pc-units">Vaga de fundação · agora</div><div class="veil-wrap block"><div class="pc-x veil-txt">12×</div><div class="pc-val veil-txt">R$ 867</div><div class="pc-cap veil-txt">no cartão de crédito</div><div class="pc-div"></div><div class="pc-avista veil-txt">à vista <strong>R$ 8.900</strong></div><div class="pc-de veil-txt">valor cheio: R$ 14.900</div><div class="veil-tag" style="position:absolute;inset:0;flex-direction:column;gap:6px;"><span style="font-size:20px;">&#128274;</span><span>Revelado na<br>reunião</span></div></div><div class="pc-badge">−40% · 3 vagas</div></div>
+        <div class="price-card pc-futuro"><div class="pc-units">A partir de setembro</div><div class="veil-wrap block"><div class="pc-x veil-txt">12×</div><div class="pc-val veil-txt">R$ 1.250</div><div class="pc-cap veil-txt">no cartão de crédito</div><div class="pc-div"></div><div class="pc-avista veil-txt">à vista <strong>R$ 12.900</strong></div><div class="pc-de veil-txt">mesmo escopo · outro preço</div></div><div class="pc-badge">turma seguinte</div></div>
       </div>
+      <div style="text-align:center;background:rgba(196,72,38,0.07);border:1.5px solid var(--p-accent);border-radius:12px;padding:13px 18px;margin-top:2px;"><div style="font-family:'Outfit';font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--p-accent);">Por que três vagas?</div><div style="font-size:14.5px;color:var(--p-ink-soft);line-height:1.6;margin-top:6px;">As três primeiras clínicas viram os <strong>casos de fundação do método</strong> — reteste documentado, antes e depois público. Em troca, entram pelo preço de fundação. A partir de setembro o programa passa a outro patamar, e depois vai ao valor cheio. <strong>O escopo é exatamente o mesmo</strong> — o que muda é quando você entra. Pagamento à vista via Pix ou 12× no cartão.</div></div>
     </div>
     <div class="invest-v2-scope">
       <div class="invest-v2-scope-label">Tudo incluso</div>
