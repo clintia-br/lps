@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta &middot; Cl&iacute;nica de Olhos Benchimol &times; ClintIA</title>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF9F6; --paper:#FFFFFF; --ink:#111315; --ink2:#33383D; --muted:#6A7178;
+  --line:#E3E0D9; --line2:#EFEDE7;
+  --sky:#05D2FF; --celtic:#055AAA; --dodger:#0578DC; --oxford:#051E32; --wash:#F2F6FA;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Red Hat Display',-apple-system,Segoe UI,Arial,sans-serif;
+  font-size:19px;line-height:1.72;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 26px}
+section{padding:62px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h1,h2,h3{line-height:1.22;letter-spacing:-.018em;margin:0}
+h1{font-size:41px;font-weight:700}
+h2{font-size:30px;font-weight:700;margin-bottom:20px}
+h3{font-size:21px;font-weight:700;margin-bottom:8px}
+p{margin:0 0 20px}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--celtic);margin-bottom:16px}
+.lead{font-size:22px;line-height:1.6;color:var(--ink2)}
+.muted{color:var(--muted)}
+.cover{padding:64px 0 58px;border-bottom:1px solid var(--line)}
+.cover img{width:150px;height:auto;display:block;margin-bottom:44px}
+.cover h1{font-size:44px;margin-bottom:22px}
+.badge{display:inline-block;border:1px solid var(--line);background:var(--paper);
+  border-radius:999px;padding:7px 17px;font-size:13.5px;font-weight:600;color:var(--ink2);
+  margin-right:8px;margin-bottom:8px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;
+  padding:28px 30px;margin:26px 0}
+.card p:last-child{margin-bottom:0}
+.quiet{background:var(--wash);border-color:#DCE6F0}
+.rule{border-left:4px solid var(--sky);padding:6px 0 6px 22px;margin:30px 0;
+  font-size:22px;line-height:1.55;font-weight:500}
+.step{display:flex;gap:22px;padding:26px 0;border-bottom:1px solid var(--line2)}
+.step:last-child{border-bottom:0}
+.step .n{flex:0 0 46px;height:46px;border-radius:50%;background:var(--oxford);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px}
+.step .b{flex:1;min-width:0}
+.step .when{font-size:13.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--celtic);margin-bottom:6px}
+.step p{margin:0}
+ul.clean{list-style:none;padding:0;margin:22px 0}
+ul.clean li{position:relative;padding-left:32px;margin-bottom:15px}
+ul.clean li:before{content:"";position:absolute;left:6px;top:12px;width:9px;height:9px;
+  border-radius:50%;background:var(--sky)}
+ol.num{list-style:none;padding:0;margin:22px 0;counter-reset:c}
+ol.num li{position:relative;padding-left:44px;margin-bottom:20px;counter-increment:c}
+ol.num li:before{content:counter(c);position:absolute;left:0;top:1px;width:29px;height:29px;
+  border-radius:50%;border:1.5px solid var(--celtic);color:var(--celtic);font-size:14px;
+  font-weight:700;display:flex;align-items:center;justify-content:center}
+.price{background:var(--oxford);color:#fff;border-radius:16px;padding:38px 34px;margin:30px 0}
+.price .k{font-size:12.5px;font-weight:700;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--sky);margin-bottom:14px}
+.price .v{font-size:46px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.price .v small{font-size:20px;font-weight:500;color:#B9CEE0;display:block;margin-top:10px;
+  letter-spacing:0}
+.price hr{border:0;border-top:1px solid #123A57;margin:26px 0}
+.price p{color:#C9D8E5;margin:0;font-size:17px}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:17.5px}
+td{text-align:left;padding:13px 8px;border-bottom:1px solid var(--line2);vertical-align:top}
+td.r{text-align:right;white-space:nowrap;font-weight:600}
+/* tabela de entregas / equipe — mais densa e com cabecalho */
+table.ent{font-size:16px;margin:26px 0}
+table.ent th{text-align:left;padding:0 10px 10px;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);font-weight:700;border-bottom:1.5px solid var(--line)}
+table.ent td{padding:15px 10px;line-height:1.55}
+/* nowrap SO na tabela de 3 colunas, cuja ultima celula e a data curta.
+   Na tabela da equipe a ultima celula e texto longo — sem escopo, virava
+   uma linha unica de ~860px e estourava a pagina. */
+table.ent.trio td:last-child{white-space:nowrap;color:var(--muted);font-size:15px}
+table.ent tr:last-child td{border-bottom:0}
+@media(max-width:620px){
+  /* tabela vira blocos empilhados: em 375px tres colunas ficam ilegiveis */
+  table.ent,table.ent tbody,table.ent tr,table.ent td{display:block;width:100%}
+  table.ent thead,table.ent th{display:none}
+  table.ent tr{border-bottom:1px solid var(--line2);padding:16px 0}
+  table.ent tr:last-child{border-bottom:0}
+  table.ent td{padding:0 0 7px;border:0}
+  table.ent.trio td:last-child{white-space:normal;font-size:14.5px;font-weight:600;
+    color:var(--celtic)}
+}
+.foot{padding:46px 0 64px;font-size:16px;color:var(--muted)}
+.foot strong{color:var(--ink2)}
+figure{margin:32px 0;padding:0}
+figure svg{display:block;width:100%;height:auto}
+
+/* troca desktop/celular dos diagramas (SVG encolhe o texto junto; no celular
+   usamos variante de viewBox estreito ou versao em HTML puro) */
+.so-mob{display:none}
+@media(max-width:620px){ .so-desk{display:none} .so-mob{display:block} }
+
+/* comparativo ANTES x AGORA — HTML puro, reflui sem encolher texto */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
+/* a coluna e flex: o cartao cresce com flex:1 em vez de height:100% — usar
+   height:100% aqui faz o cartao disputar altura com a etiqueta e vazar do contentor */
+.cmp>div{display:flex;flex-direction:column;min-width:0}
+.cmp-tag{font-size:12px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:9px}
+.cmp-tag.on{color:var(--celtic)}
+.cmp-box{background:var(--paper);border:1px solid var(--line);border-radius:13px;
+  padding:20px 20px 18px;flex:1;display:flex;flex-direction:column}
+.cmp-box.hi{background:#F2F9FD;border:1.5px solid var(--sky)}
+.cmp-box h4{margin:0 0 15px;font-size:16.5px;font-weight:700;line-height:1.3}
+.lk{height:11px;border-radius:6px;background:var(--dodger);margin-bottom:9px}
+.nm{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:9px 13px;
+  margin-bottom:8px;font-size:15px;font-weight:600;display:flex;align-items:center;gap:10px}
+.nm:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--sky);flex:0 0 9px}
+.cmp-q{font-size:14.5px;color:var(--muted);margin:0 0 13px}
+.cmp-foot{margin:auto 0 0;padding-top:15px;font-size:14.5px;color:var(--muted)}
+.cmp-foot.on{color:var(--celtic);font-weight:600}
+
+/* linha do tempo — HTML puro, barras posicionadas em % */
+.tl-head,.tl-row{display:grid;grid-template-columns:132px 1fr 96px;gap:14px;align-items:center}
+.tl-row{margin-bottom:15px}
+.tl-scale{position:relative;height:19px;grid-column:2}
+.tl-scale span{position:absolute;transform:translateX(-50%);font-size:12.5px;color:var(--muted)}
+.tl-lbl{font-size:15.5px;font-weight:600;text-align:right}
+.tl-track{position:relative;height:21px;background:#EDF1F5;border-radius:11px}
+.tl-track i{position:absolute;top:0;height:21px;border-radius:11px;display:block}
+.tl-days{font-size:13px;color:var(--muted)}
+@media(max-width:620px){
+  .cmp{grid-template-columns:1fr;gap:22px}
+  .tl-head{display:none}
+  .tl-row{grid-template-columns:1fr;gap:7px;margin-bottom:22px}
+  .tl-lbl{text-align:left;font-size:17px}
+  .tl-days{font-size:14.5px}
+}
+figcaption{font-size:15.5px;line-height:1.6;color:var(--muted);margin-top:14px;
+  padding-left:16px;border-left:3px solid var(--line)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:22px 22px 20px}
+.stat .n{font-size:36px;font-weight:700;letter-spacing:-.02em;color:var(--celtic);line-height:1.05}
+.stat .t{font-size:16px;line-height:1.5;color:var(--ink2);margin-top:9px}
+.stat .bar{height:6px;border-radius:3px;background:#E8EEF4;margin-top:15px;overflow:hidden}
+.stat .bar i{display:block;height:100%;border-radius:3px;background:var(--sky)}
+.src{font-size:14.5px;color:var(--muted);margin-top:-4px}
+@media(max-width:620px){ .stats{grid-template-columns:1fr} .stat .n{font-size:31px} }
+@media(max-width:620px){
+  body{font-size:18px}
+  h1,.cover h1{font-size:32px}
+  h2{font-size:25px}
+  .lead{font-size:20px}
+  .rule{font-size:19px}
+  .price .v{font-size:36px}
+  section{padding:48px 0}
+  .step{gap:16px}
+}
+@media print{
+  body{background:#fff;font-size:12pt}
+  section{page-break-inside:avoid;padding:26px 0}
+  .price{background:#051E32 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="cover">
+  <img src="data:image/png;base64,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" alt="ClintIA">
+  <div class="eyebrow">Proposta &middot; Cl&iacute;nica de Olhos Benchimol</div>
+  <h1>Como a Benchimol vai ser encontrada<br>na pr&oacute;xima gera&ccedil;&atilde;o de busca</h1>
+  <p class="lead">Oitenta anos de reputa&ccedil;&atilde;o constru&iacute;da por
+  indica&ccedil;&atilde;o. Este projeto garante que essa reputa&ccedil;&atilde;o continue sendo
+  encontrada agora que quem indica mudou &mdash; e deixa o conhecimento da casa registrado de
+  forma permanente.</p>
+  <div>
+    <span class="badge">Prazo de 60 dias</span>
+    <span class="badge">Valor fechado</span>
+    <span class="badge">Pagamento &uacute;nico</span>
+  </div>
+</header>
+
+<section>
+  <div class="eyebrow">O que mudou</div>
+  <h2>Quem indica a cl&iacute;nica agora &eacute; uma m&aacute;quina</h2>
+  <p>A Benchimol cresceu do jeito mais s&oacute;lido que existe: paciente bem atendido indicando a
+  cl&iacute;nica para o pr&oacute;ximo. Isso n&atilde;o mudou &mdash; e n&atilde;o vai mudar.</p>
+  <p>O que mudou foi <strong>o caminho que a indica&ccedil;&atilde;o percorre</strong>. Antes, a
+  pessoa perguntava a um conhecido, ao cl&iacute;nico geral, ao vizinho. Hoje ela pergunta ao
+  celular. E quem responde n&atilde;o &eacute; mais uma lista de sites para ela escolher: &eacute;
+  uma resposta pronta, escrita por um programa de intelig&ecirc;ncia artificial, com dois ou tr&ecirc;s
+  nomes dentro.</p>
+  <div class="rule">Ela l&ecirc; essa resposta e confia nela &mdash; do mesmo jeito que confiaria
+  numa indica&ccedil;&atilde;o de conhecido.</div>
+
+  <figure>
+    <div class="cmp">
+      <div>
+        <div class="cmp-tag">Antes</div>
+        <div class="cmp-box">
+          <h4>Uma lista de dez links</h4>
+          <div class="lk" style="width:100%"></div>
+          <div class="lk" style="width:95%"></div>
+          <div class="lk" style="width:90%"></div>
+          <div class="lk" style="width:85%;opacity:.42"></div>
+          <div class="lk" style="width:80%;opacity:.42"></div>
+          <div class="lk" style="width:75%;opacity:.42"></div>
+          <div class="lk" style="width:70%;opacity:.42"></div>
+          <p class="cmp-foot">O paciente comparava e escolhia</p>
+        </div>
+      </div>
+      <div>
+        <div class="cmp-tag on">Agora</div>
+        <div class="cmp-box hi">
+          <h4>Uma resposta pronta</h4>
+          <p class="cmp-q">&ldquo;As mais indicadas s&atilde;o:&rdquo;</p>
+          <div class="nm">Cl&iacute;nica A</div>
+          <div class="nm">Cl&iacute;nica B</div>
+          <div class="nm">Cl&iacute;nica C</div>
+          <p class="cmp-foot on">Quem n&atilde;o est&aacute; aqui n&atilde;o &eacute; visto</p>
+        </div>
+      </div>
+    </div>
+    <figcaption>A diferen&ccedil;a pr&aacute;tica: na busca antiga, aparecer em s&eacute;timo lugar
+    ainda trazia paciente &mdash; bastava a pessoa rolar a p&aacute;gina. Na resposta de
+    intelig&ecirc;ncia artificial n&atilde;o existe segunda p&aacute;gina nem s&eacute;timo lugar.
+    S&atilde;o dois ou tr&ecirc;s nomes, e s&oacute;.</figcaption>
+  </figure>
+
+  <p>&Eacute; a&iacute; que est&aacute; a quest&atilde;o. Esses programas s&oacute; citam
+  cl&iacute;nicas que eles <strong>conseguem ler e entender</strong>. E eles leem de um jeito
+  pr&oacute;prio, bem diferente do de uma pessoa.</p>
+  <p>Uma pessoa entra no site, v&ecirc; a foto da fachada, l&ecirc; o texto de apresenta&ccedil;&atilde;o
+  e forma uma impress&atilde;o. O programa n&atilde;o faz nada disso. Ele procura
+  <strong>informa&ccedil;&atilde;o declarada de forma inequ&iacute;voca</strong>: qual o nome exato
+  da institui&ccedil;&atilde;o, quem s&atilde;o os m&eacute;dicos, quais os registros
+  profissionais, o que ela trata, onde fica, o que dizem os pacientes, e se tudo isso bate com o que
+  est&aacute; escrito em outros lugares da internet. Quando ele n&atilde;o encontra essas respostas
+  de forma clara, simplesmente segue adiante e cita quem as ofereceu.</p>
+</section>
+
+<section>
+  <div class="eyebrow">O teste</div>
+  <h2>D&aacute; para verificar isso em um minuto</h2>
+  <p>Pegue o celular, abra o ChatGPT &mdash; ou o assistente do pr&oacute;prio Google &mdash; e
+  pergunte exatamente o que um paciente perguntaria:</p>
+  <div class="card quiet">
+    <p style="font-size:21px;margin:0"><em>&ldquo;Qual a melhor cl&iacute;nica de olhos do Rio de
+    Janeiro?&rdquo;</em></p>
+  </div>
+  <p>Vai aparecer uma resposta curta, com dois ou tr&ecirc;s nomes recomendados. N&atilde;o h&aacute;
+  segunda p&aacute;gina, n&atilde;o h&aacute; lista de dez op&ccedil;&otilde;es para percorrer.
+  <strong>Ou o nome da cl&iacute;nica est&aacute; ali, ou, para aquele paciente, ela n&atilde;o
+  existe.</strong></p>
+  <p>Este projeto come&ccedil;a exatamente por esse teste &mdash; s&oacute; que feito com
+  m&eacute;todo: <strong>de 25 a 30 perguntas diferentes</strong>, do jeito que os pacientes
+  realmente perguntam, nos quatro programas de intelig&ecirc;ncia artificial mais usados hoje. Tudo
+  registrado num relat&oacute;rio, pergunta por pergunta, mostrando tamb&eacute;m <strong>quais
+  concorrentes est&atilde;o sendo citados no lugar da Benchimol</strong>.</p>
+  <p>Esse relat&oacute;rio &eacute; a fotografia do ponto de partida. E &eacute; a r&eacute;gua
+  contra a qual todo o resultado vai ser medido no final.</p>
+</section>
+
+<section>
+  <div class="eyebrow">A oportunidade</div>
+  <h2>A mudan&ccedil;a j&aacute; aconteceu. A concorr&ecirc;ncia ainda n&atilde;o chegou.</h2>
+  <p>N&atilde;o se trata de uma tend&ecirc;ncia para o futuro. Os n&uacute;meros abaixo s&atilde;o
+  de agora:</p>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="n">13%</div>
+      <div class="t">das buscas no Google j&aacute; mostram uma resposta escrita por
+      intelig&ecirc;ncia artificial <strong>antes de qualquer link</strong></div>
+      <div class="bar"><i style="width:13%"></i></div>
+    </div>
+    <div class="stat">
+      <div class="n">12&ndash;18%</div>
+      <div class="t">das perguntas j&aacute; acontecem direto nesses programas, sem passar por
+      buscador nenhum</div>
+      <div class="bar"><i style="width:18%"></i></div>
+    </div>
+    <div class="stat">
+      <div class="n">4 a 5&times;</div>
+      <div class="t">mais convers&atilde;o: quem chega por recomenda&ccedil;&atilde;o da
+      intelig&ecirc;ncia artificial <strong>j&aacute; vem decidido</strong></div>
+      <div class="bar"><i style="width:88%"></i></div>
+    </div>
+    <div class="stat">
+      <div class="n">+40%</div>
+      <div class="t">de visibilidade com a t&eacute;cnica correta de conte&uacute;do, em estudo
+      universit&aacute;rio controlado</div>
+      <div class="bar"><i style="width:40%"></i></div>
+    </div>
+  </div>
+  <p class="src">Fontes: dados p&uacute;blicos de mercado de 2026 e estudo conduzido pelas
+  universidades de Princeton, Georgia Tech e IIT Delhi.</p>
+
+  <p>O segundo n&uacute;mero explica por que vale agir agora, e o terceiro explica por que vale a
+  pena. Mas o dado mais relevante n&atilde;o est&aacute; na tabela: <strong>praticamente nenhuma
+  cl&iacute;nica no Brasil trabalha isso de forma estruturada hoje</strong>. As ag&ecirc;ncias ainda
+  vendem o que sabiam vender h&aacute; dez anos.</p>
+  <div class="rule">Quem entra agora n&atilde;o disputa espa&ccedil;o. Ocupa espa&ccedil;o
+  vazio.</div>
+  <p>&Eacute; a mesma janela que existiu quando o Google surgiu: por alguns anos, aparecer na
+  primeira p&aacute;gina era barato porque poucos tinham entendido. Depois virou disputa cara e
+  permanente. A diferen&ccedil;a &eacute; que, desta vez, quem constr&oacute;i a
+  posi&ccedil;&atilde;o primeiro <strong>fica registrado como refer&ecirc;ncia</strong> &mdash; e
+  refer&ecirc;ncia n&atilde;o se compra depois.</p>
+</section>
+
+<section>
+  <div class="eyebrow">Por que isso importa aqui</div>
+  <h2>Oitenta anos s&atilde;o uma vantagem &mdash; se estiverem leg&iacute;veis</h2>
+  <p>Uma cl&iacute;nica nova n&atilde;o tem o que a Benchimol tem: d&eacute;cadas de hist&oacute;ria,
+  corpo cl&iacute;nico formado, milhares de pacientes atendidos, reputa&ccedil;&atilde;o
+  verific&aacute;vel. Para os programas de intelig&ecirc;ncia artificial, <strong>isso vale
+  muito</strong> &mdash; &eacute; exatamente o tipo de sinal que eles procuram antes de recomendar um
+  nome em sa&uacute;de.</p>
+  <p>O problema &eacute; que esse patrim&ocirc;nio hoje est&aacute; guardado num formato que a
+  m&aacute;quina n&atilde;o l&ecirc; bem. Est&aacute; na cabe&ccedil;a dos m&eacute;dicos, na
+  mem&oacute;ria dos pacientes, em p&aacute;ginas escritas para gente. A m&aacute;quina passa por
+  ali e n&atilde;o consegue montar o quadro.</p>
+  <div class="rule">O trabalho n&atilde;o &eacute; construir reputa&ccedil;&atilde;o nova. &Eacute;
+  tornar leg&iacute;vel a que j&aacute; existe.</div>
+  <p>E h&aacute; uma diferen&ccedil;a importante em rela&ccedil;&atilde;o a an&uacute;ncio:
+  <strong>isso n&atilde;o &eacute; aluguel</strong>. Quando se para de anunciar, o an&uacute;ncio
+  some no mesmo dia. Aqui, uma vez que a cl&iacute;nica passa a ser reconhecida como
+  refer&ecirc;ncia, esse reconhecimento fica registrado. &Eacute; patrim&ocirc;nio, n&atilde;o
+  despesa recorrente.</p>
+
+  <figure><div class="so-desk"><svg viewBox="0 0 580 244" width="100%" role="img"
+ aria-label="O an&uacute;ncio cai a zero quando se para de pagar; a autoridade se acumula e
+ permanece." xmlns="http://www.w3.org/2000/svg">
+ <line x1="56" y1="205" x2="548" y2="205" stroke="#D8DFE6" stroke-width="1.5"/>
+ <line x1="56" y1="30" x2="56" y2="205" stroke="#D8DFE6" stroke-width="1.5"/>
+ <line x1="330" y1="30" x2="330" y2="205" stroke="#C9D3DC" stroke-width="1.5" stroke-dasharray="5 5"/>
+ <text x="330" y="22" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="12.5" fill="#6A7178" text-anchor="middle"
+   font-weight="700">para de investir</text>
+ <path d="M56 172 L150 132 L250 114 L330 108 L332 186 L548 186" fill="none"
+   stroke="#9AA7B2" stroke-width="3.5" stroke-linejoin="round"/>
+ <path d="M56 180 L160 152 L260 124 L360 98 L460 80 L548 68" fill="none"
+   stroke="#05D2FF" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+ <circle cx="548" cy="68" r="6" fill="#05D2FF"/>
+ <circle cx="548" cy="186" r="6" fill="#9AA7B2"/>
+ <text x="70" y="52" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" fill="#055AAA">
+   Autoridade constru&iacute;da</text>
+ <text x="70" y="71" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="13" fill="#6A7178">
+   acumula e permanece registrada</text>
+ <text x="372" y="146" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="14.5" font-weight="700" fill="#7A8792">
+   An&uacute;ncio pago</text>
+ <text x="372" y="165" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="13" fill="#6A7178">
+   some quando para de pagar</text>
+ <text x="56" y="230" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="12.5" fill="#6A7178">tempo &rarr;</text>
+</svg></div><div class="so-mob"><svg viewBox="0 0 340 306" width="100%" role="img"
+ aria-label="O an&uacute;ncio cai a zero quando se para de pagar; a autoridade se acumula e
+ permanece." xmlns="http://www.w3.org/2000/svg">
+ <line x1="40" y1="232" x2="322" y2="232" stroke="#D8DFE6" stroke-width="1.5"/>
+ <line x1="40" y1="66" x2="40" y2="232" stroke="#D8DFE6" stroke-width="1.5"/>
+ <line x1="208" y1="66" x2="208" y2="232" stroke="#C9D3DC" stroke-width="1.5" stroke-dasharray="5 5"/>
+ <text x="208" y="56" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="13" fill="#6A7178" text-anchor="middle"
+   font-weight="700">para de investir</text>
+ <path d="M40 206 L108 172 L170 152 L208 146 L210 216 L322 216" fill="none"
+   stroke="#9AA7B2" stroke-width="3.5" stroke-linejoin="round"/>
+ <path d="M40 218 L110 192 L180 162 L250 132 L322 110" fill="none"
+   stroke="#05D2FF" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>
+ <circle cx="322" cy="110" r="6" fill="#05D2FF"/>
+ <circle cx="322" cy="216" r="6" fill="#9AA7B2"/>
+ <text x="40" y="252" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="13" fill="#6A7178">tempo &rarr;</text>
+ <circle cx="46" cy="274" r="6" fill="#05D2FF"/>
+ <text x="60" y="279" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" fill="#055AAA">
+   Autoridade &mdash; acumula e permanece</text>
+ <circle cx="46" cy="298" r="6" fill="#9AA7B2"/>
+ <text x="60" y="303" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" fill="#7A8792">
+   An&uacute;ncio &mdash; some quando para</text>
+</svg></div>
+    <figcaption>&Eacute; a diferen&ccedil;a entre alugar e construir. O an&uacute;ncio funciona
+    enquanto se paga e cessa quando se para. A autoridade se acumula: cada artigo assinado, cada
+    men&ccedil;&atilde;o em fonte confi&aacute;vel e cada refer&ecirc;ncia cruzada continua valendo
+    depois que o projeto termina.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="eyebrow">O crit&eacute;rio</div>
+  <h2>O que a m&aacute;quina olha antes de citar um nome</h2>
+  <p>S&atilde;o seis sinais. O projeto trabalha os seis:</p>
+  <ul class="clean">
+    <li><strong>Dados iguais em todo lugar.</strong> Nome, endere&ccedil;o e telefone
+    id&ecirc;nticos em cada lugar onde a cl&iacute;nica aparece. Qualquer diverg&ecirc;ncia gera
+    d&uacute;vida &mdash; e na d&uacute;vida, a m&aacute;quina n&atilde;o cita.</li>
+    <li><strong>Quem assina.</strong> M&eacute;dico identificado, com CRM,
+    especializa&ccedil;&atilde;o e trajet&oacute;ria. Conte&uacute;do de sa&uacute;de sem autor
+    reconhec&iacute;vel vale pouco para esses programas.</li>
+    <li><strong>Fontes de fora.</strong> Ser mencionado em lugares que a m&aacute;quina j&aacute;
+    considera confi&aacute;veis pesa mais do que qualquer coisa escrita no pr&oacute;prio site.</li>
+    <li><strong>Avalia&ccedil;&otilde;es verdadeiras.</strong> Quantidade, nota e resposta da
+    cl&iacute;nica. &Eacute; a &uacute;nica prova que a m&aacute;quina consegue conferir
+    sozinha.</li>
+    <li><strong>Texto que ela consiga repetir.</strong> Resposta direta e objetiva, que pode ser
+    citada sem perder o sentido. Texto bonito que n&atilde;o responde &agrave; pergunta n&atilde;o
+    &eacute; aproveitado.</li>
+    <li><strong>A ficha t&eacute;cnica no site.</strong> Uma descri&ccedil;&atilde;o escrita dentro
+    do c&oacute;digo, invis&iacute;vel para o visitante, que diz &agrave; m&aacute;quina o que
+    &eacute; cada coisa: isto &eacute; a cl&iacute;nica, este &eacute; o m&eacute;dico, este
+    &eacute; o servi&ccedil;o, esta &eacute; a avalia&ccedil;&atilde;o. Sem ela, o programa adivinha
+    &mdash; e &agrave;s vezes erra.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="eyebrow">Como funciona por dentro</div>
+  <h2>Nada &eacute; refeito. Tudo &eacute; conectado.</h2>
+  <p>Vale esclarecer um ponto que costuma gerar d&uacute;vida: <strong>este projeto n&atilde;o
+  refaz o site nem muda a identidade da cl&iacute;nica</strong>. O site que o paciente v&ecirc;
+  continua igual.</p>
+  <p>A cl&iacute;nica j&aacute; tem todos os ativos necess&aacute;rios &mdash; site, ficha do
+  Google, anos de avalia&ccedil;&otilde;es, os m&eacute;dicos, o conhecimento acumulado. O
+  problema &eacute; que hoje cada uma dessas pe&ccedil;as existe isolada. A m&aacute;quina passa por
+  uma, passa por outra, e n&atilde;o consegue concluir que falam da mesma
+  institui&ccedil;&atilde;o.</p>
+
+  <figure><div class="so-desk"><svg viewBox="0 0 580 288" width="100%" role="img"
+ aria-label="Os ativos da cl&iacute;nica passam a se referenciar entre si e a apontar para o mesmo
+ lugar, permitindo que a intelig&ecirc;ncia artificial reconhe&ccedil;a a institui&ccedil;&atilde;o."
+ xmlns="http://www.w3.org/2000/svg">
+ <line x1="200" y1="64.5" x2="232" y2="130" stroke="#05D2FF" stroke-width="2" opacity=".55"/><line x1="200" y1="129.5" x2="232" y2="130" stroke="#05D2FF" stroke-width="2" opacity=".55"/><line x1="200" y1="194.5" x2="232" y2="130" stroke="#05D2FF" stroke-width="2" opacity=".55"/><line x1="380" y1="64.5" x2="348" y2="130" stroke="#05D2FF" stroke-width="2" opacity=".55"/><line x1="380" y1="129.5" x2="348" y2="130" stroke="#05D2FF" stroke-width="2" opacity=".55"/><line x1="380" y1="194.5" x2="348" y2="130" stroke="#05D2FF" stroke-width="2" opacity=".55"/>
+ <rect x="10" y="46" width="190" height="37" rx="9" fill="#FFFFFF" stroke="#D8DFE6"/><text x="186" y="70" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#051E32" text-anchor="end">Site</text><rect x="10" y="111" width="190" height="37" rx="9" fill="#FFFFFF" stroke="#D8DFE6"/><text x="186" y="135" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#051E32" text-anchor="end">Ficha do Google</text><rect x="10" y="176" width="190" height="37" rx="9" fill="#FFFFFF" stroke="#D8DFE6"/><text x="186" y="200" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#051E32" text-anchor="end">Avalia&ccedil;&otilde;es</text><rect x="380" y="46" width="190" height="37" rx="9" fill="#FFFFFF" stroke="#D8DFE6"/><text x="394" y="70" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#051E32" text-anchor="start">V&iacute;deos</text><rect x="380" y="111" width="190" height="37" rx="9" fill="#FFFFFF" stroke="#D8DFE6"/><text x="394" y="135" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#051E32" text-anchor="start">Perfis dos m&eacute;dicos</text><rect x="380" y="176" width="190" height="37" rx="9" fill="#FFFFFF" stroke="#D8DFE6"/><text x="394" y="200" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#051E32" text-anchor="start">Acervo cient&iacute;fico</text>
+ <circle cx="290" cy="130" r="52" fill="#051E32"/>
+ <text x="290" y="124" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="13.5" font-weight="700" fill="#05D2FF"
+   text-anchor="middle" letter-spacing="1.4">A M&Aacute;QUINA</text>
+ <text x="290" y="144" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="13" fill="#C9D8E5"
+   text-anchor="middle">reconhece</text>
+ <text x="290" y="264" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="14" fill="#6A7178" text-anchor="middle">
+   Hoje cada pe&ccedil;a fala sozinha. Conectadas, formam um quadro que a m&aacute;quina entende.</text>
+</svg></div><div class="so-mob"><svg viewBox="0 0 340 452" width="100%" role="img"
+ aria-label="Os ativos da cl&iacute;nica passam a se referenciar entre si, permitindo que a
+ intelig&ecirc;ncia artificial reconhe&ccedil;a a institui&ccedil;&atilde;o."
+ xmlns="http://www.w3.org/2000/svg">
+ <line x1="170" y1="50" x2="170" y2="168" stroke="#05D2FF" stroke-width="2" opacity=".45"/><line x1="170" y1="100" x2="170" y2="168" stroke="#05D2FF" stroke-width="2" opacity=".45"/><line x1="170" y1="150" x2="170" y2="168" stroke="#05D2FF" stroke-width="2" opacity=".45"/><line x1="170" y1="260" x2="170" y2="274" stroke="#05D2FF" stroke-width="2" opacity=".45"/><line x1="170" y1="260" x2="170" y2="324" stroke="#05D2FF" stroke-width="2" opacity=".45"/><line x1="170" y1="260" x2="170" y2="374" stroke="#05D2FF" stroke-width="2" opacity=".45"/><rect x="20" y="8" width="300" height="42" rx="10" fill="#FFFFFF" stroke="#D8DFE6"/><text x="170" y="35" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="16" font-weight="600" fill="#051E32" text-anchor="middle">Site</text><rect x="20" y="58" width="300" height="42" rx="10" fill="#FFFFFF" stroke="#D8DFE6"/><text x="170" y="85" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="16" font-weight="600" fill="#051E32" text-anchor="middle">Ficha do Google</text><rect x="20" y="108" width="300" height="42" rx="10" fill="#FFFFFF" stroke="#D8DFE6"/><text x="170" y="135" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="16" font-weight="600" fill="#051E32" text-anchor="middle">Avalia&ccedil;&otilde;es</text><rect x="20" y="274" width="300" height="42" rx="10" fill="#FFFFFF" stroke="#D8DFE6"/><text x="170" y="301" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="16" font-weight="600" fill="#051E32" text-anchor="middle">V&iacute;deos</text><rect x="20" y="324" width="300" height="42" rx="10" fill="#FFFFFF" stroke="#D8DFE6"/><text x="170" y="351" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="16" font-weight="600" fill="#051E32" text-anchor="middle">Perfis dos m&eacute;dicos</text><rect x="20" y="374" width="300" height="42" rx="10" fill="#FFFFFF" stroke="#D8DFE6"/><text x="170" y="401" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="16" font-weight="600" fill="#051E32" text-anchor="middle">Acervo cient&iacute;fico</text>
+ <circle cx="170" cy="214" r="46" fill="#051E32"/>
+ <text x="170" y="210" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="14" font-weight="700" fill="#05D2FF"
+   text-anchor="middle" letter-spacing="1.2">A M&Aacute;QUINA</text>
+ <text x="170" y="230" font-family="'Red Hat Display',Segoe UI,Arial,sans-serif" font-size="13.5" fill="#C9D8E5"
+   text-anchor="middle">reconhece</text>
+</svg></div>
+    <figcaption>O trabalho central &eacute; a liga&ccedil;&atilde;o: fazer cada pe&ccedil;a
+    referenciar as outras e apontar para o mesmo lugar, descritas na linguagem que a m&aacute;quina
+    l&ecirc;. Quando o quadro fecha, ela reconhece a cl&iacute;nica &mdash; e passa a cit&aacute;-la
+    pelo nome.</figcaption>
+  </figure>
+
+  <p>&Eacute; uma interven&ccedil;&atilde;o sobre o que j&aacute; existe, n&atilde;o uma
+  reconstru&ccedil;&atilde;o. Por isso cabe em 60 dias e n&atilde;o exige que a cl&iacute;nica pare
+  nada.</p>
+</section>
+
+<section>
+  <div class="eyebrow">O trabalho</div>
+  <h2>Quatro etapas, em at&eacute; 60 dias</h2>
+  <p>Quem executa &eacute; a nossa equipe. A cl&iacute;nica aprova.</p>
+
+  <figure>
+    <div class="tl-head">
+      <div></div>
+      <div class="tl-scale">
+        <span style="left:0%">dia 1</span><span style="left:23.3%">15</span>
+        <span style="left:48.3%">30</span><span style="left:73.3%">45</span>
+        <span style="left:98%">60</span>
+      </div>
+      <div></div>
+    </div>
+    <div class="tl-row"><div class="tl-lbl">Medi&ccedil;&atilde;o</div>
+      <div class="tl-track"><i style="left:0%;width:11.7%;background:#05D2FF"></i></div>
+      <div class="tl-days">dias 1&ndash;7</div></div>
+    <div class="tl-row"><div class="tl-lbl">Base t&eacute;cnica</div>
+      <div class="tl-track"><i style="left:11.7%;width:21.7%;background:#0578DC"></i></div>
+      <div class="tl-days">dias 8&ndash;20</div></div>
+    <div class="tl-row"><div class="tl-lbl">Presen&ccedil;a</div>
+      <div class="tl-track"><i style="left:23.3%;width:51.7%;background:#055AAA"></i></div>
+      <div class="tl-days">dias 15&ndash;45</div></div>
+    <div class="tl-row"><div class="tl-lbl">Acervo</div>
+      <div class="tl-track"><i style="left:40%;width:51.7%;background:#053C73"></i></div>
+      <div class="tl-days">dias 25&ndash;55</div></div>
+    <div class="tl-row"><div class="tl-lbl">Nova medi&ccedil;&atilde;o</div>
+      <div class="tl-track"><i style="left:91.7%;width:8.3%;background:#051E32"></i></div>
+      <div class="tl-days">dias 56&ndash;60</div></div>
+    <figcaption>As etapas se sobrep&otilde;em de prop&oacute;sito &mdash; enquanto a base
+    t&eacute;cnica &eacute; implantada, a organiza&ccedil;&atilde;o dos perfis j&aacute;
+    come&ccedil;a. O acompanhamento das entregas &eacute; semanal.</figcaption>
+  </figure>
+
+  <div class="step"><div class="n">1</div><div class="b">
+    <div class="when">Dias 1 a 7 &middot; Medi&ccedil;&atilde;o</div>
+    <h3>A fotografia do ponto de partida</h3>
+    <p>As 25 a 30 perguntas rodadas nos quatro programas, com o mapa de onde a Benchimol aparece e
+    de quais concorrentes est&atilde;o sendo citados. Entregue como relat&oacute;rio, antes de
+    qualquer mudan&ccedil;a.</p>
+  </div></div>
+
+  <div class="step"><div class="n">2</div><div class="b">
+    <div class="when">Dias 8 a 20 &middot; Base t&eacute;cnica</div>
+    <h3>Deixar o site leg&iacute;vel para a m&aacute;quina</h3>
+    <p>A ficha t&eacute;cnica implantada no c&oacute;digo &mdash; cl&iacute;nica, m&eacute;dicos,
+    servi&ccedil;os e avalia&ccedil;&otilde;es devidamente declarados &mdash; mais velocidade,
+    imagens e organiza&ccedil;&atilde;o das p&aacute;ginas. &Eacute; feito uma vez e fica
+    documentado. O site que o paciente v&ecirc; continua o mesmo.</p>
+  </div></div>
+
+  <div class="step"><div class="n">3</div><div class="b">
+    <div class="when">Dias 15 a 45 &middot; Presen&ccedil;a</div>
+    <h3>Organizar cada lugar onde a cl&iacute;nica aparece</h3>
+    <p>Ficha do Google completa e respondida, perfis profissionais dos m&eacute;dicos, canal de
+    v&iacute;deo organizado e todos esses pontos passando a se referenciar entre si &mdash; para a
+    m&aacute;quina entender que falam da mesma institui&ccedil;&atilde;o.</p>
+  </div></div>
+
+  <div class="step"><div class="n">4</div><div class="b">
+    <div class="when">Dias 25 a 55 &middot; Acervo</div>
+    <h3>Registrar o conhecimento do corpo cl&iacute;nico</h3>
+    <p>Cinco artigos de refer&ecirc;ncia sobre os temas mais relevantes da especialidade, escritos
+    por n&oacute;s e assinados pelos m&eacute;dicos da casa, publicados num acervo pr&oacute;prio da
+    cl&iacute;nica &mdash; em padr&atilde;o de estudo, sem qualquer apelo comercial. &Eacute;
+    explicado na pr&oacute;xima se&ccedil;&atilde;o.</p>
+  </div></div>
+
+  <div class="card">
+    <h3>E no fim, a nova medi&ccedil;&atilde;o</h3>
+    <p>No dia 60, as mesmas perguntas do primeiro dia s&atilde;o rodadas de novo, e o antes e o
+    depois s&atilde;o apresentados lado a lado. Aos 90 dias fazemos mais uma medi&ccedil;&atilde;o,
+    sem custo, para verificar a consolida&ccedil;&atilde;o.</p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">As entregas</div>
+  <h2>Item por item, o que a cl&iacute;nica recebe</h2>
+  <p>S&atilde;o <strong>onze entregas</strong>. Cada uma tem respons&aacute;vel, prazo e
+  crit&eacute;rio de conclus&atilde;o:</p>
+  <table class="ent trio">
+    <tr><th>Entrega</th><th>O que inclui</th><th>Quando</th></tr>
+    <tr><td><strong>1. Relat&oacute;rio de medi&ccedil;&atilde;o</strong></td>
+      <td>25 a 30 perguntas rodadas nas 4 plataformas, documentadas uma a uma, com o mapa dos
+      concorrentes citados</td><td>dias 1&ndash;7</td></tr>
+    <tr><td><strong>2. Ficha t&eacute;cnica no site</strong></td>
+      <td>Cl&iacute;nica, m&eacute;dicos, servi&ccedil;os e avalia&ccedil;&otilde;es declarados no
+      c&oacute;digo, em linguagem de m&aacute;quina</td><td>dias 8&ndash;20</td></tr>
+    <tr><td><strong>3. Otimiza&ccedil;&atilde;o t&eacute;cnica</strong></td>
+      <td>Legibilidade por rob&ocirc;s, velocidade, imagens e organiza&ccedil;&atilde;o das
+      p&aacute;ginas &mdash; sem alterar o site que o paciente v&ecirc;</td><td>dias 8&ndash;20</td></tr>
+    <tr><td><strong>4. Ficha do Google</strong></td>
+      <td>Categoria, fotos e resposta estrat&eacute;gica ao hist&oacute;rico de
+      avalia&ccedil;&otilde;es acumulado</td><td>dias 15&ndash;30</td></tr>
+    <tr><td><strong>5. Canal de v&iacute;deo</strong></td>
+      <td>5 conte&uacute;dos estruturados por n&oacute;s &mdash; tema, roteiro e formato prontos;
+      &agrave; cl&iacute;nica cabe gravar &mdash; canal organizado por assunto</td>
+      <td>dias 15&ndash;45</td></tr>
+    <tr><td><strong>6. Perfis profissionais</strong></td>
+      <td>Perfil do m&eacute;dico com trajet&oacute;ria, forma&ccedil;&atilde;o e credenciais, mais
+      a p&aacute;gina da cl&iacute;nica</td><td>dias 15&ndash;45</td></tr>
+    <tr><td><strong>7. Liga&ccedil;&atilde;o entre os canais</strong></td>
+      <td>Site, ficha do Google, v&iacute;deos, perfis e acervo passando a se referenciar entre si</td>
+      <td>dias 15&ndash;45</td></tr>
+    <tr><td><strong>8. Acervo publicado</strong></td>
+      <td>Portal no dom&iacute;nio da cl&iacute;nica, com os 5 artigos assinados pelo corpo
+      cl&iacute;nico, em padr&atilde;o de estudo</td><td>dias 25&ndash;55</td></tr>
+    <tr><td><strong>9. Candidatura &agrave; Wikip&eacute;dia</strong></td>
+      <td>Prepara&ccedil;&atilde;o e submiss&atilde;o do material dentro das regras da plataforma
+      <em>&mdash; a aprova&ccedil;&atilde;o &eacute; da modera&ccedil;&atilde;o, n&atilde;o
+      nossa</em></td><td>dias 40&ndash;55</td></tr>
+    <tr><td><strong>10. Manual e treinamento</strong></td>
+      <td>O padr&atilde;o documentado por escrito, mais treinamento da equipe interna para manter
+      sem depender de ag&ecirc;ncia</td><td>dias 56&ndash;60</td></tr>
+    <tr><td><strong>11. Nova medi&ccedil;&atilde;o</strong></td>
+      <td>As mesmas perguntas do dia 1, com o antes e o depois lado a lado, mais uma
+      remedi&ccedil;&atilde;o sem custo aos 90 dias</td><td>dia 60 e dia 90</td></tr>
+  </table>
+
+  <div class="card quiet">
+    <h3>O que est&aacute; garantido e o que n&atilde;o est&aacute;</h3>
+    <p><strong>Comprometemo-nos com:</strong> a entrega dos onze itens acima, dentro do prazo de 60
+    dias contados da reuni&atilde;o de partida, com a medi&ccedil;&atilde;o documentada no
+    in&iacute;cio e no fim, e acompanhamento semanal das entregas.</p>
+    <p style="margin-top:14px"><strong>N&atilde;o nos comprometemos com:</strong> posi&ccedil;&atilde;o
+    garantida nas respostas de intelig&ecirc;ncia artificial, nem com a aprova&ccedil;&atilde;o da
+    candidatura &agrave; Wikip&eacute;dia. Os dois dependem de terceiros que ningu&eacute;m controla.
+    Preferimos deixar isso escrito a prometer o que n&atilde;o podemos cumprir.</p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Quem executa</div>
+  <h2>A composi&ccedil;&atilde;o da equipe</h2>
+  <p>O projeto n&atilde;o &eacute; conduzido por uma pessoa s&oacute;. S&atilde;o cinco
+  fun&ccedil;&otilde;es distintas, e a cl&iacute;nica tem <strong>um &uacute;nico ponto de
+  contato</strong> &mdash; n&atilde;o precisa procurar quem &eacute; respons&aacute;vel pelo qu&ecirc;.</p>
+  <table class="ent">
+    <tr><th>Fun&ccedil;&atilde;o</th><th>Do que responde</th></tr>
+    <tr><td><strong>Dire&ccedil;&atilde;o do projeto</strong><br>
+      <span class="muted">Bernardo Carneiro</span></td>
+      <td>Ponto de contato &uacute;nico da cl&iacute;nica, condu&ccedil;&atilde;o das reuni&otilde;es
+      de partida e encerramento, e resposta final por tudo que for entregue</td></tr>
+    <tr><td><strong>Medi&ccedil;&atilde;o e diagn&oacute;stico</strong></td>
+      <td>Roda as perguntas nas quatro plataformas, documenta o relat&oacute;rio inicial e a nova
+      medi&ccedil;&atilde;o do dia 60</td></tr>
+    <tr><td><strong>Implanta&ccedil;&atilde;o t&eacute;cnica</strong></td>
+      <td>Ficha t&eacute;cnica no c&oacute;digo, otimiza&ccedil;&atilde;o do site, velocidade e
+      publica&ccedil;&atilde;o do portal do acervo</td></tr>
+    <tr><td><strong>Reda&ccedil;&atilde;o cient&iacute;fica</strong></td>
+      <td>Escreve os 5 artigos e os roteiros dos v&iacute;deos, sempre submetidos &agrave;
+      valida&ccedil;&atilde;o m&eacute;dica da casa antes de publicar</td></tr>
+    <tr><td><strong>Presen&ccedil;a digital</strong></td>
+      <td>Ficha do Google, resposta &agrave;s avalia&ccedil;&otilde;es, perfis profissionais,
+      organiza&ccedil;&atilde;o do canal de v&iacute;deo e liga&ccedil;&atilde;o entre os canais</td></tr>
+  </table>
+  <p>Nenhum conte&uacute;do t&eacute;cnico vai ao ar sem valida&ccedil;&atilde;o de um m&eacute;dico
+  da cl&iacute;nica. A reda&ccedil;&atilde;o &eacute; nossa; a palavra final sobre o conte&uacute;do
+  cl&iacute;nico &eacute; da casa.</p>
+</section>
+
+<section>
+  <div class="eyebrow">A pe&ccedil;a central</div>
+  <h2>Por que um acervo sem nenhuma propaganda</h2>
+  <p>Esta &eacute; a parte menos &oacute;bvia do projeto, e &eacute; a que mais pesa no
+  resultado.</p>
+  <p>Os programas de intelig&ecirc;ncia artificial <strong>descartam p&aacute;gina de
+  venda</strong>. Quando o texto tem pre&ccedil;o, bot&atilde;o de agendamento e chamada comercial,
+  ele &eacute; tratado como an&uacute;ncio &mdash; e an&uacute;ncio n&atilde;o entra como fonte de
+  uma recomenda&ccedil;&atilde;o.</p>
+  <p>O que eles citam &eacute; material de estudo. Por isso constru&iacute;mos um acervo separado,
+  no dom&iacute;nio da pr&oacute;pria cl&iacute;nica, onde o conhecimento do corpo cl&iacute;nico
+  fica registrado como refer&ecirc;ncia: resposta direta logo no primeiro par&aacute;grafo, dado
+  verific&aacute;vel, assinatura do m&eacute;dico com CRM e bibliografia ao final. Nenhuma oferta,
+  nenhum bot&atilde;o.</p>
+  <div class="rule">Enquanto o concorrente publica promo&ccedil;&atilde;o, a Benchimol publica o
+  conhecimento que a m&aacute;quina usa para responder &mdash; e que continua valendo daqui a dez
+  anos.</div>
+  <p>Havendo publica&ccedil;&atilde;o cient&iacute;fica no corpo cl&iacute;nico, tamb&eacute;m
+  preparamos e submetemos o material para registro na Wikip&eacute;dia, ancorado nessa
+  publica&ccedil;&atilde;o. Vale dizer com clareza: <strong>a aprova&ccedil;&atilde;o &eacute; da
+  modera&ccedil;&atilde;o da plataforma e n&atilde;o est&aacute; sob nosso controle</strong> &mdash;
+  o que garantimos &eacute; o trabalho bem feito e dentro das regras.</p>
+</section>
+
+<section>
+  <div class="eyebrow">O legado digital</div>
+  <h2>O que fica registrado com o nome da casa</h2>
+  <p>Em oitenta anos, a Benchimol acumulou um conhecimento que hoje vive em dois lugares: na
+  cabe&ccedil;a dos m&eacute;dicos que o construíram e na mem&oacute;ria dos pacientes que foram
+  bem atendidos. Os dois s&atilde;o valiosos. Nenhum dos dois &eacute; permanente, e nenhum dos
+  dois se transfere sozinho.</p>
+  <p>O acervo muda isso. Cada artigo leva a assinatura de um m&eacute;dico da casa, com registro
+  profissional, e fica publicado no dom&iacute;nio da pr&oacute;pria cl&iacute;nica.
+  <strong>N&atilde;o depende de ag&ecirc;ncia, n&atilde;o depende de rede social que muda de regra,
+  n&atilde;o depende de verba de an&uacute;ncio para continuar existindo.</strong> &Eacute; um
+  registro da institui&ccedil;&atilde;o, sob controle da institui&ccedil;&atilde;o.</p>
+
+  <div class="rule">O que n&atilde;o est&aacute; escrito n&atilde;o se transmite &mdash; nem para a
+  pr&oacute;xima gera&ccedil;&atilde;o da casa, nem para as m&aacute;quinas que hoje respondem por
+  ela.</div>
+
+  <p>H&aacute; um efeito pr&aacute;tico nisso que costuma passar despercebido: esses programas
+  aprendem com o que est&aacute; registrado de forma permanente e verific&aacute;vel. Ao publicar
+  conhecimento assinado, a cl&iacute;nica faz duas coisas ao mesmo tempo &mdash; constr&oacute;i a
+  pr&oacute;pria biblioteca e ensina &agrave; m&aacute;quina quem &eacute; a refer&ecirc;ncia
+  naquele assunto.</p>
+  <p>E h&aacute; o efeito de dentro para fora. Um corpo cl&iacute;nico com produ&ccedil;&atilde;o
+  publicada e assinada atrai m&eacute;dicos melhores, ap&oacute;ia a forma&ccedil;&atilde;o dos mais
+  novos e entrega &agrave; pr&oacute;xima gera&ccedil;&atilde;o da casa algo concreto para
+  continuar: n&atilde;o uma reputa&ccedil;&atilde;o que precise ser reconstru&iacute;da do zero, mas
+  um acervo que j&aacute; existe e ao qual se acrescenta.</p>
+
+  <div class="rule">Daqui a dez anos, as campanhas deste ano n&atilde;o estar&atilde;o em lugar
+  nenhum. O acervo estar&aacute;.</div>
+</section>
+
+<section>
+  <div class="eyebrow">O que muda na rotina</div>
+  <h2>Cerca de quatro horas, ao longo de dois meses</h2>
+  <p>A agenda de consultas n&atilde;o para e a equipe da cl&iacute;nica n&atilde;o recebe tarefa
+  nova. O projeto roda em paralelo &agrave; opera&ccedil;&atilde;o. O envolvimento da casa &eacute;
+  este:</p>
+  <table>
+    <tr><td><strong>Reuni&atilde;o de partida</strong><br><span class="muted">Contexto da
+      cl&iacute;nica e acessos</span></td><td class="r">1 hora</td></tr>
+    <tr><td><strong>Revis&atilde;o dos artigos</strong><br><span class="muted">O m&eacute;dico
+      revisa o que escrevemos &mdash; n&atilde;o escreve</span></td><td class="r">1 hora</td></tr>
+    <tr><td><strong>Grava&ccedil;&atilde;o dos v&iacute;deos</strong><br><span class="muted">Com
+      roteiro pronto, entregue por n&oacute;s</span></td><td class="r">~1 hora</td></tr>
+    <tr><td><strong>Reuni&atilde;o de encerramento</strong><br><span class="muted">Resultado
+      apresentado e manual entregue</span></td><td class="r">1 hora</td></tr>
+  </table>
+  <p>Todo o resto &mdash; diagn&oacute;stico, implanta&ccedil;&atilde;o t&eacute;cnica, ficha do
+  Google, perfis, reda&ccedil;&atilde;o dos artigos, publica&ccedil;&atilde;o do acervo e
+  medi&ccedil;&atilde;o final &mdash; &eacute; executado pela nossa equipe.</p>
+</section>
+
+<section>
+  <div class="eyebrow">O que fica</div>
+  <h2>Ao final dos 60 dias</h2>
+  <ul class="clean">
+    <li>O <strong>relat&oacute;rio do antes e depois</strong>, lado a lado, com as mesmas perguntas
+    &mdash; o resultado medido, n&atilde;o opinado.</li>
+    <li>A base t&eacute;cnica implantada e <strong>documentada</strong>, que n&atilde;o precisa ser
+    refeita.</li>
+    <li>O <strong>acervo da cl&iacute;nica no ar</strong>, assinado pelo corpo cl&iacute;nico, no
+    dom&iacute;nio da pr&oacute;pria casa &mdash; o legado digital da
+    institui&ccedil;&atilde;o, que segue valendo depois que o projeto termina.</li>
+    <li>Um <strong>manual</strong> e o treinamento da equipe interna, para manter o padr&atilde;o
+    sem depender de ag&ecirc;ncia.</li>
+    <li>Uma <strong>nova medi&ccedil;&atilde;o de cortesia aos 90 dias</strong>, para verificar a
+    consolida&ccedil;&atilde;o.</li>
+  </ul>
+  <div class="card quiet">
+    <h3>Uma ressalva honesta</h3>
+    <p>N&atilde;o prometemos posi&ccedil;&atilde;o garantida em resposta de intelig&ecirc;ncia
+    artificial &mdash; ningu&eacute;m no mundo controla o que esses programas respondem, e quem
+    prometer isso est&aacute; prometendo o que n&atilde;o pode cumprir. O que prometemos &eacute; a
+    <strong>implanta&ccedil;&atilde;o completa no prazo</strong>, com a <strong>medi&ccedil;&atilde;o
+    documentada do come&ccedil;o ao fim</strong>, e uma base de autoridade que fica registrada no
+    nome da cl&iacute;nica.</p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Investimento</div>
+  <h2>Valor fechado, pagamento &uacute;nico</h2>
+  <p>Para dimensionar: contratando cada pe&ccedil;a em separado no mercado &mdash; auditoria, base
+  t&eacute;cnica, ficha do Google, acervo, artigos, Wikip&eacute;dia, v&iacute;deos, perfis e
+  treinamento &mdash; o conjunto passa de <strong>R$ 28.500</strong>, com cinco fornecedores
+  diferentes para coordenar.</p>
+
+  <div class="price">
+    <div class="k">Projeto completo</div>
+    <div class="v">R$ 14.900
+      <small>pagamento &uacute;nico</small>
+    </div>
+  </div>
+
+  <p class="muted" style="font-size:17px">Este valor corresponde &agrave;s tr&ecirc;s primeiras
+  cl&iacute;nicas do programa, que se tornam os casos de refer&ecirc;ncia do m&eacute;todo, com a
+  medi&ccedil;&atilde;o documentada. A partir de setembro o mesmo escopo passa a R$ 19.900. O que
+  muda &eacute; o momento de entrada &mdash; o trabalho entregue &eacute; exatamente o mesmo.</p>
+</section>
+
+<section>
+  <div class="eyebrow">Pr&oacute;ximos passos</div>
+  <h2>Como come&ccedil;a</h2>
+  <ol class="num">
+    <li><strong>Reuni&atilde;o de partida</strong>, em at&eacute; cinco dias &uacute;teis, com quem
+    a cl&iacute;nica indicar. &Eacute; a primeira das quatro horas de envolvimento.</li>
+    <li><strong>O relat&oacute;rio de medi&ccedil;&atilde;o na primeira semana.</strong> Antes de
+    qualquer altera&ccedil;&atilde;o, a cl&iacute;nica recebe o retrato exato de onde est&aacute;
+    hoje, plataforma por plataforma. Se a leitura for de que n&atilde;o vale seguir, esse
+    relat&oacute;rio j&aacute; fica com voc&ecirc;s.</li>
+    <li><strong>Implanta&ccedil;&atilde;o, medi&ccedil;&atilde;o final e manual</strong> &mdash;
+    conduzidos pela nossa equipe, com acompanhamento semanal das entregas.</li>
+  </ol>
+  <div class="rule">O que fica ao final n&atilde;o &eacute; uma campanha. &Eacute; o conhecimento de
+  oitenta anos da Benchimol registrado onde a pr&oacute;xima gera&ccedil;&atilde;o de pacientes vai
+  procurar.</div>
+</section>
+
+<div class="foot">
+  <p><strong>ClintIA Solu&ccedil;&otilde;es Tecnol&oacute;gicas para Cl&iacute;nicas</strong><br>
+  CNPJ 58.111.036/0001-22 &middot; Rio de Janeiro/RJ<br>
+  Bernardo Carneiro &middot; bernardo@clintia.com.br &middot; (21) 99891-0942</p>
+  <p style="margin-top:18px">Documento preparado para a Cl&iacute;nica de Olhos Benchimol &middot;
+  Agosto de 2026</p>
+</div>
+
+</div>
+
+</body>
+</html>
