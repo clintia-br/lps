@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PROClip — Diagnóstico Comercial | Infraestrutura digital e comercial para clínica popular</title>
-<meta name="description" content="Em 50 minutos, Bernardo Carneiro abre com você a infraestrutura digital e comercial que as maiores redes de clínica popular usam para encher agenda e reduzir dependência de convênio. Método CLIP®, aplicado em +100 clínicas.">
+<meta name="description" content="Em 50 minutos, abrimos com você a infraestrutura digital e comercial que as maiores redes de clínica popular usam para encher agenda e reduzir dependência de convênio. Método CLIP®, aplicado em +100 clínicas.">
 <!-- Verificação de domínio do Meta (cole o content quando tiver) -->
 <!-- <meta name="facebook-domain-verification" content="COLE_AQUI"> -->
 <!-- Meta Pixel — dormente até definir META_PIXEL_ID -->
@@ -714,7 +714,6 @@ body.modal-open{overflow:hidden;}
 
       <div class="hero-meta">
         <span class="hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><strong>50 minutos</strong> · online</span>
-        <span class="hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Com <strong>Bernardo Carneiro</strong></span>
         <span class="hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-5"/></svg>Com os <strong>números da sua clínica</strong></span>
         <span class="hero-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Passo a passo dos <strong>45 dias</strong></span>
       </div>
@@ -1232,7 +1231,7 @@ body.modal-open{overflow:hidden;}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
-    <div class="small fade-in fd5">Online · 50 minutos · Bernardo Carneiro · Método CLIP®</div>
+    <div class="small fade-in fd5">Online · 50 minutos · Método CLIP®</div>
   </div>
 </section>
 
@@ -1298,10 +1297,11 @@ body.modal-open{overflow:hidden;}
 
         <div id="step4" class="form-step">
           <h2>Presença digital</h2>
-          <p class="form-sub">Qual o @ do seu Instagram ou link do site? <span style="color:var(--ink-muted);font-size:11.5px;">(Opcional)</span></p>
+          <p class="form-sub">Qual o @ do seu Instagram ou o site da clínica? <span style="color:var(--ink-muted);font-size:11.5px;">Se não tiver nenhum, escreva o nome da clínica.</span></p>
           <div class="form-field">
-            <input type="text" id="inputSocial" class="form-input" placeholder="@suaclinica ou www.suaclinica.com.br">
+            <input type="text" id="inputSocial" class="form-input" placeholder="@suaclinica, site ou nome da clínica">
           </div>
+          <p id="error4" class="form-error">Preencha o Instagram, o site ou o nome da sua clínica.</p>
           <div class="form-actions split">
             <button type="button" onclick="prevStep(4)" class="form-btn-back">&larr; Voltar</button>
             <button type="button" onclick="nextStep(4)" class="form-btn-primary">Finalizar</button>
@@ -1455,7 +1455,12 @@ body.modal-open{overflow:hidden;}
     }
     if(curr === 4){
       const social = document.getElementById('inputSocial').value.trim();
-      if(social){ sendDataToSheets({ social: social }); }
+      if(!social){
+        document.getElementById('error4').classList.add('show');
+        return;
+      }
+      document.getElementById('error4').classList.remove('show');
+      sendDataToSheets({ social: social });
       fbTrack('CompleteRegistration', {
         origem: LP_ORIGEM,
         cargo: document.getElementById('inputRole').value,
