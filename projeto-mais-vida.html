@@ -246,33 +246,26 @@
   .erit::before{content:"\2713";position:absolute;left:0;top:6px;color:var(--dodger);font-weight:900;font-size:clamp(11px,calc(1.05 * var(--u)),18px);}
   .erit b{font-weight:800;color:var(--oxford);}
 
-  /* ===== CONTAS DE ANCORAGEM (slide de preco) ===== */
-  .contas{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;max-width:880px;}
-  .conta{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 17px 12px;box-shadow:0 2px 10px rgba(5,30,50,.05);}
-  .conta.perda{border-left:4px solid var(--bad);}
-  .conta.oport{border-left:4px solid var(--sky);}
-  .conta .cl{font-size:clamp(9.5px,calc(.92 * var(--u)),15px);font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);}
-  .conta.perda .cl{color:var(--bad);}
-  .conta.oport .cl{color:var(--celtic);}
-  .conta .cv{font-size:clamp(21px,calc(2.0 * var(--u)),38px);font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-top:3px;color:var(--oxford);}
-  .conta .cv span{font-size:clamp(11.5px,calc(1.1 * var(--u)),19px);font-weight:700;color:var(--muted);letter-spacing:0;}
-  .conta .cd{font-size:clamp(10.8px,calc(1.02 * var(--u)),17.5px);color:var(--muted);margin-top:5px;line-height:1.5;font-weight:500;}
-  .conta .cd b{color:var(--ink);font-weight:700;}
-  .punch{margin-top:11px;background:var(--oxford);color:#fff;border-radius:12px;padding:12px 18px;max-width:880px;font-size:clamp(13px,calc(1.26 * var(--u)),22px);font-weight:600;line-height:1.5;}
-  .punch b{color:var(--sky);font-weight:900;}
+  /* ===== POR QUE ISSO SE PAGA (rodape do slide de preco) ===== */
+  .porque{margin-top:12px;max-width:900px;padding-top:11px;border-top:1px solid var(--line);}
+  .porque .pql{display:inline-block;font-size:clamp(9.5px,calc(.92 * var(--u)),15px);font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:7px;}
+  .contas{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+  .conta{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:9px 13px;font-size:clamp(10.6px,calc(1.0 * var(--u)),17px);color:var(--muted);line-height:1.5;font-weight:500;}
+  .conta.perda{border-left:3px solid var(--bad);}
+  .conta.oport{border-left:3px solid var(--sky);}
+  .conta b{color:var(--oxford);font-weight:800;}
+  .punchmini{margin-top:8px;font-size:clamp(11.5px,calc(1.1 * var(--u)),19px);color:var(--ink);font-weight:600;line-height:1.5;}
+  .punchmini b{color:var(--celtic);font-weight:900;}
 
   /* slide de precos: espacamento compacto para caber em 1 tela */
-  .slide.precos .contas{margin-top:10px;}
-  .slide.precos .punch{margin-top:9px;padding:10px 16px;}
+  .slide.precos h2{margin-bottom:0;}
   .slide.precos .pricecard{margin-top:10px;padding:16px 20px;}
   .slide.precos .pricecard .total{font-size:clamp(25px,calc(2.4 * var(--u)),42px);}
   .slide.precos .pricerow{margin-top:10px;}
   .slide.precos .pbox{padding:10px 13px;}
-  .slide.precos .incluso{margin-top:9px;}
   .slide.precos .rec{margin-top:9px;padding:12px 18px;}
   .slide.precos .fineprint{margin-top:7px;}
-  .slide.precos h2{margin-bottom:0;}
-  .slide.precos .punch{margin-top:8px;padding:9px 16px;}
+  .slide.precos .porque{margin-top:9px;padding-top:9px;}
 
   /* ===== RESUMO FINAL ===== */
   .resumo{margin-top:16px;max-width:920px;}
@@ -381,11 +374,10 @@
     .kpis{grid-template-columns:1fr 1fr;gap:8px;}
     .units{grid-template-columns:1fr;gap:9px;}
     .notebar{font-size:12.5px;padding:12px 14px;margin-top:13px;}
-    .contas{grid-template-columns:1fr;gap:8px;margin-top:10px;}
-    .conta{padding:11px 14px 10px;}
-    .conta .cv{font-size:20px;}
-    .conta .cd{font-size:11px;}
-    .punch{font-size:12.5px;padding:11px 14px;margin-top:9px;}
+    .porque{margin-top:10px;padding-top:9px;}
+    .contas{grid-template-columns:1fr;gap:7px;}
+    .conta{padding:9px 12px;font-size:11.5px;}
+    .punchmini{font-size:12px;margin-top:7px;}
     .pricecard{padding:17px;}
     .pricecard .total{font-size:28px;}
     .pricerow{flex-direction:column;}
@@ -782,19 +774,6 @@
   <section class="slide precos">
     <div class="eyebrow">Investimento</div>
     <h2>Valor e forma de pagamento</h2>
-    <div class="contas">
-      <div class="conta perda">
-        <div class="cl">O que se perde hoje</div>
-        <div class="cv">R$ 48 mil<span> / mês</span></div>
-        <div class="cd">20 pacientes/dia &times; R$ 110 &times; 22 dias, só na unidade 1 — <b>a conta que vocês fizeram</b>.</div>
-      </div>
-      <div class="conta oport">
-        <div class="cl">O que está parado na mesa</div>
-        <div class="cv">1.500<span> associados</span></div>
-        <div class="cd">5% da base de 30 mil no <b>cartão-benefício</b> — recorrência nova, todo mês.</div>
-      </div>
-    </div>
-    <div class="punch">O projeto inteiro custa <b>menos de um mês</b> do que hoje já se perde — e a base parada, sozinha, paga a conta.</div>
     <div class="pricecard">
       <span class="tag">Implantação &middot; 120 dias &middot; até 3 unidades</span>
       <div class="total">R$ 40.000</div>
@@ -810,6 +789,14 @@
       <p><b>Tudo o que está rodando continua rodando</b> — contratada junto com a implantação, no mesmo instrumento.</p>
     </div>
     <p class="fineprint"><b>À parte:</b> mídia paga direto ao Google e à Meta (R$ 1.000 a R$ 1.500 por unidade/mês, ~R$ 3.000 com duas unidades) · licenças de CRM, domínio e hospedagem.</p>
+    <div class="porque">
+      <span class="pql">Por que isso se paga</span>
+      <div class="contas">
+        <div class="conta perda"><b>R$ 48 mil/mês</b> é o que se perde hoje — 20 pacientes/dia &times; R$ 110 &times; 22 dias, só na unidade 1. A conta que vocês mesmos fizeram.</div>
+        <div class="conta oport"><b>1.500 associados</b> é o que está parado — 5% da base de 30 mil convertidos no cartão-benefício, em recorrência nova.</div>
+      </div>
+      <p class="punchmini">O projeto inteiro custa <b>menos de um mês</b> do que hoje já se perde.</p>
+    </div>
   </section>
 
   <!-- 12 · RESUMO -->
