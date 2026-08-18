@@ -245,6 +245,34 @@
   .erit::before{content:"\2713";position:absolute;left:0;top:6px;color:var(--dodger);font-weight:900;font-size:clamp(11px,calc(1.05 * var(--u)),18px);}
   .erit b{font-weight:800;color:var(--oxford);}
 
+  /* ===== CONTAS DE ANCORAGEM (slide de preco) ===== */
+  .contas{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;max-width:880px;}
+  .conta{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 17px 12px;box-shadow:0 2px 10px rgba(5,30,50,.05);}
+  .conta.perda{border-left:4px solid var(--bad);}
+  .conta.oport{border-left:4px solid var(--sky);}
+  .conta .cl{font-size:clamp(9.5px,calc(.92 * var(--u)),15px);font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);}
+  .conta.perda .cl{color:var(--bad);}
+  .conta.oport .cl{color:var(--celtic);}
+  .conta .cv{font-size:clamp(21px,calc(2.0 * var(--u)),38px);font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-top:3px;color:var(--oxford);}
+  .conta .cv span{font-size:clamp(11.5px,calc(1.1 * var(--u)),19px);font-weight:700;color:var(--muted);letter-spacing:0;}
+  .conta .cd{font-size:clamp(10.8px,calc(1.02 * var(--u)),17.5px);color:var(--muted);margin-top:5px;line-height:1.5;font-weight:500;}
+  .conta .cd b{color:var(--ink);font-weight:700;}
+  .punch{margin-top:11px;background:var(--oxford);color:#fff;border-radius:12px;padding:12px 18px;max-width:880px;font-size:clamp(13px,calc(1.26 * var(--u)),22px);font-weight:600;line-height:1.5;}
+  .punch b{color:var(--sky);font-weight:900;}
+
+  /* slide de precos: espacamento compacto para caber em 1 tela */
+  .slide.precos .contas{margin-top:10px;}
+  .slide.precos .punch{margin-top:9px;padding:10px 16px;}
+  .slide.precos .pricecard{margin-top:10px;padding:16px 20px;}
+  .slide.precos .pricecard .total{font-size:clamp(25px,calc(2.4 * var(--u)),42px);}
+  .slide.precos .pricerow{margin-top:10px;}
+  .slide.precos .pbox{padding:10px 13px;}
+  .slide.precos .incluso{margin-top:9px;}
+  .slide.precos .rec{margin-top:9px;padding:12px 18px;}
+  .slide.precos .fineprint{margin-top:7px;}
+  .slide.precos h2{margin-bottom:0;}
+  .slide.precos .punch{margin-top:8px;padding:9px 16px;}
+
   /* ===== RESUMO FINAL ===== */
   .resumo{margin-top:16px;max-width:920px;}
   .rline{display:flex;gap:18px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.12);align-items:flex-start;}
@@ -352,6 +380,11 @@
     .kpis{grid-template-columns:1fr 1fr;gap:8px;}
     .units{grid-template-columns:1fr;gap:9px;}
     .notebar{font-size:12.5px;padding:12px 14px;margin-top:13px;}
+    .contas{grid-template-columns:1fr;gap:8px;margin-top:10px;}
+    .conta{padding:11px 14px 10px;}
+    .conta .cv{font-size:20px;}
+    .conta .cd{font-size:11px;}
+    .punch{font-size:12.5px;padding:11px 14px;margin-top:9px;}
     .pricecard{padding:17px;}
     .pricecard .total{font-size:28px;}
     .pricerow{flex-direction:column;}
@@ -745,9 +778,22 @@
   </section>
 
   <!-- 11 · INVESTIMENTO -->
-  <section class="slide">
+  <section class="slide precos">
     <div class="eyebrow">Investimento</div>
     <h2>Valor e forma de pagamento</h2>
+    <div class="contas">
+      <div class="conta perda">
+        <div class="cl">O que se perde hoje</div>
+        <div class="cv">R$ 48 mil<span> / mês</span></div>
+        <div class="cd">20 pacientes/dia &times; R$ 110 &times; 22 dias, só na unidade 1 — <b>a conta que vocês fizeram</b>.</div>
+      </div>
+      <div class="conta oport">
+        <div class="cl">O que está parado na mesa</div>
+        <div class="cv">1.500<span> associados</span></div>
+        <div class="cd">5% da base de 30 mil no <b>cartão-benefício</b> — recorrência nova, todo mês.</div>
+      </div>
+    </div>
+    <div class="punch">O projeto inteiro custa <b>menos de um mês</b> do que hoje já se perde — e a base parada, sozinha, paga a conta.</div>
     <div class="pricecard">
       <span class="tag">Implantação &middot; 120 dias &middot; até 3 unidades</span>
       <div class="total">R$ 40.000</div>
@@ -755,14 +801,14 @@
         <div class="pbox"><div class="pn">R$ 20.000</div><div class="pl">Na assinatura &middot; libera o kickoff de 20/08 e toda a Fase 1</div></div>
         <div class="pbox"><div class="pn">R$ 20.000</div><div class="pl">Em 06/10 &middot; na virada para a Fase 2</div></div>
       </div>
-      <p class="fineprint">Cada parcela <b>à vista no Pix</b> ou em <b>até 2x no cartão de crédito*</b>. <b>A 3ª unidade está incluída</b> — entra quando inaugurar, sem custo adicional de implantação.<br><span style="opacity:.8">* O parcelamento no cartão tem acréscimo de juros da operadora.</span></p>
+      <p class="fineprint">Cada parcela <b>à vista no Pix</b> ou em <b>até 2x no cartão de crédito*</b>. <b>A 3ª unidade está incluída</b> — entra quando inaugurar, sem custo adicional. <span style="opacity:.75">* Parcelamento no cartão tem acréscimo de juros da operadora.</span></p>
     </div>
     <div class="rec">
       <div class="tag">Gestão continuada &middot; a partir de janeiro de 2027</div>
       <div class="n">R$ 6.000<span> / mês</span></div>
-      <p>A operação segue sob gestão da ClintIA: <b>tráfego no Meta e no Google, produção de conteúdo, CRM e base, dashboard e as reuniões semanais e mensais.</b> Contratada junto com a implantação, no mesmo instrumento.</p>
+      <p><b>Tudo o que está rodando continua rodando</b> — contratada junto com a implantação, no mesmo instrumento.</p>
     </div>
-    <p class="fineprint"><b>Investimento em mídia (à parte):</b> pago por vocês diretamente ao Google e à Meta — entre R$ 1.000 e R$ 1.500 por unidade ao mês, cerca de R$ 3.000/mês com as duas unidades em operação. <b>Também não incluídos:</b> licenças de CRM e ferramentas, domínio e hospedagem do site.</p>
+    <p class="fineprint"><b>À parte:</b> mídia paga direto ao Google e à Meta (R$ 1.000 a R$ 1.500 por unidade/mês, ~R$ 3.000 com duas unidades) · licenças de CRM, domínio e hospedagem.</p>
   </section>
 
   <!-- 12 · RESUMO -->
