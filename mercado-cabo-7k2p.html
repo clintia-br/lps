@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesquisa de Mercado &middot; Cabo de Santo Agostinho/PE</title>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--sky:#05D2FF;--celtic:#055AAA;--dodger:#0578DC;--yale:#053C73;--oxford:#051E32;
+  --bg:#F7F5F0;--paper:#FFF;--ink:#181614;--ink2:#33383D;--muted:#6A7178;--line:#E5E0D6;
+  --good:#1E8449;--warn:#A93226;--gold:#B8860B}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Red Hat Display',-apple-system,Segoe UI,Arial,sans-serif;
+  font-size:clamp(16px,4.1vw,17px);line-height:1.62;-webkit-text-size-adjust:100%}
+.wrap{max-width:840px;margin:0 auto;padding:0 clamp(18px,5vw,26px) 60px}
+header{padding:clamp(26px,7vw,38px) 0 22px}
+header img{width:clamp(126px,34vw,148px);display:block;margin-bottom:18px}
+.tag{display:inline-block;background:var(--oxford);color:#fff;font-size:11.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:999px;
+  margin-bottom:14px}
+h1{font-size:clamp(25px,6.6vw,31px);font-weight:700;letter-spacing:-.02em;line-height:1.18;
+  margin:0 0 8px}
+.sub{font-size:clamp(14px,3.7vw,15.5px);color:var(--muted)}
+h2{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--celtic);margin:0 0 12px}
+h3{font-size:clamp(18px,4.7vw,20px);font-weight:700;letter-spacing:-.01em;margin:20px 0 10px;
+  color:var(--oxford)}
+section{padding:clamp(22px,5.6vw,26px) 0;border-top:1px solid var(--line)}
+p{margin:0 0 13px}
+.tldr{background:linear-gradient(135deg,#1C2C3A,#051E32);color:#fff;border-radius:16px;
+  padding:clamp(20px,5.4vw,28px);margin:22px 0}
+.tldr h2{color:var(--sky)}
+.tldr p{color:#D3E0EA;font-size:clamp(15.5px,4vw,16.5px)}
+.tldr b{color:#fff}
+.tldr p:last-child{margin-bottom:0}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:14px 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:clamp(15px,4vw,20px)}
+.card.warn{border-left:4px solid var(--warn)}
+.card.good{border-left:4px solid var(--good)}
+.card.gold{background:#FFF8E7;border:1px solid #E8D9A8;border-left:4px solid var(--gold)}
+.card h4{margin:0 0 7px;font-size:15px;font-weight:700}
+.card p{margin:0;font-size:15px;color:var(--ink2)}
+.num{text-align:center}
+.num .v{font-size:clamp(26px,6.6vw,29px);font-weight:700;color:var(--celtic);line-height:1.05;
+  letter-spacing:-.02em;overflow-wrap:anywhere}
+.num .t{font-size:13px;color:var(--muted);margin-top:7px;line-height:1.35}
+.bar-row{display:grid;grid-template-columns:190px 1fr 76px;gap:12px;align-items:center;
+  margin-bottom:9px;font-size:14.5px}
+.bar-row .n{text-align:right;font-weight:600}
+.bar{height:20px;background:#E7EDF3;border-radius:10px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:10px;background:linear-gradient(90deg,#0578DC,#05D2FF)}
+.bar-row .v{font-weight:700;color:var(--celtic)}
+ul.b{list-style:none;padding:0;margin:13px 0}
+ul.b li{position:relative;padding-left:23px;margin-bottom:9px;font-size:15.5px;line-height:1.5}
+ul.b li:before{content:"";position:absolute;left:2px;top:.56em;width:7px;height:7px;
+  border-radius:50%;background:var(--sky)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);padding:0 9px 7px;font-weight:700}
+td{padding:9px;border-top:1px solid var(--line);vertical-align:top}
+.est{font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;
+  letter-spacing:.08em}
+.src{font-size:13px;color:var(--muted);line-height:1.7}
+.src a{color:var(--celtic)}
+.foot{padding-top:24px;font-size:13px;color:var(--muted)}
+/* ── MOBILE ──────────────────────────────────────────────────────────
+   Tabela de 3 colunas vira bloco empilhado: em 375px as colunas ficam com
+   ~8px de largura util e o texto quebra letra a letra. */
+@media(max-width:760px){
+  .g3{grid-template-columns:1fr 1fr}
+  .g3 .card.num{padding:14px 10px}
+}
+@media(max-width:560px){
+  .g3,.g2{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:1fr;gap:5px;margin-bottom:16px}
+  .bar-row .n{text-align:left;font-size:15.5px}
+  .bar-row .v{font-size:15px}
+  table,table tbody,table tr,table td{display:block;width:100%}
+  table tr:first-child{display:none}          /* cabecalho */
+  table tr{border-top:1px solid var(--line);padding:15px 0}
+  table td{border:0;padding:0 0 7px;font-size:15px}
+  table td:first-child{font-size:16.5px;font-weight:700;color:var(--oxford);
+    padding-bottom:9px}
+  table td:last-child{padding-bottom:0}
+  ul.b li{font-size:15.5px}
+  .src{font-size:13.5px}
+}
+@media print{body{background:#fff}section{page-break-inside:avoid}
+  .tldr{background:#051E32 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <img src="data:image/png;base64,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" alt="ClintIA">
+  <span class="tag">Pesquisa de mercado &middot; uso interno</span>
+  <h1>Cabo de Santo Agostinho/PE<br>A pra&ccedil;a da Viva Clinic Lab</h1>
+  <p class="sub">Regi&atilde;o Metropolitana do Recife &middot; elaborada em 19/08/2026 &middot;
+  fontes p&uacute;blicas listadas ao final</p>
+</header>
+
+<div class="tldr">
+  <h2>S&iacute;ntese executiva</h2>
+  <p><b>&Eacute; uma pra&ccedil;a de cl&iacute;nica popular quase perfeita &mdash; e em
+  crescimento acelerado.</b> 218 mil habitantes, sal&aacute;rio m&eacute;dio formal de R$ 2,6 mil,
+  metade da massa de renda nas classes D/E, e o motor econ&ocirc;mico &eacute; <b>Suape</b>: mais de
+  200 empresas, R$ 46 bilh&otilde;es contratados at&eacute; 2027 e ~25 mil empregos novos chegando.</p>
+  <p>O dado mais valioso para o Carlos: <b>a ocupa&ccedil;&atilde;o n&ordm; 1 do munic&iacute;pio
+  &eacute; motorista de caminh&atilde;o</b> &mdash; profiss&atilde;o obrigada por lei a fazer
+  <b>exame toxicol&oacute;gico a cada 2 anos e meio</b>. Ele j&aacute; faz toxicol&oacute;gico.
+  &Eacute; demanda recorrente, obrigat&oacute;ria e local &mdash; e quase ningu&eacute;m disputa
+  esse paciente ativamente.</p>
+</div>
+
+<section>
+  <h2>1 &middot; Demografia e renda</h2>
+  <div class="g3">
+    <div class="card num"><div class="v">218 mil</div>
+      <div class="t">habitantes (estimativa IBGE 2025; censo 2022: 203,4 mil)</div></div>
+    <div class="card num"><div class="v">R$ 2.600</div>
+      <div class="t">sal&aacute;rio m&eacute;dio do trabalhador formal (abaixo da m&eacute;dia de
+      PE, R$ 2,8 mil)</div></div>
+    <div class="card num"><div class="v">42,4 mil</div>
+      <div class="t">empregos com carteira assinada no munic&iacute;pio</div></div>
+  </div>
+  <div class="g3">
+    <div class="card num"><div class="v">51%</div>
+      <div class="t">da massa de remunera&ccedil;&otilde;es est&aacute; nas classes <b>D e E</b></div></div>
+    <div class="card num"><div class="v">0,686</div>
+      <div class="t">IDHM (m&eacute;dio) &mdash; t&iacute;pico de periferia metropolitana</div></div>
+    <div class="card num"><div class="v">457</div>
+      <div class="t">hab/km&sup2; &mdash; denso, urbano, com bairros adensados</div></div>
+  </div>
+  <p><b>Leitura:</b> &eacute; o retrato do p&uacute;blico de cl&iacute;nica popular &mdash; renda
+  baixa-m&eacute;dia, formaliza&ccedil;&atilde;o industrial (Suape) e pouca capacidade de pagar
+  plano de sa&uacute;de. O PIB per capita alto do munic&iacute;pio (R$ 78 mil, 2023) &eacute;
+  <b>efeito estat&iacute;stico da ind&uacute;stria de Suape</b>, n&atilde;o renda das
+  fam&iacute;lias &mdash; n&atilde;o confundir os dois na an&aacute;lise.</p>
+</section>
+
+<section>
+  <h2>2 &middot; Plano de sa&uacute;de: a lacuna que sustenta o particular</h2>
+  <div class="g2">
+    <div class="card num"><div class="v">24,8%</div>
+      <div class="t">dos brasileiros t&ecirc;m plano m&eacute;dico-hospitalar (ANS, 2025)</div></div>
+    <div class="card num"><div class="v">&asymp; 170&ndash;180 mil</div>
+      <div class="t"><span class="est">estimativa</span> moradores do Cabo <b>sem plano</b>,
+      aplicando cobertura igual ou inferior &agrave; nacional</div></div>
+  </div>
+  <p>Pernambuco historicamente cobre <b>abaixo da m&eacute;dia nacional</b> (o dado municipal exato
+  est&aacute; na Sala de Situa&ccedil;&atilde;o da ANS; para o perfil de renda do Cabo &mdash;
+  classes D/E dominantes &mdash; a cobertura local tende a ser ainda menor que a estadual).
+  <b>Ou seja: 8 em cada 10 moradores dependem de SUS ou de particular acess&iacute;vel.</b>
+  &Eacute; exatamente o paciente da Viva Clinic &mdash; e o assinante natural de um
+  cart&atilde;o-benef&iacute;cio bem desenhado.</p>
+</section>
+
+<section>
+  <h2>3 &middot; Suape: o motor que est&aacute; despejando gente e empresa na pra&ccedil;a</h2>
+  <div class="g3">
+    <div class="card num"><div class="v">200+</div><div class="t">empresas instaladas no complexo</div></div>
+    <div class="card num"><div class="v">R$ 46 bi</div><div class="t">em investimentos contratados
+      at&eacute; 2027</div></div>
+    <div class="card num"><div class="v">~25 mil</div><div class="t">empregos novos projetados
+      nesse ciclo</div></div>
+  </div>
+  <ul class="b">
+    <li><b>APM Terminals</b> (novo terminal de cont&ecirc;ineres): 2.000 empregos diretos +
+    4.000 indiretos j&aacute; na constru&ccedil;&atilde;o; projeta <b>+6 mil at&eacute; 2027</b>.</li>
+    <li><b>Ach&eacute; Laborat&oacute;rios</b>: R$ 267 milh&otilde;es, ~3.000 empregos diretos e
+    indiretos at&eacute; 2026.</li>
+    <li>Perfil das vagas: constru&ccedil;&atilde;o civil, log&iacute;stica, ind&uacute;stria &mdash;
+    <b>massa de trabalhador CLT classe C/D</b>, novo na cidade, sem v&iacute;nculo com m&eacute;dico
+    local.</li>
+  </ul>
+  <div class="card gold">
+    <h4>&#128161; O que isso significa para a cl&iacute;nica</h4>
+    <p><b>(a)</b> Milhares de trabalhadores novos chegando &mdash; todos precisando de
+    <b>admissional (ASO)</b>, peri&oacute;dico e demissional por lei (NR-7/PCMSO). O Carlos j&aacute;
+    faz espirometria, ECG, Holter e laborat&oacute;rio &mdash; o card&aacute;pio ocupacional
+    b&aacute;sico. <b>(b)</b> Trabalhador rec&eacute;m-chegado n&atilde;o tem m&eacute;dico de
+    refer&ecirc;ncia: quem captur&aacute;-lo primeiro fica com a fam&iacute;lia dele inteira.
+    <b>Fechar 3&ndash;5 conv&ecirc;nios-empresa em Suape vale mais que dobrar o Google Ads.</b></p>
+  </div>
+</section>
+
+<section>
+  <h2>4 &middot; &#11088; O achado: motorista de caminh&atilde;o &eacute; a ocupa&ccedil;&atilde;o
+  n&ordm; 1 &mdash; e &eacute; obrigado a fazer o exame que ele vende</h2>
+  <div class="bar-row"><div class="n">Motorista de caminh&atilde;o</div>
+    <div class="bar"><i style="width:100%"></i></div><div class="v">1.764</div></div>
+  <div class="bar-row"><div class="n">Alimentador de produ&ccedil;&atilde;o</div>
+    <div class="bar"><i style="width:99%"></i></div><div class="v">1.744</div></div>
+  <div class="bar-row"><div class="n">Vendedor varejista</div>
+    <div class="bar"><i style="width:85%"></i></div><div class="v">1.507</div></div>
+  <p style="font-size:13.5px;color:var(--muted)">Maiores ocupa&ccedil;&otilde;es formais do
+  munic&iacute;pio (RAIS). Motorista lidera &mdash; reflexo direto da log&iacute;stica de Suape.</p>
+  <ul class="b">
+    <li>CNH categorias <b>C, D e E</b> exigem <b>exame toxicol&oacute;gico peri&oacute;dico a cada
+    2 anos e 6 meses</b> (motoristas com menos de 70 anos), al&eacute;m do exame na
+    renova&ccedil;&atilde;o &mdash; multa para quem circula vencido.</li>
+    <li>Novidade regulat&oacute;ria: com a derrubada dos vetos no Congresso (dez/2025) e a Lei
+    15.153/2025, o toxicol&oacute;gico passa a valer tamb&eacute;m para a <b>primeira
+    habilita&ccedil;&atilde;o A e B</b> &mdash; a demanda s&oacute; cresce.</li>
+    <li>S&oacute; os 1.764 motoristas formais do munic&iacute;pio representam <b>~700 exames/ano
+    recorrentes</b> <span class="est">estimativa</span> (1.764 &divide; 2,5 anos), fora os
+    aut&ocirc;nomos, os de munic&iacute;pios vizinhos e os demais exames de sa&uacute;de do mesmo
+    p&uacute;blico.</li>
+  </ul>
+  <div class="card gold">
+    <h4>&#128161; Demanda perfeita</h4>
+    <p>&Eacute; <b>obrigat&oacute;ria</b> (n&atilde;o depende de convencimento), <b>recorrente</b>
+    (a cada 30 meses), <b>local</b> (ningu&eacute;m viaja pra fazer toxicol&oacute;gico) e
+    <b>pouco disputada</b> em m&iacute;dia digital. Campanha de Google dedicada a
+    &ldquo;exame toxicol&oacute;gico CNH Cabo de Santo Agostinho&rdquo; + parceria com
+    autoescolas/despachantes + transportadoras de Suape = paciente previs&iacute;vel entrando todo
+    m&ecirc;s.</p>
+  </div>
+</section>
+
+<section>
+  <h2>5 &middot; Concorr&ecirc;ncia local</h2>
+  <table>
+    <tr><th>Quem</th><th>O que &eacute;</th><th>Leitura competitiva</th></tr>
+    <tr><td><b>a+ Medicina Diagn&oacute;stica</b><br>
+      <span style="font-size:12.5px;color:var(--muted)">Av. Historiador Pereira da Costa, 558,
+      Centro</span></td>
+      <td>Rede nacional (grupo Dasa) com unidade no centro</td>
+      <td>O concorrente pesado. Marca forte, mas atendimento padronizado e frio &mdash; perde para
+      quem tem rela&ccedil;&atilde;o local e agilidade.</td></tr>
+    <tr><td><b>N&uacute;cleo An&aacute;lises Cl&iacute;nicas</b><br>
+      <span style="font-size:12.5px;color:var(--muted)">Av. Historiador Pereira da Costa, 441,
+      Centro</span></td>
+      <td>Laborat&oacute;rio regional pernambucano com unidade no Cabo</td>
+      <td>Concorrente direto de an&aacute;lises cl&iacute;nicas, na mesma avenida da a+.</td></tr>
+    <tr><td><b>Vale Sa&uacute;de / Sanos</b></td>
+      <td>Marketplaces de exame com desconto que listam a pra&ccedil;a</td>
+      <td>Pressionam pre&ccedil;o por baixo; refor&ccedil;am que existe demanda particular ativa
+      procurando exame barato online.</td></tr>
+    <tr><td><b>Rede p&uacute;blica</b></td>
+      <td>43 UBSs, 3 hospitais p&uacute;blicos (incl. Hospital Metropolitano Sul Dom H&eacute;lder,
+      500 atend./dia) e 5 particulares</td>
+      <td>O SUS local &eacute; a alternativa &ldquo;gr&aacute;tis por&eacute;m lenta&rdquo; &mdash;
+      o argumento cl&aacute;ssico da cl&iacute;nica popular (rapidez + pre&ccedil;o justo) funciona
+      inteiro aqui.</td></tr>
+  </table>
+  <p><b>Leitura:</b> os dois laborat&oacute;rios concorrentes est&atilde;o <b>na mesma avenida do
+  centro</b>. A disputa &eacute; de visibilidade e conveni&ecirc;ncia, n&atilde;o de
+  sofistica&ccedil;&atilde;o &mdash; quem dominar o Google local, a Ficha do Google e o WhatsApp
+  bem conduzido leva. E <b>nenhum deles vende recorr&ecirc;ncia</b> (cart&atilde;o pr&oacute;prio)
+  na pra&ccedil;a &mdash; o espa&ccedil;o que o Viva Club tentou ocupar continua vazio.</p>
+</section>
+
+<section>
+  <h2>6 &middot; Dimensionamento do mercado da Viva Clinic</h2>
+  <table>
+    <tr><th>Indicador</th><th>Valor</th><th>Base</th></tr>
+    <tr><td>Popula&ccedil;&atilde;o na pra&ccedil;a</td><td><b>~218 mil</b></td>
+      <td>IBGE 2025</td></tr>
+    <tr><td>Sem plano de sa&uacute;de</td><td><b>~170&ndash;180 mil</b></td>
+      <td><span class="est">estimativa</span> cobertura &le; m&eacute;dia nacional</td></tr>
+    <tr><td>Share atual da Viva Clinic</td><td><b>~R$ 21 mil/m&ecirc;s</b></td>
+      <td>declarado pelo Carlos (14&ndash;15k antes do Ads, 21k depois)</td></tr>
+    <tr><td>Motoristas C/D/E formais (toxicol&oacute;gico obrigat&oacute;rio)</td>
+      <td><b>1.764+</b></td><td>RAIS, s&oacute; os formais do munic&iacute;pio</td></tr>
+    <tr><td>Empregos novos chegando (Suape, at&eacute; 2027)</td><td><b>~25 mil</b></td>
+      <td>proje&ccedil;&atilde;o oficial do complexo</td></tr>
+  </table>
+  <p><b>Conclus&atilde;o de dimensionamento:</b> o faturamento atual dele (R$ 21 mil/m&ecirc;s)
+  &eacute; uma fra&ccedil;&atilde;o m&iacute;nima de um mercado local grande, mal atendido e em
+  expans&atilde;o. O gargalo n&atilde;o &eacute; demanda da pra&ccedil;a &mdash; &eacute;
+  <b>captura e convers&atilde;o</b>. Exatamente a tese do PROClip.</p>
+</section>
+
+<section>
+  <h2>7 &middot; Como usar isso na call</h2>
+  <ul class="b">
+    <li><b>Suape como urg&ecirc;ncia real (n&atilde;o inventada):</b> &ldquo;sua cidade vai receber
+    25 mil trabalhadores novos at&eacute; 2027. Quem estruturar a captura agora fica com essa
+    gera&ccedil;&atilde;o de pacientes.&rdquo;</li>
+    <li><b>Toxicol&oacute;gico como quick win:</b> demanda obrigat&oacute;ria, recorrente e que ele
+    j&aacute; atende &mdash; d&aacute; para citar como exemplo concreto do que uma campanha bem
+    medida faz (e contrasta com o Ads gen&eacute;rico de hoje).</li>
+    <li><b>Cart&atilde;o-benef&iacute;cio com dado:</b> ~80% da pra&ccedil;a sem plano + 51% da
+    renda nas classes D/E = o assinante do cart&atilde;o existe aos milhares. O Viva Club
+    n&atilde;o falhou por falta de mercado &mdash; falhou de desenho e de m&eacute;todo.</li>
+    <li><b>Concorr&ecirc;ncia:</b> ele disputa com uma rede nacional (a+/Dasa) que n&atilde;o faz
+    rela&ccedil;&atilde;o local &mdash; a arma dele &eacute; ser do Cabo, r&aacute;pido e presente
+    no digital local. Hoje ningu&eacute;m &eacute; dono do Google da cidade.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Fontes</h2>
+  <p class="src">
+  IBGE &mdash; <a href="https://cidades.ibge.gov.br/brasil/pe/cabo-de-santo-agostinho/panorama">Panorama
+  Cabo de Santo Agostinho</a> (popula&ccedil;&atilde;o, densidade, IDHM, PIB) &middot;
+  <a href="https://meumunicipio.org.br/perfil-municipio/2602902-Cabo-de-Santo-Agostinho-PE">Meu
+  Munic&iacute;pio</a> &middot;
+  <a href="https://www.caravela.info/en/regional/cabo-de-santo-agostinho---pe">Caravela/RAIS</a>
+  (sal&aacute;rio m&eacute;dio, ocupa&ccedil;&otilde;es, classes de renda) &middot;
+  <a href="https://www.suape.pe.gov.br/pt/">Porto de Suape (oficial)</a> &middot;
+  <a href="https://portaldeprefeitura.com.br/oportunidades/apm-terminals-antecipa-expansao-em-suape-e-deve-gerar-novos-empregos/607978/">APM
+  Terminals em Suape</a> &middot;
+  <a href="https://www.taisparanhos.com.br/2025/11/suape-acelera-expansao-e-empregos-com.html">Investimentos
+  Suape 2025&ndash;2027</a> &middot;
+  <a href="https://www.gov.br/ans/pt-br/assuntos/noticias/numeros-do-setor/setor-de-planos-de-saude-fecha-2024-com-numeros-recordes-de-beneficiarios">ANS
+  &mdash; beneficiários 2024/2025</a> &middot;
+  <a href="https://www12.senado.leg.br/noticias/materias/2025/12/04/derrubados-quatro-vetos-a-mudancas-no-codigo-de-transito">Senado
+  &mdash; toxicol&oacute;gico CNH (vetos derrubados)</a> &middot;
+  <a href="https://gringo.com.vc/blog/exame-toxicologico-para-cnh/">Regras do toxicol&oacute;gico
+  C/D/E</a> &middot;
+  <a href="https://www.amaissaude.com.br/pe/unidades/cabo">a+ Medicina Diagn&oacute;stica &mdash;
+  unidade Cabo</a> &middot;
+  <a href="https://www.labnucleope.com.br/unidades">N&uacute;cleo An&aacute;lises
+  Cl&iacute;nicas</a> &middot;
+  <a href="https://postosdesaude.com.br/pe/cabo-de-santo-agostinho">Rede p&uacute;blica local</a> &middot;
+  <a href="https://portal.saude.pe.gov.br/hospitais/hospital-metropolitano-sul-dom-helder-camara/">Hospital
+  Metropolitano Sul</a>
+  </p>
+</section>
+
+<div class="foot">ClintIA &middot; pesquisa de mercado &middot; uso interno &middot; estimativas
+pr&oacute;prias sinalizadas no texto &middot; 19/08/2026</div>
+</div>
+
+</body>
+</html>
