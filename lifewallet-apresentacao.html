@@ -4,18 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Life Wallet · Apresentação</title>
-<meta name="description" content="Quem está por trás da Life Wallet, o que o produto faz, onde estão hoje e onde isso se encaixa no mercado de clínica popular.">
+<meta name="description" content="O que é a Life Wallet, como o produto funciona, quem está por trás, onde estão hoje e onde isso se encaixa no mercado de clínica popular.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap">
 <style>
 :root{
   --sky:#05D2FF; --celtic:#055AAA; --dodger:#0578DC; --yale:#053C73; --oxford:#051E32;
   --bg:#F7FAFD; --surface:#FFFFFF; --surface-2:#EDF3F9;
   --ink:#051E32; --ink-soft:#2E4459; --muted:#64798D;
+  --no:#B4432A; --no-bg:rgba(180,67,42,.07);
   --line:#DCE6EF; --shadow:0 1px 2px rgba(5,30,50,.05),0 12px 30px -22px rgba(5,60,115,.25);
 }
 @media (prefers-color-scheme:dark){:root{
   --bg:#051E32; --surface:#0A2A44; --surface-2:#0E3252;
   --ink:#EFF6FC; --ink-soft:#C3D6E6; --muted:#7E97AC;
+  --no:#E08A6A; --no-bg:rgba(224,138,106,.1);
   --line:rgba(255,255,255,.09); --dodger:#3FA1FF; --celtic:#5FB2FF;
   --shadow:0 1px 2px rgba(0,0,0,.35),0 14px 34px -22px rgba(0,0,0,.6);
 }}
@@ -27,15 +29,21 @@ body{margin:0;background:var(--bg);color:var(--ink);line-height:1.62;font-size:1
 .eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dodger)}
 h1{font-size:clamp(28px,6vw,40px);font-weight:900;letter-spacing:-.025em;line-height:1.08;margin:10px 0 10px}
 .sub0{font-size:15.5px;color:var(--muted);max-width:58ch}
-section{margin-top:44px;scroll-margin-top:16px}
+section{margin-top:46px;scroll-margin-top:16px}
 .k{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--dodger);margin-bottom:8px}
 h2{font-size:clamp(19px,4vw,23px);font-weight:900;letter-spacing:-.02em;margin:0 0 12px;line-height:1.25}
-p.lead{font-size:15px;color:var(--ink-soft);margin:0 0 16px;max-width:62ch}
+p.lead{font-size:15px;color:var(--ink-soft);margin:0 0 16px;max-width:64ch}
 b{font-weight:700;color:var(--ink)}
 
 .hero-frase{background:linear-gradient(135deg,var(--yale),var(--celtic));border-radius:18px;
   padding:26px;color:#fff;box-shadow:var(--shadow);margin-top:26px}
-.hero-frase p{margin:0;font-size:clamp(18px,4.5vw,22px);font-weight:700;line-height:1.42;letter-spacing:-.01em}
+.hero-frase p{margin:0;font-size:clamp(17.5px,4.4vw,22px);font-weight:700;line-height:1.42;letter-spacing:-.01em}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:15px;
+  padding:19px 21px;box-shadow:var(--shadow);margin-bottom:12px}
+.card h3{font-size:15.5px;font-weight:900;margin:0 0 8px;letter-spacing:-.01em}
+.card p{margin:0 0 9px;font-size:14.3px;color:var(--ink-soft)}
+.card p:last-child{margin-bottom:0}
 
 .people{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .person{background:var(--surface);border:1px solid var(--line);border-radius:15px;
@@ -44,33 +52,47 @@ b{font-weight:700;color:var(--ink)}
 .person h3{font-size:15px;font-weight:900;margin:0 0 8px;letter-spacing:-.01em}
 .person p{margin:0;font-size:13.3px;color:var(--ink-soft)}
 
-.card{background:var(--surface);border:1px solid var(--line);border-radius:15px;
-  padding:19px 21px;box-shadow:var(--shadow);margin-bottom:12px}
-.card h3{font-size:15.5px;font-weight:900;margin:0 0 8px;letter-spacing:-.01em}
-.card p{margin:0 0 9px;font-size:14.3px;color:var(--ink-soft)}
-.card p:last-child{margin-bottom:0}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.side{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:19px 20px;box-shadow:var(--shadow)}
+.side .st{font-size:10.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--dodger);margin-bottom:8px}
+.side h3{font-size:15.5px;font-weight:900;margin:0 0 8px;letter-spacing:-.01em}
+.side p{margin:0 0 8px;font-size:13.9px;color:var(--ink-soft)}
+.side p:last-child{margin-bottom:0}
+.side ul{margin:8px 0 0;padding-left:17px}
+.side li{font-size:13.7px;color:var(--ink-soft);padding:2.5px 0}
 
-.proof{background:var(--surface-2);border-radius:13px;padding:15px 18px;margin-top:4px}
-.proof .lk{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--dodger);display:block;margin-bottom:5px}
-.proof p{margin:0;font-size:14px;color:var(--ink);line-height:1.5}
+ol.flow{list-style:none;counter-reset:f;padding:0;margin:0;
+  background:var(--surface);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);overflow:hidden}
+ol.flow li{counter-increment:f;position:relative;padding:14px 20px 14px 52px;
+  border-bottom:1px solid var(--line);font-size:14.2px;color:var(--ink-soft)}
+ol.flow li:last-child{border-bottom:none}
+ol.flow li::before{content:counter(f,decimal-leading-zero);position:absolute;left:19px;top:15px;
+  font-size:12.5px;font-weight:900;color:var(--dodger);letter-spacing:.03em}
+ol.flow b{color:var(--ink)}
+
+.proof{background:var(--surface-2);border-radius:13px;padding:16px 18px;margin-top:12px}
+.proof .lk{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--dodger);display:block;margin-bottom:6px}
+.proof p{margin:0 0 8px;font-size:14px;color:var(--ink);line-height:1.52}
+.proof p:last-child{margin-bottom:0}
 
 .metric{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 4px}
 .mt{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:14px 15px;text-align:center;box-shadow:var(--shadow)}
 .mt .n{font-size:clamp(18px,4.5vw,24px);font-weight:900;color:var(--dodger);letter-spacing:-.02em}
 .mt .l{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.35}
 
-.limite{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--dodger);
-  border-radius:0 13px 13px 0;padding:13px 17px;margin-bottom:9px}
-.limite h4{font-size:13.5px;font-weight:900;margin:0 0 5px}
-.limite p{margin:0;font-size:13.6px;color:var(--ink-soft)}
+.nn{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--no);
+  border-radius:0 13px 13px 0;padding:14px 18px;margin-bottom:10px}
+.nn h4{font-size:14px;font-weight:900;margin:0 0 5px}
+.nn p{margin:0;font-size:13.7px;color:var(--ink-soft)}
 
 .fit{background:linear-gradient(135deg,var(--yale),var(--celtic));border-radius:16px;
-  padding:22px 24px;color:#fff;box-shadow:var(--shadow);margin-top:14px}
-.fit .lk{font-size:10.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:8px}
-.fit p{margin:0;font-size:14.8px;font-weight:500;line-height:1.55}
+  padding:24px;color:#fff;box-shadow:var(--shadow);margin-top:14px}
+.fit .lk{font-size:10.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:9px}
+.fit p{margin:0 0 10px;font-size:14.8px;font-weight:500;line-height:1.55}
+.fit p:last-child{margin-bottom:0}
 .fit b{color:#fff;font-weight:900}
 
-footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);
   font-size:11.5px;color:var(--muted);text-align:center;line-height:1.7}
 
 @media(max-width:640px){
@@ -80,15 +102,18 @@ footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
   .sub0{font-size:14.6px}
   p.lead{font-size:14.4px}
 
-  .people{grid-template-columns:1fr;gap:10px}
+  .people,.split{grid-template-columns:1fr;gap:10px}
   .person{padding:15px 16px}
   .person p{font-size:13.6px}
+  .side{padding:16px 17px}
 
   .hero-frase,.fit{padding:19px 18px;border-radius:15px;margin-top:20px}
   .card{padding:16px 17px;border-radius:13px}
   .card p{font-size:14.2px}
   .proof{padding:14px 16px}
-  .limite{padding:13px 15px}
+  .nn{padding:13px 15px}
+  ol.flow li{padding:13px 16px 13px 46px}
+  ol.flow li::before{left:16px}
 
   /* stat vira linha: numero e rotulo lado a lado, em vez de 3 caixas altas */
   .metric{grid-template-columns:1fr;gap:8px;margin:14px 0 4px}
@@ -103,85 +128,179 @@ footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
 <header>
   <div class="eyebrow">Apresentação de parceria · preparado para Márcio</div>
   <h1>Life Wallet</h1>
-  <p class="sub0">Quem está por trás, o que o produto faz, onde estão hoje e onde eu enxergo isso se encaixando no mercado de clínica popular.</p>
+  <p class="sub0">O que é, como funciona, quem está por trás, onde estão hoje e onde eu enxergo isso se encaixando no seu negócio.</p>
 
   <div class="hero-frase">
-    <p>O histórico de saúde do paciente sai de espalhado entre hospitais e convênios e vira uma coisa só, na palma da mão dele, e de quem atende ele.</p>
+    <p>O histórico de saúde do paciente hoje está espalhado entre hospitais, laboratórios e pastas de PDF. A Life Wallet junta tudo num lugar só, na mão do paciente e de quem atende ele.</p>
   </div>
 </header>
 
 <section>
-  <div class="k">01 · Quem está por trás</div>
-  <h2>Três sócios, um produto já no ar</h2>
-  <p class="lead">Não é uma ideia no papel. É um time pequeno, com produto rodando e uma divisão de papéis clara.</p>
+  <div class="k">01 · O que é</div>
+  <h2>Uma carteira de saúde digital, gratuita para o paciente</h2>
+  <p class="lead">É um aplicativo onde a pessoa guarda a vida inteira de saúde dela: exames, histórico, medicação em uso, cirurgias que já fez, histórico familiar. Hoje isso está fragmentado — um exame ficou no laboratório, outro no hospital, o resto na memória do paciente. Quando ele troca de clínica ou vai parar numa emergência, essa informação simplesmente não vai junto.</p>
+  <div class="card">
+    <h3>O problema que resolve</h3>
+    <p>Quem tem doença crônica, faz exame com frequência ou acompanha alguém idoso vive isso: repetir a mesma história em cada consulta, refazer exame que já foi feito, tomar decisão médica com informação pela metade.</p>
+    <p>A proposta da Life Wallet é simples de dizer: <b>o histórico é do paciente e anda com ele</b> — não fica preso na instituição onde foi gerado.</p>
+  </div>
+</section>
+
+<section>
+  <div class="k">02 · Como a informação entra</div>
+  <h2>Dois caminhos, os dois pelo próprio paciente</h2>
+  <div class="split">
+    <div class="side">
+      <div class="st">Caminho 1</div>
+      <h3>Upload direto</h3>
+      <p>O paciente sobe os exames que já tem no celular — foto, PDF, o que for. Preenche também os questionários de histórico (o que toma, o que já operou, o que tem na família).</p>
+    </div>
+    <div class="side">
+      <div class="st">Caminho 2</div>
+      <h3>Conexão com o laboratório</h3>
+      <p>Já existe a conexão direta com a conta do paciente na Dasa — os exames entram sozinhos, sem ele precisar buscar arquivo. É a funcionalidade mais recente que eles desenvolveram.</p>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:14px">Feito isso uma vez, o paciente passa a ter, nas palavras deles, 100% da saúde dele na palma da mão. E dali pra frente é acúmulo: cada exame novo entra e fica.</p>
+</section>
+
+<section>
+  <div class="k">03 · O que muda na consulta</div>
+  <h2>É aqui que o médico vira fã do produto</h2>
+  <p class="lead">Esta é a parte mais forte do produto, e é a que mais interessa pra quem tem clínica. Segundo eles, os maiores entusiastas do app hoje são os próprios médicos — justamente por causa disto:</p>
+  <div class="split">
+    <div class="side">
+      <div class="st">Como é hoje</div>
+      <h3>10 a 15 minutos de anamnese</h3>
+      <p>Toda consulta começa igual: o médico pergunta histórico pessoal, histórico familiar, se toma algum remédio, se já fez cirurgia. Dependendo do caso, isso come de 10 a 15 minutos da consulta.</p>
+    </div>
+    <div class="side">
+      <div class="st">Com o app</div>
+      <h3>Documento pronto em segundos</h3>
+      <p>O paciente já preencheu tudo antes. O app exporta um documento consolidado em cerca de 5 segundos, e o médico lê esse documento inteiro em 1 a 2 minutos.</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h3>E não é só um resumo — é a linha do tempo</h3>
+    <p>No documento exportado o médico vê de cara a evolução dos biomarcadores do paciente ao longo dos anos. Se algum resultado vem se alterando exame após exame, isso salta aos olhos em vez de ficar escondido em cinco PDFs de datas diferentes.</p>
+    <p>Na prática: <b>consulta mais curta na parte burocrática e mais longa na parte clínica</b>, com o médico decidindo sobre informação completa em vez de fragmentada.</p>
+  </div>
+  <div class="proof">
+    <span class="lk">O caso que eles contam</span>
+    <p>Uma paciente de aproximadamente 65 anos precisou de uma cirurgia cardíaca de emergência estando fora do país. Ela acessou o histórico completo pelo app e o médico que a atendeu ficou impressionado com a agilidade de ter tudo à mão naquele momento.</p>
+    <p style="color:var(--muted);font-size:13px">Registro honesto: é um caso da própria base de conhecidos deles, não um caso de cliente independente. Serve pra ilustrar o uso, não como prova de mercado.</p>
+  </div>
+</section>
+
+<section>
+  <div class="k">04 · Quem está por trás</div>
+  <h2>Três sócios, papéis bem divididos</h2>
+  <p class="lead">Não é uma ideia no papel nem um time grande queimando investidor. São três pessoas com o produto já rodando.</p>
   <div class="people">
     <div class="person">
       <div class="role">Fundador</div>
       <h3>Matheus Strauss</h3>
-      <p>Empresário. Foi dono da Rio Kids, rede de lojas de tênis e roupa, antes de vender sua participação e criar a Life Wallet.</p>
+      <p>Empresário. Foi dono da Rio Kids, rede grande de tênis e roupa no Rio, e vendeu sua participação antes de tocar este projeto. É quem puxa a visão de produto e negócio.</p>
     </div>
     <div class="person">
       <div class="role">Desenvolvimento</div>
       <h3>Gabriel Krapp</h3>
-      <p>Toca a construção do produto de ponta a ponta. Entrou no projeto a convite do Matheus e é quem decide o que é tecnicamente viável.</p>
+      <p>Responsável pela construção do produto de ponta a ponta. Entrou por convite do Matheus, após processo com outros candidatos. É quem define o que é viável e em quanto tempo.</p>
     </div>
     <div class="person">
       <div class="role">Parcerias e saúde</div>
       <h3>Thiago Estima</h3>
-      <p>Vem da área da saúde. Cuida da parte de parcerias e de como o produto se encaixa na rotina de clínicas e laboratórios.</p>
+      <p>Vem da área da saúde. Cuida de parcerias e de como o produto se encaixa na rotina real de clínicas, laboratórios e farmácias.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="k">02 · O que o produto faz</div>
-  <h2>Centraliza o histórico de saúde num app só</h2>
-  <div class="card">
-    <p>O paciente sobe seus exames, ou conecta a conta de um laboratório parceiro direto no app, e passa a ter todo o histórico de saúde num lugar só, em vez de espalhado entre hospitais, clínicas e pastas de PDF.</p>
-    <p>Na consulta, isso vira uma anamnese pronta: o que normalmente toma 10 a 15 minutos de perguntas chega pro médico em segundos e é lido em 1 a 2 minutos. Hoje o produto é gratuito, tanto pro paciente quanto pra clínica.</p>
-  </div>
-  <div class="proof">
-    <span class="lk">Um caso real, contado pelo próprio time</span>
-    <p>Uma paciente de aproximadamente 65 anos passou por uma cirurgia cardíaca de emergência fora do país. O médico que a atendeu ficou impressionado com a agilidade de acessar o histórico completo dela pelo app.</p>
-  </div>
-</section>
-
-<section>
-  <div class="k">03 · Como estão hoje</div>
-  <h2>Fase inicial, mas com produto pronto pra escalar</h2>
+  <div class="k">05 · Onde estão hoje</div>
+  <h2>Produto maduro, base ainda pequena</h2>
   <div class="metric">
-    <div class="mt"><div class="n">2 meses</div><div class="l">de app no ar</div></div>
-    <div class="mt"><div class="n">187</div><div class="l">usuários, fase friends &amp; family</div></div>
-    <div class="mt"><div class="n">0</div><div class="l">investido em tráfego pago até aqui</div></div>
+    <div class="mt"><div class="n">2 meses</div><div class="l">de aplicativo no ar</div></div>
+    <div class="mt"><div class="n">187</div><div class="l">usuários, fase de conhecidos</div></div>
+    <div class="mt"><div class="n">0</div><div class="l">investido em tráfego pago</div></div>
   </div>
-  <p class="lead">Cresceram até agora por indicação e conteúdo orgânico no Instagram, sem nunca ter testado mídia paga. Pelos próprios fundadores, o produto já passou da fase de ajuste fino e está pronto pra ir a mercado. A comunicação de hoje fala principalmente com um público jovem, de estilo de vida saudável, mas o time já reconhece que dá pra abrir uma segunda frente, voltada a negócio, sem abrir mão da primeira.</p>
+  <p class="lead" style="margin-top:16px">Cresceram só por indicação e conteúdo orgânico no Instagram — nunca testaram mídia paga. Passaram os últimos meses corrigindo bug e maturando o produto, e a leitura deles é que essa fase acabou: o app está funcional e pronto pra ir a mercado.</p>
+  <p class="lead">Sendo direto sobre o ponto fraco: <b>187 usuários é pouco, e eles sabem</b>. É exatamente por isso que a estratégia deles não é queimar dinheiro em anúncio pra captar um usuário por vez, e sim fechar poucas parcerias que tragam muita gente de uma vez, dentro de uma mesma organização. Uma clínica popular média sozinha já tem mais vidas do que o app inteiro hoje.</p>
 </section>
 
 <section>
-  <div class="k">04 · Onde eu enxergo o encaixe</div>
-  <h2>Como isso entra no seu público</h2>
-  <div class="limite">
-    <h4>A lógica é recorrência</h4>
-    <p>Todo dono de clínica popular fala essa língua. O app fica com uma aba da clínica dentro dele: o médico daquele lugar enxerga o histórico do paciente, pode pedir um exame ou pedir o retorno, e isso puxa o paciente de volta sem custo de mídia.</p>
+  <div class="k">06 · Como funciona dentro de uma clínica</div>
+  <h2>A aba da clínica dentro do app do paciente</h2>
+  <p class="lead">O modelo que eles desenharam pra clínica funciona assim, na ordem:</p>
+  <ol class="flow">
+    <li>A clínica entra como parceira. <b>Sem custo de adesão</b> — o app é gratuito pra clínica e pro paciente.</li>
+    <li>O paciente faz o cadastro. A ideia é que isso aconteça na própria recepção, em poucos minutos, e não dependa de esforço contínuo da equipe depois.</li>
+    <li>Dentro do app daquele paciente passa a existir <b>uma aba da clínica</b> — a marca fica visível pra ele no celular, não só no dia da consulta.</li>
+    <li>Os médicos daquela clínica passam a ter acesso ampliado ao histórico daquele paciente, com a anamnese chegando pronta.</li>
+    <li>O médico pode <b>solicitar um exame ou pedir o retorno</b> do paciente por ali — o que traz esse paciente de volta sem custo de mídia.</li>
+  </ol>
+  <p class="lead" style="margin-top:16px">Traduzindo pro que interessa a quem é dono: isso é <b>recorrência</b>. O paciente que fez uma consulta e sumiu tem um motivo e um canal pra voltar, e quem lembra dele não é a recepcionista que precisa parar pra ligar — é o próprio aplicativo.</p>
+  <div class="card">
+    <h3>E dá pra ir além do retorno</h3>
+    <p>Conversamos também sobre usar essa aba para as parcerias que a clínica já tem — farmácia de manipulação, laboratório, centro de imagem. A ideia é que o paciente encontre esses caminhos ali dentro, ampliando a recorrência dessas parcerias também. Tecnicamente é viável; ainda não está construído.</p>
   </div>
-  <div class="limite">
-    <h4>Dois limites que o produto respeita por escolha</h4>
-    <p>Não é prontuário nem pedido médico oficial, isso é outro nicho, com outra regulação. E não existe exclusividade de paciente: ele acessa o próprio histórico onde quiser. O que a clínica ganha é presença constante, não uma prisão.</p>
+</section>
+
+<section>
+  <div class="k">07 · Os limites</div>
+  <h2>O que o produto deliberadamente não faz</h2>
+  <p class="lead">Prefiro te mostrar isso agora do que você descobrir depois. São escolhas conscientes deles, não falhas escondidas:</p>
+  <div class="nn">
+    <h4>Não é prontuário eletrônico nem pedido médico oficial</h4>
+    <p>Isso é outro nicho, com outra regulação, e eles decidiram não entrar. O app organiza e compartilha histórico. O médico consegue sinalizar um pedido de exame ou de retorno, mas o documento oficial continua saindo pelo sistema da clínica.</p>
   </div>
+  <div class="nn">
+    <h4>Não existe exclusividade de paciente</h4>
+    <p>O histórico é do paciente e ele acessa onde quiser, inclusive em outra clínica. O que a clínica parceira ganha é presença permanente e um canal direto de retorno — não um paciente preso.</p>
+  </div>
+  <div class="nn">
+    <h4>A adesão do paciente ainda não foi provada em escala popular</h4>
+    <p>Os 187 usuários de hoje são de um perfil mais jovem e conectado. Se o público C/D adota isso na mesma proporção é uma pergunta em aberto — e é justamente o que um piloto responderia.</p>
+  </div>
+</section>
+
+<section>
+  <div class="k">08 · Modelo de negócio</div>
+  <h2>Gratuito agora, painel pago depois</h2>
+  <div class="card">
+    <p>Hoje o aplicativo é gratuito, e a maior parte das funções segue gratuita. A meta atual deles é uma só: <b>atrair usuários</b>. Não existe cobrança da clínica pra entrar.</p>
+    <p>O plano de receita futuro tem duas pernas. A primeira é a base de dados de saúde em si, que é o ativo de longo prazo. A segunda, mais direta, é <b>um painel personalizado por clínica</b>, provavelmente por mensalidade: visão geral dos pacientes daquela clínica e automações pra reengajar esse paciente conforme o perfil de saúde dele.</p>
+    <p>Ou seja: primeiro o dono vê o paciente voltando, depois paga pelo painel que mostra e automatiza isso. Eles têm flexibilidade técnica pra adaptar caso a caso — o desenvolvimento é dentro de casa.</p>
+  </div>
+</section>
+
+<section>
+  <div class="k">09 · O encaixe com o seu negócio</div>
+  <h2>Por que estou trazendo isso pra você primeiro</h2>
+  <p class="lead">Você tem uma franquia de cartão benefício cobrada direto na conta de luz, que já entrega telemedicina, plano veterinário e emergência. Você já resolveu a parte difícil: cobrar todo mês e ter milhares de vidas dentro de um contrato só.</p>
   <div class="fit">
-    <div class="lk">O encaixe direto com você</div>
-    <p>Sua franquia de cartão benefício já cobra na conta de luz e já inclui telemedicina, plano pro veterinário e emergência. A Life Wallet entraria como mais um benefício dentro desse cartão, sem custo extra de adesão pra você nem pro assinante, e ajudando a segurar exatamente o que já sustenta esse modelo: a recorrência do plano.</p>
+    <div class="lk">A tese, em uma frase</div>
+    <p>A Life Wallet entraria como <b>mais um benefício dentro do seu cartão</b> — sem custo de adesão pra você nem pro assinante, e somando um benefício que o assinante usa fora do momento de doença.</p>
+    <p>O ganho que eu enxergo pra você não é o app em si: é <b>reduzir cancelamento</b>. Cartão benefício sofre quando o assinante passa meses sem usar nada e começa a achar que não vale o que paga. Um app onde ele guarda exame, recebe lembrete e vê o histórico da família dá presença mensal a um produto que hoje só aparece quando alguém adoece.</p>
+    <p>E pro lado deles, uma conversa sua vale mais que mil downloads: milhares de vidas de uma vez, dentro de uma organização só.</p>
   </div>
 </section>
 
 <section>
-  <div class="k">05 · O que eu queria de você</div>
-  <h2>Um convite, não uma decisão fechada</h2>
-  <p class="lead">Você entende desse mercado de um jeito que pouca gente entende. Queria sua leitura sincera: onde isso faz sentido no seu cartão, onde não faz, e o que você mudaria antes de colocar na frente de um assinante seu.</p>
+  <div class="k">10 · O que eu queria de você</div>
+  <h2>Sua leitura, não uma decisão</h2>
+  <p class="lead">Não vim pedir assinatura. Você entende desse mercado de um jeito que pouca gente entende, e eu quero sua leitura sincera antes de levar isso adiante:</p>
+  <ol class="flow">
+    <li>Isso faz sentido dentro do seu cartão, ou é benefício demais pra pouca percepção de valor?</li>
+    <li>Se fizesse sentido, <b>o que você mudaria</b> antes de colocar na frente de um assinante seu?</li>
+    <li>Se não for pro cartão: você enxerga isso funcionando melhor direto numa clínica da sua rede, como piloto?</li>
+  </ol>
+  <p class="lead" style="margin-top:16px">Se a resposta for "não é pra mim", isso também me serve — e me poupa de levar pro lugar errado.</p>
 </section>
 
 <footer>
-  Documento preparado por Bernardo Carneiro para apresentação a parceiros · agosto/2026
+  Life Wallet · Apresentação de parceria<br>
+  Preparado por Bernardo Carneiro · agosto/2026<br>
+  Conteúdo baseado na reunião com os sócios em 13/08/2026
 </footer>
 </div>
 </body>
