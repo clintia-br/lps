@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life Wallet · Apresentação</title>
+<meta name="description" content="Quem está por trás da Life Wallet, o que o produto faz, onde estão hoje e onde isso se encaixa no mercado de clínica popular.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  --sky:#05D2FF; --celtic:#055AAA; --dodger:#0578DC; --yale:#053C73; --oxford:#051E32;
+  --bg:#F7FAFD; --surface:#FFFFFF; --surface-2:#EDF3F9;
+  --ink:#051E32; --ink-soft:#2E4459; --muted:#64798D;
+  --line:#DCE6EF; --shadow:0 1px 2px rgba(5,30,50,.05),0 12px 30px -22px rgba(5,60,115,.25);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#051E32; --surface:#0A2A44; --surface-2:#0E3252;
+  --ink:#EFF6FC; --ink-soft:#C3D6E6; --muted:#7E97AC;
+  --line:rgba(255,255,255,.09); --dodger:#3FA1FF; --celtic:#5FB2FF;
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 14px 34px -22px rgba(0,0,0,.6);
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.62;font-size:16px;
+  font-family:"Red Hat Display",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 90px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dodger)}
+h1{font-size:clamp(28px,6vw,40px);font-weight:900;letter-spacing:-.025em;line-height:1.08;margin:10px 0 10px}
+.sub0{font-size:15.5px;color:var(--muted);max-width:58ch}
+section{margin-top:44px;scroll-margin-top:16px}
+.k{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--dodger);margin-bottom:8px}
+h2{font-size:clamp(19px,4vw,23px);font-weight:900;letter-spacing:-.02em;margin:0 0 12px;line-height:1.25}
+p.lead{font-size:15px;color:var(--ink-soft);margin:0 0 16px;max-width:62ch}
+b{font-weight:700;color:var(--ink)}
+
+.hero-frase{background:linear-gradient(135deg,var(--yale),var(--celtic));border-radius:18px;
+  padding:26px;color:#fff;box-shadow:var(--shadow);margin-top:26px}
+.hero-frase p{margin:0;font-size:clamp(18px,4.5vw,22px);font-weight:700;line-height:1.42;letter-spacing:-.01em}
+
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.person{background:var(--surface);border:1px solid var(--line);border-radius:15px;
+  padding:18px 17px;box-shadow:var(--shadow)}
+.person .role{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--dodger);margin-bottom:6px}
+.person h3{font-size:15px;font-weight:900;margin:0 0 8px;letter-spacing:-.01em}
+.person p{margin:0;font-size:13.3px;color:var(--ink-soft)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:15px;
+  padding:19px 21px;box-shadow:var(--shadow);margin-bottom:12px}
+.card h3{font-size:15.5px;font-weight:900;margin:0 0 8px;letter-spacing:-.01em}
+.card p{margin:0 0 9px;font-size:14.3px;color:var(--ink-soft)}
+.card p:last-child{margin-bottom:0}
+
+.proof{background:var(--surface-2);border-radius:13px;padding:15px 18px;margin-top:4px}
+.proof .lk{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--dodger);display:block;margin-bottom:5px}
+.proof p{margin:0;font-size:14px;color:var(--ink);line-height:1.5}
+
+.metric{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 4px}
+.mt{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:14px 15px;text-align:center;box-shadow:var(--shadow)}
+.mt .n{font-size:clamp(18px,4.5vw,24px);font-weight:900;color:var(--dodger);letter-spacing:-.02em}
+.mt .l{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.35}
+
+.limite{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--dodger);
+  border-radius:0 13px 13px 0;padding:13px 17px;margin-bottom:9px}
+.limite h4{font-size:13.5px;font-weight:900;margin:0 0 5px}
+.limite p{margin:0;font-size:13.6px;color:var(--ink-soft)}
+
+.fit{background:linear-gradient(135deg,var(--yale),var(--celtic));border-radius:16px;
+  padding:22px 24px;color:#fff;box-shadow:var(--shadow);margin-top:14px}
+.fit .lk{font-size:10.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:8px}
+.fit p{margin:0;font-size:14.8px;font-weight:500;line-height:1.55}
+.fit b{color:#fff;font-weight:900}
+
+footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:11.5px;color:var(--muted);text-align:center;line-height:1.7}
+
+@media(max-width:640px){
+  .wrap{padding:26px 16px 64px}
+  section{margin-top:34px}
+  h1{margin:8px 0 8px}
+  .sub0{font-size:14.6px}
+  p.lead{font-size:14.4px}
+
+  .people{grid-template-columns:1fr;gap:10px}
+  .person{padding:15px 16px}
+  .person p{font-size:13.6px}
+
+  .hero-frase,.fit{padding:19px 18px;border-radius:15px;margin-top:20px}
+  .card{padding:16px 17px;border-radius:13px}
+  .card p{font-size:14.2px}
+  .proof{padding:14px 16px}
+  .limite{padding:13px 15px}
+
+  /* stat vira linha: numero e rotulo lado a lado, em vez de 3 caixas altas */
+  .metric{grid-template-columns:1fr;gap:8px;margin:14px 0 4px}
+  .mt{display:flex;align-items:baseline;gap:10px;text-align:left;padding:12px 15px}
+  .mt .n{font-size:19px;flex-shrink:0}
+  .mt .l{margin-top:0;font-size:12.6px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Apresentação de parceria · preparado para Márcio</div>
+  <h1>Life Wallet</h1>
+  <p class="sub0">Quem está por trás, o que o produto faz, onde estão hoje e onde eu enxergo isso se encaixando no mercado de clínica popular.</p>
+
+  <div class="hero-frase">
+    <p>O histórico de saúde do paciente sai de espalhado entre hospitais e convênios e vira uma coisa só, na palma da mão dele, e de quem atende ele.</p>
+  </div>
+</header>
+
+<section>
+  <div class="k">01 · Quem está por trás</div>
+  <h2>Três sócios, um produto já no ar</h2>
+  <p class="lead">Não é uma ideia no papel. É um time pequeno, com produto rodando e uma divisão de papéis clara.</p>
+  <div class="people">
+    <div class="person">
+      <div class="role">Fundador</div>
+      <h3>Matheus Strauss</h3>
+      <p>Empresário. Foi dono da Rio Kids, rede de lojas de tênis e roupa, antes de vender sua participação e criar a Life Wallet.</p>
+    </div>
+    <div class="person">
+      <div class="role">Desenvolvimento</div>
+      <h3>Gabriel Krapp</h3>
+      <p>Toca a construção do produto de ponta a ponta. Entrou no projeto a convite do Matheus e é quem decide o que é tecnicamente viável.</p>
+    </div>
+    <div class="person">
+      <div class="role">Parcerias e saúde</div>
+      <h3>Thiago Estima</h3>
+      <p>Vem da área da saúde. Cuida da parte de parcerias e de como o produto se encaixa na rotina de clínicas e laboratórios.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="k">02 · O que o produto faz</div>
+  <h2>Centraliza o histórico de saúde num app só</h2>
+  <div class="card">
+    <p>O paciente sobe seus exames, ou conecta a conta de um laboratório parceiro direto no app, e passa a ter todo o histórico de saúde num lugar só, em vez de espalhado entre hospitais, clínicas e pastas de PDF.</p>
+    <p>Na consulta, isso vira uma anamnese pronta: o que normalmente toma 10 a 15 minutos de perguntas chega pro médico em segundos e é lido em 1 a 2 minutos. Hoje o produto é gratuito, tanto pro paciente quanto pra clínica.</p>
+  </div>
+  <div class="proof">
+    <span class="lk">Um caso real, contado pelo próprio time</span>
+    <p>Uma paciente de aproximadamente 65 anos passou por uma cirurgia cardíaca de emergência fora do país. O médico que a atendeu ficou impressionado com a agilidade de acessar o histórico completo dela pelo app.</p>
+  </div>
+</section>
+
+<section>
+  <div class="k">03 · Como estão hoje</div>
+  <h2>Fase inicial, mas com produto pronto pra escalar</h2>
+  <div class="metric">
+    <div class="mt"><div class="n">2 meses</div><div class="l">de app no ar</div></div>
+    <div class="mt"><div class="n">187</div><div class="l">usuários, fase friends &amp; family</div></div>
+    <div class="mt"><div class="n">0</div><div class="l">investido em tráfego pago até aqui</div></div>
+  </div>
+  <p class="lead">Cresceram até agora por indicação e conteúdo orgânico no Instagram, sem nunca ter testado mídia paga. Pelos próprios fundadores, o produto já passou da fase de ajuste fino e está pronto pra ir a mercado. A comunicação de hoje fala principalmente com um público jovem, de estilo de vida saudável, mas o time já reconhece que dá pra abrir uma segunda frente, voltada a negócio, sem abrir mão da primeira.</p>
+</section>
+
+<section>
+  <div class="k">04 · Onde eu enxergo o encaixe</div>
+  <h2>Como isso entra no seu público</h2>
+  <div class="limite">
+    <h4>A lógica é recorrência</h4>
+    <p>Todo dono de clínica popular fala essa língua. O app fica com uma aba da clínica dentro dele: o médico daquele lugar enxerga o histórico do paciente, pode pedir um exame ou pedir o retorno, e isso puxa o paciente de volta sem custo de mídia.</p>
+  </div>
+  <div class="limite">
+    <h4>Dois limites que o produto respeita por escolha</h4>
+    <p>Não é prontuário nem pedido médico oficial, isso é outro nicho, com outra regulação. E não existe exclusividade de paciente: ele acessa o próprio histórico onde quiser. O que a clínica ganha é presença constante, não uma prisão.</p>
+  </div>
+  <div class="fit">
+    <div class="lk">O encaixe direto com você</div>
+    <p>Sua franquia de cartão benefício já cobra na conta de luz e já inclui telemedicina, plano pro veterinário e emergência. A Life Wallet entraria como mais um benefício dentro desse cartão, sem custo extra de adesão pra você nem pro assinante, e ajudando a segurar exatamente o que já sustenta esse modelo: a recorrência do plano.</p>
+  </div>
+</section>
+
+<section>
+  <div class="k">05 · O que eu queria de você</div>
+  <h2>Um convite, não uma decisão fechada</h2>
+  <p class="lead">Você entende desse mercado de um jeito que pouca gente entende. Queria sua leitura sincera: onde isso faz sentido no seu cartão, onde não faz, e o que você mudaria antes de colocar na frente de um assinante seu.</p>
+</section>
+
+<footer>
+  Documento preparado por Bernardo Carneiro para apresentação a parceiros · agosto/2026
+</footer>
+</div>
+</body>
+</html>
