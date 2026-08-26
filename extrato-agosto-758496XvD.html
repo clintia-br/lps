@@ -1,0 +1,364 @@
+<meta name="robots" content="noindex,nofollow">
+<title>Acerto de Agosto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #edefe9;
+    --paper-raised: #ffffff;
+    --ink: #1c2622;
+    --ink-soft: #5a6560;
+    --line: #d7dbd0;
+    --accent: #2e6f52;
+    --accent-ink: #1e4a37;
+    --accent-soft: #e2ece3;
+    --gold: #a8752e;
+    --gold-soft: #f4ead6;
+    --shadow: 0 1px 2px rgba(28,38,34,0.06), 0 8px 24px rgba(28,38,34,0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #151b18;
+      --paper-raised: #1c2420;
+      --ink: #ece9e1;
+      --ink-soft: #a3ada6;
+      --line: #313c36;
+      --accent: #63b189;
+      --accent-ink: #a9dcc0;
+      --accent-soft: #20302a;
+      --gold: #dcac66;
+      --gold-soft: #33291a;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.25);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #151b18;
+    --paper-raised: #1c2420;
+    --ink: #ece9e1;
+    --ink-soft: #a3ada6;
+    --line: #313c36;
+    --accent: #63b189;
+    --accent-ink: #a9dcc0;
+    --accent-soft: #20302a;
+    --gold: #dcac66;
+    --gold-soft: #33291a;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.25);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Work Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: clamp(28px, 7vw, 56px) clamp(18px, 6vw, 32px) 64px;
+  }
+
+  .num {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* header */
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(32px, 8vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+
+  .dek {
+    color: var(--ink-soft);
+    font-size: 15px;
+    max-width: 46ch;
+    margin: 0 0 30px;
+  }
+
+  hr.rule {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 0 0 34px;
+  }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0 0 4px;
+    letter-spacing: -0.005em;
+  }
+
+  .section-note {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 0 0 18px;
+  }
+
+  section { margin-bottom: 46px; }
+  section:last-of-type { margin-bottom: 0; }
+
+  /* expense table */
+
+  .ledger {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .ledger-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 11px 18px;
+    border-bottom: 1px solid var(--line);
+    font-size: 14.5px;
+  }
+
+  .ledger-row:last-of-type { border-bottom: none; }
+
+  .ledger-cat { color: var(--ink); }
+  .ledger-val { color: var(--ink-soft); font-size: 14px; }
+
+  .ledger-total {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-top: 2px solid var(--ink);
+    font-weight: 600;
+  }
+
+  .ledger-total .ledger-val { color: var(--ink); font-size: 16px; }
+
+  /* math steps */
+
+  .card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 20px 20px 6px;
+    margin-bottom: 16px;
+  }
+
+  .card h3 {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+  }
+
+  .step {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 14px; }
+
+  .step-label { font-size: 14.5px; max-width: 30ch; }
+  .step-why { display: block; font-size: 12.5px; color: var(--ink-soft); margin-top: 2px; }
+  .step-val { font-size: 14.5px; white-space: nowrap; flex-shrink: 0; }
+
+  .step.subtotal .step-label { font-weight: 600; }
+  .step.subtotal .step-val { font-weight: 600; color: var(--accent-ink); }
+
+  /* settlement */
+
+  .settlement {
+    background: var(--gold-soft);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 24px 22px;
+    text-align: center;
+  }
+
+  .settlement-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+
+  .settlement-amount {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(36px, 11vw, 52px);
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+    color: var(--ink);
+  }
+
+  .settlement-note {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    max-width: 40ch;
+    margin: 0 auto;
+  }
+
+  .recap {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--ink-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .recap-row { display: flex; justify-content: space-between; gap: 10px; }
+  .recap-row.final { color: var(--ink); font-weight: 600; }
+
+  footer {
+    margin-top: 44px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+</style>
+
+<div class="page">
+
+  <p class="eyebrow">Bernardo → Isabela</p>
+  <h1>Acerto de Agosto</h1>
+  <p class="dek">Fechamento dos gastos de cartão do mês — meus gastos, sua fatura, e como a conta ficou entre a gente.</p>
+  <hr class="rule">
+
+  <section>
+    <h2>Meus gastos no cartão</h2>
+    <p class="section-note">Tudo que passou no meu cartão esse mês.</p>
+    <div class="ledger">
+      <div class="ledger-row"><span class="ledger-cat">Mercado</span><span class="ledger-val num">R$ 26,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Mercado</span><span class="ledger-val num">R$ 214,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Mercado</span><span class="ledger-val num">R$ 58,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">iFood</span><span class="ledger-val num">R$ 145,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Mercado</span><span class="ledger-val num">R$ 208,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Uber Antônia</span><span class="ledger-val num">R$ 22,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Uber Antônia</span><span class="ledger-val num">R$ 29,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Mercado</span><span class="ledger-val num">R$ 182,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Drogaria</span><span class="ledger-val num">R$ 72,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Hortifruti</span><span class="ledger-val num">R$ 106,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Mercado</span><span class="ledger-val num">R$ 120,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Uber Antônia</span><span class="ledger-val num">R$ 20,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">iFood</span><span class="ledger-val num">R$ 202,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Mercado</span><span class="ledger-val num">R$ 230,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Drogaria</span><span class="ledger-val num">R$ 40,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Drogaria</span><span class="ledger-val num">R$ 161,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Uber Antônia</span><span class="ledger-val num">R$ 23,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">iFood</span><span class="ledger-val num">R$ 223,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">iFood</span><span class="ledger-val num">R$ 188,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Hortifruti</span><span class="ledger-val num">R$ 116,00</span></div>
+      <div class="ledger-row"><span class="ledger-cat">Drogaria</span><span class="ledger-val num">R$ 89,00</span></div>
+      <div class="ledger-total"><span>Total gasto</span><span class="num">R$ 2.474,00</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Como fechamos a conta</h2>
+    <p class="section-note">A mesma regra vale nos dois cartões: uma categoria fica com uma parte exclusiva de quem usa mais, e o resto é sempre meio a meio.</p>
+
+    <div class="card">
+      <h3>Sua fatura</h3>
+      <div class="step">
+        <span class="step-label">Total da fatura</span>
+        <span class="step-val num">R$ 13.768,00</span>
+      </div>
+      <div class="step">
+        <span class="step-label">Uber<span class="step-why">30% fica só com você, porque usa mais</span></span>
+        <span class="step-val num">R$ 569,70</span>
+      </div>
+      <div class="step">
+        <span class="step-label">Resto da fatura, dividido meio a meio</span>
+        <span class="step-val num">R$ 6.599,15 cada</span>
+      </div>
+      <div class="step subtotal">
+        <span class="step-label">Sua parte nessa fatura</span>
+        <span class="step-val num">R$ 7.168,85</span>
+      </div>
+      <div class="step subtotal">
+        <span class="step-label">Minha parte nessa fatura</span>
+        <span class="step-val num">R$ 6.599,15</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Meu cartão</h3>
+      <div class="step">
+        <span class="step-label">Total do meu cartão</span>
+        <span class="step-val num">R$ 2.474,00</span>
+      </div>
+      <div class="step">
+        <span class="step-label">Mercado<span class="step-why">30% fica só comigo, porque uso mais</span></span>
+        <span class="step-val num">R$ 311,40</span>
+      </div>
+      <div class="step">
+        <span class="step-label">Resto do cartão, dividido meio a meio</span>
+        <span class="step-val num">R$ 1.081,30 cada</span>
+      </div>
+      <div class="step subtotal">
+        <span class="step-label">Minha parte nesse cartão</span>
+        <span class="step-val num">R$ 1.392,70</span>
+      </div>
+      <div class="step subtotal">
+        <span class="step-label">Sua parte nesse cartão<span class="step-why">já paga por mim — vira crédito seu</span></span>
+        <span class="step-val num">R$ 1.081,30</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Resultado</h2>
+    <div class="settlement">
+      <p class="settlement-label">Vou te transferir</p>
+      <p class="settlement-amount num">R$ 4.017,85</p>
+      <div class="recap">
+        <div class="recap-row"><span>Minha parte na sua fatura</span><span class="num">R$ 6.599,15</span></div>
+        <div class="recap-row"><span>− sua parte no meu cartão</span><span class="num">R$ 1.081,30</span></div>
+        <div class="recap-row"><span>− adiantamento já enviado</span><span class="num">R$ 1.500,00</span></div>
+        <div class="recap-row final"><span>= transferência</span><span class="num">R$ 4.017,85</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>Feito por Bernardo · agosto de 2026</footer>
+
+</div>
