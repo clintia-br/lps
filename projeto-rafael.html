@@ -604,6 +604,37 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   .citem .cn{left:14px;top:12px;font-size:15px;}
 }
 
+/* ── funil de recuperacao (etapas com perda percentual) ──
+   O valor fica FORA da barra: dentro dela some quando a barra e estreita
+   (o segmento de 19% nao comporta "R$ 16.200" em 375px). */
+.funil{margin-top:clamp(16px,calc(1.7*var(--u)),28px);max-width:1000px;}
+.fase-f{display:flex;align-items:center;gap:clamp(9px,calc(.95*var(--u)),17px);margin-bottom:clamp(7px,calc(.75*var(--u)),13px);}
+.fase-f .rot{flex:0 0 clamp(104px,calc(10.8*var(--u)),190px);font-size:clamp(11px,calc(1.07*var(--u)),18.5px);
+  font-weight:700;color:var(--ink);line-height:1.3;}
+.fase-f .rot span{display:block;font-size:clamp(9.5px,calc(.92*var(--u)),16px);font-weight:700;
+  color:var(--bad);margin-top:2px;line-height:1.35;}
+.fase-f .rot span.ok{color:var(--muted);}
+.fbar{flex:1;height:clamp(28px,calc(2.9*var(--u)),48px);display:flex;align-items:center;min-width:0;}
+.fseg{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--yale),var(--celtic));}
+.fase-f:nth-child(2) .fseg{background:linear-gradient(90deg,var(--celtic),#0a6bc4);}
+.fase-f:nth-child(3) .fseg{background:linear-gradient(90deg,#0a6bc4,var(--dodger));}
+.fase-f:nth-child(4) .fseg{background:linear-gradient(90deg,var(--dodger),#2a95e8);}
+.fase-f:nth-child(5) .fseg{background:linear-gradient(90deg,#0E7A54,#3FBF92);}
+.fval{flex:0 0 auto;min-width:clamp(78px,calc(8*var(--u)),136px);text-align:right;
+  font-size:clamp(12.5px,calc(1.21*var(--u)),21px);font-weight:900;color:var(--oxford);
+  font-variant-numeric:tabular-nums;white-space:nowrap;}
+.fase-f:last-of-type .fval{color:var(--ok);}
+.funil .nota{margin-top:clamp(10px,calc(1.05*var(--u)),18px);font-size:clamp(11px,calc(1.07*var(--u)),18.5px);
+  color:var(--muted);font-weight:500;line-height:1.55;}
+.funil .nota b{color:var(--ink);font-weight:700;}
+@media(max-width:820px){
+  .fase-f{gap:7px;margin-bottom:6px;}
+  .fase-f .rot{flex:0 0 92px;font-size:10.5px;}
+  .fase-f .rot span{font-size:9px;}
+  .fbar{height:24px;}
+  .fval{min-width:70px;font-size:11.5px;}
+}
+
 </style>
 </head>
 <body>
@@ -617,7 +648,7 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   <h1>Estruturação<br>Comercial</h1>
   <p class="sub">Preparado para Rafael Mohn — o desenho do que será feito, em que ordem, por quem e até quando.</p>
   <div class="tagrow">
-    <span class="ttag">30 dias úteis · 2 fases</span>
+    <span class="ttag">45 dias úteis · 2 fases</span>
     <span class="ttag">Atendimento e conversão</span>
     <span class="ttag">Setembro de 2026</span>
   </div>
@@ -689,7 +720,7 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
       <ul><li>O Lohan já entrega bem</li><li>Falta medir o paciente, não o clique</li><li>Verba volta a render</li></ul>
     </div>
   </div>
-  <div class="notebar">Converter <b>20%</b> dos R$ 150 mil é <b>R$ 30 mil</b> — a conta conservadora que fizemos juntos na reunião. Sozinho, isso <b>cobre o buraco de R$ 28 mil</b>.</div>
+  <div class="notebar">Essa fila, trabalhada com método, é a <b>fonte mais barata de receita</b> que existe hoje na clínica — o paciente já procurou e já recebeu preço. Na Parte 2 eu mostro o cálculo etapa por etapa, com a perda de cada uma.</div>
 </section>
 
 <!-- 6 O GARGALO -->
@@ -719,7 +750,7 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
 <section class="slide darkslide divisor">
   <div class="dnum">Parte 2</div>
   <h2>Como<br>faremos isso</h2>
-  <p class="dsub">Duas fases em 30 dias úteis. E, tão importante quanto: o que fica de fora, e por quê.</p>
+  <p class="dsub">Duas fases em 45 dias úteis. E, tão importante quanto: o que fica de fora, e por quê.</p>
   <div class="dline"></div>
 </section>
 
@@ -727,19 +758,19 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
 <section class="slide">
   <div class="eyebrow">Visão geral</div>
   <h2>O projeto em duas fases</h2>
-  <p class="sub">O projeto é <b>estritamente comercial</b>. Primeiro conseguir atender quem chega, depois converter quem já demonstrou interesse.</p>
+  <p class="sub">O projeto é <b>estritamente comercial</b>, em <b>45 dias úteis</b>. Primeiro conseguir atender quem chega, depois converter quem já demonstrou interesse.</p>
   <div class="linha">
     <div class="etapa">
       <div class="en">Fase 1</div>
       <h4>Atendimento</h4>
       <p>Sair de um dia de resposta para minutos, sem contratar mais gente.</p>
-      <div class="dias">Dias 1 a 15</div>
+      <div class="dias">Dias 1 a 20</div>
     </div>
     <div class="etapa">
       <div class="en">Fase 2</div>
       <h4>Conversão</h4>
       <p>A fila de R$ 150 mil trabalhada com cadência, e a equipe treinada para vender.</p>
-      <div class="dias">Dias 16 a 30</div>
+      <div class="dias">Dias 21 a 45</div>
     </div>
   </div>
   <div class="notebar">A ordem importa: não adianta ter cadência de retomada se o paciente que responde ao contato fica <b>mais um dia</b> esperando resposta.</div>
@@ -748,7 +779,7 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
 <!-- 9 FASE 1 -->
 <section class="slide">
   <div class="eyebrow">Fase 1 de 2</div>
-  <div class="fasehead"><h2>Atendimento</h2><span class="datebadge">15 dias úteis</span></div>
+  <div class="fasehead"><h2>Atendimento</h2><span class="datebadge">20 dias úteis</span></div>
   <p class="sub"><b>Objetivo:</b> que nenhum contato fique mais de alguns minutos sem resposta — com a mesma equipe de hoje.</p>
   <div class="split">
     <div class="spcol us">
@@ -772,26 +803,62 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
       </ul>
     </div>
   </div>
-  <div class="notebar"><b>Entrega:</b> o tempo de resposta medido antes e depois. É o indicador que autoriza religar as campanhas com o Lohan.</div>
+  <div class="notebar"><b>O Figo continua</b> — o CRM entra ao lado do seu sistema de gestão, não no lugar dele, e não é mais uma plataforma que cobra à parte por recurso básico. A automação é complementar ao atendimento humano, nunca substituta.<br><br><b>Entrega:</b> o tempo de resposta medido antes e depois — o indicador que autoriza religar as campanhas com o Lohan.</div>
 </section>
 
 <!-- 10 FASE 2 -->
 <section class="slide">
   <div class="eyebrow">Fase 2 de 2</div>
-  <div class="fasehead"><h2>Conversão</h2><span class="datebadge">15 dias úteis</span></div>
+  <div class="fasehead"><h2>Conversão</h2><span class="datebadge">25 dias úteis</span></div>
   <p class="sub"><b>Objetivo:</b> transformar os R$ 150 mil em propostas abertas em consulta marcada — e deixar a equipe sabendo repetir isso sozinha.</p>
   <ul class="clean">
     <li><b>Fluxo de cadência</b> das propostas em aberto: quantos toques, em que intervalo, por qual canal e com qual mensagem</li>
-    <li><b>Treinamento comercial</b> da recepção — abordagem, contorno de objeção de preço e fechamento</li>
-    <li><b>Roteiro escrito</b> que fica na clínica, para quem entrar depois</li>
+    <li><b>Padronização de roteiro</b> — o atendimento deixa de depender de quem está na cadeira e passa a ser o mesmo, sempre</li>
+    <li><b>Treinamento comercial</b> da recepção: abordagem, contorno de objeção de preço e fechamento</li>
     <li><b>Rastreamento</b> ligando o anúncio ao paciente que compareceu, não só ao clique</li>
     <li><b>Painel de indicadores</b>: tempo de resposta, conversão de orçamento, no-show e custo por paciente</li>
   </ul>
   <div class="trein">
-    <div class="tt">Quem conduz o treinamento</div>
-    <h3>Carol, especialista em equipe de clínica popular</h3>
-    <p>Não é treinamento genérico de vendas. É <b>a linguagem do público C e D</b>, que foi exatamente o que faltou na mentoria que você fez antes.</p>
+    <div class="tt">O ponto que faz esse investimento durar</div>
+    <h3>O treinamento é da vaga, não da pessoa</h3>
+    <p>Manual, scripts e cadência ficam na clínica. Se a Fernanda ou o Kauan saírem amanhã, <b>o método não sai com eles</b> — a próxima pessoa entra e opera pelo mesmo padrão. Conduzido pela <b>Carol</b>, especialista em equipe de clínica popular: a linguagem do público C e D, que faltou na mentoria anterior.</p>
   </div>
+</section>
+
+<!-- FASE 2b · O FUNIL -->
+<section class="slide">
+  <div class="eyebrow">Fase 2 · o cálculo</div>
+  <h2>Quanto dá para recuperar dos R$ 150 mil</h2>
+  <p class="sub">Nenhuma retomada converte tudo. Perde-se em cada etapa, e é honesto mostrar onde — <b>este é o cenário conservador</b>.</p>
+  <div class="funil">
+    <div class="fase-f">
+      <div class="rot">Propostas em aberto<span class="ok">base total no sistema</span></div>
+      <div class="fbar"><div class="fseg" style="width:100%"></div></div>
+      <div class="fval">R$ 150.000</div>
+    </div>
+    <div class="fase-f">
+      <div class="rot">Contato utilizável<span>−30% · antigos, duplicados, sem telefone válido</span></div>
+      <div class="fbar"><div class="fseg" style="width:70%"></div></div>
+      <div class="fval">R$ 105.000</div>
+    </div>
+    <div class="fase-f">
+      <div class="rot">Respondem<span>−65% · taxa de resposta na retomada</span></div>
+      <div class="fbar"><div class="fseg" style="width:36%"></div></div>
+      <div class="fval">R$ 36.750</div>
+    </div>
+    <div class="fase-f">
+      <div class="rot">Agendam<span>−45% · dos que responderam</span></div>
+      <div class="fbar"><div class="fseg" style="width:24%"></div></div>
+      <div class="fval">R$ 20.200</div>
+    </div>
+    <div class="fase-f">
+      <div class="rot">Comparecem<span>−20% · no-show</span></div>
+      <div class="fbar"><div class="fseg" style="width:19%"></div></div>
+      <div class="fval">R$ 16.200</div>
+    </div>
+    <p class="nota">As porcentagens são <b>premissas conservadoras</b>, calibradas com os dados reais logo na primeira semana. Num cenário melhor — contato mais recente e taxa de resposta maior — o número chega perto dos <b>R$ 30 mil</b> que conversamos na reunião.</p>
+  </div>
+  <div class="notebar">Mesmo no piso, <b>R$ 16 mil</b> recuperados do estoque já pagam o projeto inteiro. E a régua não morre aqui: ela passa a valer para <b>toda proposta nova</b> que entrar daqui pra frente.</div>
 </section>
 
 <!-- 11 O QUE FICA DE FORA -->
@@ -917,7 +984,7 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
     </div>
     <div class="seta"><span>→</span></div>
     <div class="adcol depois">
-      <div class="adt">Em 30 dias úteis</div>
+      <div class="adt">Em 45 dias úteis</div>
       <div class="lin"><div class="lk">Primeira resposta</div><div class="lv"><b>Automática, em segundos</b></div></div>
       <div class="lin"><div class="lk">Propostas abertas</div><div class="lv">Fila <b>trabalhada com cadência</b>, com conversão medida</div></div>
       <div class="lin"><div class="lk">Equipe</div><div class="lv">Treinada, com <b>roteiro escrito</b> que fica na clínica</div></div>
@@ -932,7 +999,7 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   <div class="eyebrow">Investimento</div>
   <h2>Valor e forma de pagamento</h2>
   <div class="pricecard">
-    <span class="tag">Estruturação comercial · 30 dias úteis</span>
+    <span class="tag">Estruturação comercial · 45 dias úteis</span>
     <div class="total">R$ 12.900</div>
     <div class="pricerow">
       <div class="pbox"><div class="pn">À vista no Pix</div><div class="pl">Libera o kickoff e toda a Fase 1</div></div>
@@ -948,10 +1015,10 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   <div class="porque">
     <span class="pql">Em quanto tempo se paga</span>
     <div class="contas">
-      <div class="conta oport"><b>R$ 30 mil/mês</b> é o que sai de converter 20% dos R$ 150 mil em propostas abertas — a conta conservadora que fizemos juntos.</div>
+      <div class="conta oport"><b>R$ 16 mil</b> é o piso da recuperação da base, pelo funil da Parte 2. No cenário melhor, chega perto dos <b>R$ 30 mil</b> que conversamos na reunião.</div>
       <div class="conta oport"><b>R$ 28 mil/mês</b> é o buraco entre receita e custo hoje. A recuperação da base sozinha já o cobre.</div>
     </div>
-    <p class="punchmini">A um ritmo de R$ 30 mil por mês recuperados, o projeto inteiro se paga em <b>menos de duas semanas</b> de fila trabalhada.</p>
+    <p class="punchmini">Mesmo no piso do funil, a recuperação da base <b>paga o projeto inteiro</b> — e a régua continua valendo para toda proposta que entrar depois.</p>
   </div>
 </section>
 
@@ -961,9 +1028,9 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   <div class="eyebrow">Resumo do projeto</div>
   <h2>O projeto em uma tela</h2>
   <div class="resumo">
-    <div class="rline"><div class="rk">O que é</div><div class="rv">Estruturação <b>comercial</b> da clínica: atendimento rápido, cadência da base e equipe treinada para vender.</div></div>
+    <div class="rline"><div class="rk">O que é</div><div class="rv">Estruturação <b>comercial</b> da clínica: atendimento rápido, cadência da base e <b>padronização de roteiro</b> — treinamento da vaga, não da pessoa.</div></div>
     <div class="rline"><div class="rk">O que não é</div><div class="rv">Não é tráfego, conteúdo, site ou posicionamento. Esses entram depois, se e quando fizerem sentido.</div></div>
-    <div class="rline"><div class="rk">Prazo</div><div class="rv"><b>30 dias úteis</b>, em duas fases, com entrega medida a cada quinzena.</div></div>
+    <div class="rline"><div class="rk">Prazo</div><div class="rv"><b>45 dias úteis</b>, em duas fases, com entrega medida a cada quinzena.</div></div>
     <div class="rline"><div class="rk">Quem faz</div><div class="rv"><b>Quatro pessoas</b> da ClintIA. O Lohan segue com o tráfego.</div></div>
     <div class="rline"><div class="rk">Investimento</div><div class="rv"><b>R$ 12.900</b> à vista no Pix · <b>R$ 1.900/mês</b> de acompanhamento opcional a partir do 2º mês.</div></div>
     <div class="rline"><div class="rk">O próximo passo</div><div class="rv">Definir a <b>data do kickoff</b> e quem responde pelo projeto do seu lado.</div></div>
@@ -974,7 +1041,7 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
 <div class="chrome">
   <img class="logo" src="data:image/webp;base64,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" alt="ClintIA">
   <div class="progress"><div class="pf" id="pf"></div></div>
-  <span class="counter" id="counter">1/19</span>
+  <span class="counter" id="counter">1/20</span>
   <button class="navbtn" id="prev" aria-label="Anterior">&#8249;</button>
   <button class="navbtn" id="next" aria-label="Próximo">&#8250;</button>
 </div>
