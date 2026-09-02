@@ -635,6 +635,48 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   .fval{min-width:70px;font-size:11.5px;}
 }
 
+/* ── numeros grandes em cartao ──
+   O CSS base tem .kpi, mas com numero pequeno (12-21px). Este e o de destaque. */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(9px,calc(.95*var(--u)),16px);
+  margin-top:clamp(16px,calc(1.7*var(--u)),28px);}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:15px;
+  padding:clamp(15px,calc(1.55*var(--u)),25px);box-shadow:0 2px 10px rgba(5,30,50,.05);}
+.stat.hi{background:linear-gradient(140deg,#eef8ff,#e4f2fd);border-color:#c3e2f7;}
+.stat .n{font-size:clamp(26px,calc(2.6*var(--u)),46px);font-weight:900;color:var(--oxford);
+  letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums;}
+.stat.hi .n{color:var(--celtic);}
+.stat .n span{font-size:clamp(13px,calc(1.26*var(--u)),22px);font-weight:700;color:var(--muted);
+  letter-spacing:0;}
+.stat .l{font-size:clamp(11.8px,calc(1.14*var(--u)),20px);color:var(--muted);margin-top:clamp(7px,calc(.75*var(--u)),13px);
+  line-height:1.5;font-weight:500;}
+.stat .l b{color:var(--ink);font-weight:700;}
+.darkslide .stat{background:rgba(255,255,255,.06);border-color:rgba(5,210,255,.26);box-shadow:none;}
+.darkslide .stat .n{color:#fff;} .darkslide .stat.hi .n{color:var(--sky);}
+.darkslide .stat .l{color:#b9d2e6;}
+@media(max-width:820px){
+  .stats{grid-template-columns:1fr;gap:8px;}
+  .stat{display:flex;align-items:baseline;gap:11px;padding:13px 15px;}
+  .stat .n{font-size:22px;flex:0 0 auto;}
+  .stat .l{margin-top:0;font-size:12.8px;}
+}
+
+/* ── cartao de texto simples ──
+   Tambem faltava no CSS base (la existe a variavel --card, nao a classe). */
+.card{background:var(--card);border:1px solid var(--line);border-radius:15px;
+  padding:clamp(15px,calc(1.6*var(--u)),26px);box-shadow:0 2px 10px rgba(5,30,50,.05);
+  margin-top:clamp(12px,calc(1.25*var(--u)),22px);}
+.card h3{font-size:clamp(14.5px,calc(1.41*var(--u)),25px);font-weight:900;color:var(--oxford);
+  margin-bottom:clamp(7px,calc(.75*var(--u)),13px);letter-spacing:-.01em;}
+.card p{font-size:clamp(12.3px,calc(1.19*var(--u)),21px);color:var(--ink-soft);line-height:1.6;
+  margin-bottom:clamp(7px,calc(.75*var(--u)),13px);font-weight:500;}
+.card p:last-child{margin-bottom:0;}
+.card p b{color:var(--ink);font-weight:800;}
+.darkslide .card{background:rgba(255,255,255,.06);border-color:rgba(5,210,255,.26);box-shadow:none;}
+.darkslide .card h3{color:#fff;}
+.darkslide .card p{color:#b9d2e6;}
+.darkslide .card p b{color:#fff;}
+@media(max-width:820px){.card{padding:14px 16px;}}
+
 </style>
 </head>
 <body>
@@ -829,7 +871,7 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
 <section class="slide">
   <div class="eyebrow">Fase 2 · o cálculo</div>
   <h2>Quanto dá para recuperar dos R$ 150 mil</h2>
-  <p class="sub">Nenhuma retomada converte tudo. Perde-se em cada etapa, e é honesto mostrar onde — <b>este é o cenário conservador</b>.</p>
+  <p class="sub">Nenhuma retomada converte tudo. Perde-se em cada etapa, e é honesto mostrar onde.</p>
   <div class="funil">
     <div class="fase-f">
       <div class="rot">Propostas em aberto<span class="ok">base total no sistema</span></div>
@@ -837,31 +879,50 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
       <div class="fval">R$ 150.000</div>
     </div>
     <div class="fase-f">
-      <div class="rot">Contato utilizável<span>−30% · antigos, duplicados, sem telefone válido</span></div>
-      <div class="fbar"><div class="fseg" style="width:70%"></div></div>
-      <div class="fval">R$ 105.000</div>
+      <div class="rot">Contato utilizável<span>−15% · duplicados e sem telefone válido</span></div>
+      <div class="fbar"><div class="fseg" style="width:85%"></div></div>
+      <div class="fval">R$ 127.500</div>
     </div>
     <div class="fase-f">
-      <div class="rot">Respondem<span>−65% · taxa de resposta na retomada</span></div>
-      <div class="fbar"><div class="fseg" style="width:36%"></div></div>
-      <div class="fval">R$ 36.750</div>
+      <div class="rot">Respondem<span>−55% · ao longo da cadência, não num toque só</span></div>
+      <div class="fbar"><div class="fseg" style="width:38%"></div></div>
+      <div class="fval">R$ 57.400</div>
     </div>
     <div class="fase-f">
       <div class="rot">Agendam<span>−45% · dos que responderam</span></div>
-      <div class="fbar"><div class="fseg" style="width:24%"></div></div>
-      <div class="fval">R$ 20.200</div>
+      <div class="fbar"><div class="fseg" style="width:21%"></div></div>
+      <div class="fval">R$ 31.600</div>
     </div>
     <div class="fase-f">
-      <div class="rot">Comparecem<span>−20% · no-show</span></div>
-      <div class="fbar"><div class="fseg" style="width:19%"></div></div>
-      <div class="fval">R$ 16.200</div>
+      <div class="rot">Comparecem<span>−15% · com régua de confirmação</span></div>
+      <div class="fbar"><div class="fseg" style="width:18%"></div></div>
+      <div class="fval">R$ 26.800</div>
     </div>
-    <p class="nota">As porcentagens são <b>premissas conservadoras</b>, calibradas com os dados reais logo na primeira semana. Num cenário melhor — contato mais recente e taxa de resposta maior — o número chega perto dos <b>R$ 30 mil</b> que conversamos na reunião.</p>
+    <p class="nota">Por que essas taxas: em prospecção <b>fria</b>, a régua de mercado é 10 contatos para 3 respostas e 1 fechamento. Aqui a base é <b>morna</b> — o paciente já procurou vocês e já recebeu preço —, e a cadência dá <b>vários toques</b>, não um. Por isso a resposta acumulada é maior. As porcentagens são calibradas com os dados reais na primeira semana.</p>
   </div>
-  <div class="notebar">Mesmo no piso, <b>R$ 16 mil</b> recuperados do estoque já pagam o projeto inteiro. E a régua não morre aqui: ela passa a valer para <b>toda proposta nova</b> que entrar daqui pra frente.</div>
+  <div class="notebar">São <b>R$ 26,8 mil</b> recuperados de dinheiro que já está dentro de casa — perto dos R$ 30 mil que conversamos na reunião. E a régua não morre aqui: passa a valer para <b>toda proposta nova</b>.</div>
 </section>
 
-<!-- 11 O QUE FICA DE FORA -->
+<!-- FASE 2c · A META DIÁRIA -->
+<section class="slide">
+  <div class="eyebrow">Fase 2 · a rotina</div>
+  <h2>O número que faz isso acontecer</h2>
+  <p class="sub">Retomada não é campanha, é <b>rotina diária</b>. Sem um número na parede, ela acontece só quando sobra tempo — que foi exatamente o que travou até agora.</p>
+  <div class="stats">
+    <div class="stat hi"><div class="n">30<span> contatos</span></div><div class="l">por dia, de retomada ativa — a meta que a equipe passa a ter</div></div>
+    <div class="stat"><div class="n">~9</div><div class="l">respondem, na régua de mercado de prospecção</div></div>
+    <div class="stat"><div class="n">2 a 3</div><div class="l">fecham por dia, com o processo rodando</div></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3>Como o treinamento acontece — três encontros, não um</h3>
+    <p><b>1 · Entender a rotina.</b> Conversa com quem está na ponta, para mapear como o dia funciona de verdade antes de propor qualquer mudança.</p>
+    <p><b>2 · Encontro com a equipe.</b> Alinhamento com Fernanda, Kauan e a recepção — o time participa da construção, não recebe ordem pronta.</p>
+    <p><b>3 · O treinamento.</b> Já em cima da rotina real, com o material de apoio na mão.</p>
+  </div>
+  <div class="notebar">Esses números não são promessa: são a <b>régua de trabalho</b> que a Carol usa com equipe de clínica popular. Viram meta da recepção e entram no painel — assim dá para saber, todo dia, se a rotina aconteceu ou não.</div>
+</section>
+
+<!-- O QUE FICA DE FORA -->
 <section class="slide">
   <div class="eyebrow">Escopo</div>
   <h2>O que não está incluído — e por quê</h2>
@@ -928,10 +989,10 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   <h2>O time que vai executar</h2>
   <p class="sub">Time enxuto e específico para este escopo — não é a equipe inteira da agência alocada para inflar a proposta.</p>
   <div class="time">
-    <div class="tp"><div class="ini">BC</div><div class="tinfo"><h4>Bernardo Carneiro</h4><div class="role">Direção</div><p>Desenho do fluxo de cadência, indicadores e as reuniões de resultado com você.</p></div></div>
-    <div class="tp"><div class="ini">CA</div><div class="tinfo"><h4>Carol</h4><div class="role">Treinamento comercial</div><p>Treina a recepção com a linguagem do público de clínica popular. Roteiro, objeção e fechamento.</p></div></div>
+    <div class="tp"><div class="ini">BC</div><div class="tinfo"><h4>Bernardo Carneiro</h4><div class="role">Direção</div><p>Desenho do fluxo de cadência, indicadores e as reuniões de resultado com você. Mais de 100 clínicas populares estruturadas.</p></div></div>
+    <div class="tp"><div class="ini">LF</div><div class="tinfo"><h4>Luizianna Faria</h4><div class="role">Liderança de gestão</div><p>Conduz a execução e o acompanhamento semanal. Gerencia a operação de todas as clínicas populares da casa — conhece a rotina de recepção desse mercado por dentro.</p></div></div>
+    <div class="tp"><div class="ini">CA</div><div class="tinfo"><h4>Carol</h4><div class="role">Treinamento comercial</div><p>Especialista em equipe de clínica popular. Treina a recepção na linguagem do público C e D: roteiro, objeção de preço e fechamento.</p></div></div>
     <div class="tp"><div class="ini">VT</div><div class="tinfo"><h4>Vitor</h4><div class="role">Automação</div><p>CRM, triagem do WhatsApp, follow-up automático e rastreamento.</p></div></div>
-    <div class="tp"><div class="ini">LF</div><div class="tinfo"><h4>Luizianna Faria</h4><div class="role">Operações</div><p>Conduz a execução e o acompanhamento semanal com a sua equipe.</p></div></div>
   </div>
   <div class="notebar">Você fala <b>com quem executa</b>. E o Lohan segue com o tráfego, conversando com a nossa equipe sobre o rastreamento.</div>
 </section>
@@ -1015,10 +1076,10 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   <div class="porque">
     <span class="pql">Em quanto tempo se paga</span>
     <div class="contas">
-      <div class="conta oport"><b>R$ 16 mil</b> é o piso da recuperação da base, pelo funil da Parte 2. No cenário melhor, chega perto dos <b>R$ 30 mil</b> que conversamos na reunião.</div>
+      <div class="conta oport"><b>R$ 26,8 mil</b> é a recuperação da base pelo funil da Parte 2 — perto dos R$ 30 mil que conversamos na reunião.</div>
       <div class="conta oport"><b>R$ 28 mil/mês</b> é o buraco entre receita e custo hoje. A recuperação da base sozinha já o cobre.</div>
     </div>
-    <p class="punchmini">Mesmo no piso do funil, a recuperação da base <b>paga o projeto inteiro</b> — e a régua continua valendo para toda proposta que entrar depois.</p>
+    <p class="punchmini">A recuperação da base <b>paga o projeto duas vezes</b> — e a régua continua valendo para toda proposta que entrar depois.</p>
   </div>
 </section>
 
@@ -1041,7 +1102,7 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
 <div class="chrome">
   <img class="logo" src="data:image/webp;base64,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" alt="ClintIA">
   <div class="progress"><div class="pf" id="pf"></div></div>
-  <span class="counter" id="counter">1/20</span>
+  <span class="counter" id="counter">1/21</span>
   <button class="navbtn" id="prev" aria-label="Anterior">&#8249;</button>
   <button class="navbtn" id="next" aria-label="Próximo">&#8250;</button>
 </div>
