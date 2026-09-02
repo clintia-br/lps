@@ -578,6 +578,32 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   .quote p{font-size:16px;}
 }
 
+/* ── lista numerada em cartao (premissas, escopo excluido) ──
+   NAO existe no CSS base do Mais Vida: os decks usavam a classe sem ela
+   estar definida, e os cartoes saiam sem fundo, sem borda e sem recuo. */
+.conc{margin-top:clamp(16px,calc(1.7*var(--u)),28px);display:grid;grid-template-columns:1fr;
+  gap:clamp(9px,calc(.95*var(--u)),16px);max-width:1000px;}
+.citem{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:clamp(14px,calc(1.45*var(--u)),23px) clamp(16px,calc(1.7*var(--u)),26px)
+          clamp(13px,calc(1.35*var(--u)),21px) clamp(50px,calc(5*var(--u)),84px);
+  position:relative;box-shadow:0 2px 10px rgba(5,30,50,.05);}
+.citem .cn{position:absolute;left:clamp(16px,calc(1.7*var(--u)),28px);top:clamp(13px,calc(1.35*var(--u)),22px);
+  font-size:clamp(16px,calc(1.55*var(--u)),27px);font-weight:900;color:var(--dodger);
+  font-variant-numeric:tabular-nums;line-height:1;}
+.citem h3{font-size:clamp(14.5px,calc(1.41*var(--u)),25px);font-weight:900;color:var(--oxford);
+  margin-bottom:4px;letter-spacing:-.01em;line-height:1.25;}
+.citem p{font-size:clamp(12.3px,calc(1.19*var(--u)),21px);color:var(--muted);font-weight:500;line-height:1.6;}
+.citem p b{color:var(--ink);font-weight:700;}
+.darkslide .citem{background:rgba(255,255,255,.06);border-color:rgba(5,210,255,.26);box-shadow:none;}
+.darkslide .citem h3{color:#fff;}
+.darkslide .citem p{color:#b9d2e6;}
+.darkslide .citem p b{color:#fff;}
+.darkslide .citem .cn{color:var(--sky);}
+@media(max-width:820px){
+  .citem{padding:13px 15px 12px 44px;}
+  .citem .cn{left:14px;top:12px;font-size:15px;}
+}
+
 </style>
 </head>
 <body>
