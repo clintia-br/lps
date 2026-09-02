@@ -86,11 +86,49 @@ b{font-weight:700;color:var(--ink)}
 .conf{display:inline-block;font-size:10px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;
   background:var(--ok-bg);color:var(--ok);border-radius:20px;padding:3px 9px;margin-left:6px;vertical-align:middle}
 
+
+.ativo{background:var(--surface);border:1px solid var(--line);border-radius:15px;
+  padding:18px 20px;box-shadow:var(--shadow);margin-bottom:11px;display:flex;gap:16px;align-items:flex-start}
+.ativo .peso{flex:0 0 auto;font-size:10px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;
+  border-radius:20px;padding:5px 11px;white-space:nowrap;margin-top:2px}
+.ativo .peso.alto{background:var(--ok-bg);color:var(--ok)}
+.ativo .peso.medio{background:rgba(5,120,220,.09);color:var(--dodger)}
+.ativo .peso.apoio{background:var(--surface-2);color:var(--muted)}
+.ativo .corpo{min-width:0}
+.ativo h3{font-size:15.5px;font-weight:900;margin:0 0 6px;letter-spacing:-.01em}
+.ativo p{margin:0 0 7px;font-size:14px;color:var(--ink-soft);line-height:1.55}
+.ativo p:last-child{margin-bottom:0}
+.ativo .pq{background:var(--surface-2);border-radius:9px;padding:9px 12px;margin-top:9px;font-size:13.2px;color:var(--ink);line-height:1.5}
+.ativo .pq b{color:var(--celtic)}
+
+.oferta{background:var(--surface);border:2px solid var(--dodger);border-radius:16px;
+  padding:20px 22px;box-shadow:var(--shadow);margin-bottom:12px}
+.oferta .ot{font-size:10.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--dodger);margin-bottom:7px}
+.oferta h3{font-size:17px;font-weight:900;margin:0 0 9px;letter-spacing:-.015em}
+.oferta p{margin:0 0 9px;font-size:14.2px;color:var(--ink-soft);line-height:1.55}
+.oferta p:last-child{margin-bottom:0}
+.oferta .linhas{margin-top:12px}
+.oferta .of{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-top:1px solid var(--line);align-items:baseline}
+.oferta .of:first-child{border-top:none}
+.oferta .ofn{font-size:14px;font-weight:700;color:var(--ink)}
+.oferta .ofv{font-size:13.5px;color:var(--muted);font-weight:600;text-align:right}
+
+.foco{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.fc{border-radius:14px;padding:17px 19px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.fc h4{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px}
+.fc.sim h4{color:var(--ok)} .fc.nao h4{color:#B4432A}
+.fc ul{margin:0;padding-left:18px}
+.fc li{font-size:13.8px;color:var(--ink-soft);padding:4px 0;line-height:1.5}
+.fc li b{color:var(--ink)}
 footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
   font-size:11.5px;color:var(--muted);text-align:center;line-height:1.7}
 @media(max-width:640px){
   .wrap{padding:24px 15px 60px}
-  .stats,.regua{grid-template-columns:1fr;gap:9px}
+  .stats,.regua,.foco{grid-template-columns:1fr;gap:9px}
+  .ativo{flex-direction:column;gap:9px;padding:16px 17px}
+  .oferta{padding:16px 17px}
+  .oferta .of{flex-direction:column;gap:2px}
+  .oferta .ofv{text-align:left}
   .card,.persona{padding:16px 17px}
   .promessa{padding:18px 19px}
 }
@@ -125,8 +163,114 @@ footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
   </div>
 </section>
 
+
 <section>
-  <div class="k">02 · Os dois públicos</div>
+  <div class="k">02 · O ativo</div>
+  <h2>O que a RD tem que a concorrência não tem</h2>
+  <p class="lead">Antes de decidir com quem falar, é preciso saber o que se tem na mão. Este inventário separa o que é <b>diferencial de verdade</b> do que é obrigação de qualquer clínica.</p>
+
+  <div class="ativo">
+    <span class="peso alto">Diferencial nº 1</span>
+    <div class="corpo">
+      <h3>Especialidades que a cidade não tem</h3>
+      <p>Mais de 20 especialidades disponíveis por telemedicina, num município onde o paciente hoje precisa <b>viajar até São Luís</b> para ver um especialista.</p>
+      <div class="pq"><b>Por que é o mais forte:</b> resolve uma dor cara e concreta — deslocamento, dia de trabalho perdido, acompanhante. E a clínica de esquina <b>não copia</b>: exige infraestrutura, não só preço.</div>
+    </div>
+  </div>
+
+  <div class="ativo">
+    <span class="peso alto">Diferencial nº 2</span>
+    <div class="corpo">
+      <h3>Teleconsulta com alguém do lado</h3>
+      <p>A sala onde o paciente é atendido por tela <b>com um profissional acompanhando</b>. Não é entregar um aplicativo e desejar boa sorte.</p>
+      <div class="pq"><b>Por que importa:</b> é a resposta pronta para a maior objeção do público — "não sei mexer" e "não confio em médico por tela". Transforma o ponto fraco da telemedicina em prova de cuidado.</div>
+    </div>
+  </div>
+
+  <div class="ativo">
+    <span class="peso medio">Diferencial nº 3</span>
+    <div class="corpo">
+      <h3>Consulta e exame no mesmo lugar</h3>
+      <p>O paciente não sai da consulta com um papel na mão e um segundo problema para resolver.</p>
+      <div class="pq"><b>Efeito no negócio:</b> aumenta o valor por paciente e reduz a perda entre a consulta e o exame — que é onde a receita costuma escapar.</div>
+    </div>
+  </div>
+
+  <div class="ativo">
+    <span class="peso apoio">Sustentação</span>
+    <div class="corpo">
+      <h3>Estrutura nova e donos presentes</h3>
+      <p>Clínica aberta em junho de 2026, com investimento real em estrutura. A Raimunda tem <b>10 anos como secretária municipal de saúde</b> — credibilidade local que não se compra.</p>
+      <div class="pq">Não abre venda sozinho, mas <b>sustenta a confiança</b> depois que o interesse já existe. Entra como prova, não como chamada.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="k">03 · A oferta</div>
+  <h2>Como isso vira algo que se vende</h2>
+  <p class="lead">Diferencial que não está empacotado não vende. Este é o esqueleto da oferta que sai da Fase 1 — os valores entram depois, com os números reais da operação.</p>
+
+  <div class="oferta">
+    <div class="ot">Oferta de entrada · Coroatá</div>
+    <h3>A consulta com o especialista, aqui</h3>
+    <p>A porta de entrada não é "telemedicina". É <b>o especialista</b>. A tecnologia é como se entrega, não o que se vende.</p>
+    <div class="linhas">
+      <div class="of"><span class="ofn">O que o paciente compra</span><span class="ofv">acesso ao especialista sem sair da cidade</span></div>
+      <div class="of"><span class="ofn">Como é entregue</span><span class="ofv">teleconsulta na clínica, com acompanhamento</span></div>
+      <div class="of"><span class="ofn">O que remove a objeção</span><span class="ofv">tem gente do lado dele o tempo todo</span></div>
+      <div class="of"><span class="ofn">Preço</span><span class="ofv">a definir com os números de vocês <span class="hip">a apurar</span></span></div>
+    </div>
+  </div>
+
+  <div class="oferta" style="border-color:var(--line)">
+    <div class="ot">Ampliação de valor</div>
+    <h3>Consulta e exame no mesmo dia</h3>
+    <p>Combinar o que já existe numa oferta só, resolvendo a jornada inteira em uma ida à clínica. Aumenta o ticket <b>sem aumentar o custo de aquisição</b>.</p>
+    <div class="linhas">
+      <div class="of"><span class="ofn">Para quem</span><span class="ofv">quem já vem por queixa que pede exame</span></div>
+      <div class="of"><span class="ofn">O argumento</span><span class="ofv">resolver tudo numa viagem só</span></div>
+    </div>
+  </div>
+
+  <div class="oferta" style="border-color:var(--line)">
+    <div class="ot">Frente 2 · recorrência</div>
+    <h3>O acesso digital por assinatura</h3>
+    <p>Aqui a lógica se inverte: não se vende consulta, vende-se <b>tranquilidade mensal</b>. É outro produto, outro público e outra página — por isso é a Fase 3 do projeto.</p>
+    <div class="linhas">
+      <div class="of"><span class="ofn">O que compra</span><span class="ofv">médico no celular sem perder o dia de trabalho</span></div>
+      <div class="of"><span class="ofn">Contra o que compete</span><span class="ofv">plano tradicional, que ele acha caro demais</span></div>
+      <div class="of"><span class="ofn">Enquadramento</span><span class="ofv">definido por vocês antes de qualquer peça <span class="hip">jurídico</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="k">04 · O que valorizar</div>
+  <h2>Onde colocar o peso da comunicação</h2>
+  <p class="lead">Todo diferencial acima é verdadeiro. Mas nem todos merecem o mesmo espaço — e alguns, ditos primeiro, atrapalham.</p>
+  <div class="foco">
+    <div class="fc sim"><h4>&#10003; Colocar na frente</h4><ul>
+      <li><b>O especialista</b> que a cidade não tem</li>
+      <li><b>Não precisar viajar</b> — economia de tempo e dinheiro</li>
+      <li><b>Alguém acompanhando</b> a consulta</li>
+      <li><b>Exame no mesmo lugar</b></li>
+      <li><b>Preço</b>, com clareza</li>
+    </ul></div>
+    <div class="fc nao"><h4>&#10007; Deixar para depois</h4><ul>
+      <li><b>"Telemedicina"</b> como primeira palavra — gera objeção antes de gerar interesse</li>
+      <li><b>"Mais de 20 especialidades"</b> como número — o paciente quer a dele, não a lista</li>
+      <li><b>"Estrutura moderna"</b> — sustenta, mas não abre</li>
+      <li><b>"Atendimento humanizado"</b> — todo concorrente já diz</li>
+    </ul></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <p><b>A regra por trás disso:</b> o paciente não compra a tecnologia, compra o <b>resultado que ela permite</b>. Falar em telemedicina primeiro obriga ele a vencer uma desconfiança antes de entender o benefício. Falar no especialista primeiro faz ele querer — e aí a telemedicina vira a boa notícia de como aquilo é possível.</p>
+  </div>
+</section>
+
+<section>
+  <div class="k">05 · Os dois públicos</div>
   <h2>Quem compra em cada frente</h2>
   <p class="lead">O ponto central do DPV: são pessoas diferentes, com decisões diferentes. Hoje ambas recebem a mesma peça.</p>
 
@@ -150,7 +294,7 @@ footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
 </section>
 
 <section>
-  <div class="k">03 · A promessa</div>
+  <div class="k">06 · A promessa</div>
   <h2>A frase que cada frente carrega</h2>
   <p class="lead">Rascunho do que sai da Fase 1 — o DPV final testa e refina cada uma com o público real.</p>
 
@@ -168,7 +312,7 @@ footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
 </section>
 
 <section>
-  <div class="k">04 · Régua de linguagem</div>
+  <div class="k">07 · Régua de linguagem</div>
   <h2>O que dizer e o que evitar</h2>
   <p class="lead">Vale para anúncio, página, Instagram e para o roteiro de quem atende no balcão.</p>
   <div class="regua">
@@ -190,7 +334,7 @@ footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
 </section>
 
 <section>
-  <div class="k">05 · O que vem no documento final</div>
+  <div class="k">08 · O que vem no documento final</div>
   <h2>O DPV completo entrega</h2>
   <div class="card">
     <p><b>1.</b> Pesquisa de mercado das duas praças, com dados de renda, cobertura de plano e concorrência mapeada.</p>
