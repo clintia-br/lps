@@ -93,9 +93,26 @@ b{font-weight:700;color:var(--ink)}
 footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
   font-size:11.5px;color:var(--muted);text-align:center;line-height:1.7}
 @media(max-width:640px){
-  .wrap{padding:24px 15px 60px}
+  .wrap{padding:24px 16px 56px}
   .stats,.duo{grid-template-columns:1fr;gap:9px}
   .card,.col,.pessoa{padding:16px 17px}
+
+  /* numero e rotulo na mesma linha: economiza ~3 telas de rolagem */
+  .st{display:flex;align-items:baseline;gap:11px;padding:13px 15px}
+  .st .n{font-size:20px;flex:0 0 auto}
+  .st .l{margin-top:0;font-size:13px}
+
+  /* corpo um pouco maior — o documento e lido no celular */
+  .sub0{font-size:14.8px}
+  p.lead{font-size:14.8px}
+  .card p,.pessoa p,.col li,.tema p,.perg p{font-size:14.4px}
+  .col li{padding:5px 0}
+  .fala{font-size:14.4px;padding:13px 15px}
+  .aviso p{font-size:14.4px}
+  .tema{padding:14px 16px}
+  .perg{padding:14px 16px}
+  h1{font-size:29px}
+  .col ul,.card ul{padding-left:17px}
 }
 </style>
 </head>
