@@ -121,13 +121,26 @@ h3{font-size:16.5px; font-weight:800; margin:0 0 8px; letter-spacing:-.012em; co
 .card p:last-child{margin-bottom:0}
 .card p.dim{color:var(--muted)}
 
-.sel{display:inline-flex; align-items:center; gap:5px; font-size:9.8px; font-weight:800;
-  letter-spacing:.09em; text-transform:uppercase; border-radius:100px; padding:4px 10px;
-  vertical-align:middle; margin-left:7px; white-space:nowrap}
+/* line-height:1 e obrigatorio. Sem ele o selo herda o 1.62 do body, fica com ~26px
+   de altura dentro de uma linha de ~23px e encavala no texto quando o paragrafo quebra. */
+.sel{display:inline-flex; align-items:center; gap:5px; line-height:1;
+  font-size:9.8px; font-weight:800; letter-spacing:.09em; text-transform:uppercase;
+  border-radius:100px; padding:4px 10px; vertical-align:middle; white-space:nowrap}
 .sel.ok{background:var(--ok-bg); color:var(--ok); border:1px solid var(--ok-line)}
 .sel.hip{background:var(--warn-bg); color:var(--warn); border:1px solid var(--warn-line)}
 .sel svg{width:10px; height:10px; stroke:currentColor; fill:none; stroke-width:2.6;
-  stroke-linecap:round; stroke-linejoin:round}
+  stroke-linecap:round; stroke-linejoin:round; flex:0 0 auto}
+h3 .sel{margin-left:7px}
+
+/* selo em linha propria — evita selo no meio de paragrafo longo */
+.selrow{display:flex; flex-wrap:wrap; gap:7px; margin:0 0 18px}
+
+/* bloco de hipotese: o selo vira rotulo em cima, nao fica solto no texto */
+.hipnota{background:var(--warn-bg); border:1px solid var(--warn-line);
+  border-radius:12px; padding:14px 17px; margin-top:12px}
+.hipnota .sel{margin-bottom:8px}
+.hipnota p{margin:0; font-size:14px; color:#6E4A0C; line-height:1.6}
+.hipnota p b{color:#4A3208}
 
 .canal{display:flex; gap:16px; align-items:flex-start; background:var(--paper);
   border:1px solid var(--line); border-radius:var(--radius); padding:19px 21px;
@@ -234,8 +247,13 @@ h3{font-size:16.5px; font-weight:800; margin:0 0 8px; letter-spacing:-.012em; co
 .pn:hover{border-color:var(--dodger); box-shadow:var(--shadow); transform:translateY(-1px)}
 .pn[hidden]{display:none}
 .pn.next{justify-content:flex-end; text-align:right}
-.pn .d{font-size:9.6px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; color:var(--faint)}
-.pn .tt{font-size:13.6px; font-weight:700; color:var(--oxford); line-height:1.35; margin-top:2px}
+/* display:block e obrigatorio nos dois: sao <span>, e span inline ignora
+   margin vertical -- rotulo e titulo saiam na MESMA linha, encavalados. */
+.pn > span{min-width:0}
+.pn .d{display:block; font-size:9.6px; font-weight:800; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--faint); line-height:1.3}
+.pn .tt{display:block; font-size:13.6px; font-weight:700; color:var(--oxford);
+  line-height:1.35; margin-top:3px}
 .pn svg{width:16px; height:16px; stroke:var(--dodger); fill:none; stroke-width:2.2;
   stroke-linecap:round; stroke-linejoin:round; flex:0 0 auto}
 
@@ -351,7 +369,8 @@ footer{margin-top:34px; font-size:11.6px; color:var(--faint); text-align:center;
   </div>
 <div class="pnav"><button class="pn prev" data-ir="inicio" type="button"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg><span><span class="d">Anterior</span><span class="tt">Início</span></span></button><button class="pn next" data-ir="base" type="button"><span><span class="d">Próxima</span><span class="tt">O tamanho da base</span></span><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></section>
 <section id="base"><div class="passo">Seção 03 de 10</div><div class="sechead"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h2>O tamanho da base, por porte</h2></div>
-  <p class="sub">Levantamento das operações reais da carteira ClintIA e de reuniões gravadas. É a resposta para "quanto vale uma parceria" — e o contraste com o crescimento um a um. <span class="sel ok"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg> Apurado</span></p>
+  <p class="sub">Levantamento das operações reais da carteira ClintIA e de reuniões gravadas. É a resposta para "quanto vale uma parceria" — e o contraste com o crescimento um a um.</p>
+  <div class="selrow"><span class="sel ok"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg> Apurado</span></div>
   <div class="chart">
     <div class="bar zero">
       <div class="barhead"><div class="barname">Life Wallet hoje<span>friends &amp; family, sem tráfego pago</span></div><div class="barval">187</div></div>
@@ -464,7 +483,9 @@ footer{margin-top:34px; font-size:11.6px; color:var(--faint); text-align:center;
   <div class="card">
     <p><b>O artefato desse mercado é a carteirinha.</b> No cartão benefício, o que o assinante recebe e guarda é um cartão físico. É o símbolo do produto.</p>
     <p>"Life Wallet" já significa <b>carteira</b>. A ponte é natural, e reposiciona o produto em três segundos para esse público: não é "mais um app de saúde", é <b>a carteirinha inteligente do cartão</b> — a versão do artefato que eles já conhecem, com o histórico dentro.</p>
-    <p><span class="sel hip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.2v.1"/></svg> Hipótese</span> Não é proposta de trocar o nome da empresa. É um <b>enquadramento de comunicação</b> para o canal B2B, que pode conviver com a marca atual — do mesmo jeito que o B2C continua com o tom de estilo de vida.</p>
+  </div>
+  <div class="hipnota"><span class="sel hip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.2v.1"/></svg> Hipótese</span>
+    <p>Não é proposta de trocar o nome da empresa. É um <b>enquadramento de comunicação</b> para o canal B2B, que pode conviver com a marca atual — do mesmo jeito que o B2C continua com o tom de estilo de vida.</p>
   </div>
 <div class="pnav"><button class="pn prev" data-ir="cesta" type="button"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg><span><span class="d">Anterior</span><span class="tt">A lógica da cesta</span></span></button><button class="pn next" data-ir="dor" type="button"><span><span class="d">Próxima</span><span class="tt">Anatomia da dor</span></span><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></section>
 <section id="dor"><div class="passo">Seção 07 de 10</div><div class="sechead"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3 2.5 8 12 13l9.5-5L12 3Z"/><path d="M2.5 12.5 12 17.5l9.5-5M2.5 16.5 12 21.5l9.5-5"/></svg></span><h2>Anatomia da dor · as três camadas</h2></div>
@@ -547,7 +568,9 @@ footer{margin-top:34px; font-size:11.6px; color:var(--faint); text-align:center;
   <div class="card" style="margin-top:12px">
     <p><b>O ponto de tensão que o DPV resolve.</b> A "galinha dos ovos de ouro" de vocês é a base de dados. O ativo mais sensível do parceiro é a mesma base. Se a comunicação der a entender que o dado é a moeda do negócio, a conversa trava na diretoria dele — e trava exatamente com quem tem mais vidas para oferecer.</p>
     <p><b>Como se trata:</b> com uma resposta de uma frase, escrita, testada e igual na boca dos três sócios — o dado é do assinante, o parceiro vê o que o assinante compartilha, e nada é vendido a terceiros. Sem essa frase pronta, não se entra em reunião.</p>
-    <p><span class="sel hip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.2v.1"/></svg> Hipótese</span> A ClintIA escreve a comunicação e mapeia a objeção. O <b>parecer jurídico é de vocês</b>.</p>
+  </div>
+  <div class="hipnota"><span class="sel hip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.2v.1"/></svg> Hipótese</span>
+    <p>A ClintIA escreve a comunicação e mapeia a objeção. O <b>parecer jurídico é de vocês</b>.</p>
   </div>
 <div class="pnav"><button class="pn prev" data-ir="vocab" type="button"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg><span><span class="d">Anterior</span><span class="tt">Vocabulário estratégico</span></span></button><button class="pn next" data-ir="completo" type="button"><span><span class="d">Próxima</span><span class="tt">O DPV completo</span></span><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></section>
 <section id="completo"><div class="passo">Seção 10 de 10</div><div class="sechead"><span class="ico"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.6" cy="6" r="1.1"/><circle cx="3.6" cy="12" r="1.1"/><circle cx="3.6" cy="18" r="1.1"/></svg></span><h2>O que o DPV completo entrega</h2></div>
