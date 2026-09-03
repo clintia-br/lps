@@ -797,23 +797,28 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
    CELULAR
    ============================================================ */
 @media (max-width:900px){
-  /* --- legibilidade: nada de texto abaixo de 11px --- */
+  /* --- legibilidade: nada de texto abaixo de 11px ---
+     !important e necessario: o motor usa seletores de 2 niveis
+     (ex.: ".adcol .lk"), que ganham de um ".lk" simples. Media
+     query NAO soma especificidade, entao sem isto nada aplica. */
   .eyebrow{font-size:11px !important}
-  .lk{font-size:11px}
-  .ftag,.rtag{font-size:11px}
-  .quote .who{font-size:11.5px}
-  .en,.rk,.vt{font-size:11px}
-  .adt{font-size:11.5px}
-  .trein .tt{font-size:11px}
-  .pers .role,.tp .role{font-size:11.5px}
-  .dnum{font-size:12px}
-  .ttag{font-size:12px}
-  .dias,.datebadge{font-size:12px}
-  .lv{font-size:13.4px}
-  .notebar{font-size:13px}
-  .conta{font-size:12.5px}
-  .punchmini{font-size:13px}
-  .pql{font-size:11px}
+  .lk{font-size:11px !important}
+  .ftag,.rtag{font-size:11px !important}
+  .who{font-size:11.3px !important}
+  .en,.rk,.vt,.rl,.lbl{font-size:11px !important}
+  .gl,.gb{font-size:11px !important}
+  .gseg{font-size:10.5px !important}
+  .adt{font-size:11.5px !important}
+  .tt{font-size:11px !important}
+  .role{font-size:11.5px !important}
+  .dnum{font-size:12px !important}
+  .ttag{font-size:12px !important}
+  .dias,.datebadge{font-size:12px !important}
+  .lv{font-size:13.4px !important}
+  .notebar{font-size:13px !important}
+  .conta{font-size:12.5px !important}
+  .punchmini{font-size:13px !important}
+  .pql{font-size:11px !important}
 
   /* --- investimento --- */
   .planoum{padding:16px 17px}
@@ -843,6 +848,21 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   .adcol{padding:14px 15px}
   .lin{padding:8px 0}
   .linha .etapa{padding:13px 14px}
+
+  /* telas de fase: sao as que mais escondem conteudo no celular */
+  .split{gap:9px}
+  .spcol{padding:14px 15px}
+  .spcol h3{font-size:14.5px}
+  .spcol .who{margin-bottom:8px}
+  .spcol li{padding:5px 0 5px 19px !important; font-size:12.6px !important; line-height:1.45}
+  .trein,.treinduo{padding:13px 15px; margin-top:11px}
+  .trein p{font-size:12.6px}
+  .fluxo{gap:8px}
+  .raiz{padding:14px 15px}
+  .raiz p{font-size:12.6px}
+  .ent,.grupo{padding:12px 13px}
+  .sub{margin-bottom:11px}
+  .fasehead{margin-bottom:6px}
 
   /* --- area de toque --- */
   .navbtn{min-height:44px; min-width:44px}
