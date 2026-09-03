@@ -706,6 +706,65 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
 .navbtn.fsbtn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;
   stroke-linecap:round;stroke-linejoin:round}
 
+/* ---------- investimento: dois planos lado a lado ---------- */
+.planos{display:grid; grid-template-columns:1fr 1fr;
+  gap:clamp(10px,calc(1.1*var(--u)),19px); margin-top:clamp(12px,calc(1.3*var(--u)),22px)}
+.plano{background:var(--card); border:1px solid var(--line);
+  border-radius:clamp(13px,calc(1.3*var(--u)),20px);
+  padding:clamp(16px,calc(1.65*var(--u)),29px) clamp(17px,calc(1.75*var(--u)),31px);
+  display:flex; flex-direction:column}
+.plano.hi{border-color:#BFE0F6; background:linear-gradient(165deg,#F4FBFF,#fff 62%);
+  box-shadow:0 14px 34px -26px rgba(5,90,170,.55)}
+.plano .pcap{font-size:clamp(9.6px,calc(.95*var(--u)),16px); font-weight:800;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--muted);
+  margin-bottom:clamp(6px,calc(.6*var(--u)),11px)}
+.plano.hi .pcap{color:var(--dodger)}
+.plano .pval{font-size:clamp(30px,calc(3.05*var(--u)),56px); font-weight:900;
+  color:var(--oxford); letter-spacing:-.03em; line-height:1}
+.plano.hi .pval{color:var(--celtic)}
+.plano .pnote{font-size:clamp(11.6px,calc(1.13*var(--u)),20px); color:var(--muted);
+  font-weight:600; line-height:1.45; margin-top:clamp(6px,calc(.62*var(--u)),11px)}
+.inc{list-style:none; margin:clamp(13px,calc(1.35*var(--u)),24px) 0 0; padding:0;
+  border-top:1px solid var(--line); padding-top:clamp(11px,calc(1.15*var(--u)),20px)}
+.inc li{display:flex; gap:clamp(8px,calc(.8*var(--u)),14px);
+  padding:clamp(5px,calc(.52*var(--u)),9px) 0; align-items:flex-start}
+.inc li i{flex:0 0 auto; width:clamp(15px,calc(1.5*var(--u)),26px);
+  height:clamp(15px,calc(1.5*var(--u)),26px); border-radius:50%; background:#E3F4FD;
+  color:var(--dodger); display:flex; align-items:center; justify-content:center;
+  margin-top:clamp(1px,calc(.15*var(--u)),3px)}
+.inc li i svg{width:60%; height:60%; stroke:currentColor; fill:none; stroke-width:3;
+  stroke-linecap:round; stroke-linejoin:round}
+.inc li .txt{font-size:clamp(11.9px,calc(1.16*var(--u)),20.5px); font-weight:700;
+  color:var(--ink); line-height:1.4}
+.inc li .txt span{display:block; font-size:clamp(10.8px,calc(1.04*var(--u)),18px);
+  font-weight:500; color:var(--muted); margin-top:1px}
+.inc li.off i{background:#F0F3F6; color:var(--muted)}
+.inc li.off .txt{color:var(--muted)}
+.inc li.off .txt span{color:var(--muted); opacity:.8}
+
+/* ---------- faixa da recorrencia ---------- */
+.recfaixa{display:flex; align-items:center; gap:clamp(14px,calc(1.5*var(--u)),26px);
+  background:linear-gradient(135deg,var(--oxford),#0A3358);
+  border-radius:clamp(13px,calc(1.3*var(--u)),20px);
+  padding:clamp(15px,calc(1.55*var(--u)),27px) clamp(18px,calc(1.85*var(--u)),33px);
+  margin-top:clamp(11px,calc(1.15*var(--u)),20px)}
+.recfaixa .rl{flex:0 0 auto}
+.recfaixa .rt{font-size:clamp(9.4px,calc(.93*var(--u)),15.5px); font-weight:800;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--sky);
+  margin-bottom:clamp(3px,calc(.32*var(--u)),6px)}
+.recfaixa .rv{font-size:clamp(23px,calc(2.3*var(--u)),42px); font-weight:900; color:#fff;
+  letter-spacing:-.025em; line-height:1; white-space:nowrap}
+.recfaixa .rv span{font-size:clamp(12px,calc(1.18*var(--u)),21px); font-weight:700;
+  color:#9FC6E4; letter-spacing:0}
+.recfaixa p{margin:0; font-size:clamp(11.7px,calc(1.14*var(--u)),20px); color:#C6DCEC;
+  line-height:1.5; font-weight:500}
+.recfaixa p b{color:#fff; font-weight:700}
+
+@media (max-width:760px){
+  .planos{grid-template-columns:1fr}
+  .recfaixa{flex-direction:column; align-items:flex-start; gap:9px}
+}
+
 </style>
 </head>
 <body>
@@ -1087,29 +1146,41 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
 <!-- 20 INVESTIMENTO -->
 <section class="slide precos">
   <div class="eyebrow">Investimento</div>
-  <h2>Valor e composição</h2>
-  <div class="pricecard">
-    <span class="tag">Projeto completo</span>
-    <div class="total">R$ 14.900</div>
-    <div class="pricerow">
-      <div class="pbox"><div class="pn">Direção estratégica</div><div class="pl"><b>2 sessões</b> comigo, online — as decisões e a validação do DPV</div></div>
-      <div class="pbox"><div class="pn">Posicionamento</div><div class="pl">O <b>DPV completo</b>, 23 seções, com a barreira dos dados tratada</div></div>
+  <h2>Duas formas de contratar</h2>
+  <p class="sub">A diferença entre as duas é apenas a <b>presença digital</b>. Tudo o que vai para a mesa do dia 14 está nas duas.</p>
+  <div class="planos">
+    <div class="plano hi">
+      <div class="pcap">Projeto completo</div>
+      <div class="pval">R$ 14.900</div>
+      <div class="pnote">Posicionamento, material comercial e presença digital</div>
+      <ul class="inc">
+        <li><i><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></i><div class="txt">Direção estratégica<span>2 sessões comigo, online</span></div></li>
+        <li><i><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></i><div class="txt">Posicionamento<span>DPV completo, 23 seções</span></div></li>
+        <li><i><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></i><div class="txt">Material comercial<span>playbook, deck, kit e fluxo de adesão</span></div></li>
+        <li><i><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></i><div class="txt">Apresentação ao Saúde e Vida<span>em Santos, a partir de 14/09</span></div></li>
+        <li><i><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></i><div class="txt">Presença digital<span>site, Instagram com 20 publicações e tráfego estruturado</span></div></li>
+      </ul>
     </div>
-    <div class="pricerow">
-      <div class="pbox"><div class="pn">Material comercial</div><div class="pl">Playbook, deck, kit de contato e o <b>fluxo de adesão</b></div></div>
-      <div class="pbox"><div class="pn">Presença digital</div><div class="pl">Site institucional, Instagram com <b>20 publicações</b> e o tráfego estruturado</div></div>
-    </div>
-    <div class="pricerow">
-      <div class="pbox"><div class="pn">Apresentação ao Saúde e Vida</div><div class="pl">Levo a Life Wallet ao <b>Márcio pessoalmente</b>, em Santos, a partir de 14/09 — um possível cliente já com a base pronta</div></div>
-      <div class="pbox"><div class="pn">Prazo travado</div><div class="pl">Material na mão em <b>12/09</b>, antes da viagem</div></div>
+    <div class="plano">
+      <div class="pcap">Só a parte comercial</div>
+      <div class="pval">R$ 11.900</div>
+      <div class="pnote">O que basta para chegar no operador de cartão e no dono de clínica</div>
+      <ul class="inc">
+        <li><i><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></i><div class="txt">Direção estratégica<span>2 sessões comigo, online</span></div></li>
+        <li><i><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></i><div class="txt">Posicionamento<span>DPV completo, 23 seções</span></div></li>
+        <li><i><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></i><div class="txt">Material comercial<span>playbook, deck, kit e fluxo de adesão</span></div></li>
+        <li><i><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></i><div class="txt">Apresentação ao Saúde e Vida<span>em Santos, a partir de 14/09</span></div></li>
+        <li class="off"><i><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></i><div class="txt">Sem presença digital<span>sem site, sem Instagram, sem conteúdo e sem tráfego</span></div></li>
+      </ul>
     </div>
   </div>
-  <div class="rec">
-    <div class="tag">Só a parte comercial</div>
-    <div class="n">R$ 11.900</div>
-    <p>Direção estratégica, DPV e material comercial — o que basta para <b>chegar no operador de cartão e no dono de clínica</b>. Sem site, sem Instagram, sem produção de conteúdo e sem tráfego pago.</p>
+  <div class="recfaixa">
+    <div class="rl">
+      <div class="rt">Continuidade · opcional</div>
+      <div class="rv">R$ 2.000<span> / mês</span></div>
+    </div>
+    <p>Conteúdo, gestão do tráfego e direção estratégica, a partir do mês seguinte. <b>Não é obrigatório</b> — o material entregue permite que o time de vocês toque sozinho. À parte: domínio, hospedagem e verba de mídia.</p>
   </div>
-  <p class="fineprint"><b>Continuidade, se quiserem:</b> conteúdo, tráfego e direção estratégica — <b>R$ 2.000/mês</b>, opcional, a partir do mês seguinte. Não é obrigatório: o material entregue permite que vocês toquem sozinhos. <b>À parte:</b> domínio, hospedagem e mídia.</p>
 </section>
 
 <!-- 21 O QUE FICA DE FORA -->
