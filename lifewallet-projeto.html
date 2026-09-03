@@ -765,6 +765,82 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   .recfaixa{flex-direction:column; align-items:flex-start; gap:9px}
 }
 
+/* ============================================================
+   CELULAR — o motor usa --u: min(1vw,1.55vh); a 375px isso da
+   ~4px, entao TODO clamp cai no piso e o deck fica com dezenas
+   de rotulos a 9,5-10px. Aqui: sobe o piso do que e ilegivel e
+   aperta o espaco vertical das telas que mais estouram.
+   ============================================================ */
+@media (max-width:900px){
+  /* --- legibilidade: nada de texto abaixo de 11px --- */
+  /* !important: o motor usa seletores de 2 niveis (ex.: ".adcol .lk"),
+     que ganham de um ".lk" simples. Media query NAO soma especificidade. */
+  .eyebrow{font-size:11px !important}
+  .lk{font-size:11px !important}
+  .ftag,.rtag{font-size:11px !important}
+  .who{font-size:11.3px !important}
+  .en,.rk,.vt,.rl,.lbl{font-size:11px !important}
+  .gl,.gb{font-size:11px !important}
+  .gseg{font-size:10.5px !important}
+  .adt{font-size:11.5px !important}
+  .tt{font-size:11px !important}
+  .role{font-size:11.5px !important}
+  .dnum{font-size:12px !important}
+  .ttag{font-size:12px !important}
+  .dias,.datebadge{font-size:12px !important}
+  .lv{font-size:13.4px !important}
+  .notebar{font-size:13px !important}
+  .spcol li,.tcol li{padding:5px 0 5px 19px !important; font-size:12.6px !important}
+  .spcol{padding:14px 15px}
+  .trein,.treinduo{padding:13px 15px; margin-top:11px}
+  .raiz{padding:14px 15px}
+
+  /* --- investimento: empilha e respira, sem estourar --- */
+  .planos{gap:10px; margin-top:11px}
+  .plano{padding:15px 16px}
+  .plano .pcap{font-size:11px; margin-bottom:5px}
+  .plano .pval{font-size:31px}
+  .plano .pnote{font-size:12.6px; margin-top:5px}
+  .inc{margin-top:11px; padding-top:10px}
+  .inc li{padding:4px 0; gap:9px}
+  .inc li i{width:17px; height:17px}
+  .inc li .txt{font-size:13.2px}
+  .inc li .txt span{font-size:12px}
+  .recfaixa{padding:14px 16px; margin-top:10px}
+  .recfaixa .rt{font-size:11px}
+  .recfaixa .rv{font-size:26px}
+  .recfaixa .rv span{font-size:13px}
+  .recfaixa p{font-size:12.8px}
+
+  /* --- espaco: aperta o que mais estoura --- */
+  .frentes{gap:9px}
+  .fr{padding:14px 15px}
+  .fr ul li{padding:4px 0 4px 18px; font-size:12.6px}
+  .ramos{gap:8px}
+  .ramo{padding:13px 14px}
+  .time{gap:8px}
+  .tp{padding:12px 13px}
+  .ad{gap:9px}
+  .adcol{padding:14px 15px}
+  .lin{padding:8px 0}
+
+  /* --- area de toque --- */
+  .navbtn{min-height:44px; min-width:44px}
+}
+
+/* --- indica que a tela tem mais conteudo abaixo (so no celular) --- */
+@media (max-width:900px){
+  html.js .slide.temmais::after{
+    content:''; position:fixed; left:0; right:0;
+    bottom:var(--chrome-h); height:52px; pointer-events:none; z-index:3;
+    background:linear-gradient(to top, var(--bg) 12%, rgba(255,255,255,0));
+  }
+  html.js .slide.darkslide.temmais::after{
+    background:linear-gradient(to top, var(--oxford) 12%, rgba(5,30,50,0));
+  }
+  html.js .slide.temmais.fim::after{opacity:0; transition:opacity .18s}
+}
+
 </style>
 </head>
 <body>
