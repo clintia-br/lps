@@ -701,6 +701,198 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   transition:opacity .2s,transform .2s;white-space:nowrap;}
 #fs-aviso.vis{opacity:1;transform:translateX(-50%) translateY(0);}
 
+/* ============================================================
+   mobile_deck.css — complemento do motor de decks da ClintIA.
+
+   Duas coisas:
+   1) Componentes de investimento novos (.planoum, .inc, .recfaixa)
+      para projeto de PRECO FECHADO — sem tabela de alternativas.
+   2) Correcao de celular. O motor usa --u: min(1vw,1.55vh); a 375px
+      isso da ~4px, entao TODO clamp() cai no piso e o deck fica com
+      dezenas de rotulos a 9,5-10px, ilegiveis no dedo. Aqui sobe o
+      piso do que nao da pra ler e aperta o espaco vertical.
+   ============================================================ */
+
+/* ---------- card de preco unico ---------- */
+.planoum{
+  background:var(--card); border:1px solid #BFE0F6;
+  background-image:linear-gradient(165deg,#F4FBFF,#fff 62%);
+  border-radius:clamp(13px,calc(1.3*var(--u)),20px);
+  padding:clamp(17px,calc(1.75*var(--u)),31px) clamp(18px,calc(1.85*var(--u)),33px);
+  box-shadow:0 14px 34px -26px rgba(5,90,170,.55);
+  margin-top:clamp(11px,calc(1.15*var(--u)),20px);
+}
+.planoum .pcap{
+  font-size:clamp(10px,calc(.97*var(--u)),16.5px); font-weight:800;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--dodger);
+  margin-bottom:clamp(6px,calc(.6*var(--u)),11px);
+}
+.planoum .pval{
+  font-size:clamp(34px,calc(3.35*var(--u)),62px); font-weight:900;
+  color:var(--celtic); letter-spacing:-.03em; line-height:1;
+}
+.planoum .pnote{
+  font-size:clamp(11.8px,calc(1.15*var(--u)),20px); color:var(--muted);
+  font-weight:600; line-height:1.45; margin-top:clamp(6px,calc(.62*var(--u)),11px);
+}
+
+/* ---------- checklist do que esta incluso ---------- */
+.inc{
+  list-style:none; margin:clamp(13px,calc(1.35*var(--u)),24px) 0 0; padding:0;
+  border-top:1px solid var(--line); padding-top:clamp(11px,calc(1.15*var(--u)),20px);
+}
+.inc li{
+  display:flex; gap:clamp(8px,calc(.8*var(--u)),14px);
+  padding:clamp(5px,calc(.52*var(--u)),9px) 0; align-items:flex-start;
+}
+.inc li i{
+  flex:0 0 auto; width:clamp(15px,calc(1.5*var(--u)),26px);
+  height:clamp(15px,calc(1.5*var(--u)),26px); border-radius:50%;
+  background:#E3F4FD; color:var(--dodger);
+  display:flex; align-items:center; justify-content:center;
+  margin-top:clamp(1px,calc(.15*var(--u)),3px);
+}
+.inc li i svg{
+  width:60%; height:60%; stroke:currentColor; fill:none; stroke-width:3;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+.inc li .txt{
+  font-size:clamp(12.1px,calc(1.18*var(--u)),21px); font-weight:700;
+  color:var(--ink); line-height:1.4;
+}
+.inc li .txt span{
+  display:block; font-size:clamp(11px,calc(1.06*var(--u)),18.5px);
+  font-weight:500; color:var(--muted); margin-top:1px;
+}
+
+/* ---------- faixa da recorrencia ---------- */
+.recfaixa{
+  display:flex; align-items:center; gap:clamp(14px,calc(1.5*var(--u)),26px);
+  background:linear-gradient(135deg,var(--oxford),#0A3358);
+  border-radius:clamp(13px,calc(1.3*var(--u)),20px);
+  padding:clamp(15px,calc(1.55*var(--u)),27px) clamp(18px,calc(1.85*var(--u)),33px);
+  margin-top:clamp(10px,calc(1.05*var(--u)),18px);
+}
+.recfaixa .rl{flex:0 0 auto}
+.recfaixa .rt{
+  font-size:clamp(9.6px,calc(.94*var(--u)),15.5px); font-weight:800;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--sky);
+  margin-bottom:clamp(3px,calc(.32*var(--u)),6px);
+}
+.recfaixa .rv{
+  font-size:clamp(23px,calc(2.3*var(--u)),42px); font-weight:900; color:#fff;
+  letter-spacing:-.025em; line-height:1; white-space:nowrap;
+}
+.recfaixa .rv span{
+  font-size:clamp(12px,calc(1.18*var(--u)),21px); font-weight:700;
+  color:#9FC6E4; letter-spacing:0;
+}
+.recfaixa p{
+  margin:0; font-size:clamp(11.8px,calc(1.15*var(--u)),20px); color:#C6DCEC;
+  line-height:1.5; font-weight:500;
+}
+.recfaixa p b{color:#fff; font-weight:700}
+
+/* ============================================================
+   CELULAR
+   ============================================================ */
+@media (max-width:900px){
+  /* --- legibilidade: nada de texto abaixo de 11px ---
+     !important e necessario: o motor usa seletores de 2 niveis
+     (ex.: ".adcol .lk"), que ganham de um ".lk" simples. Media
+     query NAO soma especificidade, entao sem isto nada aplica. */
+  .eyebrow{font-size:11px !important}
+  .lk{font-size:11px !important}
+  .ftag,.rtag{font-size:11px !important}
+  .who{font-size:11.3px !important}
+  .en,.rk,.vt,.rl,.lbl{font-size:11px !important}
+  .gl,.gb{font-size:11px !important}
+  .gseg{font-size:10.5px !important}
+  .adt{font-size:11.5px !important}
+  .tt{font-size:11px !important}
+  .role{font-size:11.5px !important}
+  .dnum{font-size:12px !important}
+  .ttag{font-size:12px !important}
+  .dias,.datebadge{font-size:12px !important}
+  .lv{font-size:13.4px !important}
+  .notebar{font-size:13px !important}
+  .conta{font-size:12.5px !important}
+  .punchmini{font-size:13px !important}
+  .pql{font-size:11px !important}
+
+  /* --- investimento --- */
+  .planoum{padding:16px 17px}
+  .planoum .pcap{font-size:11px; margin-bottom:5px}
+  .planoum .pval{font-size:34px}
+  .planoum .pnote{font-size:12.8px; margin-top:5px}
+  .inc{margin-top:11px; padding-top:10px}
+  .inc li{padding:4px 0; gap:9px}
+  .inc li i{width:17px; height:17px}
+  .inc li .txt{font-size:13.3px}
+  .inc li .txt span{font-size:12.1px}
+  .recfaixa{flex-direction:column; align-items:flex-start; gap:9px; padding:14px 16px}
+  .recfaixa .rt{font-size:11px}
+  .recfaixa .rv{font-size:26px}
+  .recfaixa .rv span{font-size:13px}
+  .recfaixa p{font-size:12.8px}
+
+  /* --- espaco vertical nas telas que mais estouram --- */
+  .frentes{gap:9px}
+  .fr{padding:14px 15px}
+  .fr ul li{padding:4px 0 4px 18px; font-size:12.6px}
+  .ramos{gap:8px}
+  .ramo{padding:13px 14px}
+  .time{gap:8px}
+  .tp{padding:12px 13px}
+  .ad{gap:9px}
+  .adcol{padding:14px 15px}
+  .lin{padding:8px 0}
+  .linha .etapa{padding:13px 14px}
+
+  /* telas de fase: sao as que mais escondem conteudo no celular */
+  .split{gap:9px}
+  .spcol{padding:14px 15px}
+  .spcol h3{font-size:14.5px}
+  .spcol .who{margin-bottom:8px}
+  .spcol li{padding:5px 0 5px 19px !important; font-size:12.6px !important; line-height:1.45}
+  .trein,.treinduo{padding:13px 15px; margin-top:11px}
+  .trein p{font-size:12.6px}
+  .fluxo{gap:8px}
+  .raiz{padding:14px 15px}
+  .raiz p{font-size:12.6px}
+  .ent,.grupo{padding:12px 13px}
+  .sub{margin-bottom:11px}
+  .fasehead{margin-bottom:6px}
+
+  /* --- area de toque --- */
+  .navbtn{min-height:44px; min-width:44px}
+}
+
+@media (max-width:900px){
+  /* indica que a tela tem mais conteudo abaixo */
+  html.js .slide.temmais::after{
+    content:''; position:fixed; left:0; right:0;
+    bottom:var(--chrome-h); height:54px; pointer-events:none; z-index:3;
+    background:linear-gradient(to top, var(--bg) 14%, rgba(255,255,255,0));
+  }
+  html.js .slide.darkslide.temmais::after{
+    background:linear-gradient(to top, var(--oxford) 14%, rgba(5,30,50,0));
+  }
+  html.js .slide.temmais.fim::after{opacity:0}
+}
+
+@media (max-width:360px){
+  .slide{padding-left:15px !important; padding-right:15px !important}
+  .planoum .pval{font-size:31px}
+}
+
+/* ---------- botao de tela cheia no rodape do deck ----------
+   Estava faltando: o botao entrava no HTML mas nenhuma regra dimensionava o
+   SVG dentro dele, entao o icone saia sem tamanho. */
+.navbtn.fsbtn{padding:0; display:inline-flex; align-items:center; justify-content:center}
+.navbtn.fsbtn svg{width:15px; height:15px; stroke:currentColor; fill:none;
+  stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+
 </style>
 </head>
 <body>
@@ -1137,17 +1329,18 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   <img class="logo" src="data:image/webp;base64,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" alt="ClintIA">
   <div class="progress"><div class="pf" id="pf"></div></div>
   <span class="counter" id="counter">1/21</span>
+  <button class="navbtn fsbtn" id="fs" aria-label="Tela cheia" title="Tela cheia"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
   <button class="navbtn" id="prev" aria-label="Anterior">&#8249;</button>
   <button class="navbtn" id="next" aria-label="Próximo">&#8250;</button>
 </div>
 <script>
   const slides=[...document.querySelectorAll('.slide')];
   const total=slides.length; let i=0;
-  function go(n){ if(n<0||n>=total)return;
+  let go = function(n){ if(n<0||n>=total)return;
     slides[i].classList.remove('active'); i=n; slides[i].classList.add('active'); slides[i].scrollTop=0;
     document.getElementById('pf').style.width=((i+1)/total*100)+'%';
     document.getElementById('counter').textContent=(i+1)+'/'+total;
-    document.getElementById('prev').disabled=i===0; document.getElementById('next').disabled=i===total-1; }
+    document.getElementById('prev').disabled=i===0; document.getElementById('next').disabled=i===total-1; };
   document.getElementById('prev').onclick=()=>go(i-1);
   document.getElementById('next').onclick=()=>go(i+1);
   document.addEventListener('keydown',e=>{
@@ -1159,7 +1352,33 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   document.addEventListener('touchend',e=>{
     const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty,dt=Date.now()-tt;
     if(dt<600&&Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){if(dx<0)go(i+1);else go(i-1);} },{passive:true});
+  function marcaScroll(){
+    slides.forEach(s=>{
+      const tem = s.scrollHeight > s.clientHeight + 4;
+      s.classList.toggle('temmais', tem);
+      s.classList.toggle('fim', tem && s.scrollTop + s.clientHeight >= s.scrollHeight - 8);
+    });
+  }
+  slides.forEach(s=>s.addEventListener('scroll',()=>{
+    s.classList.toggle('fim', s.scrollTop + s.clientHeight >= s.scrollHeight - 8);
+  },{passive:true}));
+  window.addEventListener('resize', marcaScroll);
+  const _go = go;
+  go = function(n){ _go(n); setTimeout(marcaScroll, 30); };
   go(0);
+  (function(){
+    const b=document.getElementById('fs');
+    if(!b) return;
+    if(!document.documentElement.requestFullscreen){ b.style.display='none'; return; }
+    const A='<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>';
+    const F='<path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/>';
+    b.onclick=()=>{ document.fullscreenElement ? document.exitFullscreen()
+                                               : document.documentElement.requestFullscreen().catch(()=>{}); };
+    document.addEventListener('fullscreenchange',()=>{
+      b.innerHTML='<svg viewBox="0 0 24 24">'+(document.fullscreenElement?F:A)+'</svg>';
+      b.title=document.fullscreenElement?'Sair da tela cheia':'Tela cheia';
+    });
+  })();
 </script>
 </body>
 </html>
