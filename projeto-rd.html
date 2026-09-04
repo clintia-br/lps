@@ -886,6 +886,13 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
   .planoum .pval{font-size:31px}
 }
 
+/* ---------- botao de tela cheia no rodape do deck ----------
+   Estava faltando: o botao entrava no HTML mas nenhuma regra dimensionava o
+   SVG dentro dele, entao o icone saia sem tamanho. */
+.navbtn.fsbtn{padding:0; display:inline-flex; align-items:center; justify-content:center}
+.navbtn.fsbtn svg{width:15px; height:15px; stroke:currentColor; fill:none;
+  stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+
 </style>
 </head>
 <body>
