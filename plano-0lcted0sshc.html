@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Plano até dia 10 · setembro</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0b141d; --card:#111c27; --line:rgba(160,185,210,.12);
+  --txt:#eef3f8; --mut:#92a3b5; --dim:#647688;
+  --pos:#3ecf8e; --neg:#f06a6a; --warn:#e3a93a; --acc:#22b8e6;
+}
+body{background:var(--bg);color:var(--txt);
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  padding:22px 16px 60px;max-width:640px;margin:0 auto;
+  -webkit-font-smoothing:antialiased}
+
+h1{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.sub{font-size:12.5px;color:var(--dim);margin-top:4px}
+header{padding-bottom:18px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+
+h2{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);
+  font-weight:700;margin:30px 0 11px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:15px 17px}
+.card+.card{margin-top:9px}
+
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+  padding:9px 0;border-bottom:1px solid rgba(160,185,210,.06)}
+.row:last-child{border:0;padding-bottom:0}
+.row:first-child{padding-top:0}
+.row .n{color:var(--mut);min-width:0}
+.row .n i{display:block;font-style:normal;font-size:11.5px;color:var(--dim);margin-top:2px}
+.row .v{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+
+.tot{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+  margin-top:13px;padding-top:13px;border-top:1px solid var(--line)}
+.tot .n{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);font-weight:700}
+.tot .v{font-size:21px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+.big{text-align:center;padding:24px 18px}
+.big .k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);font-weight:700}
+.big .v{font-size:34px;font-weight:700;letter-spacing:-.02em;margin:9px 0 5px;
+  font-variant-numeric:tabular-nums;color:var(--pos)}
+.big .s{font-size:12.5px;color:var(--mut)}
+
+.pos{color:var(--pos)} .neg{color:var(--neg)} .warn{color:var(--warn)} .acc{color:var(--acc)}
+
+ol{list-style:none;counter-reset:p}
+ol li{counter-increment:p;position:relative;padding:14px 0 14px 42px;
+  border-bottom:1px solid rgba(160,185,210,.06)}
+ol li:last-child{border:0;padding-bottom:0}
+ol li::before{content:counter(p);position:absolute;left:0;top:12px;
+  width:26px;height:26px;border-radius:50%;background:var(--acc);color:#04222e;
+  font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+ol .t{font-weight:600;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+ol .t span{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--mut)}
+ol .d{font-size:12.5px;color:var(--dim);margin-top:4px}
+
+.nota{font-size:12.5px;color:var(--dim);line-height:1.7;
+  background:var(--card);border:1px solid var(--line);border-left:2px solid var(--warn);
+  border-radius:10px;padding:14px 16px;margin-top:9px}
+.nota b{color:var(--mut)}
+
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:11.5px;color:var(--dim);line-height:1.7}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Plano até dia 10</h1>
+  <div class="sub">setembro/2026 · atualizado em 06/09, 22h</div>
+</header>
+
+<h2>Onde você está hoje</h2>
+<div class="card">
+  <div class="row"><span class="n">Bradesco <i>sua conta</i></span><span class="v">R$ 5.554</span></div>
+  <div class="row"><span class="n">Asaas <i>empresa</i></span><span class="v">R$ 4.776</span></div>
+  <div class="row"><span class="n">Itaú empresa <i>cheque especial estourado</i></span><span class="v neg">−R$ 6.500</span></div>
+  <div class="tot"><span class="n">Em caixa de verdade</span><span class="v">R$ 3.830</span></div>
+</div>
+
+<h2>Entra até dia 10</h2>
+<div class="card">
+  <div class="row"><span class="n">Benchimol <i>confirmado 05/09 · Pix à vista · assina terça</i></span><span class="v pos">R$ 14.900</span></div>
+  <div class="row"><span class="n">Life Wallet 70% <i>informado por você · não confirmei</i></span><span class="v warn">R$ 8.330</span></div>
+  <div class="row"><span class="n" style="color:var(--dim)">Bandeirantes e Mais Med <i>R$ 6.000 · improvável até dia 10</i></span><span class="v" style="color:var(--dim)">fora</span></div>
+  <div class="tot"><span class="n">Total</span><span class="v pos">R$ 23.230</span></div>
+</div>
+
+<h2>Sai até dia 10</h2>
+<div class="card">
+  <div class="row"><span class="n">Aluguel integral <i>dia 8 · Isabelle já transferiu a metade dela</i></span><span class="v">R$ 5.853</span></div>
+  <div class="row"><span class="n">Equipe de agosto <i>Gabriela, Rayanne, Suellen, bônus Luizianna</i></span><span class="v">R$ 5.679</span></div>
+  <div class="row"><span class="n">Luz, condomínio, DAE babá</span><span class="v">R$ 1.654</span></div>
+  <div class="row"><span class="n">Tarifa Itaú + juros Conta Garantida</span><span class="v">R$ 500</span></div>
+  <div class="tot"><span class="n">Total</span><span class="v neg">R$ 13.685</span></div>
+</div>
+
+<h2>Quatro cenários</h2>
+<div class="card">
+  <div class="row"><span class="n">Benchimol + Life Wallet</span><span class="v pos">R$ 13.374</span></div>
+  <div class="row"><span class="n">Só Benchimol <i>o mais provável</i></span><span class="v pos">R$ 5.044</span></div>
+  <div class="row"><span class="n">Só Life Wallet</span><span class="v neg">−R$ 1.526</span></div>
+  <div class="row"><span class="n">Nenhum dos dois</span><span class="v neg">−R$ 9.856</span></div>
+</div>
+
+<div class="nota">
+  <b>O Benchimol sozinho já fecha o mês.</b> Ele cobre o aluguel, as contas e a equipe de
+  agosto inteira, e ainda deixa R$ 5.044 para abater dívida. Sem ele, nenhum cenário fecha.
+</div>
+
+<h2>Ordem de pagamento</h2>
+<div class="card">
+  <ol>
+    <li>
+      <div class="t">Equipe de agosto <span>R$ 5.679</span></div>
+      <div class="d">Dia 10, sem exceção. Gente que trabalhou há mais de um mês vem antes de qualquer banco.</div>
+    </li>
+    <li>
+      <div class="t">Nubank pessoal <span>R$ 6.451</span></div>
+      <div class="d">14%/mês — R$ 903 de sangria. É a dívida mais cara que você tem, e está no seu CPF.</div>
+    </li>
+    <li>
+      <div class="t">Bradesco <span>R$ 4.696</span></div>
+      <div class="d">14%/mês — R$ 657. Também no seu CPF, apesar de ser gasto da empresa.</div>
+    </li>
+    <li>
+      <div class="t">Nubank empresa <span>R$ 4.653</span></div>
+      <div class="d">14%/mês — R$ 651. Mesmo custo, mas no CNPJ.</div>
+    </li>
+    <li>
+      <div class="t">Cheque especial Itaú <span>R$ 6.500</span></div>
+      <div class="d">8%/mês — R$ 520. Mais barato que cartão, e o juro deste mês já foi cobrado.</div>
+    </li>
+    <li>
+      <div class="t">Conta Garantida Itaú <span>R$ 4.000</span></div>
+      <div class="d">6,24%/mês — R$ 250. O crédito mais barato que você tem. Deixa por último.</div>
+    </li>
+  </ol>
+  <div class="tot"><span class="n">Dívida atrasada</span><span class="v neg">R$ 26.300</span></div>
+</div>
+
+<div class="nota">
+  Essa dívida custa <b>R$ 2.982 por mês</b> só de juros parada. No cenário mais provável
+  (só o Benchimol), os R$ 5.044 não cobrem nem o Nubank pessoal inteiro — mas abatem
+  <b>78% dele</b> e já cortam a maior sangria.
+</div>
+
+<div class="nota" style="border-left-color:var(--acc)">
+  <b>Não receba no Itaú.</b> A conta está em −R$ 6.500: todo dinheiro que cair lá some
+  dentro do buraco antes de você poder usar. Peça o Pix do Benchimol e os recorrentes
+  <b>no Asaas</b>, e só depois decida quanto mandar para o Itaú.
+</div>
+
+<h2>Hoje e segunda</h2>
+<div class="card">
+  <div class="row"><span class="n"><b>Emitir Bandeirantes e Mais Med assim mesmo</b><i>R$ 6.000 · não conta pro dia 10, mas quanto antes sair, antes entra</i></span></div>
+  <div class="row"><span class="n"><b>Segunda: Gabriel passa os dados</b><i>tenha contrato e link prontos — ele assina terça pelo Gov.br</i></span></div>
+  <div class="row"><span class="n"><b>Confirmar o Life Wallet</b><i>é o que separa cobrir 87% de cobrir 100%</i></span></div>
+</div>
+
+<footer>
+  Números da planilha da empresa e da pessoal, sincronizados em 06/09.
+  O Benchimol está confirmado por mensagem; o Life Wallet é informação sua, ainda não verificada.
+  Para decidir, use o cenário de R$ 17.249.
+</footer>
+
+</body>
+</html>
