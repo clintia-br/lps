@@ -767,7 +767,7 @@ ul.clean li::before{top:calc(clamp(13px,calc(1.35*var(--u)),24px) + 8px);width:9
 
 
 /* centraliza o conteúdo do slide na vertical (apresentação); no documento, empilha normal */
-html.js .slide{justify-content:center;}
+html.js .slide{justify-content:safe center;}
 html.js .slide > *{flex:0 0 auto;}
 .slide .sub{margin-top:clamp(8px,calc(.9*var(--u)),14px);}
 
@@ -883,7 +883,6 @@ html.js .slide > *{flex:0 0 auto;}
   .sim .o .v{font-size:16px;}
   .sim .o .l{font-size:9px;}
   .sim .fn{font-size:10.5px;}
-  html.js .slide{justify-content:flex-start;}
 }
 
 </style>
