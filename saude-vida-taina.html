@@ -780,7 +780,7 @@ html.js .slide > *{flex:0 0 auto;}
 /* 4 números */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(8px,calc(.9*var(--u)),14px);margin-top:clamp(18px,calc(2*var(--u)),34px);}
 .stat{border:1px solid rgba(5,210,255,.3);background:rgba(255,255,255,.06);border-radius:14px;padding:clamp(12px,calc(1.25*var(--u)),20px) clamp(12px,calc(1.3*var(--u)),22px);}
-.stat .v{font-size:clamp(24px,calc(2.6*var(--u)),46px);font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1;}
+.stat .v{font-size:clamp(24px,calc(2.6*var(--u)),46px);font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1;white-space:nowrap;}
 .stat .v small{font-size:clamp(11px,calc(1.1*var(--u)),19px);font-weight:800;color:var(--sky);margin-left:4px;letter-spacing:0;}
 .stat .l{font-size:clamp(10.5px,calc(1.02*var(--u)),17.5px);color:#b9d2e6;margin-top:6px;line-height:1.4;font-weight:500;}
 .slide:not(.darkslide) .stat{background:#eef6fd;border-color:#cfe4f5;}
@@ -862,7 +862,8 @@ html.js .slide > *{flex:0 0 auto;}
 @media(max-width:900px){
   .stats{grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;}
   .stat{padding:11px 12px;}
-  .stat .v{font-size:22px;}
+  .stat .v{font-size:20px;}
+  .stat .v small{font-size:10.5px;}
   .stat .l{font-size:10.5px;}
   .marcas{gap:12px;margin-bottom:18px;}
   .marcas .logosv{height:28px;}
