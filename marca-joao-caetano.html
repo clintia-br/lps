@@ -276,31 +276,43 @@ body.show .tools,body:hover .tools{opacity:1}
 @keyframes hintOut{0%,80%{opacity:1}100%{opacity:0;visibility:hidden}}
 .h-mob{display:none}
 
-/* ===================== CELULAR (retrato): reflui em vez de encolher ===================== */
+/* ===================== CELULAR (retrato ou baixo): reflui em coluna, barra fixa embaixo ===================== */
 @media (max-width:820px) and (orientation:portrait),(max-height:520px){
   html,body{overflow:auto;height:auto}
   .stage{position:static;transform:none!important;width:100%;height:auto}
   .slide{position:relative;inset:auto;width:100%;height:auto;transform:none;transition:opacity .35s}
   .slide:not(.active){display:none}
-  .stage .pg{width:100%;height:auto;min-height:100dvh;padding:58px 20px 70px;box-shadow:none}
+  /* respiro: 64px de barra + área segura + 56px de folga */
+  .stage .pg{width:100%;height:auto;min-height:100dvh;padding:64px 24px calc(64px + 56px + env(safe-area-inset-bottom));box-shadow:none;gap:0}
+  .stage .pg>*+*{margin-top:22px}
+  .cab{flex-wrap:wrap;gap:6px 12px;margin-bottom:6px;padding-bottom:12px} .cab .marca-mini{display:none}
   .duas,.grid3,.grid2x2,.grid4,.ass-grid,.grid-erros,.paleta,.paleta.apoio,.min-linha,.dig2,.fotos,.graf,.pilares,.voz,.mkgrid{
-    grid-template-columns:1fr!important;grid-template-rows:none!important;gap:16px}
+    grid-template-columns:1fr!important;grid-template-rows:none!important;gap:22px}
   .ass-horiz{grid-column:auto}
-  .fig-art{min-height:200px} .grid-erros .fig-art{min-height:190px}
-  .capa{grid-template-columns:1fr;padding:0} .capa-txt{border-left:0;border-top:1px solid rgba(244,241,234,.22);padding:28px 26px 70px}
-  .capa h1{font-size:32pt} .capa-sim{padding:52px 40px 20px} .lead-big{font-size:24pt}
-  .idx{columns:1;font-size:14pt}
-  .cab{flex-wrap:wrap;gap:6px 12px;margin-bottom:16px} .cab .marca-mini{display:none}
-  .tools{padding:6px 12px;gap:10px}
-  .prot{max-width:300px} .prot-pg{align-items:start}
-  .sim-grande>svg{width:55%}
+  .fig-art{min-height:220px} .grid-erros .fig-art{min-height:200px}
+  .capa{grid-template-columns:1fr;padding:0;min-height:100dvh} .capa>*+*{margin-top:0}
+  .capa-txt{border-left:0;border-top:1px solid rgba(244,241,234,.22);padding:34px 28px calc(64px + 48px + env(safe-area-inset-bottom))}
+  .capa h1{font-size:34pt} .capa-sim{padding:64px 44px 28px} .lead-big{font-size:26pt;line-height:1.15}
+  .idx{columns:1;font-size:15pt;line-height:2.3}
+  .prot{max-width:320px} .prot-pg{align-items:start}
+  .sim-grande>svg{width:60%}
   .mk img{height:auto;aspect-ratio:1}
-  .sw{min-height:100px} .paleta.apoio .sw{min-height:76px}
+  .sw{min-height:110px} .paleta.apoio .sw{min-height:84px}
   .tipo-amostra{font-size:64pt}
   .min-real{grid-template-columns:1fr 1fr;min-height:0} .min-real-rot{grid-column:1/-1;border-right:0;border-bottom:1px solid rgba(34,38,31,.12)}
-  .lat{display:none}
-  .nav{opacity:.55;top:auto;bottom:18px;transform:none} .nav.l{left:14px} .nav.r{right:14px}
-  .tools{bottom:22px;opacity:1} .hint{bottom:84px;animation-duration:4s} .h-desk{display:none} .h-mob{display:inline} .b-fs .txt{display:none}
+  .nota{margin-top:26px}
+  .lat,.fr-bl,.fr-br{display:none} .frame{inset:9px}
+  /* setas soltas somem; tudo vai pra barra */
+  .nav{display:none}
+  .tools{left:0;right:0;bottom:0;transform:none;border-radius:0;border:0;border-top:1px solid rgba(244,241,234,.14);
+    background:#2C3E2E;backdrop-filter:none;opacity:1;height:calc(64px + env(safe-area-inset-bottom));padding:0 8px env(safe-area-inset-bottom);
+    gap:0;justify-content:space-between;font-size:11px}
+  .tools button{min-width:56px;height:56px;display:grid;place-items:center;border-radius:12px;padding:0;font-size:22px}
+  .tools .b-home,.tools .b-fs{font-size:18px;opacity:.85}
+  .tools .b-prev,.tools .b-next{font-size:30px;line-height:1}
+  .tools .cnt{flex:1;font-size:11px;letter-spacing:.2em}
+  .b-fs .txt{display:none}
+  .hint{bottom:calc(78px + env(safe-area-inset-bottom));animation-duration:4s;background:#2C3E2E;color:#F4F1EA;padding:8px 14px;border-radius:999px;border:1px solid rgba(244,241,234,.18);white-space:nowrap} .h-desk{display:none} .h-mob{display:inline}
   .slide.active .pg>*{animation-duration:.45s}
 }
 </style></head>
