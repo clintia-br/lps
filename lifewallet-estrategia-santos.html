@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estratégia de Santos · Life Wallet no Saúde e Vida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{
+  --sky:#05D2FF; --celtic:#055AAA; --dodger:#0578DC; --yale:#053C73; --oxford:#051E32;
+  --bg:#F4F7FA; --paper:#FFFFFF; --tint:#EEF5FB; --ink:#0A2033; --muted:#5E7389; --faint:#93A6B8;
+  --line:#E2EAF2; --line2:#D2DEEA; --warn:#8A5A0C; --warnbg:#FDF6EA; --warnline:#EFD9AE;
+}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Red Hat Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+header{background:var(--oxford);color:#fff;padding:32px 0 46px;border-bottom:3px solid var(--sky)}
+header .top{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:40px}
+header img{height:26px;width:auto;display:block}
+.badge{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);
+  border:1px solid rgba(5,210,255,.4);border-radius:100px;padding:5px 12px;white-space:nowrap}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:12px}
+h1{font-size:clamp(30px,5.2vw,46px);line-height:1.1;margin:0 0 16px;letter-spacing:-.025em;font-weight:800}
+header p{margin:0;color:#C4D3E1;font-size:19px;max-width:62ch}
+.umafrase{margin-top:30px;background:rgba(255,255,255,.06);border-left:3px solid var(--sky);border-radius:0 12px 12px 0;padding:18px 22px;font-size:19px;color:#fff;line-height:1.5}
+.umafrase b{color:var(--sky)}
+
+main{padding:10px 0 40px}
+section{padding:44px 0 6px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.sn{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--dodger);margin-bottom:8px}
+h2{font-size:clamp(24px,3.4vw,30px);line-height:1.2;margin:0 0 16px;letter-spacing:-.02em;color:var(--oxford);font-weight:800}
+h3{font-size:18px;margin:0 0 6px;color:var(--oxford);font-weight:800}
+p{margin:0 0 14px}
+p b,li b{font-weight:700}
+.muted{color:var(--muted)}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:0 0 12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 14px}
+.grid3 .card{margin:0}
+.grid3 .card .lbl{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--dodger);margin-bottom:6px}
+.grid3 .card p{margin:0;font-size:15.5px;line-height:1.55;color:var(--muted)}
+.grid3 .card h3{font-size:17px}
+
+ol.passos,ul.lista{margin:6px 0 16px;padding:0;list-style:none}
+ol.passos{counter-reset:p}
+ol.passos li{counter-increment:p;position:relative;padding:12px 0 12px 46px;border-bottom:1px solid var(--line)}
+ol.passos li:last-child{border-bottom:0}
+ol.passos li::before{content:counter(p);position:absolute;left:0;top:12px;width:30px;height:30px;border-radius:9px;
+  background:var(--tint);color:var(--celtic);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+ul.lista li{position:relative;padding:8px 0 8px 20px}
+ul.lista li::before{content:'';position:absolute;left:2px;top:19px;width:6px;height:6px;border-radius:50%;background:var(--sky)}
+ul.lista.nao li::before{background:#B4432A}
+
+.tbl{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:15.5px}
+.tbl th,.tbl td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);background:#FAFCFE}
+.tbl td:first-child{font-weight:700;color:var(--oxford);white-space:nowrap}
+.tbl tr:last-child td{border-bottom:0}
+.tblwrap{overflow-x:auto;margin:6px 0 16px}
+
+.pede{background:var(--warnbg);border:1px solid var(--warnline);border-radius:14px;padding:6px 22px;margin:8px 0 16px}
+.pede li{border-color:var(--warnline) !important}
+.pede ol.passos li::before{background:#fff;color:var(--warn)}
+
+footer{padding:30px 0 50px;text-align:center;color:var(--faint);font-size:13px;line-height:1.7}
+@media (max-width:720px){
+  body{font-size:16px}
+  .grid3{grid-template-columns:1fr}
+  header .top{flex-wrap:wrap}
+  .tbl td:first-child{white-space:normal}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="top">
+      <img src="data:image/webp;base64,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" alt="ClintIA">
+      <span class="badge">Para Matheus, Gabriel e Thiago</span>
+    </div>
+    <div class="eyebrow">Estratégia · setembro de 2026</div>
+    <h1>A Life Wallet dentro do Saúde e Vida</h1>
+    <p>O que vou fazer em Santos, por que esse é o caminho, como vou apresentar o produto e o que preciso de vocês para sair de lá com um piloto marcado.</p>
+    <div class="umafrase">O objetivo da reunião é um só: <b>sair com a data de um piloto de 60 dias</b> em uma ou duas clínicas da rede Saúde e Vida, com a Life Wallet entrando como benefício do plano.</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <div class="sn">01 · O cenário</div>
+  <h2>Por que o cartão benefício é a porta</h2>
+  <p>Vender a Life Wallet usuário por usuário é lento. Vender clínica por clínica é mais rápido, mas cada uma é uma negociação. O cartão benefício pula essas duas etapas: <b>um contrato traz a base inteira</b>, e quem vende o plano passa a vender a Life Wallet junto.</p>
+  <p>Esse mercado virou disputa. A clínica popular é procurada o tempo todo por operadores de cartão. Ou ela monta o próprio cartão, se tem fôlego para isso, ou adota um pronto. Quando compara as opções, olha três coisas: <b>o que o cartão entrega</b> para o paciente, <b>quanto ele paga</b> para a clínica e <b>se o paciente continua pagando</b>.</p>
+  <p>Telemedicina, desconto em farmácia, auxílio funeral e assistência pet já estão em quase todos os cartões. É exatamente aí que a Life Wallet entra: como o item da cesta que os outros não têm.</p>
+</section>
+
+<section>
+  <div class="sn">02 · Quem vou encontrar</div>
+  <h2>O Saúde e Vida</h2>
+  <p>É um cartão benefício consolidado, com cobrança recorrente e rede própria de clínicas. O plano de crescimento dele é a franquia: a clínica popular vira franqueada e oferece o plano aos próprios pacientes, com a marca dela na frente e o Saúde e Vida operando por trás.</p>
+  <p>Na reunião estarão o Márcio e os sócios dele. Três coisas pesam na forma como eles decidem:</p>
+  <ul class="lista">
+    <li><b>Recorrência.</b> Tudo é avaliado por quanto entra todo mês e por quantas vidas envolve.</li>
+    <li><b>Venda.</b> O gargalo dele hoje é vender franquia, não montar estrutura.</li>
+    <li><b>Começar pequeno.</b> Ele prefere testar em uma unidade, ver número e depois expandir.</li>
+  </ul>
+  <p class="muted">Em agosto, quando apresentei a Life Wallet para ele, a resposta foi: "a ideia é boa, mas tem que saber para que lado vai". A apresentação de agora responde essa frase.</p>
+</section>
+
+<section>
+  <div class="sn">03 · O argumento</div>
+  <h2>Uma mensagem para cada ponta</h2>
+  <p>A mesma Life Wallet é vendida de um jeito diferente para cada pessoa da cadeia. Se a gente misturar as mensagens, a conversa perde força.</p>
+  <div class="grid3">
+    <div class="card"><div class="lbl">Assinante</div><h3>Facilidade e segurança</h3><p>A saúde da família no celular da mãe: exames, vacinas das crianças, remédios do pai idoso e a carteira de emergência.</p></div>
+    <div class="card"><div class="lbl">Clínica franqueada</div><h3>Retorno e velocidade</h3><p>A marca da clínica no celular do paciente, vacina pendente e retorno pedido pelo médico, sem gastar com anúncio. A consulta começa com o histórico pronto.</p></div>
+    <div class="card"><div class="lbl">Saúde e Vida</div><h3>Mais venda</h3><p>Um item que diferencia a cesta e dá ao franqueado um motivo a mais para escolher o Saúde e Vida.</p></div>
+  </div>
+  <p><b>O centro da conversa é o franqueado.</b> O Saúde e Vida já segura bem o assinante que tem. Por isso a Life Wallet não vai ser apresentada como remédio para cancelamento, e sim como argumento para vender franquia: além do valor por vida, a clínica leva um canal para trazer o paciente de volta.</p>
+</section>
+
+<section>
+  <div class="sn">04 · A proposta</div>
+  <h2>O que vou colocar na mesa</h2>
+  <div class="tblwrap"><table class="tbl">
+    <tr><th>Item</th><th>Proposta</th></tr>
+    <tr><td>Piloto</td><td>60 dias, em 1 ou 2 clínicas da rede Saúde e Vida</td></tr>
+    <tr><td>Custo do piloto</td><td>Nenhum para o Saúde e Vida</td></tr>
+    <tr><td>Para o assinante</td><td>Aplicativo gratuito, como já é hoje, e <b>50% de desconto no Premium</b> (R$ 19,90 por mês na loja)</td></tr>
+    <tr><td>Exclusividade</td><td>Se fechar depois do piloto, o Saúde e Vida é o único cartão benefício com a Life Wallet por <b>12 meses</b></td></tr>
+    <tr><td>O que vai junto</td><td>Cartaz com QR code na recepção, mensagem para a base e acompanhamento semanal</td></tr>
+    <tr><td>O que se mede</td><td>Cadastros por semana, exames e vacinas registrados, pacientes que voltaram à clínica e a percepção dos médicos sobre o tempo de consulta</td></tr>
+  </table></div>
+  <p class="muted">O modelo comercial definitivo, com ou sem cobrança por vida ou por clínica, fica para depois do piloto, com os números na mão. Em Santos a gente não fala em preço para o Saúde e Vida.</p>
+</section>
+
+<section>
+  <div class="sn">05 · A apresentação</div>
+  <h2>O que ele vai ver, tela a tela</h2>
+  <p>São 14 telas, com a marca da Life Wallet e em cerca de 15 minutos. O enquadramento é <b>"a carteirinha inteligente do Saúde e Vida, tecnologia Life Wallet"</b>, porque "Life Wallet" não é um nome que o paciente de clínica popular fala com facilidade.</p>
+  <ol class="passos">
+    <li><b>Capa e a frase dele de agosto</b>, com o lado que escolhemos.</li>
+    <li><b>Como a saúde da família é guardada hoje:</b> exame na gaveta, cartão de vacina perdido, a consulta começando do zero.</li>
+    <li><b>O benefício e as telas reais do aplicativo</b>, com um vídeo de dois minutos navegando no app.</li>
+    <li><b>Na clínica:</b> sala de espera, consultório e retorno.</li>
+    <li><b>Para o franqueado</b> e <b>para o Saúde e Vida</b>, com o desconto no Premium.</li>
+    <li><b>Como entra na operação</b> sem mexer em sistema nem na cobrança.</li>
+    <li><b>Dados e LGPD</b>, com base nos termos públicos de vocês.</li>
+    <li><b>Quem são vocês três</b>, o piloto e o próximo passo.</li>
+  </ol>
+</section>
+
+<section>
+  <div class="sn">06 · O que preciso de vocês</div>
+  <h2>Antes da reunião</h2>
+  <div class="pede">
+    <ol class="passos">
+      <li><b>Aba da clínica parceira e pedido de retorno pelo médico.</b> Isso já existe no app ou está no roadmap? Se não existe, quanto tempo leva para ter pelo menos a logo da clínica aparecendo para o paciente que ela cadastrou?</li>
+      <li><b>De onde veio cada cadastro.</b> Para medir o piloto, cada clínica precisa de um QR code ou código próprio, e vocês precisam conseguir me dizer quantos usuários vieram de cada uma.</li>
+      <li><b>Desconto de 50% no Premium</b> para assinante Saúde e Vida. Confirmam, e como o assinante comprova que é cliente?</li>
+      <li><b>Números de adesão por clínica</b>, sem identificar paciente. Dá para gerar um relatório simples, mesmo que manual, durante o piloto?</li>
+      <li><b>Uma resposta de uma frase sobre dados</b>, validada por vocês, para quando o jurídico do Saúde e Vida perguntar o que acontece com o dado do assinante.</li>
+    </ol>
+  </div>
+  <h3 style="margin-top:22px">O que não vai ser dito na reunião</h3>
+  <ul class="lista nao">
+    <li>Nome de laboratório ou de qualquer integração que não seja oficial.</li>
+    <li>Número atual de usuários como argumento. Se ele perguntar, respondo a verdade: a base ainda é pequena e é justamente por isso que estamos buscando canal.</li>
+    <li>Qualquer coisa que soe como diagnóstico, prontuário, plano ou convênio.</li>
+    <li>Que a clínica "prende" o paciente. O histórico é do paciente, e ele leva para onde quiser.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="sn">07 · Depois de Santos</div>
+  <h2>Próximos passos</h2>
+  <ol class="passos">
+    <li><b>Até 24 horas depois da reunião</b>, mando no grupo o que ele respondeu, as objeções e o que muda no material.</li>
+    <li><b>Se ele topar o piloto</b>, marcamos uma conversa entre vocês três e o Saúde e Vida para acertar clínica, data de início e o QR code de cada unidade.</li>
+    <li><b>Enquanto isso</b>, a Luizianna segue com a equipe no restante do projeto: DPV completo, site, perfil B2B e campanhas, já ajustados com o que ouvirmos em Santos.</li>
+  </ol>
+</section>
+
+</main>
+
+<footer>Bernardo Carneiro · ClintIA · Documento interno do projeto Life Wallet</footer>
+</body>
+</html>
