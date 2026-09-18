@@ -209,7 +209,6 @@ Processo de venda que funciona está escrito. Comenta MANUAL que a gente te mand
   prev.onclick = function(){ go(cur - 1); };
   next.onclick = function(){ go(cur + 1); };
   track.addEventListener('keydown', function(e){ if (e.key === 'ArrowRight') { go(cur + 1); e.preventDefault(); } if (e.key === 'ArrowLeft') { go(cur - 1); e.preventDefault(); } });
-  track.addEventListener('click', function(e){ if (e.detail === 0) return; var v = vids[cur]; if (v.paused) v.play().catch(function(){}); else v.pause(); });
   document.getElementById('mais').onclick = function(){ var c = document.getElementById('cap'); c.classList.remove('short'); this.hidden = true; };
   show(0);
 })();
