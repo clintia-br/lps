@@ -875,6 +875,26 @@ html.js .slide{padding-bottom:calc(var(--chrome-h) + 44px);}
 .grid3.int .box{padding:clamp(10px,calc(1.05*var(--u)),18px);}
 
 
+
+/* slide interno */
+.interno{background:#fff7f5 !important;}
+.interno .alerta-top{background:#B8330F;color:#fff;font-weight:900;font-size:clamp(10px,calc(1*var(--u)),17px);letter-spacing:.12em;text-transform:uppercase;
+  padding:8px 14px;border-radius:10px;display:inline-block;margin-bottom:clamp(10px,calc(1*var(--u)),16px);align-self:flex-start;}
+
+@media(max-width:900px){
+  html.js .slide{padding:22px 16px calc(var(--chrome-h) + 64px);}
+  .chrome{height:56px;gap:8px;padding:0 12px calc(env(safe-area-inset-bottom,0px) * .5);}
+  .chrome img.logo{height:12px !important;}
+  #cover img.logo,#end img.logo{height:16px !important;margin-bottom:18px !important;}
+  .grid2,.grid3,.totais{grid-template-columns:1fr;gap:9px;}
+  .tl{grid-template-columns:1fr;gap:8px;}
+  .menu,.inv,.meses{grid-template-columns:1fr;gap:8px;}
+  .opt{font-size:13px;padding:8px 13px;}
+  .box{padding:13px 14px;} .box h4{font-size:14.5px;} .box p{font-size:12px;} .box .v{font-size:19px;}
+  .pts li{font-size:12.5px;padding:7px 0 7px 22px;}
+  .faixa{padding:13px 14px;} .faixa p{font-size:12.5px;}
+  .tot .v{font-size:26px;}
+}
 /* ── roteiro clicável ── */
 .mi[data-alvo]{cursor:pointer;transition:border-color .15s;}
 .mi[data-alvo]:hover{border-color:var(--dodger);}
@@ -924,25 +944,6 @@ html.js .slide{padding-bottom:calc(var(--chrome-h) + 44px);}
   #end .cred{font-size:13px;}
 }
 
-/* slide interno */
-.interno{background:#fff7f5 !important;}
-.interno .alerta-top{background:#B8330F;color:#fff;font-weight:900;font-size:clamp(10px,calc(1*var(--u)),17px);letter-spacing:.12em;text-transform:uppercase;
-  padding:8px 14px;border-radius:10px;display:inline-block;margin-bottom:clamp(10px,calc(1*var(--u)),16px);align-self:flex-start;}
-
-@media(max-width:900px){
-  html.js .slide{padding:22px 16px calc(var(--chrome-h) + 64px);}
-  .chrome{height:56px;gap:8px;padding:0 12px calc(env(safe-area-inset-bottom,0px) * .5);}
-  .chrome img.logo{height:12px !important;}
-  #cover img.logo,#end img.logo{height:16px !important;margin-bottom:18px !important;}
-  .grid2,.grid3,.totais{grid-template-columns:1fr;gap:9px;}
-  .tl{grid-template-columns:1fr;gap:8px;}
-  .menu,.inv,.meses{grid-template-columns:1fr;gap:8px;}
-  .opt{font-size:13px;padding:8px 13px;}
-  .box{padding:13px 14px;} .box h4{font-size:14.5px;} .box p{font-size:12px;} .box .v{font-size:19px;}
-  .pts li{font-size:12.5px;padding:7px 0 7px 22px;}
-  .faixa{padding:13px 14px;} .faixa p{font-size:12.5px;}
-  .tot .v{font-size:26px;}
-}
 
 </style>
 </head>
