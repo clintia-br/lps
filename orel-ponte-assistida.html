@@ -899,6 +899,8 @@ html.js .slide{padding-bottom:calc(var(--chrome-h) + 44px);}
 .mi[data-alvo]{cursor:pointer;transition:border-color .15s;}
 .mi[data-alvo]:hover{border-color:var(--dodger);}
 
+.rolar{display:none;}
+@keyframes desce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 /* ── CELULAR: página contínua, letra maior ── */
 @media(max-width:760px){
   html:not(.js) body{background:var(--bg);}
@@ -942,6 +944,11 @@ html.js .slide{padding-bottom:calc(var(--chrome-h) + 44px);}
   .tot .v{font-size:30px;} .tot p{font-size:14px;}
   .vid{max-height:none;}
   #end .cred{font-size:13px;}
+  html:not(.js) #cover{position:relative;}
+  html:not(.js) .rolar{display:block;position:absolute;left:20px;bottom:26px;font-size:12.5px;font-weight:700;letter-spacing:.06em;color:#9fc3dc;}
+  html:not(.js) .rolar span{display:inline-block;margin-left:6px;animation:desce 1.6s ease-in-out infinite;}
+  .opts{display:grid;grid-template-columns:1fr 1fr;}
+  .opt{text-align:center;}
 }
 
 
@@ -959,6 +966,7 @@ html.js .slide{padding-bottom:calc(var(--chrome-h) + 44px);}
   <p class="sub">A vaga de SDR da clínica, resolvida: quem atende os pacientes agora, quem vai ocupar a vaga de forma
   definitiva, e como uma coisa passa para a outra sem a clínica ficar descoberta.</p>
   <div class="tagrow"><span class="ttag">Continuidade do PONTE®</span><span class="ttag">45 dias</span><span class="ttag">ClintIA + Carol</span></div>
+  <div class="rolar">Role para ver a proposta <span>↓</span></div>
 </section>
 
 <!-- 2 ROTEIRO -->
