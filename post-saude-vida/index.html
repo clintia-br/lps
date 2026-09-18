@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Prévia · As 6 regras da central da SaúdeVida">
+<meta property="og:description" content="Carrossel da ClintIA sobre a visita à central da SaúdeVida em Santos.">
+<meta property="og:image" content="https://lp.clintia.com.br/post-saude-vida/v/01.jpg">
+<style>html,body{margin:0}body{font-size:14px}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Prévia SaúdeVida · Santos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  --ground:#EAF0F7; --ink:#051E32; --muted:#55667A; --hair:#CFD9E5; --accent:#0578DC;
+  --bezel:#0B1722; --bezel-edge:#1D2C3A;
+  /* o post imita o app no modo claro, nos dois temas da página */
+  --ig-bg:#FFFFFF; --ig-ink:#0A0A0A; --ig-muted:#737373; --ig-line:#EFEFEF; --ig-dot:#C7C7C7; --ig-dot-on:#0095F6;
+  --display:"Red Hat Display",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --ground:#07121C; --ink:#E7EEF6; --muted:#93A4B6; --hair:#1C2B3A; --accent:#4DA6FF; --bezel:#02070C; --bezel-edge:#22323F; }
+}
+:root[data-theme="dark"]{ --ground:#07121C; --ink:#E7EEF6; --muted:#93A4B6; --hair:#1C2B3A; --accent:#4DA6FF; --bezel:#02070C; --bezel-edge:#22323F; }
+
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--display);padding-inline:16px;padding-block:28px 48px}
+.wrap{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.intro{display:flex;flex-direction:column;gap:22px;max-width:30rem}
+.brands{display:flex;align-items:center;gap:16px}
+.brands .chip{background:#fff;border:1px solid var(--hair);padding:10px 14px;display:flex;align-items:center}
+.brands img{height:26px;display:block}
+.brands .x{color:var(--muted);font-weight:500}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(30px,4.2vw,46px);line-height:1.05;font-weight:900;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.lead{font-size:18px;line-height:1.5;color:var(--muted);margin:0}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:0;font-size:15px;border-top:1px solid var(--hair);padding-top:18px}
+.facts dt{color:var(--muted)} .facts dd{margin:0;font-weight:500}
+
+/* celular */
+.phone{width:min(392px,100%);background:var(--bezel);border-radius:52px;padding:14px;box-shadow:0 0 0 1px var(--bezel-edge),0 40px 80px -30px rgba(5,30,50,.45)}
+.screen{background:var(--ig-bg);border-radius:40px;overflow:hidden;color:var(--ig-ink);font-family:var(--ui)}
+.status{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font:600 15px var(--ui)}
+.status .notch{width:110px;height:30px;background:var(--bezel);border-radius:20px}
+.status .bat{width:26px;height:12px;border:1.5px solid var(--ig-ink);border-radius:4px;position:relative}
+.status .bat::after{content:"";position:absolute;inset:1.5px;width:70%;background:var(--ig-ink);border-radius:1.5px}
+
+.post-head{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.ring{width:38px;height:38px;border-radius:50%;padding:2px;background:conic-gradient(from 200deg,#05D2FF,#055AAA,#05D2FF)}
+.ring img{width:100%;height:100%;border-radius:50%;border:2px solid var(--ig-bg);display:block;background:#fff}
+.who{display:flex;flex-direction:column;line-height:1.2;flex:1;min-width:0}
+.who b{font-size:14px} .who span{font-size:12px;color:var(--ig-muted)}
+.more{font-size:20px;letter-spacing:1px;color:var(--ig-ink);background:none;border:0;padding:4px}
+
+.media{position:relative;aspect-ratio:4/5;max-width:100%;background:#EDF2F8}
+.track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always}
+.slide video{width:100%;height:100%;object-fit:cover;display:block}
+.count{position:absolute;top:12px;right:12px;background:rgba(10,10,10,.62);color:#fff;font:600 12px var(--ui);padding:4px 9px;border-radius:12px;font-variant-numeric:tabular-nums}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;border:0;background:rgba(255,255,255,.88);color:#111;display:grid;place-items:center;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.nav.prev{left:10px} .nav.next{right:10px}
+.nav:focus-visible,.more:focus-visible,.cap button:focus-visible{outline:2px solid var(--ig-dot-on);outline-offset:2px}
+.nav[disabled]{opacity:0;pointer-events:none}
+
+.actions{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:8px 12px 4px}
+.actions .l{display:flex;gap:14px} .actions .r{justify-self:end}
+.actions svg{width:25px;height:25px;display:block;fill:none;stroke:var(--ig-ink);stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
+.dots{display:flex;gap:4px}
+.dots i{width:6px;height:6px;border-radius:50%;background:var(--ig-dot);transition:background .2s}
+.dots i.on{background:var(--ig-dot-on)}
+.cap{padding:4px 12px 6px;font-size:14px;line-height:1.4}
+.cap b{font-weight:600}
+.cap .body{white-space:pre-line}
+.cap.short .body{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cap button{background:none;border:0;padding:0;color:var(--ig-muted);font:inherit;cursor:pointer}
+.stamp{padding:2px 12px 18px;font-size:11px;color:var(--ig-muted);text-transform:uppercase;letter-spacing:.04em}
+.home{height:26px;display:grid;place-items:center}
+.home i{width:130px;height:5px;border-radius:3px;background:var(--ig-ink);opacity:.85}
+
+@media (max-width:820px){
+  .wrap{grid-template-columns:1fr;gap:28px;justify-items:center}
+  .intro{max-width:392px;width:100%}
+}
+@media (max-width:440px){
+  body{padding-block:20px 32px}
+  .phone{padding:0;border-radius:18px;background:none;box-shadow:0 0 0 1px var(--hair)}
+  .screen{border-radius:18px}
+  .status,.home{display:none}
+  .facts{font-size:14px}
+}
+</style>
+</head>
+<body>
+
+
+<main class="wrap">
+  <section class="intro">
+    <div class="brands">
+      <span class="chip"><img src="logo-clintia.png" alt="ClintIA"></span>
+      <span class="x">×</span>
+      <span class="chip"><img src="logo-saudevida.png" alt="SaúdeVida"></span>
+    </div>
+    <div class="eyebrow">Prévia para aprovação</div>
+    <h1>As 6 regras que aprendemos na central da SaúdeVida</h1>
+    <p class="lead">É assim que o carrossel vai aparecer no feed do @clintia.br. Arraste as lâminas pro lado, como no Instagram. Cada uma é um vídeo curto.</p>
+    <dl class="facts">
+      <dt>Formato</dt><dd>Carrossel com 10 lâminas em vídeo</dd>
+      <dt>Onde</dt><dd>Instagram @clintia.br</dd>
+      <dt>Áudio</dt><dd>A música entra na hora de postar, pelo app</dd>
+    </dl>
+  </section>
+
+  <div class="phone" aria-label="Prévia do post no celular">
+    <div class="screen">
+      <div class="status" aria-hidden="true"><span>9:41</span><span class="notch"></span><span class="bat"></span></div>
+      <div class="post-head">
+        <span class="ring"><img src="avatar.png" alt=""></span>
+        <div class="who"><b>clintia.br</b><span>Santos, São Paulo</span></div>
+        <button class="more" type="button" aria-label="Mais opções">···</button>
+      </div>
+      <div class="media">
+        <div class="track" id="track" tabindex="0" aria-label="Lâminas do carrossel"></div>
+        <span class="count" id="count">1/10</span>
+        <button class="nav prev" id="prev" type="button" aria-label="Lâmina anterior"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M8 1 3 6l5 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+        <button class="nav next" id="next" type="button" aria-label="Próxima lâmina"><svg width="12" height="12" viewBox="0 0 12 12"><path d="m4 1 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+      </div>
+      <div class="actions">
+        <div class="l" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.3-9.2C1.4 7.4 3.6 4 7 4c2.1 0 3.6 1.2 5 3 1.4-1.8 2.9-3 5-3 3.4 0 5.6 3.4 4.3 6.8C19.5 15.4 12 20 12 20z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 1 1-3.3-6.7A8.4 8.4 0 0 1 20.5 12zM20.5 12l1 7.5-6-2.2"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M22 3 11 13.5M22 3l-7 18-4-7.5L3 10z"/></svg>
+        </div>
+        <div class="dots" id="dots" aria-hidden="true"></div>
+        <div class="r" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V3h14z"/></svg></div>
+      </div>
+      <div class="cap short" id="cap">
+        <div class="body"><b>clintia.br</b> Passamos duas tardes dentro da central da SaúdeVida, em Santos, sentados ao lado de quem atende o telefone.
+
+A SaúdeVida é um convênio próprio com mais de dez anos de mercado e uma rede de seis clínicas populares na região. Tudo passa por uma central só: agendamento, venda do convênio e atendimento no WhatsApp.
+
+Saímos de lá com seis regras que valem pra qualquer clínica popular:
+
+1. Tecnologia pra organizar, gente pra atender.
+2. Toda consulta particular é uma venda de recorrência.
+3. Quem banca a clínica não é o plano de saúde.
+4. Particular só agenda com metade no Pix.
+5. O convênio pode ser pago na conta de luz.
+6. Demanda boa resolve o que regra nenhuma resolve.
+
+Obrigado, Márcio, por abrir as portas.
+
+Processo de venda que funciona está escrito. Comenta MANUAL que a gente te manda o link do Manual da Clínica Popular.
+
+#clinicapopular #gestaodeclinicas #marketingmedico #vendasnasaude #santos</div>
+        <button type="button" id="mais">mais</button>
+      </div>
+      <div class="stamp">Prévia · ainda não publicado</div>
+      <div class="home" aria-hidden="true"><i></i></div>
+    </div>
+  </div>
+</main>
+
+<script>
+(function(){
+  var N = 10, track = document.getElementById('track'), dots = document.getElementById('dots');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vids = [];
+  for (var i = 1; i <= N; i++) {
+    var n = (i < 10 ? '0' : '') + i;
+    var s = document.createElement('div'); s.className = 'slide';
+    var v = document.createElement('video');
+    v.src = 'v/' + n + '.mp4'; v.poster = 'v/' + n + '.jpg';
+    v.muted = true; v.playsInline = true; v.loop = true; v.preload = i <= 2 ? 'auto' : 'metadata';
+    v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('aria-label', 'Lâmina ' + i + ' de ' + N);
+    s.appendChild(v); track.appendChild(s); vids.push(v);
+    var d = document.createElement('i'); if (i === 1) d.className = 'on'; dots.appendChild(d);
+  }
+  var cur = 0, prev = document.getElementById('prev'), next = document.getElementById('next');
+  function show(k){
+    cur = k;
+    document.getElementById('count').textContent = (k + 1) + '/' + N;
+    [].forEach.call(dots.children, function(d, j){ d.className = j === k ? 'on' : ''; });
+    prev.disabled = k === 0; next.disabled = k === N - 1;
+    vids.forEach(function(v, j){
+      if (j === k) { v.currentTime = 0; if (!still) { var p = v.play(); if (p && p.catch) p.catch(function(){}); } }
+      else v.pause();
+      if (j === k + 1) v.preload = 'auto';
+    });
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting && e.intersectionRatio > .6) show(vids.indexOf(e.target.firstChild)); });
+  }, {root: track, threshold: [.6]});
+  [].forEach.call(track.children, function(s){ io.observe(s); });
+  function go(k){ k = Math.max(0, Math.min(N - 1, k)); track.scrollTo({left: k * track.clientWidth, behavior: still ? 'auto' : 'smooth'}); }
+  prev.onclick = function(){ go(cur - 1); };
+  next.onclick = function(){ go(cur + 1); };
+  track.addEventListener('keydown', function(e){ if (e.key === 'ArrowRight') { go(cur + 1); e.preventDefault(); } if (e.key === 'ArrowLeft') { go(cur - 1); e.preventDefault(); } });
+  track.addEventListener('click', function(){ var v = vids[cur]; if (v.paused) v.play().catch(function(){}); else v.pause(); });
+  document.getElementById('mais').onclick = function(){ var c = document.getElementById('cap'); c.classList.remove('short'); this.hidden = true; };
+  show(0);
+})();
+</script>
+
+</body>
+</html>
