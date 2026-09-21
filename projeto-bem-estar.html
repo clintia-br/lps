@@ -1679,6 +1679,27 @@ html.js .slide.active .mx-cap .br{animation:mx-borda 1.4s 3.2s ease-in-out infin
 .mx-alerta small{display:block;font-size:clamp(11.5px,calc(1.1*var(--u)),19px);color:#7a3a2a;font-weight:500;margin-top:2px;}
 .mx-cap .pa{background-image:repeating-linear-gradient(135deg,rgba(184,51,15,.09) 0 9px,transparent 9px 18px);}
 
+/* v4.2 · escada de preço, "em quanto tempo se paga" enxuto, 3º mês destacado --- */
+.mx-inv{grid-template-columns:2.3fr 1fr;}
+.mx-paga{padding:clamp(12px,calc(1.2*var(--u)),20px);gap:clamp(6px,calc(.7*var(--u)),12px);}
+.mx-paga .ln{border-top:0;padding-top:0;gap:clamp(8px,calc(.9*var(--u)),14px);}
+.mx-paga .it{flex-direction:column;align-items:flex-start;gap:1px;}
+.mx-paga .it>b{font-size:clamp(15px,calc(1.5*var(--u)),25px);min-width:0;}
+.mx-paga .it p{font-size:clamp(10.5px,calc(1*var(--u)),17px);line-height:1.35;}
+.mx-escada{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:clamp(8px,calc(.8*var(--u)),12px);padding-top:clamp(8px,calc(.8*var(--u)),12px);border-top:1px dashed var(--line);}
+.mx-escada span{font-size:clamp(9.5px,calc(.92*var(--u)),15.5px);font-weight:800;color:var(--muted);background:#f1f5f9;border:1px solid var(--line);border-radius:100px;padding:3px 10px;font-variant-numeric:tabular-nums;}
+.mx-escada span.agora{color:#fff;background:var(--celtic);border-color:var(--celtic);}
+.mx-escada em{flex-basis:100%;font-style:normal;font-size:clamp(9.5px,calc(.9*var(--u)),15px);color:var(--muted);}
+html.js .slide.active .mx-escada span{animation:mx-pop .45s cubic-bezier(.2,.75,.25,1) both;}
+html.js .slide.active .mx-escada span:nth-child(1){animation-delay:.8s;}
+html.js .slide.active .mx-escada span:nth-child(2){animation-delay:.95s;}
+html.js .slide.active .mx-escada span:nth-child(3){animation-delay:1.1s;}
+html.js .slide.active .mx-escada span:nth-child(4){animation-delay:1.25s;}
+.mx-3m{display:inline-block;color:#0E7A54;background:#e3f7ee;border:1px solid #bfe6d3;border-radius:100px;padding:1px 9px;font-weight:900;letter-spacing:.06em;}
+@media (max-width:900px){.mx-inv{grid-template-columns:1fr;}}
+.mx-escada em{flex-basis:auto;margin-left:4px;}
+.mx-paga{align-self:center;}
+
 </style>
 </head>
 <body>
@@ -2193,20 +2214,21 @@ html.js .slide.active .mx-cap .br{animation:mx-borda 1.4s 3.2s ease-in-out infin
         <div><h5>Conversão</h5><ul><li><span class="mx-ok" style="--d:1.50s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>CRM</b> configurado e integrado ao WhatsApp, com a IA na triagem</span></li><li><span class="mx-ok" style="--d:1.62s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Automações necessárias</b>: confirmação, lembrete e régua de no-show</span></li><li><span class="mx-ok" style="--d:1.74s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Treinamento comercial</b>: uso do CRM, venda da clínica, script, técnica, cadência e cultura de vendas</span></li><li><span class="mx-ok" style="--d:1.86s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Manual de atendimento e scripts por especialidade</span></li><li><span class="mx-ok" style="--d:1.98s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Painel de indicadores</b> no celular</span></li></ul></div>
       </div>
       <p class="fp">Verba de mídia e licença do CRM à parte, pagas direto às plataformas. O kickoff sai com o Pix ou com a primeira parcela.</p>
+      <div class="mx-escada"><span class="agora">Setembro · R$ 14.900</span><span>Outubro · R$ 15.900</span><span>Novembro · R$ 16.900</span><span>Dezembro · R$ 17.900</span>
+        <em>sobe R$ 1.000 por mês, pela fila de projetos</em></div>
     </div>
     <div class="mx-paga up" style="--d:.3s">
       <div class="qt">Em quanto tempo se paga</div>
-      <p>Com o ticket de R$ 140 e 22 dias úteis que vocês informaram:</p>
       <div class="ln">
-        <div class="it"><b>+10/dia</b><p>R$ 30,8 mil a mais por mês. O projeto se paga em <b>menos de três semanas</b>.</p></div>
-        <div class="it"><b>+15/dia</b><p>R$ 46,2 mil a mais. A clínica chega ao <b>empate de R$ 110–120 mil</b> e acaba o aporte dos sócios.</p></div>
-        <div class="it"><b>+25/dia</b><p>R$ 77 mil a mais por mês, e ainda sobram 30 vagas livres.</p></div>
+        <div class="it"><b>+10/dia</b><p>R$ 30,8 mil/mês · paga em <b>menos de 3 semanas</b></p></div>
+        <div class="it"><b>+15/dia</b><p>R$ 46,2 mil/mês · <b>empate</b>, fim do aporte</p></div>
+        <div class="it"><b>+25/dia</b><p>R$ 77 mil/mês a mais</p></div>
       </div>
     </div>
   </div>
   <div class="mx-planos up" style="--d:.5s">
     <div class="mx-rech">Acompanhamento mensal · recorrência</div>
-    <div class="ph">Depois da implantação · a partir do 3º mês, opcional · sem fidelidade, aviso de 30 dias</div>
+    <div class="ph">Depois da implantação · <span class="mx-3m">só a partir do 3º mês</span> · opcional · sem fidelidade, aviso de 30 dias</div>
     <div class="gr2">
       <div class="mx-pl">
         <div class="mxcab"><h4>Plano Essencial</h4><div class="pr">R$ 2.100<small> / mês</small></div></div>
