@@ -1169,6 +1169,251 @@ html.js .slide.active:not(.divisor):not(#cover):not(#end){justify-content:safe c
 .mx-col{min-width:0;}
 .mx-col h5{overflow-wrap:anywhere;hyphens:auto;}
 
+/* ── motion_v3.css · componentes da v3 (feedback do Bernardo, 21/09) ───────
+   Mesma regra da v2: estado base = final; anima só em html.js .slide.active.
+────────────────────────────────────────────────────────────────────────── */
+
+/* A · interruptor (liga/desliga) ------------------------------------------- */
+.mx-sw{display:inline-block;position:relative;width:clamp(36px,calc(3.4*var(--u)),52px);height:clamp(20px,calc(1.9*var(--u)),29px);
+  border-radius:100px;background:#3FBF92;flex:0 0 auto;vertical-align:middle;transition:background .3s;}
+.mx-sw::after{content:"";position:absolute;top:3px;bottom:3px;aspect-ratio:1;right:3px;border-radius:50%;background:#fff;
+  box-shadow:0 1px 3px rgba(0,0,0,.25);transition:right .3s;}
+.mx-sw.off{background:#c5d0da;}
+.mx-sw.off::after{right:calc(100% - 3px - (clamp(20px,calc(1.9*var(--u)),29px) - 6px));}
+@keyframes mx-sw-bg{0%,35%{background:#c5d0da;}45%,90%{background:#3FBF92;}100%{background:#c5d0da;}}
+@keyframes mx-sw-kn{0%,35%{right:calc(100% - 3px - (clamp(20px,calc(1.9*var(--u)),29px) - 6px));}45%,90%{right:3px;}100%{right:calc(100% - 3px - (clamp(20px,calc(1.9*var(--u)),29px) - 6px));}}
+html.js .slide.active .mx-sw.pisca{animation:mx-sw-bg 7s ease-in-out infinite;}
+html.js .slide.active .mx-sw.pisca::after{animation:mx-sw-kn 7s ease-in-out infinite;}
+.trein .mx-sw{margin-right:10px;vertical-align:-4px;}
+
+/* B · páginas por especialidade passando ----------------------------------- */
+.mx-dem{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(16px,calc(2*var(--u)),34px);align-items:center;margin-top:clamp(10px,calc(1*var(--u)),18px);}
+.mx-dem ul.clean{margin:0;}
+.mx-pags{overflow:hidden;position:relative;border-radius:16px;padding:10px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+.mx-pags-trilho{display:flex;gap:clamp(10px,calc(1.1*var(--u)),18px);width:max-content;}
+@keyframes mx-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+html.js .slide.active .mx-pags-trilho{animation:mx-marquee 22s linear infinite;}
+html:not(.js) .mx-pag.dup{display:none;}
+html:not(.js) .mx-pags-trilho{flex-wrap:wrap;width:auto;}
+.mx-pag{width:clamp(150px,calc(15.5*var(--u)),250px);flex:0 0 auto;background:#fff;border:1px solid #d7e3ee;border-radius:12px;
+  box-shadow:0 12px 28px rgba(5,30,50,.12);overflow:hidden;}
+.mx-pag .nav{height:clamp(14px,calc(1.3*var(--u)),20px);background:#f1f5f9;display:flex;align-items:center;gap:4px;padding:0 8px;}
+.mx-pag .nav i{width:6px;height:6px;border-radius:50%;background:#cbd5df;}
+.mx-pag .nav b{margin-left:8px;height:6px;flex:1;border-radius:4px;background:#e3eaf1;}
+.mx-pag .hero{padding:clamp(10px,calc(1*var(--u)),16px);color:#fff;min-height:clamp(78px,calc(8*var(--u)),128px);display:flex;flex-direction:column;justify-content:flex-end;}
+.mx-pag .hero small{font-size:clamp(8px,calc(.75*var(--u)),12.5px);font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.85;}
+.mx-pag .hero h5{font-size:clamp(12.5px,calc(1.25*var(--u)),21px);font-weight:900;line-height:1.15;margin-top:3px;}
+.mx-pag .corpo{padding:clamp(8px,calc(.8*var(--u)),13px);}
+.mx-pag .corpo i{display:block;height:6px;border-radius:4px;background:#e3eaf1;margin-bottom:5px;}
+.mx-pag .corpo i:nth-child(2){width:78%;}
+.mx-pag .corpo i:nth-child(3){width:56%;}
+.mx-pag .cta{display:inline-block;margin-top:6px;font-size:clamp(8.5px,calc(.82*var(--u)),13.5px);font-weight:800;color:#fff;background:#25a35a;border-radius:100px;padding:4px 10px;}
+.mx-pag.u .hero{background:linear-gradient(140deg,#053C73,#0578DC);}
+.mx-pag.g .hero{background:linear-gradient(140deg,#7a2e59,#c2557f);}
+.mx-pag.c .hero{background:linear-gradient(140deg,#8a1c1c,#d2453d);}
+.mx-pag.p .hero{background:linear-gradient(140deg,#2d2a6e,#5b57c9);}
+.mx-pag.e .hero{background:linear-gradient(140deg,#0E7A54,#3FBF92);}
+
+/* C · controle da demanda por especialidade -------------------------------- */
+.mx-ctrl{display:grid;gap:clamp(8px,calc(.8*var(--u)),13px);margin-top:clamp(14px,calc(1.4*var(--u)),22px);max-width:1120px;}
+.mx-cl{display:grid;grid-template-columns:clamp(150px,calc(16*var(--u)),270px) auto 1fr clamp(84px,calc(8.5*var(--u)),136px);align-items:center;gap:clamp(10px,calc(1.1*var(--u)),18px);
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(9px,calc(.9*var(--u)),14px) clamp(12px,calc(1.2*var(--u)),20px);}
+.mx-cl .nm{font-size:clamp(13px,calc(1.3*var(--u)),22px);font-weight:900;color:var(--oxford);}
+.mx-cl .nm small{display:block;font-size:.72em;font-weight:600;color:var(--muted);}
+.mx-cl .trk{height:clamp(12px,calc(1.2*var(--u)),18px);border-radius:10px;background:#eef3f7;overflow:hidden;}
+.mx-cl .bud{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--celtic),var(--dodger));transform-origin:left center;}
+.mx-cl .pct{white-space:nowrap;font-size:clamp(12px,calc(1.2*var(--u)),20px);font-weight:900;color:var(--celtic);text-align:right;font-variant-numeric:tabular-nums;}
+html.js .slide.active .mx-cl .bud{animation:mx-growx 1s cubic-bezier(.2,.75,.25,1) both;animation-delay:var(--d,.3s);}
+@keyframes mx-bud{0%,35%{transform:scaleX(.08);}45%,90%{transform:scaleX(1);}100%{transform:scaleX(.08);}}
+html.js .slide.active .mx-cl.pisca .bud{animation:mx-bud 7s ease-in-out infinite;}
+.mx-cl.pisca{border-color:#c6e0f5;}
+
+/* D · CRM interativo -------------------------------------------------------- */
+.mx-card{cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;z-index:2;}
+.mx-card.arrastando{cursor:grabbing;box-shadow:0 18px 36px rgba(5,90,170,.28);transform:scale(1.04);}
+.mx-pipe.manual .mx-card{animation:none !important;transition:left .45s cubic-bezier(.2,.75,.25,1);}
+.mx-pipe.manual .mx-card.arrastando{transition:none;}
+.mx-col{cursor:pointer;transition:background .25s,border-color .25s;}
+.mx-col.alvo{background:#e6f6ff;border-color:var(--sky);}
+.mx-col:hover{border-color:#bcd9ee;}
+.mx-dica{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:clamp(10.5px,calc(1*var(--u)),17px);font-weight:700;color:var(--dodger);}
+.mx-dica svg{width:1.2em;height:1.2em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+@keyframes mx-mao{0%,100%{transform:translateX(0);}50%{transform:translateX(6px);}}
+html.js .slide.active .mx-dica svg{animation:mx-mao 1.2s ease-in-out infinite;}
+.mx-praque{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,calc(.9*var(--u)),14px);margin-top:clamp(12px,calc(1.2*var(--u)),20px);}
+.mx-pq{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:clamp(9px,calc(.9*var(--u)),14px);}
+.mx-pq .ic{flex:0 0 auto;width:clamp(28px,calc(2.6*var(--u)),40px);height:clamp(28px,calc(2.6*var(--u)),40px);border-radius:10px;background:#e3f1fd;color:var(--celtic);display:flex;align-items:center;justify-content:center;}
+.mx-pq .ic svg{width:58%;height:58%;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+.mx-pq p{font-size:clamp(11.2px,calc(1.08*var(--u)),18.5px);color:var(--ink);line-height:1.4;font-weight:600;}
+.mx-pq p small{display:block;font-weight:500;color:var(--muted);font-size:.9em;}
+
+/* E · a vaga: sai uma pessoa, entra outra, o método fica ------------------- */
+.mx-trgrid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(16px,calc(2*var(--u)),32px);align-items:center;margin-top:clamp(12px,calc(1.2*var(--u)),20px);}
+.mx-vaga{position:relative;background:linear-gradient(160deg,#f4faff,#eaf4fc);border:1px solid #cfe4f2;border-radius:20px;
+  padding:clamp(16px,calc(1.6*var(--u)),26px);min-height:clamp(200px,calc(21*var(--u)),330px);overflow:hidden;}
+.mx-vaga .lb{font-size:clamp(10px,calc(.95*var(--u)),16px);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--celtic);}
+.mx-mesa{position:absolute;left:50%;bottom:clamp(40px,calc(4.2*var(--u)),66px);transform:translateX(-50%);width:62%;height:clamp(14px,calc(1.4*var(--u)),22px);
+  border-radius:8px;background:linear-gradient(90deg,var(--yale),var(--celtic));}
+.mx-pz{position:absolute;left:50%;bottom:calc(clamp(40px,calc(4.2*var(--u)),66px) + clamp(14px,calc(1.4*var(--u)),22px) - 2px);margin-left:calc(clamp(56px,calc(5.8*var(--u)),92px) / -2);
+  width:clamp(56px,calc(5.8*var(--u)),92px);height:clamp(76px,calc(7.8*var(--u)),124px);}
+.mx-pz svg{width:100%;height:100%;}
+.mx-pz.b{opacity:0;}
+@keyframes mx-turno{0%{opacity:0;transform:translateX(-60px);}8%,42%{opacity:1;transform:none;}50%,100%{opacity:0;transform:translateX(60px);}}
+html.js .slide.active .mx-pz.a{animation:mx-turno 8s ease-in-out infinite;}
+html.js .slide.active .mx-pz.b{animation:mx-turno 8s ease-in-out -4s infinite;}
+.mx-metodo{position:absolute;right:clamp(12px,calc(1.2*var(--u)),20px);top:clamp(12px,calc(1.2*var(--u)),20px);display:flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid #c6e0f5;border-radius:12px;padding:8px 12px;font-size:clamp(10.5px,calc(1*var(--u)),17px);font-weight:800;color:var(--oxford);
+  box-shadow:0 8px 20px rgba(5,90,170,.12);}
+.mx-metodo svg{width:1.3em;height:1.3em;stroke:var(--celtic);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+@keyframes mx-respira{0%,100%{box-shadow:0 8px 20px rgba(5,90,170,.12);}50%{box-shadow:0 8px 26px rgba(5,210,255,.45);}}
+html.js .slide.active .mx-metodo{animation:mx-respira 2.4s ease-in-out infinite;}
+.mx-vaga .rod{position:absolute;left:0;right:0;bottom:clamp(10px,calc(1*var(--u)),16px);text-align:center;font-size:clamp(10.5px,calc(1*var(--u)),17px);font-weight:700;color:var(--muted);}
+.mx-trgrid .mx-passos{grid-template-columns:1fr;gap:10px;margin-top:0;}
+.mx-trgrid .mx-passo{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:start;padding:clamp(10px,calc(1*var(--u)),16px) clamp(12px,calc(1.2*var(--u)),20px);}
+.mx-trgrid .mx-passo .num{grid-row:span 2;margin-bottom:0;}
+
+/* F · time em células --------------------------------------------------------- */
+.mx-celulas{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,calc(1.1*var(--u)),18px);margin-top:clamp(12px,calc(1.2*var(--u)),20px);}
+.mx-cel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(12px,calc(1.2*var(--u)),20px);box-shadow:0 2px 12px rgba(5,30,50,.05);}
+.mx-cel.lider{grid-column:1/-1;background:linear-gradient(150deg,#051E32,#053C73);border-color:#0b3a63;}
+.mx-cel .ch{display:flex;align-items:center;gap:8px;font-size:clamp(10px,calc(.97*var(--u)),16.5px);font-weight:900;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--celtic);margin-bottom:clamp(8px,calc(.8*var(--u)),14px);}
+.mx-cel.lider .ch{color:var(--sky);}
+.mx-cel .ch i{width:8px;height:8px;border-radius:50%;background:currentColor;}
+.mx-cel .mems{display:grid;gap:clamp(8px,calc(.9*var(--u)),14px);}
+.mx-cel.lider .mems{grid-template-columns:1fr 1fr;}
+.mx-mem{display:flex;gap:clamp(10px,calc(1*var(--u)),16px);align-items:center;}
+.mx-av{position:relative;flex:0 0 auto;width:clamp(50px,calc(5*var(--u)),80px);height:clamp(50px,calc(5*var(--u)),80px);border-radius:50%;
+  background:linear-gradient(150deg,var(--yale),var(--dodger));color:#fff;font-weight:900;font-size:clamp(15px,calc(1.5*var(--u)),25px);
+  display:flex;align-items:center;justify-content:center;}
+.mx-av img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;}
+.mx-bdg{position:absolute;right:-4px;bottom:-4px;width:clamp(22px,calc(2.1*var(--u)),34px);height:clamp(22px,calc(2.1*var(--u)),34px);border-radius:50%;
+  background:var(--sky);color:var(--oxford);border:2px solid #fff;display:flex;align-items:center;justify-content:center;}
+.mx-bdg svg{width:60%;height:60%;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+@keyframes mx-bob{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-3px) rotate(-8deg);}}
+html.js .slide.active .mx-bdg{animation:mx-pop .5s cubic-bezier(.2,.75,.25,1) both,mx-bob 2.6s ease-in-out infinite;animation-delay:var(--d,.4s),calc(var(--d,.4s) + .6s);}
+.mx-mem h4{font-size:clamp(12.5px,calc(1.22*var(--u)),20.5px);font-weight:900;color:var(--oxford);line-height:1.2;}
+.mx-mem .rl{font-size:clamp(9.5px,calc(.9*var(--u)),15px);font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--dodger);margin:2px 0 3px;}
+.mx-mem p{font-size:clamp(10.8px,calc(1.02*var(--u)),17.5px);color:var(--muted);line-height:1.4;font-weight:500;}
+.mx-cel.lider .mx-mem h4{color:#fff;}
+.mx-cel.lider .mx-mem .rl{color:var(--sky);}
+.mx-cel.lider .mx-mem p{color:#b9d2e6;}
+.mx-cel.lider .mx-bdg{border-color:#053C73;}
+.mx-lidera{display:inline-block;font-size:.7em;font-weight:900;letter-spacing:.08em;text-transform:uppercase;background:var(--sky);color:var(--oxford);
+  border-radius:100px;padding:1px 8px;margin-left:6px;vertical-align:2px;}
+
+/* G · acompanhamento: reuniões + painel vivo -------------------------------- */
+.mx-acomp{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(14px,calc(1.6*var(--u)),26px);align-items:stretch;margin-top:clamp(12px,calc(1.2*var(--u)),20px);}
+.mx-reus{display:grid;gap:clamp(10px,calc(1*var(--u)),16px);align-content:center;}
+.mx-reu{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--dodger);border-radius:14px;padding:clamp(12px,calc(1.2*var(--u)),20px);}
+.mx-reu .qd{font-size:clamp(9.5px,calc(.92*var(--u)),15.5px);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--dodger);}
+.mx-reu h4{font-size:clamp(14px,calc(1.38*var(--u)),23px);font-weight:900;color:var(--oxford);margin:2px 0 4px;}
+.mx-reu p{font-size:clamp(11.5px,calc(1.1*var(--u)),18.5px);color:var(--muted);line-height:1.5;font-weight:500;}
+.mx-painel{background:linear-gradient(160deg,#051E32,#062a47);border-radius:18px;padding:clamp(14px,calc(1.4*var(--u)),22px);color:#dceaf5;
+  box-shadow:0 18px 40px rgba(5,30,50,.25);}
+.mx-painel .mxcab{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:clamp(10px,calc(1*var(--u)),16px);}
+.mx-painel .mxcab b{font-size:clamp(11.5px,calc(1.1*var(--u)),18.5px);font-weight:900;color:#fff;}
+.mx-painel .mxcab span{font-size:clamp(8.5px,calc(.8*var(--u)),13.5px);font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#7fa8c4;
+  border:1px solid rgba(127,168,196,.4);border-radius:100px;padding:2px 8px;}
+.mx-painel .ao{display:inline-block;width:7px;height:7px;border-radius:50%;background:#3FBF92;margin-right:6px;}
+@keyframes mx-vivo{0%,100%{opacity:1;}50%{opacity:.25;}}
+html.js .slide.active .mx-painel .ao{animation:mx-vivo 1.2s ease-in-out infinite;}
+.mx-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.mx-k{background:rgba(255,255,255,.06);border:1px solid rgba(5,210,255,.18);border-radius:10px;padding:8px 10px;}
+.mx-k .v{font-size:clamp(14px,calc(1.5*var(--u)),25px);font-weight:900;color:#fff;font-variant-numeric:tabular-nums;line-height:1.1;}
+.mx-k .l{font-size:clamp(8.5px,calc(.8*var(--u)),13.5px);font-weight:700;color:#8fb0c8;margin-top:2px;}
+.mx-k.hi{border-color:rgba(5,210,255,.55);background:rgba(5,210,255,.1);}
+.mx-k.hi .v{color:var(--sky);}
+.mx-pbx{display:grid;grid-template-columns:1fr 1.2fr;gap:12px;margin-top:10px;align-items:end;}
+.mx-fn{display:grid;gap:6px;}
+.mx-fn div{display:flex;align-items:center;height:clamp(18px,calc(1.8*var(--u)),28px);border-radius:6px;padding:0 8px;font-size:clamp(8.5px,calc(.82*var(--u)),14px);
+  font-weight:800;color:#fff;white-space:nowrap;transform-origin:left center;background:linear-gradient(90deg,var(--celtic),var(--dodger));}
+.mx-fn div:nth-child(2){background:linear-gradient(90deg,var(--dodger),#18a9e6);}
+.mx-fn div:nth-child(3){background:linear-gradient(90deg,#0E7A54,#3FBF92);}
+@keyframes mx-fn{0%{transform:scaleX(0);}18%,82%{transform:scaleX(1);}100%{transform:scaleX(1);}}
+html.js .slide.active .mx-fn div{animation:mx-growx 1s cubic-bezier(.2,.75,.25,1) both;animation-delay:var(--d,.3s);}
+.mx-graf{position:relative;}
+.mx-graf small{display:block;font-size:clamp(8.5px,calc(.8*var(--u)),13.5px);font-weight:700;color:#8fb0c8;margin-bottom:4px;}
+.mx-graf svg{width:100%;height:auto;display:block;overflow:visible;}
+.mx-graf .gr{stroke:rgba(143,176,200,.18);stroke-width:1;}
+.mx-graf .ln{fill:none;stroke:var(--sky);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:300;}
+.mx-graf .ar{fill:url(#mxg2);}
+.mx-graf .pt{fill:var(--sky);}
+@keyframes mx-anda-linha{0%{stroke-dashoffset:300;}55%,85%{stroke-dashoffset:0;}100%{stroke-dashoffset:0;opacity:0;}}
+@keyframes mx-anda-area{0%,40%{opacity:0;}60%,85%{opacity:1;}100%{opacity:0;}}
+@keyframes mx-ponto{0%,50%{opacity:0;r:2;}58%{opacity:1;r:6;}66%,85%{opacity:1;r:4;}100%{opacity:0;}}
+html.js .slide.active .mx-graf .ln{animation:mx-anda-linha 5s cubic-bezier(.3,.6,.2,1) infinite;}
+html.js .slide.active .mx-graf .ar{animation:mx-anda-area 5s ease-in-out infinite;}
+html.js .slide.active .mx-graf .pt{animation:mx-ponto 5s ease-in-out infinite;}
+
+/* H · investimento completo -------------------------------------------------- */
+.mx-inv{display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(12px,calc(1.4*var(--u)),22px);margin-top:clamp(10px,calc(1*var(--u)),16px);}
+.mx-impl{background:#fff;border:2px solid var(--sky);border-radius:18px;padding:clamp(14px,calc(1.5*var(--u)),24px);box-shadow:0 12px 34px rgba(5,210,255,.14);}
+.mx-impl .tg{display:inline-block;font-size:clamp(9.5px,calc(.92*var(--u)),15.5px);font-weight:800;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--celtic);background:#e3f1fd;border-radius:100px;padding:4px 11px;}
+.mx-impl .vl{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px;margin-top:clamp(6px,calc(.6*var(--u)),10px);}
+.mx-impl .vl b{font-size:clamp(30px,calc(3.2*var(--u)),54px);font-weight:900;color:var(--oxford);letter-spacing:-.02em;line-height:1;}
+.mx-impl .vl span{font-size:clamp(11.5px,calc(1.1*var(--u)),18.5px);color:var(--muted);font-weight:600;}
+.mx-inc{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,calc(.9*var(--u)),14px);margin-top:clamp(10px,calc(1*var(--u)),16px);
+  border-top:1px solid var(--line);padding-top:clamp(10px,calc(1*var(--u)),16px);}
+.mx-inc h5{font-size:clamp(10px,calc(.97*var(--u)),16.5px);font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--celtic);margin-bottom:6px;}
+.mx-inc ul{list-style:none;margin:0;padding:0;}
+.mx-inc li{display:flex;gap:7px;align-items:flex-start;padding:3px 0;font-size:clamp(10.8px,calc(1.04*var(--u)),17.5px);line-height:1.35;color:var(--ink);font-weight:500;}
+.mx-impl .fp{font-size:clamp(9.5px,calc(.9*var(--u)),15px);color:var(--muted);margin-top:8px;}
+.mx-paga{background:linear-gradient(160deg,#051E32,#053C73);border-radius:18px;padding:clamp(14px,calc(1.5*var(--u)),24px);color:#dceaf5;
+  display:flex;flex-direction:column;gap:clamp(8px,calc(.9*var(--u)),14px);}
+.mx-paga .qt{font-size:clamp(10px,calc(.97*var(--u)),16.5px);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);}
+.mx-paga .big{font-size:clamp(28px,calc(3*var(--u)),50px);font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums;}
+.mx-paga .big small{font-size:.4em;font-weight:700;color:#b9d2e6;letter-spacing:0;}
+.mx-paga p{font-size:clamp(11px,calc(1.05*var(--u)),18px);line-height:1.45;color:#b9d2e6;}
+.mx-paga p b{color:#fff;}
+.mx-paga .ln{border-top:1px solid rgba(185,210,230,.2);padding-top:clamp(8px,calc(.9*var(--u)),14px);display:grid;gap:8px;}
+.mx-paga .it{display:flex;gap:10px;align-items:baseline;}
+.mx-paga .it>b{flex:0 0 auto;font-size:clamp(13px,calc(1.3*var(--u)),22px);font-weight:900;color:var(--sky);}
+.mx-planos{margin-top:clamp(12px,calc(1.3*var(--u)),20px);}
+.mx-planos .ph{font-size:clamp(10px,calc(.97*var(--u)),16.5px);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.mx-planos .gr2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,calc(1.1*var(--u)),18px);}
+.mx-pl{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:clamp(12px,calc(1.3*var(--u)),20px);}
+.mx-pl.b{border-color:#9fd6f2;background:linear-gradient(160deg,#f5fbff,#fff);}
+.mx-pl .mxcab{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;}
+.mx-pl h4{font-size:clamp(14px,calc(1.4*var(--u)),23px);font-weight:900;color:var(--oxford);}
+.mx-pl .pr{font-size:clamp(18px,calc(1.9*var(--u)),31px);font-weight:900;color:var(--celtic);letter-spacing:-.01em;}
+.mx-pl .pr small{font-size:.5em;color:var(--muted);font-weight:700;}
+.mx-pl p{font-size:clamp(11px,calc(1.05*var(--u)),18px);color:var(--muted);line-height:1.45;margin-top:4px;}
+.mx-pl p b{color:var(--ink);}
+.mx-pl .soc{display:inline-flex;align-items:center;gap:6px;font-size:clamp(9.5px,calc(.92*var(--u)),15.5px);font-weight:800;border-radius:100px;padding:2px 9px;margin-top:6px;}
+.mx-pl .soc.nao{background:#eef2f5;color:var(--muted);}
+.mx-pl .soc.sim{background:#e3f7ee;color:#0E7A54;}
+
+/* I · celular ------------------------------------------------------------------ */
+@media (max-width:900px){
+  .mx-dem,.mx-trgrid,.mx-acomp,.mx-inv{grid-template-columns:1fr;}
+  .mx-cl{grid-template-columns:1fr auto;row-gap:6px;}
+  .mx-cl .trk{grid-column:1/-1;}
+  .mx-cl .pct{white-space:nowrap;display:none;}
+  .mx-praque{grid-template-columns:1fr;}
+  .mx-celulas{grid-template-columns:1fr;}
+  .mx-cel.lider .mems{grid-template-columns:1fr;}
+  .mx-kpis{grid-template-columns:1fr 1fr;}
+  .mx-pbx{grid-template-columns:1fr;}
+  .mx-inc{grid-template-columns:1fr;}
+  .mx-planos .gr2{grid-template-columns:1fr;}
+}
+
+/* J · peças auxiliares ------------------------------------------------------- */
+.mx-frase{display:flex;align-items:center;gap:clamp(12px,calc(1.2*var(--u)),20px);margin-top:clamp(12px,calc(1.2*var(--u)),20px);
+  background:linear-gradient(150deg,#051E32,#053C73);color:#fff;border-radius:16px;padding:clamp(14px,calc(1.4*var(--u)),22px) clamp(16px,calc(1.6*var(--u)),26px);}
+.mx-frase p{font-size:clamp(13.5px,calc(1.35*var(--u)),23px);font-weight:700;line-height:1.4;color:#dceaf5;}
+.mx-frase p b{color:#fff;font-weight:900;}
+.mx-lista{list-style:none;margin:0;padding:0;display:grid;gap:clamp(6px,calc(.6*var(--u)),10px);}
+.mx-lista li{display:flex;gap:10px;align-items:flex-start;font-size:clamp(12px,calc(1.18*var(--u)),20px);line-height:1.4;color:var(--ink);font-weight:500;}
+.mx-lista li b{font-weight:800;color:var(--oxford);}
+.mx-trh{font-size:clamp(10px,calc(.97*var(--u)),16.5px);font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--celtic);margin-bottom:clamp(8px,calc(.8*var(--u)),14px);}
+.mx-trn{margin-top:clamp(10px,calc(1*var(--u)),16px);font-size:clamp(11px,calc(1.05*var(--u)),18px);color:var(--muted);line-height:1.5;}
+.mx-trn b{color:var(--ink);}
+.mx-ilus{font-size:clamp(9px,calc(.85*var(--u)),14px);color:#7fa8c4;margin-top:8px;font-weight:600;}
+
 </style>
 </head>
 <body>
@@ -1196,9 +1441,9 @@ html.js .slide.active:not(.divisor):not(#cover):not(#end){justify-content:safe c
   <p class="sub">Quatro partes, nesta ordem — o destino primeiro, o preço por último.</p>
   <div class="menu">
     <div class="mit"><div class="mn">01</div><div class="mtx"><h3>Para onde queremos ir</h3><p>O destino da clínica e o que hoje impede de chegar lá.</p></div></div>
-    <div class="mit"><div class="mn">02</div><div class="mtx"><h3>Como faremos isso</h3><p>O cronograma, as três fases e o que fica de fora.</p></div></div>
+    <div class="mit"><div class="mn">02</div><div class="mtx"><h3>Como faremos isso</h3><p>As três fases, o treinamento e o que fica de fora.</p></div></div>
     <div class="mit"><div class="mn">03</div><div class="mtx"><h3>Governança</h3><p>Quem faz o quê de cada lado, o time e como vocês acompanham.</p></div></div>
-    <div class="mit"><div class="mn">04</div><div class="mtx"><h3>Investimento</h3><p>O salto, o valor e exatamente o que é entregue.</p></div></div>
+    <div class="mit"><div class="mn">04</div><div class="mtx"><h3>Investimento</h3><p>O salto, o cronograma, o valor e tudo o que está incluído.</p></div></div>
   </div>
 </section>
 
@@ -1314,40 +1559,11 @@ html.js .slide.active:not(.divisor):not(#cover):not(#end){justify-content:safe c
 <section class="slide darkslide divisor">
   <div class="dnum">Parte 2</div>
   <h2>Como<br>faremos isso</h2>
-  <p class="dsub">Três fases em 45 a 60 dias úteis: primeiro a mensagem certa, depois a demanda, e a conversão rodando em paralelo.</p>
+  <p class="dsub">Três fases: primeiro a mensagem certa para cada paciente, depois a demanda controlada por especialidade, e o coração do sistema rodando em paralelo.</p>
   <div class="dline"></div>
 </section>
 
-<!-- 9 CRONOGRAMA -->
-<section class="slide">
-  <div class="eyebrow">O cronograma</div>
-  <h2>60 dias úteis, com as frentes em paralelo</h2>
-  <p class="sub">Nada espera o anterior terminar. O <b>CRM</b> é o caminho crítico — por isso começa no dia 1, junto com o posicionamento.</p>
-  <div class="mx-crono">
-    <div class="mx-eixo"><div class="nm-vazio"></div>
-      <div class="tk"><span style="left:0%;transform:none">DIA 1</span><span style="left:25%">15</span><span style="left:50%">30</span><span style="left:75%">45</span><span style="left:100%;transform:translateX(-100%)">60</span></div>
-    </div>
-    <div class="mx-lin">
-      <div class="nm">Posicionamento<small>Imersão e dossiê</small></div>
-      <div class="mx-trilho"><div class="mx-bar f1" style="left:0;width:25%;--d:.2s">dias 1–15</div><i class="mx-marco" style="left:25%;--d:1.1s"></i></div>
-    </div>
-    <div class="mx-lin">
-      <div class="nm">CRM e automações<small>Caminho crítico</small></div>
-      <div class="mx-trilho"><div class="mx-bar f3 crit" style="left:0;width:50%;--d:.35s">dias 1–30</div><i class="mx-marco" style="left:50%;--d:1.3s"></i></div>
-    </div>
-    <div class="mx-lin">
-      <div class="nm">Páginas e campanhas<small>Por especialidade</small></div>
-      <div class="mx-trilho"><div class="mx-bar f2" style="left:15%;width:58.3%;--d:.5s">dias 10–45</div><i class="mx-marco" style="left:33.3%;--d:1.5s"></i></div>
-    </div>
-    <div class="mx-lin">
-      <div class="nm">Treinamento e reativação<small>Equipe e base</small></div>
-      <div class="mx-trilho"><div class="mx-bar f3" style="left:40%;width:60%;--d:.65s">dias 25–60</div><i class="mx-marco" style="left:100%;--d:1.7s"></i></div>
-    </div>
-  </div>
-  <div class="notebar up" style="--d:1.4s">◆ <b>Dia 15</b> dossiê aprovado · ◆ <b>Dia 20</b> primeiras campanhas no ar · ◆ <b>Dia 30</b> CRM rodando · ◆ <b>Dia 60</b> equipe treinada e painel com os números.</div>
-</section>
-
-<!-- 10 FASE 1 -->
+<!-- 9 FASE 1 -->
 <section class="slide">
   <div class="eyebrow">Fase 1 de 3</div>
   <div class="fasehead"><h2>Posicionamento</h2><span class="datebadge">dias 1 a 15</span></div>
@@ -1375,37 +1591,44 @@ html.js .slide.active:not(.divisor):not(#cover):not(#end){justify-content:safe c
       <p>A porta de entrada que alimenta exame e especialidade.</p>
     </div>
   </div>
-  <div class="notebar up" style="--d:.8s"><b>Entrega:</b> o <b>Dossiê de Posicionamento e Venda</b> — perfil de cada paciente, oferta por especialidade, argumentos e o tom da comunicação. Construído numa imersão com a <b>equipe inteira</b>, recepção incluída.</div>
+  <div class="mx-frase up" style="--d:.8s"><span class="mx-sw pisca"></span>
+    <p>Com o paciente ideal definido para cada especialidade, a clínica ganha um <b>botão de ligar e desligar</b>: agenda de cardiologia vazia na semana, liga a demanda de cardiologia. Ultrassom lotado, segura.</p></div>
+  <p class="mx-trn up" style="--d:1s"><b>Entrega:</b> o Dossiê de Posicionamento e Venda — construído numa imersão com a equipe inteira, recepção incluída.</p>
 </section>
 
-<!-- 11 FASE 2 -->
+<!-- 10 FASE 2 -->
 <section class="slide">
   <div class="eyebrow">Fase 2 de 3</div>
   <div class="fasehead"><h2>Demanda</h2><span class="datebadge">dias 10 a 45</span></div>
-  <p class="sub"><b>Objetivo:</b> cada real de mídia chegar na pessoa certa, com a mensagem da especialidade dela. A verba <b>não precisa subir</b> para começar — ela muda de lugar.</p>
-  <div class="mx-verba">
-    <div class="mx-vl"><span class="rt">Hoje</span>
-      <div class="mx-vbar"><div class="me" style="width:76%;--d:.2s">Meta · R$ 2.500</div><div class="g" style="width:24%;--d:.5s">Google · R$ 800</div></div></div>
-    <div class="mx-vl"><span class="rt">Projeto</span>
-      <div class="mx-vbar"><div class="g" style="width:70%;--d:.9s">Google · quem já está procurando</div><div class="me ok" style="width:30%;--d:1.2s">Meta · remarketing</div></div></div>
+  <p class="sub"><b>Objetivo:</b> controlar quantos pacientes chegam para cada especialidade — com cada real de mídia indo para a pessoa certa, com a mensagem dela.</p>
+  <div class="mx-dem">
+    <ul class="mx-lista">
+      <li><span class="mx-ok" style="--d:0.20s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Mapear os melhores canais de aquisição</b> para cada exame e especialidade</span></li><li><span class="mx-ok" style="--d:0.35s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Uma landing page por especialidade</b>, escrita para o paciente ideal dela. Hoje não existe nenhuma</span></li><li><span class="mx-ok" style="--d:0.50s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Campanhas e grupos de anúncio com orçamento separado</b> por exame e especialidade — é isso que dá o controle da demanda</span></li><li><span class="mx-ok" style="--d:0.65s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Custo por paciente medido até a agenda</b>, com rastreamento, para o investimento ir para onde rende mais</span></li>
+    </ul>
+    <div class="mx-pags up" style="--d:.3s"><div class="mx-pags-trilho"><div class="mx-pag u"><div class="nav"><i></i><i></i><i></i><b></b></div><div class="hero"><small>Ultrassom</small><h5>Exame marcado em minutos, pelo WhatsApp</h5></div><div class="corpo"><i></i><i></i><i></i><span class="cta">Agendar pelo WhatsApp</span></div></div><div class="mx-pag g"><div class="nav"><i></i><i></i><i></i><b></b></div><div class="hero"><small>Ginecologia e endócrino</small><h5>Volte a cuidar de você</h5></div><div class="corpo"><i></i><i></i><i></i><span class="cta">Agendar pelo WhatsApp</span></div></div><div class="mx-pag c"><div class="nav"><i></i><i></i><i></i><b></b></div><div class="hero"><small>Cardiologia</small><h5>Acompanhe o seu coração de perto</h5></div><div class="corpo"><i></i><i></i><i></i><span class="cta">Agendar pelo WhatsApp</span></div></div><div class="mx-pag p"><div class="nav"><i></i><i></i><i></i><b></b></div><div class="hero"><small>Psiquiatria</small><h5>Durma melhor, viva mais leve</h5></div><div class="corpo"><i></i><i></i><i></i><span class="cta">Agendar pelo WhatsApp</span></div></div><div class="mx-pag e"><div class="nav"><i></i><i></i><i></i><b></b></div><div class="hero"><small>Clínica médica</small><h5>A porta de entrada para cuidar da saúde</h5></div><div class="corpo"><i></i><i></i><i></i><span class="cta">Agendar pelo WhatsApp</span></div></div><div class="mx-pag u dup"><div class="nav"><i></i><i></i><i></i><b></b></div><div class="hero"><small>Ultrassom</small><h5>Exame marcado em minutos, pelo WhatsApp</h5></div><div class="corpo"><i></i><i></i><i></i><span class="cta">Agendar pelo WhatsApp</span></div></div><div class="mx-pag g dup"><div class="nav"><i></i><i></i><i></i><b></b></div><div class="hero"><small>Ginecologia e endócrino</small><h5>Volte a cuidar de você</h5></div><div class="corpo"><i></i><i></i><i></i><span class="cta">Agendar pelo WhatsApp</span></div></div><div class="mx-pag c dup"><div class="nav"><i></i><i></i><i></i><b></b></div><div class="hero"><small>Cardiologia</small><h5>Acompanhe o seu coração de perto</h5></div><div class="corpo"><i></i><i></i><i></i><span class="cta">Agendar pelo WhatsApp</span></div></div><div class="mx-pag p dup"><div class="nav"><i></i><i></i><i></i><b></b></div><div class="hero"><small>Psiquiatria</small><h5>Durma melhor, viva mais leve</h5></div><div class="corpo"><i></i><i></i><i></i><span class="cta">Agendar pelo WhatsApp</span></div></div><div class="mx-pag e dup"><div class="nav"><i></i><i></i><i></i><b></b></div><div class="hero"><small>Clínica médica</small><h5>A porta de entrada para cuidar da saúde</h5></div><div class="corpo"><i></i><i></i><i></i><span class="cta">Agendar pelo WhatsApp</span></div></div></div></div>
   </div>
-  <div class="mx-rota up" style="--d:1.3s">
-    <span class="mx-chip g"><i></i>Busca no Google</span><span class="mx-seta"></span>
-    <span class="mx-chip"><i></i>Página da especialidade</span><span class="mx-seta"></span>
-    <span class="mx-chip"><i></i>WhatsApp</span><span class="mx-seta"></span>
-    <span class="mx-chip g"><i></i>Agenda</span>
+</section>
+
+<!-- 11 CONTROLE DA DEMANDA -->
+<section class="slide">
+  <div class="eyebrow">Fase 2 · o controle da demanda</div>
+  <h2>Um botão para cada especialidade</h2>
+  <p class="sub">Com orçamento separado, a clínica decide onde colocar paciente — em vez de uma campanha só que traz o que vier.</p>
+  <div class="mx-ctrl">
+    <div class="mx-cl up" style="--d:.1s"><div class="nm">Ultrassom<small>exame</small></div><span class="mx-sw"></span><div class="trk"><div class="bud" style="width:82%;--d:.3s"></div></div><div class="pct">no ar</div></div>
+    <div class="mx-cl up" style="--d:.2s"><div class="nm">Gineco e endócrino<small>lead de ouro</small></div><span class="mx-sw"></span><div class="trk"><div class="bud" style="width:68%;--d:.4s"></div></div><div class="pct">no ar</div></div>
+    <div class="mx-cl pisca up" style="--d:.3s"><div class="nm">Cardiologia<small>liga quando a agenda abre</small></div><span class="mx-sw pisca"></span><div class="trk"><div class="bud" style="width:58%"></div></div><div class="pct">sob demanda</div></div>
+    <div class="mx-cl up" style="--d:.4s"><div class="nm">Psiquiatria<small>especialidade</small></div><span class="mx-sw"></span><div class="trk"><div class="bud" style="width:44%;--d:.6s"></div></div><div class="pct">no ar</div></div>
+    <div class="mx-cl up" style="--d:.5s"><div class="nm">Segunda e sexta<small>os dias vazios</small></div><span class="mx-sw"></span><div class="trk"><div class="bud" style="width:74%;--d:.7s"></div></div><div class="pct">reforço</div></div>
   </div>
-  <ul class="clean" style="margin-top:14px">
-    <li><b>Páginas por especialidade</b> — ultrassom, gineco/endócrino, cardiologia e psiquiatria. Hoje não existe nenhuma</li>
-    <li><b>Segunda e sexta como alvo</b>, com <b>Google Meu Negócio</b> otimizado e <b>rastreamento</b> até o paciente que compareceu</li>
-  </ul>
+  <div class="notebar up" style="--d:.9s">A verba <b>não precisa subir para começar</b> — ela muda de lugar. Hoje 76% está no Meta; no projeto, a maior parte vai para o Google, onde o paciente já está procurando. Os tamanhos acima são ilustrativos: a divisão real sai do mapeamento de canais.</div>
 </section>
 
 <!-- 12 FASE 3 -->
 <section class="slide">
   <div class="eyebrow">Fase 3 de 3</div>
   <div class="fasehead"><h2>Conversão</h2><span class="datebadge">dias 1 a 60</span><span class="datebadge ref">em paralelo</span></div>
-  <p class="sub"><b>Objetivo:</b> a recepção deixar de só atender e passar a <b>conduzir</b>. O card anda sozinho pelo que a recepção escreve na conversa — sem arrastar nada, sem trabalho a mais.</p>
+  <p class="sub"><b>Objetivo:</b> instalar o <b>coração do sistema</b> — um CRM que junta tudo o que chega de cada canal e mostra, a qualquer momento, em que etapa cada paciente está.</p>
   <div class="mx-pipe">
     <div class="mx-cols">
       <div class="mx-col"><h5>Novo contato</h5></div>
@@ -1416,41 +1639,53 @@ html.js .slide.active:not(.divisor):not(#cover):not(#end){justify-content:safe c
     </div>
     <div class="mx-card">Paciente · ultrassom<small>anda pelo gatilho</small></div>
   </div>
-  <div class="mx-noshow">
-    <div class="barras" style="margin-top:0">
-      <div class="barra hoje">
-        <div class="bl"><span class="bn">No-show hoje</span><span class="bv">~30%</span></div>
-        <div class="track"><div class="fill" style="width:30%"></div></div>
-      </div>
-      <div class="barra meta">
-        <div class="bl"><span class="bn">Com régua de confirmação</span><span class="bv">18%</span></div>
-        <div class="track"><div class="fill" style="width:18%"></div></div>
-      </div>
-    </div>
-    <ul class="clean" style="margin:0">
-      <li><b>CRM integrado ao WhatsApp</b>, mantendo a IA na triagem — escolhido e configurado por nós</li>
-      <li><b>Reativação da base</b> do sistema: exames vencidos e pacientes parados, com cadência</li>
-      <li><b>Concierge pós-consulta</b> vira processo da equipe, com roteiro e meta</li>
-    </ul>
+  <div class="mx-dica"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Arraste o card ou clique numa etapa</div>
+  <ul class="clean" style="margin-top:12px">
+    <li><b>CRM integrado ao WhatsApp</b>, mantendo a IA na triagem — escolhido e configurado por nós</li>
+    <li>O <b>concierge pós-consulta</b> passa a ter base e números para trabalhar, com roteiro e meta</li>
+  </ul>
+</section>
+
+<!-- 13 O QUE O CRM DESTRAVA -->
+<section class="slide">
+  <div class="eyebrow">Fase 3 · por que o CRM é o coração</div>
+  <h2>O que muda com tudo num lugar só</h2>
+  <p class="sub">Hoje quem pergunta e não agenda some sem registro. Com o CRM, cada contato vira dado — e dado vira decisão.</p>
+  <div class="mx-praque">
+    <div class="mx-pq up" style="--d:.1s"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M9 14.5l2 2 4-4"/></svg></div><p>Reduzir o no-show<small>Régua de confirmação: de perto de 30% para a meta de 18%.</small></p></div>
+    <div class="mx-pq up" style="--d:.2s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0113.7-5.6L20 8.5"/><path d="M20 4v4.5h-4.5"/><path d="M20 12a8 8 0 01-13.7 5.6L4 15.5"/><path d="M4 20v-4.5h4.5"/></svg></div><p>Trabalhar os leads que hoje ninguém trabalha<small>Quem perguntou e não agendou volta para a fila.</small></p></div>
+    <div class="mx-pq up" style="--d:.3s"><div class="ic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7.5" ry="2.8"/><path d="M4.5 6v6c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V6"/><path d="M4.5 12v6c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-6"/></svg></div><p>Coletar dados e entender a base<small>Quem é o paciente, de onde veio e o que procurou.</small></p></div>
+    <div class="mx-pq up" style="--d:.4s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 3L10 14"/><path d="M21 3l-6.5 18-4.5-7-7-4.5z"/></svg></div><p>Fazer disparos certeiros<small>Para o grupo certo, na hora certa, sem mandar a mesma coisa para todos.</small></p></div>
+    <div class="mx-pq up" style="--d:.5s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3.5 6.5l6 6 4-4 7 7"/><path d="M20.5 10.5v5h-5"/></svg></div><p>Pagar menos por paciente<small>Sabendo qual canal traz quem de fato comparece.</small></p></div>
+    <div class="mx-pq up" style="--d:.6s"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></div><p>Escolher onde atacar<small>Caixa rápido quando a clínica precisar; construção de longo prazo no resto do tempo.</small></p></div>
   </div>
 </section>
 
-<!-- 13 TREINAMENTO -->
+<!-- 14 TREINAMENTO -->
 <section class="slide">
   <div class="eyebrow">Fase 3 · a equipe</div>
   <h2>O treinamento é da vaga, não da pessoa</h2>
-  <p class="sub">Conduzido pela <b>Carol</b>, especialista em equipe de clínica acessível. Três encontros, não um — e o material fica na clínica: se alguém sair, <b>o método não sai junto</b>.</p>
-  <div class="mx-passos">
-    <div class="mx-passo up" style="--d:.1s"><div class="num">1</div><h4>Entender a rotina</h4><p>Conversa com quem está na ponta para mapear como o dia funciona de verdade, antes de propor mudança.</p></div>
-    <span class="mx-seta"></span>
-    <div class="mx-passo up" style="--d:.35s"><div class="num">2</div><h4>Encontro com a equipe</h4><p>Recepção e call center participam da construção do roteiro — ninguém recebe ordem pronta.</p></div>
-    <span class="mx-seta"></span>
-    <div class="mx-passo up" style="--d:.6s"><div class="num">3</div><h4>O treinamento</h4><p>Roteiro por especialidade, objeção de preço e condução até a agenda, já em cima da rotina real.</p></div>
+  <p class="sub">Uma das partes mais importantes do projeto: de nada adianta o CRM se a equipe não souber vender. Conduzido pela <b>Carol</b>, especialista em equipe de clínica acessível.</p>
+  <div class="mx-trgrid">
+    <div class="mx-vaga up" style="--d:.1s">
+      <div class="lb">A vaga da recepção</div>
+      <div class="mx-metodo"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 016.5 3H20v15H6.5A2.5 2.5 0 004 20.5z"/><path d="M4 20.5A2.5 2.5 0 016.5 18H20v3H6.5"/></svg>Manual e scripts</div>
+      <div class="mx-pz a"><svg viewBox="0 0 60 80"><circle cx="30" cy="16" r="12" fill="#0578DC"/><path d="M6 80V56a24 24 0 0148 0v24z" fill="#0578DC"/><rect x="22" y="44" width="16" height="3" rx="1.5" fill="#fff" opacity=".7"/></svg></div>
+      <div class="mx-pz b"><svg viewBox="0 0 60 80"><circle cx="30" cy="16" r="12" fill="#3FBF92"/><path d="M6 80V56a24 24 0 0148 0v24z" fill="#3FBF92"/><rect x="22" y="44" width="16" height="3" rx="1.5" fill="#fff" opacity=".7"/></svg></div>
+      <div class="mx-mesa"></div>
+      <div class="rod">Muda a pessoa. O método fica.</div>
+    </div>
+    <div>
+      <div class="mx-trh">O que a equipe aprende</div>
+      <ul class="mx-lista">
+        <li><span class="mx-ok" style="--d:0.30s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Usar a ferramenta</b>: o CRM no dia a dia, sem planilha</span></li><li><span class="mx-ok" style="--d:0.42s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Vender a clínica</b> e cada especialidade pelo valor, não pelo preço</span></li><li><span class="mx-ok" style="--d:0.54s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Script</b> por especialidade e resposta à objeção de preço</span></li><li><span class="mx-ok" style="--d:0.66s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Técnica</b> de condução até a agenda</span></li><li><span class="mx-ok" style="--d:0.78s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Cadência</b>: quando e como voltar em quem não agendou</span></li><li><span class="mx-ok" style="--d:0.90s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Cultura de vendas</b>: meta, rotina e acompanhamento</span></li>
+      </ul>
+      <p class="mx-trn">Em três encontros: entender a rotina real, construir o roteiro com a equipe e treinar. O material fica na clínica — <b>quem entrar depois aprende o mesmo método</b>.</p>
+    </div>
   </div>
-  <div class="notebar up" style="--d:.9s"><b>Entrega:</b> manual de atendimento e scripts por especialidade — o mesmo padrão para quem já está e para quem entrar depois.</div>
 </section>
 
-<!-- 14 O QUE FICA DE FORA -->
+<!-- 15 O QUE FICA DE FORA -->
 <section class="slide">
   <div class="eyebrow">Escopo</div>
   <h2>O que <span class="nao">não</span> está incluído — e por quê</h2>
@@ -1468,7 +1703,7 @@ html.js .slide.active:not(.divisor):not(#cover):not(#end){justify-content:safe c
   </div>
 </section>
 
-<!-- 15 DIVISOR 3 -->
+<!-- 16 DIVISOR 3 -->
 <section class="slide darkslide divisor">
   <div class="dnum">Parte 3</div>
   <h2>Governança</h2>
@@ -1476,7 +1711,7 @@ html.js .slide.active:not(.divisor):not(#cover):not(#end){justify-content:safe c
   <div class="dline"></div>
 </section>
 
-<!-- 16 QUEM FAZ O QUE -->
+<!-- 17 QUEM FAZ O QUE -->
 <section class="slide">
   <div class="eyebrow">Governança</div>
   <h2>Quem faz o quê</h2>
@@ -1486,11 +1721,11 @@ html.js .slide.active:not(.divisor):not(#cover):not(#end){justify-content:safe c
       <h3>ClintIA</h3>
       <div class="who">Monta, treina e dirige</div>
       <ul>
-        <li>Dossiê de posicionamento e páginas por especialidade</li>
+        <li>Posicionamento, Instagram, site e páginas por especialidade</li>
         <li>Campanhas no Google e no Meta, com rastreamento</li>
         <li>CRM, automações e régua de confirmação</li>
         <li><b>Treinamento comercial</b> da recepção e do call center</li>
-        <li>Reunião semanal de execução e mensal de resultado</li>
+        <li>Reuniões mensais de execução e de resultado</li>
       </ul>
     </div>
     <div class="spcol them">
@@ -1507,59 +1742,68 @@ html.js .slide.active:not(.divisor):not(#cover):not(#end){justify-content:safe c
   </div>
 </section>
 
-<!-- 17 TIME -->
+<!-- 18 TIME -->
 <section class="slide">
   <div class="eyebrow">As pessoas</div>
   <h2>O time que vai executar</h2>
-  <p class="sub">Cinco pessoas, com nome e função. Vocês falam direto com quem executa.</p>
-  <div class="mx-time">
-    <div class="mx-pessoa up" style="--d:.05s"><div class="mx-foto" style="--d:0s"><img src="data:image/jpeg;base64,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" alt=""></div><h4>Bernardo Carneiro</h4><div class="role">Direção</div><p>Posicionamento, estratégia de demanda e as reuniões de resultado. Mais de 100 clínicas populares estruturadas.</p></div>
-    <div class="mx-pessoa up" style="--d:.15s"><div class="mx-foto" style="--d:.4s">LF</div><h4>Luizianna Faria</h4><div class="role">Liderança de gestão</div><p>Conduz a execução e o acompanhamento semanal com a Vivian.</p></div>
-    <div class="mx-pessoa up" style="--d:.25s"><div class="mx-foto" style="--d:.8s">CA</div><h4>Carol</h4><div class="role">Treinamento comercial</div><p>Treina recepção e call center: roteiro, objeção de preço e condução até a agenda.</p></div>
-    <div class="mx-pessoa up" style="--d:.35s"><div class="mx-foto" style="--d:1.2s">PV</div><h4>Paulo Vitor</h4><div class="role">CRM e automação</div><p>Implanta o CRM, integra ao WhatsApp e monta as automações e a régua de confirmação.</p></div>
-    <div class="mx-pessoa up" style="--d:.45s"><div class="mx-foto" style="--d:1.6s">PX</div><h4>Patrick Xavier</h4><div class="role">Tráfego pago</div><p>Campanhas no Google e no Meta por especialidade, com rastreamento até a agenda.</p></div>
+  <p class="sub">Sete pessoas, organizadas em células. Vocês falam direto com quem executa.</p>
+  <div class="mx-celulas">
+    <div class="mx-cel lider"><div class="ch"><i></i>Direção</div><div class="mems"><div class="mx-mem up" style="--d:0.10s"><div class="mx-av"><img src="data:image/jpeg;base64,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" alt=""><span class="mx-bdg" style="--d:0.40s"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span></div><div><h4>Bernardo Carneiro<span class="mx-lidera">lidera</span></h4><div class="rl">Direção</div><p>Posicionamento, estratégia de demanda e reunião de resultado. Mais de 100 clínicas populares estruturadas.</p></div></div><div class="mx-mem up" style="--d:0.20s"><div class="mx-av">LF<span class="mx-bdg" style="--d:0.50s"><svg viewBox="0 0 24 24"><rect x="5.5" y="4.5" width="13" height="16" rx="2"/><path d="M9 4.5h6v3H9zM8.5 12h7M8.5 15.5h5"/></svg></span></div><div><h4>Luizianna Faria</h4><div class="rl">Gestão do projeto</div><p>Conduz a execução, cobra prazos e faz a reunião mensal de execução com a Vivian.</p></div></div></div></div>
+    <div class="mx-cel"><div class="ch"><i></i>Comercial</div><div class="mems"><div class="mx-mem up" style="--d:0.30s"><div class="mx-av">CA<span class="mx-bdg" style="--d:0.60s"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="11" rx="1.5"/><path d="M12 15.5v4M8.5 20h7M7 11l3-3 2.5 2.5L17 7"/></svg></span></div><div><h4>Carol</h4><div class="rl">Treinamento comercial</div><p>Treina recepção e call center: script, técnica, cadência e cultura de vendas.</p></div></div><div class="mx-mem up" style="--d:0.40s"><div class="mx-av">PV<span class="mx-bdg" style="--d:0.70s"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="6" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M7 8l4 7.8M17 8l-4 7.8M8.3 6h7.4"/></svg></span></div><div><h4>Paulo Vitor</h4><div class="rl">CRM e automação</div><p>Implanta o CRM, integra ao WhatsApp e monta as automações.</p></div></div></div></div>
+    <div class="mx-cel"><div class="ch"><i></i>Tráfego</div><div class="mems"><div class="mx-mem up" style="--d:0.50s"><div class="mx-av">PX<span class="mx-bdg" style="--d:0.80s"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></span></div><div><h4>Patrick Xavier</h4><div class="rl">Tráfego pago</div><p>Google Ads e Meta Ads por especialidade, com custo por paciente medido até a agenda.</p></div></div></div></div>
+    <div class="mx-cel"><div class="ch"><i></i>Social</div><div class="mems"><div class="mx-mem up" style="--d:0.60s"><div class="mx-av">SU<span class="mx-bdg" style="--d:0.90s"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/></svg></span></div><div><h4>Suelen</h4><div class="rl">Design</div><p>Identidade das páginas, criativos dos anúncios e peças do Instagram.</p></div></div><div class="mx-mem up" style="--d:0.70s"><div class="mx-av">RA<span class="mx-bdg" style="--d:1.00s"><svg viewBox="0 0 24 24"><rect x="6.5" y="3" width="11" height="18" rx="2.2"/><path d="M12 14.5s-2.8-1.7-2.8-3.6a1.5 1.5 0 012.8-.8 1.5 1.5 0 012.8.8c0 1.9-2.8 3.6-2.8 3.6z"/></svg></span></div><div><h4>Rayane</h4><div class="rl">Social media</div><p>Estrutura o Instagram: bio, destaques, fixados e os 20 conteúdos.</p></div></div></div></div>
   </div>
 </section>
 
-<!-- 18 ACOMPANHAMENTO -->
+<!-- 19 ACOMPANHAMENTO -->
 <section class="slide">
   <div class="eyebrow">Acompanhamento</div>
   <h2>Como vocês enxergam o projeto andando</h2>
-  <p class="sub">A Vivian já acompanha indicador em planilha. A ideia é que esses números passem a sair sozinhos.</p>
-  <div class="linha">
-    <div class="etapa up" style="--d:.1s">
-      <div class="en">Toda semana</div>
-      <h4>Reunião de execução</h4>
-      <p>Com a Vivian: o que foi entregue, o que entra na semana seguinte e o que está travado.</p>
+  <p class="sub">A Vivian já acompanha indicador em planilha. A ideia é que esses números passem a sair sozinhos — e que as reuniões sirvam para decidir, não para levantar dado.</p>
+  <div class="mx-acomp">
+    <div class="mx-reus">
+      <div class="mx-reu up" style="--d:.1s"><div class="qd">Todo mês</div><h4>Reunião de resultado</h4><p>Com os sócios: atendimentos por dia, conversão do WhatsApp, no-show e custo por paciente.</p></div>
+      <div class="mx-reu up" style="--d:.25s"><div class="qd">Todo mês</div><h4>Reunião de execução</h4><p>Com a Vivian: o que foi entregue, o que entra no mês seguinte e o que está travado.</p></div>
     </div>
-    <div class="etapa up" style="--d:.25s">
-      <div class="en">Todo mês</div>
-      <h4>Reunião de resultado</h4>
-      <p>Com os sócios: atendimentos por dia, conversão do WhatsApp, no-show e custo por paciente.</p>
-    </div>
-    <div class="etapa up" style="--d:.4s">
-      <div class="en">Sempre</div>
-      <h4>Painel aberto</h4>
-      <p>Os mesmos números no celular, a qualquer hora.</p>
-      <svg class="mx-spark" viewBox="0 0 200 60" preserveAspectRatio="none">
-        <defs><linearGradient id="mxg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0578DC" stop-opacity=".28"/><stop offset="1" stop-color="#0578DC" stop-opacity="0"/></linearGradient></defs>
-        <path class="ar" d="M2 50 L30 46 L55 48 L80 38 L105 34 L130 26 L155 22 L178 12 L198 8 L198 60 L2 60 Z"/>
-        <path class="ln" d="M2 50 L30 46 L55 48 L80 38 L105 34 L130 26 L155 22 L178 12 L198 8"/>
-      </svg>
+    <div class="mx-painel up" style="--d:.2s">
+      <div class="mxcab"><b><i class="ao"></i>Painel da clínica</b><span>no celular</span></div>
+      <div class="mx-kpis">
+        <div class="mx-k"><div class="v">412</div><div class="l">Leads no mês</div></div>
+        <div class="mx-k"><div class="v">236</div><div class="l">Agendamentos</div></div>
+        <div class="mx-k"><div class="v">82%</div><div class="l">Comparecimento</div></div>
+        <div class="mx-k hi"><div class="v">R$ 14</div><div class="l">Custo por paciente</div></div>
+      </div>
+      <div class="mx-pbx">
+        <div class="mx-fn">
+          <div style="width:100%;--d:.4s">Leads</div>
+          <div style="width:57%;--d:.6s">Agendados</div>
+          <div style="width:47%;--d:.8s">Compareceram</div>
+        </div>
+        <div class="mx-graf">
+          <small>Custo por paciente · semana a semana</small>
+          <svg viewBox="0 0 200 70" preserveAspectRatio="none">
+            <defs><linearGradient id="mxg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05D2FF" stop-opacity=".3"/><stop offset="1" stop-color="#05D2FF" stop-opacity="0"/></linearGradient></defs>
+            <line class="gr" x1="0" y1="20" x2="200" y2="20"/><line class="gr" x1="0" y1="42" x2="200" y2="42"/><line class="gr" x1="0" y1="64" x2="200" y2="64"/>
+            <path class="ar" d="M4 12 L32 16 L60 22 L88 26 L116 36 L144 40 L172 48 L196 52 L196 70 L4 70 Z"/>
+            <path class="ln" d="M4 12 L32 16 L60 22 L88 26 L116 36 L144 40 L172 48 L196 52"/>
+            <circle class="pt" cx="196" cy="52" r="4"/>
+          </svg>
+        </div>
+      </div>
+      <div class="mx-ilus">Números ilustrativos. O painel real é alimentado pelo CRM e pelas campanhas.</div>
     </div>
   </div>
-  <div class="notebar up" style="--d:.7s">O primeiro indicador é o que abriu a conversa: <b>atendimentos por dia</b>. Ele é medido na primeira semana e vira a linha de base contra os 80 que a clínica comporta.</div>
 </section>
 
-<!-- 19 DIVISOR 4 -->
+<!-- 20 DIVISOR 4 -->
 <section class="slide darkslide divisor">
   <div class="dnum">Parte 4</div>
   <h2>Investimento</h2>
-  <p class="dsub">De onde saímos, quanto custa — e exatamente o que fica entregue.</p>
+  <p class="dsub">De onde saímos, em quanto tempo, quanto custa — e tudo o que fica entregue.</p>
   <div class="dline"></div>
 </section>
 
-<!-- 20 O SALTO -->
+<!-- 21 O SALTO -->
 <section class="slide">
   <div class="eyebrow">De onde saímos, para onde vamos</div>
   <h2>O salto que o projeto entrega</h2>
@@ -1584,81 +1828,94 @@ html.js .slide.active:not(.divisor):not(#cover):not(#end){justify-content:safe c
   </div>
 </section>
 
-<!-- 21 INVESTIMENTO -->
-<section class="slide precos">
-  <div class="eyebrow">Investimento</div>
-  <h2>Valor e forma de pagamento</h2>
-  <div class="pricecard up" style="--d:.1s">
-    <span class="tag">Projeto completo · 45 a 60 dias úteis · 3 fases</span>
-    <div class="total">R$ 14.900</div>
-    <div class="pricerow">
-      <div class="pbox"><div class="pn">À vista no Pix</div><div class="pl">R$ 14.900 — libera o kickoff e a imersão de posicionamento</div></div>
-      <div class="pbox"><div class="pn">Ou no cartão</div><div class="pl">Em até <b>12×</b>, com o acréscimo da operadora — o kickoff sai com a primeira parcela</div></div>
-    </div>
-    <p class="fineprint">Verba de mídia e licença do CRM à parte, pagas direto às plataformas. O que está incluído, item por item, está no próximo slide.</p>
-  </div>
-  <div class="rec up" style="--d:.35s">
-    <div class="tag">Operação contínua · a partir do 3º mês, opcional</div>
-    <div class="n">R$ 2.100 a R$ 3.000<span> / mês</span></div>
-    <p>Gestão das campanhas e do CRM, criativos, reunião mensal de resultado — e, no plano maior, a produção de conteúdo para o Instagram. Substitui os dois freelancers de hoje. <b>Sem fidelidade</b>, aviso de 30 dias.</p>
-  </div>
-  <div class="porque up" style="--d:.6s">
-    <span class="pql">Em quanto tempo se paga</span>
-    <div class="contas">
-      <div class="conta oport"><b>+10 pacientes por dia</b> somam R$ 30,8 mil de faturamento por mês — o projeto inteiro cabe em menos de três semanas disso.</div>
-      <div class="conta oport"><b>+15 pacientes por dia</b> levam a clínica à faixa do empate — o fim do aporte mensal dos sócios.</div>
-    </div>
-  </div>
-</section>
-
-<!-- 22 ENTREGAVEIS -->
+<!-- 22 CRONOGRAMA -->
 <section class="slide">
-  <div class="eyebrow">Escopo fechado</div>
-  <h2>O que é entregue, exatamente</h2>
-  <p class="sub">Cada item com a fase em que fica pronto. É isso que os R$ 14.900 compram.</p>
-  <div class="mx-entregas">
-    <div class="mx-bloco up" style="--d:.1s">
-      <div class="fh"><h4>Posicionamento</h4><span>até o dia 15</span></div>
-      <ul>
-        <li><span class="mx-ok" style="--d:0.35s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Imersão com sócios, gerência, recepção e call center</li>
-        <li><span class="mx-ok" style="--d:0.50s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Dossiê de Posicionamento e Venda: 4 perfis de paciente e a oferta de cada especialidade</li>
-        <li><span class="mx-ok" style="--d:0.65s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Argumentos e tom de comunicação de clínica acessível</li>
-      </ul>
+  <div class="eyebrow">O cronograma</div>
+  <h2>60 dias úteis, com as frentes em paralelo</h2>
+  <p class="sub">Nada espera o anterior terminar. O <b>CRM</b> é o caminho crítico — por isso começa no dia 1, junto com o posicionamento.</p>
+  <div class="mx-crono">
+    <div class="mx-eixo"><div class="nm-vazio"></div>
+      <div class="tk"><span style="left:0%;transform:none">DIA 1</span><span style="left:25%">15</span><span style="left:50%">30</span><span style="left:75%">45</span><span style="left:100%;transform:translateX(-100%)">60</span></div>
     </div>
-    <div class="mx-bloco up" style="--d:.25s">
-      <div class="fh"><h4>Demanda</h4><span>até o dia 45</span></div>
-      <ul>
-        <li><span class="mx-ok" style="--d:0.80s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>4 páginas por especialidade</li>
-        <li><span class="mx-ok" style="--d:0.95s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Campanhas no Google e no Meta por especialidade, com criativos</li>
-        <li><span class="mx-ok" style="--d:1.10s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Verba redistribuída e campanha para segunda e sexta</li>
-        <li><span class="mx-ok" style="--d:1.25s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Google Meu Negócio otimizado</li>
-        <li><span class="mx-ok" style="--d:1.40s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Rastreamento do anúncio até o agendamento</li>
-      </ul>
+    <div class="mx-lin">
+      <div class="nm">Posicionamento<small>Imersão e DPV</small></div>
+      <div class="mx-trilho"><div class="mx-bar f1" style="left:0;width:25%;--d:.2s">dias 1–15</div><i class="mx-marco" style="left:25%;--d:1.1s"></i></div>
     </div>
-    <div class="mx-bloco up" style="--d:.4s">
-      <div class="fh"><h4>Conversão</h4><span>até o dia 60</span></div>
-      <ul>
-        <li><span class="mx-ok" style="--d:1.55s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>CRM configurado e integrado ao WhatsApp, com a IA na triagem</li>
-        <li><span class="mx-ok" style="--d:1.70s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Automações por palavra-chave e régua de confirmação</li>
-        <li><span class="mx-ok" style="--d:1.85s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Cadência de reativação da base</li>
-        <li><span class="mx-ok" style="--d:2.00s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Treinamento em 3 encontros, manual e scripts</li>
-        <li><span class="mx-ok" style="--d:2.15s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Painel de indicadores no celular</li>
-      </ul>
+    <div class="mx-lin">
+      <div class="nm">Instagram, site e GMB<small>Presença</small></div>
+      <div class="mx-trilho"><div class="mx-bar f1" style="left:15%;width:50%;--d:.3s">dias 10–40</div></div>
+    </div>
+    <div class="mx-lin">
+      <div class="nm">CRM e automações<small>Caminho crítico</small></div>
+      <div class="mx-trilho"><div class="mx-bar f3 crit" style="left:0;width:50%;--d:.4s">dias 1–30</div><i class="mx-marco" style="left:50%;--d:1.3s"></i></div>
+    </div>
+    <div class="mx-lin">
+      <div class="nm">Páginas e campanhas<small>Por especialidade</small></div>
+      <div class="mx-trilho"><div class="mx-bar f2" style="left:15%;width:58.3%;--d:.5s">dias 10–45</div><i class="mx-marco" style="left:33.3%;--d:1.5s"></i></div>
+    </div>
+    <div class="mx-lin">
+      <div class="nm">Treinamento comercial<small>Equipe e ferramenta</small></div>
+      <div class="mx-trilho"><div class="mx-bar f3" style="left:40%;width:60%;--d:.65s">dias 25–60</div><i class="mx-marco" style="left:100%;--d:1.7s"></i></div>
+    </div>
+  </div>
+  <div class="notebar up" style="--d:1.4s">◆ <b>Dia 15</b> DPV aprovado · ◆ <b>Dia 20</b> primeiras campanhas no ar · ◆ <b>Dia 30</b> CRM rodando · ◆ <b>Dia 60</b> equipe treinada e painel com os números.</div>
+</section>
+
+<!-- 23 INVESTIMENTO + O QUE ESTÁ INCLUÍDO -->
+<section class="slide">
+  <div class="eyebrow">Investimento</div>
+  <h2>Valor, o que está incluído e em quanto tempo se paga</h2>
+  <div class="mx-inv">
+    <div class="mx-impl up" style="--d:.1s">
+      <span class="tg">Implantação · 45 a 60 dias úteis · 3 fases</span>
+      <div class="vl"><b>R$ 14.900</b><span>à vista no Pix ou em até 12× no cartão (acréscimo da operadora)</span></div>
+      <div class="mx-inc">
+        <div><h5>Posicionamento</h5><ul><li><span class="mx-ok" style="--d:0.30s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Imersão com sócios, gerência, recepção e call center</span></li><li><span class="mx-ok" style="--d:0.42s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>DPV</b> · Dossiê de Posicionamento e Venda, com o paciente ideal de cada especialidade</span></li><li><span class="mx-ok" style="--d:0.54s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Instagram estruturado</b>: bio, destaques, fixados e <b>20 conteúdos</b></span></li><li><span class="mx-ok" style="--d:0.66s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Site profissional</b> da clínica</span></li><li><span class="mx-ok" style="--d:0.78s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Google Meu Negócio</b> reformado</span></li></ul></div>
+        <div><h5>Demanda</h5><ul><li><span class="mx-ok" style="--d:0.90s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Mapeamento dos melhores canais de aquisição</span></li><li><span class="mx-ok" style="--d:1.02s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Landing pages por especialidade</b>, uma para cada paciente ideal</span></li><li><span class="mx-ok" style="--d:1.14s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Campanhas no <b>Google Ads</b> com orçamento por exame e especialidade</span></li><li><span class="mx-ok" style="--d:1.26s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Campanhas no <b>Meta Ads</b>, com criativos</span></li><li><span class="mx-ok" style="--d:1.38s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Rastreamento</b> do anúncio até a agenda: custo por paciente</span></li></ul></div>
+        <div><h5>Conversão</h5><ul><li><span class="mx-ok" style="--d:1.50s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>CRM</b> configurado e integrado ao WhatsApp, com a IA na triagem</span></li><li><span class="mx-ok" style="--d:1.62s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Automações necessárias</b>: confirmação, lembrete e régua de no-show</span></li><li><span class="mx-ok" style="--d:1.74s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Treinamento comercial</b>: uso do CRM, venda da clínica, script, técnica, cadência e cultura de vendas</span></li><li><span class="mx-ok" style="--d:1.86s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Manual de atendimento e scripts por especialidade</span></li><li><span class="mx-ok" style="--d:1.98s"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><b>Painel de indicadores</b> no celular</span></li></ul></div>
+      </div>
+      <p class="fp">Verba de mídia e licença do CRM à parte, pagas direto às plataformas. O kickoff sai com o Pix ou com a primeira parcela.</p>
+    </div>
+    <div class="mx-paga up" style="--d:.3s">
+      <div class="qt">O que escapa hoje</div>
+      <div class="big">R$ 169,4 mil<small> / mês</small></div>
+      <p>São <b>55 vagas por dia</b> que a estrutura comporta e ficam vazias: 80 menos 25, × R$ 140 × 22 dias úteis. Esse dinheiro já está pago em sala, equipe e médico.</p>
+      <div class="ln">
+        <div class="qt">Em quanto tempo se paga</div>
+        <div class="it"><b>+10/dia</b><p>R$ 30,8 mil a mais por mês. O projeto se paga em <b>menos de três semanas</b>.</p></div>
+        <div class="it"><b>+15/dia</b><p>R$ 46,2 mil a mais. A clínica chega ao <b>empate de R$ 110–120 mil</b> e acaba o aporte dos sócios.</p></div>
+        <div class="it"><b>+25/dia</b><p>R$ 77 mil a mais por mês — e ainda sobram 30 vagas livres.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="mx-planos up" style="--d:.5s">
+    <div class="ph">Depois da implantação · a partir do 3º mês, opcional · sem fidelidade, aviso de 30 dias</div>
+    <div class="gr2">
+      <div class="mx-pl">
+        <div class="mxcab"><h4>Plano Essencial</h4><div class="pr">R$ 2.100<small> / mês</small></div></div>
+        <p><b>Tráfego e CRM:</b> gestão das campanhas no Google e no Meta, criativos dos anúncios, CRM e automações, reunião mensal de resultado.</p>
+        <span class="soc nao">sem rede social</span>
+      </div>
+      <div class="mx-pl b">
+        <div class="mxcab"><h4>Plano Completo</h4><div class="pr">R$ 3.000<small> / mês</small></div></div>
+        <p><b>Tudo do Essencial</b> + produção de conteúdo para o Instagram, com design e social media. Substitui os dois freelancers de hoje.</p>
+        <span class="soc sim">com rede social</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 23 RESUMO -->
+<!-- 24 RESUMO -->
 <section class="slide darkslide" id="end">
   <img class="logo" src="data:image/webp;base64,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" alt="ClintIA">
   <div class="eyebrow">Resumo do projeto</div>
   <h2>O projeto em uma tela</h2>
   <div class="resumo">
-    <div class="rline"><div class="rk">O que é</div><div class="rv">Ocupar a capacidade que a Clínica Bem-Estar já tem: <b>posicionamento de clínica acessível</b>, demanda por especialidade e uma recepção que <b>conduz</b> até a agenda.</div></div>
+    <div class="rline"><div class="rk">O que é</div><div class="rv">Ocupar a capacidade que a Clínica Bem-Estar já tem: <b>posicionamento de clínica acessível</b>, demanda controlada por especialidade e um CRM com a equipe treinada para <b>conduzir</b> até a agenda.</div></div>
     <div class="rline"><div class="rk">A meta</div><div class="rv"><b>+15 atendimentos por dia</b> e no-show de 30% para 18% — o caminho para o empate de R$ 110–120 mil.</div></div>
-    <div class="rline"><div class="rk">Prazo</div><div class="rv"><b>45 a 60 dias úteis</b>, em frentes paralelas, com entrega medida toda semana.</div></div>
-    <div class="rline"><div class="rk">Quem faz</div><div class="rv"><b>Cinco pessoas</b> da ClintIA, com a Vivian como ponto de contato do lado de vocês.</div></div>
-    <div class="rline"><div class="rk">Investimento</div><div class="rv"><b>R$ 14.900</b> no Pix ou em até 12× no cartão · operação contínua opcional de <b>R$ 2.100 a R$ 3.000/mês</b> a partir do 3º mês.</div></div>
+    <div class="rline"><div class="rk">Prazo</div><div class="rv"><b>45 a 60 dias úteis</b>, em frentes paralelas, com reunião de execução e de resultado todo mês.</div></div>
+    <div class="rline"><div class="rk">Quem faz</div><div class="rv"><b>Sete pessoas</b> da ClintIA, em células, com a Vivian como ponto de contato do lado de vocês.</div></div>
+    <div class="rline"><div class="rk">Investimento</div><div class="rv"><b>R$ 14.900</b> no Pix ou em até 12× no cartão · depois, opcional: <b>Essencial R$ 2.100/mês</b> ou <b>Completo R$ 3.000/mês</b>.</div></div>
     <div class="rline"><div class="rk">O próximo passo</div><div class="rv">Marcar a <b>imersão de posicionamento</b> com a equipe inteira — é o dia 1 do projeto.</div></div>
   </div>
 </section>
@@ -1667,7 +1924,7 @@ html.js .slide.active:not(.divisor):not(#cover):not(#end){justify-content:safe c
 <div class="chrome">
   <img class="logo" src="data:image/webp;base64,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" alt="ClintIA">
   <div class="progress"><div class="pf" id="pf"></div></div>
-  <span class="counter" id="counter">1/23</span>
+  <span class="counter" id="counter">1/24</span>
   <button class="navbtn fsbtn" id="fs" aria-label="Tela cheia" title="Tela cheia"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
   <button class="navbtn" id="prev" aria-label="Anterior">&#8249;</button>
   <button class="navbtn" id="next" aria-label="Próximo">&#8250;</button>
@@ -1705,6 +1962,26 @@ html.js .slide.active:not(.divisor):not(#cover):not(#end){justify-content:safe c
   const _go = go;
   go = function(n){ _go(n); setTimeout(marcaScroll, 30); };
   go(0);
+  // CRM: o card anda sozinho até alguém arrastar ou clicar numa etapa
+  document.querySelectorAll('.mx-pipe').forEach(function(p){
+    const card=p.querySelector('.mx-card'), cols=[...p.querySelectorAll('.mx-col')];
+    if(!card||!cols.length) return;
+    const st=card.querySelector('small'), n=cols.length, passo=100/n;
+    function marca(k){ cols.forEach((c,j)=>c.classList.toggle('alvo',j===k)); }
+    function poe(k){ k=Math.max(0,Math.min(n-1,k)); p.classList.add('manual'); card.style.left=(k*passo)+'%'; marca(k);
+      if(st) st.textContent=cols[k].textContent.trim().toLowerCase(); }
+    cols.forEach((c,k)=>c.addEventListener('click',()=>poe(k)));
+    let arr=false, ox=0;
+    const pct=x=>{ const r=p.getBoundingClientRect(); return (x-r.left-8)/r.width*100; };
+    card.addEventListener('pointerdown',e=>{ e.preventDefault(); e.stopPropagation();
+      const rc=card.getBoundingClientRect(); card.style.left=pct(rc.left)+'%'; p.classList.add('manual');
+      ox=e.clientX-rc.left; arr=true; card.classList.add('arrastando'); try{card.setPointerCapture(e.pointerId);}catch(_){} });
+    card.addEventListener('pointermove',e=>{ if(!arr) return;
+      const x=Math.max(0,Math.min(100-passo,pct(e.clientX-ox))); card.style.left=x+'%'; marca(Math.round(x/passo)); });
+    const solta=()=>{ if(!arr) return; arr=false; card.classList.remove('arrastando'); poe(Math.round((parseFloat(card.style.left)||0)/passo)); };
+    card.addEventListener('pointerup',solta); card.addEventListener('pointercancel',solta);
+    ['touchstart','touchend'].forEach(t=>card.addEventListener(t,e=>e.stopPropagation(),{passive:true}));
+  });
   (function(){
     const b=document.getElementById('fs');
     if(!b) return;
