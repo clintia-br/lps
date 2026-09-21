@@ -9,8 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-/* Mesma fórmula de Financeiro/tabela_pagamento.py (fonte única):
-   cartão 2,99% + R$ 0,49 · antecipação 1,817%/mês efetiva, calibrada na simulação real do Asaas. */
+/* Asaas com taxas reais da conta (21/09/2026) × Rede (simulador do app). */
 :root{--sky:#05D2FF;--celtic:#055AAA;--yale:#053C73;--oxford:#051E32;--ink:#1b2a38;--muted:#5d6f80;--line:#dde7f0;--bg:#f5f9fc;--ok:#0E7A54;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:"Red Hat Display",system-ui,sans-serif;background:var(--bg);color:var(--ink);}
@@ -65,24 +64,27 @@ tr:hover td{background:inherit;}
       <button data-v="5900">5.900</button><button data-v="6900">6.900</button><button data-v="8900">8.900</button>
       <button data-v="14900">14.900</button><button data-v="15900">15.900</button>
     </div>
-    <p>Asaas: 2,99% + R$ 0,49 e antecipação de ~1,8% ao mês. Rede: taxa única por parcela, recebendo em 1 dia útil (simulador do app, 21/09/2026).</p>
+    <p>Asaas: taxas reais da conta (cartão de 2,99% a 4,29% conforme as parcelas + R$ 0,49; antecipação de 1,6% ao mês). Rede: taxa única por parcela, recebendo em 1 dia útil (simulador do app, 21/09/2026).</p>
   </div>
 
   <table>
     <thead><tr><th>Forma</th><th>Asaas</th><th>Rede</th></tr></thead>
     <tbody id="t"></tbody>
   </table>
-  <p class="nota">Em cada célula: parcela em destaque e total a cobrar embaixo. <b>Verde = mais barato para o cliente</b>. Toque na célula para copiar a condição. Asaas: mesma fórmula dos contratos (<i>Financeiro/tabela_pagamento.py</i>), até 12×. Rede: taxas lidas do simulador do app (11× estimado pelo padrão de +0,98 ponto por parcela). Se a Rede mudar as taxas, atualize a tabela <i>REDE</i> no código.</p>
+  <p class="nota">Em cada célula: parcela em destaque e total a cobrar embaixo. <b>Verde = mais barato para o cliente</b>. Toque na célula para copiar a condição. Asaas: taxas reais da conta, ajustadas pela simulação real do 12× (os outros prazos são estimativa, com margem de poucos reais). Rede: taxas lidas do simulador do app (11× estimado pelo padrão de +0,98 ponto por parcela). Se a Rede mudar as taxas, atualize a tabela <i>REDE</i> no código.</p>
 </div>
 <div class="copiado" id="ok">Copiado</div>
 
 <script>
-const PCT=0.0299, FIX=0.49, AM=0.01817;
+// Asaas · taxas REAIS da conta (API /myAccount/fees, 21/09/2026): cartão 2,99% (1×) · 3,49% (2–6×) · 3,99% (7–12×) · 4,29% (13–21×) + R$ 0,49
+// antecipação: 1,15%/mês no 1× (32 dias) · parcelado 1,6%/mês nominal, 1,676% efetivo (calibrado: 12× de 5.900 = 6.897 no simulador real)
+const FIX=0.49, R1=0.0115*32/30, RP=0.01676;
+const pctA=n=>n===1?0.0299:n<=6?0.0349:n<=12?0.0399:0.0429;
 // Rede (Itaú) · taxa sobre a venda, recebendo em 1 dia útil · simulador do app em 21/09/2026
 const REDE={deb:1.44, pre:2.34, 1:3.99, 2:5.32, 3:6.30, 4:7.28, 5:8.26, 6:9.24, 7:10.56, 8:11.54, 9:12.52, 10:13.50, 11:14.48, 12:15.46,
             13:16.44, 14:17.42, 15:18.40, 16:19.38, 17:20.36, 18:21.34};
 const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-const asaas=(net,n)=>((net/(1-AM*(n+1)/2))+FIX)/(1-PCT);
+const asaas=(net,n)=>((net/(n===1?1-R1:1-RP*(n+1)/2))+FIX)/(1-pctA(n));
 const rede=(net,k)=>net/(1-REDE[k]/100);
 const inp=document.getElementById('v'), tb=document.getElementById('t'), ok=document.getElementById('ok');
 function ler(){ const s=inp.value.replace(/[^\d,.-]/g,'').replace(/\./g,'').replace(',','.'); const n=parseFloat(s); return isFinite(n)&&n>0?n:0; }
@@ -97,7 +99,7 @@ function desenha(){
   let h=`<tr class="pix"><td>Pix à vista</td><td class="c best" data-c="Pix à vista: ${brl(net)}" colspan="2"><b>${brl(net)}</b><small>sem acréscimo</small></td></tr>`;
   h+=`<tr><td>Débito</td><td class="c na">—</td>${cel(rede(net,'deb'),1,'Rede débito',true)}</tr>`;
   for(let n=1;n<=18;n++){
-    const a=n<=12?asaas(net,n):null, r=rede(net,n);
+    const a=asaas(net,n), r=rede(net,n);
     const aBest=a!=null&&a<=r, rBest=a==null||r<a;
     h+=`<tr><td>Cartão ${n}×</td>${cel(a,n,'Asaas',aBest)}${cel(r,n,'Rede',rBest)}</tr>`;
   }
