@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Calculadora de Cobrança</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* Mesma fórmula de Financeiro/tabela_pagamento.py (fonte única):
+   cartão 2,99% + R$ 0,49 · antecipação 1,817%/mês efetiva, calibrada na simulação real do Asaas. */
+:root{--sky:#05D2FF;--celtic:#055AAA;--yale:#053C73;--oxford:#051E32;--ink:#1b2a38;--muted:#5d6f80;--line:#dde7f0;--bg:#f5f9fc;--ok:#0E7A54;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Red Hat Display",system-ui,sans-serif;background:var(--bg);color:var(--ink);}
+.wrap{max-width:720px;margin:0 auto;padding:22px 16px 40px;}
+h1{font-size:24px;font-weight:900;color:var(--oxford);letter-spacing:-.01em;}
+.sub{color:var(--muted);font-size:15px;margin-top:4px;}
+.in{margin-top:18px;background:linear-gradient(150deg,var(--oxford),var(--yale));border-radius:18px;padding:18px 20px;color:#c4d9ea;}
+.in label{font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);}
+.campo{display:flex;align-items:center;gap:8px;margin-top:6px;}
+.campo span{font-size:28px;font-weight:900;color:#fff;}
+.campo input{flex:1;min-width:0;font:inherit;font-size:34px;font-weight:900;color:#fff;background:transparent;border:0;border-bottom:2px solid rgba(5,210,255,.5);padding:2px 0;outline:none;}
+.campo input:focus{border-bottom-color:var(--sky);}
+.in p{font-size:13.5px;margin-top:8px;}
+.rapidos{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+.rapidos button{font:inherit;font-size:13px;font-weight:700;color:#dff4ff;background:rgba(255,255,255,.08);border:1px solid rgba(5,210,255,.35);border-radius:100px;padding:5px 12px;cursor:pointer;}
+.rapidos button:hover,.rapidos button:focus-visible{background:rgba(5,210,255,.2);outline:none;}
+table{width:100%;border-collapse:collapse;margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-variant-numeric:tabular-nums;}
+th{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:right;padding:10px 14px;background:#f1f5f9;}
+th:first-child,td:first-child{text-align:left;}
+td{padding:10px 14px;border-top:1px solid var(--line);text-align:right;font-size:15.5px;}
+td.p{font-weight:900;color:var(--oxford);}
+td.a{color:var(--muted);font-size:14px;}
+tr.pix td{background:#eafaf0;}
+tr.pix td.p{color:var(--ok);}
+tr{cursor:pointer;}
+tr:hover td{background:#f3f9fe;}
+tr.sel td{background:#e3f4ff;}
+.nota{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.5;}
+.copiado{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--oxford);color:#fff;font-size:14px;font-weight:700;padding:8px 16px;border-radius:100px;opacity:0;transition:opacity .2s;pointer-events:none;}
+.copiado.on{opacity:1;}
+@media (max-width:480px){th,td{padding:9px 8px;} td{font-size:14.5px;} .campo input{font-size:28px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Calculadora de cobrança</h1>
+  <p class="sub">Digite quanto a ClintIA precisa <b>receber líquido</b>. A tabela mostra quanto cobrar do cliente no cartão para sobrar esse valor depois da taxa e da antecipação do Asaas.</p>
+
+  <div class="in">
+    <label for="v">Quero receber</label>
+    <div class="campo"><span>R$</span><input id="v" inputmode="decimal" value="6.900" autocomplete="off" aria-label="Valor líquido a receber"></div>
+    <div class="rapidos">
+      <button data-v="5900">5.900</button><button data-v="6900">6.900</button><button data-v="8900">8.900</button>
+      <button data-v="14900">14.900</button><button data-v="15900">15.900</button>
+    </div>
+    <p>Cartão: 2,99% + R$ 0,49 por cobrança · antecipação de ~1,8% ao mês por parcela.</p>
+  </div>
+
+  <table>
+    <thead><tr><th>Forma</th><th>Parcela</th><th>Total a cobrar</th><th>Acréscimo</th></tr></thead>
+    <tbody id="t"></tbody>
+  </table>
+  <p class="nota">Toque numa linha para copiar a condição (ex.: "12× de R$ 690,00"). Pix à vista sem acréscimo. Mesma fórmula da tabela dos contratos (<i>Financeiro/tabela_pagamento.py</i>), calibrada pela simulação real do Asaas no 12×.</p>
+</div>
+<div class="copiado" id="ok">Copiado</div>
+
+<script>
+const PCT=0.0299, FIX=0.49, AM=0.01817;
+const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const cobrar=(net,n)=>((net/(1-AM*(n+1)/2))+FIX)/(1-PCT);
+const inp=document.getElementById('v'), tb=document.getElementById('t'), ok=document.getElementById('ok');
+function ler(){ const s=inp.value.replace(/[^\d,.-]/g,'').replace(/\./g,'').replace(',','.'); const n=parseFloat(s); return isFinite(n)&&n>0?n:0; }
+function desenha(){
+  const net=ler(); let h='';
+  if(!net){ tb.innerHTML='<tr><td colspan="4" class="a">Digite um valor.</td></tr>'; return; }
+  h+=`<tr class="pix" data-c="Pix à vista: ${brl(net)}"><td>Pix à vista</td><td class="p">${brl(net)}</td><td>${brl(net)}</td><td class="a">—</td></tr>`;
+  for(let n=1;n<=12;n++){
+    const c=cobrar(net,n), p=c/n;
+    h+=`<tr data-c="${n}× de ${brl(p)} no cartão (total ${brl(c)})"><td>Cartão ${n}×</td><td class="p">${brl(p)}</td><td>${brl(c)}</td><td class="a">+${brl(c-net)}</td></tr>`;
+  }
+  tb.innerHTML=h;
+}
+tb.addEventListener('click',e=>{
+  const tr=e.target.closest('tr'); if(!tr||!tr.dataset.c) return;
+  tb.querySelectorAll('tr').forEach(r=>r.classList.remove('sel')); tr.classList.add('sel');
+  (navigator.clipboard?navigator.clipboard.writeText(tr.dataset.c):Promise.reject()).then(()=>{ok.classList.add('on');setTimeout(()=>ok.classList.remove('on'),1200);}).catch(()=>{});
+});
+inp.addEventListener('input',desenha);
+inp.addEventListener('blur',()=>{const n=ler(); if(n) inp.value=n.toLocaleString('pt-BR',{maximumFractionDigits:2});});
+document.querySelectorAll('.rapidos button').forEach(b=>b.onclick=()=>{inp.value=Number(b.dataset.v).toLocaleString('pt-BR');desenha();});
+desenha();
+</script>
+</body>
+</html>
