@@ -385,6 +385,55 @@
   font-weight:700;color:#7E8B7F;margin:0 0 calc(var(--u)*.9)}
 .blococonsid{border-top:1px solid #D8D6CD;padding-top:calc(var(--u)*1.2);margin-top:calc(var(--u)*.4)}
 .blococonsid .ct{color:#56675A}
+ul.qlist li{padding-left:calc(var(--u)*3.1);cursor:pointer;border-radius:5px;transition:background .12s}
+ul.qlist li::before{display:none}
+ul.qlist li:hover{background:rgba(143,162,147,.12)}
+ul.qlist .qbox{position:absolute;left:2px;top:calc(var(--u)*.85);width:calc(var(--u)*1.7);height:calc(var(--u)*1.7);
+  min-width:18px;min-height:18px;border:2px solid #C3CCC1;border-radius:5px;background:#FFFFFF;display:block}
+ul.qlist .qbox::after{content:"¹3";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:#FFFFFF;font-weight:800;font-size:calc(var(--u)*1.25);opacity:0}
+ul.qlist li.ok .qbox{background:#4F7D55;border-color:#4F7D55}
+ul.qlist li.ok .qbox::after{opacity:1}
+ul.qlist li.ok{color:#3F5F46}
+.qcount{display:inline-block;align-self:flex-start;width:-moz-fit-content;width:fit-content;margin:0 0 calc(var(--u)*.9);padding:calc(var(--u)*.35) calc(var(--u)*1.1);
+  border:1px solid #C3CCC1;border-radius:999px;font-size:clamp(10px,calc(.92 * var(--u)),15px);
+  font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#56675A}
+.qcount.cheio{background:#4F7D55;border-color:#4F7D55;color:#FBFAF6}
+.trilha{position:relative;margin:calc(var(--u)*2.6) 0 calc(var(--u)*1.6)}
+.tlinha{position:absolute;top:50%;left:calc(var(--u)*2);right:calc(var(--u)*2);height:2px;
+  background:repeating-linear-gradient(90deg,#CFD6CC 0 8px,transparent 8px 15px);transform:translateY(-50%);z-index:0}
+.tfeito{position:absolute;top:50%;left:calc(var(--u)*2);width:19%;height:2px;background:#6B8070;transform:translateY(-50%);z-index:1}
+.tparadas{position:relative;display:flex;align-items:stretch;z-index:2}
+.tp{flex:1;display:grid;grid-template-rows:1fr auto 1fr;justify-items:center;row-gap:calc(var(--u)*.75);
+  min-height:calc(var(--u)*21)}
+.tpno{grid-row:2;width:calc(var(--u)*3.3);height:calc(var(--u)*3.3);min-width:34px;min-height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-weight:800;
+  font-size:clamp(13px,calc(1.35 * var(--u)),22px);background:#F2F1EC;border:2px solid #CFD6CC;color:#8FA293}
+.tp.feita .tpno{background:#6B8070;border-color:#6B8070;color:#FBFAF6}
+.tp.agora .tpno{background:#2E3130;border-color:#2E3130;color:#FBFAF6;box-shadow:0 0 0 calc(var(--u)*.75) rgba(143,162,147,.28)}
+.tpcx{max-width:calc(var(--u)*19);text-align:center;padding:0 calc(var(--u)*.5)}
+.tp:nth-child(odd) .tpcx{grid-row:1;align-self:end}
+.tp:nth-child(even) .tpcx{grid-row:3;align-self:start}
+.tpdata{font-size:clamp(9.5px,calc(.88 * var(--u)),14px);font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:#6B8070;margin-bottom:calc(var(--u)*.2)}
+.tpnome{font-family:var(--serif);font-size:clamp(14px,calc(1.5 * var(--u)),25px);line-height:1.15;color:#2E3130}
+.tpst{font-size:clamp(10.5px,calc(1.02 * var(--u)),17px);line-height:1.35;color:#56675A;margin-top:calc(var(--u)*.35)}
+.tvoce{position:absolute;top:50%;left:19%;transform:translate(-50%,-50%);z-index:3;
+  background:#2E3130;color:#FBFAF6;border-radius:999px;padding:calc(var(--u)*.55) calc(var(--u)*1.2);
+  font-size:clamp(10px,calc(.95 * var(--u)),16px);font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.textremos{display:flex;justify-content:space-between;margin-top:calc(var(--u)*.8);
+  font-size:clamp(10px,calc(.92 * var(--u)),15px);font-weight:700;letter-spacing:.14em;color:#8FA293}
+@media (max-width:900px){
+  .tlinha,.tfeito,.tvoce{display:none}
+  .tparadas{flex-direction:column;gap:14px}
+  .tp{grid-template-rows:auto;grid-template-columns:auto 1fr;justify-items:start;align-items:center;
+    column-gap:12px;min-height:0;border-left:2px solid #D8D6CD;padding-left:12px}
+  .tp.agora{border-left-color:#2E3130}
+  .tp.feita{border-left-color:#6B8070}
+  .tp .tpno{grid-row:1;grid-column:1}
+  .tp:nth-child(odd) .tpcx,.tp:nth-child(even) .tpcx{grid-row:1;grid-column:2;text-align:left;max-width:none;align-self:center}
+  .textremos{display:none}
+}
 .exemplo{display:flex;flex-direction:column;gap:calc(var(--u)*.85);margin-top:calc(var(--u)*.6)}
 .exl{border-left:2px solid #A9BAAD;padding-left:calc(var(--u)*1.1)}
 .exl.forte{border-left-color:#6B8070}
@@ -418,18 +467,27 @@
     <div class="eyebrow">Onde estamos</div>
     <h2>Dia 15 de 90</h2>
     <p class="sub">O objetivo segue o mesmo: <b>ranquear a Clínica Benchimol nas ferramentas de busca de inteligência artificial</b>, com a foto do antes e a do depois medidas pela mesma régua.</p>
-    <div class="gantt">
-      <div class="grow"><div class="gname"><small>Etapa 1 &middot; 11/09 a 17/09</small>Diagnóstico</div><div class="gtrack"><div class="gbar hoje" style="left:0%;width:7.8%"></div><span class="gfora" style="left:calc(7.8% + 10px)">em fechamento hoje</span></div></div>
-      <div class="grow"><div class="gname"><small>Etapa 2 &middot; 18/09 a 25/10</small>Infraestrutura</div><div class="gtrack"><div class="gbar" style="left:7.8%;width:42.2%">acessos entregues em 24/09</div></div></div>
-      <div class="grow"><div class="gname"><small>Etapa 3 &middot; 10/10 a 09/11</small>Acervo científico</div><div class="gtrack"><div class="gbar" style="left:32.2%;width:34.4%">temas em definição</div></div></div>
-      <div class="grow"><div class="gname"><small>Etapa 4 &middot; 25/10 a 24/11</small>Wikipédia</div><div class="gtrack"><div class="gbar" style="left:48.9%;width:34.4%">material sendo reunido</div></div></div>
-      <div class="grow"><div class="gname"><small>Etapa 5 &middot; 25/11 a 09/12</small>Encerramento</div><div class="gtrack"><div class="gbar" style="left:83.3%;width:16.7%">25/11 a 09/12</div></div></div>
-      <div class="gaxis"><div></div><div class="gline">
-        <span class="gtick ini" style="left:0%">11/09</span>
-        <span class="gtick" style="left:15.6%">hoje &middot; dia 15</span>
-        <span class="gtick" style="left:65.6%">09/11</span>
-        <span class="gtick fim" style="left:100%">09/12</span>
-      </div></div>
+    <div class="trilha">
+      <div class="tlinha"></div><div class="tfeito"></div>
+      <div class="tvoce">estamos aqui &middot; dia 15</div>
+      <div class="tparadas">
+        <div class="tp agora"><div class="tpno">1</div><div class="tpcx">
+          <div class="tpdata">11/09 a 17/09</div><div class="tpnome">Diagnóstico</div>
+          <div class="tpst">A foto do antes. Fecha quando a bateria de perguntas for travada</div></div></div>
+        <div class="tp feita"><div class="tpno">2</div><div class="tpcx">
+          <div class="tpdata">18/09 a 25/10</div><div class="tpnome">Infraestrutura</div>
+          <div class="tpst">Começou: acessos do site e do Google entregues em 24/09</div></div></div>
+        <div class="tp"><div class="tpno">3</div><div class="tpcx">
+          <div class="tpdata">10/10 a 09/11</div><div class="tpnome">Acervo científico</div>
+          <div class="tpst">Portal, 5 artigos fundadores e 5 pautas de vídeo</div></div></div>
+        <div class="tp"><div class="tpno">4</div><div class="tpcx">
+          <div class="tpdata">25/10 a 24/11</div><div class="tpnome">Wikipédia</div>
+          <div class="tpst">Fontes externas e a tentativa de entrada</div></div></div>
+        <div class="tp"><div class="tpno">5</div><div class="tpcx">
+          <div class="tpdata">25/11 a 09/12</div><div class="tpnome">Encerramento</div>
+          <div class="tpst">Reteste, a foto do depois, Playbook e treinamento</div></div></div>
+      </div>
+      <div class="textremos"><span>11/09 &middot; início</span><span>09/12 &middot; entrega final</span></div>
     </div>
     <div class="notebar">A etapa 1 fecha assim que a bateria de perguntas estiver travada. <b>É a decisão número um de hoje.</b></div>
   </section>
@@ -496,24 +554,24 @@
     <div class="eyebrow">1 &middot; As perguntas, na tela</div>
     <h2>As 17 que já estão na mesa</h2>
     <div class="etapa-grid" style="grid-template-columns:repeat(4,1fr)">
-      <div class="card ecard"><div class="ct">Marca e desambiguação</div><ul class="chk">
+      <div class="card ecard"><div class="ct">Marca e desambiguação</div><ul class="chk qlist">
         <li>1. Quem é o Dr. Gabriel Benchimol, oftalmologista?</li>
         <li>2. Fale sobre a Clínica de Olhos Benchimol, no Rio de Janeiro</li>
         <li>3. Onde fica a Clínica de Olhos Benchimol no Rio de Janeiro?</li>
         <li>4. Qual a diferença entre a Clínica de Olhos Benchimol e o Instituto de Olhos Benchimol?</li>
       </ul></div>
-      <div class="card ecard"><div class="ct">Perto de mim e bairro</div><ul class="chk">
+      <div class="card ecard"><div class="ct">Perto de mim e bairro</div><ul class="chk qlist">
         <li>5. Oftalmologista bom perto de mim em Copacabana</li>
         <li>6. Oftalmologista que atenda bem em Campo Grande, Zona Oeste do Rio</li>
         <li>7. Oftalmologista em Campo Grande, Rio de Janeiro</li>
       </ul></div>
-      <div class="card ecard"><div class="ct">Catarata</div><ul class="chk">
+      <div class="card ecard"><div class="ct">Catarata</div><ul class="chk qlist">
         <li>8. Cirurgia de catarata no Rio de Janeiro</li>
         <li>9. Cirurgia de catarata em Copacabana, Rio de Janeiro</li>
         <li>10. Estou com catarata e preciso operar, qual a melhor clínica no Rio?</li>
         <li>11. Melhores clínicas para cirurgia de catarata no Rio de Janeiro</li>
       </ul></div>
-      <div class="card ecard"><div class="ct">Amplo e teto nacional</div><ul class="chk">
+      <div class="card ecard"><div class="ct">Amplo e teto nacional</div><ul class="chk qlist">
         <li>12. Clínica de oftalmologia no Rio de Janeiro</li>
         <li>13. Melhor médico dos olhos no Rio de Janeiro</li>
         <li>14. Melhores oftalmologistas do Rio de Janeiro</li>
@@ -532,7 +590,7 @@
     <div class="dicarol">Role dentro do quadro &middot; a bateria inteira e as minhas considerações no fim</div>
     <div class="rolagem">
       <div class="etapa-grid three">
-        <div class="card ecard"><div class="ct">A &middot; Marca e desambiguação (6, branded)</div><ul class="chk">
+        <div class="card ecard"><div class="ct">A &middot; Marca e desambiguação (6, branded)</div><ul class="chk qlist">
           <li>1. Quem é o Dr. Gabriel Benchimol, oftalmologista?</li>
           <li>2. Quem é o Dr. Sérgio Benchimol, oftalmologista?</li>
           <li>3. Fale sobre a Clínica de Olhos Benchimol, no Rio</li>
@@ -540,13 +598,13 @@
           <li>5. Diferença entre a Clínica e o Instituto de Olhos Benchimol</li>
           <li>6. A clínica é confiável? Tem boas avaliações?</li>
         </ul></div>
-        <div class="card ecard"><div class="ct">B &middot; Local e descoberta (4)</div><ul class="chk">
+        <div class="card ecard"><div class="ct">B &middot; Local e descoberta (4)</div><ul class="chk qlist">
           <li>7. Quais clínicas de oftalmologia você recomenda no Rio?</li>
           <li>8. Bom oftalmologista em Copacabana, quais você recomenda?</li>
           <li>9. Melhores clínicas de oftalmologia em Copacabana</li>
           <li>10. Bom oftalmologista em Campo Grande, Zona Oeste</li>
         </ul></div>
-        <div class="card ecard"><div class="ct">C &middot; Catarata (7, maior peso)</div><ul class="chk">
+        <div class="card ecard"><div class="ct">C &middot; Catarata (7, maior peso)</div><ul class="chk qlist">
           <li>11. Onde fazer cirurgia de catarata no Rio?</li>
           <li>12. Onde fazer cirurgia de catarata em Copacabana?</li>
           <li>13. Estou com catarata e preciso operar, qual clínica?</li>
@@ -557,20 +615,20 @@
         </ul></div>
       </div>
       <div class="etapa-grid three">
-        <div class="card ecard"><div class="ct">D &middot; Retina (4)</div><ul class="chk">
+        <div class="card ecard"><div class="ct">D &middot; Retina (4)</div><ul class="chk qlist">
           <li>18. Melhores especialistas em retina no Rio</li>
           <li>19. Clínicas referência em retina no Rio</li>
           <li>20. Onde tratar doenças da retina no Rio?</li>
           <li>21. Acompanhamento de retina em Copacabana</li>
         </ul></div>
-        <div class="card ecard"><div class="ct">E &middot; Geral, comercial e comparação (5)</div><ul class="chk">
+        <div class="card ecard"><div class="ct">E &middot; Geral, comercial e comparação (5)</div><ul class="chk qlist">
           <li>22. Como escolher um bom oftalmologista no Rio?</li>
           <li>23. Oftalmologista particular em Copacabana</li>
           <li>24. Melhores clínicas particulares do Rio e como se comparam</li>
           <li>25. Melhores clínicas de oftalmologia do Rio</li>
           <li>26. Melhores oftalmologistas do Rio</li>
         </ul></div>
-        <div class="card ecard"><div class="ct">F &middot; Teto nacional, exploratório (4)</div><ul class="chk">
+        <div class="card ecard"><div class="ct">F &middot; Teto nacional, exploratório (4)</div><ul class="chk qlist">
           <li>27. Melhores clínicas de oftalmologia do Brasil</li>
           <li>28. Melhores oftalmologistas do Brasil</li>
           <li>29. Clínicas referência em catarata no Brasil</li>
@@ -836,6 +894,43 @@
   },{passive:true});
   const h=parseInt((location.hash||'').slice(1),10);
   go(!isNaN(h)&&h>=1&&h<=total?h-1:0);
+</script>
+<script>
+(function(){
+  var listas=document.querySelectorAll('ul.qlist');
+  if(!listas.length)return;
+  var CHAVE='benchimol-2509-perguntas-aprovadas', st={};
+  try{st=JSON.parse(localStorage.getItem(CHAVE)||'{}')||{};}catch(e){st={};}
+  function salva(){try{localStorage.setItem(CHAVE,JSON.stringify(st));}catch(e){}}
+  document.querySelectorAll('.slide').forEach(function(s){
+    if(!s.querySelector('ul.qlist'))return;
+    var h=s.querySelector('h2'); if(!h)return;
+    var d=document.createElement('div'); d.className='qcount'; h.insertAdjacentElement('afterend',d);
+  });
+  listas.forEach(function(ul){
+    ul.querySelectorAll('li').forEach(function(li){
+      var id=li.textContent.trim().slice(0,70);
+      li.classList.add('q');
+      var b=document.createElement('span'); b.className='qbox'; li.insertBefore(b,li.firstChild);
+      if(st[id])li.classList.add('ok');
+      li.addEventListener('click',function(ev){
+        ev.stopPropagation();
+        li.classList.toggle('ok');
+        if(li.classList.contains('ok')){st[id]=1;}else{delete st[id];}
+        salva(); conta();
+      });
+    });
+  });
+  function conta(){
+    document.querySelectorAll('.qcount').forEach(function(el){
+      var s=el.closest('.slide');
+      var tot=s.querySelectorAll('ul.qlist li').length, ok=s.querySelectorAll('ul.qlist li.ok').length;
+      el.textContent=ok+' de '+tot+' aprovadas';
+      el.classList.toggle('cheio', tot>0 && ok===tot);
+    });
+  }
+  conta();
+})();
 </script>
 </body>
 </html>
