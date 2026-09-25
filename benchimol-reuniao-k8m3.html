@@ -385,6 +385,13 @@
   font-weight:700;color:#7E8B7F;margin:0 0 calc(var(--u)*.9)}
 .blococonsid{border-top:1px solid #D8D6CD;padding-top:calc(var(--u)*1.2);margin-top:calc(var(--u)*.4)}
 .blococonsid .ct{color:#56675A}
+.exemplo{display:flex;flex-direction:column;gap:calc(var(--u)*.85);margin-top:calc(var(--u)*.6)}
+.exl{border-left:2px solid #A9BAAD;padding-left:calc(var(--u)*1.1)}
+.exl.forte{border-left-color:#6B8070}
+.extag{font-size:clamp(10px,calc(.9 * var(--u)),15px);font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:#6B8070;margin-bottom:calc(var(--u)*.3)}
+.extxt{font-size:clamp(12.5px,calc(1.18 * var(--u)),20px);line-height:1.45;color:#2E3130}
+.exper{font-family:var(--serif);font-size:clamp(15px,calc(1.5 * var(--u)),26px);line-height:1.3;color:#2E3130}
 </style>
 </head>
 <body>
@@ -638,13 +645,18 @@
         <li>Em dezembro, faço tudo de novo, igual</li>
       </ul></div>
       <div class="card ecard"><div class="ct">Um exemplo, com a pergunta 14</div>
-        <div class="resumo">
-          <div class="rline"><div class="rk">Pergunta</div><div class="rv">"Quais são as melhores clínicas para cirurgia de catarata no Rio de Janeiro?"</div></div>
-          <div class="rline"><div class="rk">Hoje</div><div class="rv">A resposta lista cinco clínicas e a Benchimol não está entre elas. Registro: <b>presença não</b> &middot; posição nenhuma &middot; <b>concorrentes</b>: os cinco nomes citados</div></div>
-          <div class="rline"><div class="rk">Em dezembro</div><div class="rv">A mesma pergunta traz a Benchimol em segundo lugar. Registro: <b>presença sim</b> &middot; <b>posição 2</b> &middot; descrição correta</div></div>
-          <div class="rline"><div class="rk">O número</div><div class="rv">Somando as 24 perguntas non-branded: hoje a clínica aparece em <b>X delas</b>, em dezembro em <b>Y</b>. Esse par de números é o resultado do projeto</div></div>
+        <div class="exemplo">
+          <div class="exl"><div class="extag">A pergunta</div>
+            <div class="exper">"Quais são as melhores clínicas para cirurgia de catarata no Rio de Janeiro?"</div></div>
+          <div class="exl"><div class="extag">Hoje</div>
+            <div class="extxt">A resposta lista cinco clínicas e a Benchimol não está entre elas.<br>
+            Registro: <b>presença não</b> &middot; sem posição &middot; concorrentes: os cinco nomes citados.</div></div>
+          <div class="exl"><div class="extag">Em dezembro</div>
+            <div class="extxt">A mesma pergunta traz a Benchimol em segundo lugar.<br>
+            Registro: <b>presença sim</b> &middot; <b>posição 2</b> &middot; descrição correta.</div></div>
+          <div class="exl forte"><div class="extag">O número que sai disso</div>
+            <div class="extxt">Somando as 24 perguntas non-branded: a clínica aparece em <b>X delas hoje</b> e em <b>Y em dezembro</b>. Esse par de números é o resultado do projeto.</div></div>
         </div>
-      </div>
     </div>
   </section>
 
