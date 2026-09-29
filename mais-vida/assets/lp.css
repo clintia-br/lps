@@ -433,7 +433,8 @@ section{padding:96px 0}
 .fab:hover{background:var(--wa-dark)}
 .fab:hover,.fab.hint{gap:10px}
 .fab:hover .lbl,.fab.hint .lbl{max-width:220px}
-.fab::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--wa);z-index:-1;animation:ping 2.4s ease-out infinite}
+.fab::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--wa);z-index:-1;animation:fabping 2.4s ease-out infinite}
+@keyframes fabping{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.18,1.45);opacity:0}}
 .fab .dot{position:absolute;top:-3px;right:-3px;width:16px;height:16px;border-radius:50%;background:var(--pink);border:2.5px solid #fff}
 
 /* escolha de unidade */
