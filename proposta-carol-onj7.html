@@ -81,6 +81,24 @@ footer{padding:28px 56px 40px;font-size:13px;color:var(--suave);border-top:1px s
   section{padding-top:34px;padding-bottom:34px}
   table{font-size:14px}
 }
+
+/* celular: tabelas largas viram cartões empilhados */
+@media (max-width:720px){
+  .rola{overflow:visible}
+  table.cartoes,table.cartoes tbody,table.cartoes tr,table.cartoes td{display:block;width:100%}
+  table.cartoes thead{display:none}
+  table.cartoes tr{border:1px solid var(--linha);border-radius:12px;padding:12px 14px;margin-top:10px;background:var(--papel)}
+  table.cartoes tr.grupo{border:0;padding:0;margin-top:24px;background:none}
+  table.cartoes tr.grupo td{background:none;padding:0}
+  table.cartoes td{border:0;padding:5px 0;text-align:left}
+  table.cartoes td:first-child{padding:0 0 9px;margin-bottom:6px;border-bottom:1px solid var(--linha)}
+  table.cartoes tr.grupo td:first-child{border:0;margin:0;padding:0}
+  table.cartoes td.texto{color:var(--tinta);padding-bottom:8px}
+  table.cartoes td[data-label]{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+  table.cartoes td[data-label]::before{content:attr(data-label);flex:none;font:700 11px/1.4 "Red Hat Display",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--suave)}
+  table.cartoes td .v{text-align:right}
+  table.cartoes td .v small{margin-top:1px}
+}
 @media print{
   body{background:#fff}
   .folha{border:0;max-width:none}
@@ -144,20 +162,20 @@ footer{padding:28px 56px 40px;font-size:13px;color:var(--suave);border-top:1px s
   <h2>Os clientes que precisam de você</h2>
   <p>A lista abaixo mostra quem está com a parte comercial em andamento, quem começa em outubro e quem tem treinamento previsto no contrato, ainda sem data.</p>
   <div class="rola">
-    <table>
+    <table class="cartoes">
       <thead><tr><th>Cliente</th><th>O que fazer</th><th>Nível</th><th>Porte</th><th>Quando</th></tr></thead>
       <tbody>
         <tr class="grupo"><td colspan="5">Em andamento</td></tr>
-        <tr><td><b>Clínica Orel</b><small>Débora · São Paulo/SP</small></td><td>Fechar o PONTE: manual final, rotina com metas e encontro de acompanhamento.</td><td>Avançado</td><td>—</td><td>06/10<small>Condição antiga, já paga</small></td></tr>
-        <tr><td><b>Clínica Saúde Sempre</b><small>Rafael · Goiânia/GO</small></td><td>Sprint comercial: encontros com recepção e agendamento em duas turmas, 15 dias de acompanhamento e Playbook.</td><td>Inicial</td><td><span class="selo">Padrão</span></td><td>Desde 29/09<small>Valor combinado: R$ 2.000</small></td></tr>
+        <tr><td><b>Clínica Orel</b><small>Débora · São Paulo/SP</small></td><td class="texto">Fechar o PONTE: manual final, rotina com metas e encontro de acompanhamento.</td><td data-label="Nível"><span class="v">Avançado</span></td><td data-label="Porte"><span class="v">—</span></td><td data-label="Quando"><span class="v">06/10<small>Condição antiga, já paga</small></span></td></tr>
+        <tr><td><b>Clínica Saúde Sempre</b><small>Rafael · Goiânia/GO</small></td><td class="texto">Sprint comercial: encontros com recepção e agendamento em duas turmas, 15 dias de acompanhamento e Playbook.</td><td data-label="Nível"><span class="v">Inicial</span></td><td data-label="Porte"><span class="v"><span class="selo">Padrão</span></span></td><td data-label="Quando"><span class="v">Desde 29/09<small>Valor combinado: R$ 2.000</small></span></td></tr>
         <tr class="grupo"><td colspan="5">Começam em outubro</td></tr>
-        <tr><td><b>Clínica Mais Vida</b><small>Daniel · Nova Iguaçu/RJ</small></td><td>Treinamento da recepção e do call center das duas unidades, junto com a implantação do CRM.</td><td>Intermediário</td><td><span class="selo amp">Ampliado</span></td><td>A partir de 02/10</td></tr>
-        <tr><td><b>SaúdeVida</b><small>Márcio · Santos/SP</small></td><td>30 dias com as vendedoras do call center da rede (cerca de 7 pessoas, 6 unidades), com scripts por origem do contato.</td><td>Avançado</td><td><span class="selo amp">Ampliado</span></td><td>Outubro<small>Data a definir</small></td></tr>
-        <tr><td><b>Clínica Bem-Estar</b><small>Ernesto · Lauro de Freitas/BA</small></td><td>Até 5 encontros em 30 dias com recepção e call center, manual de atendimento e scripts por especialidade.</td><td>Intermediário</td><td><span class="selo amp">Ampliado</span></td><td>Data a definir</td></tr>
+        <tr><td><b>Clínica Mais Vida</b><small>Daniel · Nova Iguaçu/RJ</small></td><td class="texto">Treinamento da recepção e do call center das duas unidades, junto com a implantação do CRM.</td><td data-label="Nível"><span class="v">Intermediário</span></td><td data-label="Porte"><span class="v"><span class="selo amp">Ampliado</span></span></td><td data-label="Quando"><span class="v">A partir de 02/10</span></td></tr>
+        <tr><td><b>SaúdeVida</b><small>Márcio · Santos/SP</small></td><td class="texto">30 dias com as vendedoras do call center da rede (cerca de 7 pessoas, 6 unidades), com scripts por origem do contato.</td><td data-label="Nível"><span class="v">Avançado</span></td><td data-label="Porte"><span class="v"><span class="selo amp">Ampliado</span></span></td><td data-label="Quando"><span class="v">Outubro<small>Data a definir</small></span></td></tr>
+        <tr><td><b>Clínica Bem-Estar</b><small>Ernesto · Lauro de Freitas/BA</small></td><td class="texto">Até 5 encontros em 30 dias com recepção e call center, manual de atendimento e scripts por especialidade.</td><td data-label="Nível"><span class="v">Intermediário</span></td><td data-label="Porte"><span class="v"><span class="selo amp">Ampliado</span></span></td><td data-label="Quando"><span class="v">Data a definir</span></td></tr>
         <tr class="grupo"><td colspan="5">Previstos no contrato, sem data</td></tr>
-        <tr><td><b>RD Gestão</b><small>Edvaldo · Coroatá/MA</small></td><td>Treinamento da recepção na fase 2 do projeto, com reforço quando o cartão de benefícios estiver pronto.</td><td>Inicial</td><td><span class="selo">Padrão</span></td><td>Novembro<small>Estimativa</small></td></tr>
-        <tr><td><b>Bandeirantes Diagnósticos</b><small>Bruno · Rio de Janeiro/RJ</small></td><td>Treinamento do call center para o atendimento particular da rede (7 unidades).</td><td>Avançado</td><td><span class="selo amp">Ampliado</span></td><td>Sem data</td></tr>
-        <tr><td><b>Policlínica Alpha</b><small>Dr. Augusto · João Pessoa/PB</small></td><td>Treinamento da equipe junto com a implantação do CRM.</td><td>Intermediário</td><td><span class="selo">Padrão</span></td><td>Sem data</td></tr>
+        <tr><td><b>RD Gestão</b><small>Edvaldo · Coroatá/MA</small></td><td class="texto">Treinamento da recepção na fase 2 do projeto, com reforço quando o cartão de benefícios estiver pronto.</td><td data-label="Nível"><span class="v">Inicial</span></td><td data-label="Porte"><span class="v"><span class="selo">Padrão</span></span></td><td data-label="Quando"><span class="v">Novembro<small>Estimativa</small></span></td></tr>
+        <tr><td><b>Bandeirantes Diagnósticos</b><small>Bruno · Rio de Janeiro/RJ</small></td><td class="texto">Treinamento do call center para o atendimento particular da rede (7 unidades).</td><td data-label="Nível"><span class="v">Avançado</span></td><td data-label="Porte"><span class="v"><span class="selo amp">Ampliado</span></span></td><td data-label="Quando"><span class="v">Sem data</span></td></tr>
+        <tr><td><b>Policlínica Alpha</b><small>Dr. Augusto · João Pessoa/PB</small></td><td class="texto">Treinamento da equipe junto com a implantação do CRM.</td><td data-label="Nível"><span class="v">Intermediário</span></td><td data-label="Porte"><span class="v"><span class="selo">Padrão</span></span></td><td data-label="Quando"><span class="v">Sem data</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -213,12 +231,12 @@ footer{padding:28px 56px 40px;font-size:13px;color:var(--suave);border-top:1px s
   <h3>Quanto isso dá em um mês</h3>
   <p>Três exemplos, só para mostrar a conta. Não são promessa de volume.</p>
   <div class="rola">
-    <table>
+    <table class="cartoes">
       <thead><tr><th>Mês</th><th class="num">Fixo</th><th class="num">Clientes</th><th class="num">Edtech</th><th class="num">Total</th><th class="num">Hoje</th></tr></thead>
       <tbody>
-        <tr><td><b>Mais calmo</b><small>2 clientes padrão, 6 reuniões</small></td><td class="num">2.500</td><td class="num">2.000</td><td class="num">600</td><td class="num"><b>R$ 5.100</b></td><td class="num">R$ 4.000</td></tr>
-        <tr><td><b>Normal</b><small>2 padrão e 1 ampliado, 8 reuniões, 1 Conselho</small></td><td class="num">2.500</td><td class="num">3.500</td><td class="num">850</td><td class="num"><b>R$ 6.850</b></td><td class="num">R$ 6.000</td></tr>
-        <tr><td><b>Cheio</b><small>2 padrão e 2 ampliados, 12 reuniões, 1 implementação de R$ 14.900</small></td><td class="num">2.500</td><td class="num">5.000</td><td class="num">1.945</td><td class="num"><b>R$ 9.445</b></td><td class="num">R$ 8.000</td></tr>
+        <tr><td><b>Mais calmo</b><small>2 clientes padrão, 6 reuniões</small></td><td data-label="Fixo" class="num"><span class="v">2.500</span></td><td data-label="Clientes" class="num"><span class="v">2.000</span></td><td data-label="Edtech" class="num"><span class="v">600</span></td><td data-label="Total" class="num"><span class="v"><b>R$ 5.100</b></span></td><td data-label="Hoje" class="num"><span class="v">R$ 4.000</span></td></tr>
+        <tr><td><b>Normal</b><small>2 padrão e 1 ampliado, 8 reuniões, 1 Conselho</small></td><td data-label="Fixo" class="num"><span class="v">2.500</span></td><td data-label="Clientes" class="num"><span class="v">3.500</span></td><td data-label="Edtech" class="num"><span class="v">850</span></td><td data-label="Total" class="num"><span class="v"><b>R$ 6.850</b></span></td><td data-label="Hoje" class="num"><span class="v">R$ 6.000</span></td></tr>
+        <tr><td><b>Cheio</b><small>2 padrão e 2 ampliados, 12 reuniões, 1 implementação de R$ 14.900</small></td><td data-label="Fixo" class="num"><span class="v">2.500</span></td><td data-label="Clientes" class="num"><span class="v">5.000</span></td><td data-label="Edtech" class="num"><span class="v">1.945</span></td><td data-label="Total" class="num"><span class="v"><b>R$ 9.445</b></span></td><td data-label="Hoje" class="num"><span class="v">R$ 8.000</span></td></tr>
       </tbody>
     </table>
   </div>
