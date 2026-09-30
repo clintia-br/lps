@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Proposta de trabalho · Carolina Baptista · ClintIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --oxford:#051E32; --yale:#053C73; --celtic:#055AAA; --dodger:#0578DC; --sky:#05D2FF;
+  --tinta:#0E2436; --suave:#4A5E70; --linha:#DCE4EC; --fundo:#F5F8FB; --papel:#FFFFFF; --realce:#EAF4FD;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fundo);color:var(--tinta);font:400 16px/1.6 "Red Hat Display",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.folha{max-width:880px;margin:0 auto;background:var(--papel);border-left:1px solid var(--linha);border-right:1px solid var(--linha)}
+.pad{padding:0 56px}
+header.topo{padding:44px 56px 36px;border-bottom:1px solid var(--linha)}
+header.topo img{height:30px;width:auto;display:block}
+.rotulo{font:700 12px/1 "Red Hat Display",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--celtic)}
+header.topo .rotulo{margin-top:40px;display:block}
+h1{font-size:40px;line-height:1.1;font-weight:900;letter-spacing:-.02em;color:var(--oxford);margin:12px 0 0}
+.sub{font-size:19px;color:var(--suave);margin:10px 0 0;max-width:46ch}
+.meta{display:flex;flex-wrap:wrap;gap:6px 26px;margin-top:26px;font-size:14px;color:var(--suave)}
+.meta b{color:var(--tinta);font-weight:700}
+section{padding:44px 56px;border-bottom:1px solid var(--linha)}
+section:last-of-type{border-bottom:0}
+h2{font-size:26px;line-height:1.2;font-weight:900;letter-spacing:-.01em;color:var(--oxford);margin:10px 0 0}
+h3{font-size:18px;font-weight:700;color:var(--oxford);margin:30px 0 0}
+p{margin:14px 0 0;max-width:68ch}
+.nota{font-size:14px;color:var(--suave)}
+strong{font-weight:700;color:var(--oxford)}
+
+/* resumo */
+.tres{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:24px;border:1px solid var(--linha);border-radius:14px;overflow:hidden}
+.tres div{padding:22px 22px 20px}
+.tres div+div{border-left:1px solid var(--linha)}
+.tres small{display:block;font:700 12px/1.3 "Red Hat Display",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--suave)}
+.tres b{display:block;font-size:28px;line-height:1.1;font-weight:900;color:var(--celtic);margin-top:10px;font-variant-numeric:tabular-nums}
+.tres span{display:block;font-size:14px;color:var(--suave);margin-top:6px;line-height:1.45}
+
+/* etapas */
+ol.etapas{list-style:none;margin:18px 0 0;padding:0;counter-reset:e;display:grid;gap:0}
+ol.etapas li{counter-increment:e;display:grid;grid-template-columns:40px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--linha)}
+ol.etapas li:first-child{border-top:0}
+ol.etapas li::before{content:counter(e);width:30px;height:30px;border-radius:50%;background:var(--realce);color:var(--celtic);display:grid;place-items:center;font:700 14px/1 "Red Hat Display",sans-serif;margin-top:1px}
+ol.etapas b{display:block;color:var(--oxford)}
+ol.etapas span{display:block;color:var(--suave);font-size:15px}
+ul.lista{margin:14px 0 0;padding:0 0 0 20px}
+ul.lista li{margin-top:7px;max-width:66ch}
+.caixa{margin-top:22px;padding:18px 20px;border-radius:12px;background:var(--fundo);border:1px solid var(--linha);font-size:15px}
+.caixa p:first-child{margin-top:0}
+
+/* tabelas */
+.rola{overflow-x:auto;margin-top:18px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th{font:700 11.5px/1.3 "Red Hat Display",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--suave);text-align:left;padding:10px 12px;border-bottom:1px solid var(--oxford)}
+td{padding:12px;border-bottom:1px solid var(--linha);vertical-align:top}
+td b{color:var(--oxford)}
+td small{display:block;color:var(--suave);font-size:13px;margin-top:2px}
+tr.grupo td{background:var(--fundo);font:700 12px/1.3 "Red Hat Display",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--celtic);padding:9px 12px}
+.selo{display:inline-block;font:700 11.5px/1 "Red Hat Display",sans-serif;padding:5px 8px;border-radius:6px;background:var(--realce);color:var(--celtic);white-space:nowrap}
+.selo.amp{background:#E6F9FE;color:#04708A}
+.num{text-align:right;white-space:nowrap}
+.valor{font-weight:900;color:var(--oxford);white-space:nowrap}
+.total td{font-weight:700;border-bottom:0;border-top:1px solid var(--oxford)}
+
+/* rodapé */
+footer{padding:28px 56px 40px;font-size:13px;color:var(--suave);border-top:1px solid var(--linha)}
+
+@media (max-width:720px){
+  .pad,section,header.topo,footer{padding-left:18px;padding-right:18px}
+  header.topo{padding-top:28px}
+  h1{font-size:31px}
+  h2{font-size:22px}
+  .tres{grid-template-columns:1fr}
+  .tres div+div{border-left:0;border-top:1px solid var(--linha)}
+  section{padding-top:34px;padding-bottom:34px}
+  table{font-size:14px}
+}
+@media print{
+  body{background:#fff}
+  .folha{border:0;max-width:none}
+  section,header.topo{break-inside:avoid-page}
+  h2,h3{break-after:avoid}
+  tr{break-inside:avoid}
+  @page{size:A4;margin:14mm 0}
+}
+</style>
+</head>
+<body>
+<div class="folha">
+
+<header class="topo">
+  <img src="data:image/png;base64,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" alt="ClintIA" width="520" height="117">
+  <span class="rotulo">Proposta de trabalho</span>
+  <h1>Carolina Baptista</h1>
+  <p class="sub">Estruturação comercial dos clientes da ClintIA e SDR da base de alunos da Edtech.</p>
+  <div class="meta">
+    <span><b>Data:</b> 1º de outubro de 2026</span>
+    <span><b>De:</b> Bernardo Carneiro, ClintIA</span>
+    <span><b>Formato:</b> prestação de serviço, pessoa jurídica</span>
+  </div>
+</header>
+
+<section>
+  <span class="rotulo">Em resumo</span>
+  <h2>Um fixo mensal, um valor por cliente e comissão sobre a base da Edtech</h2>
+  <p>Hoje você recebe <strong>R$ 2.000 por projeto</strong> e não tem como saber quantos projetos entram no mês. A proposta troca parte desse valor por um <strong>fixo mensal</strong>, que dá previsibilidade para você e para a ClintIA, e acrescenta uma segunda frente de trabalho: o contato com os alunos da Edtech.</p>
+  <div class="tres">
+    <div><small>Fixo mensal</small><b>R$ 2.500</b><span>Método, reuniões de equipe e operação da SDR.</span></div>
+    <div><small>Por cliente</small><b>R$ 1.000 a 1.500</b><span>Cada estruturação comercial entregue, conforme o porte da clínica.</span></div>
+    <div><small>SDR da Edtech</small><b>Comissão</b><span>R$ 100 por reunião qualificada, 5% da implementação e 10% do Conselho de Donos.</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="rotulo">Frente 1</span>
+  <h2>Estruturação comercial dos clientes</h2>
+  <p>Quase todo projeto da ClintIA tem uma parte comercial: a clínica passa a receber mais contatos e precisa de uma equipe que saiba conduzir cada um até o agendamento. É aqui que você entra, no formato que você já usou na Orel e que vocês ajustaram na reunião de 28/09.</p>
+  <ol class="etapas">
+    <li><div><b>Diagnóstico com o gestor</b><span>Cerca de 1 hora. Entender a operação e definir o nível do treinamento: inicial, intermediário ou avançado.</span></div></li>
+    <li><div><b>Conversa com a equipe, sem o gestor na sala</b><span>Cerca de 1 hora, para a equipe falar das dificuldades reais.</span></div></li>
+    <li><div><b>Treinamento em dois encontros de 1h30</b><span>Em clínica com call center ou com mais de uma função (recepção e agendamento), pode ser em duas turmas.</span></div></li>
+    <li><div><b>Acompanhamento de 15 dias</b><span>Auditoria das conversas reais e ajustes com a equipe.</span></div></li>
+    <li><div><b>Playbook de Vendas em PDF</b><span>Na identidade visual da ClintIA: scripts por origem do contato, contorno de objeções, rotina com metas diárias e o que a equipe registra no CRM.</span></div></li>
+  </ol>
+  <h3>Com quem você trabalha em cada cliente</h3>
+  <ul class="lista">
+    <li><strong>Luizianna</strong> cuida da gestão do projeto e marca os encontros com a clínica.</li>
+    <li><strong>Paulo Vitor</strong> monta o CRM, em paralelo ao treinamento.</li>
+    <li><strong>Bernardo</strong> passa o contexto da venda e participa do diagnóstico quando for preciso.</li>
+  </ul>
+  <div class="caixa">
+    <p><strong>Tempo estimado.</strong> Pela experiência da Orel, um cliente de porte padrão ocupa perto de 20 horas, distribuídas ao longo de cinco semanas. O acompanhamento é o que mais se espalha no calendário.</p>
+  </div>
+</section>
+
+<section>
+  <span class="rotulo">Carteira de hoje</span>
+  <h2>Os clientes que precisam de você</h2>
+  <p>A lista abaixo mostra quem está com a parte comercial em andamento, quem começa em outubro e quem tem treinamento previsto no contrato, ainda sem data.</p>
+  <div class="rola">
+    <table>
+      <thead><tr><th>Cliente</th><th>O que fazer</th><th>Nível</th><th>Porte</th><th>Quando</th></tr></thead>
+      <tbody>
+        <tr class="grupo"><td colspan="5">Em andamento</td></tr>
+        <tr><td><b>Clínica Orel</b><small>Débora · São Paulo/SP</small></td><td>Fechar o PONTE: manual final, rotina com metas e encontro de acompanhamento.</td><td>Avançado</td><td>—</td><td>06/10<small>Condição antiga, já paga</small></td></tr>
+        <tr><td><b>Clínica Saúde Sempre</b><small>Rafael · Goiânia/GO</small></td><td>Sprint comercial: encontros com recepção e agendamento em duas turmas, 15 dias de acompanhamento e Playbook.</td><td>Inicial</td><td><span class="selo">Padrão</span></td><td>Desde 29/09<small>Valor combinado: R$ 2.000</small></td></tr>
+        <tr class="grupo"><td colspan="5">Começam em outubro</td></tr>
+        <tr><td><b>Clínica Mais Vida</b><small>Daniel · Nova Iguaçu/RJ</small></td><td>Treinamento da recepção e do call center das duas unidades, junto com a implantação do CRM.</td><td>Intermediário</td><td><span class="selo amp">Ampliado</span></td><td>A partir de 02/10</td></tr>
+        <tr><td><b>SaúdeVida</b><small>Márcio · Santos/SP</small></td><td>30 dias com as vendedoras do call center da rede (cerca de 7 pessoas, 6 unidades), com scripts por origem do contato.</td><td>Avançado</td><td><span class="selo amp">Ampliado</span></td><td>Outubro<small>Data a definir</small></td></tr>
+        <tr><td><b>Clínica Bem-Estar</b><small>Ernesto · Lauro de Freitas/BA</small></td><td>Até 5 encontros em 30 dias com recepção e call center, manual de atendimento e scripts por especialidade.</td><td>Intermediário</td><td><span class="selo amp">Ampliado</span></td><td>Data a definir</td></tr>
+        <tr class="grupo"><td colspan="5">Previstos no contrato, sem data</td></tr>
+        <tr><td><b>RD Gestão</b><small>Edvaldo · Coroatá/MA</small></td><td>Treinamento da recepção na fase 2 do projeto, com reforço quando o cartão de benefícios estiver pronto.</td><td>Inicial</td><td><span class="selo">Padrão</span></td><td>Novembro<small>Estimativa</small></td></tr>
+        <tr><td><b>Bandeirantes Diagnósticos</b><small>Bruno · Rio de Janeiro/RJ</small></td><td>Treinamento do call center para o atendimento particular da rede (7 unidades).</td><td>Avançado</td><td><span class="selo amp">Ampliado</span></td><td>Sem data</td></tr>
+        <tr><td><b>Policlínica Alpha</b><small>Dr. Augusto · João Pessoa/PB</small></td><td>Treinamento da equipe junto com a implantação do CRM.</td><td>Intermediário</td><td><span class="selo">Padrão</span></td><td>Sem data</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota">Nível e porte são estimativas. Quem confirma é o diagnóstico com o gestor. Dois clientes podem contratar essa parte mais adiante, porque hoje ela não está no contrato deles: Ciclos Psicologia e Terapias (recepção) e Unimedic (equipe que atende no Prontuário Verde).</p>
+  <div class="caixa">
+    <p><strong>Volume esperado.</strong> Setembro teve cinco contratos novos com parte comercial. Para planejar sua agenda, conte com <strong>2 a 3 clientes novos por mês</strong> e <strong>3 a 5 clientes em andamento ao mesmo tempo</strong>.</p>
+  </div>
+</section>
+
+<section>
+  <span class="rotulo">Frente 2 · a partir de 10/10</span>
+  <h2>SDR da base de alunos da Edtech</h2>
+  <p>A Edtech da ClintIA vende o <strong>Manual da Clínica Popular</strong> (R$ 147) para donos e gestores de clínica. Quem compra entra na área de membros e responde um perfil da clínica: faturamento, número de unidades, quem decide. Hoje são <strong>55 alunos no CRM</strong>, e 43 deles nunca foram contatados. Novos alunos entram toda semana pelo tráfego pago.</p>
+  <p>Esses alunos já conhecem o trabalho da ClintIA e pagaram por ele. O que falta é alguém que converse com cada um e leve ao Bernardo quem está no perfil para a implementação.</p>
+  <h3>O trabalho</h3>
+  <ul class="lista">
+    <li>Falar com cada aluno pelo WhatsApp, entender a clínica e a dor dele. O perfil que ele preencheu já está no CRM.</li>
+    <li>Quem está no perfil vai para a reunião de diagnóstico com o Bernardo. O fechamento acontece em duas reuniões, conduzidas por ele.</li>
+    <li>Quem ainda não está no perfil pode ser convidado para o <strong>Conselho de Donos</strong> (R$ 497), que dá acesso ao Bernardo e à comunidade.</li>
+    <li>Registrar cada contato no CRM da ClintIA (Pipedrive).</li>
+  </ul>
+  <div class="caixa">
+    <p><strong>Meta:</strong> três reuniões qualificadas por semana. Não é preciso mais que isso por enquanto.</p>
+    <p><strong>Reunião qualificada</strong> é a que acontece de fato com o dono ou com quem decide, de uma clínica em funcionamento, com faturamento a partir de R$ 30 mil por mês. Reunião agendada que não acontece não conta.</p>
+  </div>
+  <p class="nota">A prospecção ativa de quem chega pelo tráfego pago, que você sugeriu, fica para depois que a base estiver rodando.</p>
+</section>
+
+<section>
+  <span class="rotulo">Primeiros 30 dias</span>
+  <h2>Deixar o método pronto para qualquer cliente novo</h2>
+  <p>Na reunião de 28/09 vocês chegaram a um desenho em três níveis (inicial, intermediário e avançado), cada um com o seu acompanhamento. No primeiro mês, a ideia é escrever esse método junto com a Luizianna, com o modelo de Playbook da ClintIA. Assim, quando um cliente novo fechar, todo mundo já sabe o que acontece em cada encontro e o que é entregue no final.</p>
+</section>
+
+<section>
+  <span class="rotulo">Remuneração</span>
+  <h2>Como fica o pagamento</h2>
+  <div class="rola">
+    <table>
+      <thead><tr><th>Parte</th><th>Valor</th><th>Quando é pago</th></tr></thead>
+      <tbody>
+        <tr><td><b>Fixo mensal</b><small>Método, reuniões de equipe e de início de projeto, operação da SDR</small></td><td class="valor">R$ 2.500</td><td>Último dia útil do mês</td></tr>
+        <tr><td><b>Cliente de porte padrão</b><small>Uma unidade, sem call center</small></td><td class="valor">R$ 1.000</td><td>Metade no mês do diagnóstico, metade no mês da entrega do Playbook</td></tr>
+        <tr><td><b>Cliente de porte ampliado</b><small>Mais de uma unidade, ou call center com equipe própria</small></td><td class="valor">R$ 1.500</td><td>Metade no mês do diagnóstico, metade no mês da entrega do Playbook</td></tr>
+        <tr><td><b>Reunião qualificada da Edtech</b><small>Conforme o critério da Frente 2</small></td><td class="valor">R$ 100</td><td>Dia 10 do mês seguinte</td></tr>
+        <tr><td><b>Conselho de Donos vendido por você</b></td><td class="valor">10%</td><td>Dia 10 do mês seguinte ao recebimento</td></tr>
+        <tr><td><b>Implementação fechada a partir de lead seu</b></td><td class="valor">5%</td><td>Conforme o cliente paga, no dia 10 do mês seguinte</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota">A parte variável segue a regra da equipe: a lista do mês chega até o dia 5 e o pagamento sai no dia 10, com nota fiscal. O que chegar depois do dia 5 entra no mês seguinte.</p>
+
+  <h3>Quanto isso dá em um mês</h3>
+  <p>Três exemplos, só para mostrar a conta. Não são promessa de volume.</p>
+  <div class="rola">
+    <table>
+      <thead><tr><th>Mês</th><th class="num">Fixo</th><th class="num">Clientes</th><th class="num">Edtech</th><th class="num">Total</th><th class="num">Hoje</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mais calmo</b><small>2 clientes padrão, 6 reuniões</small></td><td class="num">2.500</td><td class="num">2.000</td><td class="num">600</td><td class="num"><b>R$ 5.100</b></td><td class="num">R$ 4.000</td></tr>
+        <tr><td><b>Normal</b><small>2 padrão e 1 ampliado, 8 reuniões, 1 Conselho</small></td><td class="num">2.500</td><td class="num">3.500</td><td class="num">850</td><td class="num"><b>R$ 6.850</b></td><td class="num">R$ 6.000</td></tr>
+        <tr><td><b>Cheio</b><small>2 padrão e 2 ampliados, 12 reuniões, 1 implementação de R$ 14.900</small></td><td class="num">2.500</td><td class="num">5.000</td><td class="num">1.945</td><td class="num"><b>R$ 9.445</b></td><td class="num">R$ 8.000</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota">A coluna "Hoje" é o mesmo número de clientes no valor atual de R$ 2.000 por projeto, sem a frente da Edtech. Para simplificar, os exemplos contam o valor inteiro do cliente no mês (na prática ele se divide entre o mês do diagnóstico e o da entrega) e a implementação paga à vista.</p>
+</section>
+
+<section>
+  <span class="rotulo">Como funciona</span>
+  <h2>Formato do trabalho</h2>
+  <ul class="lista">
+    <li>Prestação de serviço como pessoa jurídica (MEI), com nota fiscal. O contrato é redigido pelo advogado da ClintIA e assinado pelo ClickSign.</li>
+    <li>Sem horário fixo. Os encontros com clientes são marcados com antecedência, junto com a Luizianna, e você pode manter os seus outros trabalhos.</li>
+    <li>No contato com os alunos da Edtech, a resposta sai no mesmo dia útil.</li>
+    <li>A ClintIA libera o acesso ao Claude, ao CRM e às pastas dos projetos. Os materiais entregues ao cliente levam a identidade visual da ClintIA.</li>
+    <li>Os dados de pacientes e de clientes ficam nos sistemas da ClintIA e seguem a LGPD.</li>
+    <li>Se um cliente da ClintIA pedir um serviço direto a você, o pedido passa pela ClintIA antes de qualquer resposta, como você já fez com a Orel.</li>
+    <li>Em janeiro de 2027, depois de 90 dias, revisamos os valores com base no volume real de clientes e de reuniões.</li>
+  </ul>
+</section>
+
+<section>
+  <span class="rotulo">Próximos passos</span>
+  <h2>Daqui para a frente</h2>
+  <ol class="etapas">
+    <li><div><b>Conversa sobre esta proposta</b><span>Ajustes de valores ou de escopo, se precisar.</span></div></li>
+    <li><div><b>Contrato</b><span>O advogado fecha o texto com o que for combinado, e a assinatura sai pelo ClickSign.</span></div></li>
+    <li><div><b>Início</b><span>A estruturação comercial segue desde já, com Saúde Sempre e Mais Vida. A frente da Edtech começa em 10/10.</span></div></li>
+  </ol>
+</section>
+
+<footer>
+  CLINTIA SOLUÇÕES TECNOLÓGICAS PARA CLÍNICAS LTDA EPP · Documento para conversa entre as partes. Os valores só valem depois de assinados em contrato.
+</footer>
+
+</div>
+</body>
+</html>
