@@ -69,6 +69,9 @@ tr.grupo td{background:var(--fundo);font:700 12px/1.3 "Red Hat Display",sans-ser
 .total td{font-weight:700;border-bottom:0;border-top:1px solid var(--oxford)}
 
 /* rodapé */
+.notas ol{margin:14px 0 0;padding-left:20px;font-size:14px;color:var(--suave)}
+.notas li{margin-top:8px;max-width:70ch}
+sup{font-size:.7em;line-height:0;color:var(--celtic);font-weight:700}
 footer{padding:28px 56px 40px;font-size:13px;color:var(--suave);border-top:1px solid var(--linha)}
 
 @media (max-width:720px){
@@ -98,6 +101,8 @@ footer{padding:28px 56px 40px;font-size:13px;color:var(--suave);border-top:1px s
   table.cartoes td[data-label]::before{content:attr(data-label);flex:none;font:700 11px/1.4 "Red Hat Display",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--suave)}
   table.cartoes td .v{text-align:right}
   table.cartoes td .v small{margin-top:1px}
+  table.pag td.quando{font-size:13.5px;color:var(--suave);padding-top:2px}
+  table.pag td.quando::before{content:"Quando: ";font-weight:700;color:var(--tinta)}
 }
 @media print{
   body{background:#fff}
@@ -127,11 +132,11 @@ footer{padding:28px 56px 40px;font-size:13px;color:var(--suave);border-top:1px s
 <section>
   <span class="rotulo">Em resumo</span>
   <h2>Um fixo mensal, um valor por cliente e comissão sobre a base da Edtech</h2>
-  <p>Hoje você recebe <strong>R$ 2.000 por projeto</strong> e não tem como saber quantos projetos entram no mês. A proposta troca parte desse valor por um <strong>fixo mensal</strong>, que dá previsibilidade para você e para a ClintIA, e acrescenta uma segunda frente de trabalho: o contato com os alunos da Edtech.</p>
+  <p>Hoje você recebe <strong>R$ 2.000 por projeto</strong> e não tem como saber quantos projetos entram no mês. A proposta troca parte desse valor por um <strong>fixo mensal</strong>, que dá previsibilidade para você e para a ClintIA, e acrescenta uma segunda frente de trabalho: o contato com os alunos da Edtech. Todos os valores são pagos no fim do mês.</p>
   <div class="tres">
-    <div><small>Fixo mensal</small><b>R$ 2.500</b><span>Método, reuniões de equipe e operação da SDR.</span></div>
-    <div><small>Por cliente</small><b>R$ 1.000 a 1.500</b><span>Cada estruturação comercial entregue, conforme o porte da clínica.</span></div>
-    <div><small>SDR da Edtech</small><b>Comissão</b><span>R$ 100 por reunião qualificada, 5% da implementação e 10% do Conselho de Donos.</span></div>
+    <div><small>Fixo mensal</small><b>R$ 3.000</b><span>Método, reuniões de equipe e operação da SDR.</span></div>
+    <div><small>Por cliente</small><b>R$ 750 a 900</b><span>Cada estruturação comercial entregue, conforme o porte da clínica.</span></div>
+    <div><small>SDR da Edtech</small><b>R$ 100</b><span>Por reunião qualificada que acontece, mais 3% da implementação fechada a partir de lead seu.</span></div>
   </div>
 </section>
 
@@ -167,13 +172,12 @@ footer{padding:28px 56px 40px;font-size:13px;color:var(--suave);border-top:1px s
       <tbody>
         <tr class="grupo"><td colspan="5">Em andamento</td></tr>
         <tr><td><b>Clínica Orel</b><small>Débora · São Paulo/SP</small></td><td class="texto">Fechar o PONTE: manual final, rotina com metas e encontro de acompanhamento.</td><td data-label="Nível"><span class="v">Avançado</span></td><td data-label="Porte"><span class="v">—</span></td><td data-label="Quando"><span class="v">06/10<small>Condição antiga, já paga</small></span></td></tr>
-        <tr><td><b>Clínica Saúde Sempre</b><small>Rafael · Goiânia/GO</small></td><td class="texto">Sprint comercial: encontros com recepção e agendamento em duas turmas, 15 dias de acompanhamento e Playbook.</td><td data-label="Nível"><span class="v">Inicial</span></td><td data-label="Porte"><span class="v"><span class="selo">Padrão</span></span></td><td data-label="Quando"><span class="v">Desde 29/09<small>Valor combinado: R$ 2.000</small></span></td></tr>
+        <tr><td><b>Clínica Saúde Sempre</b><small>Rafael · Goiânia/GO</small></td><td class="texto">Sprint comercial: encontros com recepção e agendamento em duas turmas, 15 dias de acompanhamento e Playbook.</td><td data-label="Nível"><span class="v">Inicial</span></td><td data-label="Porte"><span class="v"><span class="selo">Padrão</span></span></td><td data-label="Quando"><span class="v">Desde 29/09<small>Já entra neste contrato</small></span></td></tr>
         <tr class="grupo"><td colspan="5">Começam em outubro</td></tr>
         <tr><td><b>Clínica Mais Vida</b><small>Daniel · Nova Iguaçu/RJ</small></td><td class="texto">Treinamento da recepção e do call center das duas unidades, junto com a implantação do CRM.</td><td data-label="Nível"><span class="v">Intermediário</span></td><td data-label="Porte"><span class="v"><span class="selo amp">Ampliado</span></span></td><td data-label="Quando"><span class="v">A partir de 02/10</span></td></tr>
         <tr><td><b>SaúdeVida</b><small>Márcio · Santos/SP</small></td><td class="texto">30 dias com as vendedoras do call center da rede (cerca de 7 pessoas, 6 unidades), com scripts por origem do contato.</td><td data-label="Nível"><span class="v">Avançado</span></td><td data-label="Porte"><span class="v"><span class="selo amp">Ampliado</span></span></td><td data-label="Quando"><span class="v">Outubro<small>Data a definir</small></span></td></tr>
         <tr><td><b>Clínica Bem-Estar</b><small>Ernesto · Lauro de Freitas/BA</small></td><td class="texto">Até 5 encontros em 30 dias com recepção e call center, manual de atendimento e scripts por especialidade.</td><td data-label="Nível"><span class="v">Intermediário</span></td><td data-label="Porte"><span class="v"><span class="selo amp">Ampliado</span></span></td><td data-label="Quando"><span class="v">Data a definir</span></td></tr>
         <tr class="grupo"><td colspan="5">Previstos no contrato, sem data</td></tr>
-        <tr><td><b>RD Gestão</b><small>Edvaldo · Coroatá/MA</small></td><td class="texto">Treinamento da recepção na fase 2 do projeto, com reforço quando o cartão de benefícios estiver pronto.</td><td data-label="Nível"><span class="v">Inicial</span></td><td data-label="Porte"><span class="v"><span class="selo">Padrão</span></span></td><td data-label="Quando"><span class="v">Novembro<small>Estimativa</small></span></td></tr>
         <tr><td><b>Bandeirantes Diagnósticos</b><small>Bruno · Rio de Janeiro/RJ</small></td><td class="texto">Treinamento do call center para o atendimento particular da rede (7 unidades).</td><td data-label="Nível"><span class="v">Avançado</span></td><td data-label="Porte"><span class="v"><span class="selo amp">Ampliado</span></span></td><td data-label="Quando"><span class="v">Sem data</span></td></tr>
         <tr><td><b>Policlínica Alpha</b><small>Dr. Augusto · João Pessoa/PB</small></td><td class="texto">Treinamento da equipe junto com a implantação do CRM.</td><td data-label="Nível"><span class="v">Intermediário</span></td><td data-label="Porte"><span class="v"><span class="selo">Padrão</span></span></td><td data-label="Quando"><span class="v">Sem data</span></td></tr>
       </tbody>
@@ -194,7 +198,7 @@ footer{padding:28px 56px 40px;font-size:13px;color:var(--suave);border-top:1px s
   <ul class="lista">
     <li>Falar com cada aluno pelo WhatsApp, entender a clínica e a dor dele. O perfil que ele preencheu já está no CRM.</li>
     <li>Quem está no perfil vai para a reunião de diagnóstico com o Bernardo. O fechamento acontece em duas reuniões, conduzidas por ele.</li>
-    <li>Quem ainda não está no perfil pode ser convidado para o <strong>Conselho de Donos</strong> (R$ 497), que dá acesso ao Bernardo e à comunidade.</li>
+    <li>Quem ainda não está no perfil fica registrado no CRM para uma nova conversa mais adiante.<sup>2</sup></li>
     <li>Registrar cada contato no CRM da ClintIA (Pipedrive).</li>
   </ul>
   <div class="caixa">
@@ -214,33 +218,32 @@ footer{padding:28px 56px 40px;font-size:13px;color:var(--suave);border-top:1px s
   <span class="rotulo">Remuneração</span>
   <h2>Como fica o pagamento</h2>
   <div class="rola">
-    <table>
+    <table class="cartoes pag">
       <thead><tr><th>Parte</th><th>Valor</th><th>Quando é pago</th></tr></thead>
       <tbody>
-        <tr><td><b>Fixo mensal</b><small>Método, reuniões de equipe e de início de projeto, operação da SDR</small></td><td class="valor">R$ 2.500</td><td>Último dia útil do mês</td></tr>
-        <tr><td><b>Cliente de porte padrão</b><small>Uma unidade, sem call center</small></td><td class="valor">R$ 1.000</td><td>Metade no mês do diagnóstico, metade no mês da entrega do Playbook</td></tr>
-        <tr><td><b>Cliente de porte ampliado</b><small>Mais de uma unidade, ou call center com equipe própria</small></td><td class="valor">R$ 1.500</td><td>Metade no mês do diagnóstico, metade no mês da entrega do Playbook</td></tr>
-        <tr><td><b>Reunião qualificada da Edtech</b><small>Conforme o critério da Frente 2</small></td><td class="valor">R$ 100</td><td>Dia 10 do mês seguinte</td></tr>
-        <tr><td><b>Conselho de Donos vendido por você</b></td><td class="valor">10%</td><td>Dia 10 do mês seguinte ao recebimento</td></tr>
-        <tr><td><b>Implementação fechada a partir de lead seu</b></td><td class="valor">5%</td><td>Conforme o cliente paga, no dia 10 do mês seguinte</td></tr>
+        <tr><td><b>Fixo mensal</b><small>Método, reuniões de equipe e de início de projeto, operação da SDR</small></td><td data-label="Valor" class="valor"><span class="v">R$ 3.000</span></td><td class="texto quando">Fim de cada mês</td></tr>
+        <tr><td><b>Cliente de porte padrão</b><small>Uma unidade, sem call center</small></td><td data-label="Valor" class="valor"><span class="v">R$ 750</span></td><td class="texto quando">Metade no fim do mês do diagnóstico, metade no fim do mês da entrega do Playbook</td></tr>
+        <tr><td><b>Cliente de porte ampliado</b><small>Mais de uma unidade, ou call center com equipe própria</small></td><td data-label="Valor" class="valor"><span class="v">R$ 900</span></td><td class="texto quando">Metade no fim do mês do diagnóstico, metade no fim do mês da entrega do Playbook</td></tr>
+        <tr><td><b>Reunião qualificada da Edtech</b><small>Conforme o critério da Frente 2</small></td><td data-label="Valor" class="valor"><span class="v">R$ 100</span></td><td class="texto quando">Fim do mês em que a reunião acontece</td></tr>
+        <tr><td><b>Implementação fechada a partir de lead seu</b><small>Ex.: R$ 267 num projeto de R$ 8.900, R$ 447 num de R$ 14.900</small></td><td data-label="Valor" class="valor"><span class="v">3%</span></td><td class="texto quando">Fim do mês em que o cliente paga. Se for parcelado, a cada parcela</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="nota">A parte variável segue a regra da equipe: a lista do mês chega até o dia 5 e o pagamento sai no dia 10, com nota fiscal. O que chegar depois do dia 5 entra no mês seguinte.</p>
+  <p class="nota">Todo pagamento sai no último dia útil do mês, com nota fiscal. Entram no pagamento do mês as reuniões realizadas e as entregas feitas até o dia 25; o que acontecer depois do dia 25 entra no mês seguinte.<sup>1</sup></p>
 
   <h3>Quanto isso dá em um mês</h3>
   <p>Três exemplos, só para mostrar a conta. Não são promessa de volume.</p>
   <div class="rola">
     <table class="cartoes">
-      <thead><tr><th>Mês</th><th class="num">Fixo</th><th class="num">Clientes</th><th class="num">Edtech</th><th class="num">Total</th><th class="num">Hoje</th></tr></thead>
+      <thead><tr><th>Mês</th><th class="num">Fixo</th><th class="num">Clientes</th><th class="num">Edtech</th><th class="num">Total</th></tr></thead>
       <tbody>
-        <tr><td><b>Mais calmo</b><small>2 clientes padrão, 6 reuniões</small></td><td data-label="Fixo" class="num"><span class="v">2.500</span></td><td data-label="Clientes" class="num"><span class="v">2.000</span></td><td data-label="Edtech" class="num"><span class="v">600</span></td><td data-label="Total" class="num"><span class="v"><b>R$ 5.100</b></span></td><td data-label="Hoje" class="num"><span class="v">R$ 4.000</span></td></tr>
-        <tr><td><b>Normal</b><small>2 padrão e 1 ampliado, 8 reuniões, 1 Conselho</small></td><td data-label="Fixo" class="num"><span class="v">2.500</span></td><td data-label="Clientes" class="num"><span class="v">3.500</span></td><td data-label="Edtech" class="num"><span class="v">850</span></td><td data-label="Total" class="num"><span class="v"><b>R$ 6.850</b></span></td><td data-label="Hoje" class="num"><span class="v">R$ 6.000</span></td></tr>
-        <tr><td><b>Cheio</b><small>2 padrão e 2 ampliados, 12 reuniões, 1 implementação de R$ 14.900</small></td><td data-label="Fixo" class="num"><span class="v">2.500</span></td><td data-label="Clientes" class="num"><span class="v">5.000</span></td><td data-label="Edtech" class="num"><span class="v">1.945</span></td><td data-label="Total" class="num"><span class="v"><b>R$ 9.445</b></span></td><td data-label="Hoje" class="num"><span class="v">R$ 8.000</span></td></tr>
+        <tr><td><b>Mais calmo</b><small>2 clientes padrão, 6 reuniões</small></td><td data-label="Fixo" class="num"><span class="v">3.000</span></td><td data-label="Clientes" class="num"><span class="v">1.500</span></td><td data-label="Edtech" class="num"><span class="v">600</span></td><td data-label="Total" class="num"><span class="v"><b>R$ 5.100</b></span></td></tr>
+        <tr><td><b>Normal</b><small>2 padrão e 1 ampliado, 8 reuniões</small></td><td data-label="Fixo" class="num"><span class="v">3.000</span></td><td data-label="Clientes" class="num"><span class="v">2.400</span></td><td data-label="Edtech" class="num"><span class="v">800</span></td><td data-label="Total" class="num"><span class="v"><b>R$ 6.200</b></span></td></tr>
+        <tr><td><b>Cheio</b><small>2 padrão e 2 ampliados, 12 reuniões, 1 implementação de R$ 14.900</small></td><td data-label="Fixo" class="num"><span class="v">3.000</span></td><td data-label="Clientes" class="num"><span class="v">3.300</span></td><td data-label="Edtech" class="num"><span class="v">1.647</span></td><td data-label="Total" class="num"><span class="v"><b>R$ 7.947</b></span></td></tr>
       </tbody>
     </table>
   </div>
-  <p class="nota">A coluna "Hoje" é o mesmo número de clientes no valor atual de R$ 2.000 por projeto, sem a frente da Edtech. Para simplificar, os exemplos contam o valor inteiro do cliente no mês (na prática ele se divide entre o mês do diagnóstico e o da entrega) e a implementação paga à vista.</p>
+  <p class="nota">Para simplificar, os exemplos contam o valor inteiro do cliente no mês (na prática ele se divide entre o mês do diagnóstico e o da entrega) e a implementação paga à vista.</p>
 </section>
 
 <section>
@@ -264,6 +267,14 @@ footer{padding:28px 56px 40px;font-size:13px;color:var(--suave);border-top:1px s
     <li><div><b>Conversa sobre esta proposta</b><span>Ajustes de valores ou de escopo, se precisar.</span></div></li>
     <li><div><b>Contrato</b><span>O advogado fecha o texto com o que for combinado, e a assinatura sai pelo ClickSign.</span></div></li>
     <li><div><b>Início</b><span>A estruturação comercial segue desde já, com Saúde Sempre e Mais Vida. A frente da Edtech começa em 10/10.</span></div></li>
+  </ol>
+</section>
+
+<section class="notas">
+  <span class="rotulo">Notas</span>
+  <ol>
+    <li>O dia 25 serve de corte para dar tempo de conferir a lista do mês antes do pagamento.</li>
+    <li>A ClintIA está montando o <strong>Conselho de Donos</strong>, um produto intermediário entre o Manual e a implementação, com acesso ao Bernardo e à comunidade. Ele ainda não está à venda, e hoje a reunião de diagnóstico com o Bernardo não é cobrada. Por isso, nesta proposta, não há percentual sobre o Conselho. Quando ele entrar em venda, o percentual sobre o que você vender é definido junto e entra no contrato como aditivo.</li>
   </ol>
 </section>
 
