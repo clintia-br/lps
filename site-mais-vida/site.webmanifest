@@ -1,0 +1,21 @@
+{
+ "name": "Clínica Mais Vida",
+ "short_name": "Mais Vida",
+ "lang": "pt-BR",
+ "start_url": "./",
+ "display": "browser",
+ "theme_color": "#095F71",
+ "background_color": "#FFFFFF",
+ "icons": [
+  {
+   "src": "assets/img/apple-touch-icon.png",
+   "sizes": "180x180",
+   "type": "image/png"
+  },
+  {
+   "src": "assets/img/icone.png",
+   "sizes": "300x300",
+   "type": "image/png"
+  }
+ ]
+}

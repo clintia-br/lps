@@ -99,4 +99,50 @@
   pergs.forEach(function (p) {
     p.addEventListener('toggle', function () { if (p.open) pergs.forEach(function (o) { if (o !== p) o.open = false; }); });
   });
+
+  /* galeria: setas (computador), bolinhas, teclado e pausa do vídeo. No celular é só arrastar. */
+  [].forEach.call(d.querySelectorAll('[data-galeria]'), function (g) {
+    var trilho = g.querySelector('.gal-trilho'), itens = [].slice.call(trilho.children),
+        ant = g.querySelector('[data-gal="ant"]'), prox = g.querySelector('[data-gal="prox"]'), pontos = g.querySelector('.gal-pontos');
+    var passo = function () { return Math.max(trilho.clientWidth * 0.8, 260); };
+    if (ant) ant.addEventListener('click', function () { trilho.scrollBy({ left: -passo(), behavior: 'smooth' }); });
+    if (prox) prox.addEventListener('click', function () { trilho.scrollBy({ left: passo(), behavior: 'smooth' }); });
+    trilho.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); trilho.scrollBy({ left: passo(), behavior: 'smooth' }); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); trilho.scrollBy({ left: -passo(), behavior: 'smooth' }); }
+    });
+    var bts = itens.map(function (it, i) {
+      var b = d.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Foto ' + (i + 1) + ' de ' + itens.length);
+      b.addEventListener('click', function () { trilho.scrollTo({ left: it.offsetLeft - trilho.offsetLeft - 20, behavior: 'smooth' }); });
+      if (pontos) pontos.appendChild(b); return b;
+    });
+    var marca = function () {
+      var x = trilho.scrollLeft, atual = 0;
+      itens.forEach(function (it, i) { if (it.offsetLeft - trilho.offsetLeft - 24 <= x) atual = i; });
+      if (x + trilho.clientWidth >= trilho.scrollWidth - 4) atual = itens.length - 1;
+      bts.forEach(function (b, i) { b.setAttribute('aria-current', i === atual ? 'true' : 'false'); });
+      if (ant) ant.disabled = x <= 4;
+      if (prox) prox.disabled = x + trilho.clientWidth >= trilho.scrollWidth - 4;
+    };
+    var esperando = false;
+    trilho.addEventListener('scroll', function () { if (!esperando) { esperando = true; requestAnimationFrame(function () { esperando = false; marca(); }); } }, { passive: true });
+    addEventListener('resize', marca); marca();
+
+    /* vídeo: toca sem som e em loop só enquanto aparece na tela; o botão pausa e retoma */
+    var v = g.querySelector('video'), pausa = g.querySelector('.gal-pausa'), parado = false;
+    if (v) {
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting && !parado) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); });
+        }, { threshold: 0.35 }).observe(v);
+      }
+      if (pausa) pausa.addEventListener('click', function () {
+        parado = !v.paused ? true : false;
+        if (parado) v.pause(); else { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        pausa.setAttribute('aria-pressed', parado ? 'true' : 'false');
+        pausa.setAttribute('aria-label', parado ? 'Tocar o vídeo' : 'Pausar o vídeo');
+      });
+    }
+  });
 })();
+

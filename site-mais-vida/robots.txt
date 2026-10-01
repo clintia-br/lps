@@ -1,0 +1,5 @@
+# Site institucional da clínica. Busca e assistentes de IA podem ler tudo.
+User-agent: *
+Disallow: /
+
+Sitemap: https://lp.clintia.com.br/site-mais-vida/sitemap.xml
