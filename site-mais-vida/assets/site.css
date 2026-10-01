@@ -538,3 +538,4 @@ main{overflow-x:clip}
 
 /* o navegador só desenha cada bloco quando a pessoa chega perto: a capa aparece bem mais rápido no celular */
 main > section.sec{content-visibility:auto;contain-intrinsic-size:auto 900px}
+.h2-cartao{font:900 21px/1.2 var(--titulo);color:var(--principal-escura);margin:0 0 8px}
