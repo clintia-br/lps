@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Pesquisa de concorrência · Policlínica Alpha</title>
+<meta name="description" content="Alpha Policlínica e Alpha Diagnósticos diante de três clínicas que disputam o mesmo paciente em Jaguaribe e arredores">
+<script>document.documentElement.className='js';</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23051E32'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%2305D2FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;800;900&family=Red+Hat+Text:wght@400;500;700&family=Red+Hat+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ox:#051E32;--deep:#03141F;--yale:#053C73;--celtic:#055AAA;--dodger:#0578DC;--sky:#05D2FF;
+--cli:#10ADD6;--conc:#3553A0;--ink:#13222F;--mut:#5C6E7E;--hair:#DDE4EA;--paper:#F7F9FA;
+--ok:#14804A;--no:#B23B2C;--mid:#A86A00;--off:#7A8691;
+--u:min(1vw,1.75vh);--ease:cubic-bezier(.2,.75,.2,1);--chrome:58px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font:16px/1.6 "Red Hat Text",system-ui,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Red Hat Display",sans-serif;letter-spacing:-.02em;line-height:1.08}
+b,strong{font-weight:700}
+
+/* ---------- slide: modo documento (sem JS) ---------- */
+.slide{position:relative;display:flex;flex-direction:column;min-height:100vh;padding:clamp(22px,calc(3*var(--u)),52px) clamp(20px,calc(6*var(--u)),104px) clamp(30px,calc(4*var(--u)),64px);background:var(--paper);border-bottom:1px solid var(--hair)}
+.slide.dark{background:var(--ox);color:#fff;border-bottom-color:#0B2C46}
+.s-top{display:flex;justify-content:space-between;gap:16px;font:500 clamp(10.5px,calc(.95*var(--u)),14px) "Red Hat Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);padding-bottom:clamp(14px,calc(1.6*var(--u)),24px);border-bottom:1px solid var(--hair)}
+.dark .s-top{color:#7F97AC;border-bottom-color:rgba(255,255,255,.12)}
+.s-sec{color:var(--celtic)}.dark .s-sec{color:var(--sky)}
+.s-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:clamp(18px,calc(2.6*var(--u)),44px);width:100%;max-width:1320px}
+.chrome{display:none}
+
+/* ---------- modo apresentação ---------- */
+html.js,html.js body{height:100%;overflow:hidden}
+html.js body{background:var(--deep)}
+html.js .slide{position:fixed;inset:0;display:none;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-bottom:calc(var(--chrome) + clamp(18px,calc(2.4*var(--u)),36px));border-bottom:0;-webkit-overflow-scrolling:touch}
+html.js .slide.active{display:flex}
+html.js .chrome{display:flex}
+
+/* entradas em sequência (não desligam com "menos movimento": o Bernardo usa o Windows assim) */
+html.js .slide.active .a{animation:sobe .8s var(--ease) both;animation-delay:calc(var(--i,0)*85ms + 80ms)}
+html.js .slide.active .a.fade{animation-name:surge}
+@keyframes sobe{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes surge{from{opacity:0}to{opacity:1}}
+
+/* ---------- tipografia de slide ---------- */
+.eyebrow{font:500 clamp(11px,calc(1*var(--u)),15px) "Red Hat Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--celtic);margin-bottom:clamp(10px,calc(1.2*var(--u)),18px)}
+.dark .eyebrow{color:var(--sky)}
+h2.t{font-size:clamp(28px,calc(4*var(--u)),66px);font-weight:900;letter-spacing:-.035em;color:var(--ox);max-width:22ch}
+.dark h2.t{color:#fff}
+.lede{font-size:clamp(15px,calc(1.45*var(--u)),22px);color:var(--mut);max-width:62ch;margin-top:clamp(10px,calc(1.2*var(--u)),18px);line-height:1.55}
+.dark .lede{color:#A9BDCE}
+.gap{height:clamp(18px,calc(3*var(--u)),48px);flex:none}
+
+/* ---------- capa e fim ---------- */
+.capa .s-body,.fim .s-body{justify-content:flex-end;padding-bottom:clamp(10px,calc(2*var(--u)),30px)}
+.cobrand{display:flex;align-items:center;gap:clamp(14px,calc(2*var(--u)),26px)}
+.cobrand img{display:block;width:auto;height:clamp(22px,calc(2.6*var(--u)),38px)}.cobrand img.cli{height:clamp(30px,calc(3.5*var(--u)),52px)}
+.cobrand .tr{width:1px;align-self:stretch;background:rgba(255,255,255,.3)}
+.capa h1{font-size:clamp(46px,calc(9*var(--u)),150px);font-weight:900;letter-spacing:-.05em;line-height:.92;margin:clamp(22px,calc(4*var(--u)),60px) 0 clamp(16px,calc(2*var(--u)),28px);max-width:11ch}
+.capa .sub{font:500 clamp(17px,calc(1.9*var(--u)),28px)/1.4 "Red Hat Display";color:#BFD0DE;max-width:34ch}
+.risca{height:1px;background:rgba(255,255,255,.16);margin:clamp(26px,calc(4*var(--u)),60px) 0 clamp(14px,calc(1.6*var(--u)),22px);position:relative;overflow:hidden}
+.risca:after{content:"";position:absolute;inset:0;background:var(--sky);transform-origin:left;transform:scaleX(.18)}
+html.js .slide.active .risca:after{animation:risca 1.6s var(--ease) .5s both}
+@keyframes risca{from{transform:scaleX(0)}to{transform:scaleX(.18)}}
+.capa .meta{display:flex;flex-wrap:wrap;gap:8px clamp(18px,calc(3*var(--u)),48px);font-size:clamp(13px,calc(1.15*var(--u)),17px);color:#8FA6BA}
+.capa .meta b{color:#fff;font-weight:500}
+
+/* ---------- manchete ---------- */
+.manchete{font:700 clamp(24px,calc(3.5*var(--u)),56px)/1.2 "Red Hat Display";letter-spacing:-.03em;color:var(--ox);max-width:27ch}
+
+/* ---------- números grandes ---------- */
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--hair)}
+.nums>div{padding:clamp(18px,calc(2.4*var(--u)),36px) clamp(14px,calc(2.4*var(--u)),36px) 0 0;border-right:1px solid var(--hair);margin-right:clamp(14px,calc(2.4*var(--u)),36px)}
+.nums>div:last-child{border-right:0;margin-right:0}
+.nums .v{font:900 clamp(44px,calc(6.4*var(--u)),104px)/.95 "Red Hat Display";letter-spacing:-.05em;color:var(--cli);white-space:nowrap;font-variant-numeric:tabular-nums}
+.nums .r{font:700 clamp(15px,calc(1.45*var(--u)),22px)/1.3 "Red Hat Display";margin-top:clamp(12px,calc(1.6*var(--u)),22px);max-width:24ch}
+.nums .n{font-size:clamp(13px,calc(1.1*var(--u)),16px);color:var(--mut);margin-top:8px}
+
+/* ---------- três colunas com régua ---------- */
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,calc(3.4*var(--u)),56px)}
+.col h3{font:500 clamp(11px,calc(1*var(--u)),15px) "Red Hat Mono",monospace;letter-spacing:.14em;text-transform:uppercase;padding-bottom:12px;border-bottom:2px solid currentColor;margin-bottom:4px}
+.col.tem h3{color:var(--ok)}.col.mel h3{color:var(--mid)}.col.dig h3{color:var(--celtic)}
+.col ul{list-style:none}
+.col li{font-size:clamp(15px,calc(1.3*var(--u)),20px);line-height:1.45;padding:clamp(10px,calc(1.2*var(--u)),16px) 0;border-bottom:1px solid var(--hair)}
+
+/* ---------- divisor ---------- */
+.div .s-body{justify-content:flex-end;padding-bottom:clamp(20px,calc(4*var(--u)),70px)}
+.div .num{font:900 clamp(90px,calc(20*var(--u)),320px)/.8 "Red Hat Display";letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px rgba(5,210,255,.55);margin-bottom:clamp(14px,calc(2.4*var(--u)),36px)}
+.div h2{font-size:clamp(38px,calc(6.4*var(--u)),104px);font-weight:900;letter-spacing:-.045em;color:#fff;max-width:14ch}
+.div .lede{max-width:48ch}
+
+/* ---------- quem é quem ---------- */
+.qq{list-style:none;border-top:1px solid var(--hair)}
+.qq li{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,2fr) auto;gap:clamp(14px,calc(2.6*var(--u)),44px);align-items:start;padding:clamp(14px,calc(1.8*var(--u)),26px) 0;border-bottom:1px solid var(--hair)}
+.qq .nm{font:800 clamp(17px,calc(1.7*var(--u)),26px)/1.2 "Red Hat Display"}
+.qq .nm small{display:block;font:400 clamp(12.5px,calc(1.05*var(--u)),15px) "Red Hat Text";color:var(--mut);margin-top:6px}
+.qq .es{font-size:clamp(14.5px,calc(1.25*var(--u)),19px);line-height:1.5}
+.qq .nt{text-align:right;font:900 clamp(30px,calc(3.6*var(--u)),56px)/1 "Red Hat Display";letter-spacing:-.04em;color:var(--ox);font-variant-numeric:tabular-nums}
+.qq .nt small{display:block;font:500 clamp(11px,calc(.95*var(--u)),14px) "Red Hat Mono";letter-spacing:.08em;color:var(--mut);margin-top:6px}
+.qq li.cli .nm,.qq li.cli .nt{color:var(--cli)}
+.qq li.cli:before{content:"";position:absolute;left:calc(-1*clamp(10px,calc(1.6*var(--u)),24px));top:clamp(14px,calc(1.8*var(--u)),26px);bottom:clamp(14px,calc(1.8*var(--u)),26px);width:3px;background:var(--cli)}
+.rodape-nota{font-size:clamp(12.5px,calc(1.05*var(--u)),15px);color:var(--mut);margin-top:clamp(12px,calc(1.6*var(--u)),22px);max-width:80ch}
+.dark .rodape-nota{color:#8FA6BA}
+
+/* ---------- matriz ---------- */
+.mx{width:100%;border-collapse:collapse;table-layout:fixed}
+.mx th,.mx td{text-align:left;vertical-align:top;padding:clamp(11px,calc(1.35*var(--u)),20px) clamp(10px,calc(1.2*var(--u)),18px);border-bottom:1px solid var(--hair);font-size:clamp(13.5px,calc(1.2*var(--u)),18px);line-height:1.42}
+.mx th:first-child{padding-left:0}
+.mx thead th{font:500 clamp(11px,calc(1*var(--u)),14.5px) "Red Hat Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);border-bottom:1px solid var(--ink);padding-top:0}
+.mx thead th.cli{color:var(--cli)}
+.mx th[scope=row]{font:800 clamp(14.5px,calc(1.35*var(--u)),20px)/1.25 "Red Hat Display";width:19%}
+.mx th[scope=row] small{display:block;font:400 clamp(12px,calc(1*var(--u)),14px) "Red Hat Text";color:var(--mut);margin-top:4px}
+.mx td.cli{background:rgba(16,173,214,.07)}
+.st{display:inline-flex;align-items:center;gap:7px;font:500 clamp(10.5px,calc(.9*var(--u)),13px) "Red Hat Mono",monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.st:before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;flex:none}
+.st.sim{color:var(--ok)}.st.nao{color:var(--no)}.st.parcial{color:var(--mid)}.st.parou,.st.na{color:var(--off)}
+.st.conferir{color:var(--celtic)}.st.conferir:before{background:transparent;border:1.5px dashed currentColor;width:7px;height:7px}
+.mx .c{display:block}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:clamp(12px,calc(1.6*var(--u)),22px)}
+
+/* ---------- cartões (videx) ---------- */
+.ct{list-style:none;border-top:1px solid var(--ink)}
+.ct li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1.5fr) minmax(0,.9fr);gap:clamp(12px,calc(2.2*var(--u)),36px);padding:clamp(11px,calc(1.4*var(--u)),20px) 0;border-bottom:1px solid var(--hair);font-size:clamp(13.5px,calc(1.15*var(--u)),17.5px);line-height:1.45}
+.ct li.h{font:500 clamp(10.5px,calc(.95*var(--u)),14px) "Red Hat Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);padding-top:10px}
+.ct li b{font:800 clamp(15px,calc(1.35*var(--u)),20px)/1.25 "Red Hat Display"}
+.ct li.cli b{color:var(--cli)}
+.ct .lb{display:none}
+.atencao{margin-top:clamp(14px,calc(2*var(--u)),28px);padding-left:16px;border-left:3px solid var(--mid);font-size:clamp(13.5px,calc(1.12*var(--u)),17px);line-height:1.5;max-width:110ch}
+
+/* ---------- anúncios ---------- */
+.ads{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,calc(3.6*var(--u)),60px)}
+.ad{border-top:3px solid var(--conc);padding-top:clamp(12px,calc(1.6*var(--u)),22px)}
+.ad.cli{border-top-color:var(--cli)}
+.ad h3{font-size:clamp(22px,calc(2.6*var(--u)),40px);font-weight:900;letter-spacing:-.03em}
+.ad.cli h3{color:var(--cli)}
+.ad .cn{font:500 clamp(11px,calc(.95*var(--u)),14px) "Red Hat Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:6px 0 clamp(10px,calc(1.4*var(--u)),18px)}
+.ad dl{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr)}
+.ad dt,.ad dd{padding:clamp(8px,calc(1*var(--u)),13px) 0;border-top:1px solid var(--hair);font-size:clamp(13.5px,calc(1.18*var(--u)),18px);line-height:1.42}
+.ad dt{color:var(--mut);padding-right:14px}
+.lista-n{list-style:none;counter-reset:n;border-top:1px solid var(--hair)}
+.lista-n li{counter-increment:n;display:grid;grid-template-columns:clamp(40px,calc(5*var(--u)),80px) 1fr;gap:clamp(10px,calc(1.6*var(--u)),24px);padding:clamp(13px,calc(1.8*var(--u)),26px) 0;border-bottom:1px solid var(--hair);font:500 clamp(16px,calc(1.6*var(--u)),25px)/1.4 "Red Hat Display";letter-spacing:-.01em;max-width:1150px}
+.lista-n li:before{content:counter(n,decimal-leading-zero);font:500 clamp(12px,calc(1.1*var(--u)),16px) "Red Hat Mono";color:var(--celtic);padding-top:.45em}
+
+/* ---------- voz: barras ---------- */
+.leg{display:flex;flex-wrap:wrap;gap:8px 26px;font-size:clamp(13px,calc(1.1*var(--u)),16px);margin-bottom:clamp(12px,calc(1.8*var(--u)),26px)}
+.leg i{display:inline-block;width:22px;height:4px;margin-right:8px;vertical-align:middle}
+.bars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,calc(4.6*var(--u)),80px)}
+.bars h3{font:500 clamp(11px,calc(1*var(--u)),15px) "Red Hat Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);padding-bottom:10px;border-bottom:1px solid var(--ink);margin-bottom:clamp(6px,calc(1*var(--u)),14px)}
+.bg{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.6fr);gap:clamp(10px,calc(1.6*var(--u)),24px);align-items:center;padding:clamp(6px,calc(.85*var(--u)),12px) 0;border-bottom:1px solid var(--hair)}
+.bg .t{font-size:clamp(13.5px,calc(1.18*var(--u)),18px);line-height:1.3;font-weight:500}
+.bar{display:grid;grid-template-columns:1fr clamp(32px,calc(3.4*var(--u)),50px);gap:10px;align-items:center;margin:3px 0}
+.bar .tr{height:clamp(8px,calc(.85*var(--u)),12px);background:#E9EEF2;overflow:hidden}
+.bar .f{height:100%;width:var(--w)}
+html.js .bar .f{width:0;transition:width 1.1s var(--ease)}
+html.js .slide.active .bar .f{width:var(--w);transition-delay:calc(var(--i,0)*85ms + 300ms)}
+.bar .val{font:500 clamp(12px,calc(1.02*var(--u)),15px) "Red Hat Mono";text-align:right}
+.bar.cl .f{background:var(--cli)}.bar.co .f{background:var(--conc)}
+
+/* ---------- frase grande em fundo escuro ---------- */
+.cit{font:700 clamp(24px,calc(3.5*var(--u)),56px)/1.2 "Red Hat Display";letter-spacing:-.03em;max-width:27ch}
+
+/* ---------- blocos lado a lado ---------- */
+.dois{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,calc(4.6*var(--u)),80px)}
+.bloco h3{font:500 clamp(11px,calc(1*var(--u)),15px) "Red Hat Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);padding-bottom:10px;border-bottom:1px solid var(--ink);margin-bottom:clamp(12px,calc(1.6*var(--u)),22px)}
+.bloco p,.bloco li{font-size:clamp(14.5px,calc(1.28*var(--u)),19px);line-height:1.5}
+.bloco ul{list-style:none}.bloco li{padding:clamp(10px,calc(1.2*var(--u)),16px) 0;border-bottom:1px solid var(--hair)}
+.trecho{display:block;font:500 clamp(18px,calc(2.1*var(--u)),32px)/1.3 "Red Hat Display";letter-spacing:-.015em;color:var(--ox);margin:clamp(12px,calc(1.8*var(--u)),26px) 0;padding-left:clamp(12px,calc(1.6*var(--u)),22px);border-left:3px solid var(--cli)}
+
+/* ---------- 2x2 ---------- */
+.quad{display:grid;grid-template-columns:auto repeat(2,minmax(0,1fr));grid-template-rows:auto repeat(2,minmax(clamp(110px,calc(15*var(--u)),220px),auto))}
+.quad .ax{font:500 clamp(10.5px,calc(.95*var(--u)),14px) "Red Hat Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);padding:0 0 10px}
+.quad .ay{writing-mode:vertical-rl;transform:rotate(180deg);padding:0 0 0 10px;text-align:center}
+.q{border-left:1px solid var(--hair);border-top:1px solid var(--hair);padding:clamp(14px,calc(2*var(--u)),28px);display:flex;flex-wrap:wrap;gap:12px clamp(16px,calc(2.4*var(--u)),36px);align-content:flex-start}
+.q.r{border-right:1px solid var(--hair)}.q.b{border-bottom:1px solid var(--hair)}
+.q.vazio{background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(5,90,170,.06) 10px 11px)}
+.q .ql{width:100%;font:500 clamp(10.5px,calc(.9*var(--u)),13px) "Red Hat Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.q .qv{font:700 clamp(16px,calc(1.6*var(--u)),24px) "Red Hat Display";color:var(--celtic)}
+.bd{font:800 clamp(18px,calc(2.1*var(--u)),34px)/1 "Red Hat Display";letter-spacing:-.025em;color:var(--conc);display:inline-flex;align-items:baseline;gap:8px}
+.bd small{font:500 clamp(12px,calc(1.05*var(--u)),15px) "Red Hat Mono";letter-spacing:0;color:var(--mut)}
+.bd.cli{color:var(--cli)}
+html.js .slide.active .bd{animation:pop .7s var(--ease) both;animation-delay:calc(var(--k,0)*140ms + 550ms)}
+@keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+.slog{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(22px,calc(4.6*var(--u)),80px)}
+.slog>div{padding:clamp(14px,calc(2*var(--u)),28px) 0;border-top:1px solid var(--hair)}
+.slog h3{font:500 clamp(11px,calc(1*var(--u)),14.5px) "Red Hat Mono";letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.slog .cli h3{color:var(--cli)}
+.slog q{display:block;font:700 clamp(17px,calc(1.8*var(--u)),28px)/1.3 "Red Hat Display";letter-spacing:-.02em;color:var(--ox);margin:10px 0;quotes:"\201C" "\201D"}
+.slog p{font-size:clamp(13.5px,calc(1.15*var(--u)),17px);color:var(--mut);line-height:1.5}
+
+/* ---------- lacunas ---------- */
+.lac{list-style:none;border-top:1px solid var(--ink)}
+.lac li{display:grid;grid-template-columns:clamp(34px,calc(4*var(--u)),64px) minmax(0,1fr) minmax(0,1.35fr) minmax(0,1.35fr);gap:clamp(12px,calc(2.2*var(--u)),36px);padding:clamp(13px,calc(1.7*var(--u)),24px) 0;border-bottom:1px solid var(--hair)}
+.lac .n{font:500 clamp(12px,calc(1.05*var(--u)),16px) "Red Hat Mono";color:var(--celtic);padding-top:.3em}
+.lac h3{font-size:clamp(17px,calc(1.75*var(--u)),27px);font-weight:800;letter-spacing:-.02em}
+.lac p{font-size:clamp(13.5px,calc(1.15*var(--u)),17.5px);line-height:1.45}
+.lac .lb{display:block;font:500 clamp(10px,calc(.85*var(--u)),12.5px) "Red Hat Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:5px}
+.lac .faz p{color:var(--ox);font-weight:500}
+
+/* ---------- recomendação ---------- */
+.prop{font:800 clamp(26px,calc(3.8*var(--u)),62px)/1.12 "Red Hat Display";letter-spacing:-.035em;color:#fff;max-width:24ch}
+.dif{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,calc(3.4*var(--u)),56px);margin-top:clamp(24px,calc(4*var(--u)),64px)}
+.dif>div{border-top:1px solid rgba(255,255,255,.2);padding-top:clamp(12px,calc(1.6*var(--u)),22px)}
+.dif .k{font:500 clamp(11px,calc(1*var(--u)),14px) "Red Hat Mono";color:var(--sky);letter-spacing:.1em;text-transform:uppercase}
+.dif h3{font-size:clamp(18px,calc(1.9*var(--u)),29px);font-weight:800;margin:8px 0}
+.dif p{font-size:clamp(14px,calc(1.2*var(--u)),18px);color:#A9BDCE;line-height:1.5}
+.frases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,calc(4.6*var(--u)),80px)}
+.frases h3{font:500 clamp(11px,calc(1*var(--u)),15px) "Red Hat Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--celtic);padding-bottom:12px;border-bottom:1px solid var(--ink);margin-bottom:clamp(12px,calc(1.8*var(--u)),24px)}
+.frases p{font:500 clamp(17px,calc(1.8*var(--u)),28px)/1.38 "Red Hat Display";letter-spacing:-.015em;color:var(--ox)}
+.pil{list-style:none;border-top:1px solid var(--ink)}
+.pil li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) minmax(0,.9fr);gap:clamp(12px,calc(2.4*var(--u)),40px);padding:clamp(14px,calc(2*var(--u)),28px) 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.pil h3{font-size:clamp(18px,calc(2*var(--u)),30px);font-weight:800;letter-spacing:-.025em}
+.pil p{font-size:clamp(14px,calc(1.25*var(--u)),19px);line-height:1.45}
+.pil .fm{font:500 clamp(11px,calc(1*var(--u)),14.5px) "Red Hat Mono";letter-spacing:.08em;text-transform:uppercase;color:var(--celtic)}
+.gan{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,calc(2.8*var(--u)),46px)}
+.gan>div{border-top:3px solid var(--ox);padding-top:clamp(12px,calc(1.6*var(--u)),22px)}
+.gan>div.alerta{border-top-color:var(--no)}
+.gan h3{font-size:clamp(19px,calc(2.1*var(--u)),32px);font-weight:900;letter-spacing:-.03em;margin-bottom:clamp(8px,calc(1.2*var(--u)),16px)}
+.gan .alerta h3{color:var(--no)}
+.gan ul{list-style:none}
+.gan li{font-size:clamp(14px,calc(1.22*var(--u)),18.5px);line-height:1.42;padding:clamp(9px,calc(1.1*var(--u)),14px) 0;border-bottom:1px solid var(--hair)}
+.compl{list-style:none;counter-reset:n;border-top:1px solid rgba(255,255,255,.18)}
+.compl li{counter-increment:n;display:grid;grid-template-columns:clamp(40px,calc(5*var(--u)),80px) 1fr;padding:clamp(13px,calc(1.8*var(--u)),26px) 0;border-bottom:1px solid rgba(255,255,255,.18);font:500 clamp(17px,calc(1.9*var(--u)),29px)/1.35 "Red Hat Display";letter-spacing:-.015em;max-width:1100px}
+.compl li:before{content:counter(n,decimal-leading-zero);font:500 clamp(12px,calc(1.1*var(--u)),16px) "Red Hat Mono";color:var(--sky);padding-top:.5em}
+.fontes{list-style:none;columns:2;column-gap:clamp(22px,calc(4.6*var(--u)),80px)}
+.fontes li{break-inside:avoid;font-size:clamp(12.5px,calc(1.08*var(--u)),16px);line-height:1.5;color:var(--mut);padding:clamp(8px,calc(1*var(--u)),13px) 0;border-top:1px solid var(--hair)}
+.fim h2{font-size:clamp(34px,calc(5.6*var(--u)),92px);font-weight:900;letter-spacing:-.045em;max-width:16ch;margin:clamp(22px,calc(4*var(--u)),60px) 0 0}
+
+/* ---------- barra de navegação ---------- */
+.chrome{position:fixed;left:0;right:0;bottom:0;height:var(--chrome);align-items:center;gap:clamp(8px,calc(1.2*var(--u)),16px);padding:0 clamp(16px,calc(6*var(--u)),104px);background:var(--paper);border-top:1px solid var(--hair);z-index:10;transition:background .35s,border-color .35s,color .35s;color:var(--ink)}
+body.escuro .chrome{background:var(--ox);border-top-color:rgba(255,255,255,.1);color:#fff}
+.pg{position:absolute;left:0;top:-1px;height:2px;background:var(--sky);width:0;transition:width .5s var(--ease)}
+.cnt-p{font:500 clamp(12px,calc(1.05*var(--u)),15px) "Red Hat Mono",monospace;letter-spacing:.06em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cap{flex:1;min-width:0;font:500 clamp(10.5px,calc(.95*var(--u)),13.5px) "Red Hat Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-left:10px}
+body.escuro .cap{color:#7F97AC}
+.nb{width:40px;height:40px;flex:none;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer;opacity:.85;transition:opacity .2s,background .2s,color .2s}
+.nb:hover{opacity:1;background:var(--ox);color:#fff;border-color:var(--ox)}
+body.escuro .nb:hover{background:#fff;color:var(--ox);border-color:#fff}
+.nb:disabled{opacity:.25;cursor:default;background:transparent;color:inherit;border-color:currentColor}
+.nb svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nb.sb{border-color:transparent}
+.indice{position:fixed;inset:0;background:rgba(3,20,31,.97);z-index:20;display:none;overflow:auto;padding:clamp(28px,calc(5*var(--u)),80px) clamp(20px,calc(6*var(--u)),104px)}
+.indice.on{display:block}
+.indice h2{color:#fff;font-size:clamp(28px,calc(3.6*var(--u)),54px);font-weight:900;letter-spacing:-.03em;margin-bottom:clamp(18px,calc(2.6*var(--u)),40px)}
+.indice ol{list-style:none;columns:2;column-gap:60px}
+.indice li{break-inside:avoid;border-top:1px solid rgba(255,255,255,.14)}
+.indice button{all:unset;cursor:pointer;display:grid;grid-template-columns:44px 1fr;gap:10px;width:100%;padding:12px 0;color:#C9D7E4;font:500 clamp(14px,calc(1.3*var(--u)),19px) "Red Hat Display"}
+.indice button span{font:500 13px "Red Hat Mono";color:var(--sky);padding-top:3px}
+.indice button:hover{color:#fff}
+
+/* ---------- telas médias ---------- */
+@media (max-width:1100px){.gan{grid-template-columns:repeat(2,minmax(0,1fr))}.lac li{grid-template-columns:clamp(30px,4vw,50px) minmax(0,1fr) minmax(0,1.4fr)}.lac li .faz{grid-column:2/-1}}
+/* ---------- celular ---------- */
+@media (max-width:760px){
+ :root{--chrome:56px}
+ .slide{padding:18px 18px 34px}
+ html.js .slide{padding-bottom:calc(var(--chrome) + 28px)}
+ .s-top span:first-child{display:none}.s-top{justify-content:flex-start}
+ .s-body{justify-content:flex-start;padding-top:22px}
+ .capa .s-body,.fim .s-body,.div .s-body{justify-content:flex-end}
+ .nums,.cols3,.ads,.bars,.dois,.slog,.dif,.frases,.gan{grid-template-columns:1fr}
+ .nums>div{border-right:0;margin-right:0;border-bottom:1px solid var(--hair);padding:18px 0 20px}
+ .nums{border-top:0}
+ .qq li{grid-template-columns:1fr auto;gap:8px 14px}.qq .es{grid-column:1/-1;grid-row:2}
+ .qq li.cli:before{left:-10px}
+ .mx,.mx thead,.mx tbody,.mx tr,.mx th,.mx td{display:block;width:auto}
+ .mx thead{display:none}
+ .mx tr{border-top:1px solid var(--ink);margin-bottom:18px}
+ .mx th[scope=row]{width:auto;border-bottom:1px solid var(--hair);padding:12px 0}
+ .mx td{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:10px 0}
+ .mx td.cli{background:none}
+ .mx td:before{content:attr(data-label);font:700 13px "Red Hat Display";color:var(--ox)}
+ .mx td.cli:before{color:var(--cli)}
+ .ct li{grid-template-columns:1fr;gap:4px}.ct li.h{display:none}.ct .lb{display:block;font:500 10.5px "Red Hat Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-top:6px}
+ .ad dl{grid-template-columns:1fr}.ad dt{padding-bottom:0}.ad dd{border-top:0;padding-top:2px}
+ .bg{grid-template-columns:1fr;gap:4px}
+ .quad{grid-template-columns:1fr;grid-template-rows:none}.quad .ax{display:none}.q{border:1px solid var(--hair);border-bottom:0;min-height:96px}.q.b.r{border-bottom:1px solid var(--hair)}
+ .lac li{grid-template-columns:30px 1fr;gap:6px 10px}.lac li>div{grid-column:2}.lac li .faz{grid-column:2}
+ .pil li{grid-template-columns:1fr;gap:6px}
+ .fontes,.indice ol{columns:1}
+ .div .num{-webkit-text-stroke-width:1px}
+ .cap{visibility:hidden}
+}
+</style>
+</head>
+<body>
+<main class="deck">
+
+<section class="slide dark capa" data-cap="Capa">
+ <div class="s-top a fade"><span>Confidencial · preparado para a Policlínica Alpha</span><span class="s-sec">02/10/2026</span></div>
+ <div class="s-body">
+  <div class="cobrand a"><img src="data:image/png;base64,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" alt="ClintIA" width="151" height="34"><span class="tr" aria-hidden="true"></span><img class="cli" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAABcCAYAAAB9eRe9AAAVDUlEQVR42u1de7AdRZn/fXPOTUJCIAQIbyIYQ8Ja6qJRNiCyoIJLeOwCRVkmgBpA8oJiXbYoqWV32TKAPIp1cVXQRDCsAkEwgAYisCSBDfIKr5DwTAiPZaO8Ivfe3Hvmt3/M95lmmJnuOfeQ3HPvdFXX3HvOnO6e7t9839ffqwVVAUkBUBORXuez/QB8GcCBACYA2AvAtgCGAugGsBHAywBWAVgGYJmIPOn8vg6gISKsZrgCWM35e0eSM0neQ3IjP1gaJHv0mi6dJJeSnEVyx6z2qzIIqZcBgORIkheQfI2tKa9peyMNaEotB2WRQcweISIkeSyASwCM1697dV56ASwE8C6ACABz5i8GMAbAMdY8gLr+vQbAuSJyq9tn9YoPfIBFDnW5zKE+PSRjkr36/wMl233ZYamxtmflModqRtUqDA6AjSR5uwKgNyVjGcjuUyAOIVnPqR16HZ4CmSvDWXu3O+yzAtoAlsGE5AiSy3XhN2XIUwaKpT5AGAskOSwHZEz1s1z7l8Eko0WDSAaLtN4EYDKAHgAdRT9r4RA6tL/J2n8EIBosQBssZLsmIg0AcwEc6QGYLfxIFdTjFgPtSABzdTyVemMg6cFIfjEl4OcV+24Dye1dttgHdum2bRuCLw0WPVo0CNgkSW4D4CrnmcWj1iGAHQFMbPE8idPWf+i4ONDZZjQI2GQM4EwkerDewGdu6HWyAkBaPOe9Op4zdXwV22zz3eS2JNcrq2oEauxth3l30Q6zCXbJlC5tvY5vQO82owFOxQjgRAB7INHMRyXmhQAOIrmvsrSoxfMe67hO1HHWKpC1X7Fd4VQFTG9ObWSoK0Q/HwLgNAVBFNBfmWr9Tk2Ntyptptnfi2RXIIuMUx4WsdY3SI4m+QG9VopdbmjSmN5Fcq+BbAmoD2AKHSPxBRuq+qkfAHgRQKc+92gkhu2JAPYHsLszH7Fz3RnA+SJyjvqI/dnnzDF2bwJwLIBhSp3EM7YGgC8A+Ccd34FIfNOiiqK1DyWr69UM4G+THFFw/7YkDyL5byRXpTYAPWoWOqCVei2S410DujvuqrSXAnaRLuK7JMeqMTtt8I5Svx1K8nh1QHTB9ph+l+kbpp+H1A69TnLav61ycGxfsD2mi7iR5B55co85MKYpCclTUo6M84ziNKtycOTFA5x2H6tWqw0dEhU0z4aALAdw1s7uJG90AHFhX4CWA7JnHeor1Sq2D8iGkVxbFmRZsp3+fYEDin9Nu3D3EWRrSQ6rQNaelGxNX0Bm9ztUZoYDjB+R7ChL1SpKNvAA92hfQeZQLAPULAcc95P8tEv5AthxJZMN0N3lO30BmdOuAe17Ka/Xi0nunKJ+9RwFbhbIFg3k3WU0wKOwVjuf2e6xXuCz79asBe/VNs5FEtBrNsdzAawk+c8kPyoisYj06pWp3Wtdr+7crxnM0WPtrow9wWGX27XYZDWe5HuOwtbKeyTvULb6KZLb5rQz0fnNiQNZGSsD1XYpIjHJPQE8i8R0Mx/A82o6ij2+/RGAV0TkJyQlHStJsi4ivarOOF9NTTUk5qI0UF4FsA7A6wDecTjIPgAOAtAFYLyIvGzjrshE+xnJl3jcrfPKs3m7PWV/Eckd1IAeO33EGdStyCi/ZKCHyQ1kVx97tp8rxe4ucPdx6ya9/jGX/Kvrj4i8qRRSHG9aUapWdyhjQ2u6HwGwYJAF9VSesc49D3mCSCJtf2JAcEqRZ+zIyjO2XYVN9TYVkY0ALnfyVrSq/VivqwA8mqJmCHBwFABXiMi7jhdvBbI2LA2VdX6g6ox6i/21TM1xZ4mA4FjHsRrAVTq+BlBFK7UzNRMR6QIwy1nkVlENa+f+wN06HZDP0nFJlelnYFkALinIgVFKJkvtYMeS7E4FB7MgJ8Yllf/YAE14p9fbPEArAzIzxg9XIb4oJM76uy3tToQqgnzAsE1jUycBuBebc1O0omxSFUlesdwb92r/ABAPFjY5aHQztqAi8icAXwHwK134Rs5moIxaIS/K3ELfOgDcAuAr2n+VcXEwWAL077kZmRaN3a1I6cOyauSwvucKMi3Ozeq/KoNAUat/H03yGQcQ3WoWWlnCEXE4yVf0d66st4rkMek+USUmHly7ThFpqKfEbABnABjr3LISSWLiWkbWHzjJWXYA8BfOZ2sB/AjA90Vko/VTvd5VHn+Q3J7kdJK/07z8ZUonyTtJftPymlVqioqS+U4kMVecvwTwMQC7ANgewDZIotDfBvC/SFyJHgTwexF5oTqRpAJZENjywKFUaQiATVnsT4X6qAJXBbIyu9DINQe5wHGSHYuj96ocDiuQtSbcrtJzVaVfg7MqVflQlb8Vu2x+At02guxxjjwDAAyRZbQvhrIpFdK94yk7FgNNGflL9XCxiLxXMAZx2wzRrZUZi7NWDB17M8/aL1hDTladWn8Za6tYm+MG9AWSN6s7kIS4DvUHarrVWbxjkvkoyS+TPJbkoU68o+9whbqac6Zq2FpIhulPk9w7EMhCcjLJHULARPJwktNITvTdT3JC0X0Z988heWDWMzr37GrpDnTsQ0keTHJoVj/O7z6p+ryQOTmA5MkkDyqxvh8nOWGrgM4B049JvkXyt2rre4TkmKw31nmz99dEKA9puNoGkjN9VE7zWpxXFATrTE6k7R6ZRSkdw/auJH9P8kl9hldJnp7zG3vmBSRv8AXjOs+7jOQ52l8959ksCPkQ/X+cBiTvnQNO+919JC/KGotjwK/pmNeR/A3J50lebd8XBOAMI/mm/q7eF9trXyOWhwBYKCLf1AE+guQAhH9J51d1JusmJOd1f8OOowFwF8l7ROTpggDX95D4bYWWP6X7f7/nj8QkrwbwlohMskTGGXlj06UL5Xzy6+ZiTbLIH60HwCKlkm9pPz5ZqGhOahqAfA6ALwGYKCJ/UPlwn4Lx2O/OAPAwgBEAporI/Kw13RIgI4DhStZHIzkq5p2CiO69kBwYf5hpz0VkiR5gegyApwuS89rJan8+Yc0j1Gceb6O/a2j/kwAcpW0OEZGXA/RgkhpHK6K+RwF4DEmswL0A/tqJSkfZZ0zFHxwH4FIF2DYavfVEwTPGOjenAzgayVkD/44kvjTeGk6LbwM4AsByAP8N4AEAP1Sy2sh44I3a594i0hCRTv18DwBvBAC6U5OYbArYZWYGjFgCFP2+G8AEbbOrxIvV7YwjbmYc+OAxOyNE5Gwk9tBFOlfoQ9sGvjeQZPeGM99FXikxgMP0N6cB+DsAnyL5OSUUtS1NycYosOYoAF7N80rVB3iT5HwAt5I8BcAGAN9W4N2QAc40a/44yUn693oRWVtA0bYteL5IqdnlAK4m2UASonYSgMdF5PoCFUIdwN4kP4Mkx8YfROSZgnGM0PH61mF7ff6jlKLvESAejNAxFFGy7wFYTnI1gDsAfB7AziJyQQYVthfwuwCuA/CmtnMLgIsBHLolZTI6qZl6ROT5AF1WrN/P0rfrciRuyU8AmKx+V1kLZf8v1UNJL9eJXQDgSicvfrosx+ZUA0yBvqETfCXJLgDnIcnBvw7AQjtdLmccDwOYAOAKHcf9AM7O8DOz8pC2i4I2XwewXJ/9Hd2wfL9A/rHfPQrgBc8zriB5BIALAZyq3OeKrI2ZUqp9VOQ53ai75l67keRuIvJagKjy4ehhmkzSW9uaepmUGqNfpG1q9Tyk3M07St5fT+XNjbaoxj91RB99ARxZHqkO0Bggt7yvrxBNfk7fkhEFHqfkjbhsgIrPUlGmrSJNe2r8edQTKY+Rmmn6zcLhigJpw78DJrpz32+9TEIUlmjfOM56O8VPfpgWjpZSMqMQduqsp+1NIb7t+qBDA8fb3Zc3StUtUZOpCmIAvTkUJtMTNrA/Udm2t0XjD24v5YzJYkIrnc3IY9JkBsN5AL5YoMuxbIWvAThURN7LyVho7e0L4B7PeOyE21NF5HdlgjPcvvWg1I85mXXKgqxbd11rATyiG4wVItKTNsxrbv77AOxW0J9lZ7xIRK6yLI45L3YdwN2apdHX3pUicmlWeykKNkx1c7sHtLlERL7+oWWEdEwx40vm4pqaJ1g7ppf9SrR3TFmjekrAf46tL6tInk9yp5QJahvNxBhSvlMwT67Nd21ge3M9Jjgb49QSzxnrWkmZTUCZ3UKk1GCGkWPPoaG9ep3jKD+LVCK9TsR1Vntuf30p3anxxU0eiGqZE6kqjQuRZMCeqmYZ2xh1evrb5HzfivFvcuarkCrrGGcHzkePPs+MwENmy4HMlKQkRwOYphNracLzqr1BkwB8PkBbHAXWVsihUR9rDZtTdoqzSLsDuI7kpZa2SmXNkDalxeMXjwxGAAcD+KyjM/WtJwFMVRw0QjcNUcnzvKchsVE2AifFqM4cYMDnFKk7YPt7khdp3ot1gSoabIXcIGeVUNmYNWY0gGllzk2PSlCxDmWVZUilvTFHkxxnWuh20lakash81pS1/KO67sztTwE7KrQ3SI5TA3gwWJxd7QySQ0KpWVSCiv0NgPGK+qgEabcD47/VhpmEJFXpyGFFv7GX6z8BrEBipqn1E2pm8/8tXZdGiZfAPGTGAzgqlJpFJVjeWehbXtVTSI4qw8u3cjHW13CqOHIYAxZjf5V5HihrSfgQlbENXYdTUutTlsIHs9ooQElHdQ0+1NFVFYExj5rtBOBrZXj5Viqme/spgP2QJFKZoICZDOA7qifzAc1Y7JHIMWLn5EP7QIoq97s+Pptxpa/pehRRsdgjAh2iuKBPnRQFCoizA1KURx4WQgAzTTPez+UwANggIi+IyGoReU5E1ojIAyLyXSROhe94gGM7vAMcV58ikDREhCLSo1e3xvZdH1luQ+d/prYjTa6nKW1nh2j/I49hN9Yj/E4IEBCf8kx4DGAigCPMv6yfs8sOVUAP0avVoSKyEsAvPLn7bQF3V0roA9kIkqNI7qRXt+5g3zXLBdRCQnUyneiRrTsBPFOw4TFqdoLiIy7a0EUBytfp6hyXRVpdj9ep2OzdWoTus0rkvN+qFE1NJ7FSEst1YTvkJwNNdruorjBvvk2f+G0kB4yt1qtbn3O+G9vkBooBsnVD73sYiVdsnkhgL9cIANN9ytnIIyAOV5Dl3WuDultEHsPmQxMaBeg/nOQnS26d+5tOjAC2K+EYOiTgvuGqg/LVWpN+e9R5P7xg7o2F3ioiy5Ccw1kUcwEA0xUnuRu6yCMgHg9gTwVNVCB3/FQ7mOdp19qZ1QYJSyKVX2rqzlNTlmPxBce1OGkNA2tflK+zCjyJzYrTCeAmXc+fFWwCrJ09ARxftKGLAuxaLBD+IgAvAViMzS7STxWg36jZSSR3bSa8aguWTj19t1uDXhqqxNyV5DUAPuPZbfdVJ5dXS78sNm6NYcgDg3GlxSLykoJmAZLQvHoBDghgdpF9up6XQwJJwMGkgok0kF0vIl0kh+n1WiRBB1mCpSiwRgL4uojM7Yfgsmc9XrXirlwyBknmxVElLR/9Qfn6DZ333pzYDgPxPMXBEA3UuQvAlJwDYw0rkxQvS4NcsJzo5IVO6vE8t48eJ4zdXEf21iOS4xyXIEth/qI6PpqrT8NzbEyvXqf00dXnac/JISGlN/C4wQbJLm7ZYut1oc2Tuhy9VHAco322Vn3g4ESNH+d5ZutvYd66RAV2rSke0ioAlmo4WKTuLTURWefZABgv/wiAv3VSaLKfavzd2gjcsPTqc85DklM2RDMeBx76ypKyWEPlx7EFagsb2y+UG7levosBvOxQrTwRaEqefTrKAd2ZgXata1O/E0dg9MkQBDDHOZKm1k89K9xaC5CLevTeVQD+Qbf5zfaXVaWJaKU5HnAagBa4KcDUq7YTwI0FL4prnz4zC1f1HLvWyQV2LXuT/wjg1hTFaujgFgN4BUmAatbbYw/1OZKfBfC46tjGoH2LOfd1AFgP4FgkOS2GBvwuQmLfXJFzJqc4MuA0JFm4fRp7C3A5BMCBBS9yQz//HxF5POVaTYeYnF1ACOzzk5VNv50ZC+DIVDMDefA1nuw3l3lkOvv8Jr3/Bs/9Np6jVfPekdLEF9Vai2UyOvJNT2qu7iH5EeekknWe/ux5zwmkTGsC27tY7785cF5Py8kOZC7y93twYZ/PTLcTZdi1ZnjeEvvNfI9m+VoPG3R9zXYE8MtAvZPloehxNfGe2miRTObKZeKwuJpq488AcJiIvNTEibwjVNgeZkG1Tu2w70qIFat1Xqd4lK81pbi/ypGjfeudprYz0vbpeur4lyOQeBs0PGqLJwE8YBlycsLjV5J8UEl1Vnumzhii+rhL1H99qAfkY3VjUiuxiKK5MzpLymRFKoouAC8qi7tF9UtdqfksBWrdPKEgWinEHGfzfAcSQ3hHgdrC1BK/FpENOeoH+/9mVU2Nylkfe6n2R2Kfvt3aq5ewa7kgu04nMS9flSlj5yvI6KFmM5Ak+VimZo8sCmj//7AJihQhcVVaGkAJ7P7fKnV138oGEjvt6wBeBbAuJ8/r1vIbs7E/jSR32QyPz5i9RPOKLAX6XBtILlKZsOHJo3IWgNtt3eumfCX5CU0Z5COtneqBULQtt0VZqOjPE1SNmu2sm43/cmxrrUp3VVZbbgv1kIjML5HPI+4Hh3TZ2G9D4sm8SwBXWgVgWRZXyijzFGSRh2gcpnh6gmQtSvmMFbEg+/wuEVnn5LIqRD+AXxfozFyD83n6wD0B1IYlarMH2w/PkZHMjmmJ+MzkxH6UzfxRR23hc0q8TtlzrUjXpjvVpUhcgCIPgam5vmbmM7aLx671PrNDqJem3jffQ4FswPsqa30wwEFSmqilqYJOfq/aMK0aqPrb8c62dv+HxOv1rwpMX3Zvt3KPEGWxHXD280DP2ZMUV7H5jJ2qdq1GwTHHNdX/LNbfNAI0zUASpr/ag37bmZzi+GlVx8o05y/2FJLjr4vm0NZmie2EAzNGAsD1Cs6ax9dspKaUYKTb4uk+rwy9/lKTbtQD32JD/wIP+q3fTyDJG9Hdpr5m6CcxCgd7BP40Vwpxw48VjC9ic94S33pOJzksAvBVAOM87rgmq/2sZNSN3WcuIyE2yoP03oqaobQZzFQI2wUkrlkP4DceeTnLx04AXBMYOjcOwFcjNRfQ82aIZq55okxGFwf9LyDJHCMelgkkGbS3r06xaxpouwW++DfqMTy1ErKlbXDuRJKxqRYQsXX2/wM80V78Ql2X+wAAAABJRU5ErkJggg==" alt="Policlínica Alpha" width="76" height="46"></div>
+  <h1 class="a">Pesquisa de concorrência</h1>
+  <p class="sub a">Alpha Policlínica e Alpha Diagnósticos diante de três clínicas que disputam o mesmo paciente em Jaguaribe e arredores</p>
+  <div class="risca a fade"></div>
+  <div class="meta a"><span>Mercado <b>João Pessoa (PB), com foco em Jaguaribe, Centro e Torre</b></span><span>Coleta <b>02/10/2026</b></span></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="Resumo">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">00 · Resumo</span></div>
+ <div class="s-body">
+  <div class="eyebrow a">Em uma frase</div>
+  <p class="manchete a">Entre a Alpha e as 3 concorrentes comparadas, só a Alpha é citada nas avaliações recentes como lugar de exame para concurso, e só ela tinha anúncio no ar no Google em 02/10. O que mais pesa contra hoje acontece antes da consulta: avaliação sem resposta, WhatsApp demorado e informação desencontrada.</p>
+ </div>
+</section>
+
+<section class="slide" data-cap="Resumo · três números">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">00 · Resumo</span></div>
+ <div class="s-body">
+  <h2 class="t a">Onde a Alpha está hoje</h2>
+  <div class="gap"></div>
+  <div class="nums"><div class="a"><div class="v cnt">3,9</div><div class="r">nota no Google da Policlínica</div><div class="n">313 avaliações · a Diagnósticos tem 3,8 com 66</div></div><div class="a"><div class="v cnt">14 de 47</div><div class="r">das menções negativas da Alpha Policlínica e das 3 concorrentes são da Alpha</div><div class="n">nas 30 avaliações mais recentes de cada; a Med Saúde tem 19</div></div><div class="a"><div class="v cnt">60 de 60</div><div class="r">avaliações recentes das duas fichas sem resposta da clínica</div><div class="n">inclusive as 19 com 1 estrela</div></div></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="Resumo · quadro geral">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">00 · Resumo</span></div>
+ <div class="s-body">
+  <h2 class="t a">O quadro geral</h2>
+  <div class="gap"></div>
+  <div class="cols3">
+   <div class="col tem a"><h3>O que já tem</h3><ul><li>Duas unidades em Jaguaribe: consultas em mais de 30 especialidades e exames de imagem com ressonância de campo aberto</li><li>Exame para concurso citado em 9 das 60 avaliações recentes das duas fichas</li><li>36 anúncios ativos na Meta e anúncio exibido no Google em 02/10</li><li>Artigo do blog em 4º lugar no Google para &#34;ressonância magnética joão pessoa&#34;</li></ul></div>
+   <div class="col mel a"><h3>Onde pode melhorar</h3><ul><li>Nenhuma das 60 avaliações recentes tem resposta da clínica</li><li>14 das 30 avaliações recentes da Policlínica têm 1 estrela</li><li>Informação desencontrada no agendamento: 4 menções (valor, exame, remarcação, horário)</li><li>3 avaliações recentes da Diagnósticos criticam a ressonância (imagem, laudo ou resultado)</li></ul></div>
+   <div class="col dig a"><h3>No digital</h3><ul><li>A ficha da Alpha Diagnósticos não tem site; o domínio e o Instagram com esse nome são de uma clínica de Goiânia</li><li>Site da Policlínica sem preço, enquanto 17 dos 36 anúncios já mostram</li><li>Fora dos 10 primeiros no Google para &#34;exames para concurso joão pessoa&#34;</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<section class="slide dark div" data-cap="01 · Quem é quem">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">Capítulo 01</span></div>
+ <div class="s-body"><div class="num a">01</div><h2 class="a">Quem é quem</h2><p class="lede a">As 5 clínicas, lado a lado, nos mesmos critérios.</p></div>
+</section>
+
+<section class="slide" data-cap="01 · As clínicas">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">01 · Quem é quem</span></div>
+ <div class="s-body">
+  <h2 class="t a">As 5 clínicas comparadas</h2>
+  <p class="lede a">Concorrentes na ordem do mais forte para o mais fraco no digital (Instagram, anúncios e site).</p>
+  <div class="gap"></div>
+  <ul class="qq"><li class="a cli"><div class="nm">Alpha Policlínica<small>Praça Semeão Leal, 9 · Jaguaribe</small></div><div class="es">Consultas em mais de 30 especialidades, exames e um nicho claro em exame para concurso. Mostra preço nos anúncios, não no site.</div><div class="nt"><span class="cnt">3,9</span><small>313 aval.</small></div></li><li class="a cli"><div class="nm">Alpha Diagnósticos<small>R. Américo Falcão, 126 · Jaguaribe</small></div><div class="es">Exames de imagem, com ressonância de campo aberto. Ainda sem site na ficha do Google e sem Instagram próprio.</div><div class="nt"><span class="cnt">3,8</span><small>66 aval.</small></div></li><li class="a "><div class="nm">Policlínica São Lucas<small>Av. João da Mata, 520 · Jaguaribe, a 100 m</small></div><div class="es">Vizinha de porta, com 4 unidades na mesma avenida. Atende por ordem de chegada e publica o valor de cada consulta no Instagram.</div><div class="nt"><span class="cnt">2,6</span><small>598 aval.</small></div></li><li class="a "><div class="nm">Policlínica Med Saúde<small>Av. Dom Pedro II, 1270 · Centro, a 1,4 km</small></div><div class="es">Mostra preço &#34;a partir de&#34; no site, vende pacotes parcelados (Saúde Mulher) e atende pelo Cartão de TODOS, segundo uma avaliação.</div><div class="nt"><span class="cnt">4,1</span><small>597 aval.</small></div></li><li class="a "><div class="nm">Diagson · Torre<small>Av. Mal. Deodoro, 134 · Torre, a 2,1 km</small></div><div class="es">Centro de imagem com várias unidades e página de planos e convênios no site. Responde avaliações positivas; Instagram sem post desde 11/09.</div><div class="nt"><span class="cnt">3,3</span><small>1.221 aval.</small></div></li></ul>
+<p class="rodape-nota a">As duas fichas da Alpha entram separadas, cada uma com a sua nota. Na média das concorrentes entram só as outras 3.</p> </div>
+</section>
+
+<section class="slide" data-cap="01 · Matriz 1/3">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">01 · Matriz</span></div>
+ <div class="s-body">
+  <h2 class="t a">Matriz</h2>
+  <div class="gap"></div>
+  <table class="mx">
+   <thead><tr class="a fade"><th>Critério</th><th class="cli" scope="col">Alpha Poli</th><th class="cli" scope="col">Alpha Diag</th><th class="" scope="col">São Lucas</th><th class="" scope="col">Med Saúde</th><th class="" scope="col">Diagson</th></tr></thead>
+   <tbody><tr class="a"><th scope="row">Nota no Google</th>
+<td class="cli" data-label="Alpha Poli"><div class="c"><span class="st parcial">Parcial</span><br>3,9 · 313 avaliações</div></td><td class="cli" data-label="Alpha Diag"><div class="c"><span class="st parcial">Parcial</span><br>3,8 · 66 avaliações</div></td><td class="" data-label="São Lucas"><div class="c"><span class="st nao">Não</span><br>2,6 · 598 avaliações</div></td><td class="" data-label="Med Saúde"><div class="c"><span class="st parcial">Parcial</span><br>4,1 · 597 avaliações</div></td><td class="" data-label="Diagson"><div class="c"><span class="st nao">Não</span><br>3,3 · 1.221 avaliações</div></td></tr><tr class="a"><th scope="row">Responde avaliações<small>nas 30 mais recentes</small></th>
+<td class="cli" data-label="Alpha Poli"><div class="c"><span class="st nao">Não</span><br>0 de 30</div></td><td class="cli" data-label="Alpha Diag"><div class="c"><span class="st nao">Não</span><br>0 de 30</div></td><td class="" data-label="São Lucas"><div class="c"><span class="st nao">Não</span><br>0 de 30</div></td><td class="" data-label="Med Saúde"><div class="c"><span class="st nao">Não</span><br>0 de 30</div></td><td class="" data-label="Diagson"><div class="c"><span class="st parcial">Parcial</span><br>23 de 30, só positivas; as 3 negativas sem resposta</div></td></tr><tr class="a"><th scope="row">Preço visível<small>site e 12 posts recentes</small></th>
+<td class="cli" data-label="Alpha Poli"><div class="c"><span class="st parcial">Parcial</span><br>Não no site nem nos posts; sim em 17 de 36 anúncios</div></td><td class="cli" data-label="Alpha Diag"><div class="c"><span class="st nao">Não</span><br>Site novo fala de parcelamento, sem valores</div></td><td class="" data-label="São Lucas"><div class="c"><span class="st parcial">Parcial</span><br>Não no site; valor em 11 dos 12 posts (consulta R$ 160)</div></td><td class="" data-label="Med Saúde"><div class="c"><span class="st parcial">Parcial</span><br>&#34;A partir de&#34; no site (ultrassom R$ 117); vários itens aparecem como R$ 0</div></td><td class="" data-label="Diagson"><div class="c"><span class="st nao">Não</span><br>Sem preço no site nem nos posts</div></td></tr><tr class="a"><th scope="row">Instagram<small>12 posts mais recentes</small></th>
+<td class="cli" data-label="Alpha Poli"><div class="c"><span class="st sim">Sim</span><br>26.265 seguidores · 12 posts entre 31/08 e 01/10, 9 Reels</div></td><td class="cli" data-label="Alpha Diag"><div class="c"><span class="st nao">Não</span><br>Sem perfil próprio; o @alphadiagnosticos é de Goiânia</div></td><td class="" data-label="São Lucas"><div class="c"><span class="st sim">Sim</span><br>39.523 · 12 posts entre 17/09 e 02/10, nenhum Reels</div></td><td class="" data-label="Med Saúde"><div class="c"><span class="st sim">Sim</span><br>16.886 · 12 posts entre 18/09 e 02/10, 2 Reels</div></td><td class="" data-label="Diagson"><div class="c"><span class="st parou">Parou</span><br>33.580 · último post em 11/09</div></td></tr></tbody>
+  </table>
+ </div>
+</section>
+<section class="slide" data-cap="01 · Matriz 2/3">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">01 · Matriz</span></div>
+ <div class="s-body">
+  <h2 class="t a">Matriz, continuação</h2>
+  <div class="gap"></div>
+  <table class="mx">
+   <thead><tr class="a fade"><th>Critério</th><th class="cli" scope="col">Alpha Poli</th><th class="cli" scope="col">Alpha Diag</th><th class="" scope="col">São Lucas</th><th class="" scope="col">Med Saúde</th><th class="" scope="col">Diagson</th></tr></thead>
+   <tbody><tr class="a"><th scope="row">Anuncia na Meta</th>
+<td class="cli" data-label="Alpha Poli"><div class="c"><span class="st sim">Sim</span><br>36 anúncios ativos (conta de anúncios), o mais antigo de 19/12/2024</div></td><td class="cli" data-label="Alpha Diag"><div class="c"><span class="st sim">Sim</span><br>Exames de imagem nas mesmas campanhas da Policlínica</div></td><td class="" data-label="São Lucas"><div class="c"><span class="st conferir">A conferir</span><br>Biblioteca de Anúncios da Meta não consultada nesta coleta</div></td><td class="" data-label="Med Saúde"><div class="c"><span class="st conferir">A conferir</span><br>Biblioteca de Anúncios da Meta não consultada nesta coleta</div></td><td class="" data-label="Diagson"><div class="c"><span class="st conferir">A conferir</span><br>Biblioteca de Anúncios da Meta não consultada nesta coleta</div></td></tr><tr class="a"><th scope="row">Anuncia no Google</th>
+<td class="cli" data-label="Alpha Poli"><div class="c"><span class="st sim">Sim</span><br>21 anúncios no histórico, exibido em 02/10</div></td><td class="cli" data-label="Alpha Diag"><div class="c"><span class="st sim">Sim</span><br>Anúncio de exame cardiológico mostra a ficha da Diagnósticos</div></td><td class="" data-label="São Lucas"><div class="c"><span class="st nao">Não</span><br>Nenhum anúncio pelos dois domínios do site</div></td><td class="" data-label="Med Saúde"><div class="c"><span class="st parou">Parou</span><br>4 anúncios no histórico, o último exibido em 12/08</div></td><td class="" data-label="Diagson"><div class="c"><span class="st nao">Não</span><br>Nenhum anúncio pelo domínio</div></td></tr><tr class="a"><th scope="row">Médico com nome no Instagram<small>12 posts mais recentes</small></th>
+<td class="cli" data-label="Alpha Poli"><div class="c"><span class="st nao">Não</span><br>Nenhum post cita médico pelo nome; 5 dos 36 anúncios trazem CRM</div></td><td class="cli" data-label="Alpha Diag"><div class="c"><span class="st na">Sem dados</span><br>Sem perfil próprio</div></td><td class="" data-label="São Lucas"><div class="c"><span class="st parcial">Parcial</span><br>4 posts com médico, dia e valor; sem CRM</div></td><td class="" data-label="Med Saúde"><div class="c"><span class="st nao">Não</span><br>Nenhum post cita médico pelo nome</div></td><td class="" data-label="Diagson"><div class="c"><span class="st parcial">Parcial</span><br>1 post com médico pelo nome</div></td></tr><tr class="a"><th scope="row">Botão principal do site</th>
+<td class="cli" data-label="Alpha Poli"><div class="c"><span class="st sim">Sim</span><br>WhatsApp, com um botão por especialidade</div></td><td class="cli" data-label="Alpha Diag"><div class="c"><span class="st sim">Sim</span><br>WhatsApp (site novo, endereço provisório)</div></td><td class="" data-label="São Lucas"><div class="c"><span class="st parcial">Parcial</span><br>Telefone e chat do site; sem botão de WhatsApp</div></td><td class="" data-label="Med Saúde"><div class="c"><span class="st sim">Sim</span><br>WhatsApp</div></td><td class="" data-label="Diagson"><div class="c"><span class="st parcial">Parcial</span><br>&#34;Fale conosco&#34; leva a formulário de contato</div></td></tr></tbody>
+  </table>
+ </div>
+</section>
+<section class="slide" data-cap="01 · Matriz 3/3">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">01 · Matriz</span></div>
+ <div class="s-body">
+  <h2 class="t a">Matriz, continuação</h2>
+  <div class="gap"></div>
+  <table class="mx">
+   <thead><tr class="a fade"><th>Critério</th><th class="cli" scope="col">Alpha Poli</th><th class="cli" scope="col">Alpha Diag</th><th class="" scope="col">São Lucas</th><th class="" scope="col">Med Saúde</th><th class="" scope="col">Diagson</th></tr></thead>
+   <tbody><tr class="a"><th scope="row">Reclame Aqui<small>pelo índice do Google</small></th>
+<td class="cli" data-label="Alpha Poli"><div class="c"><span class="st conferir">A conferir</span><br>Página não verificada; número de reclamações a conferir</div></td><td class="cli" data-label="Alpha Diag"><div class="c"><span class="st conferir">A conferir</span><br>25 reclamações listadas; taxa de resposta a conferir</div></td><td class="" data-label="São Lucas"><div class="c"><span class="st na">Sem dados</span><br>Sem página de João Pessoa (a São Lucas listada é de Palhoça/SC)</div></td><td class="" data-label="Med Saúde"><div class="c"><span class="st conferir">A conferir</span><br>35 reclamações listadas, sem reputação calculada</div></td><td class="" data-label="Diagson"><div class="c"><span class="st conferir">A conferir</span><br>Página com reclamações; total a conferir</div></td></tr><tr class="a"><th scope="row">Doctoralia</th>
+<td class="cli" data-label="Alpha Poli"><div class="c"><span class="st nao">Não</span><br>Sem perfil confirmado em João Pessoa</div></td><td class="cli" data-label="Alpha Diag"><div class="c"><span class="st nao">Não</span><br>Sem perfil</div></td><td class="" data-label="São Lucas"><div class="c"><span class="st parcial">Parcial</span><br>Perfil da unidade 1, com 1 opinião</div></td><td class="" data-label="Med Saúde"><div class="c"><span class="st nao">Não</span><br>Sem perfil encontrado</div></td><td class="" data-label="Diagson"><div class="c"><span class="st parcial">Parcial</span><br>Perfil de outra unidade (R. Reinaldo Tavares de Melo)</div></td></tr></tbody>
+  </table>
+ </div>
+</section>
+
+<section class="slide" data-cap="01 · Cartões de benefícios">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">01 · Cartões de benefícios</span></div>
+ <div class="s-body">
+  <h2 class="t a">Cartões de benefícios que disputam o paciente particular</h2>
+  <p class="lede a">A Alpha não tem cartão próprio. Estes dois cartões têm sede ou franquia a menos de 2 km e oferecem consulta com desconto a quem paga mensalidade. Valores publicados pelas próprias marcas em 02/10. Se a Alpha faz parte da rede de algum deles, a conferir com a clínica.</p>
+  <div class="gap"></div>
+  <ul class="ct">
+   <li class="h a fade"><span>Cartão</span><span>Mensalidade</span><span>O que inclui</span><span>Onde atende</span></li>
+<li class="a cli"><div><b>Alpha (Policlínica e Diagnósticos)</b></div><div><span class="lb">Mensalidade</span>Sem cartão próprio</div><div><span class="lb">O que inclui</span>Parcelamento em até 3x sem juros; exames de maior valor em até 10x com juros (site novo da Diagnósticos)</div><div><span class="lb">Onde atende</span>As duas unidades de Jaguaribe</div></li><li class="a "><div><b>Cartão de TODOS · João Pessoa Norte</b></div><div><span class="lb">Mensalidade</span>R$ 33,40/mês por família; em setembro, 1ª mensalidade grátis</div><div><span class="lb">O que inclui</span>Consulta com clínico a R$ 30 e demais áreas a partir de R$ 40, até 7 dependentes. Ficha no Google: 4,3 com 398 avaliações</div><div><span class="lb">Onde atende</span>Rede credenciada, com loja na R. Treze de Maio (Centro, 1,7 km)</div></li><li class="a "><div><b>Prevmed (Paraíba)</b></div><div><span class="lb">Mensalidade</span>Mensalidade não publicada; o site fala em &#34;preço único para todas as idades&#34;</div><div><span class="lb">O que inclui</span>Consultas eletivas pela rede credenciada e telemedicina. 30 anúncios no histórico do Google; Reclame Aqui 7,3/10 com 53 reclamações (índice do Google)</div><div><span class="lb">Onde atende</span>Rede credenciada na Paraíba, com sede no Centro (1,2 km)</div></li>  </ul>
+ </div>
+</section>
+<section class="slide dark" data-cap="01 · Cartão não é plano">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">01 · Cartões de benefícios</span></div>
+ <div class="s-body">
+  <div class="eyebrow a">Ponto de atenção</div>
+  <p class="cit a" style="font-size:clamp(20px,calc(2.7*var(--u)),44px);max-width:34ch">Cartão de desconto não é plano de saúde. A Prevmed diz no site que não é plano e não aparece na lista de operadoras ativas da ANS (consulta de 02/10). Se a Alpha entrar na rede de um cartão ou criar o seu, vale evitar &#34;convênio&#34;, &#34;cobertura&#34; e &#34;carência&#34; ao falar dele e validar com advogado antes de mudar contrato ou comunicação.</p>
+ </div>
+</section>
+
+<section class="slide dark div" data-cap="02 · Anúncios">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">Capítulo 02</span></div>
+ <div class="s-body"><div class="num a">02</div><h2 class="a">Como cada uma anuncia</h2><p class="lede a">Os anúncios da Alpha, lidos na conta de anúncios e na Central de Transparência do Google, ao lado do que as concorrentes mostram. Os anúncios das concorrentes na Meta ficaram a conferir.</p></div>
+</section>
+
+<section class="slide" data-cap="02 · Anúncios · a Alpha">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">02 · Anúncios</span></div>
+ <div class="s-body">
+  <h2 class="t a">Os anúncios da Alpha</h2>
+  <div class="gap"></div>
+  <div class="ads"><div class="ad a cli"><h3>Alpha Poli</h3><div class="cn">Meta (Facebook e Instagram)</div><dl><dt>Anúncios ativos</dt><dd>36</dd><dt>Formato</dt><dd>34 imagens e 2 vídeos</dd><dt>Com preço</dt><dd>17 de 36: raio X R$ 50, mamografia R$ 80, cardiologista + eletro R$ 125, ressonância R$ 420</dd><dt>Mais antigo no ar</dt><dd>19/12/2024</dd><dt>Temas</dt><dd>Tomografia, teste ergométrico, ultrassom, ressonância, consultas (orto, cardio, uro, gineco) e institucional</dd><dt>Exame para concurso</dt><dd>Nenhum anúncio</dd><dt>Botão</dt><dd>Conversa no WhatsApp em 33 de 36</dd></dl></div><div class="ad a cli"><h3>Alpha Poli</h3><div class="cn">Google</div><dl><dt>Anúncios no histórico</dt><dd>21, exibidos até 02/10</dd><dt>Formato</dt><dd>Texto com foto da fachada e ficha do Google</dd><dt>Temas</dt><dd>Teste ergométrico, exames cardiológicos, raio X, clínica em Jaguaribe</dd><dt>Links extras</dt><dd>&#34;Exames P/ Concursos&#34;, &#34;Eletroneuromiografia&#34;, &#34;Preços&#34;</dd><dt>Chamadas</dt><dd>&#34;Exames com preço justo&#34;, &#34;preço popular&#34;, &#34;melhor preço de Jaguaribe e região&#34;</dd></dl></div></div>
+ </div>
+</section>
+<section class="slide" data-cap="02 · Anúncios · as concorrentes">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">02 · Anúncios</span></div>
+ <div class="s-body">
+  <h2 class="t a">Os anúncios das concorrentes</h2>
+  <div class="gap"></div>
+  <div class="ads"><div class="ad a "><h3>Med Saúde</h3><div class="cn">Google</div><dl><dt>Anúncios no histórico</dt><dd>4, o último exibido em 12/08</dd><dt>Formato</dt><dd>Texto com foto e ficha do Google</dd><dt>Temas</dt><dd>Ultrassom, endoscopia com sedação, saúde íntima com especialistas mulheres</dd><dt>Chamada</dt><dd>&#34;Laudo na Hora - Preço Popular&#34;</dd><dt>Botão</dt><dd>Ligar, site, rotas e WhatsApp</dd></dl></div><div class="ad a "><h3>São Lucas</h3><div class="cn">Instagram (posts, sem anúncio no Google)</div><dl><dt>Ritmo</dt><dd>12 posts em 16 dias</dd><dt>Com preço</dt><dd>11 de 12: consulta R$ 160; exames de R$ 90 a R$ 450</dd><dt>Formato</dt><dd>Imagem com médico, dia da semana, unidade e valor</dd><dt>Regra</dt><dd>&#34;Atendimento por ordem de chegada&#34;</dd><dt>Botão</dt><dd>Telefone; o site não tem WhatsApp</dd></dl></div></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="02 · O que a comparação mostra">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">02 · Anúncios</span></div>
+ <div class="s-body">
+  <h2 class="t a">O que a comparação mostra</h2>
+  <div class="gap"></div>
+  <ol class="lista-n"><li class="a">No Google, entre a Alpha e as 3 concorrentes, só a Alpha teve anúncio exibido em 02/10. A Med Saúde parou em 12/08; São Lucas e Diagson não têm anúncio pelos seus domínios.</li><li class="a">A São Lucas não anuncia no Google, mas usa o Instagram como tabela de preços: médico, dia, unidade e valor em 11 dos 12 posts. A Alpha mostra preço em 17 dos 36 anúncios e em nenhum dos 12 posts recentes.</li><li class="a">Exame para concurso aparece no site e num link do Google Ads da Alpha, mas em nenhum dos 36 anúncios ativos da Meta.</li><li class="a">Compliance: 4 anúncios de ressonância usam &#34;oferta especial&#34; ou &#34;preço promocional&#34;, um anúncio do Google diz &#34;melhor preço de Jaguaribe e região&#34; e o site diz &#34;a clínica número 1 em exames para concursos&#34;. Vale trocar por preço como informação. Médico com nome e CRM aparece em 5 dos 36 anúncios.</li></ol>
+ </div>
+</section>
+
+<section class="slide dark div" data-cap="03 · Voz do paciente">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">Capítulo 03</span></div>
+ <div class="s-body"><div class="num a">03</div><h2 class="a">O que aparece nas avaliações</h2><p class="lede a">As 30 avaliações mais recentes de cada clínica no Google, classificadas em 10 temas fixos.</p></div>
+</section>
+
+<section class="slide" data-cap="03 · Três números">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">03 · Voz do paciente</span></div>
+ <div class="s-body">
+  <h2 class="t a">Nas avaliações da Alpha</h2>
+  <div class="gap"></div>
+  <div class="nums"><div class="a"><div class="v cnt">9 de 60</div><div class="r">avaliações recentes das duas fichas da Alpha citam exame para concurso; nas 90 das concorrentes, nenhuma</div></div><div class="a"><div class="v cnt">5</div><div class="r">menções a recepção pouco cordial na Policlínica, a queixa mais citada</div></div><div class="a"><div class="v cnt">4</div><div class="r">menções a informação errada no agendamento: valor diferente, exame &#34;que não é feito&#34;, remarcação e horário</div></div></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="03 · Temas">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">03 · Voz do paciente</span></div>
+ <div class="s-body">
+  <h2 class="t a">Elogios e reclamações, por tema</h2>
+  <p class="lede a">Menções a cada 30 avaliações. Uma avaliação pode ter mais de um tema.</p>
+  <div class="gap"></div>
+  <div class="leg a fade"><span><i style="background:var(--cli)"></i>Alpha Policlínica</span><span><i style="background:var(--conc)"></i>Média das concorrentes (3)</span></div>
+  <div class="bars">
+<div><h3 class="a fade">Elogios</h3>
+<div class="bg a"><div class="t">Recepção cordial</div><div>
+    <div class="bar cl"><div class="tr"><div class="f" style="--w:54.5%"></div></div><span class="val">4,0</span></div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:100.0%"></div></div><span class="val">7,3</span></div>
+   </div></div><div class="bg a"><div class="t">Médico atencioso</div><div>
+    <div class="bar cl"><div class="tr"><div class="f" style="--w:13.6%"></div></div><span class="val">1,0</span></div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:63.6%"></div></div><span class="val">4,7</span></div>
+   </div></div><div class="bg a"><div class="t">Ambiente limpo e organizado</div><div>
+    <div class="bar cl"><div class="tr"><div class="f" style="--w:0.0%"></div></div><span class="val">0,0</span></div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:9.1%"></div></div><span class="val">0,7</span></div>
+   </div></div><div class="bg a"><div class="t">Rapidez (atendimento ou resultado)</div><div>
+    <div class="bar cl"><div class="tr"><div class="f" style="--w:13.6%"></div></div><span class="val">1,0</span></div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:18.2%"></div></div><span class="val">1,3</span></div>
+   </div></div><div class="bg a"><div class="t">Preço justo</div><div>
+    <div class="bar cl"><div class="tr"><div class="f" style="--w:13.6%"></div></div><span class="val">1,0</span></div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:18.2%"></div></div><span class="val">1,3</span></div>
+   </div></div></div><div><h3 class="a fade">Reclamações</h3>
+<div class="bg a"><div class="t">Espera longa com hora marcada</div><div>
+    <div class="bar cl"><div class="tr"><div class="f" style="--w:27.3%"></div></div><span class="val">2,0</span></div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:36.4%"></div></div><span class="val">2,7</span></div>
+   </div></div><div class="bg a"><div class="t">Tempo de resposta do atendimento</div><div>
+    <div class="bar cl"><div class="tr"><div class="f" style="--w:40.9%"></div></div><span class="val">3,0</span></div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:54.5%"></div></div><span class="val">4,0</span></div>
+   </div></div><div class="bg a"><div class="t">Recepção pouco cordial</div><div>
+    <div class="bar cl"><div class="tr"><div class="f" style="--w:68.2%"></div></div><span class="val">5,0</span></div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:40.9%"></div></div><span class="val">3,0</span></div>
+   </div></div><div class="bg a"><div class="t">Informação errada no agendamento</div><div>
+    <div class="bar cl"><div class="tr"><div class="f" style="--w:54.5%"></div></div><span class="val">4,0</span></div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:18.2%"></div></div><span class="val">1,3</span></div>
+   </div></div><div class="bg a"><div class="t">Problema com convênio</div><div>
+    <div class="bar cl"><div class="tr"><div class="f" style="--w:0.0%"></div></div><span class="val">0,0</span></div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:0.0%"></div></div><span class="val">0,0</span></div>
+   </div></div></div>  </div>
+ </div>
+</section>
+
+<section class="slide dark" data-cap="03 · O que isso quer dizer">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">03 · Voz do paciente</span></div>
+ <div class="s-body">
+  <div class="eyebrow a">O que isso quer dizer</div>
+  <p class="cit a">Telefone e WhatsApp sem resposta aparecem nas 5 fichas: 7 menções na Med Saúde, 3 na Alpha Policlínica e na São Lucas, 2 na Diagson e 2 na Alpha Diagnósticos. É a queixa que se repete no bairro todo; quem responder rápido sai na frente.</p>
+<p class="rodape-nota a" style="margin-top:clamp(22px,calc(3.4*var(--u)),50px)">As 30 avaliações mais recentes da Alpha Policlínica cobrem 7 meses (04/03 a 24/09); na São Lucas, menos de 3 meses; na Diagson, 13 dias. Com poucas avaliações novas, cada negativa pesa mais na nota. Na Alpha Diagnósticos (30 avaliações, de 02/03 a 19/08), o quadro é outro: 18 menções de elogio e 2 de reclamação, além de 3 avaliações que criticam a ressonância (imagem, laudo ou resultado).</p> </div>
+</section>
+
+<section class="slide" data-cap="03 · Contexto">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">03 · Voz do paciente</span></div>
+ <div class="s-body">
+  <h2 class="t a">Duas leituras de contexto</h2>
+  <div class="gap"></div>
+  <div class="dois">
+<div class="bloco a"><h3>Padrão observado nas avaliações recentes</h3><ul><li><b>Alpha Diagnósticos.</b> 17 das 30 avaliações recentes foram publicadas em dois dias (05/03 e 02/04); 15 são 5 estrelas com até 10 palavras ou sem texto.</li><li><b>Alpha Policlínica.</b> 6 das 30 foram publicadas em 04 e 05/03, a maioria sobre exame para concurso.</li><li><b>Diagson.</b> 17 das 30 foram publicadas em 29 e 30/09; 16 vêm de perfis com no máximo 1 avaliação e 10 citam o atendente pelo nome. A clínica respondeu 23, todas positivas.</li></ul><p class="rodape-nota">A nota continua sendo a nota; o padrão é contexto para ler o número. Pedir avaliação é bom e recomendado. A política do Google proíbe oferecer benefício em troca, e avaliações publicadas em lote podem ser retidas pelos filtros automáticos do Google. O melhor é pedir no dia a dia, depois de cada atendimento.</p></div>  </div>
+ </div>
+</section>
+
+<section class="slide dark div" data-cap="04 · Posicionamento">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">Capítulo 04</span></div>
+ <div class="s-body"><div class="num a">04</div><h2 class="a">Onde cada uma se coloca</h2><p class="lede a">Nota no Google cruzada com preço visível no site.</p></div>
+</section>
+
+<section class="slide" data-cap="04 · Mapa">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">04 · Posicionamento</span></div>
+ <div class="s-body">
+  <h2 class="t a">Nota × preço no site</h2>
+  <div class="gap"></div>
+  <div class="quad a fade">
+   <div></div><div class="ax">Não mostra preço no site</div><div class="ax">Mostra preço no site</div>
+<div class="ax ay">Nota 4,5 ou mais</div>
+<div class="q vazio  "><div class="ql">Nota 4,5+ · sem preço</div><span class="qv">Espaço livre</span></div><div class="q vazio r "><div class="ql">Nota 4,5+ · com preço</div><span class="qv">Espaço livre</span></div><div class="ax ay">Nota abaixo de 4,5</div>
+<div class="q   b"><div class="ql">Nota &lt; 4,5 · sem preço</div><span class="bd cli" style="--k:0">Alpha Poli <small>3,9</small></span><span class="bd cli" style="--k:1">Alpha Diag <small>3,8</small></span><span class="bd " style="--k:2">São Lucas <small>2,6</small></span><span class="bd " style="--k:3">Diagson <small>3,3</small></span></div><div class="q  r b"><div class="ql">Nota &lt; 4,5 · com preço</div><span class="bd " style="--k:4">Med Saúde <small>4,1</small></span></div>  </div>
+<p class="rodape-nota a">Entre as 5 fichas comparadas, nenhuma ocupa o quadro de nota 4,5 ou mais. Com todas abaixo disso, sobe primeiro quem responder avaliações e organizar o atendimento antes da consulta.</p> </div>
+</section>
+
+<section class="slide" data-cap="04 · Como cada uma se apresenta">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">04 · Posicionamento</span></div>
+ <div class="s-body">
+  <h2 class="t a">Como cada uma se apresenta</h2>
+  <div class="gap"></div>
+  <div class="slog"><div class="a cli"><h3>Alpha Policlínica</h3><q>A sua Policlínica em Jaguaribe, João Pessoa.</q><p>Consultas em mais de 30 especialidades, exames e um nicho claro em exame para concurso. Mostra preço nos anúncios, não no site.</p></div><div class="a cli"><h3>Alpha Diagnósticos</h3><q>Ressonância, tomografia e ultrassom, com laudo digital no celular em até 2 dias (site novo, ainda em endereço provisório).</q><p>Exames de imagem, com ressonância de campo aberto. Ainda sem site na ficha do Google e sem Instagram próprio.</p></div><div class="a "><h3>Policlínica São Lucas</h3><q>Conforto e qualidade com preço justo.</q><p>Vizinha de porta, com 4 unidades na mesma avenida. Atende por ordem de chegada e publica o valor de cada consulta no Instagram.</p></div><div class="a "><h3>Policlínica Med Saúde</h3><q>Consultas e exames acessíveis em João Pessoa.</q><p>Mostra preço &#34;a partir de&#34; no site, vende pacotes parcelados (Saúde Mulher) e atende pelo Cartão de TODOS, segundo uma avaliação.</p></div><div class="a "><h3>Diagson · Torre</h3><q>DIAGSON · Medicina e Saúde.</q><p>Centro de imagem com várias unidades e página de planos e convênios no site. Responde avaliações positivas; Instagram sem post desde 11/09.</p></div></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="04 · Fora do quadro">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">04 · Posicionamento</span></div>
+ <div class="s-body">
+  <h2 class="t a">Fora do quadro principal</h2>
+  <div class="gap"></div>
+  <div class="dois">
+   <div class="bloco a"><h3>Redes e cartões na região</h3><ul><li><b>AmorSaúde · João Pessoa Norte (Centro, 2 km)</b> · 3,8 (645 avaliações) · rede nacional, Instagram da marca com 324 mil seguidores</li><li><b>Nova Diagnóstico por Imagem (Estados, 2,5 km)</b> · 3,2 (1.140) · 29,6 mil seguidores · 1º no Google para &#34;ressonância magnética joão pessoa&#34;</li><li><b>Dr. Exame · João Pessoa (Centro, 1,9 km)</b> · 4,6 (125) · 18 anúncios no histórico do Google · atende também Recife e Natal</li><li><b>Atend Já · João Pessoa (Torre, 2,5 km)</b> · 4,9 (76) · Instagram local sem post desde 11/05/2025</li><li><b>Policlínica Jaguaribe e Policlínica São Luiz (a 200 m e 100 m)</b> · 2,9 (345) e 3,0 (268) · vizinhas sem site próprio no ar</li></ul></div>
+   <div class="bloco a"><h3>Quem faz bem fora daqui</h3><p>Rede Recife Saúde (Casa Amarela, Recife): 4,9 com 896 avaliações, post no Instagram em 02/10, 11 Reels nos 12 posts mais recentes e preço no site (combo de clínico em 12x de R$ 24). Mostra que dá para publicar preço em parcela no site e usar Reels como vitrine sem perder o tom de clínica.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="slide dark div" data-cap="05 · Lacunas">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">Capítulo 05</span></div>
+ <div class="s-body"><div class="num a">05</div><h2 class="a">Onde a Alpha pode avançar</h2><p class="lede a">Considerando a Alpha (as duas fichas) e as 3 concorrentes comparadas.</p></div>
+</section>
+
+<section class="slide" data-cap="05 · Lacunas 1/2">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">05 · Lacunas</span></div>
+ <div class="s-body">
+  <h2 class="t a">Lacunas</h2>
+  <div class="gap"></div>
+  <ol class="lac"><li class="a"><span class="n">01</span><div><h3>Responder avaliações</h3></div><div><span class="lb">Como está hoje</span><p>Alpha (as duas fichas), São Lucas e Med Saúde não responderam nenhuma das 30 recentes. A Diagson respondeu 23, só as positivas.</p></div><div class="faz"><span class="lb">O que a Alpha pode fazer</span><p>Responder as 60 recentes, começando pelas 19 de 1 estrela. Resposta curta, com nome, sem discutir em público e com convite para conversar no privado.</p></div></li><li class="a"><span class="n">02</span><div><h3>Tempo de resposta do atendimento</h3></div><div><span class="lb">Como está hoje</span><p>Telefone e WhatsApp sem retorno aparecem nas 5 fichas: 7 menções na Med Saúde, 3 na Alpha Policlínica e na São Lucas, 2 na Diagson e 2 na Alpha Diagnósticos. Uma avaliação da Alpha conta que o WhatsApp é o mesmo número do telefone.</p></div><div class="faz"><span class="lb">O que a Alpha pode fazer</span><p>Separar o WhatsApp do telefone fixo, fixar meta de resposta em até 5 minutos no horário comercial e medir toda semana.</p></div></li><li class="a"><span class="n">03</span><div><h3>Informação certa no agendamento</h3></div><div><span class="lb">Como está hoje</span><p>4 menções na Alpha Policlínica: valor diferente dado por duas atendentes, ressonância informada como &#34;não fazemos&#34;, remarcação e horário do médico. Nas concorrentes, de 1 a 2.</p></div><div class="faz"><span class="lb">O que a Alpha pode fazer</span><p>Uma tabela única de valores, exames e preparo para todas as atendentes, revisada toda semana, com quem responde por ela.</p></div></li><li class="a"><span class="n">04</span><div><h3>Recepção</h3></div><div><span class="lb">Como está hoje</span><p>5 menções a recepção pouco cordial na Alpha Policlínica, 6 na São Lucas, 3 na Med Saúde e nenhuma na Diagson.</p></div><div class="faz"><span class="lb">O que a Alpha pode fazer</span><p>Roteiro curto de acolhimento na recepção e no WhatsApp, e acompanhamento das avaliações que citam a recepção.</p></div></li></ol>
+ </div>
+</section>
+<section class="slide" data-cap="05 · Lacunas 2/2">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">05 · Lacunas</span></div>
+ <div class="s-body">
+  <h2 class="t a">Lacunas, continuação</h2>
+  <div class="gap"></div>
+  <ol class="lac"><li class="a"><span class="n">05</span><div><h3>Exame para concurso</h3></div><div><span class="lb">Como está hoje</span><p>9 das 60 avaliações recentes da Alpha citam concurso; nenhuma das 90 das concorrentes. O site tem a seção, mas nenhum dos 36 anúncios da Meta nem dos 12 posts recentes fala disso, e a Alpha não aparece nos 10 primeiros resultados do Google para &#34;exames para concurso joão pessoa&#34;.</p></div><div class="faz"><span class="lb">O que a Alpha pode fazer</span><p>Página própria de concurso (exames por edital, prazo do laudo, o que levar), campanha na Meta nas janelas de edital e destaque fixo no Instagram.</p></div></li><li class="a"><span class="n">06</span><div><h3>Preço visível</h3></div><div><span class="lb">Como está hoje</span><p>A São Lucas publica o valor da consulta em 11 dos 12 posts recentes; a Med Saúde mostra &#34;a partir de&#34; no site. A Alpha mostra preço em 17 dos 36 anúncios, mas não no site nem nos posts.</p></div><div class="faz"><span class="lb">O que a Alpha pode fazer</span><p>Levar os valores que já estão nos anúncios para o site e para um destaque no Instagram, revisados pela clínica.</p></div></li><li class="a"><span class="n">07</span><div><h3>Confiança no laudo de ressonância</h3></div><div><span class="lb">Como está hoje</span><p>3 das 30 avaliações recentes da Alpha Diagnósticos e 1 da Policlínica criticam a ressonância (imagem, laudo ou resultado); uma diz que ninguém explicou a diferença entre campo aberto e fechado. Nenhuma tem resposta.</p></div><div class="faz"><span class="lb">O que a Alpha pode fazer</span><p>Responder cada uma com convite para revisão do exame e explicar, no agendamento e no site, quando o campo aberto é indicado.</p></div></li><li class="a"><span class="n">08</span><div><h3>Endereço próprio da Alpha Diagnósticos</h3></div><div><span class="lb">Como está hoje</span><p>A ficha do Google da Alpha Diagnósticos não tem site. O domínio alphadiagnosticos.com.br e o @alphadiagnosticos no Instagram são de outra clínica, em Goiânia. O site novo está pronto em endereço provisório.</p></div><div class="faz"><span class="lb">O que a Alpha pode fazer</span><p>Publicar o site novo num domínio próprio, ligá-lo à ficha do Google e decidir se a imagem fica no Instagram da Policlínica ou ganha perfil próprio.</p></div></li></ol>
+ </div>
+</section>
+
+<section class="slide dark div" data-cap="06 · Recomendação">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">Capítulo 06</span></div>
+ <div class="s-body"><div class="num a">06</div><h2 class="a">Por onde a Alpha cresce</h2></div>
+</section>
+
+<section class="slide dark" data-cap="06 · Proposta de valor">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">06 · Recomendação</span></div>
+ <div class="s-body">
+  <div class="eyebrow a">Proposta de valor</div>
+  <p class="prop a">A policlínica de Jaguaribe que resolve consulta e exame de imagem no mesmo bairro, com agendamento pelo WhatsApp e preço publicado, e que os pacientes já citam como lugar de exame para concurso.</p>
+  <div class="dif"><div class="a"><div class="k">Diferencial 01</div><h3>Consulta e imagem em Jaguaribe</h3><p>Policlínica e Diagnósticos a poucos minutos uma da outra: o pedido do médico vira exame no mesmo bairro.</p></div><div class="a"><div class="k">Diferencial 02</div><h3>Exame para concurso</h3><p>Citado em 9 das 60 avaliações recentes da Alpha e em nenhuma das 90 das concorrentes comparadas.</p></div><div class="a"><div class="k">Diferencial 03</div><h3>Ressonância de campo aberto</h3><p>Opção para quem tem claustrofobia, idosos e pessoas de maior biotipo, já destacada no site e nos anúncios.</p></div></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="06 · Foco e preço">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">06 · Recomendação</span></div>
+ <div class="s-body">
+  <h2 class="t a">Foco e preço</h2>
+  <div class="gap"></div>
+  <div class="frases"><div class="a"><h3>Fica para depois</h3><p>Disputar preço de consulta com a São Lucas fica para depois. Ela está a 100 metros, publica o valor de cada consulta e atende por ordem de chegada; brigar por centavos tira margem e não resolve o que mais aparece nas avaliações da Alpha, que é o atendimento antes da consulta.</p></div><div class="a"><h3>Sobre preço</h3><p>Mostrar preço por transparência, sim: a Alpha já faz isso em 17 dos 36 anúncios. Disputar o mais barato, não: &#34;oferta especial&#34;, &#34;preço promocional&#34; e &#34;melhor preço da região&#34; não combinam com as regras de publicidade médica e puxam a conversa para o desconto.</p></div></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="06 · Pilares de conteúdo">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">06 · Recomendação</span></div>
+ <div class="s-body">
+  <h2 class="t a">Pilares de conteúdo</h2>
+  <div class="gap"></div>
+  <ul class="pil"><li class="a"><h3>Exame para concurso</h3><p>Quais exames cada edital pede, prazo do laudo e o que levar</p><span class="fm">Carrossel e destaque fixo</span></li><li class="a"><h3>Exame explicado</h3><p>Campo aberto ou fechado, preparo, jejum e prazo do laudo</p><span class="fm">Reels de 30 s</span></li><li class="a"><h3>Quem atende na Alpha</h3><p>Médico com nome, CRM, RQE, dia de atendimento e valor da consulta</p><span class="fm">Um post por especialista</span></li><li class="a"><h3>Por dentro das duas unidades</h3><p>Recepção, equipamentos e equipe de Jaguaribe</p><span class="fm">Reels e fotos reais</span></li></ul>
+ </div>
+</section>
+
+<section class="slide" data-cap="06 · Próximos 30 dias">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">06 · Recomendação</span></div>
+ <div class="s-body">
+  <div class="eyebrow a">Ganhos rápidos</div>
+  <h2 class="t a">Os próximos 30 dias</h2>
+  <div class="gap"></div>
+  <div class="gan"><div class="a "><h3>Google</h3><ul><li>Responder as 60 avaliações recentes, começando pelas de 1 estrela</li><li>Pôr o site na ficha da Alpha Diagnósticos</li><li>Criar o perfil no Doctoralia, 1º resultado para &#34;cardiologista joão pessoa&#34;</li></ul></div><div class="a "><h3>Instagram</h3><ul><li>Destaque fixo de exame para concurso</li><li>Post por especialista com nome, CRM e valor</li><li>Post fixo com os exames de imagem e o preparo de cada um</li></ul></div><div class="a "><h3>Anúncios e site</h3><ul><li>Campanha de concurso na Meta e página própria no site</li><li>Trocar &#34;oferta especial&#34;, &#34;preço promocional&#34;, &#34;melhor preço&#34; e &#34;número 1&#34; por preço como informação</li><li>Valores dos anúncios também no site</li></ul></div><div class="a alerta"><h3>Operação</h3><ul><li>Tabela única de valores e exames para todas as atendentes</li><li>WhatsApp separado do telefone, com meta de resposta</li><li>Explicar campo aberto e fechado no agendamento da ressonância</li></ul></div></div>
+ </div>
+</section>
+
+<section class="slide dark" data-cap="06 · Compliance">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">06 · Compliance</span></div>
+ <div class="s-body">
+  <div class="eyebrow a">Publicidade médica · CFM 2.336/2023</div>
+  <h2 class="t a">O que vale para tudo isso</h2>
+  <div class="gap"></div>
+  <ol class="compl"><li class="a">Nada de comparar a Alpha com outra clínica em anúncio ou post.</li><li class="a">Médico sempre com nome, CRM e, se for especialista, RQE.</li><li class="a">Preço como informação: sem &#34;oferta especial&#34;, &#34;preço promocional&#34;, &#34;melhor preço&#34; ou &#34;número 1&#34;.</li><li class="a">Valores e condições revisados pela clínica antes de publicar.</li></ol>
+ </div>
+</section>
+
+<section class="slide" data-cap="Fontes e limitações">
+ <div class="s-top a fade"><span>Alpha · Pesquisa de concorrência</span><span class="s-sec">Fontes e limitações</span></div>
+ <div class="s-body">
+  <h2 class="t a">De onde vêm os números</h2>
+  <div class="gap"></div>
+  <ol class="fontes a fade"><li>Google Maps (fichas e avaliações) lido em 02/10/2026 pela API do Serper: as 30 avaliações mais recentes de cada uma das 5 fichas (150 no total).</li><li>Temas das avaliações classificados num código fixo de 10 temas (5 elogios e 5 reclamações). Uma avaliação pode ter mais de um tema; as contagens são menções. Olhar o patamar, não a casa decimal. Qualidade de imagem e de laudo ficou fora do código e está citada à parte.</li><li>Instagram: dados públicos de perfil e dos 12 posts mais recentes, pela API da Meta, em 02/10. O @ de cada clínica foi tirado do link do próprio site.</li><li>Anúncios da Alpha na Meta: conta de anúncios da clínica, anúncios ativos em 02/10.</li><li>Google Ads: Central de Transparência de Anúncios do Google, por domínio, em 02/10. Mostra o histórico, não o investimento.</li><li>Biblioteca de Anúncios da Meta: não consultada nesta coleta (pede login). Os anúncios das concorrentes na Meta ficaram &#34;a conferir&#34;.</li><li>Reclame Aqui: a página bloqueou o acesso automático; os números vêm do índice do Google e ficam a conferir na página de cada empresa.</li><li>Sites, Doctoralia e buscas no Google conferidos em 02/10, com localização em João Pessoa; o resultado varia por local, horário e aparelho.</li><li>Cartões: valores publicados pelas próprias marcas (site e Instagram) em 02/10. Registro na ANS conferido na lista pública de operadoras ativas em 02/10.</li><li>Não foi possível medir: investimento das concorrentes em anúncios, anúncios das concorrentes na Meta, velocidade dos sites (PageSpeed) e o número exato de reclamações no Reclame Aqui.</li></ol>
+ </div>
+</section>
+
+<section class="slide dark fim" data-cap="Fim">
+ <div class="s-top a fade"><span>Confidencial · preparado para a Policlínica Alpha</span><span class="s-sec">02/10/2026</span></div>
+ <div class="s-body">
+  <div class="cobrand a"><img src="data:image/png;base64,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" alt="ClintIA" width="151" height="34"><span class="tr" aria-hidden="true"></span><img class="cli" src="data:image/png;base64,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" alt="Policlínica Alpha" width="76" height="46"></div>
+  <h2 class="a">Próximo passo: os ganhos rápidos dos próximos 30 dias, começando pelas respostas às avaliações.</h2>
+  <div class="risca a fade"></div>
+  <p class="rodape-nota a">Confidencial · preparado para a Policlínica Alpha · Dados públicos coletados em 02/10/2026.</p>
+ </div>
+</section>
+
+</main>
+
+<nav class="chrome" aria-label="Navegação dos slides">
+ <div class="pg" id="pg"></div>
+ <span class="cnt-p" id="cnt">01 / 01</span>
+ <span class="cap" id="cap"></span>
+ <button class="nb sb" id="ix" aria-label="Índice" title="Índice"><svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h9"/></svg></button>
+ <button class="nb sb" id="fs" aria-label="Tela cheia" title="Tela cheia"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+ <button class="nb" id="prev" aria-label="Slide anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+ <button class="nb" id="next" aria-label="Próximo slide"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+</nav>
+<div class="indice" id="indice" role="dialog" aria-label="Índice dos slides"><h2>Índice</h2><ol id="ixl"></ol></div>
+
+<script>
+(function(){
+ var S=[].slice.call(document.querySelectorAll('.slide')),T=S.length,i=0;
+ var pg=document.getElementById('pg'),cnt=document.getElementById('cnt'),cap=document.getElementById('cap');
+ var pad=function(n){return (n<10?'0':'')+n};
+ S.forEach(function(s){
+   [].slice.call(s.querySelectorAll('.a')).forEach(function(e,k){e.style.setProperty('--i',k)});
+   [].slice.call(s.querySelectorAll('.bar .f')).forEach(function(e){var g=e.closest('.a');e.style.setProperty('--i',g?g.style.getPropertyValue('--i'):0)});
+ });
+ // números que sobem de zero (o primeiro número de cada valor)
+ function conta(s){[].slice.call(s.querySelectorAll('.cnt')).forEach(function(el,k){
+   var orig=el.dataset.t||(el.dataset.t=el.textContent), m=orig.match(/\d+(?:[.,]\d+)*/);
+   if(!m)return;
+   var tok=m[0], dec=(tok.split(',')[1]||'').length, alvo=parseFloat(tok.replace(/\./g,'').replace(',','.'));
+   var t0=performance.now()+300+k*90, dur=1300;
+   (function passo(t){var p=Math.min(1,Math.max(0,(t-t0)/dur)),e=1-Math.pow(1-p,3);
+     el.textContent=orig.replace(tok,(alvo*e).toLocaleString('pt-BR',{minimumFractionDigits:dec,maximumFractionDigits:dec}));
+     if(p<1)requestAnimationFrame(passo);else el.textContent=orig;})(performance.now());
+ })}
+ // slide que não cabe na tela encolhe a escala até caber (só em tela larga; no celular rola)
+ function ajusta(s){ if(innerWidth<=760){s.style.removeProperty('--u');return}
+   for(var f=1;f>=.62;f-=.04){ s.style.setProperty('--u','calc(min(1vw,1.75vh)*'+f.toFixed(2)+')'); if(s.scrollHeight<=s.clientHeight+2)break; } }
+ addEventListener('resize',function(){ajusta(S[i])});
+ // a fonte do Google chega depois do 1º ajuste e muda a altura do texto: ajusta de novo quando ela carregar
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){ajusta(S[i])});
+ function go(n,semHash){ if(n<0||n>=T)return;
+   S[i].classList.remove('active'); i=n; var s=S[i]; s.classList.add('active'); s.scrollTop=0;
+   pg.style.width=((i+1)/T*100)+'%'; cnt.textContent=pad(i+1)+' / '+pad(T); cap.textContent=s.dataset.cap||'';
+   document.body.classList.toggle('escuro',s.classList.contains('dark'));
+   document.getElementById('prev').disabled=i===0; document.getElementById('next').disabled=i===T-1;
+   if(!semHash&&history.replaceState)history.replaceState(null,'','#'+(i+1));
+   ajusta(s); conta(s);
+ }
+ document.getElementById('prev').onclick=function(){go(i-1)};
+ document.getElementById('next').onclick=function(){go(i+1)};
+ var ix=document.getElementById('indice'),ixl=document.getElementById('ixl');
+ S.forEach(function(s,k){var li=document.createElement('li'),b=document.createElement('button'),n=document.createElement('span');
+   n.textContent=pad(k+1);b.appendChild(n);b.appendChild(document.createTextNode(s.dataset.cap||''));
+   b.onclick=function(){ix.classList.remove('on');go(k)};li.appendChild(b);ixl.appendChild(li)});
+ document.getElementById('ix').onclick=function(){ix.classList.toggle('on')};
+ ix.addEventListener('click',function(e){if(e.target===ix)ix.classList.remove('on')});
+ document.addEventListener('keydown',function(e){
+   if(e.key==='Escape'){ix.classList.remove('on');return}
+   if(ix.classList.contains('on'))return;
+   if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(i+1)}
+   if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(i-1)}
+   if(e.key==='Home')go(0); if(e.key==='End')go(T-1);
+ });
+ var tx=0,ty=0,tt=0;
+ document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;ty=e.touches[0].clientY;tt=Date.now()},{passive:true});
+ document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+   if(Date.now()-tt<600&&Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){dx<0?go(i+1):go(i-1)}},{passive:true});
+ var fs=document.getElementById('fs');
+ if(!document.fullscreenEnabled){fs.style.display='none'}
+ else{fs.onclick=function(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(function(){})}}
+ var h=parseInt((location.hash||'').slice(1),10);
+ go(h>=1&&h<=T?h-1:0,true);
+})();
+</script>
+</body>
+</html>
