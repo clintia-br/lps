@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#007E84">
+
+<!-- SEO -->
+<title>Blog de Saúde | Alpha Policlínica — Jaguaribe, João Pessoa</title>
+<meta name="description" content="Artigos sobre exames, especialidades médicas e concursos públicos em João Pessoa. Conteúdo dos especialistas da Alpha Policlínica em Jaguaribe, PB.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.alphapoliclinica.com.br/blog">
+<meta name="geo.region" content="BR-PB">
+<meta name="geo.placename" content="João Pessoa">
+<meta name="geo.position" content="-7.1353129;-34.8820937">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://www.alphapoliclinica.com.br/blog">
+<meta property="og:title" content="Blog de Saúde | Alpha Policlínica — João Pessoa, PB">
+<meta property="og:description" content="Artigos sobre exames, especialidades médicas e concursos públicos produzidos pelos especialistas da Alpha Policlínica em João Pessoa.">
+<meta property="og:image" content="https://res.cloudinary.com/dwiyrcjah/image/upload/c_fill,g_auto,w_1200,h_630/f_auto/q_auto/hero-atendimento">
+<meta property="og:site_name" content="Alpha Policlínica">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog Alpha Policlínica — Saúde em João Pessoa">
+<meta name="twitter:description" content="Artigos sobre exames, especialidades e concursos produzidos pelos especialistas da Alpha Policlínica.">
+
+<!-- Favicon -->
+<link rel="icon" href="https://res.cloudinary.com/dwiyrcjah/image/upload/w_32,h_32,c_fill/alphapoliclinica/favicon-192.jpg" sizes="32x32">
+<link rel="icon" href="https://res.cloudinary.com/dwiyrcjah/image/upload/alphapoliclinica/favicon-192.jpg" sizes="192x192">
+<link rel="apple-touch-icon" href="https://res.cloudinary.com/dwiyrcjah/image/upload/w_180,h_180,c_fill/alphapoliclinica/favicon-192.jpg">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Schema: Blog + BreadcrumbList -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog Alpha Policlínica",
+    "url": "https://www.alphapoliclinica.com.br/blog",
+    "description": "Artigos sobre saúde, exames e especialidades médicas da Alpha Policlínica em Jaguaribe, João Pessoa, PB.",
+    "inLanguage": "pt-BR",
+    "publisher": {
+      "@type": "MedicalClinic",
+      "name": "Alpha Policlínica",
+      "url": "https://www.alphapoliclinica.com.br/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://res.cloudinary.com/dwiyrcjah/image/upload/alphapoliclinica/logo-verde.svg"
+      },
+      "telephone": "+55-83-99314-9477",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "João Pessoa",
+        "addressRegion": "PB",
+        "addressCountry": "BR"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.alphapoliclinica.com.br/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.alphapoliclinica.com.br/blog" }
+    ]
+  }
+]
+</script>
+
+<style>
+/* ============================================
+   TOKENS
+   ============================================ */
+:root {
+  --brand-900: #003d40;
+  --brand-800: #005a5f;
+  --brand-700: #007E84;
+  --brand-500: #1FBDC5;
+  --brand-100: #D9F0F1;
+  --brand-50:  #EDF8F8;
+
+  --ink-900: #0A1819;
+  --ink-700: #1E3538;
+  --ink-500: #4D6669;
+  --ink-400: #6B8184;
+  --ink-300: #9eb5b8;
+
+  --paper:   #FAF8F3;
+  --paper-2: #F2EFE7;
+  --paper-3: #E9E4D6;
+  --white:   #FFFFFF;
+
+  --wpp: #25D366;
+
+  --sh-sm: 0 1px 4px rgba(13,31,33,.06);
+  --sh-md: 0 6px 20px rgba(13,31,33,.08);
+  --sh-lg: 0 16px 48px rgba(0,0,0,.10);
+
+  --r-sm:   6px;
+  --r-md:   14px;
+  --r-lg:   24px;
+  --r-pill: 999px;
+
+  --font-d: "Fraunces", Georgia, serif;
+  --font-b: "Manrope", -apple-system, sans-serif;
+  --wrap:   1240px;
+  --ease:   cubic-bezier(.2,.8,.2,1);
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:var(--font-b);font-size:16px;line-height:1.65;color:var(--ink-700);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;padding:0}
+h1,h2,h3,h4{font-family:var(--font-d);font-weight:400;line-height:1.12;letter-spacing:-.025em;color:var(--ink-900);margin:0}
+h1 strong,h2 strong{font-weight:600;color:var(--brand-700)}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* ============================================
+   REVEAL ANIMATION
+   ============================================ */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.rv.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:80ms}.d2{transition-delay:160ms}.d3{transition-delay:240ms}.d4{transition-delay:320ms}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.hdr{
+  position:sticky;top:0;z-index:90;
+  background:rgba(250,248,243,.96);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(0,126,132,.07);
+  transition:box-shadow .3s;
+}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;padding:11px 0}
+.logo img{height:38px;width:auto}
+.nav{display:flex;align-items:center;gap:2px}
+.nav a{padding:7px 13px;font-weight:600;font-size:14px;color:var(--ink-700);border-radius:var(--r-pill);transition:all .25s}
+.nav a:hover,.nav a.on{background:var(--brand-50);color:var(--brand-700)}
+.hdr-right{display:flex;align-items:center;gap:14px}
+.tel{display:flex;align-items:center;gap:6px;font-weight:700;font-size:13px;color:var(--ink-900)}
+.tel svg{color:var(--brand-700);width:16px;height:16px}
+.btn-ag{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;background:var(--brand-700);color:var(--white);border-radius:var(--r-pill);font-weight:700;font-size:13px;transition:all .3s var(--ease)}
+.btn-ag:hover{background:var(--brand-800);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,126,132,.3)}
+.ham{display:none;width:42px;height:42px;align-items:center;justify-content:center}
+.ham svg{width:24px;height:24px}
+
+/* Mobile drawer */
+.m-ov{position:fixed;inset:0;background:rgba(10,24,25,.55);z-index:99;opacity:0;pointer-events:none;transition:opacity .35s}
+.m-ov.on{opacity:1;pointer-events:auto}
+.m-nav{position:fixed;top:0;right:0;bottom:0;width:min(300px,88vw);background:var(--white);z-index:100;transform:translateX(100%);transition:transform .38s var(--ease);display:flex;flex-direction:column;padding:24px;overflow-y:auto}
+.m-nav.on{transform:translateX(0)}
+.m-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:20px}
+.m-links{display:flex;flex-direction:column;flex:1}
+.m-links a{font-family:var(--font-d);font-size:20px;padding:14px 0;color:var(--ink-900);border-bottom:1px solid var(--paper-2)}
+.m-cta{margin-top:24px;display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;background:var(--brand-700);color:var(--white);border-radius:var(--r-md);font-weight:700}
+
+/* ============================================
+   BREADCRUMB
+   ============================================ */
+.bc{padding:14px 0;border-bottom:1px solid rgba(0,0,0,.05);background:var(--paper)}
+.bc-in{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-400)}
+.bc-in a{color:var(--ink-400);transition:color .2s}
+.bc-in a:hover{color:var(--brand-700)}
+.bc-in svg{width:12px;height:12px;flex-shrink:0}
+.bc-in span{color:var(--ink-700);font-weight:600}
+
+/* ============================================
+   PAGE HEADER
+   ============================================ */
+.ph{padding:40px 0 36px;background:var(--paper);position:relative;overflow:hidden}
+.ph::after{
+  content:'';position:absolute;top:-60%;right:-8%;
+  width:480px;height:480px;
+  background:radial-gradient(circle,rgba(31,189,197,.13) 0%,transparent 68%);
+  pointer-events:none
+}
+.ph-in{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.ph-left{position:relative}
+.ph-eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:4px 13px;background:var(--white);color:var(--brand-700);
+  border-radius:var(--r-pill);font-size:11px;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;
+  box-shadow:var(--sh-sm)
+}
+.ph h1{font-size:clamp(1.7rem,3.2vw,2.6rem);margin-bottom:10px}
+.ph h1 em{font-style:italic;color:var(--brand-700)}
+.ph-sub{font-size:clamp(13px,1.8vw,15px);color:var(--ink-500);line-height:1.6;max-width:500px;margin-bottom:22px}
+
+/* Search */
+.srch{position:relative;max-width:400px}
+.srch-ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--ink-400);width:17px;height:17px;pointer-events:none}
+#sInput{width:100%;padding:13px 13px 13px 42px;border-radius:var(--r-pill);border:2px solid var(--white);font-size:14px;font-family:var(--font-b);outline:none;transition:border-color .3s,box-shadow .3s;box-shadow:var(--sh-md);background:var(--white)}
+#sInput:focus{border-color:var(--brand-500);box-shadow:var(--sh-lg)}
+#sInput::placeholder{color:var(--ink-300)}
+
+/* Stats */
+.ph-stats{display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+.stat{text-align:right}
+.stat-n{font-family:var(--font-d);font-size:32px;color:var(--brand-700);line-height:1;display:block}
+.stat-l{font-size:11px;color:var(--ink-400);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+
+/* ============================================
+   FILTER BAR
+   ============================================ */
+.fb{
+  position:sticky;top:60px;z-index:80;
+  background:rgba(250,248,243,.97);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+  padding:12px 0;
+}
+.fb-in{display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.fb-in::-webkit-scrollbar{display:none}
+.fc{
+  padding:7px 17px;border-radius:var(--r-pill);
+  font-size:12px;font-weight:700;letter-spacing:.02em;
+  background:var(--white);color:var(--ink-500);
+  border:1.5px solid var(--paper-3);
+  cursor:pointer;transition:all .22s var(--ease);
+  white-space:nowrap;flex-shrink:0
+}
+.fc:hover{border-color:var(--brand-500);color:var(--brand-700)}
+.fc.on{background:var(--brand-700);color:var(--white);border-color:var(--brand-700)}
+
+/* ============================================
+   MAIN EDITORIAL AREA
+   ============================================ */
+.main{padding:48px 0 96px}
+
+/* --- SECTION LABEL --- */
+.sec-label{
+  display:flex;align-items:center;gap:12px;
+  font-size:11px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--ink-400);
+  margin-bottom:24px
+}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--paper-3)}
+
+/* ============================================
+   FEATURED ARTICLE — horizontal, editorial
+   ============================================ */
+.feat{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background:var(--white);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  box-shadow:var(--sh-md);
+  border:1px solid rgba(0,0,0,.04);
+  margin-bottom:16px;
+  transition:box-shadow .4s var(--ease),transform .4s var(--ease);
+  text-decoration:none;color:inherit
+}
+.feat:hover{box-shadow:var(--sh-lg);transform:translateY(-3px)}
+.feat-img{
+  background:var(--paper-2);
+  display:flex;align-items:center;justify-content:center;
+  min-height:280px;position:relative;overflow:hidden
+}
+.feat-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.feat-img svg{width:36px;height:36px;opacity:.25;color:var(--ink-400)}
+.feat-img-badge{
+  position:absolute;top:16px;left:16px;
+  background:var(--brand-700);color:var(--white);
+  font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;
+  padding:4px 12px;border-radius:var(--r-pill)
+}
+.feat-body{padding:36px;display:flex;flex-direction:column;justify-content:center}
+.feat-tag{
+  display:inline-block;font-size:10px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.06em;
+  color:var(--brand-700);background:var(--brand-50);
+  padding:4px 10px;border-radius:var(--r-pill);margin-bottom:14px;width:fit-content
+}
+.feat-title{font-size:clamp(1.2rem,2.2vw,1.65rem);margin-bottom:12px;line-height:1.2}
+.feat-exc{font-size:14px;color:var(--ink-500);line-height:1.65;margin-bottom:20px;flex:1}
+.feat-foot{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--paper-2)}
+.feat-rl{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--brand-700)}
+.feat-rl svg{width:14px;height:14px;transition:transform .3s}
+.feat:hover .feat-rl svg{transform:translateX(4px)}
+.feat-meta{display:flex;align-items:center;gap:12px}
+.feat-rt{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--ink-400);font-weight:600}
+.feat-rt svg,.feat-date svg{width:12px;height:12px}
+.feat-date{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--ink-400);font-weight:600}
+
+/* ============================================
+   CTA STRIP — full width, between sections
+   ============================================ */
+.strip{
+  background:linear-gradient(135deg,var(--brand-700) 0%,var(--brand-900) 100%);
+  border-radius:var(--r-lg);
+  padding:28px 36px;
+  display:flex;align-items:center;gap:24px;
+  margin-bottom:48px;
+  position:relative;overflow:hidden
+}
+.strip::before{
+  content:'';position:absolute;top:-40%;right:-5%;
+  width:280px;height:280px;
+  background:radial-gradient(circle,rgba(255,255,255,.09) 0%,transparent 70%);
+  pointer-events:none
+}
+.strip-icon{
+  width:52px;height:52px;flex-shrink:0;
+  background:rgba(255,255,255,.12);border-radius:14px;
+  display:flex;align-items:center;justify-content:center;color:var(--white)
+}
+.strip-icon svg{width:26px;height:26px}
+.strip-body{flex:1;min-width:0}
+.strip-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.65);display:block;margin-bottom:5px}
+.strip-body h3{font-family:var(--font-b);font-size:clamp(15px,2vw,18px);font-weight:700;color:var(--white);margin-bottom:4px}
+.strip-body p{font-size:13px;color:rgba(255,255,255,.8);line-height:1.5}
+.strip-cta{
+  flex-shrink:0;display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;background:var(--white);color:var(--brand-700);
+  border-radius:var(--r-pill);font-size:13px;font-weight:800;
+  transition:all .3s var(--ease);position:relative
+}
+.strip-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.strip-cta svg{width:15px;height:15px}
+
+/* ============================================
+   ARTICLE GRID — 3 columns, no orphans
+   ============================================ */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-bottom:48px
+}
+
+.card{
+  background:var(--white);border-radius:var(--r-md);
+  overflow:hidden;box-shadow:var(--sh-sm);
+  border:1px solid rgba(0,0,0,.04);
+  display:flex;flex-direction:column;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+  text-decoration:none;color:inherit
+}
+.card:hover{transform:translateY(-5px);box-shadow:var(--sh-md)}
+.card[data-h="1"]{display:none}
+
+.card-img{
+  width:100%;aspect-ratio:16/9;
+  background:var(--paper-2);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink-400);overflow:hidden;flex-shrink:0;position:relative
+}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.card:hover .card-img img{transform:scale(1.03)}
+.card-img svg{width:26px;height:26px;opacity:.25}
+
+.card-body{padding:20px;display:flex;flex-direction:column;flex:1}
+.card-tag{
+  display:inline-block;font-size:10px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.06em;
+  color:var(--brand-700);background:var(--brand-50);
+  padding:3px 9px;border-radius:var(--r-pill);margin-bottom:10px;width:fit-content
+}
+.card-title{
+  font-size:15px;font-weight:700;font-family:var(--font-b);
+  margin-bottom:8px;line-height:1.4;color:var(--ink-900);
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden
+}
+.card-exc{
+  font-size:13px;color:var(--ink-500);margin-bottom:14px;
+  line-height:1.6;flex:1;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden
+}
+.card-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:12px;border-top:1px solid var(--paper-2);margin-top:auto
+}
+.card-rl{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--brand-700)}
+.card-rl svg{width:13px;height:13px;transition:transform .3s}
+.card:hover .card-rl svg{transform:translateX(4px)}
+.card-meta{display:flex;align-items:center;gap:8px}
+.card-rt{display:flex;align-items:center;gap:3px;font-size:11px;color:var(--ink-400);font-weight:600}
+.card-rt svg{width:11px;height:11px}
+
+/* Empty state */
+.empty{grid-column:1/-1;text-align:center;padding:56px 24px;display:none}
+.empty.on{display:block}
+.empty svg{width:40px;height:40px;color:var(--ink-400);margin:0 auto 14px;opacity:.3}
+.empty h3{font-size:18px;color:var(--ink-700);margin-bottom:6px}
+.empty p{font-size:13px;color:var(--ink-500)}
+
+/* ============================================
+   WPP WIDGET — inline, between content
+   ============================================ */
+.wpp-widget{
+  background:var(--paper-2);border:1px solid var(--paper-3);
+  border-radius:var(--r-lg);padding:28px 32px;
+  display:flex;align-items:center;gap:20px;
+  margin-bottom:48px
+}
+.wpp-widget-icon{
+  width:52px;height:52px;flex-shrink:0;
+  background:var(--wpp);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--white)
+}
+.wpp-widget-icon svg{width:24px;height:24px}
+.wpp-widget-body{flex:1}
+.wpp-widget-body h4{font-family:var(--font-b);font-size:16px;font-weight:700;color:var(--ink-900);margin-bottom:4px}
+.wpp-widget-body p{font-size:13px;color:var(--ink-500);line-height:1.5}
+.btn-wpp{
+  flex-shrink:0;display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;background:var(--wpp);color:var(--white);
+  border-radius:var(--r-pill);font-size:13px;font-weight:800;
+  transition:all .3s var(--ease)
+}
+.btn-wpp:hover{background:#1ebd5a;transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,211,102,.3)}
+.btn-wpp svg{width:15px;height:15px}
+
+/* ============================================
+   RESULT COUNT
+   ============================================ */
+.rcount{font-size:13px;color:var(--ink-400);font-weight:600;margin-bottom:20px}
+.rcount strong{color:var(--brand-700)}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.ftr{background:var(--ink-900);color:rgba(255,255,255,.75);padding:56px 0 0}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.09)}
+.ftr-brand img{height:30px;margin-bottom:12px;filter:brightness(0) invert(1)}
+.ftr-brand p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;max-width:260px;margin-bottom:14px}
+.ftr-soc{display:flex;gap:8px}
+.ftr-soc a{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;transition:all .3s;color:rgba(255,255,255,.65)}
+.ftr-soc a:hover{background:var(--brand-700);color:var(--white);transform:translateY(-2px)}
+.ftr-soc svg{width:14px;height:14px}
+.ftr-col h4{font-family:var(--font-b);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--white);margin-bottom:14px}
+.ftr-col ul{display:flex;flex-direction:column;gap:8px}
+.ftr-col a{font-size:13px;color:rgba(255,255,255,.6);transition:color .3s}
+.ftr-col a:hover{color:var(--brand-500)}
+.ftr-ci{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.6);margin-bottom:8px}
+.ftr-ci svg{color:var(--brand-500);flex-shrink:0;margin-top:2px;width:13px;height:13px}
+.ftr-btm{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:16px 0;font-size:12px;color:rgba(255,255,255,.35)}
+.dev a{color:var(--brand-500);font-weight:700;transition:color .3s}
+.dev a:hover{color:var(--white)}
+
+/* WhatsApp float */
+.wf{position:fixed;bottom:20px;right:20px;z-index:99;width:54px;height:54px;border-radius:50%;background:var(--wpp);color:var(--white);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(37,211,102,.35);transition:transform .3s var(--ease),box-shadow .3s}
+.wf:hover{transform:scale(1.1) rotate(5deg);box-shadow:0 14px 36px rgba(37,211,102,.45)}
+.wf svg{width:26px;height:26px}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media(max-width:980px){
+  .nav,.tel{display:none!important}
+  .ham{display:flex}
+  .ph-in{grid-template-columns:1fr}
+  .ph-stats{flex-direction:row;align-items:center}
+  .ph-stats .stat{text-align:left}
+  .stat-n{font-size:24px}
+  .feat{grid-template-columns:1fr}
+  .feat-img{min-height:200px}
+  .feat-body{padding:24px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .strip{flex-wrap:wrap;padding:24px 20px}
+  .strip-cta{width:100%}
+  .wpp-widget{flex-wrap:wrap}
+  .btn-wpp{width:100%;justify-content:center}
+  .ftr-grid{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:600px){
+  .wrap{padding:0 16px}
+  .ph{padding:28px 0 24px}
+  .ph h1{font-size:1.5rem}
+  .srch{max-width:100%}
+  .feat-body{padding:20px}
+  .feat-title{font-size:1.1rem}
+  .grid{grid-template-columns:1fr}
+  .strip{padding:20px 16px}
+  .strip-icon{display:none}
+  .wpp-widget{padding:20px 16px}
+  .wpp-widget-icon{display:none}
+  .ftr-grid{grid-template-columns:1fr}
+  .ftr-brand p{max-width:100%}
+}
+</style>
+<script>document.documentElement.classList.add("v2-js")</script>
+<link rel="stylesheet" href="../assets/v2.css">
+</head>
+<body class="v2 v2-blog">
+<a href="#main" class="sr">Ir para o conteúdo</a>
+
+<!-- ============ HEADER ============ -->
+<header class="hdr" role="banner">
+  <div class="wrap">
+    <div class="hdr-in">
+      <a href="../" aria-label="Alpha Policlínica — Início">
+        <img class="logo" src="https://res.cloudinary.com/dwiyrcjah/image/upload/alphapoliclinica/logo-verde.svg" alt="Alpha Policlínica" height="38">
+      </a>
+      <nav class="nav" aria-label="Principal">
+        <a href="../#especialidades">Especialidades</a>
+        <a href="../#exames">Exames</a>
+        <a href="../#concursos">Concursos</a>
+        <a href="../#unidades">Unidades</a>
+        <a href="./" class="on" aria-current="page">Blog</a>
+      </nav>
+      <div class="hdr-right">
+        <div class="tel">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (83) 99314-9477
+        </div>
+        <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Ol%C3%A1%2C+gostaria+de+agendar&utm_source=blog&utm_medium=whatsapp&utm_campaign=header" target="_blank" rel="noopener" class="btn-ag">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          Agendar Consulta
+        </a>
+        <button class="ham" id="hamBtn" aria-label="Abrir menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="m-ov" id="mOv"></div>
+<div class="m-nav" id="mNav" aria-hidden="true">
+  <div class="m-top">
+    <img src="https://res.cloudinary.com/dwiyrcjah/image/upload/alphapoliclinica/logo-verde.svg" alt="Alpha Policlínica" height="30">
+    <button class="ham" id="closeBtn" style="display:flex" aria-label="Fechar menu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="m-links">
+    <a href="../#especialidades">Especialidades</a>
+    <a href="../#exames">Exames</a>
+    <a href="../#concursos">Concursos</a>
+    <a href="../#unidades">Unidades</a>
+    <a href="./">Blog</a>
+  </div>
+  <a href="https://api.whatsapp.com/send/?phone=5583993149477" target="_blank" rel="noopener" class="m-cta">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+    Agendar pelo WhatsApp
+  </a>
+</div>
+
+<!-- ============ BREADCRUMB ============ -->
+<nav aria-label="Você está em" class="bc">
+  <div class="wrap">
+    <div class="bc-in">
+      <a href="../">Início</a>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>Blog</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ PAGE HEADER ============ -->
+<section class="ph">
+  <div class="wrap">
+    <div class="ph-in rv">
+      <div class="ph-left">
+        <span class="ph-eyebrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Conteúdo & Saúde
+        </span>
+        <h1>Informação de qualidade<br>para cuidar da saúde em <em>João Pessoa</em></h1>
+        <p class="ph-sub">Artigos dos especialistas da Alpha Policlínica sobre exames, especialidades médicas e concursos em Jaguaribe, João Pessoa — PB.</p>
+        <div class="srch">
+          <svg class="srch-ic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="sInput" placeholder="Buscar artigos..." autocomplete="off" aria-label="Buscar artigos">
+        </div>
+      </div>
+      <div class="ph-stats">
+        <div class="stat">
+          <span class="stat-n" id="totalCount">4</span>
+          <span class="stat-l">Artigos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FILTER BAR ============ -->
+<div class="fb" role="navigation" aria-label="Filtrar por categoria">
+  <div class="wrap">
+    <div class="fb-in">
+      <button class="fc on" data-cat="todos">Todos os artigos</button>
+      <button class="fc" data-cat="imagem">Diagnóstico por Imagem</button>
+      <button class="fc" data-cat="saude-da-mulher">Saúde da Mulher</button>
+      <button class="fc" data-cat="saude-digestiva">Saúde Digestiva</button>
+      <button class="fc" data-cat="concursos">Concursos Públicos</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MAIN CONTENT ============ -->
+<main id="main" class="main">
+  <div class="wrap">
+
+    <!-- Resultado de busca / contagem -->
+    <p class="rcount rv"><strong id="rCount">4</strong> artigos encontrados</p>
+
+    <!-- ARTIGO DESTAQUE -->
+    <div class="sec-label rv">Destaque</div>
+
+    <a href="ressonancia-campo-aberto-joao-pessoa/" class="feat rv"
+       data-cat="imagem"
+       data-title="Ressonância Magnética de Campo Aberto em João Pessoa: A Solução para a Claustrofobia">
+      <div class="feat-img">
+        <img src="../assets/img/blog-ressonancia-card-p.webp" srcset="../assets/img/blog-ressonancia-card-p.webp 480w, ../assets/img/blog-ressonancia-card-g.webp 744w" sizes="(max-width:600px) 92vw, (max-width:980px) 46vw, 400px" data-v2w="480" data-v2h="268" alt="Ressonância Magnética de Campo Aberto" loading="lazy" decoding="async">
+        <span class="feat-img-badge">Destaque</span>
+      </div>
+      <div class="feat-body">
+        <span class="feat-tag">Tecnologia & Conforto</span>
+        <h2 class="feat-title">Ressonância Magnética de Campo Aberto em João Pessoa: A Solução para a Claustrofobia</h2>
+        <p class="feat-exc">Entenda como funciona a tecnologia de campo aberto e por que é a opção mais confortável para pacientes com medo de espaços fechados, idosos e pessoas obesas que precisam realizar o exame em João Pessoa, PB.</p>
+        <div class="feat-foot">
+          <span class="feat-rl">
+            Ler artigo completo
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+          <div class="feat-meta">
+            <span class="feat-rt">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              6 min de leitura
+            </span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- CTA STRIP — Ressonância Campo Aberto -->
+    <div class="strip rv">
+      <div class="strip-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div class="strip-body">
+        <span class="strip-tag">Exclusividade na Região</span>
+        <h3>Ressonância de Campo Aberto — sem claustrofobia, sem desconforto</h3>
+        <p>Aparelho especial para idosos, pacientes obesos e quem sofre com espaços fechados. Agende agora pelo WhatsApp.</p>
+      </div>
+      <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Gostaria+de+agendar+Resson%C3%A2ncia+de+Campo+Aberto&utm_source=blog&utm_medium=whatsapp&utm_campaign=strip-resssonancia" target="_blank" rel="noopener" class="strip-cta">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        Agendar agora
+      </a>
+    </div>
+
+    <!-- GRID DE ARTIGOS -->
+    <div class="sec-label rv">Mais artigos</div>
+
+    <div class="grid" id="artGrid">
+
+      <!-- ARTIGO 2 -->
+      <a href="mamografia-joao-pessoa-idade-certa/" class="card rv d1"
+         data-cat="saude-da-mulher"
+         data-title="Mamografia em João Pessoa: Idade Certa, Prevenção e Vantagens do Diagnóstico Digital">
+        <div class="card-img">
+          <img src="../assets/img/blog-mamografia-card-p.webp" srcset="../assets/img/blog-mamografia-card-p.webp 480w, ../assets/img/blog-mamografia-card-g.webp 776w" sizes="(max-width:600px) 92vw, (max-width:980px) 46vw, 400px" data-v2w="480" data-v2h="268" alt="Mamografia digital em João Pessoa" loading="lazy" decoding="async">
+        </div>
+        <div class="card-body">
+          <span class="card-tag">Saúde da Mulher</span>
+          <h2 class="card-title">Mamografia em João Pessoa: Idade Certa, Prevenção e Vantagens do Diagnóstico Digital</h2>
+          <p class="card-exc">O rastreio precoce salva vidas. Saiba a partir de que idade fazer o exame e conheça a precisão da mamografia digital disponível em Jaguaribe.</p>
+          <div class="card-foot">
+            <span class="card-rl">Ler artigo <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="card-rt"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ARTIGO 3 -->
+      <a href="ultrassonografia-doppler-jaguaribe-joao-pessoa/" class="card rv d2"
+         data-cat="imagem"
+         data-title="Ultrassonografia com Doppler: O Que É, Para Que Serve e Onde Fazer em Jaguaribe">
+        <div class="card-img">
+          <img src="../assets/img/blog-ultrassom-card-p.webp" srcset="../assets/img/blog-ultrassom-card-p.webp 480w, ../assets/img/blog-ultrassom-card-g.webp 776w" sizes="(max-width:600px) 92vw, (max-width:980px) 46vw, 400px" data-v2w="480" data-v2h="268" alt="Ultrassonografia com Doppler em Jaguaribe" loading="lazy" decoding="async">
+        </div>
+        <div class="card-body">
+          <span class="card-tag">Diagnóstico por Imagem</span>
+          <h2 class="card-title">Ultrassonografia com Doppler: O Que É, Para Que Serve e Onde Fazer em Jaguaribe</h2>
+          <p class="card-exc">Exame que avalia o fluxo sanguíneo em tempo real, prevenindo problemas vasculares de forma indolor. Disponível em Jaguaribe, João Pessoa.</p>
+          <div class="card-foot">
+            <span class="card-rl">Ler artigo <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="card-rt"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ARTIGO 4 -->
+      <a href="endoscopia-colonoscopia-joao-pessoa-paraiba/" class="card rv d3"
+         data-cat="saude-digestiva"
+         data-title="Endoscopia Digestiva e Colonoscopia: Diagnóstico Rápido e Seguro na Paraíba">
+        <div class="card-img">
+          <img src="../assets/img/blog-endoscopia-card-p.webp" srcset="../assets/img/blog-endoscopia-card-p.webp 480w, ../assets/img/blog-endoscopia-card-g.webp 776w" sizes="(max-width:600px) 92vw, (max-width:980px) 46vw, 400px" data-v2w="480" data-v2h="268" alt="Endoscopia Digestiva e Colonoscopia" loading="lazy" decoding="async">
+        </div>
+        <div class="card-body">
+          <span class="card-tag">Saúde Digestiva</span>
+          <h2 class="card-title">Endoscopia Digestiva e Colonoscopia: Diagnóstico Rápido e Seguro na Paraíba</h2>
+          <p class="card-exc">Dores de estômago ou alterações intestinais não devem ser ignoradas. Exames com sedação para diagnóstico preciso em João Pessoa, PB.</p>
+          <div class="card-foot">
+            <span class="card-rl">Ler artigo <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="card-rt"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6 min</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Empty state -->
+      <div class="empty" id="emptyState">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <h3>Nenhum artigo encontrado</h3>
+        <p>Tente outra busca ou selecione "Todos os artigos".</p>
+      </div>
+
+    </div>
+
+    <!-- CTA STRIP — Concursos -->
+    <div class="strip rv">
+      <div class="strip-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div class="strip-body">
+        <span class="strip-tag">PCPE · PMPB · GCM · Polícia Federal</span>
+        <h3>Todos os exames do edital em um só lugar — com laudo aceito pela banca</h3>
+        <p>Laboratório, toxicológico, imagem e laudos especializados. Resolva tudo em uma manhã em Jaguaribe.</p>
+      </div>
+      <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Preciso+fazer+exames+para+concurso&utm_source=blog&utm_medium=whatsapp&utm_campaign=strip-concursos" target="_blank" rel="noopener" class="strip-cta">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        Agendar exames
+      </a>
+    </div>
+
+    <!-- WIDGET WHATSAPP -->
+    <div class="wpp-widget rv">
+      <div class="wpp-widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+      </div>
+      <div class="wpp-widget-body">
+        <h4>Ficou com dúvida sobre algum exame ou especialidade?</h4>
+        <p>Nossa equipe responde via WhatsApp em menos de 5 minutos — todos os dias, o dia todo.</p>
+      </div>
+      <a href="https://api.whatsapp.com/send/?phone=5583993149477&text=Ol%C3%A1%2C+vi+o+blog+e+tenho+uma+d%C3%BAvida&utm_source=blog&utm_medium=whatsapp&utm_campaign=widget-wpp" target="_blank" rel="noopener" class="btn-wpp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ftr" role="contentinfo">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div class="ftr-brand">
+        <img src="https://res.cloudinary.com/dwiyrcjah/image/upload/alphapoliclinica/logo-branco.svg" alt="Alpha Policlínica">
+        <p>A principal clínica popular de Jaguaribe, João Pessoa — PB. O melhor preço e o atendimento mais humano da região.</p>
+        <div class="ftr-soc">
+          <a href="https://www.instagram.com/alphapoliclinica/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/policlinica.alpha/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ftr-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="../">Início</a></li>
+          <li><a href="../#especialidades">Especialidades</a></li>
+          <li><a href="../#exames">Exames</a></li>
+          <li><a href="../#concursos">Concursos</a></li>
+          <li><a href="../#unidades">Unidades</a></li>
+          <li><a href="./">Blog</a></li>
+        </ul>
+      </div>
+      <div class="ftr-col">
+        <h4>Contato</h4>
+        <div class="ftr-ci">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+5583993149477">(83) 99314-9477</a>
+        </div>
+        <div class="ftr-ci">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Seg–Sex: 06h às 17h · Sáb: 06h às 12h</span>
+        </div>
+      </div>
+      <div class="ftr-col">
+        <h4>Endereços</h4>
+        <div class="ftr-ci">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Praça Semeão Leal, 9 — Jaguaribe</span>
+        </div>
+        <div class="ftr-ci">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Rua Américo Falcão, 126 — Jaguaribe</span>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-btm">
+      <div>© <span id="yr"></span> Alpha Policlínica · CNPJ 32.730.824/0001-03</div>
+    </div>
+  </div>
+<!-- credito-clintia:inicio -->
+<style>
+.cc-cred{display:flex;justify-content:center;padding:20px 16px 26px;margin-top:6px;border-top:1px solid var(--cc-linha)}
+.cc-cred,.cc-cred[data-tema=claro]{--cc-txt:#4A5568;--cc-linha:rgba(5,90,170,.16);--cc-fundo:rgba(5,120,220,.05)}
+.cc-cred[data-tema=escuro]{--cc-txt:rgba(255,255,255,.78);--cc-linha:rgba(5,210,255,.22);--cc-fundo:rgba(5,210,255,.07)}
+.cc-cred a{position:relative;display:inline-flex;align-items:center;gap:10px;padding:9px 15px 9px 17px;border-radius:999px;
+  text-decoration:none;font:600 12px/1 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:.02em;color:var(--cc-txt);
+  background:var(--cc-fundo);border:1px solid var(--cc-linha);overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,border-color .25s}
+.cc-cred a::before{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(5,210,255,.3) 50%,transparent 70%);
+  transform:translateX(-120%);transition:transform .9s ease}
+.cc-cred a:hover{transform:translateY(-2px);border-color:#05D2FF;box-shadow:0 10px 26px rgba(5,90,170,.24)}
+.cc-cred a:hover::before{transform:translateX(120%)}
+.cc-cred img{height:17px;width:auto;display:block}
+.cc-cred .cc-b{display:none}
+.cc-cred[data-tema=escuro] .cc-b{display:block}.cc-cred[data-tema=escuro] .cc-c{display:none}
+.cc-cred .cc-seta{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;opacity:.7;transition:transform .25s}
+.cc-cred a:hover .cc-seta{transform:translate(2px,-2px);opacity:1}
+@media (prefers-reduced-motion:reduce){.cc-cred a,.cc-cred a::before,.cc-cred .cc-seta{transition:none}}
+</style>
+<div class="cc-cred" data-tema=""><a href="https://clintia.com.br/?utm_source=alphapoliclinica&utm_medium=rodape_site&utm_campaign=desenvolvido_por" target="_blank" rel="noopener" aria-label="Site desenvolvido pela ClintIA">
+<span>Desenvolvido por</span><img class="cc-c" src="data:image/png;base64,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" alt="ClintIA"><img class="cc-b" src="data:image/png;base64,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" alt="ClintIA"><svg class="cc-seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+</a></div>
+<script>(function(){var s=document.currentScript.previousElementSibling;if(!s||s.dataset.tema)return;
+var e=s,c;while(e&&e!==document.documentElement){c=getComputedStyle(e).backgroundColor;var m=c.match(/[\d.]+/g);
+if(m&&(m.length<4||+m[3]>0.5)){var l=(0.299*m[0]+0.587*m[1]+0.114*m[2]);s.dataset.tema=l<140?'escuro':'claro';return;}e=e.parentElement;}
+s.dataset.tema='claro';})();</script>
+<!-- credito-clintia:fim -->
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://api.whatsapp.com/send/?phone=5583993149477&utm_source=blog&utm_medium=whatsapp&utm_campaign=flutuante" target="_blank" rel="noopener" class="wf" aria-label="Falar no WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+</a>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Header shadow
+const hdr = document.querySelector('.hdr');
+window.addEventListener('scroll', () => {
+  hdr.style.boxShadow = window.scrollY > 8 ? '0 4px 20px rgba(0,0,0,.07)' : 'none';
+}, { passive: true });
+
+// Reveal on scroll
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.07, rootMargin: '0px 0px -36px 0px' });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// Mobile nav
+const hamBtn = document.getElementById('hamBtn');
+const closeBtn = document.getElementById('closeBtn');
+const mNav = document.getElementById('mNav');
+const mOv = document.getElementById('mOv');
+const toggle = open => {
+  mNav.classList.toggle('on', open);
+  mOv.classList.toggle('on', open);
+  mNav.setAttribute('aria-hidden', !open);
+  document.body.style.overflow = open ? 'hidden' : '';
+};
+hamBtn?.addEventListener('click', () => toggle(true));
+closeBtn?.addEventListener('click', () => toggle(false));
+mOv?.addEventListener('click', () => toggle(false));
+mNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
+
+// Articles: all cards + featured
+const featured = document.querySelector('.feat');
+const cards = [...document.querySelectorAll('.card[data-cat]')];
+const allArticles = [featured, ...cards].filter(Boolean);
+
+const countEl = document.getElementById('rCount');
+const totalEl = document.getElementById('totalCount');
+const emptyEl = document.getElementById('emptyState');
+
+totalEl.textContent = allArticles.length;
+
+function updateCount() {
+  const visible = allArticles.filter(a => a.getAttribute('data-h') !== '1').length;
+  countEl.textContent = visible;
+  emptyEl.classList.toggle('on', visible === 0);
+}
+
+// Filters
+const fcs = document.querySelectorAll('.fc');
+fcs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    fcs.forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    const cat = btn.dataset.cat;
+    // Reset search
+    document.getElementById('sInput').value = '';
+    allArticles.forEach(a => {
+      const match = cat === 'todos' || a.dataset.cat === cat;
+      a.setAttribute('data-h', match ? '0' : '1');
+    });
+    updateCount();
+  });
+});
+
+// Search
+const sInput = document.getElementById('sInput');
+sInput?.addEventListener('input', () => {
+  const val = sInput.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  // Reset filters
+  fcs.forEach(b => b.classList.remove('on'));
+  document.querySelector('.fc[data-cat="todos"]')?.classList.add('on');
+
+  if (!val) {
+    allArticles.forEach(a => a.setAttribute('data-h', '0'));
+  } else {
+    allArticles.forEach(a => {
+      const title = (a.dataset.title || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      a.setAttribute('data-h', title.includes(val) ? '0' : '1');
+    });
+  }
+  updateCount();
+});
+</script>
+
+<!-- Evento de conversão: clique em link de WhatsApp -->
+<script>
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a[href*="api.whatsapp.com"], a[href*="wa.me"]') : null;
+  if(!a) return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'whatsapp_click',
+    link_url: a.href,
+    link_text: (a.textContent || '').trim().slice(0, 80),
+    page_path: location.pathname
+  });
+  if (typeof fbq === 'function') fbq('track', 'Contact');
+});
+</script>
+<script src="../assets/v2.js" defer></script>
+</body>
+</html>
