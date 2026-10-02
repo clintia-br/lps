@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Dossiê de Posicionamento · Policlínica Alpha</title>
+<meta name="description" content="O essencial do dossiê, para ler em poucos minutos.">
+<script>document.documentElement.className='js';</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23003D40'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%2300A3AB'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{--dk:#003D40;--pri:#007E84;--ac:#00A3AB;--ac-bg:#D9F0F1;--det:#FFD166;
+--ink:#14272D;--mut:#5B6F76;--hair:#D9E3E6;--paper:#FAF8F3;--ok:#157A4C;--no:#B23B2C;--mid:#A86A00;
+--ff:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+--u:min(1vw,1.75vh);--ease:cubic-bezier(.2,.75,.2,1);--chrome:58px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font:16px/1.6 var(--ff);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--ff);letter-spacing:-.02em;line-height:1.1}
+b,strong{font-weight:800}
+.rot{font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(10.5px,calc(.92*var(--u)),13.5px)}
+
+.slide{position:relative;display:flex;flex-direction:column;min-height:100vh;padding:clamp(22px,calc(3*var(--u)),52px) clamp(20px,calc(6*var(--u)),104px) clamp(30px,calc(4*var(--u)),64px);background:var(--paper);border-bottom:1px solid var(--hair)}
+.slide.dark{background:var(--dk);color:#fff;border-bottom-color:rgba(255,255,255,.1)}
+.s-top{display:flex;justify-content:space-between;gap:16px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(10px,calc(.88*var(--u)),13px);color:var(--mut);padding-bottom:clamp(14px,calc(1.6*var(--u)),24px);border-bottom:1px solid var(--hair)}
+.dark .s-top{color:rgba(255,255,255,.55);border-bottom-color:rgba(255,255,255,.14)}
+.s-sec{color:var(--pri)}.dark .s-sec{color:var(--ac)}
+.s-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:clamp(18px,calc(2.6*var(--u)),44px);width:100%;max-width:1320px}
+.chrome{display:none}
+html.js,html.js body{height:100%;overflow:hidden}
+html.js body{background:var(--dk)}
+html.js .slide{position:fixed;inset:0;display:none;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-bottom:calc(var(--chrome) + clamp(18px,calc(2.4*var(--u)),36px));border-bottom:0;-webkit-overflow-scrolling:touch}
+html.js .slide.active{display:flex}
+html.js .chrome{display:flex}
+/* entradas em sequência (não desligam com "menos movimento") */
+html.js .slide.active .a{animation:sobe .8s var(--ease) both;animation-delay:calc(var(--i,0)*85ms + 80ms)}
+html.js .slide.active .a.fade{animation-name:surge}
+@keyframes sobe{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes surge{from{opacity:0}to{opacity:1}}
+
+.eyebrow{font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:clamp(11px,calc(1*var(--u)),15px);color:var(--pri);margin-bottom:clamp(10px,calc(1.2*var(--u)),18px)}
+.dark .eyebrow{color:var(--ac)}
+h2.t{font-size:clamp(27px,calc(3.8*var(--u)),62px);font-weight:900;letter-spacing:-.03em;color:var(--dk);max-width:24ch}
+.dark h2.t{color:#fff}
+.lede{font-size:clamp(15px,calc(1.45*var(--u)),22px);color:var(--mut);max-width:64ch;margin-top:clamp(10px,calc(1.2*var(--u)),18px);line-height:1.55}
+.dark .lede{color:rgba(255,255,255,.72)}
+.gap{height:clamp(16px,calc(2.6*var(--u)),42px);flex:none}
+.nota{font-size:clamp(12.5px,calc(1.05*var(--u)),15px);color:var(--mut);margin-top:clamp(12px,calc(1.6*var(--u)),22px);max-width:90ch;line-height:1.5}
+.dark .nota{color:rgba(255,255,255,.6)}
+
+/* capa e fim */
+.capa .s-body,.fim .s-body{justify-content:flex-end;padding-bottom:clamp(10px,calc(2*var(--u)),30px)}
+.marca{display:flex;align-items:center;gap:clamp(14px,calc(2*var(--u)),26px)}
+.marca img.cli{display:block;width:auto;height:clamp(40px,calc(5*var(--u)),76px)}
+.vol{font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:clamp(11px,calc(1*var(--u)),15px);color:var(--ac);margin-top:clamp(22px,calc(4*var(--u)),60px)}
+.capa h1{font-size:clamp(42px,calc(8*var(--u)),132px);font-weight:900;letter-spacing:-.045em;line-height:.95;margin:clamp(8px,calc(1*var(--u)),16px) 0 clamp(16px,calc(2*var(--u)),28px);max-width:12ch}
+.capa .sub{font-weight:600;font-size:clamp(17px,calc(1.9*var(--u)),28px);line-height:1.4;color:rgba(255,255,255,.8);max-width:36ch}
+.risca{height:1px;background:rgba(255,255,255,.18);margin:clamp(24px,calc(3.6*var(--u)),54px) 0 clamp(14px,calc(1.6*var(--u)),22px);position:relative;overflow:hidden}
+.risca:after{content:"";position:absolute;inset:0;background:var(--det);transform-origin:left;transform:scaleX(.16)}
+html.js .slide.active .risca:after{animation:risca 1.6s var(--ease) .5s both}
+@keyframes risca{from{transform:scaleX(0)}to{transform:scaleX(.16)}}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px clamp(18px,calc(3*var(--u)),48px);font-size:clamp(13px,calc(1.15*var(--u)),17px);color:rgba(255,255,255,.62)}
+.meta b{color:#fff;font-weight:700}
+.por{display:inline-flex;align-items:center;gap:10px;margin-left:auto}
+.por img{height:clamp(16px,calc(1.7*var(--u)),24px);width:auto;display:block;opacity:.9}
+.fim h2{font-size:clamp(32px,calc(5.2*var(--u)),86px);font-weight:900;letter-spacing:-.04em;max-width:18ch;margin:clamp(22px,calc(4*var(--u)),60px) 0 0}
+
+/* divisor */
+.div .s-body{justify-content:flex-end;padding-bottom:clamp(20px,calc(4*var(--u)),70px)}
+.div .num{font-size:clamp(90px,calc(20*var(--u)),320px);font-weight:900;line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px var(--ac);opacity:.75;margin-bottom:clamp(14px,calc(2.4*var(--u)),36px)}
+.div h2{font-size:clamp(36px,calc(6*var(--u)),98px);font-weight:900;letter-spacing:-.04em;color:#fff;max-width:15ch}
+.div .lede{max-width:50ch}
+
+/* frase */
+.frase{font-weight:800;font-size:clamp(24px,calc(3.5*var(--u)),56px);line-height:1.2;letter-spacing:-.025em;color:var(--dk);max-width:27ch}
+.dark .frase{color:#fff}
+.frase b{color:var(--pri);font-weight:900}.dark .frase b{color:var(--ac)}
+.autor{margin-top:clamp(14px,calc(2*var(--u)),28px);font-weight:700;font-size:clamp(13px,calc(1.2*var(--u)),18px);color:var(--mut)}
+.dark .autor{color:rgba(255,255,255,.65)}
+
+/* números */
+.nums{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));border-top:1px solid var(--hair)}
+.dark .nums{border-top-color:rgba(255,255,255,.16)}
+.nums>div{padding:clamp(16px,calc(2.2*var(--u)),34px) clamp(14px,calc(2.2*var(--u)),34px) 0 0;border-right:1px solid var(--hair);margin-right:clamp(14px,calc(2.2*var(--u)),34px)}
+.dark .nums>div{border-right-color:rgba(255,255,255,.16)}
+.nums>div:last-child{border-right:0;margin-right:0}
+.nums .v{font-weight:900;font-size:clamp(42px,calc(6*var(--u)),98px);line-height:.95;letter-spacing:-.045em;color:var(--pri);white-space:nowrap;font-variant-numeric:tabular-nums}
+.dark .nums .v{color:var(--ac)}
+.nums .r{font-weight:800;font-size:clamp(15px,calc(1.4*var(--u)),21px);line-height:1.3;margin-top:clamp(10px,calc(1.4*var(--u)),20px);max-width:24ch}
+.nums .n{font-size:clamp(13px,calc(1.08*var(--u)),16px);color:var(--mut);margin-top:8px;line-height:1.45;max-width:30ch}
+.dark .nums .n{color:rgba(255,255,255,.62)}
+
+/* colunas */
+.cols{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:clamp(18px,calc(3.2*var(--u)),52px)}
+.col h3{font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:clamp(11px,calc(1*var(--u)),15px);padding-bottom:12px;border-bottom:2px solid currentColor;margin-bottom:4px;color:var(--pri)}
+.col.ok h3{color:var(--ok)}.col.no h3{color:var(--no)}.col.mid h3{color:var(--mid)}
+.dark .col h3{color:var(--ac)}
+.col ul{list-style:none}
+.col li{font-size:clamp(14.5px,calc(1.25*var(--u)),19px);line-height:1.45;padding:clamp(9px,calc(1.1*var(--u)),15px) 0;border-bottom:1px solid var(--hair)}
+.dark .col li{border-bottom-color:rgba(255,255,255,.14)}
+.col p{font-size:clamp(14.5px,calc(1.25*var(--u)),19px);line-height:1.5;padding-top:clamp(9px,calc(1.1*var(--u)),15px)}
+
+/* lista numerada */
+.lista{list-style:none;counter-reset:n;border-top:1px solid var(--hair)}
+.dark .lista{border-top-color:rgba(255,255,255,.18)}
+.lista li{counter-increment:n;display:grid;grid-template-columns:clamp(40px,calc(4.6*var(--u)),74px) minmax(0,1fr);gap:clamp(10px,calc(1.4*var(--u)),22px);padding:clamp(12px,calc(1.6*var(--u)),24px) 0;border-bottom:1px solid var(--hair);max-width:1180px}
+.dark .lista li{border-bottom-color:rgba(255,255,255,.18)}
+.lista li:before{content:counter(n,decimal-leading-zero);font-weight:800;font-size:clamp(12px,calc(1.1*var(--u)),16px);letter-spacing:.06em;color:var(--pri);padding-top:.35em}
+.dark .lista li:before{color:var(--ac)}
+.lista.c2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(22px,calc(4.4*var(--u)),76px);max-width:none}
+.lista h3{font-size:clamp(17px,calc(1.75*var(--u)),27px);font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
+.lista p{font-size:clamp(14.5px,calc(1.3*var(--u)),20px);line-height:1.45}
+.lista li.so p{font-weight:600;font-size:clamp(16px,calc(1.6*var(--u)),25px);line-height:1.38;letter-spacing:-.01em}
+
+/* tabela */
+.tb{width:100%;border-collapse:collapse;table-layout:fixed}
+.tb th,.tb td{text-align:left;vertical-align:top;padding:clamp(10px,calc(1.25*var(--u)),18px) clamp(10px,calc(1.2*var(--u)),18px) clamp(10px,calc(1.25*var(--u)),18px) 0;border-bottom:1px solid var(--hair);font-size:clamp(13.5px,calc(1.18*var(--u)),18px);line-height:1.42}
+.tb thead th{font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:clamp(10.5px,calc(.92*var(--u)),13.5px);color:var(--mut);border-bottom:1px solid var(--ink);padding-top:0}
+.tb td:first-child{font-weight:800;font-size:clamp(14.5px,calc(1.3*var(--u)),20px);line-height:1.25;color:var(--dk)}
+
+/* linha do tempo */
+.tempo{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:0;position:relative}
+.tempo:before{content:"";position:absolute;left:0;right:0;top:clamp(46px,calc(5.6*var(--u)),86px);height:2px;background:var(--hair)}
+.tempo:after{content:"";position:absolute;left:0;top:clamp(46px,calc(5.6*var(--u)),86px);height:2px;width:100%;background:var(--pri);transform-origin:left;transform:scaleX(1)}
+html.js .tempo:after{transform:scaleX(0)}
+html.js .slide.active .tempo:after{transform:scaleX(1);transition:transform 1.8s var(--ease) .35s}
+.tempo>div{padding-right:clamp(14px,calc(2.2*var(--u)),34px);position:relative}
+.tempo .ano{font-weight:900;font-size:clamp(26px,calc(3.2*var(--u)),50px);letter-spacing:-.04em;color:var(--pri);line-height:1;height:clamp(46px,calc(5.6*var(--u)),86px)}
+.tempo .pt{width:12px;height:12px;border-radius:50%;background:var(--paper);border:3px solid var(--pri);position:relative;top:-5px;z-index:1;margin-bottom:clamp(10px,calc(1.4*var(--u)),20px)}
+.tempo h3{font-size:clamp(16px,calc(1.6*var(--u)),24px);font-weight:800;margin-bottom:6px}
+.tempo p{font-size:clamp(13.5px,calc(1.15*var(--u)),17.5px);line-height:1.45;color:var(--ink)}
+
+/* citações */
+.cits{display:grid;grid-template-columns:repeat(var(--n,2),minmax(0,1fr));gap:0 clamp(22px,calc(4.4*var(--u)),76px)}
+.cits>div{padding:clamp(14px,calc(1.9*var(--u)),28px) 0;border-top:1px solid var(--hair)}
+.dark .cits>div{border-top-color:rgba(255,255,255,.16)}
+.cits q{display:block;font-weight:700;font-size:clamp(16px,calc(1.65*var(--u)),26px);line-height:1.32;letter-spacing:-.015em;color:var(--dk);quotes:"\201C" "\201D"}
+.dark .cits q{color:#fff}
+.cits small{display:block;margin-top:8px;font-weight:700;font-size:clamp(12px,calc(1.02*var(--u)),15px);color:var(--mut);letter-spacing:.02em}
+.dark .cits small{color:var(--ac)}
+
+/* fichas */
+.fichas{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:clamp(18px,calc(3.2*var(--u)),52px)}
+.ficha{border-top:3px solid var(--pri);padding-top:clamp(12px,calc(1.5*var(--u)),20px)}
+.ficha .k{font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:clamp(10.5px,calc(.92*var(--u)),13.5px);color:var(--pri)}
+.ficha h3{font-size:clamp(19px,calc(2.1*var(--u)),32px);font-weight:900;letter-spacing:-.03em;margin:6px 0}
+.ficha .sb{font-size:clamp(13.5px,calc(1.15*var(--u)),17px);color:var(--mut);line-height:1.45;margin-bottom:clamp(8px,calc(1.2*var(--u)),16px)}
+.ficha dl{display:block}
+.ficha dt{font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:clamp(10px,calc(.85*var(--u)),12.5px);color:var(--mut);padding-top:clamp(8px,calc(1*var(--u)),13px);border-top:1px solid var(--hair)}
+.ficha dd{font-size:clamp(13.5px,calc(1.16*var(--u)),17.5px);line-height:1.42;padding:3px 0 clamp(8px,calc(1*var(--u)),13px)}
+
+/* barras */
+.barras{max-width:1100px}
+.br{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,2fr) auto;gap:clamp(10px,calc(1.6*var(--u)),24px);align-items:center;padding:clamp(8px,calc(1.05*var(--u)),15px) 0;border-bottom:1px solid var(--hair)}
+.br .lb{font-weight:700;font-size:clamp(14px,calc(1.25*var(--u)),19px);line-height:1.3}
+.br .tr{height:clamp(10px,calc(1*var(--u)),15px);background:#E4ECEE;overflow:hidden;border-radius:99px}
+.br .f{height:100%;width:var(--w);background:var(--pri);border-radius:99px}
+.br.alt .f{background:var(--det)}
+html.js .br .f{width:0;transition:width 1.1s var(--ease)}
+html.js .slide.active .br .f{width:var(--w);transition-delay:calc(var(--i,0)*85ms + 300ms)}
+.br .vl{font-weight:800;font-size:clamp(14px,calc(1.3*var(--u)),20px);font-variant-numeric:tabular-nums;min-width:5.5ch;text-align:right;color:var(--dk)}
+
+/* dois blocos */
+.dois{display:grid;grid-template-columns:repeat(var(--n,2),minmax(0,1fr));gap:clamp(22px,calc(4.4*var(--u)),76px)}
+.bloco h3{font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:clamp(11px,calc(1*var(--u)),15px);color:var(--pri);padding-bottom:12px;border-bottom:1px solid var(--ink);margin-bottom:clamp(12px,calc(1.6*var(--u)),22px)}
+.dark .bloco h3{color:var(--ac);border-bottom-color:rgba(255,255,255,.3)}
+.bloco p{font-weight:600;font-size:clamp(16px,calc(1.65*var(--u)),26px);line-height:1.4;letter-spacing:-.01em;color:var(--dk)}
+.dark .bloco p{color:#fff}
+.bloco ul{list-style:none}
+.bloco li{font-size:clamp(14.5px,calc(1.28*var(--u)),19px);line-height:1.45;padding:clamp(9px,calc(1.1*var(--u)),15px) 0;border-bottom:1px solid var(--hair)}
+.dark .bloco li{border-bottom-color:rgba(255,255,255,.14)}
+
+/* pares (diz / não diz) */
+.pares{border-top:1px solid var(--ink)}
+.par{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,calc(3.2*var(--u)),52px);padding:clamp(11px,calc(1.4*var(--u)),20px) 0;border-bottom:1px solid var(--hair);font-size:clamp(14.5px,calc(1.3*var(--u)),20px);line-height:1.42}
+.par.h{font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:clamp(10.5px,calc(.92*var(--u)),13.5px);padding:10px 0}
+.par.h span:first-child{color:var(--no)}.par.h span:last-child{color:var(--ok)}
+.par span:first-child{color:var(--mut);text-decoration:line-through;text-decoration-color:rgba(178,59,44,.45)}
+.par.h span:first-child{text-decoration:none}
+.par span:last-child{font-weight:700;color:var(--dk)}
+
+/* paleta */
+.pal{display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));gap:clamp(10px,calc(1.4*var(--u)),22px)}
+.cor .sw{height:clamp(70px,calc(11*var(--u)),170px);border-radius:clamp(10px,calc(1.2*var(--u)),18px);border:1px solid rgba(0,0,0,.06)}
+.cor b{display:block;margin-top:10px;font-size:clamp(14px,calc(1.25*var(--u)),19px)}
+.cor code{font:600 clamp(12px,calc(1*var(--u)),15px) ui-monospace,Menlo,Consolas,monospace;color:var(--mut)}
+.cor p{font-size:clamp(12.5px,calc(1.05*var(--u)),15.5px);color:var(--mut);line-height:1.4;margin-top:4px}
+.tipo{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,calc(3.2*var(--u)),52px);align-items:center;margin-top:clamp(18px,calc(2.8*var(--u)),44px);padding-top:clamp(14px,calc(2*var(--u)),30px);border-top:1px solid var(--hair)}
+.tipo .aa{font-weight:900;font-size:clamp(54px,calc(8*var(--u)),128px);line-height:.9;letter-spacing:-.04em;color:var(--pri)}
+.tipo h3{font-size:clamp(18px,calc(1.9*var(--u)),29px);font-weight:800}
+.tipo p{font-size:clamp(14px,calc(1.2*var(--u)),18.5px);line-height:1.45;color:var(--mut);margin-top:4px;max-width:70ch}
+
+/* meses */
+.meses{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:clamp(18px,calc(3.2*var(--u)),52px)}
+.mes h3{font-size:clamp(24px,calc(2.9*var(--u)),46px);font-weight:900;letter-spacing:-.035em;color:var(--pri);padding-bottom:10px;border-bottom:2px solid var(--pri)}
+.mes ul{list-style:none}
+.mes li{display:grid;grid-template-columns:clamp(46px,calc(4.4*var(--u)),68px) minmax(0,1fr);gap:8px;padding:clamp(8px,calc(1*var(--u)),13px) 0;border-bottom:1px solid var(--hair);font-size:clamp(13.5px,calc(1.16*var(--u)),17.5px);line-height:1.4}
+.mes li b{font-weight:800;color:var(--dk);font-variant-numeric:tabular-nums}
+.mes li.loc span{color:var(--det);font-weight:700}
+.mes li.cli span{color:var(--pri);font-weight:800}
+.legm{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:clamp(12px,calc(1.6*var(--u)),22px);font-weight:700;font-size:clamp(12.5px,calc(1.05*var(--u)),15px)}
+.legm i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px}
+
+/* navegação */
+.chrome{position:fixed;left:0;right:0;bottom:0;height:var(--chrome);align-items:center;gap:clamp(8px,calc(1.2*var(--u)),16px);padding:0 clamp(16px,calc(6*var(--u)),104px);background:var(--paper);border-top:1px solid var(--hair);z-index:10;transition:background .35s,border-color .35s,color .35s;color:var(--ink)}
+body.escuro .chrome{background:var(--dk);border-top-color:rgba(255,255,255,.12);color:#fff}
+.pg{position:absolute;left:0;top:-1px;height:2px;background:var(--ac);width:0;transition:width .5s var(--ease)}
+.cnt-p{font-weight:800;font-size:clamp(12px,calc(1.05*var(--u)),15px);letter-spacing:.06em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cap{flex:1;min-width:0;font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:clamp(10px,calc(.88*var(--u)),13px);color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-left:10px}
+body.escuro .cap{color:rgba(255,255,255,.55)}
+.nb{width:40px;height:40px;flex:none;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer;opacity:.85;transition:opacity .2s,background .2s,color .2s}
+.nb:hover{opacity:1;background:var(--dk);color:#fff;border-color:var(--dk)}
+body.escuro .nb:hover{background:#fff;color:var(--dk);border-color:#fff}
+.nb:disabled{opacity:.25;cursor:default;background:transparent;color:inherit;border-color:currentColor}
+.nb svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nb.sb{border-color:transparent}
+.indice{position:fixed;inset:0;background:var(--dk);z-index:20;display:none;overflow:auto;padding:clamp(28px,calc(5*var(--u)),80px) clamp(20px,calc(6*var(--u)),104px)}
+.indice.on{display:block}
+.indice h2{color:#fff;font-size:clamp(28px,calc(3.6*var(--u)),54px);font-weight:900;letter-spacing:-.03em;margin-bottom:clamp(18px,calc(2.6*var(--u)),40px)}
+.indice ol{list-style:none;columns:2;column-gap:60px}
+.indice li{break-inside:avoid;border-top:1px solid rgba(255,255,255,.14)}
+.indice li.cp button{color:#fff;font-weight:800}
+.indice button{all:unset;cursor:pointer;display:grid;grid-template-columns:44px 1fr;gap:10px;width:100%;padding:11px 0;color:rgba(255,255,255,.72);font:600 clamp(14px,calc(1.25*var(--u)),18px) var(--ff)}
+.indice button span{font-weight:800;font-size:13px;color:var(--ac);padding-top:2px}
+.indice button:hover{color:#fff}
+
+@media (max-width:1100px){.fichas{grid-template-columns:repeat(2,minmax(0,1fr))}.pal{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){
+ :root{--chrome:56px}
+ .slide{padding:18px 18px 34px}
+ html.js .slide{padding-bottom:calc(var(--chrome) + 28px)}
+ .s-top span:first-child{display:none}.s-top{justify-content:flex-start}
+ .s-body{justify-content:flex-start;padding-top:22px}
+ .capa .s-body,.fim .s-body,.div .s-body{justify-content:flex-end}
+ .nums,.cols,.cits,.fichas,.dois,.meses,.tempo,.lista.c2{grid-template-columns:1fr}
+ .nums{border-top:0}.nums>div{border-right:0;margin-right:0;border-bottom:1px solid var(--hair);padding:18px 0 20px}
+ .dark .nums>div{border-bottom-color:rgba(255,255,255,.16)}
+ .cols,.dois,.fichas,.meses{gap:26px}
+ .tempo:before,.tempo:after{display:none}.tempo>div{padding:0 0 18px 18px;border-left:2px solid var(--pri);margin-left:5px}
+ .tempo .ano{height:auto;margin-bottom:6px}.tempo .pt{position:absolute;left:-8px;top:8px;margin:0}
+ .tb,.tb thead,.tb tbody,.tb tr,.tb th,.tb td{display:block;width:auto}
+ .tb thead{display:none}.tb tr{border-top:1px solid var(--ink);margin-bottom:16px}
+ .tb td{padding:9px 0}.tb td:before{content:attr(data-label);display:block;font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:var(--mut);margin-bottom:2px}
+ .tb td:first-child:before{display:none}
+ .br{grid-template-columns:1fr auto;gap:4px 10px}.br .lb{grid-column:1/-1}
+ .par{grid-template-columns:1fr;gap:4px}.par.h{display:none}
+ .pal{grid-template-columns:repeat(2,minmax(0,1fr))}.tipo{grid-template-columns:1fr;gap:8px}
+ .por{margin-left:0}
+ .indice ol{columns:1}.cap{visibility:hidden}
+ .div .num{-webkit-text-stroke-width:1px}
+}
+/* tema com letra de título própria (opcional: tema.fonte_titulo e tema.peso_titulo) */
+.capa h1,h2.t,.div h2,.fim h2,.frase,.nums .v,.div .num,.ficha h3,.tipo h3,.aa{font-family:"Fraunces",Georgia,serif;font-weight:600;letter-spacing:-.015em}
+.frase b{font-weight:600}
+</style>
+</head>
+<body>
+<main class="deck">
+<section class="slide dark capa" data-cap="Capa">
+ <div class="s-top a fade"><span>Confidencial · Policlínica Alpha e Alpha Diagnósticos</span><span class="s-sec">Outubro de 2026</span></div>
+ <div class="s-body">
+  <div class="marca a"><img class="cli" src="data:image/png;base64,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" alt="Policlínica Alpha" width="126" height="76"></div>
+<div class="vol a">DPV · Versão enxuta</div>  <h1 class="a">Dossiê de Posicionamento</h1>
+  <p class="sub a">O essencial do dossiê, para ler em poucos minutos.</p>
+  <div class="risca a fade"></div>
+  <div class="meta a"><span>Versão <b>1.0</b></span><span>Data <b>Outubro de 2026</b></span><span>Completo <b>59 slides</b></span><span class="por">Elaborado por <img src="data:image/png;base64,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" alt="ClintIA" width="106" height="24"></span></div>
+ </div>
+</section>
+<section class="slide " data-cap="Em uma frase">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">Em uma frase</span></div>
+ <div class="s-body">
+<div class="eyebrow a">O dossiê em uma frase</div>  <p class="frase a">A Alpha ficou conhecida por fazer o exame de concurso <b>certo na primeira vez</b>. A marca leva esse jeito para a consulta e o exame do dia a dia, e a comunicação mostra isso.</p>
+ </div>
+</section>
+<section class="slide dark" data-cap="Três números antes de tudo">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">Antes de tudo</span></div>
+ <div class="s-body">
+  <h2 class="t a">Três números antes de tudo</h2><div class="gap"></div>
+  <div class="nums" style="--n:3"><div class="a"><div class="v cnt">56</div><div class="r">das 160 avaliações mais relevantes falam de exame para concurso</div><div class="n">Nota média delas: 4,6. A das outras 104: 2,8.</div></div><div class="a"><div class="v cnt">0</div><div class="r">dos 36 anúncios no ar na Meta falam de concurso</div><div class="n">Na Meta, 68% da verba de setembro foi para exames de imagem. Anúncios ativos em 02/10/2026.</div></div><div class="a"><div class="v cnt">661</div><div class="r">pessoas alcançadas por publicação, na mediana, de julho a setembro de 2026</div><div class="n">No fim de 2025 eram 2.125. O alcance caiu a um terço em nove meses.</div></div></div>
+<p class="nota a">A reputação da Alpha nasceu num lugar e a comunicação de hoje está em outro. O resto do dossiê explica por quê e o que fazer.</p> </div>
+</section>
+<section class="slide " data-cap="01 · Linha do tempo">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">01 · História</span></div>
+ <div class="s-body">
+  <h2 class="t a">De uma policlínica de bairro a endereço de três estados</h2><div class="gap"></div>
+  <div class="tempo" style="--n:5"><div class="a"><div class="ano">2019</div><div class="pt"></div><h3>A Alpha na Praça Bela Vista</h3><p>A clínica abre em fevereiro na Praça Semeão Leal, 9, em Jaguaribe, com o nome Alpha Policlínica.</p></div><div class="a"><div class="ano">2021</div><div class="pt"></div><h3>Espaço novo</h3><p>As primeiras avaliações no Google falam de “espaço novo e agradável” e já citam o Dr. Augusto pelo nome.</p></div><div class="a"><div class="ano">2024</div><div class="pt"></div><h3>O ano do concurso</h3><p>Entre as 160 avaliações lidas, 27 das 49 de 2024 são de candidatos a concurso. Vêm de João Pessoa, do interior, de Pernambuco e do Rio Grande do Norte.</p></div><div class="a"><div class="ano">2025</div><div class="pt"></div><h3>Alpha Diagnósticos</h3><p>A unidade de imagem da Rua Américo Falcão ganha ficha própria no Google. A ressonância de campo aberto chega em junho. Lives de conferência de exames para a GCM de Santa Cruz do Capibaribe e para a Polícia Federal.</p></div><div class="a"><div class="ano">2026</div><div class="pt"></div><h3>Tomografia e site novo</h3><p>Tomografia anunciada na Alpha Diagnósticos, site da Policlínica no domínio próprio e mais de 26 mil seguidores no Instagram.</p></div></div>
+<p class="nota a">Linha montada com dado público: Receita Federal (abertura da Ant Saúde em 11/02/2019), Google e Instagram. O site diz “mais de uma década cuidando das famílias de João Pessoa”: falta a clínica contar o que veio antes de 2019.</p> </div>
+</section>
+<section class="slide " data-cap="O lugar e o público">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">Lugar e público</span></div>
+ <div class="s-body">
+  <h2 class="t a">O lugar e o público</h2><div class="gap"></div>
+  <div class="nums" style="--n:3"><div class="a"><div class="v cnt">609 mil</div><div class="r">pessoas sem plano de saúde em João Pessoa</div><div class="n">68,5% da cidade. ANS, julho de 2026.</div></div><div class="a"><div class="v cnt">41%</div><div class="r">de quem segue a Alpha mora fora da capital</div><div class="n">Santa Rita, Bayeux, Cabedelo, Sapé, Conde e Pernambuco.</div></div><div class="a"><div class="v cnt">75%</div><div class="r">de quem segue a Alpha são mulheres</div><div class="n">59% têm de 25 a 44 anos. É ela quem decide pela casa.</div></div></div>
+ </div>
+</section>
+<section class="slide " data-cap="03 · O que as avaliações falam">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">03 · Quem avalia</span></div>
+ <div class="s-body">
+  <h2 class="t a">Do que falam 160 avaliações da Policlínica no Google</h2><div class="gap"></div>
+  <div class="barras"><div class="br a "><div class="lb">Elogio à equipe e ao atendimento</div><div class="tr"><div class="f" style="--w:40.0%"></div></div><div class="vl">64</div></div><div class="br a "><div class="lb">Exame para concurso</div><div class="tr"><div class="f" style="--w:35.0%"></div></div><div class="vl">56</div></div><div class="br a alt"><div class="lb">Espera longa, atraso ou falta do médico</div><div class="tr"><div class="f" style="--w:16.2%"></div></div><div class="vl">26</div></div><div class="br a "><div class="lb">Elogio ao preço</div><div class="tr"><div class="f" style="--w:11.9%"></div></div><div class="vl">19</div></div><div class="br a alt"><div class="lb">Exame, laudo ou consulta com problema</div><div class="tr"><div class="f" style="--w:11.2%"></div></div><div class="vl">18</div></div><div class="br a alt"><div class="lb">WhatsApp ou telefone sem resposta</div><div class="tr"><div class="f" style="--w:10.6%"></div></div><div class="vl">17</div></div><div class="br a alt"><div class="lb">Queixa da recepção</div><div class="tr"><div class="f" style="--w:9.4%"></div></div><div class="vl">15</div></div><div class="br a "><div class="lb">Elogio ao Dr. Augusto pelo nome</div><div class="tr"><div class="f" style="--w:9.4%"></div></div><div class="vl">15</div></div><div class="br a alt"><div class="lb">Informação desencontrada (valor, horário, médico)</div><div class="tr"><div class="f" style="--w:8.8%"></div></div><div class="vl">14</div></div><div class="br a alt"><div class="lb">Paciente que levou um familiar</div><div class="tr"><div class="f" style="--w:5.0%"></div></div><div class="vl">8</div></div></div>
+<p class="nota a">Quantas das 160 avaliações citam cada assunto, na ordem “mais relevantes” do Google, de 2021 a 2026. Uma avaliação pode citar mais de um. Em amarelo, o que pesa contra. Lidas em 02/10/2026.</p> </div>
+</section>
+<section class="slide " data-cap="03 · Duas Alphas na mesma ficha">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">03 · Quem avalia</span></div>
+ <div class="s-body">
+  <h2 class="t a">Duas Alphas na mesma ficha do Google</h2><div class="gap"></div>
+  <div class="nums" style="--n:3"><div class="a"><div class="v cnt">4,6</div><div class="r">é a nota média das 56 avaliações de concurso</div><div class="n">47 delas têm 5 estrelas.</div></div><div class="a"><div class="v cnt">2,8</div><div class="r">é a nota média das outras 104</div><div class="n">54 delas têm 1 estrela: consulta, ultrassom, endoscopia, levar a mãe ou o filho.</div></div><div class="a"><div class="v cnt">52%</div><div class="r">das avaliações de 4 e 5 estrelas são de concurso</div><div class="n">Entre as de 1 e 2 estrelas, só 8% são.</div></div></div>
+<p class="nota a">O concurseiro encontra uma clínica que confere tudo e responde. Quem vem para consulta ou exame do dia a dia encontra outra. A média geral das 160 é 3,4; a ficha mostra 3,9 com 313 avaliações.</p> </div>
+</section>
+<section class="slide " data-cap="03 · Os três perfis">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">03 · Perfis</span></div>
+ <div class="s-body">
+  <h2 class="t a">Três perfis de paciente</h2><div class="gap"></div>
+  <div class="fichas" style="--n:3"><div class="ficha a"><div class="k">Quem fez a fama</div><h3>O candidato a concurso</h3><p class="sb">20 a 40 anos, aprovado numa fase, com o edital na mão e prazo correndo.</p><dl><dt>Quem é</dt><dd>Candidato a polícia, guarda municipal, CFO e concursos federais. Vem da Paraíba, de Pernambuco e do Rio Grande do Norte, muitas vezes em grupo.</dd><dt>O que quer</dt><dd>Todos os exames num dia, no padrão da banca, no prazo, pelo preço do pacote.</dd><dt>O que teme</dt><dd>Voltar à banca com papel errado. Perder a viagem.</dd><dt>Como chega</dt><dd>Indicação de quem passou, grupo de candidatos e busca no Google.</dd><dt>Como falar</dt><dd>Edital, lista de exames, prazo do laudo e o que levar.</dd></dl></div><div class="ficha a"><div class="k">Quem decide pela casa</div><h3>A mulher que cuida da família</h3><p class="sb">25 a 54 anos, três em cada quatro seguidores do perfil.</p><dl><dt>Quem é</dt><dd>Marca para ela, para o filho, para a mãe e para o marido. Neuropediatria, ginecologia, ortopedia e ultrassom passam por ela.</dd><dt>O que quer</dt><dd>Especialista na semana, valor dito antes e hora certa.</dd><dt>O que teme</dt><dd>Perder a manhã na ficha, ouvir um valor no WhatsApp e outro no balcão.</dd><dt>Como chega</dt><dd>Instagram, anúncio e indicação. Fecha no WhatsApp.</dd><dt>Como falar</dt><dd>Dia, hora, valor e preparo numa mensagem só.</dd></dl></div><div class="ficha a"><div class="k">Quem traz o pedido</div><h3>Quem precisa de um exame de imagem</h3><p class="sb">Qualquer idade, da capital, da Grande João Pessoa e do interior.</p><dl><dt>Quem é</dt><dd>Tem o pedido de ressonância, tomografia ou ultrassom e está comparando preço e data.</dd><dt>O que quer</dt><dd>Fazer logo, sem fila de meses, e um laudo que o médico aceite.</dd><dt>O que teme</dt><dd>Imagem ruim e ter que refazer. Lugar fechado, no caso da ressonância.</dd><dt>Como chega</dt><dd>Anúncio na Meta: 1.147 conversas de exame de imagem em setembro de 2026.</dd><dt>Como falar</dt><dd>Valor, preparo, prazo do laudo e quando o campo aberto é indicado.</dd></dl></div></div>
+ </div>
+</section>
+<section class="slide dark" data-cap="04 · A ideia central">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">04 · Ideia central</span></div>
+ <div class="s-body">
+<div class="eyebrow a">A ideia central</div>  <p class="frase a"><b>Certo na primeira vez.</b></p>
+<p class="nota a" style="margin-top:clamp(20px,calc(3*var(--u)),46px)">Nasce do concurso, onde o candidato escreve que ficou “apto de primeira” e que não precisou retificar nada. Vale para a casa toda: o valor, o horário, o médico do dia, o preparo e o prazo do laudo. É um conceito interno, sobre o atendimento, e nunca promessa de diagnóstico ou de aprovação. Assinatura pública sugerida, a validar: “Policlínica Alpha. Consulta, exame e concurso em Jaguaribe.”</p> </div>
+</section>
+<section class="slide " data-cap="04 · Três pilares">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">04 · Pilares</span></div>
+ <div class="s-body">
+  <h2 class="t a">Três pilares, cada um com a sua prova</h2><div class="gap"></div>
+  <table class="tb"><thead><tr class="a fade"><th style="width:20%">Pilar</th><th style="width:38%">O que quer dizer</th><th style="width:42%">Prova que já existe</th></tr></thead>
+  <tbody><tr class="a"><td data-label="Pilar">Conferido antes</td><td data-label="O que quer dizer">A Alpha confere o pedido antes do paciente sair de casa: edital, exame, valor, preparo.</td><td data-label="Prova que já existe">56 avaliações de concurso com nota média 4,6. Lives de conferência em 01/07 e 16/10/2025.</td></tr><tr class="a"><td data-label="Pilar">Tudo num lugar</td><td data-label="O que quer dizer">Mais de 30 especialidades, laboratório, ressonância de campo aberto, tomografia e ultrassom em duas unidades a 900 metros.</td><td data-label="Prova que já existe">13 avaliações contam que fizeram tudo num dia. 1.147 conversas de exame de imagem em setembro de 2026.</td></tr><tr class="a"><td data-label="Pilar">Gente que responde</td><td data-label="O que quer dizer">Um dono que aparece e uma equipe que dá retorno, no WhatsApp e no balcão.</td><td data-label="Prova que já existe">15 elogios ao Dr. Augusto pelo nome e 64 à equipe. É também o pilar com mais queixa hoje: 17 sobre WhatsApp e telefone.</td></tr></tbody></table>
+ </div>
+</section>
+<section class="slide " data-cap="04 · A condição da promessa">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">04 · Condição</span></div>
+ <div class="s-body">
+<div class="eyebrow a">A condição</div>  <p class="frase a">“Certo na primeira vez” só vale se o WhatsApp, o balcão e o médico do dia disserem a mesma coisa. <b>Informação certa na primeira resposta faz parte da marca.</b></p>
+<p class="nota a" style="margin-top:clamp(20px,calc(3*var(--u)),46px)">Isto não se resolve com anúncio. Fica como ponto para a clínica: uma tabela única de valores e exames para todas as atendentes, o WhatsApp separado do telefone, aviso ao paciente quando o médico atrasar ou faltar, e uma regra clara de quem atende por hora marcada e quem atende por ordem de chegada.</p> </div>
+</section>
+<section class="slide " data-cap="05 · No lugar de, escreva">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">05 · Exemplos</span></div>
+ <div class="s-body">
+  <h2 class="t a">No lugar de uma coisa, escreva a outra</h2><div class="gap"></div>
+  <div class="pares"><div class="par h a fade"><span>No lugar de</span><span>Escreva</span></div><div class="par a"><span>Superlativo sem prova: a maior, a número 1, a mais rápida</span><span>Exames para concurso feitos conforme o edital, todos num dia, com hora marcada.</span></div><div class="par a"><span>Melhor preço garantido, oferta especial, preço promocional</span><span>Ressonância de campo aberto: R$ 420. Valor confirmado no WhatsApp antes de você vir.</span></div><div class="par a"><span>Laudo garantido, aprovação garantida</span><span>O prazo de cada laudo você recebe no agendamento.</span></div><div class="par a"><span>Exclusividade na região</span><span>Ressonância de campo aberto, para quem tem medo de lugar fechado. Pergunte se o seu exame pode ser feito nela.</span></div><div class="par a"><span>Milhares de aprovados</span><span>Candidatos da Paraíba, de Pernambuco e do Rio Grande do Norte fazem os exames aqui. Veja o que escreveram no Google.</span></div><div class="par a"><span>Agende já, vagas limitadas!</span><span>Quer ver o horário? Manda o pedido do médico no WhatsApp.</span></div></div>
+<p class="nota a">A coluna da esquerda resume o tipo de frase encontrado hoje no site, na bio e nos anúncios. Valor da ressonância a confirmar na tabela vigente.</p> </div>
+</section>
+<section class="slide " data-cap="06 · Cores e letra">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">06 · Cores e letra</span></div>
+ <div class="s-body">
+  <h2 class="t a">Cores e letra</h2><div class="gap"></div>
+  <div class="pal" style="--n:5"><div class="cor a"><div class="sw" style="background:#007E84"></div><b>Verde Alpha</b><code>#007E84</code><p>Cor principal do site, dos botões e dos títulos.</p></div><div class="cor a"><div class="sw" style="background:#003D40"></div><b>Verde profundo</b><code>#003D40</code><p>Fundos escuros e texto de destaque.</p></div><div class="cor a"><div class="sw" style="background:#00A3AB"></div><b>Verde-água</b><code>#00A3AB</code><p>Apoio, ícones e detalhes.</p></div><div class="cor a"><div class="sw" style="background:#D9F0F1"></div><b>Água clara</b><code>#D9F0F1</code><p>Fundos claros.</p></div><div class="cor a"><div class="sw" style="background:#FFD166"></div><b>Amarelo sol</b><code>#FFD166</code><p>Só em detalhe: um número, uma linha.</p></div></div>
+<div class="tipo a"><div class="aa">Aa</div><div><h3>Fraunces e Manrope</h3><p>Fraunces, com serifa, nos títulos. Manrope no texto. É o par que o site da Alpha já usa. O logo usa um verde-água próprio (#4BA2A9) com cinza (#848484).</p></div></div> </div>
+</section>
+<section class="slide " data-cap="07 · Cinco territórios">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">07 · Territórios</span></div>
+ <div class="s-body">
+  <h2 class="t a">Cinco territórios de conteúdo</h2><div class="gap"></div>
+  <table class="tb"><thead><tr class="a fade"><th style="width:19%">Território</th><th style="width:45%">O que entra</th><th style="width:18%">Formato</th><th style="width:18%">Onde</th></tr></thead>
+  <tbody><tr class="a"><td data-label="Território">Concurso conferido</td><td data-label="O que entra">A lista de exames do edital da vez, o prazo, o que levar, a live de conferência e depoimento autorizado.</td><td data-label="Formato">Carrossel, live e destaque fixo</td><td data-label="Onde">Orgânico e anúncio</td></tr><tr class="a"><td data-label="Território">Exame explicado</td><td data-label="O que entra">Campo aberto ou fechado e quando cada um é indicado, preparo, jejum, prazo do laudo.</td><td data-label="Formato">Reels de 30 segundos</td><td data-label="Onde">Orgânico e anúncio</td></tr><tr class="a"><td data-label="Território">Quem atende</td><td data-label="O que entra">Médico com nome, CRM e RQE, o dia em que atende e o valor da consulta.</td><td data-label="Formato">Um post por especialista</td><td data-label="Onde">Orgânico</td></tr><tr class="a"><td data-label="Território">Por dentro das duas unidades</td><td data-label="O que entra">A porta abrindo às 6h, a recepção, a coleta, a técnica de imagem, a Praça Bela Vista.</td><td data-label="Formato">Reels e foto real</td><td data-label="Onde">Orgânico</td></tr><tr class="a"><td data-label="Território">Serviço</td><td data-label="O que entra">Agenda da semana, valores, como chegar, horário de sábado e feriado.</td><td data-label="Formato">Imagem e story</td><td data-label="Onde">Orgânico e Google</td></tr></tbody></table>
+<p class="nota a">O calendário de cada mês sai destes territórios, cruzados com as datas do capítulo 08.</p> </div>
+</section>
+<section class="slide " data-cap="As datas que mais importam">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">Calendário</span></div>
+ <div class="s-body">
+  <h2 class="t a">As datas que mais importam</h2><div class="gap"></div>
+  <table class="tb"><thead><tr class="a fade"><th style="width:18%">Quando</th><th style="width:38%">O quê</th><th style="width:44%">Por que importa</th></tr></thead>
+  <tbody><tr class="a"><td data-label="Quando">Cada edital</td><td data-label="O quê">Fase de exames de um concurso</td><td data-label="Por que importa">É quando a Alpha mais se diferencia. Vira campanha e live.</td></tr><tr class="a"><td data-label="Quando">24 de junho</td><td data-label="O quê">São João, feriado na cidade</td><td data-label="Por que importa">Avisar o horário antes, para ninguém perder a viagem.</td></tr><tr class="a"><td data-label="Quando">5 de agosto</td><td data-label="O quê">Nossa Senhora das Neves e aniversário de João Pessoa</td><td data-label="Por que importa">A data de orgulho da cidade, feriado.</td></tr><tr class="a"><td data-label="Quando">Outubro</td><td data-label="O quê">Outubro Rosa e Dia do Servidor Público (28/10)</td><td data-label="Por que importa">Mamografia, a frente da pesquisa regional, e a data de quem passou.</td></tr><tr class="a"><td data-label="Quando">8 de novembro</td><td data-label="O quê">Dia Mundial da Radiologia</td><td data-label="Por que importa">A data da Alpha Diagnósticos.</td></tr></tbody></table>
+<p class="nota a">O calendário mês a mês está no dossiê completo.</p> </div>
+</section>
+<section class="slide " data-cap="09 · O papel de cada canal">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">09 · Canais</span></div>
+ <div class="s-body">
+  <h2 class="t a">O papel de cada canal</h2><div class="gap"></div>
+  <table class="tb"><thead><tr class="a fade"><th style="width:18%">Canal</th><th style="width:22%">Para que serve</th><th style="width:33%">O que vai nele</th><th style="width:27%">Atenção</th></tr></thead>
+  <tbody><tr class="a"><td data-label="Canal">Instagram @alphapoliclinica</td><td data-label="Para que serve">Dar prova e criar vínculo</td><td data-label="O que vai nele">Exame explicado, concurso, quem atende e as duas unidades por dentro. Reels na frente.</td><td data-label="Atenção">Um perfil para as duas marcas, com a unidade escrita na peça. Bio sem superlativo.</td></tr><tr class="a"><td data-label="Canal">Google, nas duas fichas</td><td data-label="Para que serve">Ser escolhida na busca</td><td data-label="O que vai nele">Fotos reais, serviços, horário de sábado e resposta a toda avaliação.</td><td data-label="Atenção">Nenhuma das 60 avaliações recentes tem resposta. A da Diagnósticos ainda não tem site.</td></tr><tr class="a"><td data-label="Canal">WhatsApp (83) 99314-9477</td><td data-label="Para que serve">Fechar o agendamento</td><td data-label="O que vai nele">Valor, dia, hora, preparo e prazo do laudo na primeira resposta.</td><td data-label="Atenção">Hoje é o mesmo número do telefone. Tabela única para todas as atendentes.</td></tr><tr class="a"><td data-label="Canal">Site da Policlínica</td><td data-label="Para que serve">Tirar a dúvida antes da mensagem</td><td data-label="O que vai nele">Especialidades, exames, valores e uma página de concurso por edital.</td><td data-label="Atenção">Trocar superlativo por informação.</td></tr><tr class="a"><td data-label="Canal">Site da Alpha Diagnósticos</td><td data-label="Para que serve">Dar endereço próprio à imagem</td><td data-label="O que vai nele">Ressonância e quando o campo aberto é indicado, tomografia, preparo e laudo.</td><td data-label="Atenção">Precisa de domínio próprio: o alphadiagnosticos.com.br é de outra clínica.</td></tr><tr class="a"><td data-label="Canal">Anúncios na Meta</td><td data-label="Para que serve">Trazer quem tem o pedido e o candidato</td><td data-label="O que vai nele">Exame com valor e concurso na janela de cada edital.</td><td data-label="Atenção">Hoje, nenhum dos 36 anúncios fala de concurso.</td></tr><tr class="a"><td data-label="Canal">Anúncios no Google</td><td data-label="Para que serve">Aparecer para quem já está buscando</td><td data-label="O que vai nele">Exame, especialidade e “exames para concurso”.</td><td data-label="Atenção">A Alpha está fora dos 10 primeiros nessa busca.</td></tr><tr class="a"><td data-label="Canal">Lives de conferência</td><td data-label="Para que serve">Atender o concurso da vez</td><td data-label="O que vai nele">Conferência ao vivo dos exames de cada edital.</td><td data-label="Atenção">Gravar e guardar no destaque do perfil.</td></tr></tbody></table>
+ </div>
+</section>
+<section class="slide " data-cap="O que falta validar">
+ <div class="s-top a fade"><span>Policlínica Alpha · Dossiê de Posicionamento · enxuto</span><span class="s-sec">Pendências</span></div>
+ <div class="s-body">
+  <h2 class="t a">O que falta validar com a clínica</h2><div class="gap"></div>
+  <ol class="lista c2"><li class="a"><div><h3>A história</h3><p>O que veio antes de 2019 (o site fala em mais de uma década), as unidades que as avaliações citam e quando chegaram a ressonância de campo aberto e a tomografia.</p></div></li><li class="a"><div><h3>Os nomes</h3><p>“Policlínica Alpha” ou “Alpha Policlínica”, “Alpha Diagnósticos” sempre no plural, domínio e Instagram próprios da Diagnósticos, e a unidade de Recife.</p></div></li><li class="a"><div><h3>O concurso</h3><p>Quais concursos já atendeu, a rotina da live de conferência, o prazo real de cada laudo e quais exames são feitos com parceiros.</p></div></li><li class="a"><div><h3>Valor e convênio</h3><p>A tabela vigente, quais convênios a Alpha aceita e se ela está na rede de algum cartão de desconto.</p></div></li><li class="a"><div><h3>Hora marcada ou ordem de chegada</h3><p>Qual especialidade atende de cada jeito e que compromisso de horário a clínica consegue assumir antes de a marca falar disso.</p></div></li><li class="a"><div><h3>As pessoas e a ressonância</h3><p>Quais médicos gravam, com CRM e RQE, a autorização de imagem, e o modelo do aparelho de campo aberto para explicar a indicação sem prometer imagem.</p></div></li></ol>
+ </div>
+</section>
+<section class="slide dark fim" data-cap="Fim">
+ <div class="s-top a fade"><span>Confidencial · Policlínica Alpha e Alpha Diagnósticos</span><span class="s-sec">Outubro de 2026</span></div>
+ <div class="s-body">
+  <div class="marca a"><img class="cli" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP0AAACYCAYAAAAvDO8VAAAjf0lEQVR42u2deZRkVZXuf/tGZlVBAcpQjIqoIKANTwbxtcogdKOIIM5II4jgk1GwVbSd7eezHVpEectptVJoSdMoqE07gYJCgy0gIGrL4ADiY4YSiqGqMiO+98fdp+rUNTIz7hCRkZFnr3VX5BBx45xzzz57/raRaE6TpAzIzGyy8PenA7sAzwR2BHYGNgfWBxYD6wGPA48CjwH3Ar8BbgZuBK4zszsL9xwDOmbWSSs/d8nSEsxpZjcza/vvBjwH+BvgQGB3YMMaX/GAM/9VwCXAleFgkdQClJg/MX2iwTC7uWRvRxL9COCVwP8ovh3oRM/aujx3Ra/h56zL3vg18HVgmZn9LmL+jpkpPZlEifrD8GPRz7tI+oKkFVqXJiRNSmo3cE36/TrR/Vf49+7SbVyJEiVqSJV3CY+kbSR9UdLqAqO31TzFzN727wm02sexTdBA3ORIlNT7RDUZvhWp8icB7yd3yAG0p1DFAe6KVPuye0LAePQ93UyGlv9+L/CPwGfNTPF4EyVKVFGdl7SdpIsLkr3TRTK3/e9HSdpA0oaSFle4NpT0BEkf8/tOTqEFxJL/EknbJXU/UaKKzjp3kiHpMEl3z8DssSr+qKQnNDSOfaZh+m7Mf7ekw4KGEkySRIkSzczwmf/8zoi5Jnu0vx+RtGW4j7+Wvcb89WU9fnfxPe8s+iISJUo0M8OfETFTu4TTbYWkzaPwXiU/gr8eWoLpFXn8JemMJPGHk5K3dfji7x1JZwNvBSb9GWVzaD9lPu63SjrbnXpJ4iemT9SFWmbWlnQm8AZgAhhj7kVYzMc9AbxB0pnO+K30iBPTJ4q89GY2KendwKkuKcfr3HIIpjXu8zhV0nt8fsmrnyhRZD+/tAcPfS82/UpJT2Ftfv4gbfrpPPuHxPdOlCT9fC6a6UjaGviyJ71kFVX6kFSzENhiSJKvzOfTAb7k8+ykzL3E9KSMSM4GljjT1nkmIQPvaUOUcZn5vJb4PFMmaGL6eZ9eewx5Kewk9Z1dwZbfY8im2/L5HQgc4w7LpOYnpp93ar0kbQp8JFLrm9Ic/pq1ufnDtNc6wD9J2sznn/ZfYvr5o9Y7AMWH3P5uiunDPXaRtJkXwNiQMf3mwAd9/knNT0w/r5x3TwWOLVSsNSHpO8BGwJ4h4WfI1PwOcKzPPzn1EtPPGykv4DRgkTNBkxIvOPNeMYSINuFQWgSc5uNL0j4x/WhLeXdibU2edac+ZKqF+x0saX3/PhsyaS/P1tvax5f2YWL6kV/vI1wFb/dB0gVpujVwQOEgGBZp3/b5/13ah4npR52C1D28z/HqoNafUlD5hy0/4bW+HglpJzH9yKr2Anbzq6jaq3A14TA7QNKzPTzWqnh4dBq+FKn4uwG7eZQh7cXE9CO71of4z0G6tZ0BrHAFhmuTJ7ZMRkxDjw69DHh7DYfeuN9jPCqbrXsZ6+L7HZL24mApVT0NjoKKvXdBxW1FUrUdMcP4NOp/O0rZzaZ5th3gcEmfMbOrK4BW3gf8yr+viWzBDNipcK+9h9QEIaHhJqoFkOEq7CbAb4GNnQlWA8cDN5G3l1rJ2jr6jcnbT20CbEfeyGIX4Bn+9/gw0RSFOoFZrzCzfWYTqTZkIQInAv/XNZcxYDmwvZk9GNYp7ZhEo1Q+u3+hVPWBsjXmkp4k6eWSzpJ0S5dGF50psOuOnk2k2mgNnh2V3QYYsP1T2W2iUYWyPiFqFCFJD0pa4jhyLQeSDFcrusa6MYSkRZIOlLRM0sMFRu8UmOtBb5Qx8KYUAd3XX/+6S639iQk6OznyRpV26Gafu8rdMbP4akfXZNTwIhwIY2a20swuNrMjgV2BDwP3uEpvUR6A3Fz4oqvPA8WsCyq7v3Z6XJdEieZ8vj2SLorU8CDpN6mKXBtJ0Fb0t60cSXd1QeUP3/kBf9/4LKn3z+0i6S+qg/STKNGwIt0i6dommb5Lv7u4weXukn5SUPnD97580Iw/BdMHf8PPm1iDREm9HyrPvf+6qF9REzcJJkOzCjO7Dngh8C7yqEAriv2fK2kfM5sYEjt6YRThSIyfmH5kmH8BsN4g7Gdn/gyQmX2MPBZ+C2sRahcB35a0l793nNkNGa9XE/03UWL6oaRxYMEAnWcdl5xjZnYt8ALghz6GVcATgR9Ier5L/NlkugWJ6RPTjyJNOLMNunh/0pNy7gNeDJzniLmrnfG/J+mlzvitWXKmrfb1SZSYnlFAzAjhqtXA47M0hlCz3jGz15HDbS9wZtsQuEjS2z082BmgnR98HY/7+pAy8hLTj5T3ntyhNisdaAImnVf7HQt8xRl/wsfzCUlfk7RV8AkMUOo/nrz3ielHtcbh3lnWOjoRCu0xwPfclg6FPkcAP5d0dEgSGpDKf2+qBUlMP6rrfOts95qL1GcBryUv9hmLMvi2ApZK+q6k50Yqf9aHttMqrEvaj4npR45uGRI/Q8fbYq8gR/F5LKrUCyW+BwFXSfqypF2j1GCFWoAGD4Bb0tZITD9yZr2/3txl3W0WnXtjZvYLcmTeVoTM24rq+o9xlf9CSS+RNB5qAfwAaEWHQObJQTaNb8O67L+bh6jbbqJEjabhbippeZQa+4CkTZxpxv21icsqVABePEWH2uLvN0n6hKR9JW00Q11AfIXv2dPvE8pql3unn+TISzSyRTeXRZv+UUlLZntczpQ7SHrEx9Xp0nJ6MmLUQHdJ+pak90o6RNJOkjaeLuQn6W8L5cWXpWIbElzWCJtSHeAKYD/ydNj1gQskXUUePus0ECWYAD5mZst7QaIJcXkzu1XSp4F3d4HHsuj3TtSVZ0vgZX7hn/szsFzSg+R5AESwYIuBJxeGcEVhfRIluKyRQsPtSNoDuDoCwOwH7WRmN4fv7FULIa+5vwnYtMf9oQJcV1bSzyFgLzP7ea9jTZQceXMpM6/jNut1wA1RiCxGu61zTfjrSkriyEfe/AeAs6Kx9SI0Wq4xZhEjd6K5xVcnig6Yr8N1rpEkhk9MP5LUcnX7/EjaBaZp8qqiQYRD6V/IQTpbFbzpQXvJ/PPFK4uQfADO9/VI2HiJ6Rl1GOxzgUcqMla/Y/d3At8sIe2rhC9bfrCcm+CvE9PPBxW/ZWZ3AMv6yFh1w4tf6uP+CKr9V83sDl+PxPSJ6Rlxn54MOMPt8GyIklI6rm7/F3B7HzzqweE3AZzh65ASchLTj760dzX6VmDpMIWqItCNleTFOE2r3qHV1lKff/LYJ6afd9L+vcD9BefWsKQM/6DhsG7o13c/8N4k5RPTz0dp3zKze53xsyGy7QMjXse6gJpN2PIZ8F6fd5LyieZfPn5UpHLZFHnuZagTwWvvUCe1NXTBkXRDIU++KoV5XdanEt1ESdLPGRgtubR7A3n66rDY90EK39CAXR8q9/4MvCEAeSRYrMT08z2EdztwrDNHZwhs3SCF/7sBUyE47441s9tTiC4xfWL8tXXtFwLvIc+omxwSu/4PNZ15oR31e83sQp9nOz31RInWrWv/XKH0dDZs+tCC6oAaNn0Y/+dTR9ok6RN1p7arvieQZ8SFbjSzqeqr4mcmffxfMrPj/RBJEj4xfaIujr2Ol5geB3zCVeNQvz4XmD6MdQz4ZzM7LsLbT467RImmC+X5z++YBrZqEOr9C0uo9/H4Tg/3SaG5RInKM/6hku4p9JqfiemfMUCbPu4zf4+kQxPDJ0pU37n3VEk/LkjVzhRMv1LSkx0gc0FFYM2F/rrvNEzfKUj3n0h6anLaJUpUn/FbkeR8myPodmP+TiR1d23ou1/XRXUvMvsDPq5WPN5ECSMvUX0kXXkV3FOADwJ/x9r2zpOsdcpmwO+BS1jrAFTJPSG/96HAFtF9OhGY6gQ5CMYHPLmIhHOXKFGf1H3/eVeP6T9UULsn1CwV7/eQpM/H2kRS55OkT9R/qW8hs03SduStqV4D7FYIt01EUtq6vKqgCSjSFhYUvvoa4ALg38zstkiVV5LuiekTzQ7zG7AX8GLyPnS7AuvV+IqHgBuBy4Fvm9k1BT9DYvbE9IlmkfkzM5ss/H1bYEfgGcAOwFOBJ0TXIvJ6+Yei6w/kHWRvBn5pZvd0MS86idkT0ycaHkBL63YAdHnvOLAQWGVmEzPcs5UYPTF9ojmk/kfPWFOp5FO8N6XOJqZPNGpddKOc/0SJEiVKlChRokSJEiVKlChRokSJEjFPnYSJEiUafQyAxPCJEs036S5pPUkbpFVhfmPkRR1Tipc1fP9WU/cNY2x4fNbgPGsh0zQ5Ji/53UDSJcAVwPbh/mXG0o9xNvUco45ErYb3bmP7bM6BRDT9+VEDc5hunrOlVkcMuUjS1yRdI+mZo2Tbx9Bl/dxjg1wv6/eCuRTYjByMoR2Vbz5qZn+K31fj/i1gJ2Ar8q6ovzGzVTXGPU5eqPKYmf2hgflvDiwB/mhmK8rONwankLQjsA15m6jfmtnDFce0FbAJcJuZPVrlGUT3WgwcCPzCzH7fK5hG9PlNgS3N7NfFbEFJm/hzvdPMlpcZp99rB9dobylbPxB/l6QNgZ2BxT6Wmxs6yHf0fXbbqGG8vWsKgIbfSDqqLIhjrA5KOk7SrYX73iHptEh9shL56jjGnCT9Z02AyTD/D/v9XlZWQkRjOlzSjYV5Pizpg5I26dWRFo3pLL/HAVWlVvg+SZtKesQbXmYV1udtPpZPh79H/zvR//e/egXsiMbVkvRHSQ9KWr+MRI3usVjSP0laXlj7GyUd5mO1ivviSL/Xg5K2LmMS1aFBIZ6ERgdfBa4ir/DaBngzcI6kh83sW97sod0bTLx1JH0ceAfwCPAR8rLQJwMnAp+S9GzgmBr93zsN48eXlaQtb3v1DuDjwCrgTPLGkk8AjgI+ANwQ1q9EU4lKY5pGY1wUteGuqnG+RdLNZvZZSYtYt9mHajTQ7FSpWPSD4rvAPsAvfY/d41rl24ClwPbAAyU1pbYz99t9jhsDx5vZ+/0ZdkZB0oeT/PDC//dykMXLepWoXeCZfyfpaYX3LJF0rf//lSUkRFHSX96QpP/ffr9De5Wq0Vj+ysEo/yRpp+L9Je1XcUyf8THt34Ck38xhta6vOJYY378t6YWRRne8//1NFSX9bZLuLyPpoz32Pv/ufy2uj6QdJO1S1h6P7r2/3/udkq5yab94EKHPQXsNn+hOnw0lLQCud+n1pKiLa68TPs5P/9PdjlzoD3mhmd0HvMX//6YGJRqzEFk5wiXhB8zspmieY2Y2aWY/HgVL0F+/DqwGzpP0NJecY4N23Ll2NQ680bXIU/xvC6K1v9XMflmhUjG8993kcGZnAl9waX+436s1Sky/3MxWmtkKM1sNHAasD/w2UmfVo8q9kzPDVS4VJ9w0WO0Hx/XkaDA7h26pc8yjHNbhmf7zT+J5mtnkdJ7lOUax+XcCsDlwvs9t1SyNaWNgO3dO3u/OydXR2pcOtQWYMUnPAg4AlrnD+VvumD09mGj93KuDYvrwPSdJWurXxcD5/lA/XOGejzszLCgAQAQbseVXZw5K+djOfcxfF04xz1FKfV1iZkud+fcA/nkWmX6Vax0bThHpsirRLxdqb3cp/yn/20PA58kjRi/y92SjwvR7Aq/166+c6fc1syuDWtXDvYJk+5kv+iv8c0HqtdyZdKA/sKtdyrcqhAWDN3WdpKIBb76f+jyP8nkqJIiYWcclT51DLesyR5s9N5Aycgfvz4DTnEHot8pbCBNmwMOuLT5T0p6+h8aCZuXr3i4Zdm1LejI5cvE4cLlDij/k5ijA6f02Rwe1gSdd4p7satMSYBsze62Z/cwXRCU96l/0k/gjkg5z+zaoXs8HPuvvO5PqXt/VzliT/loVK04VNI6g4p1PnntwuqRjI0bvuJPv454HUVbihzGt8HtORHPUILzkXcYS1nelM8bdwC41tbUq4wqe+E+7T2GZpF3DHvO1PkbSaX4QZCV47U1u0n4FOJs8AnCO79cbgBdI2sOfb2sue+//wT2Vb+jiXc1qtHo6MmrGcK2k8yRdHXmCTy3jfY885tv55x+X9CNJl0WvF4bc8pmYLJr/R/1+Ly/jKY/G87dRnPhWSRdIujSa52ElogJhTF/wz14fze0S75l3ZC/3i57jkpB3UXF/nO6fP85/X+Sv+0ha5f87qaL3/h5Jj1aI04e1/2S0zv8p6euSfhU17Nx0Jo97IZ/hMUl3TvG+vf2+/97PrNKxATmj7iSPcz4QEFYllVKPCsdw27WDZZJuAk51dX4P4AH3Ap9lZldUbLW0Gvg5eez5qVGc39xkyErO/0/Ar4DlZVQ3P+0zM7tE0l7kseGDgVe4+vk94JNm9qMS5lH47tvIce3XA54WOdTGXBsrk7E54arwrTX3x33hfu58vVzSm4G3utQvq/bKx7V+WWkfrf3bPHR7PPAC4Pn+PM8CPmpmvcToM1/b55HDjJ/lfLAgcmIacCXwbWBbSVuY2T1Vs1UZccTXNamzkp7ooUDqxNeHfJ4tn+eiUa9hH4bnV1j79X3tsyprX6b9V2oEOnOVUqtLEUprHswzG/XNMSSM/xdmaJ1Cp15MgQSBPQKwzk2paaMKXz0X1NgEHZ4oUSJSs4vubZZq3abuidqEejiolk4NrVkpJ1qD2ofN9joPy7Melr0/UKZPHse52QTTf01960bc5OmnpN8S2KhGUoUBt5OHz6gIspGR50+3aq7RHWb2+ADARpaQh8vU5zz31eRppivNbEXVxpXRuDcCtqz5rFea2R9rrOF65GXVqrk2t1U99CKbfwHwlJrr8bCZ3c2wx+mjSS8mr5vf1uOjWYUMvjHgw2b2wZJ14vEJuQE5ZtsWUZydktlcGfA3wI9L1PuXpZbP+V3kOQeTfcyh6ESM/6ikB4A7yOPk1wI/N7Pf+xjWqMxTMEIY96vIMySrjDus8fXAc6p41v2ZPBf4YcX9FvbGfeT57ysqStmWZ4S+C3hfzfX4o6RdgUebdhw2vbHCpF9FntTSIc8xrsIEAG+W9EngkRqqzlgNSZ9VLayowfytPueat/yZLHJNbCvyOoiD/P+rJN0AXARcYGY3RXHjqVJ0rca4wxqPNaC1tqL7DZQfXOC1HVbr+MKzLPt8Os4/rzazsz2+P8mQ5t4HRJBTQmvkileQ9lsCr6lZY9wp5L6XuQZdoacaY616Bck/6a8LXWp+GPiFp/w+LxT2TJMXUHeNOw2t32yNIRR0vcb37WThmVa5TnZ+ag9lwU1UxbYfsLsPuhVJyjIXUerryWXV+ylKIOtcDDiiMsgr8+cUNKKw+SfdNn0FcKWkcyRtHSoWh3SdZ3MMYV1OLpiSVcYQnsPuwH4zHLazKumDRDy1IXy5MPFnA/s3PfFE0zJO5oeAIgTjo4BrJR08DeMzT73sQeC90PdrE+g3nQI/aaiYPhS1OIbbQT7AsQYPkrfMUcirUTgAgrY26fb/f0g6zZ1nrYJWNm/5vmGBR3ToHiRpx1AANEySPqgyJ7iTqN2g00nAi7yJguZdN5DhobHI/v+UpHea2Sp3YE0yQindFcLCkrQz8KIGBV4IIY6Tozs3FmLPGgrTdbxhwZENqTZdJ+4qVGqSyKyCdWbO5B+VdKQ/kx+SY7yNzUOJH6JKJzUs8GKhd6Q3/eg0UZCTNRSmCzbfJj5pa3jiAEc4QkwnSfuhUPk7wBcl7eKdir5RALmcL407O74vj+iDwDNfz00cLq2R+2cNTLrtNezH+6SzPmyy0BDg6H6DBibq+ZmIHIDjc/63pbOEsDybFATe0b4/233QRDNf65MkLWwCKTdraNIHk2cydfr00MM9jw8TT3w3+xven8PzvYnHT4E/+rOaL7n7scCjj3u/Q95J55AmpH3WUFjhLQOwJdvxxMugkCT6i+SVyQYPTpE34uiQpzwzH5je4bwEHOL7st1nLUfkSW+11zerGZvsSNoT2NcHMojY7SnzZWP1OQbfKmRA1vG37C7p6cCP59FaDkrgxQ69vSXtVRcpd6whJrQBnHTBebS3g0Re08cCmLnaJaYFfB/4hyjEFtM4sCl5d6CDgf0LBSdVv3eMPHPvihqhJc2lZBx34O0F7D0ggdfxdT4FeD2DLrhx73lH0pPIK6w0ICm/ZuJm9nop5ep0YZp7zeyGGd77XeAMb+75OfI+BFUZP3zmAOCS+eLMcxNzUAIvlvavkPQe4I6KSM+VBxqaUwTg/vaA4ufxxLcNUNiJ39eV5g6YOR535QkgmqEBo2tJF7jEX1lD2mZRz73N/GCudHgE/PgyV/jcoPI3ok4127p2MyiBFw6X9YFj60SxsoqAD5Pe8OHYimE6NTDxN83DEFGvMEtrusUUrnboAhS6sJrZNeSdVqymc29j8giO1YGHqnBNOgNMMNgWbYMWePF3Hytpg9DEdBCSPpxqrwK2qRCmC2rkR1nb3EAVxvxGP3jao4r7PqCQU0beHKTqfrDIX/CcGgwwLmnzCtdWkjZ3LWMQyTht33dvrLBmoXjpMuDfooKmslGsbZz/KuEujNXYKCdXkNiB4ZcDHwJ2JG9XXcYREia+NXmt/ZebBhmYb1qBpDsilJeqtv0Y8JIa0utZwO9qJAq1BqD5BZCY1/j+a5dkurC2ZwO/IW/kWtXpebKkr1TRzrKKJYT7kreQKmvPhAF+08xWAufVUQcjkIEUvqN2g9F2A/6WzWuqrhtUuBb763oDWKdOTYE3BqwALgau80Ou7P4Nfq09vONz6ZLzqqdi1RLCMLgvsdaLfEcUjis78d2AF87ZDp/Dkz++KTliTt2CprrhlLooQP2ume+Qhzl3qyHwvmNm9/i9llXko2KtfX8kfeS13NHVuCqTNvJ2vP/lGU2PuG0z8IknWieNet+GimWM2UW+GQRVxXYIvHZ29LevkQOUtkreL7z/JV5rXyqKlVV4oMdHJYRWQQqc46dc+O6vVLCN4om/WNLOKXzXu2QPIT0zm5C0OFJX0/pNL/B2Bl5cYa3Cfv8tOaqyueZwq2cxWkmhZ1HJ+fFlD9ysRJiu7TW9r6/gNQz2zCPA+cGO9MX8JXmxRtmQUTzxE0atNx99TCrx8N2EP8/zyZFXE9OXA4mxClrp18xsdYRGVJT8VUzl10vaxPnTmpT04QuOdPuv7KQDM3/XzO6M7KOsUJZZdeJHStqszMTnsdTaWNJujs1+rZtqncTwMwq8zSqCxIT3rwbOLfQeAPgP4K4Kfq0g9AJ4Tc+CeKxEbLKORF1jzxSYco03H/g4OVhAGWdSmPjGPvEzo5LP+VjqCvBSSQGrnimSaDbvonrWdcDZCK/rpGu4G1doYBHW9ydmdkucOhv8WpK+QZ5T36locp8g6XOuPc/YHyIr4ew5iLxQo13DnrnUVcx2lL/cMrMHnfGrOJNCnPYEr21uz3MVdCPy/Ieprs2jMF1i+N5r5k+omcC0tMvn1/i5KqbzhpyVnYCDeq21zwbgJQ+fPzeyZ7pRVeSVEOd8BvASn/hYqpmf8lKk5WUNHTY3MYLYeFHN/EuBHSoKvBZwj6vx6wi1yPl8HXBNzVTonsPoWQ8lhJK0O3kTi04Ne6ZrTDKyw38K3BidXtQIp3RSzfyUlzVY8Sjg18CnG8jdZ8hr5lXj898ws4ejQ6Rb8drSmiXn+zmfzpisk/Xi7SUP6WQVY+kGXG5mt05TChjq4pdVjIGG8N1+kvYojDPV3/avft+cIe4cguScvlR0SnoOsE/FPPfw/q9Osz7hoLyAPFuvVWE+wUw7uZd+j1kPNfNbA6+uWUK4zKV5NsOJ+HXyMs8qUMphE8YTtwGVPc43miAPXf2LmV1K7kGe7ZZefQlvsi5ITJX9eCN5ZyDrBvgS+bXuJc9QreLXCgfFq51fp0WMznqomX8jeW5zlWScFnA/8O9+r/YUi9txLeA24EcVmwnGE3+SHzKPAncnid8Xhv8BcGKAgW5Qe6hyTfbBpGtLejLwyooCL+y3rxa6AU1HVf1a4VDaAHjjTLX2YzOE6erUrQcYpW+a2fIeoK0y5TGms8mBHapCZS8mBxn4kIcwLgZ2SbHoxmz4cZdIrw6tqyV1at43A24GDq3QJqvlB9HzyL3gjTxnn9dx5DXzZcN0wZn8GD2kmUd+rUvJi3CeXmEea+r8JZ0BPD5V+G5shhLClwPbVkyTzaJwRE+HhC/094H/R7Va/Rhk4JOe2/894G2J4WsxZSfaK58B/j6AcDQIIvG4md1Sw9O+JQ0CVXif+WNrCLwW8AMzu6NHLMeWma2WdC7wvop7v+38+nIz+9pUJefZNCWEFiHPVlHTMuAXwE+nsme6nKxjZvYoa1N1OxXjlkEtgzwUclfUNCBRb5KqHT3HMfL670PN7NRofzSpUhdhvbIer3G3Xxc2qM3gmsw2FfHvQpTk7BIZop2oCGeiokMv0CnTPZ9smhLCvYHnVkT6jO2ZMp9XVIRTF2H0JJ/Lw6yFZq4aUmr5qTnm+HJNXjYEDK7INm5HDtAW8AfXlPY0s4tCOKgXL3EFlbozDdRX1yu8t+aBHpjjv4EVPseTaoTpMuB24BJfp04vc3e/1s3AT2qUrnecb/eequQ860PMO7ZnSknskKzgaK5XV/Sahok/hzyEZ+50qlOQ82fHYlvlr01e6gMTT85wtSPoJouYPODhB7PoKODZZnaGmT0W1NR+MPyQIAn/OEL23b2iAy/s9fPMbOUUsfmZzNOlNfbqjHj8Y1OE6bYnz0KqMulgz1xcwp7plmF3DvA/azqHTjazH0m61A+h9Svk9gO8TtJuDbdsCuO4mBxIpMnknLGS3vj7ydOkrweuBK7yppTr4LyPcI+BsMcvi6Ctq0Z8Qq7+VysIzbC+FwH3kqdMl01zDmbBS52Pf1fMjxnrEqablPRmt5EmK6S0Fu0Zq3BoAFxIDp75hAoTH4tABnY2s99IupY8yaKM2RC+8+/7uOFeaWa3N2SPZu7D+PI0VVtt8lyIh5zZ7wbuczOoKACsR2afy5I/7K17gKsl7cDaPvNVBd6VZvbrsrj0Ucz+YUkXkOf7t0vyYIhiLQTebGbvCIf2XzB9FKZ7InkXzipey3XsmSp2dJysIOki8uq5doXDpw0sAN5NXiH1fWd6VXRMqk8daVbTnJc9A35tZp+vCJu1ptVVySYKNsczC8eAn5nZKkmnkoclJ2vUcCwtaK1V6BxygIxWDUSsoyX9H+ChOHyXdammO4K840m7ItMHe+bx6J40sHhVc5Jf4514LqiRVRjs3X5cTTPMQncQLpzBgdiKvOQWYci3q3RNGQH6juelHFkjGacFPAB8u6rjOIrZX+PmVhW/VohiLQGOKFbfZYUMpDHgxBrlkqGWfVmdwpdo4peTJ21UOTFDyGIB8H6PAd9aAZpoLsJaTwIzORBD44vOCDrmqtjz3wGOcXOyXcMsjZPRVAO7sBPluKgGNPiJztftYiJCGOCB5PjjqpiQYO4E+lXVPluFiU+Qxy2rHiBBXT3akU8urJjim4iRTTwyFyz3u++mKmxYXRSoqWpRHqlYixLyUp4FHBhDZWeFk+TUBhwzSxtqOrCmDr8iYmick7wAeLur+Jay8xIVknG+Q146/rSKabzBFL6RHpPReojZt8zsLvLQqSrmmHTl6yyqmd+VPD5Zx555EPhWE3DKUbLC73DEnZrS/gTysN0dKTsvUaGq7yry7NOqe2JNUlnJZLRenKtn1xBUYe8f4PwtSa2sUDNfFV8ufObbZvZgTXummJoZT7xO08uNyFMrv9sQxnuiuZ+QEwTVeuRhOmoIvMdq9HDo6tfyHy+t2AmnGCU6OfbedyRtARxew7vdpD3zF0U4zqh31chHDp87DrgtdbtNFDHQ9e7LGqvIVOEzPzCzP0Vp7DTUjGQV8K8NaLqHO593Qs380cCGFb2Wa+LDwJV17ZkpinAeAb5RQ0IHT+aTgF1TAU6iaJ8/HEn5rIaJUDUZrZcDZRlri3CqarobAkebmTJJi6jX671TASygir10TtXWvAXG398fdKL5TZkz0g5US3ctJqP9sGmzsVCEc0UNHMK41n5RBrwO2L6i1zIurjmvH6CUUcz+OuBnNSYeTuEtgO1SR5xE/vx3qrEX4s41TSSjTcewX655j47z+esycne+aqofPzKz2xuIzc+Evb+soVzvhWm/J4qyIusk9kwA5/UBX4CC5vA98lyCVs0ow6n/Hynkk/U4SvcSAAAAAElFTkSuQmCC" alt="Policlínica Alpha" width="126" height="76"></div>
+  <h2 class="a">O dossiê completo tem 59 slides, com as fontes de cada número.</h2>
+<p class="lede a">Ele fica no mesmo lugar do portal, logo acima deste resumo.</p>  <div class="risca a fade"></div>
+  <div class="meta a"><span>Confidencial · Policlínica Alpha e Alpha Diagnósticos</span><span class="por">Elaborado por <img src="data:image/png;base64,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" alt="ClintIA" width="106" height="24"></span></div>
+ </div>
+</section>
+</main>
+
+<nav class="chrome" aria-label="Navegação dos slides">
+ <div class="pg" id="pg"></div>
+ <span class="cnt-p" id="cnt">01 / 01</span>
+ <span class="cap" id="cap"></span>
+ <button class="nb sb" id="ix" aria-label="Índice" title="Índice"><svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h9"/></svg></button>
+ <button class="nb sb" id="fs" aria-label="Tela cheia" title="Tela cheia"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+ <button class="nb" id="prev" aria-label="Slide anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+ <button class="nb" id="next" aria-label="Próximo slide"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+</nav>
+<div class="indice" id="indice" role="dialog" aria-label="Índice dos slides"><h2>Índice</h2><ol id="ixl"></ol></div>
+
+<script>
+(function(){
+ var S=[].slice.call(document.querySelectorAll('.slide')),T=S.length,i=0;
+ var pg=document.getElementById('pg'),cnt=document.getElementById('cnt'),cap=document.getElementById('cap');
+ var pad=function(n){return (n<10?'0':'')+n};
+ S.forEach(function(s){
+   [].slice.call(s.querySelectorAll('.a')).forEach(function(e,k){e.style.setProperty('--i',k)});
+   [].slice.call(s.querySelectorAll('.br .f')).forEach(function(e){var g=e.closest('.a');e.style.setProperty('--i',g?g.style.getPropertyValue('--i'):0)});
+ });
+ function conta(s){[].slice.call(s.querySelectorAll('.cnt')).forEach(function(el,k){
+   var orig=el.dataset.t||(el.dataset.t=el.textContent), m=orig.match(/\d+(?:[.,]\d+)*/);
+   if(!m)return;
+   var tok=m[0], mil=/\.\d{3}/.test(tok), dec=mil?0:(tok.split(',')[1]||'').length, alvo=parseFloat(tok.replace(/\./g,'').replace(',','.'));
+   var t0=performance.now()+300+k*90, dur=1300;
+   (function passo(t){var p=Math.min(1,Math.max(0,(t-t0)/dur)),e=1-Math.pow(1-p,3);
+     el.textContent=orig.replace(tok,(alvo*e).toLocaleString('pt-BR',{minimumFractionDigits:dec,maximumFractionDigits:dec}));
+     if(p<1)requestAnimationFrame(passo);else el.textContent=orig;})(performance.now());
+ })}
+ function ajusta(s){ if(innerWidth<=760){s.style.removeProperty('--u');return}
+   for(var f=1;f>=.62;f-=.04){ s.style.setProperty('--u','calc(min(1vw,1.75vh)*'+f.toFixed(2)+')'); if(s.scrollHeight<=s.clientHeight+2)break; } }
+ addEventListener('resize',function(){ajusta(S[i])});
+ function go(n,semHash){ if(n<0||n>=T)return;
+   S[i].classList.remove('active'); i=n; var s=S[i]; s.classList.add('active'); s.scrollTop=0;
+   pg.style.width=((i+1)/T*100)+'%'; cnt.textContent=pad(i+1)+' / '+pad(T); cap.textContent=s.dataset.cap||'';
+   document.body.classList.toggle('escuro',s.classList.contains('dark'));
+   document.getElementById('prev').disabled=i===0; document.getElementById('next').disabled=i===T-1;
+   if(!semHash&&history.replaceState)history.replaceState(null,'','#'+(i+1));
+   ajusta(s); conta(s);
+ }
+ document.getElementById('prev').onclick=function(){go(i-1)};
+ document.getElementById('next').onclick=function(){go(i+1)};
+ var ix=document.getElementById('indice'),ixl=document.getElementById('ixl');
+ S.forEach(function(s,k){var li=document.createElement('li'),b=document.createElement('button'),n=document.createElement('span');
+   if(s.dataset.cp)li.className='cp';
+   n.textContent=pad(k+1);b.appendChild(n);b.appendChild(document.createTextNode(s.dataset.cap||''));
+   b.onclick=function(){ix.classList.remove('on');go(k)};li.appendChild(b);ixl.appendChild(li)});
+ document.getElementById('ix').onclick=function(){ix.classList.toggle('on')};
+ document.addEventListener('keydown',function(e){
+   if(e.key==='Escape'){ix.classList.remove('on');return}
+   if(ix.classList.contains('on'))return;
+   if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(i+1)}
+   if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(i-1)}
+   if(e.key==='Home')go(0); if(e.key==='End')go(T-1);
+ });
+ var tx=0,ty=0,tt=0;
+ document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;ty=e.touches[0].clientY;tt=Date.now()},{passive:true});
+ document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+   if(Date.now()-tt<600&&Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){dx<0?go(i+1):go(i-1)}},{passive:true});
+ var fs=document.getElementById('fs');
+ if(!document.fullscreenEnabled){fs.style.display='none'}
+ else{fs.onclick=function(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(function(){})}}
+ var h=parseInt((location.hash||'').slice(1),10);
+ go(h>=1&&h<=T?h-1:0,true);
+})();
+</script>
+</body>
+</html>
