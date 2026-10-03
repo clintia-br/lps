@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Pesquisa de concorrência · ClintIA</title>
+<meta name="description" content="A ClintIA e seis empresas que vendem marketing, gestão e tecnologia para dono de clínica no Brasil">
+<script>document.documentElement.className='js';</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23051E32'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%2305D2FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;800;900&family=Red+Hat+Text:wght@400;500;700&family=Red+Hat+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ox:#051E32;--deep:#03141F;--yale:#053C73;--celtic:#055AAA;--dodger:#0578DC;--sky:#05D2FF;
+--cli:#10ADD6;--conc:#3553A0;--ink:#13222F;--mut:#5C6E7E;--hair:#DDE4EA;--paper:#F7F9FA;
+--ok:#14804A;--no:#B23B2C;--mid:#A86A00;--off:#7A8691;
+--u:min(1vw,1.75vh);--ease:cubic-bezier(.2,.75,.2,1);--chrome:58px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font:16px/1.6 "Red Hat Text",system-ui,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Red Hat Display",sans-serif;letter-spacing:-.02em;line-height:1.08}
+b,strong{font-weight:700}
+
+/* ---------- slide: modo documento (sem JS) ---------- */
+.slide{position:relative;display:flex;flex-direction:column;min-height:100vh;padding:clamp(22px,calc(3*var(--u)),52px) clamp(20px,calc(6*var(--u)),104px) clamp(30px,calc(4*var(--u)),64px);background:var(--paper);border-bottom:1px solid var(--hair)}
+.slide.dark{background:var(--ox);color:#fff;border-bottom-color:#0B2C46}
+.s-top{display:flex;justify-content:space-between;gap:16px;font:500 clamp(10.5px,calc(.95*var(--u)),14px) "Red Hat Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);padding-bottom:clamp(14px,calc(1.6*var(--u)),24px);border-bottom:1px solid var(--hair)}
+.dark .s-top{color:#7F97AC;border-bottom-color:rgba(255,255,255,.12)}
+.s-sec{color:var(--celtic)}.dark .s-sec{color:var(--sky)}
+.s-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:clamp(18px,calc(2.6*var(--u)),44px);width:100%;max-width:1320px}
+.chrome{display:none}
+
+/* ---------- modo apresentação ---------- */
+html.js,html.js body{height:100%;overflow:hidden}
+html.js body{background:var(--deep)}
+html.js .slide{position:fixed;inset:0;display:none;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-bottom:calc(var(--chrome) + clamp(18px,calc(2.4*var(--u)),36px));border-bottom:0;-webkit-overflow-scrolling:touch}
+html.js .slide.active{display:flex}
+html.js .chrome{display:flex}
+
+/* entradas em sequência (não desligam com "menos movimento": o Bernardo usa o Windows assim) */
+html.js .slide.active .a{animation:sobe .8s var(--ease) both;animation-delay:calc(var(--i,0)*85ms + 80ms)}
+html.js .slide.active .a.fade{animation-name:surge}
+@keyframes sobe{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes surge{from{opacity:0}to{opacity:1}}
+
+/* ---------- tipografia de slide ---------- */
+.eyebrow{font:500 clamp(11px,calc(1*var(--u)),15px) "Red Hat Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--celtic);margin-bottom:clamp(10px,calc(1.2*var(--u)),18px)}
+.dark .eyebrow{color:var(--sky)}
+h2.t{font-size:clamp(28px,calc(4*var(--u)),66px);font-weight:900;letter-spacing:-.035em;color:var(--ox);max-width:22ch}
+.dark h2.t{color:#fff}
+.lede{font-size:clamp(15px,calc(1.45*var(--u)),22px);color:var(--mut);max-width:62ch;margin-top:clamp(10px,calc(1.2*var(--u)),18px);line-height:1.55}
+.dark .lede{color:#A9BDCE}
+.gap{height:clamp(18px,calc(3*var(--u)),48px);flex:none}
+
+/* ---------- capa e fim ---------- */
+.capa .s-body,.fim .s-body{justify-content:flex-end;padding-bottom:clamp(10px,calc(2*var(--u)),30px)}
+.cobrand{display:flex;align-items:center;gap:clamp(14px,calc(2*var(--u)),26px)}
+.cobrand img{display:block;width:auto;height:clamp(22px,calc(2.6*var(--u)),38px)}.cobrand img.cli{height:clamp(30px,calc(3.5*var(--u)),52px)}
+.cobrand .tr{width:1px;align-self:stretch;background:rgba(255,255,255,.3)}
+.capa h1{font-size:clamp(46px,calc(9*var(--u)),150px);font-weight:900;letter-spacing:-.05em;line-height:.92;margin:clamp(22px,calc(4*var(--u)),60px) 0 clamp(16px,calc(2*var(--u)),28px);max-width:11ch}
+.capa .sub{font:500 clamp(17px,calc(1.9*var(--u)),28px)/1.4 "Red Hat Display";color:#BFD0DE;max-width:34ch}
+.risca{height:1px;background:rgba(255,255,255,.16);margin:clamp(26px,calc(4*var(--u)),60px) 0 clamp(14px,calc(1.6*var(--u)),22px);position:relative;overflow:hidden}
+.risca:after{content:"";position:absolute;inset:0;background:var(--sky);transform-origin:left;transform:scaleX(.18)}
+html.js .slide.active .risca:after{animation:risca 1.6s var(--ease) .5s both}
+@keyframes risca{from{transform:scaleX(0)}to{transform:scaleX(.18)}}
+.capa .meta{display:flex;flex-wrap:wrap;gap:8px clamp(18px,calc(3*var(--u)),48px);font-size:clamp(13px,calc(1.15*var(--u)),17px);color:#8FA6BA}
+.capa .meta b{color:#fff;font-weight:500}
+
+/* ---------- manchete ---------- */
+.manchete{font:700 clamp(24px,calc(3.5*var(--u)),56px)/1.2 "Red Hat Display";letter-spacing:-.03em;color:var(--ox);max-width:27ch}
+
+/* ---------- números grandes ---------- */
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--hair)}
+.nums>div{padding:clamp(18px,calc(2.4*var(--u)),36px) clamp(14px,calc(2.4*var(--u)),36px) 0 0;border-right:1px solid var(--hair);margin-right:clamp(14px,calc(2.4*var(--u)),36px)}
+.nums>div:last-child{border-right:0;margin-right:0}
+.nums .v{font:900 clamp(44px,calc(6.4*var(--u)),104px)/.95 "Red Hat Display";letter-spacing:-.05em;color:var(--cli);white-space:nowrap;font-variant-numeric:tabular-nums}
+.nums .r{font:700 clamp(15px,calc(1.45*var(--u)),22px)/1.3 "Red Hat Display";margin-top:clamp(12px,calc(1.6*var(--u)),22px);max-width:24ch}
+.nums .n{font-size:clamp(13px,calc(1.1*var(--u)),16px);color:var(--mut);margin-top:8px}
+
+/* ---------- três colunas com régua ---------- */
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,calc(3.4*var(--u)),56px)}
+.col h3{font:500 clamp(11px,calc(1*var(--u)),15px) "Red Hat Mono",monospace;letter-spacing:.14em;text-transform:uppercase;padding-bottom:12px;border-bottom:2px solid currentColor;margin-bottom:4px}
+.col.tem h3{color:var(--ok)}.col.mel h3{color:var(--mid)}.col.dig h3{color:var(--celtic)}
+.col ul{list-style:none}
+.col li{font-size:clamp(15px,calc(1.3*var(--u)),20px);line-height:1.45;padding:clamp(10px,calc(1.2*var(--u)),16px) 0;border-bottom:1px solid var(--hair)}
+
+/* ---------- divisor ---------- */
+.div .s-body{justify-content:flex-end;padding-bottom:clamp(20px,calc(4*var(--u)),70px)}
+.div .num{font:900 clamp(90px,calc(20*var(--u)),320px)/.8 "Red Hat Display";letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px rgba(5,210,255,.55);margin-bottom:clamp(14px,calc(2.4*var(--u)),36px)}
+.div h2{font-size:clamp(38px,calc(6.4*var(--u)),104px);font-weight:900;letter-spacing:-.045em;color:#fff;max-width:14ch}
+.div .lede{max-width:48ch}
+
+/* ---------- quem é quem ---------- */
+.qq{list-style:none;border-top:1px solid var(--hair)}
+.qq li{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,2fr) auto;gap:clamp(14px,calc(2.6*var(--u)),44px);align-items:start;padding:clamp(14px,calc(1.8*var(--u)),26px) 0;border-bottom:1px solid var(--hair)}
+.qq .nm{font:800 clamp(17px,calc(1.7*var(--u)),26px)/1.2 "Red Hat Display"}
+.qq .nm small{display:block;font:400 clamp(12.5px,calc(1.05*var(--u)),15px) "Red Hat Text";color:var(--mut);margin-top:6px}
+.qq .es{font-size:clamp(14.5px,calc(1.25*var(--u)),19px);line-height:1.5}
+.qq .nt{text-align:right;font:900 clamp(30px,calc(3.6*var(--u)),56px)/1 "Red Hat Display";letter-spacing:-.04em;color:var(--ox);font-variant-numeric:tabular-nums}
+.qq .nt small{display:block;font:500 clamp(11px,calc(.95*var(--u)),14px) "Red Hat Mono";letter-spacing:.08em;color:var(--mut);margin-top:6px}
+.qq li.cli .nm,.qq li.cli .nt{color:var(--cli)}
+.qq li.cli:before{content:"";position:absolute;left:calc(-1*clamp(10px,calc(1.6*var(--u)),24px));top:clamp(14px,calc(1.8*var(--u)),26px);bottom:clamp(14px,calc(1.8*var(--u)),26px);width:3px;background:var(--cli)}
+.rodape-nota{font-size:clamp(12.5px,calc(1.05*var(--u)),15px);color:var(--mut);margin-top:clamp(12px,calc(1.6*var(--u)),22px);max-width:80ch}
+.dark .rodape-nota{color:#8FA6BA}
+
+/* ---------- matriz ---------- */
+.mx{width:100%;border-collapse:collapse;table-layout:fixed}
+.mx th,.mx td{text-align:left;vertical-align:top;padding:clamp(11px,calc(1.35*var(--u)),20px) clamp(10px,calc(1.2*var(--u)),18px);border-bottom:1px solid var(--hair);font-size:clamp(13.5px,calc(1.2*var(--u)),18px);line-height:1.42}
+.mx th:first-child{padding-left:0}
+.mx thead th{font:500 clamp(11px,calc(1*var(--u)),14.5px) "Red Hat Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);border-bottom:1px solid var(--ink);padding-top:0}
+.mx thead th.cli{color:var(--cli)}
+.mx th[scope=row]{font:800 clamp(14.5px,calc(1.35*var(--u)),20px)/1.25 "Red Hat Display";width:19%}
+.mx th[scope=row] small{display:block;font:400 clamp(12px,calc(1*var(--u)),14px) "Red Hat Text";color:var(--mut);margin-top:4px}
+.mx td.cli{background:rgba(16,173,214,.07)}
+.st{display:inline-flex;align-items:center;gap:7px;font:500 clamp(10.5px,calc(.9*var(--u)),13px) "Red Hat Mono",monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.st:before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;flex:none}
+.st.sim{color:var(--ok)}.st.nao{color:var(--no)}.st.parcial{color:var(--mid)}.st.parou,.st.na{color:var(--off)}
+.st.conferir{color:var(--celtic)}.st.conferir:before{background:transparent;border:1.5px dashed currentColor;width:7px;height:7px}
+.mx .c{display:block}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:clamp(12px,calc(1.6*var(--u)),22px)}
+
+/* ---------- cartões (videx) ---------- */
+.ct{list-style:none;border-top:1px solid var(--ink)}
+.ct li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1.5fr) minmax(0,.9fr);gap:clamp(12px,calc(2.2*var(--u)),36px);padding:clamp(11px,calc(1.4*var(--u)),20px) 0;border-bottom:1px solid var(--hair);font-size:clamp(13.5px,calc(1.15*var(--u)),17.5px);line-height:1.45}
+.ct li.h{font:500 clamp(10.5px,calc(.95*var(--u)),14px) "Red Hat Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);padding-top:10px}
+.ct li b{font:800 clamp(15px,calc(1.35*var(--u)),20px)/1.25 "Red Hat Display"}
+.ct li.cli b{color:var(--cli)}
+.ct .lb{display:none}
+.atencao{margin-top:clamp(14px,calc(2*var(--u)),28px);padding-left:16px;border-left:3px solid var(--mid);font-size:clamp(13.5px,calc(1.12*var(--u)),17px);line-height:1.5;max-width:110ch}
+
+/* ---------- anúncios ---------- */
+.ads{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,calc(3.6*var(--u)),60px)}
+.ad{border-top:3px solid var(--conc);padding-top:clamp(12px,calc(1.6*var(--u)),22px)}
+.ad.cli{border-top-color:var(--cli)}
+.ad h3{font-size:clamp(22px,calc(2.6*var(--u)),40px);font-weight:900;letter-spacing:-.03em}
+.ad.cli h3{color:var(--cli)}
+.ad .cn{font:500 clamp(11px,calc(.95*var(--u)),14px) "Red Hat Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:6px 0 clamp(10px,calc(1.4*var(--u)),18px)}
+.ad dl{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr)}
+.ad dt,.ad dd{padding:clamp(8px,calc(1*var(--u)),13px) 0;border-top:1px solid var(--hair);font-size:clamp(13.5px,calc(1.18*var(--u)),18px);line-height:1.42}
+.ad dt{color:var(--mut);padding-right:14px}
+.lista-n{list-style:none;counter-reset:n;border-top:1px solid var(--hair)}
+.lista-n li{counter-increment:n;display:grid;grid-template-columns:clamp(40px,calc(5*var(--u)),80px) 1fr;gap:clamp(10px,calc(1.6*var(--u)),24px);padding:clamp(13px,calc(1.8*var(--u)),26px) 0;border-bottom:1px solid var(--hair);font:500 clamp(16px,calc(1.6*var(--u)),25px)/1.4 "Red Hat Display";letter-spacing:-.01em;max-width:1150px}
+.lista-n li:before{content:counter(n,decimal-leading-zero);font:500 clamp(12px,calc(1.1*var(--u)),16px) "Red Hat Mono";color:var(--celtic);padding-top:.45em}
+
+/* ---------- voz: barras ---------- */
+.leg{display:flex;flex-wrap:wrap;gap:8px 26px;font-size:clamp(13px,calc(1.1*var(--u)),16px);margin-bottom:clamp(12px,calc(1.8*var(--u)),26px)}
+.leg i{display:inline-block;width:22px;height:4px;margin-right:8px;vertical-align:middle}
+.bars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,calc(4.6*var(--u)),80px)}
+.bars h3{font:500 clamp(11px,calc(1*var(--u)),15px) "Red Hat Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);padding-bottom:10px;border-bottom:1px solid var(--ink);margin-bottom:clamp(6px,calc(1*var(--u)),14px)}
+.bg{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.6fr);gap:clamp(10px,calc(1.6*var(--u)),24px);align-items:center;padding:clamp(6px,calc(.85*var(--u)),12px) 0;border-bottom:1px solid var(--hair)}
+.bg .t{font-size:clamp(13.5px,calc(1.18*var(--u)),18px);line-height:1.3;font-weight:500}
+.bar{display:grid;grid-template-columns:1fr clamp(32px,calc(3.4*var(--u)),50px);gap:10px;align-items:center;margin:3px 0}
+.bar .tr{height:clamp(8px,calc(.85*var(--u)),12px);background:#E9EEF2;overflow:hidden}
+.bar .f{height:100%;width:var(--w)}
+html.js .bar .f{width:0;transition:width 1.1s var(--ease)}
+html.js .slide.active .bar .f{width:var(--w);transition-delay:calc(var(--i,0)*85ms + 300ms)}
+.bar .val{font:500 clamp(12px,calc(1.02*var(--u)),15px) "Red Hat Mono";text-align:right}
+.bar.cl .f{background:var(--cli)}.bar.co .f{background:var(--conc)}
+
+/* ---------- frase grande em fundo escuro ---------- */
+.cit{font:700 clamp(24px,calc(3.5*var(--u)),56px)/1.2 "Red Hat Display";letter-spacing:-.03em;max-width:27ch}
+
+/* ---------- blocos lado a lado ---------- */
+.dois{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,calc(4.6*var(--u)),80px)}
+.bloco h3{font:500 clamp(11px,calc(1*var(--u)),15px) "Red Hat Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);padding-bottom:10px;border-bottom:1px solid var(--ink);margin-bottom:clamp(12px,calc(1.6*var(--u)),22px)}
+.bloco p,.bloco li{font-size:clamp(14.5px,calc(1.28*var(--u)),19px);line-height:1.5}
+.bloco ul{list-style:none}.bloco li{padding:clamp(10px,calc(1.2*var(--u)),16px) 0;border-bottom:1px solid var(--hair)}
+.trecho{display:block;font:500 clamp(18px,calc(2.1*var(--u)),32px)/1.3 "Red Hat Display";letter-spacing:-.015em;color:var(--ox);margin:clamp(12px,calc(1.8*var(--u)),26px) 0;padding-left:clamp(12px,calc(1.6*var(--u)),22px);border-left:3px solid var(--cli)}
+
+/* ---------- 2x2 ---------- */
+.quad{display:grid;grid-template-columns:auto repeat(2,minmax(0,1fr));grid-template-rows:auto repeat(2,minmax(clamp(110px,calc(15*var(--u)),220px),auto))}
+.quad .ax{font:500 clamp(10.5px,calc(.95*var(--u)),14px) "Red Hat Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);padding:0 0 10px}
+.quad .ay{writing-mode:vertical-rl;transform:rotate(180deg);padding:0 0 0 10px;text-align:center}
+.q{border-left:1px solid var(--hair);border-top:1px solid var(--hair);padding:clamp(14px,calc(2*var(--u)),28px);display:flex;flex-wrap:wrap;gap:12px clamp(16px,calc(2.4*var(--u)),36px);align-content:flex-start}
+.q.r{border-right:1px solid var(--hair)}.q.b{border-bottom:1px solid var(--hair)}
+.q.vazio{background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(5,90,170,.06) 10px 11px)}
+.q .ql{width:100%;font:500 clamp(10.5px,calc(.9*var(--u)),13px) "Red Hat Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.q .qv{font:700 clamp(16px,calc(1.6*var(--u)),24px) "Red Hat Display";color:var(--celtic)}
+.bd{font:800 clamp(18px,calc(2.1*var(--u)),34px)/1 "Red Hat Display";letter-spacing:-.025em;color:var(--conc);display:inline-flex;align-items:baseline;gap:8px}
+.bd small{font:500 clamp(12px,calc(1.05*var(--u)),15px) "Red Hat Mono";letter-spacing:0;color:var(--mut)}
+.bd.cli{color:var(--cli)}
+html.js .slide.active .bd{animation:pop .7s var(--ease) both;animation-delay:calc(var(--k,0)*140ms + 550ms)}
+@keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+.slog{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(22px,calc(4.6*var(--u)),80px)}
+.slog>div{padding:clamp(14px,calc(2*var(--u)),28px) 0;border-top:1px solid var(--hair)}
+.slog h3{font:500 clamp(11px,calc(1*var(--u)),14.5px) "Red Hat Mono";letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.slog .cli h3{color:var(--cli)}
+.slog q{display:block;font:700 clamp(17px,calc(1.8*var(--u)),28px)/1.3 "Red Hat Display";letter-spacing:-.02em;color:var(--ox);margin:10px 0;quotes:"\201C" "\201D"}
+.slog p{font-size:clamp(13.5px,calc(1.15*var(--u)),17px);color:var(--mut);line-height:1.5}
+
+/* ---------- lacunas ---------- */
+.lac{list-style:none;border-top:1px solid var(--ink)}
+.lac li{display:grid;grid-template-columns:clamp(34px,calc(4*var(--u)),64px) minmax(0,1fr) minmax(0,1.35fr) minmax(0,1.35fr);gap:clamp(12px,calc(2.2*var(--u)),36px);padding:clamp(13px,calc(1.7*var(--u)),24px) 0;border-bottom:1px solid var(--hair)}
+.lac .n{font:500 clamp(12px,calc(1.05*var(--u)),16px) "Red Hat Mono";color:var(--celtic);padding-top:.3em}
+.lac h3{font-size:clamp(17px,calc(1.75*var(--u)),27px);font-weight:800;letter-spacing:-.02em}
+.lac p{font-size:clamp(13.5px,calc(1.15*var(--u)),17.5px);line-height:1.45}
+.lac .lb{display:block;font:500 clamp(10px,calc(.85*var(--u)),12.5px) "Red Hat Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:5px}
+.lac .faz p{color:var(--ox);font-weight:500}
+
+/* ---------- recomendação ---------- */
+.prop{font:800 clamp(26px,calc(3.8*var(--u)),62px)/1.12 "Red Hat Display";letter-spacing:-.035em;color:#fff;max-width:24ch}
+.dif{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,calc(3.4*var(--u)),56px);margin-top:clamp(24px,calc(4*var(--u)),64px)}
+.dif>div{border-top:1px solid rgba(255,255,255,.2);padding-top:clamp(12px,calc(1.6*var(--u)),22px)}
+.dif .k{font:500 clamp(11px,calc(1*var(--u)),14px) "Red Hat Mono";color:var(--sky);letter-spacing:.1em;text-transform:uppercase}
+.dif h3{font-size:clamp(18px,calc(1.9*var(--u)),29px);font-weight:800;margin:8px 0}
+.dif p{font-size:clamp(14px,calc(1.2*var(--u)),18px);color:#A9BDCE;line-height:1.5}
+.frases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,calc(4.6*var(--u)),80px)}
+.frases h3{font:500 clamp(11px,calc(1*var(--u)),15px) "Red Hat Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--celtic);padding-bottom:12px;border-bottom:1px solid var(--ink);margin-bottom:clamp(12px,calc(1.8*var(--u)),24px)}
+.frases p{font:500 clamp(17px,calc(1.8*var(--u)),28px)/1.38 "Red Hat Display";letter-spacing:-.015em;color:var(--ox)}
+.pil{list-style:none;border-top:1px solid var(--ink)}
+.pil li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) minmax(0,.9fr);gap:clamp(12px,calc(2.4*var(--u)),40px);padding:clamp(14px,calc(2*var(--u)),28px) 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.pil h3{font-size:clamp(18px,calc(2*var(--u)),30px);font-weight:800;letter-spacing:-.025em}
+.pil p{font-size:clamp(14px,calc(1.25*var(--u)),19px);line-height:1.45}
+.pil .fm{font:500 clamp(11px,calc(1*var(--u)),14.5px) "Red Hat Mono";letter-spacing:.08em;text-transform:uppercase;color:var(--celtic)}
+.gan{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,calc(2.8*var(--u)),46px)}
+.gan>div{border-top:3px solid var(--ox);padding-top:clamp(12px,calc(1.6*var(--u)),22px)}
+.gan>div.alerta{border-top-color:var(--no)}
+.gan h3{font-size:clamp(19px,calc(2.1*var(--u)),32px);font-weight:900;letter-spacing:-.03em;margin-bottom:clamp(8px,calc(1.2*var(--u)),16px)}
+.gan .alerta h3{color:var(--no)}
+.gan ul{list-style:none}
+.gan li{font-size:clamp(14px,calc(1.22*var(--u)),18.5px);line-height:1.42;padding:clamp(9px,calc(1.1*var(--u)),14px) 0;border-bottom:1px solid var(--hair)}
+.compl{list-style:none;counter-reset:n;border-top:1px solid rgba(255,255,255,.18)}
+.compl li{counter-increment:n;display:grid;grid-template-columns:clamp(40px,calc(5*var(--u)),80px) 1fr;padding:clamp(13px,calc(1.8*var(--u)),26px) 0;border-bottom:1px solid rgba(255,255,255,.18);font:500 clamp(17px,calc(1.9*var(--u)),29px)/1.35 "Red Hat Display";letter-spacing:-.015em;max-width:1100px}
+.compl li:before{content:counter(n,decimal-leading-zero);font:500 clamp(12px,calc(1.1*var(--u)),16px) "Red Hat Mono";color:var(--sky);padding-top:.5em}
+.fontes{list-style:none;columns:2;column-gap:clamp(22px,calc(4.6*var(--u)),80px)}
+.fontes li{break-inside:avoid;font-size:clamp(12.5px,calc(1.08*var(--u)),16px);line-height:1.5;color:var(--mut);padding:clamp(8px,calc(1*var(--u)),13px) 0;border-top:1px solid var(--hair)}
+.fim h2{font-size:clamp(34px,calc(5.6*var(--u)),92px);font-weight:900;letter-spacing:-.045em;max-width:16ch;margin:clamp(22px,calc(4*var(--u)),60px) 0 0}
+
+/* ---------- barra de navegação ---------- */
+.chrome{position:fixed;left:0;right:0;bottom:0;height:var(--chrome);align-items:center;gap:clamp(8px,calc(1.2*var(--u)),16px);padding:0 clamp(16px,calc(6*var(--u)),104px);background:var(--paper);border-top:1px solid var(--hair);z-index:10;transition:background .35s,border-color .35s,color .35s;color:var(--ink)}
+body.escuro .chrome{background:var(--ox);border-top-color:rgba(255,255,255,.1);color:#fff}
+.pg{position:absolute;left:0;top:-1px;height:2px;background:var(--sky);width:0;transition:width .5s var(--ease)}
+.cnt-p{font:500 clamp(12px,calc(1.05*var(--u)),15px) "Red Hat Mono",monospace;letter-spacing:.06em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cap{flex:1;min-width:0;font:500 clamp(10.5px,calc(.95*var(--u)),13.5px) "Red Hat Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-left:10px}
+body.escuro .cap{color:#7F97AC}
+.nb{width:40px;height:40px;flex:none;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer;opacity:.85;transition:opacity .2s,background .2s,color .2s}
+.nb:hover{opacity:1;background:var(--ox);color:#fff;border-color:var(--ox)}
+body.escuro .nb:hover{background:#fff;color:var(--ox);border-color:#fff}
+.nb:disabled{opacity:.25;cursor:default;background:transparent;color:inherit;border-color:currentColor}
+.nb svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nb.sb{border-color:transparent}
+.indice{position:fixed;inset:0;background:rgba(3,20,31,.97);z-index:20;display:none;overflow:auto;padding:clamp(28px,calc(5*var(--u)),80px) clamp(20px,calc(6*var(--u)),104px)}
+.indice.on{display:block}
+.indice h2{color:#fff;font-size:clamp(28px,calc(3.6*var(--u)),54px);font-weight:900;letter-spacing:-.03em;margin-bottom:clamp(18px,calc(2.6*var(--u)),40px)}
+.indice ol{list-style:none;columns:2;column-gap:60px}
+.indice li{break-inside:avoid;border-top:1px solid rgba(255,255,255,.14)}
+.indice button{all:unset;cursor:pointer;display:grid;grid-template-columns:44px 1fr;gap:10px;width:100%;padding:12px 0;color:#C9D7E4;font:500 clamp(14px,calc(1.3*var(--u)),19px) "Red Hat Display"}
+.indice button span{font:500 13px "Red Hat Mono";color:var(--sky);padding-top:3px}
+.indice button:hover{color:#fff}
+
+/* ---------- telas médias ---------- */
+@media (max-width:1100px){.gan{grid-template-columns:repeat(2,minmax(0,1fr))}.lac li{grid-template-columns:clamp(30px,4vw,50px) minmax(0,1fr) minmax(0,1.4fr)}.lac li .faz{grid-column:2/-1}}
+/* ---------- celular ---------- */
+@media (max-width:760px){
+ :root{--chrome:56px}
+ .slide{padding:18px 18px 34px}
+ html.js .slide{padding-bottom:calc(var(--chrome) + 28px)}
+ .s-top span:first-child{display:none}.s-top{justify-content:flex-start}
+ .s-body{justify-content:flex-start;padding-top:22px}
+ .capa .s-body,.fim .s-body,.div .s-body{justify-content:flex-end}
+ .nums,.cols3,.ads,.bars,.dois,.slog,.dif,.frases,.gan{grid-template-columns:1fr}
+ .nums>div{border-right:0;margin-right:0;border-bottom:1px solid var(--hair);padding:18px 0 20px}
+ .nums{border-top:0}
+ .qq li{grid-template-columns:1fr auto;gap:8px 14px}.qq .es{grid-column:1/-1;grid-row:2}
+ .qq li.cli:before{left:-10px}
+ .mx,.mx thead,.mx tbody,.mx tr,.mx th,.mx td{display:block;width:auto}
+ .mx thead{display:none}
+ .mx tr{border-top:1px solid var(--ink);margin-bottom:18px}
+ .mx th[scope=row]{width:auto;border-bottom:1px solid var(--hair);padding:12px 0}
+ .mx td{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:10px 0}
+ .mx td.cli{background:none}
+ .mx td:before{content:attr(data-label);font:700 13px "Red Hat Display";color:var(--ox)}
+ .mx td.cli:before{color:var(--cli)}
+ .ct li{grid-template-columns:1fr;gap:4px}.ct li.h{display:none}.ct .lb{display:block;font:500 10.5px "Red Hat Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-top:6px}
+ .ad dl{grid-template-columns:1fr}.ad dt{padding-bottom:0}.ad dd{border-top:0;padding-top:2px}
+ .bg{grid-template-columns:1fr;gap:4px}
+ .quad{grid-template-columns:1fr;grid-template-rows:none}.quad .ax{display:none}.q{border:1px solid var(--hair);border-bottom:0;min-height:96px}.q.b.r{border-bottom:1px solid var(--hair)}
+ .lac li{grid-template-columns:30px 1fr;gap:6px 10px}.lac li>div{grid-column:2}.lac li .faz{grid-column:2}
+ .pil li{grid-template-columns:1fr;gap:6px}
+ .fontes,.indice ol{columns:1}
+ .div .num{-webkit-text-stroke-width:1px}
+ .cap{visibility:hidden}
+}
+</style>
+</head>
+<body>
+<main class="deck">
+
+<section class="slide dark capa" data-cap="Capa">
+ <div class="s-top a fade"><span>Uso interno · ClintIA</span><span class="s-sec">02/10/2026</span></div>
+ <div class="s-body">
+  <div class="cobrand a"><img src="data:image/png;base64,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" alt="ClintIA" width="151" height="34"></div>
+  <h1 class="a">Pesquisa de concorrência</h1>
+  <p class="sub a">A ClintIA e seis empresas que vendem marketing, gestão e tecnologia para dono de clínica no Brasil</p>
+  <div class="risca a fade"></div>
+  <div class="meta a"><span>Mercado <b>Brasil · dono de clínica popular</b></span><span>Coleta <b>02/10/2026</b></span></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="Resumo">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">00 · Resumo</span></div>
+ <div class="s-body">
+  <div class="eyebrow a">Em uma frase</div>
+  <p class="manchete a">Entre as 7 empresas comparadas, a ClintIA é a única que fala só com clínica popular e a única que entrega o projeto num portal do cliente. Hoje ela também é uma das duas sem ficha no Google e tem o 6º Instagram em seguidores.</p>
+ </div>
+</section>
+
+<section class="slide" data-cap="Resumo · três números">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">00 · Resumo</span></div>
+ <div class="s-body">
+  <h2 class="t a">Onde a ClintIA está hoje</h2>
+  <div class="gap"></div>
+  <div class="nums"><div class="a"><div class="v cnt">0</div><div class="r">avaliações da ClintIA no Google: não há ficha</div><div class="n">as 5 concorrentes com ficha somam 418 avaliações</div></div><div class="a"><div class="v cnt">16</div><div class="r">posts do @clintia.br em 30 dias, com curtidas de 0 a 24</div><div class="n">só o @tobiaskfoury postou mais (18), com um Reel de 7.267 curtidas</div></div><div class="a"><div class="v cnt">6.947</div><div class="r">seguidores: o 6º entre os 7 perfis</div><div class="n">Encantadores tem 74.897; Future, 3.939</div></div></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="Resumo · quadro geral">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">00 · Resumo</span></div>
+ <div class="s-body">
+  <h2 class="t a">O quadro geral</h2>
+  <div class="gap"></div>
+  <div class="cols3">
+   <div class="col tem a"><h3>O que já tem</h3><ul><li>Nicho declarado: nenhuma das outras 6 fala só com clínica popular</li><li>Portal do cliente com o projeto inteiro (15 portais publicados)</li><li>Pesquisa regional e de concorrência antes do posicionamento</li><li>Oferta de entrada com preço público (Manual, R$ 147) e 3 anúncios ativos na Meta</li></ul></div>
+   <div class="col mel a"><h3>Onde pode melhorar</h3><ul><li>Sem ficha no Google; a busca por &#34;Clintia&#34; devolve uma clínica de Tianguá (CE)</li><li>Prova social sem nome: números de autoridade, nenhum case nomeado no site</li><li>proclip.com.br ainda exibe o estudo de caso que a regra interna de 30/06 retirou, e promete &#34;45 dias&#34;</li><li>Reclame Aqui com página criada e vazia</li></ul></div>
+   <div class="col dig a"><h3>No digital</h3><ul><li>16 posts em 30 dias, mas curtidas de 0 a 24; 6º perfil em seguidores</li><li>1 anúncio no histórico do Google; iMedicina tem 44, Future 25, MarketMED 19</li><li>Portal, agentes de IA e CITA não aparecem no site nem nos fixados</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<section class="slide dark div" data-cap="01 · Quem é quem">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">Capítulo 01</span></div>
+ <div class="s-body"><div class="num a">01</div><h2 class="a">Quem é quem</h2><p class="lede a">As 7 empresas, lado a lado, nos mesmos critérios.</p></div>
+</section>
+
+<section class="slide" data-cap="01 · As empresas">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">01 · Quem é quem</span></div>
+ <div class="s-body">
+  <h2 class="t a">As 7 empresas comparadas</h2>
+<p class="lede a">Concorrentes na ordem do mais forte para o mais fraco no digital hoje (Instagram, anúncios e site): Tobias Kfoury, Encantadores, MedConsulting, iMedicina, Future e MarketMED.</p>  <div class="gap"></div>
+  <ul class="qq"><li class="a cli"><div class="nm">ClintIA<small>Rio de Janeiro, remota · todo o Brasil</small></div><div class="es">A única das 7 com nicho declarado. Escada de oferta, portal do cliente e agentes de IA. Sem ficha no Google; 6.947 seguidores.</div><div class="nt"><span class="cnt">—</span><small>sem ficha</small></div></li><li class="a "><div class="nm">Tobias Kfoury · Clínica Lucrativa<small>Nova Lima (MG) · marca pessoal</small></div><div class="es">Livro, masterclass, mentoria e imersão para dono de clínica. 51.785 seguidores; Reel de 7.267 curtidas em 01/10. Sem ficha no Google.</div><div class="nt"><span class="cnt">—</span><small>sem ficha</small></div></li><li class="a "><div class="nm">Encantadores de Pacientes<small>Camaçari (BA) · treinamento</small></div><div class="es">Treinamento de atendimento e mentoria; &#34;+150 empresas&#34;. O maior Instagram dos 7 (74.897), feito de vídeos de atendimento real.</div><div class="nt"><span class="cnt">5,0</span><small>130 aval.</small></div></li><li class="a "><div class="nm">MedConsulting<small>Mooca, São Paulo (SP) · consultoria</small></div><div class="es">Consultoria financeira, de marketing e de RH que pôs IA no nome do produto (MedIA). 29 mil seguidores e presença em congressos.</div><div class="nt"><span class="cnt">4,9</span><small>35 aval.</small></div></li></ul>
+ </div>
+</section>
+<section class="slide" data-cap="01 · As empresas 2">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">01 · Quem é quem</span></div>
+ <div class="s-body">
+  <h2 class="t a">As 7 empresas comparadas, continuação</h2>
+  <div class="gap"></div>
+  <ul class="qq"><li class="a "><div class="nm">iMedicina<small>São Paulo (SP) · software</small></div><div class="es">Software com marketing acoplado, preço público e teste grátis. 44 anúncios no Google. Queixas de instabilidade nas avaliações.</div><div class="nt"><span class="cnt">4,6</span><small>131 aval.</small></div></li><li class="a "><div class="nm">Future Marketing<small>Jundiaí (SP) · agência</small></div><div class="es">Agência com 10 anos e &#34;+350 clínicas&#34; na bio. Vende site, Google Ads e identidade; 15 cases nomeados, um de clínica popular.</div><div class="nt"><span class="cnt">4,9</span><small>99 aval.</small></div></li><li class="a "><div class="nm">MarketMED<small>Rio e São Paulo · agência desde 2001</small></div><div class="es">Agência de origem do Bernardo, cerca de 50 pessoas, página de diagnóstico para clínica popular. Instagram parado desde 29/07.</div><div class="nt"><span class="cnt">4,5</span><small>23 aval.</small></div></li></ul>
+<p class="rodape-nota a">Tobias Kfoury e ClintIA não têm ficha no Google; a MarketMED tem 23 avaliações, abaixo das 30 da leitura padrão.</p> </div>
+</section>
+
+<section class="slide" data-cap="01 · Matriz 1/4">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">01 · Matriz</span></div>
+ <div class="s-body">
+  <h2 class="t a">Matriz</h2>
+  <div class="gap"></div>
+  <table class="mx">
+   <thead><tr class="a fade"><th>Critério</th><th class="cli" scope="col">ClintIA</th><th class="" scope="col">Tobias Kfoury</th><th class="" scope="col">Encantadores</th><th class="" scope="col">MedConsulting</th><th class="" scope="col">iMedicina</th><th class="" scope="col">Future</th><th class="" scope="col">MarketMED</th></tr></thead>
+   <tbody><tr class="a"><th scope="row">Nota no Google<small>ficha da empresa</small></th>
+<td class="cli" data-label="ClintIA"><div class="c"><span class="st na">Sem dados</span><br>Sem ficha; a busca por &#34;Clintia&#34; devolve uma clínica de Tianguá (CE)</div></td><td class="" data-label="Tobias Kfoury"><div class="c"><span class="st na">Sem dados</span><br>Sem ficha encontrada (marca pessoal)</div></td><td class="" data-label="Encantadores"><div class="c"><span class="st sim">Sim</span><br>5,0 · 130 (Camaçari)</div></td><td class="" data-label="MedConsulting"><div class="c"><span class="st sim">Sim</span><br>4,9 · 35 (Mooca)</div></td><td class="" data-label="iMedicina"><div class="c"><span class="st sim">Sim</span><br>4,6 · 131 (sem endereço)</div></td><td class="" data-label="Future"><div class="c"><span class="st sim">Sim</span><br>4,9 · 99 (Jundiaí)</div></td><td class="" data-label="MarketMED"><div class="c"><span class="st parcial">Parcial</span><br>4,5 · 23 (Centro, RJ)</div></td></tr><tr class="a"><th scope="row">Responde avaliações<small>nas 30 mais recentes</small></th>
+<td class="cli" data-label="ClintIA"><div class="c"><span class="st na">Sem dados</span><br>Sem ficha</div></td><td class="" data-label="Tobias Kfoury"><div class="c"><span class="st na">Sem dados</span><br>Sem ficha</div></td><td class="" data-label="Encantadores"><div class="c"><span class="st sim">Sim</span><br>30 de 30</div></td><td class="" data-label="MedConsulting"><div class="c"><span class="st sim">Sim</span><br>29 de 30; a única negativa respondida</div></td><td class="" data-label="iMedicina"><div class="c"><span class="st parcial">Parcial</span><br>17 de 30; 4 das 7 negativas</div></td><td class="" data-label="Future"><div class="c"><span class="st parcial">Parcial</span><br>13 de 30; a única negativa respondida</div></td><td class="" data-label="MarketMED"><div class="c"><span class="st nao">Não</span><br>0 de 23</div></td></tr><tr class="a"><th scope="row">Preço público<small>site ou loja</small></th>
+<td class="cli" data-label="ClintIA"><div class="c"><span class="st parcial">Parcial</span><br>Manual a R$ 147 em proclip.com.br/apostila; serviços sem preço</div></td><td class="" data-label="Tobias Kfoury"><div class="c"><span class="st conferir">A conferir</span><br>Livro na Amazon e masterclass na Hotmart; valores não capturados (Amazon fora do ar em 02/10)</div></td><td class="" data-label="Encantadores"><div class="c"><span class="st conferir">A conferir</span><br>Curso na Hotmart; valor não exibido na página lida</div></td><td class="" data-label="MedConsulting"><div class="c"><span class="st nao">Não</span><br>Sem preço; diagnóstico gratuito</div></td><td class="" data-label="iMedicina"><div class="c"><span class="st sim">Sim</span><br>Planos de R$ 129 a R$ 499 por mês; Black November com até 50% de desconto</div></td><td class="" data-label="Future"><div class="c"><span class="st nao">Não</span><br>Sem preço no site</div></td><td class="" data-label="MarketMED"><div class="c"><span class="st nao">Não</span><br>Sem preço; &#34;fale com o consultor&#34;</div></td></tr></tbody>
+  </table>
+ </div>
+</section>
+<section class="slide" data-cap="01 · Matriz 2/4">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">01 · Matriz</span></div>
+ <div class="s-body">
+  <h2 class="t a">Matriz, continuação</h2>
+  <div class="gap"></div>
+  <table class="mx">
+   <thead><tr class="a fade"><th>Critério</th><th class="cli" scope="col">ClintIA</th><th class="" scope="col">Tobias Kfoury</th><th class="" scope="col">Encantadores</th><th class="" scope="col">MedConsulting</th><th class="" scope="col">iMedicina</th><th class="" scope="col">Future</th><th class="" scope="col">MarketMED</th></tr></thead>
+   <tbody><tr class="a"><th scope="row">Instagram<small>posts de 02/09 a 02/10</small></th>
+<td class="cli" data-label="ClintIA"><div class="c"><span class="st sim">Sim</span><br>6.947 · 16 posts, 10 Reels; curtidas de 0 a 24</div></td><td class="" data-label="Tobias Kfoury"><div class="c"><span class="st sim">Sim</span><br>51.785 · 18 posts; Reel de 01/10 com 7.267 curtidas</div></td><td class="" data-label="Encantadores"><div class="c"><span class="st sim">Sim</span><br>74.897 · 6 Reels de atendimento real</div></td><td class="" data-label="MedConsulting"><div class="c"><span class="st sim">Sim</span><br>29.061 · 10 posts, 7 Reels</div></td><td class="" data-label="iMedicina"><div class="c"><span class="st parcial">Parcial</span><br>8.224 · 3 posts</div></td><td class="" data-label="Future"><div class="c"><span class="st parcial">Parcial</span><br>3.939 · 3 posts</div></td><td class="" data-label="MarketMED"><div class="c"><span class="st parou">Parou</span><br>14.171 · último post em 29/07</div></td></tr><tr class="a"><th scope="row">Anuncia no Google<small>Central de Transparência, histórico</small></th>
+<td class="cli" data-label="ClintIA"><div class="c"><span class="st parcial">Parcial</span><br>1 anúncio (clintia.com.br); nenhum para proclip.com.br</div></td><td class="" data-label="Tobias Kfoury"><div class="c"><span class="st nao">Não</span><br>Nenhum para clinicalucrativa.com.br</div></td><td class="" data-label="Encantadores"><div class="c"><span class="st nao">Não</span><br>Nenhum</div></td><td class="" data-label="MedConsulting"><div class="c"><span class="st parcial">Parcial</span><br>2 no histórico</div></td><td class="" data-label="iMedicina"><div class="c"><span class="st sim">Sim</span><br>44 no histórico</div></td><td class="" data-label="Future"><div class="c"><span class="st sim">Sim</span><br>25 no histórico</div></td><td class="" data-label="MarketMED"><div class="c"><span class="st sim">Sim</span><br>19 no histórico</div></td></tr><tr class="a"><th scope="row">Anuncia na Meta</th>
+<td class="cli" data-label="ClintIA"><div class="c"><span class="st sim">Sim</span><br>3 ativos (Manual, campanha SET26), pela conta de anúncios</div></td><td class="" data-label="Tobias Kfoury"><div class="c"><span class="st conferir">A conferir</span><br>Biblioteca pediu login em 02/10</div></td><td class="" data-label="Encantadores"><div class="c"><span class="st conferir">A conferir</span><br>Biblioteca pediu login em 02/10</div></td><td class="" data-label="MedConsulting"><div class="c"><span class="st conferir">A conferir</span><br>Biblioteca pediu login em 02/10</div></td><td class="" data-label="iMedicina"><div class="c"><span class="st conferir">A conferir</span><br>Biblioteca pediu login em 02/10</div></td><td class="" data-label="Future"><div class="c"><span class="st conferir">A conferir</span><br>Biblioteca pediu login em 02/10</div></td><td class="" data-label="MarketMED"><div class="c"><span class="st conferir">A conferir</span><br>Biblioteca pediu login em 02/10</div></td></tr></tbody>
+  </table>
+ </div>
+</section>
+<section class="slide" data-cap="01 · Matriz 3/4">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">01 · Matriz</span></div>
+ <div class="s-body">
+  <h2 class="t a">Matriz, continuação</h2>
+  <div class="gap"></div>
+  <table class="mx">
+   <thead><tr class="a fade"><th>Critério</th><th class="cli" scope="col">ClintIA</th><th class="" scope="col">Tobias Kfoury</th><th class="" scope="col">Encantadores</th><th class="" scope="col">MedConsulting</th><th class="" scope="col">iMedicina</th><th class="" scope="col">Future</th><th class="" scope="col">MarketMED</th></tr></thead>
+   <tbody><tr class="a"><th scope="row">Foco em clínica popular</th>
+<td class="cli" data-label="ClintIA"><div class="c"><span class="st sim">Sim</span><br>Único foco declarado: &#34;só pra clínica popular&#34;</div></td><td class="" data-label="Tobias Kfoury"><div class="c"><span class="st nao">Não</span><br>Dono de clínica em geral, inclusive odontologia</div></td><td class="" data-label="Encantadores"><div class="c"><span class="st nao">Não</span><br>Clínicas, consultórios, hospitais e empresas</div></td><td class="" data-label="MedConsulting"><div class="c"><span class="st nao">Não</span><br>Clínicas e consultórios em geral; eventos de residentes e estética</div></td><td class="" data-label="iMedicina"><div class="c"><span class="st nao">Não</span><br>Médico individual e clínicas menores</div></td><td class="" data-label="Future"><div class="c"><span class="st parcial">Parcial</span><br>Página e case de clínica popular; foco principal em médico especialista</div></td><td class="" data-label="MarketMED"><div class="c"><span class="st parcial">Parcial</span><br>Página &#34;Diagnóstico Clínica Popular&#34;; produto por tipo de negócio</div></td></tr><tr class="a"><th scope="row">Prova no site<small>cases, números, depoimentos</small></th>
+<td class="cli" data-label="ClintIA"><div class="c"><span class="st parcial">Parcial</span><br>Números de autoridade (+100 clínicas, 13 estados) sem case nomeado; o proclip.com.br ainda mostra o estudo de caso vetado em 30/06</div></td><td class="" data-label="Tobias Kfoury"><div class="c"><span class="st sim">Sim</span><br>Livro apresentado como &#34;o mais vendido do país sobre gestão de clínicas&#34;; imersão presencial em BH em setembro</div></td><td class="" data-label="Encantadores"><div class="c"><span class="st parcial">Parcial</span><br>&#34;+150 empresas no Brasil e Portugal&#34;; vídeos de atendimento como prova</div></td><td class="" data-label="MedConsulting"><div class="c"><span class="st sim">Sim</span><br>15 anos, &#34;+3.700 projetos&#34;, depoimentos em vídeo no Instagram</div></td><td class="" data-label="iMedicina"><div class="c"><span class="st sim">Sim</span><br>Depoimentos, CNPJ no rodapé, 10 anos, teste grátis</div></td><td class="" data-label="Future"><div class="c"><span class="st sim">Sim</span><br>15 cases nomeados no menu, inclusive &#34;Dobramos o faturamento de uma clínica popular&#34;</div></td><td class="" data-label="MarketMED"><div class="c"><span class="st parcial">Parcial</span><br>&#34;+ de 3.000 centros de saúde&#34; e portfólio; contadores zerados sem JavaScript</div></td></tr><tr class="a"><th scope="row">Botão principal do site</th>
+<td class="cli" data-label="ClintIA"><div class="c"><span class="st sim">Sim</span><br>Agendar sessão estratégica (WhatsApp com UTM)</div></td><td class="" data-label="Tobias Kfoury"><div class="c"><span class="st parcial">Parcial</span><br>Link da bio para &#34;experiência&#34; em clinicalucrativa.com.br; mentoria em plataforma de curso</div></td><td class="" data-label="Encantadores"><div class="c"><span class="st sim">Sim</span><br>&#34;Marque uma reunião&#34; (WhatsApp)</div></td><td class="" data-label="MedConsulting"><div class="c"><span class="st sim">Sim</span><br>Agendar diagnóstico gratuito (WhatsApp)</div></td><td class="" data-label="iMedicina"><div class="c"><span class="st sim">Sim</span><br>Agendar diagnóstico; teste grátis; WhatsApp por plano</div></td><td class="" data-label="Future"><div class="c"><span class="st parcial">Parcial</span><br>Contato pelo menu; sem WhatsApp direto na primeira tela</div></td><td class="" data-label="MarketMED"><div class="c"><span class="st sim">Sim</span><br>&#34;Fale com o consultor&#34; (WhatsApp, números do RJ e de SP)</div></td></tr></tbody>
+  </table>
+ </div>
+</section>
+<section class="slide" data-cap="01 · Matriz 4/4">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">01 · Matriz</span></div>
+ <div class="s-body">
+  <h2 class="t a">Matriz, continuação</h2>
+  <div class="gap"></div>
+  <table class="mx">
+   <thead><tr class="a fade"><th>Critério</th><th class="cli" scope="col">ClintIA</th><th class="" scope="col">Tobias Kfoury</th><th class="" scope="col">Encantadores</th><th class="" scope="col">MedConsulting</th><th class="" scope="col">iMedicina</th><th class="" scope="col">Future</th><th class="" scope="col">MarketMED</th></tr></thead>
+   <tbody><tr class="a"><th scope="row">Reclame Aqui<small>só pela busca; o site bloqueia leitura automática</small></th>
+<td class="cli" data-label="ClintIA"><div class="c"><span class="st conferir">A conferir</span><br>Página criada com a razão social, sem reputação definida; total a conferir</div></td><td class="" data-label="Tobias Kfoury"><div class="c"><span class="st na">Sem dados</span><br>Sem página encontrada</div></td><td class="" data-label="Encantadores"><div class="c"><span class="st na">Sem dados</span><br>Sem página encontrada</div></td><td class="" data-label="MedConsulting"><div class="c"><span class="st na">Sem dados</span><br>Sem página encontrada</div></td><td class="" data-label="iMedicina"><div class="c"><span class="st conferir">A conferir</span><br>Página &#34;Imedicina - Software&#34;; reclamações de instabilidade e de dados; sem reputação definida</div></td><td class="" data-label="Future"><div class="c"><span class="st conferir">A conferir</span><br>Duas páginas; sem reputação definida</div></td><td class="" data-label="MarketMED"><div class="c"><span class="st conferir">A conferir</span><br>Página &#34;MarketMed&#34;, selo não verificado; total a conferir</div></td></tr><tr class="a"><th scope="row">Portal ou painel para o cliente</th>
+<td class="cli" data-label="ClintIA"><div class="c"><span class="st sim">Sim</span><br>cliente.proclip.com.br com o projeto inteiro; 15 portais publicados</div></td><td class="" data-label="Tobias Kfoury"><div class="c"><span class="st nao">Não</span><br>Área de membros da mentoria</div></td><td class="" data-label="Encantadores"><div class="c"><span class="st nao">Não</span><br>Não encontrado</div></td><td class="" data-label="MedConsulting"><div class="c"><span class="st parcial">Parcial</span><br>&#34;MedIA Analytics&#34; (dashboards) na lista de serviços</div></td><td class="" data-label="iMedicina"><div class="c"><span class="st sim">Sim</span><br>O produto é o software: prontuário, agenda e indicadores</div></td><td class="" data-label="Future"><div class="c"><span class="st nao">Não</span><br>Não encontrado</div></td><td class="" data-label="MarketMED"><div class="c"><span class="st nao">Não</span><br>Não encontrado</div></td></tr><tr class="a"><th scope="row">IA na oferta</th>
+<td class="cli" data-label="ClintIA"><div class="c"><span class="st sim">Sim</span><br>Agentes de IA na operação; CITA, produto de citação em IA</div></td><td class="" data-label="Tobias Kfoury"><div class="c"><span class="st nao">Não</span><br>Não aparece</div></td><td class="" data-label="Encantadores"><div class="c"><span class="st nao">Não</span><br>Não aparece</div></td><td class="" data-label="MedConsulting"><div class="c"><span class="st sim">Sim</span><br>&#34;MedIA&#34;: gestão, recepção com IA + CRM, pesquisa de mercado com IA</div></td><td class="" data-label="iMedicina"><div class="c"><span class="st sim">Sim</span><br>Prontuário com IA; &#34;sua marca precisa ser encontrada nas IAs&#34;</div></td><td class="" data-label="Future"><div class="c"><span class="st parcial">Parcial</span><br>&#34;IA para Área da Saúde&#34; no menu de serviços</div></td><td class="" data-label="MarketMED"><div class="c"><span class="st nao">Não</span><br>Não aparece na primeira tela</div></td></tr></tbody>
+  </table>
+ </div>
+</section>
+
+<section class="slide" data-cap="01 · Ofertas de entrada">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">01 · Ofertas de entrada</span></div>
+ <div class="s-body">
+  <h2 class="t a">O que cada uma vende como porta de entrada</h2>
+<p class="lede a">Preço e conteúdo publicados pelas próprias marcas em 02/10. Três concorrentes usam diagnóstico gratuito; duas vendem infoproduto, como o Manual.</p>  <div class="gap"></div>
+  <ul class="ct">
+   <li class="h a fade"><span>Empresa e oferta</span><span>Preço público</span><span>O que inclui</span><span>Formato</span></li>
+<li class="a cli"><div><b>ClintIA · Manual da Clínica Popular</b></div><div><span class="lb">Preço público</span>R$ 147 (bump de curso em vídeo, R$ 97)</div><div><span class="lb">O que inclui</span>Ebook, bônus, videoaulas e comunidade em membros.proclip.com.br</div><div><span class="lb">Formato</span>Infoproduto; porta de entrada para a sessão estratégica</div></li><li class="a cli"><div><b>ClintIA · Estruturação Comercial e PROClip</b></div><div><span class="lb">Preço público</span>Sem preço público (sob proposta)</div><div><span class="lb">O que inclui</span>CRM, fila de WhatsApp e treinamento; implementação de marketing e vendas</div><div><span class="lb">Formato</span>Projeto, entregue no portal do cliente</div></li><li class="a "><div><b>Tobias Kfoury · Manual da Clínica Lucrativa e mentoria</b></div><div><span class="lb">Preço público</span>Livro na Amazon e masterclass na Hotmart (valores não capturados); mentoria por aplicação</div><div><span class="lb">O que inclui</span>Livro, série de vídeos, mentoria Clínica Lucrativa, imersão presencial</div><div><span class="lb">Formato</span>Infoproduto e mentoria</div></li><li class="a "><div><b>Encantadores · Mentoria online de gestão e marketing</b></div><div><span class="lb">Preço público</span>Hotmart (valor não capturado)</div><div><span class="lb">O que inclui</span>Mais de 30 h em 18 módulos, aulas semanais ao vivo, comunidade</div><div><span class="lb">Formato</span>Infoproduto, consultoria e treinamento in company</div></li><li class="a "><div><b>iMedicina · Planos</b></div><div><span class="lb">Preço público</span>R$ 129 a R$ 499 por mês; Black November com até 50% de desconto</div><div><span class="lb">O que inclui</span>Prontuário com IA, agenda, telemedicina; marketing nos planos maiores</div><div><span class="lb">Formato</span>Software por assinatura, teste grátis</div></li><li class="a "><div><b>MedConsulting · Diagnóstico gratuito</b></div><div><span class="lb">Preço público</span>Sem preço público</div><div><span class="lb">O que inclui</span>Consultoria financeira, marketing, RH, pesquisa de mercado, MedIA</div><div><span class="lb">Formato</span>Consultoria, São Paulo</div></li>  </ul>
+ </div>
+</section>
+<section class="slide" data-cap="01 · Ofertas de entrada 2">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">01 · Ofertas de entrada</span></div>
+ <div class="s-body">
+  <h2 class="t a">O que cada uma vende como porta de entrada, continuação</h2>
+  <div class="gap"></div>
+  <ul class="ct">
+   <li class="h a fade"><span>Empresa e oferta</span><span>Preço público</span><span>O que inclui</span><span>Formato</span></li>
+<li class="a "><div><b>Future · Contato</b></div><div><span class="lb">Preço público</span>Sem preço público</div><div><span class="lb">O que inclui</span>Sites, Google Ads, identidade, conteúdo, experiência do paciente</div><div><span class="lb">Formato</span>Agência, Jundiaí</div></li><li class="a "><div><b>MarketMED · Diagnóstico gratuito de 30 min</b></div><div><span class="lb">Preço público</span>Sem preço público</div><div><span class="lb">O que inclui</span>Assessoria por tipo de negócio; página própria para clínica popular</div><div><span class="lb">Formato</span>Agência, Rio e São Paulo</div></li>  </ul>
+ </div>
+</section>
+<section class="slide dark" data-cap="01 · Manual × Manual">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">01 · Ofertas de entrada</span></div>
+ <div class="s-body">
+  <div class="eyebrow a">Ponto de atenção</div>
+  <p class="cit a" style="font-size:clamp(20px,calc(2.7*var(--u)),44px);max-width:34ch">O Manual da Clínica Popular (R$ 147) divide a prateleira com o Manual da Clínica Lucrativa, do Tobias Kfoury, apresentado pelo autor como o livro mais vendido do país sobre gestão de clínicas, com 51 mil seguidores atrás. O nome parecido ajuda na busca e confunde na memória. Vale decidir se o Manual é a porta de entrada da ClintIA ou uma marca à parte (pergunta 6 do briefing).</p>
+ </div>
+</section>
+
+<section class="slide dark div" data-cap="02 · Anúncios">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">Capítulo 02</span></div>
+ <div class="s-body"><div class="num a">02</div><h2 class="a">Como cada uma anuncia</h2><p class="lede a">Os anúncios da ClintIA vêm da conta de anúncios; os das concorrentes, do histórico da Central de Transparência do Google. A Biblioteca da Meta pediu login e não mostrou nenhum concorrente.</p></div>
+</section>
+
+<section class="slide" data-cap="02 · Anúncios · a ClintIA">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">02 · Anúncios</span></div>
+ <div class="s-body">
+  <h2 class="t a">Os anúncios da ClintIA</h2>
+  <div class="gap"></div>
+  <div class="ads"><div class="ad a cli"><h3>ClintIA</h3><div class="cn">Meta (Facebook e Instagram)</div><dl><dt>Anúncios ativos</dt><dd>3, todos da campanha do Manual (SET26)</dd><dt>Formato</dt><dd>Reels e vídeo</dd><dt>Com preço</dt><dd>Nenhum; o Manual sai a R$ 147 na página</dd><dt>Mais antigo no ar</dt><dd>23/09</dd><dt>Temas</dt><dd>Dr. Consulta e Amor Saúde como referência de mercado, notícia do dia, caixinha de perguntas</dd><dt>Botão</dt><dd>Saiba mais</dd><dt>Pausados</dt><dd>Cerca de 90 desde julho: Manual (JUL26) e leads do PROClip (JUN26)</dd></dl></div><div class="ad a cli"><h3>ClintIA</h3><div class="cn">Google</div><dl><dt>Anúncios no histórico</dt><dd>1 para clintia.com.br; 0 para proclip.com.br</dd><dt>Campanha de leads</dt><dd>Pausada em 02/10 por excesso de contatos pendentes</dd><dt>Busca &#34;marketing para clínica popular&#34;</dt><dd>Sem anúncio da ClintIA em 02/10; patrocinados: bedoc.com.br e captarebrasil.com</dd><dt>Busca &#34;agência de marketing médico&#34;</dt><dd>Patrocinados: groohub.com.br (&#34;estruturação comercial&#34;) e a5marketing.com.br</dd></dl></div></div>
+ </div>
+</section>
+<section class="slide" data-cap="02 · Anúncios · as concorrentes">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">02 · Anúncios</span></div>
+ <div class="s-body">
+  <h2 class="t a">Os anúncios das concorrentes</h2>
+  <div class="gap"></div>
+  <div class="ads"><div class="ad a "><h3>iMedicina</h3><div class="cn">Google</div><dl><dt>Anúncios no histórico</dt><dd>44, em duas contas verificadas</dd><dt>Oferta</dt><dd>Planos de R$ 129 a R$ 499 por mês, teste grátis, Black November</dd><dt>Formato</dt><dd>Texto, com páginas de plano</dd><dt>Botão</dt><dd>Agendar diagnóstico; testar gratuitamente</dd></dl></div><div class="ad a "><h3>Future</h3><div class="cn">Google</div><dl><dt>Anúncios no histórico</dt><dd>25, anunciante Future Marketing BCA Ltda</dd><dt>Oferta</dt><dd>Sites, Google Ads, identidade visual, experiência do paciente</dd><dt>Prova</dt><dd>Menu com 15 cases nomeados</dd><dt>Botão</dt><dd>Contato</dd></dl></div></div>
+ </div>
+</section>
+<section class="slide" data-cap="02 · Anúncios · as concorrentes">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">02 · Anúncios</span></div>
+ <div class="s-body">
+  <h2 class="t a">Os anúncios das concorrentes</h2>
+  <div class="gap"></div>
+  <div class="ads"><div class="ad a "><h3>MarketMED</h3><div class="cn">Google</div><dl><dt>Anúncios no histórico</dt><dd>19</dd><dt>Oferta</dt><dd>Diagnóstico gratuito de 30 minutos; página de clínica popular promete &#34;faturamento triplicado&#34;</dd><dt>Formato</dt><dd>Texto</dd><dt>Botão</dt><dd>Fale com o consultor (WhatsApp)</dd></dl></div><div class="ad a "><h3>MedConsulting</h3><div class="cn">Google</div><dl><dt>Anúncios no histórico</dt><dd>2</dd><dt>Oferta</dt><dd>Diagnóstico gratuito; &#34;sua clínica está preparada para 2026?&#34;</dd><dt>Formato</dt><dd>Texto</dd><dt>Botão</dt><dd>Agendar meu diagnóstico gratuito (WhatsApp)</dd></dl></div></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="02 · O que a comparação mostra">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">02 · Anúncios</span></div>
+ <div class="s-body">
+  <h2 class="t a">O que a comparação mostra</h2>
+  <div class="gap"></div>
+  <ol class="lista-n"><li class="a">No Google, iMedicina (44), Future (25) e MarketMED (19) têm histórico de anúncios; a ClintIA tem 1. Nas buscas &#34;marketing para clínica popular&#34; e &#34;agência de marketing médico&#34; em 02/10, nenhuma das 7 aparecia patrocinada; apareceram bedoc, captarebrasil, groohub e a5marketing.</li><li class="a">Os 3 anúncios ativos da ClintIA vendem o Manual com referência de mercado e notícia do dia. Nenhum anúncio ativo vende o PROClip ou a sessão estratégica, e a campanha de leads está pausada por decisão de outubro.</li><li class="a">Três concorrentes usam diagnóstico gratuito como porta de entrada (MarketMED, MedConsulting, iMedicina); a ClintIA usa a sessão estratégica de 30 minutos, pelo mesmo caminho do WhatsApp.</li><li class="a">A MarketMED promete &#34;faturamento triplicado&#34; na página de clínica popular; a Future, &#34;dobramos o faturamento&#34; num case nomeado. A ClintIA segue a regra da casa: número só com fonte e case só com autorização.</li><li class="a">Compliance: nos anúncios da ClintIA, Dr. Consulta e Amor Saúde aparecem como referência de mercado, nunca como cliente ou experiência. Manter assim.</li></ol>
+ </div>
+</section>
+
+<section class="slide dark div" data-cap="03 · Voz do cliente">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">Capítulo 03</span></div>
+ <div class="s-body"><div class="num a">03</div><h2 class="a">O que o dono de clínica diz das concorrentes</h2><p class="lede a">As 30 avaliações mais recentes de cada concorrente no Google, classificadas em 10 temas. A ClintIA não tem ficha e fica fora do gráfico.</p></div>
+</section>
+
+<section class="slide" data-cap="03 · Três números">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">03 · Voz do cliente</span></div>
+ <div class="s-body">
+  <h2 class="t a">Nas 120 avaliações recentes das 4 concorrentes com ficha cheia</h2>
+  <div class="gap"></div>
+  <div class="nums"><div class="a"><div class="v cnt">44 de 120</div><div class="r">menções à qualidade do que foi entregue: site, aula, material</div></div><div class="a"><div class="v cnt">25</div><div class="r">menções a equipe atenciosa e rápida; 13 delas na MedConsulting</div></div><div class="a"><div class="v cnt">9 de 120</div><div class="r">menções negativas: 7 na iMedicina (sistema que cai, regra que muda), 2 na Future</div></div></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="03 · Temas">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">03 · Voz do cliente</span></div>
+ <div class="s-body">
+  <h2 class="t a">Elogios e reclamações, por tema</h2>
+  <p class="lede a">Menções a cada 30 avaliações, média de Encantadores, MedConsulting, iMedicina e Future. Uma avaliação pode ter mais de um tema.</p>
+  <div class="gap"></div>
+  <div class="leg a fade"><span><i style="background:var(--conc)"></i>Média das concorrentes (4)</span></div>
+  <div class="bars">
+<div><h3 class="a fade">Elogios</h3>
+<div class="bg a"><div class="t">Equipe atenciosa e rápida</div><div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:56.8%"></div></div><span class="val">6,2</span></div>
+   </div></div><div class="bg a"><div class="t">Prazo e combinado cumpridos</div><div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:9.1%"></div></div><span class="val">1,0</span></div>
+   </div></div><div class="bg a"><div class="t">Resultado no negócio</div><div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:38.6%"></div></div><span class="val">4,2</span></div>
+   </div></div><div class="bg a"><div class="t">Qualidade do que foi entregue (site, aula, material)</div><div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:100.0%"></div></div><span class="val">11,0</span></div>
+   </div></div><div class="bg a"><div class="t">Relação de anos</div><div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:18.2%"></div></div><span class="val">2,0</span></div>
+   </div></div></div><div><h3 class="a fade">Reclamações</h3>
+<div class="bg a"><div class="t">Resultado abaixo do prometido</div><div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:2.3%"></div></div><span class="val">0,2</span></div>
+   </div></div><div class="bg a"><div class="t">Suporte demorado ou difícil</div><div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:2.3%"></div></div><span class="val">0,2</span></div>
+   </div></div><div class="bg a"><div class="t">Sistema instável</div><div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:6.8%"></div></div><span class="val">0,8</span></div>
+   </div></div><div class="bg a"><div class="t">Mudança de regra ou cobrança</div><div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:4.5%"></div></div><span class="val">0,5</span></div>
+   </div></div><div class="bg a"><div class="t">Processo cansativo ou burocrático</div><div>
+    <div class="bar co"><div class="tr"><div class="f" style="--w:4.5%"></div></div><span class="val">0,5</span></div>
+   </div></div></div>  </div>
+ </div>
+</section>
+
+<section class="slide dark" data-cap="03 · O que isso quer dizer">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">03 · Voz do cliente</span></div>
+ <div class="s-body">
+  <div class="eyebrow a">O que isso quer dizer</div>
+  <p class="cit a">Nas 120 avaliações recentes das 4 concorrentes com ficha cheia, o dono de clínica elogia o que recebeu na mão (site, aula, material) e a equipe que responde rápido. As 9 queixas são de ferramenta que cai, regra que muda e campanha que não deu retorno. Prova de entrega e suporte rápido pesam mais do que promessa.</p>
+<p class="rodape-nota a" style="margin-top:clamp(22px,calc(3.4*var(--u)),50px)">A ClintIA não tem ficha no Google e por isso não entra no gráfico. A MarketMED tem 23 avaliações, abaixo das 30: entra com o n real na leitura à parte e fica fora da média. Tobias Kfoury não tem ficha.</p> </div>
+</section>
+
+<section class="slide" data-cap="03 · Contexto">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">03 · Voz do cliente</span></div>
+ <div class="s-body">
+  <h2 class="t a">Duas leituras de contexto</h2>
+  <div class="gap"></div>
+  <div class="dois">
+<div class="bloco a"><h3>Amostra pequena, leitura qualitativa</h3><p><b>MarketMED, 23 avaliações.</b> Equipe atenciosa (3); as outras 20 são 5 estrelas sem texto ou com até 10 palavras.</p><span class="trecho">"Maravilhosa, principalmente com a Yohana que é excelente profissional e muita atenciosa"</span><p>Nenhuma das 23 tem resposta da empresa. As duas de 1 estrela, de 7 anos atrás, não têm texto.</p></div><div class="bloco a"><h3>Padrão observado nas avaliações recentes</h3><ul><li><b>MarketMED.</b> 15 das 23 avaliações são de &#34;um ano atrás&#34;; 17 são 5 estrelas com até 10 palavras ou sem texto; 9 vêm de perfis com no máximo 1 avaliação.</li><li><b>Encantadores de Pacientes.</b> 18 das 30 foram publicadas na mesma semana, logo depois de uma palestra; 20 são 5 estrelas curtas; 10 vêm de perfis com no máximo 1 avaliação. Todas as 30 têm resposta.</li><li><b>MedConsulting.</b> 11 das 30 citam a consultora pelo nome; 29 de 30 têm resposta da empresa.</li></ul><p class="rodape-nota">A nota continua sendo a nota; o padrão é contexto para ler o número. Pedir avaliação depois de uma palestra ou de uma entrega é prática comum e permitida; a política do Google proíbe oferecer benefício em troca.</p></div>  </div>
+ </div>
+</section>
+
+<section class="slide dark div" data-cap="04 · Posicionamento">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">Capítulo 04</span></div>
+ <div class="s-body"><div class="num a">04</div><h2 class="a">Onde cada uma se coloca</h2><p class="lede a">Nota no Google cruzada com oferta de preço público.</p></div>
+</section>
+
+<section class="slide" data-cap="04 · Mapa">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">04 · Posicionamento</span></div>
+ <div class="s-body">
+  <h2 class="t a">Nota × preço público</h2>
+  <div class="gap"></div>
+  <div class="quad a fade">
+   <div></div><div class="ax">Sem preço público</div><div class="ax">Com preço público</div>
+<div class="ax ay">Nota 4,5 ou mais</div>
+<div class="q   "><div class="ql">Nota 4,5+ · sem preço</div><span class="bd " style="--k:0">Encantadores <small>5,0</small></span><span class="bd " style="--k:1">MedConsulting <small>4,9</small></span><span class="bd " style="--k:2">Future <small>4,9</small></span><span class="bd " style="--k:3">MarketMED <small>4,5</small></span></div><div class="q  r "><div class="ql">Nota 4,5+ · com preço</div><span class="bd " style="--k:4">iMedicina <small>4,6</small></span></div><div class="ax ay">Abaixo de 4,5 ou sem ficha</div>
+<div class="q   b"><div class="ql">Sem ficha ou &lt; 4,5 · sem preço</div><span class="bd " style="--k:5">Tobias Kfoury <small>—</small></span></div><div class="q  r b"><div class="ql">Sem ficha ou &lt; 4,5 · com preço</div><span class="bd cli" style="--k:6">ClintIA <small>—</small></span></div>  </div>
+<p class="rodape-nota a">Entre as 7, só a iMedicina junta nota alta no Google e preço público. A ClintIA tem o preço do Manual público, mas sem ficha no Google fica no quadro de baixo. A MarketMED aparece no quadro de cima com 23 avaliações.</p> </div>
+</section>
+
+<section class="slide" data-cap="04 · Como cada uma se apresenta">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">04 · Posicionamento</span></div>
+ <div class="s-body">
+  <h2 class="t a">Como cada uma se apresenta</h2>
+  <div class="gap"></div>
+  <div class="slog"><div class="a cli"><h3>ClintIA</h3><q>Marketing, tecnologia e inteligência comercial, só pra clínica popular.</q><p>A única das 7 com nicho declarado. Escada de oferta, portal do cliente e agentes de IA. Sem ficha no Google; 6.947 seguidores.</p></div><div class="a "><h3>Tobias Kfoury · Clínica Lucrativa</h3><q>Dono de clínica, você pode (e merece) ter uma clínica mais lucrativa, de forma íntegra e ética.</q><p>Livro, masterclass, mentoria e imersão para dono de clínica. 51.785 seguidores; Reel de 7.267 curtidas em 01/10. Sem ficha no Google.</p></div><div class="a "><h3>Encantadores de Pacientes</h3><q>Te ajudamos a encantar o paciente do analógico ao digital.</q><p>Treinamento de atendimento e mentoria; &#34;+150 empresas&#34;. O maior Instagram dos 7 (74.897), feito de vídeos de atendimento real.</p></div><div class="a "><h3>MedConsulting</h3><q>15 anos transformando clínicas com gestão inteligente e agora com Inteligência Artificial.</q><p>Consultoria financeira, de marketing e de RH que pôs IA no nome do produto (MedIA). 29 mil seguidores e presença em congressos.</p></div><div class="a "><h3>iMedicina</h3><q>Marketing médico e prontuário eletrônico com IA.</q><p>Software com marketing acoplado, preço público e teste grátis. 44 anúncios no Google. Queixas de instabilidade nas avaliações.</p></div><div class="a "><h3>Future Marketing</h3><q>Atraia mais pacientes e cresça com estratégias de Marketing Médico.</q><p>Agência com 10 anos e &#34;+350 clínicas&#34; na bio. Vende site, Google Ads e identidade; 15 cases nomeados, um de clínica popular.</p></div><div class="a "><h3>MarketMED</h3><q>A primeira empresa de Marketing Médico do Brasil.</q><p>Agência de origem do Bernardo, cerca de 50 pessoas, página de diagnóstico para clínica popular. Instagram parado desde 29/07.</p></div></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="04 · Fora do quadro">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">04 · Posicionamento</span></div>
+ <div class="s-body">
+  <h2 class="t a">Fora do quadro principal</h2>
+  <div class="gap"></div>
+  <div class="dois">
+   <div class="bloco a"><h3>Outros que apareceram na busca</h3><ul><li><b>Groohub</b> · patrocinado em &#34;agência de marketing médico&#34; (02/10) com &#34;estruturação comercial&#34; e &#34;+100&#34;; o discurso mais próximo do da ClintIA entre os anúncios vistos</li><li><b>Serrano Web (Florianópolis)</b> · página &#34;marketing para clínicas populares&#34; com custo por lead e CFM 2.336; 5,0 (9); Instagram sem post desde 03/08; tem &#34;Painel do Cliente&#34; no site</li><li><b>Super Doutores Club / Mentoring League Society (SP)</b> · mentoria &#34;Acelerador de Clínicas&#34; com app de funil e ranking entre clínicas; MLS House 4,9 (20); 3.990 seguidores, 18 Reels em 2 dias só com hashtags</li><li><b>Médico Influente (SP)</b> · assessoria para dermatologia, plástica, oftalmologia e vascular; sem nota no Google; Instagram parado desde 07/05/2025</li><li><b>bedoc.com.br e captarebrasil.com</b> · patrocinados em &#34;marketing para clínica popular&#34; (02/10): médico particular e odontologia</li></ul></div>
+   <div class="bloco a"><h3>O que a ClintIA pode aprender com quem faz bem</h3><p>Future (15 cases nomeados, 13 de 30 avaliações respondidas), MedConsulting (29 de 30 respondidas, consultora com nome nas avaliações) e Tobias Kfoury (um Reel com 7.267 curtidas, livro como porta de entrada) mostram o caminho da prova social: responder toda avaliação, cliente com nome e um conteúdo que carrega a marca pessoal.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="slide dark div" data-cap="05 · Lacunas">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">Capítulo 05</span></div>
+ <div class="s-body"><div class="num a">05</div><h2 class="a">Onde a ClintIA pode avançar</h2><p class="lede a">Considerando as 7 empresas comparadas.</p></div>
+</section>
+
+<section class="slide" data-cap="05 · Lacunas 1/2">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">05 · Lacunas</span></div>
+ <div class="s-body">
+  <h2 class="t a">Lacunas</h2>
+  <div class="gap"></div>
+  <ol class="lac"><li class="a"><span class="n">01</span><div><h3>Ficha no Google</h3></div><div><span class="lb">Como está hoje</span><p>A ClintIA não tem ficha; 5 das 6 concorrentes têm, com 23 a 131 avaliações. A busca por &#34;Clintia&#34; devolve uma clínica de Tianguá (CE).</p></div><div class="faz"><span class="lb">O que a ClintIA pode fazer</span><p>Criar o perfil da empresa no Google (sede em Botafogo ou área de serviço) e pedir avaliação aos clientes ativos no fim de cada fase, sem brinde.</p></div></li><li class="a"><span class="n">02</span><div><h3>Prova social com nome</h3></div><div><span class="lb">Como está hoje</span><p>A Future tem 15 cases nomeados no menu; a MedConsulting, depoimentos em vídeo. A ClintIA tem números sem nome e um estudo de caso que a regra interna retirou.</p></div><div class="faz"><span class="lb">O que a ClintIA pode fazer</span><p>Fechar 3 cases com autorização por escrito e tirar do proclip.com.br o estudo de caso vetado em 30/06.</p></div></li><li class="a"><span class="n">03</span><div><h3>Volume e alcance no Instagram</h3></div><div><span class="lb">Como está hoje</span><p>16 posts em 30 dias, com curtidas de 0 a 24. Tobias Kfoury fez 18, com um Reel de 7.267 curtidas; Encantadores vive de vídeo de atendimento real.</p></div><div class="faz"><span class="lb">O que a ClintIA pode fazer</span><p>Trocar parte dos Reels de notícia por bastidor real de cliente (com autorização) e pelo Bernardo em câmera, que o perfil pessoal já faz.</p></div></li><li class="a"><span class="n">04</span><div><h3>Nome que explica</h3></div><div><span class="lb">Como está hoje</span><p>Cinco das 6 concorrentes têm nome que diz o que fazem (MarketMED, MedConsulting, Encantadores de Pacientes, Clínica Lucrativa, iMedicina). &#34;ClintIA&#34; precisa de explicação e divide o nome com uma clínica no Ceará.</p></div><div class="faz"><span class="lb">O que a ClintIA pode fazer</span><p>Fixar uma frase única ao lado do nome em todo canal (pergunta 1 do briefing) e registrar a marca.</p></div></li></ol>
+ </div>
+</section>
+<section class="slide" data-cap="05 · Lacunas 2/2">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">05 · Lacunas</span></div>
+ <div class="s-body">
+  <h2 class="t a">Lacunas, continuação</h2>
+  <div class="gap"></div>
+  <ol class="lac"><li class="a"><span class="n">05</span><div><h3>Anúncio para o serviço</h3></div><div><span class="lb">Como está hoje</span><p>Os 3 anúncios ativos vendem o Manual; a campanha de leads do PROClip está pausada. iMedicina, Future e MarketMED têm de 19 a 44 anúncios no histórico do Google.</p></div><div class="faz"><span class="lb">O que a ClintIA pode fazer</span><p>Quando outubro liberar, campanha de Google por intenção (&#34;agência para clínica popular&#34;, &#34;marketing clínica popular&#34;) com a sessão estratégica, e remarketing para quem leu o Manual.</p></div></li><li class="a"><span class="n">06</span><div><h3>Responder onde o cliente fala</h3></div><div><span class="lb">Como está hoje</span><p>MedConsulting e Encantadores respondem quase tudo no Google. A página da ClintIA no Reclame Aqui existe e está vazia.</p></div><div class="faz"><span class="lb">O que a ClintIA pode fazer</span><p>Reivindicar a página do Reclame Aqui e definir quem responde avaliação e comentário em 24 horas.</p></div></li><li class="a"><span class="n">07</span><div><h3>Preço público do serviço</h3></div><div><span class="lb">Como está hoje</span><p>Só a iMedicina mostra preço do serviço; agências e consultorias vendem por diagnóstico gratuito. A ClintIA mostra o preço do Manual e nada do PROClip.</p></div><div class="faz"><span class="lb">O que a ClintIA pode fazer</span><p>Publicar a faixa de entrada da Estruturação Comercial, como o Conselho sugeriu para a reunião paga, e manter o PROClip sob proposta.</p></div></li><li class="a"><span class="n">08</span><div><h3>Portal e IA como argumento</h3></div><div><span class="lb">Como está hoje</span><p>O portal do cliente e os agentes não aparecem no site nem nos fixados. A MedConsulting já vende &#34;MedIA&#34;; a iMedicina, &#34;encontrado nas IAs&#34;.</p></div><div class="faz"><span class="lb">O que a ClintIA pode fazer</span><p>Mostrar o portal num vídeo de 30 segundos no site e no Instagram, com um projeto autorizado.</p></div></li></ol>
+ </div>
+</section>
+
+<section class="slide dark div" data-cap="06 · Recomendação">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">Capítulo 06</span></div>
+ <div class="s-body"><div class="num a">06</div><h2 class="a">Por onde a ClintIA cresce</h2></div>
+</section>
+
+<section class="slide dark" data-cap="06 · Proposta de valor">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">06 · Recomendação</span></div>
+ <div class="s-body">
+  <div class="eyebrow a">Proposta de valor</div>
+  <p class="prop a">A casa que profissionaliza o marketing e as vendas da clínica popular: pesquisa antes do posicionamento, projeto inteiro num portal que o dono acompanha, e um time que orquestra IA.</p>
+  <div class="dif"><div class="a"><div class="k">Diferencial 01</div><h3>Só clínica popular</h3><p>Nenhuma das outras 6 declara um nicho só. A ClintIA fala com o dono de clínica popular e com mais ninguém.</p></div><div class="a"><div class="k">Diferencial 02</div><h3>Portal do cliente</h3><p>Pesquisa, posicionamento, site, campanhas e CRM numa página que o cliente abre. Nenhuma das 6 mostrou isso.</p></div><div class="a"><div class="k">Diferencial 03</div><h3>Pesquisa antes de posicionar</h3><p>Pesquisa regional e de concorrência como primeira entrega. A MedConsulting vende pesquisa de mercado com IA como serviço à parte.</p></div></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="06 · Foco e preço">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">06 · Recomendação</span></div>
+ <div class="s-body">
+  <h2 class="t a">Foco e preço</h2>
+  <div class="gap"></div>
+  <div class="frases"><div class="a"><h3>Fica para depois</h3><p>Disputar o infoproduto em volume fica para depois. O Tobias Kfoury tem livro, masterclass, mentoria, imersão e 51 mil seguidores; brigar nessa prateleira agora custa o tempo que outubro reservou para a entrega.</p></div><div class="a"><h3>Sobre preço</h3><p>Mostrar o preço do Manual e da porta de entrada, sim. Disputar por preço, não: a iMedicina já vende a R$ 129 por mês e a conta da ClintIA fecha em implementação.</p></div></div>
+ </div>
+</section>
+
+<section class="slide" data-cap="06 · Pilares de conteúdo">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">06 · Recomendação</span></div>
+ <div class="s-body">
+  <h2 class="t a">Pilares de conteúdo</h2>
+  <div class="gap"></div>
+  <ul class="pil"><li class="a"><h3>Bastidor de cliente</h3><p>O que foi feito, o que mudou e o número, com autorização e nome</p><span class="fm">Reels de 30 s e carrossel</span></li><li class="a"><h3>O dono em câmera</h3><p>Bernardo respondendo a pergunta real de dono de clínica popular</p><span class="fm">Reels</span></li><li class="a"><h3>Portal e método</h3><p>Como o projeto anda dentro do portal; o que é pesquisa, posicionamento e CRM</p><span class="fm">Carrossel e vídeo de tela</span></li><li class="a"><h3>Mercado de clínica popular</h3><p>Dr. Consulta, Amor Saúde, cartões e Pix como referência, sem opinião política</p><span class="fm">Reels de notícia</span></li></ul>
+ </div>
+</section>
+
+<section class="slide" data-cap="06 · Próximos 30 dias">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">06 · Recomendação</span></div>
+ <div class="s-body">
+  <div class="eyebrow a">Ganhos rápidos</div>
+  <h2 class="t a">Os próximos 30 dias</h2>
+  <div class="gap"></div>
+  <div class="gan"><div class="a "><h3>Google</h3><ul><li>Criar a ficha da empresa e pedir avaliação a 5 clientes ativos</li><li>Reivindicar a página do Reclame Aqui</li><li>Tirar do proclip.com.br o estudo de caso vetado e alinhar os números de autoridade</li></ul></div><div class="a "><h3>Instagram</h3><ul><li>Um Reel por semana com bastidor de cliente autorizado</li><li>Bernardo em câmera uma vez por semana</li><li>Fixado com o portal em vídeo de 30 segundos</li></ul></div><div class="a "><h3>Anúncios e site</h3><ul><li>Manter os 3 do Manual, com criativo novo toda semana</li><li>Página &#34;Portal do cliente&#34; no clintia.com.br</li><li>Campanha de Google por intenção quando outubro liberar</li></ul></div><div class="a alerta"><h3>Operação</h3><ul><li>3 cases com autorização assinada</li><li>Dono definido para responder avaliação e comentário em 24 horas</li><li>Decidir a frase oficial de posicionamento (pergunta 1 do briefing)</li></ul></div></div>
+ </div>
+</section>
+
+<section class="slide dark" data-cap="06 · Compliance">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">06 · Compliance</span></div>
+ <div class="s-body">
+  <div class="eyebrow a">Regras da casa · CONTEXTO-PRODUTO §7</div>
+  <h2 class="t a">O que vale para tudo isso</h2>
+  <div class="gap"></div>
+  <ol class="compl"><li class="a">Nada de comparar a ClintIA com outra agência ou consultoria em anúncio ou post.</li><li class="a">Dr. Consulta e Amor Saúde só como referência de mercado, nunca como cliente ou experiência.</li><li class="a">Número de autoridade só com fonte; o estudo de caso vetado em 30/06 não volta.</li><li class="a">Case com nome de clínica só com autorização por escrito.</li></ol>
+ </div>
+</section>
+
+<section class="slide" data-cap="Fontes e limitações">
+ <div class="s-top a fade"><span>ClintIA · Pesquisa de concorrência</span><span class="s-sec">Fontes e limitações</span></div>
+ <div class="s-body">
+  <h2 class="t a">De onde vêm os números</h2>
+  <div class="gap"></div>
+  <ol class="fontes a fade"><li>Google Maps (fichas e avaliações) lido em 02/10/2026 pela API do Serper: 30 avaliações mais recentes de Encantadores, MedConsulting, iMedicina e Future; 23 da MarketMED, que só tem isso. ClintIA e Tobias Kfoury não têm ficha.</li><li>Temas das avaliações classificados num código de 10 temas adaptado a prestador de serviço (5 elogios e 5 reclamações). Uma avaliação pode ter mais de um tema; as contagens são menções. Olhar o patamar, não a casa decimal.</li><li>Instagram: dados públicos de perfil e dos 18 posts mais recentes, pela API da Meta (business discovery), em 02/10. Período de contagem: 02/09 a 02/10.</li><li>Anúncios da ClintIA: conta de anúncios da Meta (Graph API) em 02/10. Google Ads das 7: Central de Transparência de Anúncios do Google, por domínio, em 02/10. Mostra o histórico, não o investimento.</li><li>Biblioteca de Anúncios da Meta: em 02/10 a consulta pública abriu só com o botão Entrar e sem resultado; nenhum concorrente pôde ser conferido. Não foi feito login.</li><li>Sites lidos em 02/10 (primeira tela, preço, prova, CTA). Reclame Aqui bloqueia leitura automática: o que consta vem da busca &#34;site:reclameaqui.com.br&#34; e fica como &#34;a conferir&#34;. Doctoralia não se aplica a agências.</li><li>Buscas no Google (&#34;marketing para clínica popular&#34;, &#34;agência de marketing médico&#34;, &#34;consultoria gestão de clínicas&#34;) feitas em 02/10 no navegador interno; o resultado varia por local, horário e aparelho.</li><li>Não foi possível medir: anúncios das concorrentes na Meta, investimento em mídia, preço dos infoprodutos do Tobias Kfoury e dos Encantadores (Amazon fora do ar; Hotmart sem valor na página lida), velocidade dos sites.</li><li>Fora deste documento, de propósito: faturamento, pró-labore e salários da ClintIA. Os números de autoridade do site (+100 clínicas, +250 estruturadas, 13 estados) estão citados como o site os mostra, com a ressalva do contexto interno de que precisam de confirmação.</li></ol>
+ </div>
+</section>
+
+<section class="slide dark fim" data-cap="Fim">
+ <div class="s-top a fade"><span>Uso interno · ClintIA</span><span class="s-sec">02/10/2026</span></div>
+ <div class="s-body">
+  <div class="cobrand a"><img src="data:image/png;base64,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" alt="ClintIA" width="151" height="34"></div>
+  <h2 class="a">Próximo passo: os ganhos rápidos dos próximos 30 dias, depois do ok do Bernardo.</h2>
+  <div class="risca a fade"></div>
+  <p class="rodape-nota a">Uso interno · ClintIA · Dados públicos coletados em 02/10/2026.</p>
+ </div>
+</section>
+
+</main>
+
+<nav class="chrome" aria-label="Navegação dos slides">
+ <div class="pg" id="pg"></div>
+ <span class="cnt-p" id="cnt">01 / 01</span>
+ <span class="cap" id="cap"></span>
+ <button class="nb sb" id="ix" aria-label="Índice" title="Índice"><svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h9"/></svg></button>
+ <button class="nb sb" id="fs" aria-label="Tela cheia" title="Tela cheia"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+ <button class="nb" id="prev" aria-label="Slide anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+ <button class="nb" id="next" aria-label="Próximo slide"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+</nav>
+<div class="indice" id="indice" role="dialog" aria-label="Índice dos slides"><h2>Índice</h2><ol id="ixl"></ol></div>
+
+<script>
+(function(){
+ var S=[].slice.call(document.querySelectorAll('.slide')),T=S.length,i=0;
+ var pg=document.getElementById('pg'),cnt=document.getElementById('cnt'),cap=document.getElementById('cap');
+ var pad=function(n){return (n<10?'0':'')+n};
+ S.forEach(function(s){
+   [].slice.call(s.querySelectorAll('.a')).forEach(function(e,k){e.style.setProperty('--i',k)});
+   [].slice.call(s.querySelectorAll('.bar .f')).forEach(function(e){var g=e.closest('.a');e.style.setProperty('--i',g?g.style.getPropertyValue('--i'):0)});
+ });
+ // números que sobem de zero (o primeiro número de cada valor)
+ function conta(s){[].slice.call(s.querySelectorAll('.cnt')).forEach(function(el,k){
+   var orig=el.dataset.t||(el.dataset.t=el.textContent), m=orig.match(/\d+(?:[.,]\d+)*/);
+   if(!m)return;
+   var tok=m[0], dec=(tok.split(',')[1]||'').length, alvo=parseFloat(tok.replace(/\./g,'').replace(',','.'));
+   var t0=performance.now()+300+k*90, dur=1300;
+   (function passo(t){var p=Math.min(1,Math.max(0,(t-t0)/dur)),e=1-Math.pow(1-p,3);
+     el.textContent=orig.replace(tok,(alvo*e).toLocaleString('pt-BR',{minimumFractionDigits:dec,maximumFractionDigits:dec}));
+     if(p<1)requestAnimationFrame(passo);else el.textContent=orig;})(performance.now());
+ })}
+ // slide que não cabe na tela encolhe a escala até caber (só em tela larga; no celular rola)
+ function ajusta(s){ if(innerWidth<=760){s.style.removeProperty('--u');return}
+   for(var f=1;f>=.62;f-=.04){ s.style.setProperty('--u','calc(min(1vw,1.75vh)*'+f.toFixed(2)+')'); if(s.scrollHeight<=s.clientHeight+2)break; } }
+ addEventListener('resize',function(){ajusta(S[i])});
+ // a fonte do Google chega depois do 1º ajuste e muda a altura do texto: ajusta de novo quando ela carregar
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){ajusta(S[i])});
+ function go(n,semHash){ if(n<0||n>=T)return;
+   S[i].classList.remove('active'); i=n; var s=S[i]; s.classList.add('active'); s.scrollTop=0;
+   pg.style.width=((i+1)/T*100)+'%'; cnt.textContent=pad(i+1)+' / '+pad(T); cap.textContent=s.dataset.cap||'';
+   document.body.classList.toggle('escuro',s.classList.contains('dark'));
+   document.getElementById('prev').disabled=i===0; document.getElementById('next').disabled=i===T-1;
+   if(!semHash&&history.replaceState)history.replaceState(null,'','#'+(i+1));
+   ajusta(s); conta(s);
+ }
+ document.getElementById('prev').onclick=function(){go(i-1)};
+ document.getElementById('next').onclick=function(){go(i+1)};
+ var ix=document.getElementById('indice'),ixl=document.getElementById('ixl');
+ S.forEach(function(s,k){var li=document.createElement('li'),b=document.createElement('button'),n=document.createElement('span');
+   n.textContent=pad(k+1);b.appendChild(n);b.appendChild(document.createTextNode(s.dataset.cap||''));
+   b.onclick=function(){ix.classList.remove('on');go(k)};li.appendChild(b);ixl.appendChild(li)});
+ document.getElementById('ix').onclick=function(){ix.classList.toggle('on')};
+ ix.addEventListener('click',function(e){if(e.target===ix)ix.classList.remove('on')});
+ document.addEventListener('keydown',function(e){
+   if(e.key==='Escape'){ix.classList.remove('on');return}
+   if(ix.classList.contains('on'))return;
+   if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(i+1)}
+   if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(i-1)}
+   if(e.key==='Home')go(0); if(e.key==='End')go(T-1);
+ });
+ var tx=0,ty=0,tt=0;
+ document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;ty=e.touches[0].clientY;tt=Date.now()},{passive:true});
+ document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+   if(Date.now()-tt<600&&Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){dx<0?go(i+1):go(i-1)}},{passive:true});
+ var fs=document.getElementById('fs');
+ if(!document.fullscreenEnabled){fs.style.display='none'}
+ else{fs.onclick=function(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(function(){})}}
+ var h=parseInt((location.hash||'').slice(1),10);
+ go(h>=1&&h<=T?h-1:0,true);
+})();
+</script>
+</body>
+</html>
