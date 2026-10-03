@@ -86,7 +86,7 @@ html.js .slide.active .risca:after{animation:risca 1.6s var(--ease) .5s both}
 .nums>div{padding:clamp(16px,calc(2.2*var(--u)),34px) clamp(14px,calc(2.2*var(--u)),34px) 0 0;border-right:1px solid var(--hair);margin-right:clamp(14px,calc(2.2*var(--u)),34px)}
 .dark .nums>div{border-right-color:rgba(255,255,255,.16)}
 .nums>div:last-child{border-right:0;margin-right:0}
-.nums .v{font-weight:900;font-size:clamp(42px,calc(6*var(--u)),98px);line-height:.95;letter-spacing:-.045em;color:var(--pri);white-space:nowrap;font-variant-numeric:tabular-nums}
+.nums .v{font-weight:900;font-size:clamp(26px,min(calc(6*var(--u)),calc(17vw/var(--n,3))),98px);/* 17vw/n: em janela estreita (ex.: iframe do portal, 942px) o número encolhe em vez de invadir a célula vizinha (02/10/2026) */line-height:.95;letter-spacing:-.045em;color:var(--pri);white-space:nowrap;font-variant-numeric:tabular-nums}
 .dark .nums .v{color:var(--ac)}
 .nums .r{font-weight:800;font-size:clamp(15px,calc(1.4*var(--u)),21px);line-height:1.3;margin-top:clamp(10px,calc(1.4*var(--u)),20px);max-width:24ch}
 .nums .n{font-size:clamp(13px,calc(1.08*var(--u)),16px);color:var(--mut);margin-top:8px;line-height:1.45;max-width:30ch}
